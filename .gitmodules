@@ -1,6 +1,0 @@
-[submodule "lib/NintendoSDK"]
-	path = lib/NintendoSDK
-	url = https://github.com/open-ead/nnheaders
-[submodule "tools/asm-differ"]
-	path = tools/asm-differ
-	url = https://github.com/simonlindholm/asm-differ

@@ -1,0 +1,4 @@
+amx/*.amx
+__pycache__/*
+build/*
+disasm/*
