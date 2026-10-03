@@ -1,0 +1,1 @@
+#define CHECK_SIZE_NX562(CLASS, SIZE) static_assert(sizeof(CLASS) == SIZE)

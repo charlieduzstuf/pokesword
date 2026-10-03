@@ -1,0 +1,427 @@
+module,addr,name,insns,verdict,reason
+main,0x000000000003b280,sub_3b280,6,unmatched,"insn 1: orig ('str', 'x8, [x1]') vs new ('mov', 'w9, #1')"
+main,0x0000000000081ed0,sub_81ed0,6,unmatched,"insn 2: orig ('ldr', 'x9, [x0, #0x10]') vs new ('ldr', 'x8, [x0, #0x10]')"
+main,0x00000000000cc870,sub_cc870,2,matched,
+main,0x00000000001fdaa0,sub_1fdaa0,2,matched,
+main,0x0000000000200e10,sub_200e10,2,matched,
+main,0x0000000000204340,sub_204340,2,matched,
+main,0x0000000000207990,sub_207990,2,matched,
+main,0x000000000020af50,sub_20af50,2,matched,
+main,0x000000000020fcf0,sub_20fcf0,2,matched,
+main,0x0000000000304330,sub_304330,6,unmatched,"insn 0: orig ('ldr', 'w8, [x1]') vs new ('ldr', 'w9, [x1]')"
+main,0x000000000032b850,sub_32b850,8,unmatched,"insn 0: orig ('ldr', 'w8, [x1]') vs new ('ldr', 'w9, [x1]')"
+main,0x000000000032bb60,sub_32bb60,4,unmatched,"insn 0: orig ('mov', 'w8, #1') vs new ('mov', 'x8, x0')"
+main,0x000000000035d3f0,sub_35d3f0,5,unmatched,"insn 0: orig ('ldr', 'w8, [x0, #0x2b8]') vs new ('mov', 'x8, x0')"
+main,0x00000000003cbce0,sub_3cbce0,4,unmatched,"insn 0: orig ('mov', 'w8, #1') vs new ('mov', 'x8, x0')"
+main,0x00000000003d5820,sub_3d5820,2,matched,
+main,0x0000000000447650,sub_447650,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+main,0x000000000044dd80,sub_44dd80,2,unmatched,"insn 0: orig ('add', 'w0, w1, #1') vs new ('add', 'x0, x1, #1')"
+main,0x00000000004c1890,sub_4c1890,3,unmatched,no-code-emitted
+main,0x00000000004c8f70,sub_4c8f70,3,unmatched,no-code-emitted
+main,0x00000000005217d0,sub_5217d0,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+main,0x0000000000540950,sub_540950,2,matched,
+main,0x00000000006328f0,sub_6328f0,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0xa0]') vs new ('ret', '')"
+main,0x0000000000632900,sub_632900,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0xb0]') vs new ('ret', '')"
+main,0x00000000006707f0,sub_6707f0,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0x1e0]') vs new ('ret', '')"
+main,0x00000000006ddde0,sub_6ddde0,6,unmatched,"insn 1: orig ('str', 'w8, [x0]') vs new ('ldr', 'x9, [x0, #0x18]')"
+main,0x000000000070d3e0,sub_70d3e0,2,unmatched,"insn 0: orig ('ldrsw', 'x0, [x0, #0x18]') vs new ('ldr', 'w0, [x0, #0x18]')"
+main,0x000000000070d5e0,sub_70d5e0,2,unmatched,"insn 0: orig ('ldrsw', 'x0, [x0, #0x18]') vs new ('ldr', 'w0, [x0, #0x18]')"
+main,0x0000000000718f00,sub_718f00,2,matched,
+main,0x00000000007d0bd0,sub_7d0bd0,5,unmatched,"insn 0: orig ('ldr', 'x8, [x1]') vs new ('ldrh', 'w8, [x1, #8]')"
+main,0x00000000007f11b0,sub_7f11b0,7,unmatched,"insn 2: orig ('strb', 'w8, [x0, #0x2ba]') vs new ('mov', 'w10, #0x6060606')"
+main,0x00000000007fe850,sub_7fe850,5,unmatched,"insn 0: orig ('ldr', 'x8, [x1]') vs new ('ldr', 'w8, [x1, #8]')"
+main,0x0000000000803a30,sub_803a30,5,unmatched,"insn 0: orig ('ldr', 'x8, [x1]') vs new ('ldrh', 'w8, [x1, #8]')"
+main,0x0000000000892f60,sub_892f60,5,unmatched,"insn 1: orig ('strh', 'w8, [x0, #6]!') vs new ('mov', 'w9, #2')"
+main,0x00000000008930a0,sub_8930a0,5,unmatched,"insn 1: orig ('strh', 'w8, [x0, #6]!') vs new ('mov', 'w9, #2')"
+main,0x0000000000987410,sub_987410,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0]') vs new ('ret', '')"
+main,0x00000000009875a0,sub_9875a0,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0]') vs new ('ret', '')"
+main,0x00000000009a71a0,sub_9a71a0,11,unmatched,"insn 1: orig ('str', 'x8, [x0, #0x38]') vs new ('mov', 'w9, #1')"
+main,0x00000000009a71e0,sub_9a71e0,7,unmatched,"insn 1: orig ('str', 'x8, [x0, #0x68]') vs new ('mov', 'w9, #1')"
+main,0x00000000009a7200,sub_9a7200,7,unmatched,"insn 1: orig ('str', 'x8, [x0, #0x78]') vs new ('mov', 'w9, #1')"
+main,0x0000000000aba260,sub_aba260,4,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #0x18c0]') vs new ('ldr', 'x0, [x0, #0x18c0]')"
+main,0x0000000000abb900,sub_abb900,4,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #0x1a00]') vs new ('ldr', 'x0, [x0, #0x1a00]')"
+main,0x0000000000abbd80,sub_abbd80,4,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #0x1a90]') vs new ('ldr', 'x0, [x0, #0x1a90]')"
+main,0x0000000000b0caa0,sub_b0caa0,5,unmatched,"insn 1: orig ('str', 'w8, [x0, #0xa8]') vs new ('mov', 'w9, #1')"
+main,0x0000000000b0cac0,sub_b0cac0,5,unmatched,"insn 1: orig ('str', 'w8, [x0, #0x20]') vs new ('mov', 'w9, #1')"
+main,0x0000000000b0cb80,sub_b0cb80,5,unmatched,"insn 1: orig ('str', 'w8, [x0, #0xa8]') vs new ('mov', 'w9, #1')"
+main,0x0000000000b0cba0,sub_b0cba0,5,unmatched,"insn 1: orig ('str', 'w8, [x0, #0x20]') vs new ('mov', 'w9, #1')"
+main,0x0000000000c628b0,sub_c628b0,4,unmatched,"insn 0: orig ('mov', 'w8, #1') vs new ('mov', 'x8, x0')"
+main,0x0000000000c9be80,sub_c9be80,11,unmatched,"insn 0: orig ('ldr', 'x9, [x1, #8]') vs new ('ldr', 'x8, [x1, #0x18]')"
+main,0x0000000000c9beb0,sub_c9beb0,11,unmatched,"insn 0: orig ('ldr', 'x9, [x0, #0xb8]') vs new ('ldr', 'x8, [x0, #0xc8]')"
+main,0x0000000000cfb170,sub_cfb170,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0x70]') vs new ('ret', '')"
+main,0x0000000000cfb200,sub_cfb200,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0x80]') vs new ('ret', '')"
+main,0x0000000000cfb210,sub_cfb210,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0xa0]') vs new ('ret', '')"
+main,0x0000000000cfb220,sub_cfb220,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0xb0]') vs new ('ret', '')"
+main,0x0000000000cfc590,sub_cfc590,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0x70]') vs new ('ret', '')"
+main,0x0000000000d0b200,sub_d0b200,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0xb30]') vs new ('ret', '')"
+main,0x0000000000d0b210,sub_d0b210,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0xb40]') vs new ('ret', '')"
+main,0x0000000000d69de0,sub_d69de0,3,matched,
+main,0x0000000000eadbe0,sub_eadbe0,4,unmatched,"insn 0: orig ('mov', 'w8, #1') vs new ('ldr', 'x8, [x0, #0x68]')"
+main,0x000000000106b4f0,sub_106b4f0,5,unmatched,"insn 1: orig ('str', 'x8, [x0, #0x10]') vs new ('ldr', 'x9, [x0, #0x38]')"
+main,0x00000000010759a0,sub_10759a0,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0x10]') vs new ('ret', '')"
+main,0x00000000010e4420,sub_10e4420,5,unmatched,"insn 1: orig ('strb', 'w8, [x0, #0x42]') vs new ('mov', 'w9, #2')"
+main,0x000000000113ea10,sub_113ea10,3,unmatched,"insn 1: orig ('mov', 'w1, #2') vs new ('ret', '')"
+main,0x000000000115a740,sub_115a740,4,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #0x318]') vs new ('ldr', 'x0, [x0, #0x318]')"
+main,0x000000000115cb30,sub_115cb30,5,unmatched,"insn 1: orig ('str', 'w8, [x0, #0x4f0]') vs new ('mov', 'w9, #0x41a00000')"
+main,0x00000000011710c0,sub_11710c0,2,unmatched,"insn 0: orig ('ldr', 'q0, [x0, #0xd0]') vs new ('ret', '')"
+main,0x00000000011ab860,sub_11ab860,9,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #8]') vs new ('ldr', 'x8, [x0, #0x18]')"
+main,0x00000000011ab890,sub_11ab890,9,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #8]') vs new ('ldr', 'x8, [x0, #0x18]')"
+main,0x00000000011ab920,sub_11ab920,9,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #8]') vs new ('ldr', 'x8, [x0, #0x18]')"
+main,0x00000000011ab950,sub_11ab950,9,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #8]') vs new ('ldr', 'x8, [x0, #0x18]')"
+main,0x000000000149e880,sub_149e880,7,unmatched,"insn 2: orig ('str', 'w8, [x0, #0xb68]') vs new ('ldr', 'w10, [x0, #0xb7c]')"
+main,0x00000000014a91a0,sub_14a91a0,5,unmatched,"insn 1: orig ('strb', 'w8, [x0, #0xd8]') vs new ('mov', 'w9, #2')"
+main,0x00000000014f7700,sub_14f7700,5,unmatched,"insn 1: orig ('str', 'w8, [x0, #0xc]') vs new ('mov', 'w9, #1')"
+main,0x00000000015bf100,sub_15bf100,5,unmatched,"insn 1: orig ('str', 'x8, [x0]') vs new ('mov', 'w9, #5')"
+main,0x00000000016a8350,sub_16a8350,5,unmatched,"insn 1: orig ('str', 'x8, [x0, #0xd8]') vs new ('mov', 'w9, #1')"
+main,0x00000000016c1c00,sub_16c1c00,5,unmatched,"insn 1: orig ('str', 'x8, [x0]') vs new ('mov', 'w9, #1')"
+main,0x0000000001739a90,sub_1739a90,5,unmatched,"insn 1: orig ('str', 'w8, [x0]') vs new ('mov', 'w9, #1')"
+main,0x0000000001769a50,sub_1769a50,5,unmatched,"insn 1: orig ('str', 'x8, [x0, #0x4fd0]') vs new ('ldr', 'x9, [x0, #0x288]')"
+main,0x000000000177d310,sub_177d310,5,unmatched,"insn 0: orig ('ldrh', 'w8, [x1]') vs new ('ldrb', 'w8, [x1, #2]')"
+main,0x000000000177e0a0,sub_177e0a0,4,matched,
+main,0x00000000017c1b50,sub_17c1b50,7,unmatched,"insn 0: orig ('ldr', 'q0, [x1]') vs new ('ldr', 'x8, [x1]')"
+sdk,0x000000000000ea30,sub_ea30,2,matched,
+sdk,0x0000000000026da0,sub_26da0,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x000000000003dc40,sub_3dc40,5,unmatched,"insn 0: orig ('ldr', 'x8, [x0]') vs new ('ldr', 'x8, [x1]')"
+sdk,0x000000000003e780,sub_3e780,2,matched,
+sdk,0x000000000003f000,sub_3f000,2,matched,
+sdk,0x000000000003fb60,sub_3fb60,2,matched,
+sdk,0x000000000003ff70,sub_3ff70,2,matched,
+sdk,0x0000000000040160,sub_40160,2,matched,
+sdk,0x0000000000040900,sub_40900,2,matched,
+sdk,0x0000000000040e50,sub_40e50,2,matched,
+sdk,0x00000000000414e0,sub_414e0,2,matched,
+sdk,0x0000000000041fb0,sub_41fb0,2,matched,
+sdk,0x0000000000042140,sub_42140,2,matched,
+sdk,0x0000000000042890,sub_42890,2,matched,
+sdk,0x0000000000045100,sub_45100,2,matched,
+sdk,0x00000000000454d0,sub_454d0,2,matched,
+sdk,0x0000000000045dc0,sub_45dc0,2,matched,
+sdk,0x0000000000046ea0,sub_46ea0,2,matched,
+sdk,0x0000000000047220,sub_47220,2,matched,
+sdk,0x0000000000047fc0,sub_47fc0,2,matched,
+sdk,0x0000000000048380,sub_48380,2,matched,
+sdk,0x00000000000493e0,sub_493e0,2,matched,
+sdk,0x00000000000495b0,sub_495b0,2,matched,
+sdk,0x0000000000049e10,sub_49e10,5,unmatched,"insn 0: orig ('ldr', 'x8, [x0]') vs new ('ldr', 'x8, [x1]')"
+sdk,0x000000000004a010,sub_4a010,5,unmatched,"insn 0: orig ('ldr', 'x8, [x0]') vs new ('ldr', 'x8, [x1]')"
+sdk,0x000000000004cf20,sub_4cf20,5,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #8]') vs new ('ldr', 'x8, [x1, #8]')"
+sdk,0x0000000000056430,sub_56430,2,matched,
+sdk,0x0000000000056f10,sub_56f10,2,matched,
+sdk,0x0000000000057720,sub_57720,2,matched,
+sdk,0x0000000000057a30,sub_57a30,2,matched,
+sdk,0x0000000000058750,sub_58750,2,matched,
+sdk,0x00000000000591b0,sub_591b0,2,matched,
+sdk,0x0000000000059460,sub_59460,2,matched,
+sdk,0x0000000000059630,sub_59630,2,matched,
+sdk,0x0000000000059ba0,sub_59ba0,2,matched,
+sdk,0x000000000005a010,sub_5a010,2,matched,
+sdk,0x000000000005a160,sub_5a160,2,matched,
+sdk,0x000000000005a380,sub_5a380,2,matched,
+sdk,0x000000000005aa50,sub_5aa50,2,matched,
+sdk,0x000000000005b660,sub_5b660,2,matched,
+sdk,0x000000000005bb40,sub_5bb40,2,matched,
+sdk,0x000000000005bd70,sub_5bd70,2,matched,
+sdk,0x000000000005c860,sub_5c860,2,matched,
+sdk,0x000000000005cf00,sub_5cf00,2,matched,
+sdk,0x000000000005d4c0,sub_5d4c0,2,matched,
+sdk,0x000000000005dce0,sub_5dce0,2,matched,
+sdk,0x000000000005e1e0,sub_5e1e0,2,matched,
+sdk,0x000000000005e5d0,sub_5e5d0,2,matched,
+sdk,0x000000000005e780,sub_5e780,2,matched,
+sdk,0x000000000005f110,sub_5f110,2,matched,
+sdk,0x000000000005f960,sub_5f960,2,matched,
+sdk,0x0000000000060370,sub_60370,2,matched,
+sdk,0x00000000000614f0,sub_614f0,2,matched,
+sdk,0x00000000000617e0,sub_617e0,2,matched,
+sdk,0x0000000000061ed0,sub_61ed0,2,matched,
+sdk,0x00000000000628c0,sub_628c0,2,matched,
+sdk,0x00000000000642c0,sub_642c0,2,matched,
+sdk,0x00000000000646f0,sub_646f0,2,matched,
+sdk,0x0000000000064940,sub_64940,2,matched,
+sdk,0x0000000000065d70,sub_65d70,2,matched,
+sdk,0x0000000000066060,sub_66060,2,matched,
+sdk,0x0000000000066470,sub_66470,2,matched,
+sdk,0x0000000000066890,sub_66890,2,matched,
+sdk,0x0000000000066f90,sub_66f90,2,matched,
+sdk,0x0000000000067280,sub_67280,2,matched,
+sdk,0x0000000000067a30,sub_67a30,2,matched,
+sdk,0x0000000000068530,sub_68530,2,matched,
+sdk,0x0000000000068f20,sub_68f20,2,matched,
+sdk,0x0000000000069530,sub_69530,2,matched,
+sdk,0x000000000006a560,sub_6a560,2,matched,
+sdk,0x000000000006b090,sub_6b090,2,matched,
+sdk,0x000000000006b390,sub_6b390,2,matched,
+sdk,0x000000000006b5b0,sub_6b5b0,2,matched,
+sdk,0x000000000006bbb0,sub_6bbb0,2,matched,
+sdk,0x000000000006c030,sub_6c030,2,matched,
+sdk,0x000000000006c1d0,sub_6c1d0,2,matched,
+sdk,0x000000000006c440,sub_6c440,2,matched,
+sdk,0x000000000006cc20,sub_6cc20,2,matched,
+sdk,0x000000000006d6a0,sub_6d6a0,2,matched,
+sdk,0x000000000006dbd0,sub_6dbd0,2,matched,
+sdk,0x000000000006de50,sub_6de50,2,matched,
+sdk,0x000000000006ead0,sub_6ead0,2,matched,
+sdk,0x000000000006f180,sub_6f180,2,matched,
+sdk,0x000000000006f750,sub_6f750,2,matched,
+sdk,0x00000000000702a0,sub_702a0,2,matched,
+sdk,0x00000000000707a0,sub_707a0,2,matched,
+sdk,0x0000000000070be0,sub_70be0,2,matched,
+sdk,0x0000000000070de0,sub_70de0,2,matched,
+sdk,0x00000000000717e0,sub_717e0,2,matched,
+sdk,0x0000000000072080,sub_72080,2,matched,
+sdk,0x0000000000072930,sub_72930,2,matched,
+sdk,0x0000000000073980,sub_73980,2,matched,
+sdk,0x0000000000073cc0,sub_73cc0,2,matched,
+sdk,0x0000000000074400,sub_74400,2,matched,
+sdk,0x0000000000074e40,sub_74e40,2,matched,
+sdk,0x0000000000076460,sub_76460,2,matched,
+sdk,0x00000000000768e0,sub_768e0,2,matched,
+sdk,0x0000000000076b80,sub_76b80,2,matched,
+sdk,0x0000000000078040,sub_78040,2,matched,
+sdk,0x0000000000078840,sub_78840,2,matched,
+sdk,0x0000000000078e70,sub_78e70,2,matched,
+sdk,0x0000000000079f20,sub_79f20,2,matched,
+sdk,0x000000000007a120,sub_7a120,2,matched,
+sdk,0x000000000007a4c0,sub_7a4c0,2,matched,
+sdk,0x000000000007b070,sub_7b070,2,matched,
+sdk,0x000000000008b500,sub_8b500,3,unmatched,"insn 1: orig ('mov', 'x1, x0') vs new ('ret', '')"
+sdk,0x00000000000901f0,sub_901f0,2,matched,
+sdk,0x0000000000090a70,sub_90a70,2,matched,
+sdk,0x00000000000912b0,sub_912b0,2,matched,
+sdk,0x0000000000092510,sub_92510,2,matched,
+sdk,0x0000000000092860,sub_92860,2,matched,
+sdk,0x0000000000092e40,sub_92e40,2,matched,
+sdk,0x0000000000093200,sub_93200,2,matched,
+sdk,0x00000000000933e0,sub_933e0,2,matched,
+sdk,0x0000000000093520,sub_93520,2,matched,
+sdk,0x0000000000093c20,sub_93c20,2,matched,
+sdk,0x00000000000941f0,sub_941f0,2,matched,
+sdk,0x0000000000094af0,sub_94af0,2,matched,
+sdk,0x00000000000958d0,sub_958d0,2,matched,
+sdk,0x0000000000095a10,sub_95a10,2,matched,
+sdk,0x0000000000095d00,sub_95d00,2,matched,
+sdk,0x0000000000096240,sub_96240,2,matched,
+sdk,0x00000000000969d0,sub_969d0,2,matched,
+sdk,0x00000000000c3410,sub_c3410,2,matched,
+sdk,0x00000000000c39c0,sub_c39c0,2,matched,
+sdk,0x00000000000c3b60,sub_c3b60,2,matched,
+sdk,0x00000000000c4600,sub_c4600,2,matched,
+sdk,0x00000000000c47e0,sub_c47e0,2,matched,
+sdk,0x00000000000c4d30,sub_c4d30,2,matched,
+sdk,0x00000000000c60e0,sub_c60e0,2,matched,
+sdk,0x00000000000ccb40,sub_ccb40,2,matched,
+sdk,0x00000000000d26d0,sub_d26d0,2,matched,
+sdk,0x00000000000d2e80,sub_d2e80,2,matched,
+sdk,0x00000000000d5170,sub_d5170,2,matched,
+sdk,0x00000000000d71b0,sub_d71b0,2,matched,
+sdk,0x00000000000d8230,sub_d8230,2,matched,
+sdk,0x00000000000fa070,sub_fa070,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x00000000000fc840,sub_fc840,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x000000000011fa30,sub_11fa30,2,matched,
+sdk,0x0000000000120050,sub_120050,2,matched,
+sdk,0x000000000014d660,sub_14d660,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x000000000017dfd0,sub_17dfd0,2,matched,
+sdk,0x000000000018b730,sub_18b730,2,matched,
+sdk,0x000000000018bb60,sub_18bb60,2,matched,
+sdk,0x000000000018bf50,sub_18bf50,2,matched,
+sdk,0x000000000018c3a0,sub_18c3a0,2,matched,
+sdk,0x000000000018fcf0,sub_18fcf0,2,matched,
+sdk,0x0000000000194e30,sub_194e30,5,unmatched,"insn 1: orig ('str', 'x8, [x0, #8]') vs new ('mov', 'w9, #1')"
+sdk,0x000000000019e5c0,sub_19e5c0,4,unmatched,"insn 0: orig ('mov', 'w8, #0x1b0') vs new ('mov', 'x8, x0')"
+sdk,0x00000000001dedc0,sub_1dedc0,2,matched,
+sdk,0x00000000001dfc50,sub_1dfc50,2,matched,
+sdk,0x00000000001e4a30,sub_1e4a30,2,matched,
+sdk,0x00000000001e4b80,sub_1e4b80,2,matched,
+sdk,0x00000000001fb1f0,sub_1fb1f0,2,matched,
+sdk,0x00000000001fc570,sub_1fc570,2,matched,
+sdk,0x00000000001fd2f0,sub_1fd2f0,2,matched,
+sdk,0x00000000001fde80,sub_1fde80,2,matched,
+sdk,0x00000000001ff1d0,sub_1ff1d0,2,matched,
+sdk,0x00000000002013c0,sub_2013c0,2,matched,
+sdk,0x00000000002023c0,sub_2023c0,2,matched,
+sdk,0x0000000000202800,sub_202800,2,matched,
+sdk,0x0000000000202ee0,sub_202ee0,2,matched,
+sdk,0x0000000000203660,sub_203660,2,matched,
+sdk,0x0000000000203ad0,sub_203ad0,2,matched,
+sdk,0x0000000000203e10,sub_203e10,2,matched,
+sdk,0x0000000000204140,sub_204140,2,matched,
+sdk,0x0000000000205480,sub_205480,2,matched,
+sdk,0x00000000002057a0,sub_2057a0,2,matched,
+sdk,0x0000000000205f40,sub_205f40,2,matched,
+sdk,0x0000000000206bd0,sub_206bd0,2,matched,
+sdk,0x0000000000208250,sub_208250,2,matched,
+sdk,0x000000000020a710,sub_20a710,2,matched,
+sdk,0x000000000020b0b0,sub_20b0b0,2,matched,
+sdk,0x000000000020b4d0,sub_20b4d0,2,matched,
+sdk,0x00000000002524a0,sub_2524a0,2,matched,
+sdk,0x0000000000255ba0,sub_255ba0,2,matched,
+sdk,0x0000000000255da0,sub_255da0,2,matched,
+sdk,0x0000000000257300,sub_257300,2,matched,
+sdk,0x0000000000259680,sub_259680,2,matched,
+sdk,0x000000000025a980,sub_25a980,2,matched,
+sdk,0x000000000025afa0,sub_25afa0,2,matched,
+sdk,0x000000000025d870,sub_25d870,2,matched,
+sdk,0x000000000025f3c0,sub_25f3c0,2,matched,
+sdk,0x000000000025f5d0,sub_25f5d0,2,matched,
+sdk,0x0000000000260470,sub_260470,2,matched,
+sdk,0x0000000000261950,sub_261950,2,matched,
+sdk,0x0000000000261d00,sub_261d00,2,matched,
+sdk,0x0000000000262820,sub_262820,2,matched,
+sdk,0x0000000000263820,sub_263820,2,matched,
+sdk,0x0000000000265700,sub_265700,2,matched,
+sdk,0x0000000000266710,sub_266710,2,matched,
+sdk,0x000000000029ef50,sub_29ef50,2,matched,
+sdk,0x00000000002a0020,sub_2a0020,2,matched,
+sdk,0x00000000002b2900,sub_2b2900,2,matched,
+sdk,0x00000000002b2dd0,sub_2b2dd0,2,matched,
+sdk,0x00000000002b7320,sub_2b7320,2,matched,
+sdk,0x00000000002b7970,sub_2b7970,2,matched,
+sdk,0x00000000002b8bb0,sub_2b8bb0,2,matched,
+sdk,0x00000000002b8e70,sub_2b8e70,2,matched,
+sdk,0x00000000002b9000,sub_2b9000,2,matched,
+sdk,0x00000000002b9680,sub_2b9680,2,matched,
+sdk,0x00000000002ba730,sub_2ba730,2,matched,
+sdk,0x00000000002bac40,sub_2bac40,2,matched,
+sdk,0x00000000002bae40,sub_2bae40,2,matched,
+sdk,0x00000000002d22b0,sub_2d22b0,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x00000000002d3360,sub_2d3360,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x00000000002d3370,sub_2d3370,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x00000000002f4d70,sub_2f4d70,2,matched,
+sdk,0x00000000002f5330,sub_2f5330,2,matched,
+sdk,0x00000000002f6f10,sub_2f6f10,2,matched,
+sdk,0x00000000002f86e0,sub_2f86e0,2,matched,
+sdk,0x00000000002f8c50,sub_2f8c50,2,matched,
+sdk,0x00000000002fa3d0,sub_2fa3d0,2,matched,
+sdk,0x00000000002fa8b0,sub_2fa8b0,2,matched,
+sdk,0x00000000002fbf00,sub_2fbf00,2,matched,
+sdk,0x00000000002fc690,sub_2fc690,2,matched,
+sdk,0x00000000002fe180,sub_2fe180,2,matched,
+sdk,0x00000000002fe6c0,sub_2fe6c0,2,matched,
+sdk,0x00000000002fec90,sub_2fec90,2,matched,
+sdk,0x00000000002ff1d0,sub_2ff1d0,2,matched,
+sdk,0x0000000000305730,sub_305730,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+sdk,0x00000000003147d0,sub_3147d0,2,matched,
+sdk,0x0000000000315110,sub_315110,2,matched,
+sdk,0x0000000000315500,sub_315500,2,matched,
+sdk,0x0000000000315a70,sub_315a70,2,matched,
+sdk,0x0000000000317510,sub_317510,2,matched,
+sdk,0x000000000031c8a0,sub_31c8a0,2,matched,
+sdk,0x000000000031d210,sub_31d210,2,matched,
+sdk,0x000000000031da80,sub_31da80,2,matched,
+sdk,0x0000000000320670,sub_320670,2,matched,
+sdk,0x00000000003337e0,sub_3337e0,2,matched,
+sdk,0x0000000000334730,sub_334730,2,matched,
+sdk,0x00000000003378d0,sub_3378d0,2,matched,
+sdk,0x000000000033bc00,sub_33bc00,2,matched,
+sdk,0x000000000033d5f0,sub_33d5f0,2,matched,
+sdk,0x0000000000340670,sub_340670,2,matched,
+sdk,0x0000000000340fa0,sub_340fa0,2,matched,
+sdk,0x0000000000343030,sub_343030,2,matched,
+sdk,0x0000000000351ab0,sub_351ab0,2,matched,
+sdk,0x0000000000353560,sub_353560,2,matched,
+sdk,0x0000000000355e20,sub_355e20,2,matched,
+sdk,0x000000000035f7c0,sub_35f7c0,2,matched,
+sdk,0x000000000035ff60,sub_35ff60,2,matched,
+sdk,0x000000000036c080,sub_36c080,2,matched,
+sdk,0x000000000036f9f0,sub_36f9f0,2,matched,
+sdk,0x0000000000376160,sub_376160,2,matched,
+sdk,0x000000000037c260,sub_37c260,2,matched,
+sdk,0x000000000037c830,sub_37c830,2,matched,
+sdk,0x000000000037cde0,sub_37cde0,2,matched,
+sdk,0x0000000000382700,sub_382700,5,unmatched,"insn 1: orig ('str', 'w8, [x0]') vs new ('mov', 'w9, #0x2d0')"
+sdk,0x0000000000388460,sub_388460,2,unmatched,batch-compile-failed
+sdk,0x0000000000388630,sub_388630,2,unmatched,batch-compile-failed
+sdk,0x0000000000388b10,sub_388b10,2,unmatched,batch-compile-failed
+sdk,0x0000000000388f90,sub_388f90,2,unmatched,batch-compile-failed
+sdk,0x000000000038b820,sub_38b820,2,unmatched,batch-compile-failed
+sdk,0x000000000038ba80,sub_38ba80,2,unmatched,batch-compile-failed
+sdk,0x00000000003a4f00,sub_3a4f00,2,unmatched,batch-compile-failed
+sdk,0x00000000003a5630,sub_3a5630,2,unmatched,batch-compile-failed
+sdk,0x00000000003a5e20,sub_3a5e20,2,unmatched,batch-compile-failed
+sdk,0x00000000003a7be0,sub_3a7be0,2,unmatched,batch-compile-failed
+sdk,0x00000000003aa360,sub_3aa360,2,unmatched,batch-compile-failed
+sdk,0x00000000003aa7c0,sub_3aa7c0,2,unmatched,batch-compile-failed
+sdk,0x00000000003bb990,sub_3bb990,2,unmatched,batch-compile-failed
+sdk,0x00000000003c3fe0,sub_3c3fe0,4,unmatched,batch-compile-failed
+sdk,0x00000000003c5bc0,sub_3c5bc0,2,unmatched,batch-compile-failed
+sdk,0x00000000003fdae0,sub_3fdae0,4,unmatched,batch-compile-failed
+sdk,0x00000000003ffa80,sub_3ffa80,4,unmatched,batch-compile-failed
+sdk,0x00000000004004a0,sub_4004a0,4,unmatched,batch-compile-failed
+sdk,0x00000000004190c0,sub_4190c0,3,unmatched,batch-compile-failed
+sdk,0x00000000004383b0,sub_4383b0,3,unmatched,batch-compile-failed
+sdk,0x00000000004383c0,sub_4383c0,5,unmatched,batch-compile-failed
+sdk,0x000000000043a1a0,sub_43a1a0,4,unmatched,batch-compile-failed
+sdk,0x000000000043a1b0,sub_43a1b0,4,unmatched,batch-compile-failed
+sdk,0x00000000004531d0,sub_4531d0,3,unmatched,batch-compile-failed
+sdk,0x00000000004531e0,sub_4531e0,3,unmatched,batch-compile-failed
+sdk,0x0000000000453840,sub_453840,3,unmatched,batch-compile-failed
+sdk,0x0000000000453850,sub_453850,3,unmatched,batch-compile-failed
+sdk,0x00000000004a3e10,sub_4a3e10,3,unmatched,batch-compile-failed
+sdk,0x00000000004bce80,sub_4bce80,4,unmatched,batch-compile-failed
+sdk,0x00000000004bce90,sub_4bce90,4,unmatched,batch-compile-failed
+sdk,0x00000000004bcea0,sub_4bcea0,4,unmatched,batch-compile-failed
+sdk,0x0000000000507848,sub_507848,4,unmatched,batch-compile-failed
+sdk,0x0000000000507880,sub_507880,4,unmatched,batch-compile-failed
+subsdk0,0x00000000000008e0,sub_8e0,2,matched,
+subsdk0,0x00000000000017f0,sub_17f0,2,unmatched,"insn 0: orig ('ldrsw', 'x0, [x0, #0x18]') vs new ('ldr', 'w0, [x0, #0x18]')"
+subsdk0,0x0000000000001810,sub_1810,2,unmatched,"insn 0: orig ('ldrsw', 'x0, [x0, #0x14]') vs new ('ldr', 'w0, [x0, #0x14]')"
+subsdk0,0x0000000000001820,sub_1820,2,unmatched,"insn 0: orig ('ldrsw', 'x0, [x0, #0x1c]') vs new ('ldr', 'w0, [x0, #0x1c]')"
+subsdk0,0x0000000000009920,sub_9920,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000000bab0,sub_bab0,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000000c800,sub_c800,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x00000000000128c0,sub_128c0,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000001ca60,sub_1ca60,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x0000000000054000,sub_54000,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x00000000000e0160,sub_e0160,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x00000000000e2930,sub_e2930,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000013da50,sub_13da50,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x00000000001f7920,sub_1f7920,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x00000000001fded0,sub_1fded0,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000025a3b0,sub_25a3b0,6,unmatched,"insn 3: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000025d520,sub_25d520,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000025d7f0,sub_25d7f0,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000025db10,sub_25db10,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000025e3f0,sub_25e3f0,4,unmatched,"insn 2: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000025f090,sub_25f090,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000027ee90,sub_27ee90,12,unmatched,"insn 10: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk0,0x000000000027eec0,sub_27eec0,6,unmatched,"insn 4: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk1,0x00000000000339b0,sub_339b0,15,unmatched,"insn 0: orig ('ldr', 'x8, [x0, #0x18]') vs new ('ldr', 'w8, [x0, #0x20]')"
+subsdk1,0x00000000000b7ca0,sub_b7ca0,2,unmatched,"insn 0: orig ('add', 'w0, w1, #1') vs new ('add', 'x0, x1, #1')"
+subsdk1,0x00000000002bc640,sub_2bc640,3,matched,
+subsdk1,0x00000000002bc650,sub_2bc650,3,matched,
+subsdk1,0x00000000002bc660,sub_2bc660,3,matched,
+subsdk1,0x00000000002bc670,sub_2bc670,3,matched,
+subsdk1,0x00000000002bca20,sub_2bca20,3,matched,
+subsdk1,0x00000000002bca30,sub_2bca30,3,matched,
+subsdk1,0x00000000002bca40,sub_2bca40,3,matched,
+subsdk1,0x00000000002bcb10,sub_2bcb10,3,matched,
+subsdk1,0x00000000002bcb20,sub_2bcb20,3,matched,
+subsdk1,0x00000000002bcb30,sub_2bcb30,3,matched,
+subsdk1,0x00000000002bce30,sub_2bce30,3,matched,
+subsdk1,0x00000000002bce40,sub_2bce40,3,matched,
+subsdk1,0x00000000002bcf70,sub_2bcf70,3,matched,
+subsdk1,0x00000000002bcf80,sub_2bcf80,3,matched,
+subsdk1,0x00000000002bd090,sub_2bd090,3,matched,
+subsdk1,0x00000000002bd0a0,sub_2bd0a0,3,matched,
+subsdk1,0x00000000002e6d10,sub_2e6d10,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk1,0x00000000002e6e50,sub_2e6e50,6,unmatched,"insn 3: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk1,0x0000000000339210,sub_339210,3,matched,
+subsdk1,0x0000000000339220,sub_339220,3,matched,
+subsdk1,0x0000000000339600,sub_339600,3,matched,
+subsdk1,0x0000000000339620,sub_339620,3,matched,
+subsdk1,0x0000000000339640,sub_339640,3,matched,
+subsdk1,0x0000000000339650,sub_339650,3,matched,
+subsdk1,0x000000000033a600,sub_33a600,3,matched,
+subsdk1,0x000000000033a620,sub_33a620,3,matched,
+subsdk1,0x000000000033a630,sub_33a630,3,matched,
+subsdk1,0x000000000033a640,sub_33a640,3,matched,
+subsdk1,0x000000000033a650,sub_33a650,3,matched,
+subsdk1,0x000000000033a660,sub_33a660,3,matched,
+subsdk1,0x000000000033a900,sub_33a900,3,matched,
+subsdk1,0x000000000033a910,sub_33a910,3,matched,
+subsdk1,0x000000000033abb0,sub_33abb0,3,matched,
+subsdk1,0x000000000033abc0,sub_33abc0,3,matched,
+subsdk1,0x0000000000378bf0,sub_378bf0,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk1,0x000000000037d740,sub_37d740,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk1,0x000000000037db20,sub_37db20,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"
+subsdk1,0x000000000037de70,sub_37de70,4,unmatched,"insn 1: orig ('mov', 'w0, wzr') vs new ('mov', 'x0, xzr')"

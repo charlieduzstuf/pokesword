@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.13)
+add_library(decomp_rtld STATIC fn_0000.c)
+target_include_directories(decomp_rtld PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/rtld)
+target_link_libraries(decomp_rtld PUBLIC recomp_static_rtld)
+target_compile_definitions(decomp_rtld PRIVATE SUYU_HOSTED_RECOMP=1 RECOMP_STATIC_MODULE=1 MODULE_BASE=g_module_base_rtld RECOMP_LOOKUP=recomp_lookup_rtld)
+# Hosted flavor already provided by decomp_rtld above.
+# Standalone flavor: stock runtime + stock blocks (plain
+# symbols, real SVC servicing) plus this module's chunks.
+add_library(decomp_rtld_plain OBJECT fn_0000.c)
+target_include_directories(decomp_rtld_plain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/rtld)
+target_compile_definitions(decomp_rtld_plain PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+file(GLOB RECOMP_ORIG_RTLD "${RECOMP_SRC_DIR}/rtld/src/recompiled*.c")
+if(MSVC)
+  set_source_files_properties(${RECOMP_ORIG_RTLD} PROPERTIES COMPILE_OPTIONS "/O1")
+else()
+  set_source_files_properties(${RECOMP_ORIG_RTLD} PROPERTIES COMPILE_OPTIONS "-O1")
+endif()
+add_executable(decompiled_rtld decomp_main.c ${RECOMP_SRC_DIR}/rtld/recomp_runtime.c ${RECOMP_ORIG_RTLD})
+target_include_directories(decompiled_rtld PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/rtld)
+target_compile_definitions(decompiled_rtld PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+target_link_libraries(decompiled_rtld PRIVATE decomp_rtld_plain)

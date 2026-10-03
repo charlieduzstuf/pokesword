@@ -1,0 +1,93 @@
+__pycache__/
+*.pyc
+*.egg-info/
+*.dist-info/
+*.so
+*.dll
+dist/
+build/
+bin/
+.mypy_cache/
+.benchmarks/
+
+.idea/
+.vscode/
+
+*.id0
+*.id1
+*.id2
+*.idb
+*.i64
+*.nam
+*.til
+
+main.elf
+
+perf.mData
+perf.mData.old
+.gdb_history
+
+.DS_Store
+tools/aarch64-none-elf-objdump
+# Decomp project build trees
+build/
+build_host/
+build_verify/
+decomp/build*/
+
+# Generated analysis intermediates (large; regenerate with tools/)
+work/
+
+# ROM-derived binaries (rebuild with tools/nso_to_elf.py)
+data/*.elf
+romfs_out/
+
+# ---------------------------------------------------------------------------
+# NEVER COMMIT: console key material.
+#
+# tools/hactool/prod.keys is 14,612 bytes of Nintendo Switch master keys and
+# was sitting inside tools/, which the ignore rules above did not exclude. A
+# blanket `git add -A` would have staged and pushed it. Treat any file matching
+# these patterns as radioactive -- if one is already tracked, rotating the keys
+# is the only remediation, so check with `git ls-files | grep -i keys` before
+# ever publishing.
+# ---------------------------------------------------------------------------
+*.keys
+**/prod.keys
+**/title.keys*
+**/dev.keys
+keys/
+**/keys/
+
+# ---------------------------------------------------------------------------
+# NEVER COMMIT: decrypted game code and the external tooling that produced it.
+#
+# exefs/ is 5.7 GB of decrypted Nintendo NSO binaries plus a third-party
+# recompiler tree. It is Nintendo's copyrighted code and it is not this
+# project's source. It is fully regenerable from a user's own legally
+# obtained dump, so it stays out of the repository.
+# ---------------------------------------------------------------------------
+exefs/
+
+# decomp/script/*.pasm is the intermediate assembly form of the 691 decompiled
+# battle scripts; the *.pseudo.c files beside them are the actual deliverable
+# and ARE tracked (33 MB, 691 scripts). Only the regenerable .pasm is dropped.
+decomp/script/*.pasm
+decomp/*/build*/
+
+# Runtime autosaves produced by the verification binaries
+**/save_data/
+
+# ---------------------------------------------------------------------------
+# Build artifacts and third-party binaries. Nothing binary belongs in this
+# repository: the project is source, and every one of these is either compiled
+# by our own tools or downloaded by the user.
+#
+# tools/shim/{less,pager_shim,tail}.exe are three copies of the same 118 KB
+# binary built from tools/shim/pager_shim.c -- diff.py prepends tools/shim to
+# PATH so Windows resolves `less`/`tail` to it. The .py and .cmd sources beside
+# them are tracked; the .exe and .obj are not.
+# ---------------------------------------------------------------------------
+*.obj
+tools/shim/*.exe
+tools/hactool/hactool.exe

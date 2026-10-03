@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.13)
+add_library(decomp_subsdk1 STATIC fn_0030.c fn_11cc10.c fn_168010.c fn_1c9000.c fn_1eafe0.c fn_2236c0.c fn_24240.c fn_253c40.c fn_2a1e40.c fn_2c7a00.c fn_2fab10.c fn_3357b0.c fn_35fce0.c fn_392950.c fn_3b19c0.c fn_3e550.c fn_3fece0.c fn_41b600.c fn_4488c0.c fn_4c0320.c fn_6eb50.c fn_9e7b0.c fn_e2270.c)
+target_include_directories(decomp_subsdk1 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/subsdk1)
+target_link_libraries(decomp_subsdk1 PUBLIC recomp_static_subsdk1)
+target_compile_definitions(decomp_subsdk1 PRIVATE SUYU_HOSTED_RECOMP=1 RECOMP_STATIC_MODULE=1 MODULE_BASE=g_module_base_subsdk1 RECOMP_LOOKUP=recomp_lookup_subsdk1)
+# Hosted flavor already provided by decomp_subsdk1 above.
+# Standalone flavor: stock runtime + stock blocks (plain
+# symbols, real SVC servicing) plus this module's chunks.
+add_library(decomp_subsdk1_plain OBJECT fn_0030.c fn_11cc10.c fn_168010.c fn_1c9000.c fn_1eafe0.c fn_2236c0.c fn_24240.c fn_253c40.c fn_2a1e40.c fn_2c7a00.c fn_2fab10.c fn_3357b0.c fn_35fce0.c fn_392950.c fn_3b19c0.c fn_3e550.c fn_3fece0.c fn_41b600.c fn_4488c0.c fn_4c0320.c fn_6eb50.c fn_9e7b0.c fn_e2270.c)
+target_include_directories(decomp_subsdk1_plain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/subsdk1)
+target_compile_definitions(decomp_subsdk1_plain PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+file(GLOB RECOMP_ORIG_SUBSDK1 "${RECOMP_SRC_DIR}/subsdk1/src/recompiled*.c")
+if(MSVC)
+  set_source_files_properties(${RECOMP_ORIG_SUBSDK1} PROPERTIES COMPILE_OPTIONS "/O1")
+else()
+  set_source_files_properties(${RECOMP_ORIG_SUBSDK1} PROPERTIES COMPILE_OPTIONS "-O1")
+endif()
+add_executable(decompiled_subsdk1 decomp_main.c ${RECOMP_SRC_DIR}/subsdk1/recomp_runtime.c ${RECOMP_ORIG_SUBSDK1})
+target_include_directories(decompiled_subsdk1 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/subsdk1)
+target_compile_definitions(decompiled_subsdk1 PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+target_link_libraries(decompiled_subsdk1 PRIVATE decomp_subsdk1_plain)

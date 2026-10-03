@@ -1,0 +1,3008 @@
+000 - Pokémon Trainer: -
+AI: 0 | Mode: Singles | Money: 0
+Pokémon Count: 0
+---
+1: Lv00 Egg : Default Level Up
+---
+=========
+
+001 - Pokémon Trainer: Victor
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+002 - Lass: Lauren
+AI: 32 | Mode: Singles | Money: 1680
+Pokémon Count: 1
+---
+1: Lv06 Chewtle : Tackle
+---
+=========
+
+003 - Youngster: Jake
+AI: 32 | Mode: Singles | Money: 1200
+Pokémon Count: 1
+---
+1: Lv06 Skwovet : Tackle / Tail Whip
+---
+=========
+
+004 - Pokémon Trainer: Hop
+AI: 32 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv03 Wooloo : Tackle
+2: Lv05 Sobble : Pound / Growl
+---
+=========
+
+005 - Pokémon Trainer: Hop
+AI: 32 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv03 Wooloo : Tackle
+2: Lv05 Grookey : Scratch / Growl
+---
+=========
+
+006 - Pokémon Trainer: Hop
+AI: 32 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv03 Wooloo : Tackle
+2: Lv05 Scorbunny : Tackle / Growl
+---
+=========
+
+007 - Pokémon Trainer: Hop
+AI: 33 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv06 Wooloo : Tackle / Growl
+2: Lv05 Rookidee : Leer / Peck
+3: Lv08 Sobble : Pound / Growl / Water Gun
+---
+=========
+
+008 - Pokémon Trainer: Hop
+AI: 33 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv06 Wooloo : Tackle / Growl
+2: Lv05 Rookidee : Leer / Peck
+3: Lv08 Grookey : Scratch / Growl / Branch Poke
+---
+=========
+
+009 - Pokémon Trainer: Hop
+AI: 33 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv06 Wooloo : Tackle / Growl
+2: Lv05 Rookidee : Leer / Peck
+3: Lv08 Scorbunny : Tackle / Growl / Ember
+---
+=========
+
+010 - Youngster: Benjamin
+AI: 32 | Mode: Singles | Money: 1200
+Pokémon Count: 2
+---
+1: Lv05 Blipbug : Struggle Bug
+2: Lv07 Nickit : Tail Whip / Quick Attack
+---
+=========
+
+011 - Youngster: Thomas
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+012 - Lass: Rei
+AI: 32 | Mode: Singles | Money: 1680
+Pokémon Count: 1
+---
+1: Lv12 Vulpix : Quick Attack / Ember / Tail Whip
+---
+=========
+
+013 - Schoolgirl: Hannah
+AI: 33 | Mode: Singles | Money: 1440
+Pokémon Count: 1
+---
+1: Lv13 Pancham : Tackle / Circle Throw
+---
+=========
+
+014 - Schoolgirl: Kayleigh
+AI: 1 | Mode: Singles | Money: 1440
+Pokémon Count: 2
+---
+1: Lv12 Purrloin : Scratch / Growl
+2: Lv13 Skwovet : Tackle / Tail Whip
+---
+=========
+
+015 - Schoolboy: Marvin
+AI: 33 | Mode: Singles | Money: 1200
+Pokémon Count: 2
+---
+1: Lv12 Budew : Absorb
+2: Lv12 Gossifleur : Leafage / Rapid Spin / Sweet Scent
+---
+=========
+
+016 - Schoolboy: Peter
+AI: 33 | Mode: Singles | Money: 1200
+Pokémon Count: 2
+---
+1: Lv13 Sizzlipede : Bite / Ember / Wrap
+2: Lv14 Dottler : Confusion / Struggle Bug / Light Screen
+---
+=========
+
+017 - Postman: Tad
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv14 Delibird : Present
+---
+=========
+
+018 - Worker: Keith
+AI: 33 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv14 Roggenrola : Tackle / Harden
+---
+=========
+
+019 - Worker: Russel
+AI: 33 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv15 Rolycoly : Tackle / Rapid Spin
+---
+=========
+
+020 - Worker: Sandra
+AI: 33 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv14 Diglett : Scratch / Growl / Astonish
+2: Lv15 Drilbur : Scratch / Rapid Spin
+---
+=========
+
+021 - Worker: Georgia
+AI: 33 | Mode: Singles | Money: 2000
+Pokémon Count: 3
+---
+1: Lv14 Timburr : Pound / Rock Throw / Low Kick
+2: Lv14 Timburr : Pound / Low Kick / Focus Energy
+3: Lv14 Timburr : Pound / Leer / Rock Throw
+---
+=========
+
+022 - Madame: Caroline
+AI: 1 | Mode: Singles | Money: 4000
+Pokémon Count: 2
+---
+1: Lv22 Yamper : Roar / Spark
+2: Lv24 Swoobat : Air Cutter / Confusion
+---
+=========
+
+023 - Pokémon Breeder: Jaime
+AI: 1025 | Mode: Singles | Money: 1920
+Pokémon Count: 3
+---
+1: Lv14 Meowth-2 : Fake Out / Scratch / Growl
+2: Lv14 Seedot : Rollout / Absorb / Tackle
+3: Lv15 Butterfree : String Shot / Confusion / Supersonic
+---
+=========
+
+024 - Pokémon Breeder: Bradley
+AI: 1025 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv15 Electrike : Tackle / Leer / Quick Attack
+2: Lv15 Lotad : Water Gun / Absorb / Growl
+---
+=========
+
+025 - Poké Kid: Shane
+AI: 1 | Mode: Singles | Money: 960
+Pokémon Count: 1
+---
+1: Lv15 Pikachu : Thunder Wave / Electro Ball / Quick Attack
+---
+=========
+
+026 - Poké Kid: Rhys
+AI: 1 | Mode: Singles | Money: 960
+Pokémon Count: 2
+---
+1: Lv14 Joltik : Electroweb / Bug Bite / String Shot
+2: Lv14 Grubbin : Vise Grip / Bug Bite / Bite
+---
+=========
+
+027 - Poké Kid: Mia
+AI: 1 | Mode: Singles | Money: 960
+Pokémon Count: 1
+---
+1: Lv15 Eevee : Quick Attack / Baby-Doll Eyes / Tail Whip / Tackle
+---
+=========
+
+028 - Poké Kid: Sunny
+AI: 1 | Mode: Singles | Money: 960
+Pokémon Count: 1
+---
+1: Lv15 Milcery : Draining Kiss / Sweet Scent
+---
+=========
+
+029 - Gym Trainer: Samuel
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv16 Gossifleur : Leafage / Rapid Spin
+---
+=========
+
+030 - Gym Trainer: Mark
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv16 Budew : Absorb / Growth
+2: Lv17 Oddish : Stun Spore / Absorb / Growth
+---
+=========
+
+031 - Gym Trainer: Leah
+AI: 5 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv17 Bounsweet : Razor Leaf / Rapid Spin
+2: Lv17 Oddish : Acid / Growth / Poison Powder
+---
+=========
+
+032 - Gym Leader: Milo
+AI: 5 | Mode: Singles | Money: 3200
+Pokémon Count: 2
+---
+1: Lv19 Gossifleur : Magical Leaf / Round / Rapid Spin
+2: Lv20 Eldegoss : Magical Leaf / Leafage / Round
+---
+=========
+
+033 - Team Yell: Grunt
+AI: 33 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv09 Zigzagoon-1 : Tackle / Lick
+---
+=========
+
+034 - Team Yell: Grunt
+AI: 41 | Mode: Doubles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv09 Zigzagoon-1 : Leer / Lick / Snarl
+---
+=========
+
+035 - Team Yell: Grunt
+AI: 41 | Mode: Doubles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv09 Nickit : Quick Attack / Tail Whip
+---
+=========
+
+036 - Gym Leader: Nessa
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 3
+---
+1: Lv22 Goldeen : Water Pulse / Whirlpool / Horn Attack / Agility
+2: Lv23 Arrokuda : Aqua Jet / Bite / Whirlpool / Fury Attack
+3: Lv24 Drednaw : Razor Shell / Water Gun / Bite / Headbutt
+---
+=========
+
+037 - Gym Leader: Kabu
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 3
+---
+1: Lv25 Ninetales : Will-O-Wisp / Fire Spin / Quick Attack / Ember
+2: Lv25 Arcanine : Will-O-Wisp / Flame Wheel / Bite / Agility
+3: Lv27 Centiskorch : Flame Wheel / Coil / Bug Bite / Smokescreen
+---
+=========
+
+038 - Reporter: Gillian
+AI: 9 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv18 Helioptile : Charge / Quick Attack / Thunder Shock / Mud-Slap
+---
+=========
+
+039 - Cameraman: Cam
+AI: 9 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv18 Klink : Charge Beam / Metal Sound / Bind / Charge
+---
+=========
+
+040 - Pokémon Breeder: Debra
+AI: 1025 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv17 Minccino : Pound / Tickle / Encore
+2: Lv19 Steenee : Razor Leaf / Rapid Spin / Play Nice
+---
+=========
+
+041 - Cook: Stuart
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv20 Applin : Withdraw / Astonish
+---
+=========
+
+042 - Pokémon Breeder: Adrian
+AI: 1025 | Mode: Singles | Money: 1920
+Pokémon Count: 3
+---
+1: Lv17 Stufful : Brutal Swing / Leer / Tackle
+2: Lv18 Cutiefly : Sweet Scent / Fairy Wind / Absorb
+3: Lv19 Ralts : Psybeam / Draining Kiss / Growl
+---
+=========
+
+043 - Police Officer: Raymond
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv23 Growlithe : Leer / Bite / Flame Wheel
+---
+=========
+
+044 - Pokémon Breeder: Denise
+AI: 1025 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv18 Cherubi : Tackle / Leafage
+2: Lv19 Woobat : Air Cutter / Confusion
+---
+=========
+
+045 - Gym Trainer: Julia
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv21 Tympole : Echoed Voice / Growl / Mud Shot / Round
+---
+=========
+
+046 - Gym Trainer: Heather
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv20 Krabby : Whirlpool / Harden
+2: Lv20 Corphish : Whirlpool / Leer / Bubble Beam
+---
+=========
+
+047 - Gym Trainer: Lynn
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv20 Remoraid : Whirlpool / Psybeam / Focus Energy / Bubble Beam
+2: Lv21 Chewtle : Tackle / Water Gun / Bite
+---
+=========
+
+048 - Worker: Yvonne
+AI: 1 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv20 Roggenrola : Smack Down / Tackle
+2: Lv21 Timburr : Low Kick / Rock Throw / Focus Energy
+---
+=========
+
+049 - Worker: Francis
+AI: 1 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv21 Carkol : Rapid Spin / Smack Down / Ancient Power / Flame Charge
+---
+=========
+
+050 - Rail Staff: Vincent
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv22 Drilbur : Hone Claws / Rapid Spin / Dig
+2: Lv23 Onix : Rock Slide / Curse / Smack Down
+---
+=========
+
+051 - Beauty: Anita
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv29 Clefairy : Metronome
+2: Lv30 Clefable : Metronome
+---
+=========
+
+052 - Musician: Owen
+AI: 9 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv41 Toxtricity : Venoshock / Toxic / Shock Wave
+---
+=========
+
+053 - Dancer: Andrea
+AI: 9 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv41 Maractus : Giga Drain / Ingrain / Sweet Scent
+---
+=========
+
+054 - Office Worker: Gabrielle
+AI: 1 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv19 Croagunk : Astonish / Mud-Slap / Taunt / Poison Sting
+---
+=========
+
+055 - Backpacker: Diane
+AI: 1 | Mode: Singles | Money: 1440
+Pokémon Count: 1
+---
+1: Lv31 Sawk : Double Kick / Low Sweep / Bulk Up
+---
+=========
+
+056 - Backpacker: Ruth
+AI: 1 | Mode: Singles | Money: 1440
+Pokémon Count: 1
+---
+1: Lv31 Throh : Storm Throw / Revenge / Circle Throw
+---
+=========
+
+057 - Artist: Duncan
+AI: 3 | Mode: Singles | Money: 1280
+Pokémon Count: 2
+---
+1: Lv29 Koffing : Self-Destruct / Haze / Smokescreen / Clear Smog
+2: Lv31 Sudowoodo : Slam / Rock Slide / Sucker Punch
+---
+=========
+
+058 - Artist: Leslie
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+059 - Cook: Derek
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv33 Milcery : Dazzling Gleam / Attract / Acid Armor
+2: Lv33 Sinistea-1 : Sucker Punch / Astonish / Aromatic Mist
+3: Lv34 Shiinotic : Giga Drain / Astonish
+---
+=========
+
+060 - Rail Staff: Robert
+AI: 13 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv34 Ninetales : Quick Attack / Incinerate / Nasty Plot
+---
+=========
+
+061 - Beauty: Jacqueline
+AI: 13 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv34 Kirlia : Calm Mind / Life Dew / Psybeam / Disarming Voice
+---
+=========
+
+062 - Gym Trainer: Ian
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv31 Stufful : Take Down / Strength / Leer
+2: Lv32 Bewear : Brutal Swing / Strength / Take Down / Bind
+---
+=========
+
+063 - Gym Trainer: Simon
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv33 Hitmonlee : Double Kick / Revenge
+2: Lv33 Hitmonchan : Mach Punch / Bullet Punch
+---
+=========
+
+064 - Gym Trainer: Claire
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv32 Farfetch’d-1 : Detect / Brutal Swing / Rock Smash / Sand Attack
+---
+=========
+
+065 - Gym Trainer: Clive
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 3
+---
+1: Lv31 Pumpkaboo : Trick-or-Treat / Bullet Seed / Shadow Sneak
+2: Lv31 Phantump : Horn Leech / Growth / Hex
+3: Lv31 Pumpkaboo-2 : Confuse Ray / Bullet Seed / Scary Face
+---
+=========
+
+066 - Gym Trainer: Roy
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv33 Haunter : Night Shade / Payback / Mean Look
+2: Lv33 Drifblim : Phantom Force / Shadow Ball / Stockpile
+---
+=========
+
+067 - Gym Trainer: Lynne
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv32 Corsola-1 : Hex / Ancient Power / Disable
+---
+=========
+
+068 - Madame: Judy
+AI: 1 | Mode: Singles | Money: 4000
+Pokémon Count: 2
+---
+1: Lv33 Indeedee : Disarming Voice / Psybeam / Play Nice
+2: Lv33 Indeedee : Disarming Voice / Psybeam / Play Nice
+---
+=========
+
+069 - Cabbie: Bruce
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv35 Corvisquire : Drill Peck / Taunt / Swagger / Hone Claws
+2: Lv36 Rufflet : Aerial Ace / Hone Claws / Slash
+---
+=========
+
+070 - Doctor: Joanna
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv36 Roselia : Leech Seed / Magical Leaf / Poison Sting
+2: Lv36 Hattrem : Dazzling Gleam / Psybeam / Brutal Swing / Calm Mind
+---
+=========
+
+071 - Doctor: Malcolm
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+072 - Backpacker: Barbara
+AI: 1 | Mode: Singles | Money: 1440
+Pokémon Count: 2
+---
+1: Lv36 Dreepy : Bite / Quick Attack / Astonish
+2: Lv37 Vullaby : Iron Defense / Whirlwind / Pluck
+---
+=========
+
+073 - Musician: Charles
+AI: 3 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv37 Togedemaru : Zing Zap / Fell Stinger / Nuzzle
+---
+=========
+
+074 - Office Worker: Jordan
+AI: 11 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv36 Excadrill : Metal Claw / Rock Slide / Dig
+2: Lv37 Lucario : Metal Claw / Power-Up Punch / Detect / Counter
+---
+=========
+
+075 - Office Worker: Alison
+AI: 9 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv36 Hippowdon : Yawn / Sand Tomb / Crunch
+2: Lv37 Perrserker : Taunt / Swagger / Fake Out / Fury Swipes
+---
+=========
+
+076 - Police Officer: Bobby
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv37 Arcanine : Extreme Speed / Thunder Fang / Roar / Fire Fang
+2: Lv37 Boltund : Crunch / Nuzzle / Roar
+---
+=========
+
+077 - Gym Leader: Bea
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv34 Hitmontop : Triple Kick / Quick Attack / Counter / Revenge
+2: Lv34 Pangoro : Bullet Punch / Circle Throw / Night Slash / Work Up
+3: Lv35 Sirfetch’d : Detect / Swords Dance / Brutal Swing / Revenge
+4: Lv36 Machamp : Scary Face / Revenge / Knock Off / Strength
+---
+=========
+
+078 - Gym Leader: Allister
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv34 Yamask-1 : Brutal Swing / Hex / Disable
+2: Lv34 Mimikyu : Shadow Sneak / Baby-Doll Eyes / Hone Claws / Slash
+3: Lv35 Cursola : Ancient Power / Curse / Hex
+4: Lv36 Gengar : Venoshock / Hex / Hypnosis / Payback
+---
+=========
+
+079 - Gym Trainer: Oliver
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv39 Carkol : Stealth Rock / Flame Charge / Ancient Power
+---
+=========
+
+080 - Gym Trainer: Abigail
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv38 Boldore : Smack Down / Rock Blast / Mud-Slap
+---
+=========
+
+081 - Gym Trainer: Kiera
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv38 Crustle : Stealth Rock / Rock Slide / X-Scissor
+---
+=========
+
+082 - Gym Trainer: Wendy
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv39 Sudowoodo : Block / Rock Slide / Wood Hammer / Sucker Punch
+---
+=========
+
+083 - Gym Trainer: Lewis
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv38 Snom : Powder Snow / Struggle Bug
+---
+=========
+
+084 - Gym Trainer: Liana
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv38 Cloyster : Icicle Spear / Shell Smash / Razor Shell
+---
+=========
+
+085 - Gym Trainer: Alexander
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv39 Beartic : Swagger / Blizzard / Icicle Crash / Thrash
+---
+=========
+
+086 - Gym Trainer: Micah
+AI: 3 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv39 Avalugg : Ice Fang / Rapid Spin / Body Slam / Crunch
+---
+=========
+
+087 - Dancer: Zoe
+AI: 1 | Mode: Singles | Money: 1280
+Pokémon Count: 2
+---
+1: Lv39 Darumaka-1 : Ice Fang / Bite / Headbutt
+2: Lv39 Bellossom : Petal Blizzard / Quiver Dance / Moonblast
+---
+=========
+
+088 - Black Belt: Reece
+AI: 0 | Mode: Singles | Money: 1280
+Pokémon Count: 2
+---
+1: Lv41 Sawk : Counter / Brick Break / Bulk Up / Low Sweep
+2: Lv41 Throh : Vital Throw / Storm Throw / Bulk Up / Revenge
+---
+=========
+
+089 - Fisher: Harriet
+AI: 1 | Mode: Singles | Money: 1280
+Pokémon Count: 2
+---
+1: Lv39 Barraskewda : Crunch / Dive / Aqua Jet
+2: Lv39 Lanturn : Discharge / Bubble Beam / Confuse Ray
+---
+=========
+
+090 - Musician: Daniel
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+091 - Dancer: Imogen
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+092 - Doctor: Graham
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv45 Gardevoir : Dazzling Gleam / Draining Kiss / Calm Mind
+---
+=========
+
+093 - Hiker: Douglas
+AI: 3 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv45 Steelix : Curse / Dig / Crunch / Iron Tail
+2: Lv45 Mudsdale : High Horsepower / Stomp / Counter
+---
+=========
+
+094 - Hiker: Donald
+AI: 3 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv46 Gigalith : Iron Defense / Rock Slide / Rock Blast / Stealth Rock
+2: Lv46 Rhydon : Take Down / Bulldoze / Horn Drill / Stone Edge
+---
+=========
+
+095 - Hiker: Terence
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+096 - Cabbie: Geoffrey
+AI: 7 | Mode: Singles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv45 Corviknight : Swagger / Drill Peck / Steel Wing
+2: Lv46 Flygon : Earthquake / Dragon Tail / Earth Power
+---
+=========
+
+097 - Office Worker: Ronald
+AI: 3 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv45 Weavile : Hone Claws / Fury Swipes / Metal Claw
+2: Lv45 Claydol : Earth Power / Extrasensory
+---
+=========
+
+098 - Gentleman: Glenn
+AI: 7 | Mode: Singles | Money: 4000
+Pokémon Count: 3
+---
+1: Lv46 Darmanitan-2 : Icicle Crash / Headbutt / Taunt / Uproar
+2: Lv46 Falinks : No Retreat / First Impression / Close Combat / Headbutt
+3: Lv46 Grapploct : Superpower / Octolock / Reversal / Bulk Up
+---
+=========
+
+099 - Reporter: Gillian
+AI: 15 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv46 Heliolisk : Parabolic Charge / Thunder / Mud-Slap / Eerie Impulse
+2: Lv47 Noivern : Hurricane / Tailwind / Dragon Pulse / Super Fang
+---
+=========
+
+100 - Cameraman: Cam
+AI: 15 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv46 Klinklang : Shift Gear / Gear Grind / Zap Cannon / Screech
+2: Lv47 Togedemaru : Nuzzle / Fell Stinger / Pin Missile / Zing Zap
+---
+=========
+
+101 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv42 Linoone-1 : Counter / Take Down / Night Slash / Fury Swipes
+---
+=========
+
+102 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv42 Scrafty : Swagger / Brick Break / Scary Face / Payback
+---
+=========
+
+103 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv42 Thievul : Foul Play / Sucker Punch / Tail Slap / Night Slash
+---
+=========
+
+104 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv43 Weavile : Hone Claws / Slash / Ice Shard / Metal Claw
+---
+=========
+
+105 - Team Yell: Grunt
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv43 Liepard : Hone Claws / Slash / Taunt / Assurance
+---
+=========
+
+106 - Gym Trainer: Joshua
+AI: 9 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv43 Drapion : Poison Fang / Venoshock / Toxic Spikes / Bug Bite
+---
+=========
+
+107 - Gym Leader: Piers
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv44 Scrafty : Fake Out / Sand Attack / Brick Break / Payback
+2: Lv45 Malamar : Night Slash / Foul Play / Psycho Cut / Payback
+3: Lv45 Skuntank : Sucker Punch / Screech / Toxic / Snarl
+4: Lv46 Obstagoon : Obstruct / Throat Chop / Counter / Shadow Claw
+---
+=========
+
+108 - Gym Leader: Opal
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv36 Weezing-1 : Sludge / Fairy Wind / Tackle
+2: Lv36 Mawile : Draining Kiss / Crunch / Iron Defense / Astonish
+3: Lv37 Togekiss : Air Slash / Draining Kiss / Ancient Power
+4: Lv38 Alcremie-1 : Draining Kiss / Acid Armor / Sweet Kiss
+---
+=========
+
+109 - Gym Leader: Opal
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+110 - Gym Leader: Opal
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+111 - Gym Leader: Opal
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+112 - Gym Leader: Opal
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+113 - Gym Trainer: Annette
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv34 Spritzee : Draining Kiss / Psychic / Echoed Voice / Sweet Kiss
+2: Lv34 Slurpuff : Draining Kiss / Energy Ball / Cotton Spore / Fake Tears
+---
+=========
+
+114 - Gym Trainer: Teresa
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv34 Swirlix : Draining Kiss / Energy Ball / Cotton Spore / Fake Tears
+2: Lv34 Aromatisse : Draining Kiss / Psychic / Echoed Voice / Sweet Kiss
+---
+=========
+
+115 - Gym Trainer: Theodora
+AI: 1 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv35 Morgrem : Fake Out / False Surrender / Flatter / Draining Kiss
+2: Lv35 Gardevoir : Dazzling Gleam / Mystical Fire / Charm / Reflect
+---
+=========
+
+116 - Gym Trainer: Sara
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+117 - Gym Trainer: Maureen
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+118 - Gym Trainer: Gertrude
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+119 - Gym Trainer: Rebecca
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+120 - Gym Trainer: Laura
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+121 - Pokémon Trainer: Hop
+AI: 1025 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv18 Wooloo : Tackle / Growl / Defense Curl / Double Kick
+2: Lv19 Corvisquire : Leer / Peck / Fury Attack / Pluck
+3: Lv21 Drizzile : Round / Growl / Water Pulse / Bind
+---
+=========
+
+122 - Pokémon Trainer: Hop
+AI: 1025 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv18 Wooloo : Tackle / Growl / Defense Curl / Double Kick
+2: Lv19 Corvisquire : Leer / Peck / Fury Attack / Pluck
+3: Lv21 Thwackey : Round / Razor Leaf / Double Hit / Screech
+---
+=========
+
+123 - Pokémon Trainer: Hop
+AI: 1025 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv18 Wooloo : Tackle / Growl / Defense Curl / Double Kick
+2: Lv19 Corvisquire : Leer / Peck / Fury Attack / Pluck
+3: Lv21 Raboot : Round / Growl / Double Kick / Flame Charge
+---
+=========
+
+124 - Pokémon Trainer: Hop
+AI: 1025 | Mode: Singles | Money: 1600
+Pokémon Count: 4
+---
+1: Lv28 Cramorant : Dive / Fury Attack / Pluck
+2: Lv29 Toxel : Tearful Look / Nuzzle / Flail / Acid
+3: Lv30 Silicobra : Glare / Dig / Brutal Swing
+4: Lv33 Drizzile : Water Pulse / Sucker Punch / Round / Tearful Look
+---
+=========
+
+125 - Pokémon Trainer: Hop
+AI: 1025 | Mode: Singles | Money: 1600
+Pokémon Count: 4
+---
+1: Lv29 Cramorant : Dive / Fury Attack / Pluck
+2: Lv29 Toxel : Tearful Look / Nuzzle / Flail / Acid
+3: Lv30 Silicobra : Glare / Dig / Brutal Swing
+4: Lv33 Thwackey : Knock Off / Razor Leaf / Screech / Round
+---
+=========
+
+126 - Pokémon Trainer: Hop
+AI: 1025 | Mode: Singles | Money: 1600
+Pokémon Count: 4
+---
+1: Lv29 Cramorant : Dive / Fury Attack / Pluck
+2: Lv29 Toxel : Tearful Look / Nuzzle / Flail / Acid
+3: Lv30 Silicobra : Glare / Dig / Brutal Swing
+4: Lv33 Raboot : Flame Charge / Agility / Round / Double Kick
+---
+=========
+
+127 - Pokémon Trainer: Hop
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv34 Trevenant : Horn Leech / Shadow Claw / Confuse Ray
+2: Lv34 Heatmor : Fire Lash / Bug Bite / Slash / Lick
+3: Lv35 Snorlax : Body Slam / Stockpile / Heavy Slam
+4: Lv35 Boltund : Spark / Crunch / Roar / Nuzzle
+5: Lv37 Inteleon : Snipe Shot / Sucker Punch / Tearful Look / Whirlpool
+---
+=========
+
+128 - Pokémon Trainer: Hop
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv34 Trevenant : Horn Leech / Shadow Claw / Confuse Ray
+2: Lv34 Heatmor : Fire Lash / Bug Bite / Slash / Lick
+3: Lv35 Snorlax : Body Slam / Stockpile / Heavy Slam
+4: Lv35 Boltund : Spark / Crunch / Roar / Nuzzle
+5: Lv37 Rillaboom : Drum Beating / Knock Off / Slam / Brutal Swing
+---
+=========
+
+129 - Pokémon Trainer: Hop
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv34 Trevenant : Horn Leech / Shadow Claw / Confuse Ray
+2: Lv34 Heatmor : Fire Lash / Bug Bite / Slash / Lick
+3: Lv35 Snorlax : Body Slam / Stockpile / Heavy Slam
+4: Lv35 Boltund : Spark / Crunch / Roar / Nuzzle
+5: Lv37 Cinderace : Pyro Ball / Headbutt / Acrobatics / Agility
+---
+=========
+
+130 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv48 Dubwool : Cotton Guard / Reversal / Body Slam / Zen Headbutt
+2: Lv48 Corviknight : Steel Wing / Drill Peck / Scary Face / Swagger
+3: Lv47 Pincurchin : Thunderbolt / Poison Jab / Curse
+4: Lv47 Snorlax : Heavy Slam / High Horsepower / Hammer Arm
+5: Lv49 Inteleon : Snipe Shot / Mud Shot / Icy Wind / Dark Pulse
+---
+=========
+
+131 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv48 Dubwool : Cotton Guard / Reversal / Body Slam / Zen Headbutt
+2: Lv48 Corviknight : Steel Wing / Drill Peck / Scary Face / Swagger
+3: Lv47 Pincurchin : Thunderbolt / Poison Jab / Curse
+4: Lv47 Snorlax : Heavy Slam / High Horsepower / Hammer Arm
+5: Lv49 Rillaboom : Drum Beating / High Horsepower / Snarl / Uproar
+---
+=========
+
+132 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv48 Dubwool : Cotton Guard / Reversal / Body Slam / Zen Headbutt
+2: Lv48 Corviknight : Steel Wing / Drill Peck / Scary Face / Swagger
+3: Lv47 Pincurchin : Thunderbolt / Poison Jab / Curse
+4: Lv47 Snorlax : Heavy Slam / High Horsepower / Hammer Arm
+5: Lv49 Cinderace : Pyro Ball / Counter / Gunk Shot / Bounce
+---
+=========
+
+133 - Pokémon Trainer: Bede
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 4
+---
+1: Lv32 Duosion : Light Screen / Reflect / Psyshock / Psybeam
+2: Lv32 Gothorita : Fake Tears / Psybeam / Rock Tomb
+3: Lv33 Ponyta-1 : Fairy Wind / Psybeam / Agility
+4: Lv35 Hattrem : Dazzling Gleam / Psybeam
+---
+=========
+
+134 - Gym Leader: Bede
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv51 Mawile : Play Rough / Iron Head / Crunch
+2: Lv51 Gardevoir : Dazzling Gleam / Psychic / Calm Mind / Wish
+3: Lv52 Rapidash-1 : Psycho Cut / Take Down / Dazzling Gleam / Quick Attack
+4: Lv53 Hatterene : Psychic / Dazzling Gleam / Calm Mind / Mystical Fire
+---
+=========
+
+135 - Gym Leader: Gordie
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv40 Barbaracle : Shell Smash / Rock Tomb / Razor Shell
+2: Lv40 Shuckle : Power Split / Stone Edge / Struggle Bug / Rock Tomb
+3: Lv41 Stonjourner : Stealth Rock / Rock Tomb / Body Slam / Wonder Room
+4: Lv42 Coalossal : Tar Shot / Stealth Rock / Heat Crash / Rock Tomb
+---
+=========
+
+136 - Gym Leader: Melony
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv40 Frosmoth : Icy Wind / Feather Dance / Bug Buzz / Hail
+2: Lv40 Darmanitan-2 : Icicle Crash / Headbutt / Taunt / Fire Fang
+3: Lv41 Eiscue : Amnesia / Freeze-Dry / Hail / Icy Wind
+4: Lv42 Lapras : Icy Wind / Ice Beam / Surf / Sing
+---
+=========
+
+137 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv39 Linoone-1 : Hone Claws / Night Slash / Counter
+2: Lv40 Pangoro : Crunch / Bullet Punch / Taunt
+---
+=========
+
+138 - Pokémon Trainer: Marnie
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 4
+---
+1: Lv42 Liepard : Fake Out / Torment / Nasty Plot / Sucker Punch
+2: Lv43 Toxicroak : Venoshock / Sucker Punch / Swagger / Poison Jab
+3: Lv43 Scrafty : Brick Break / Scary Face / Crunch / Swagger
+4: Lv44 Morpeko : Quick Attack / Torment / Spark / Bite
+---
+=========
+
+139 - Macro Cosmos’s: Elijah
+AI: 1 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv48 Durant : Iron Head / Metal Sound / Agility / Crunch
+---
+=========
+
+140 - Macro Cosmos’s: Mateo
+AI: 9 | Mode: Doubles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv48 Bronzong : Extrasensory / Safeguard / Iron Defense / Metal Sound
+---
+=========
+
+141 - Macro Cosmos’s: Kevin
+AI: 9 | Mode: Doubles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv48 Klang : Shift Gear / Lock-On / Gear Grind / Screech
+---
+=========
+
+142 - Macro Cosmos’s: Adalyn
+AI: 9 | Mode: Doubles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv49 Steelix : Slam / Screech / Rock Slide / Curse
+---
+=========
+
+143 - Macro Cosmos’s: Oleana
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv50 Froslass : Hex / Icy Wind / Will-O-Wisp / Double Team
+2: Lv50 Tsareena : Trop Kick / Stomp / Attract / Acrobatics
+3: Lv50 Salazzle : Venoshock / Incinerate / Poison Gas / Dragon Pulse
+4: Lv51 Milotic : Surf / Safeguard / Aqua Ring / Recover
+5: Lv52 Garbodor : Gunk Shot / Stomping Tantrum / Rock Blast / Toxic Spikes
+---
+=========
+
+144 - Gym Leader: Raihan
+AI: 15 | Mode: Doubles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv46 Gigalith : Stealth Rock / Sand Tomb / Rock Blast / Body Press
+2: Lv47 Flygon : Thunder Punch / Breaking Swipe / Crunch / Steel Wing
+3: Lv46 Sandaconda : Protect / Glare / Fire Fang / Earth Power
+4: Lv48 Duraludon : Breaking Swipe / Body Press / Stone Edge / Iron Head
+---
+=========
+
+145 - Pokémon Trainer: Marnie
+AI: 1027 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv47 Liepard : Fake Out / Torment / Nasty Plot / Snarl
+2: Lv47 Toxicroak : Venoshock / Sucker Punch / Swagger / Toxic
+3: Lv47 Scrafty : Swagger / Scary Face / Brick Break / Crunch
+4: Lv48 Morpeko : Bullet Seed / Torment / Spark / Bite
+5: Lv49 Grimmsnarl : Spirit Break / Darkest Lariat / Bulk Up / Torment
+---
+=========
+
+146 - Gym Leader: Gordie
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+147 - Gym Leader: Nessa
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+148 - Gym Leader: Kabu
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+149 - Champion: Leon
+AI: 1031 | Mode: Singles | Money: 4800
+Pokémon Count: 6
+---
+1: Lv62 Aegislash : King’s Shield / Shadow Ball / Sacred Sword / Flash Cannon
+2: Lv62 Dragapult : Shadow Ball / Flamethrower / Thunderbolt / Dragon Breath
+3: Lv63 Haxorus : Poison Jab / Iron Tail / Outrage / Earthquake
+4: Lv64 Seismitoad : Toxic / Drain Punch / Liquidation / Earthquake
+5: Lv64 Cinderace : Pyro Ball / Feint / Acrobatics / Quick Attack
+6: Lv65 Charizard : Fire Blast / Air Slash / Solar Beam / Ancient Power
+---
+=========
+
+150 - Gym Trainer: Sebastian
+AI: 15 | Mode: Doubles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv45 Pelipper : Tailwind / Water Pulse / Supersonic / Air Slash
+2: Lv45 Sliggoo : Water Pulse / Dragon Pulse / Acid Spray / Dragon Breath
+---
+=========
+
+151 - Gym Trainer: Camilla
+AI: 15 | Mode: Doubles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv45 Ninetales : Will-O-Wisp / Flamethrower / Disable / Extrasensory
+2: Lv45 Turtonator : Flamethrower / Dragon Pulse / Shell Trap / Rock Tomb
+---
+=========
+
+152 - Gym Trainer: Aria
+AI: 15 | Mode: Doubles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv45 Abomasnow : Icy Wind / Razor Leaf / Ingrain / Aurora Veil
+2: Lv45 Hakamo-o : Dragon Claw / Shadow Claw / Brick Break / Noble Roar
+---
+=========
+
+153 - Pokémon Trainer: Hop
+AI: 23 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv52 Dubwool : Take Down / Double Kick / Double-Edge / Headbutt
+2: Lv52 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv51 Pincurchin : Zing Zap / Poison Jab / Bubble Beam / Fury Attack
+4: Lv51 Snorlax : Hammer Arm / High Horsepower / Heavy Slam / Crunch
+5: Lv53 Inteleon : Snipe Shot / Sucker Punch / Liquidation / U-turn
+---
+=========
+
+154 - Pokémon Trainer: Hop
+AI: 23 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv52 Dubwool : Take Down / Double Kick / Double-Edge / Headbutt
+2: Lv52 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv51 Pincurchin : Zing Zap / Poison Jab / Bubble Beam / Fury Attack
+4: Lv51 Snorlax : Hammer Arm / High Horsepower / Heavy Slam / Crunch
+5: Lv53 Rillaboom : Drum Beating / Slam / Knock Off / Uproar
+---
+=========
+
+155 - Pokémon Trainer: Hop
+AI: 23 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv52 Dubwool : Take Down / Double Kick / Double-Edge / Headbutt
+2: Lv52 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv51 Pincurchin : Zing Zap / Poison Jab / Bubble Beam / Fury Attack
+4: Lv51 Snorlax : Hammer Arm / High Horsepower / Heavy Slam / Crunch
+5: Lv53 Cinderace : Double-Edge / Headbutt / Pyro Ball / Agility
+---
+=========
+
+156 - Pokémon Trainer: Hop
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv22 Wooloo : Tackle / Growl / Defense Curl / Double Kick
+2: Lv21 Corvisquire : Pluck / Fury Attack / Leer / Peck
+3: Lv24 Drizzile : Sucker Punch / Tearful Look / Bind / Water Pulse
+---
+=========
+
+157 - Pokémon Trainer: Hop
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv22 Wooloo : Tackle / Growl / Defense Curl / Double Kick
+2: Lv21 Corvisquire : Pluck / Fury Attack / Leer / Peck
+3: Lv24 Thwackey : Double Hit / Razor Leaf / Screech / Taunt
+---
+=========
+
+158 - Pokémon Trainer: Hop
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv22 Wooloo : Tackle / Growl / Defense Curl / Double Kick
+2: Lv21 Corvisquire : Pluck / Fury Attack / Leer / Peck
+3: Lv24 Raboot : Flame Charge / Double Kick / Quick Attack / Ember
+---
+=========
+
+159 - Team Yell: Grunt
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv22 Linoone-1 : Night Slash / Baby-Doll Eyes / Sand Attack / Lick
+2: Lv21 Pancham : Low Sweep / Circle Throw / Work Up / Arm Thrust
+---
+=========
+
+160 - Team Yell: Grunt
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv21 Thievul : Snarl / Nasty Plot / Tail Whip / Quick Attack
+2: Lv22 Liepard : Torment / Fury Swipes / Sand Attack / Growl
+---
+=========
+
+161 - Gym Trainer: Darren
+AI: 2177 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv24 Rolycoly : Tackle / Rapid Spin / Smack Down
+2: Lv24 Growlithe : Bite / Flame Wheel / Ember
+---
+=========
+
+162 - Gym Trainer: Chaka
+AI: 2177 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv24 Sizzlipede : Smokescreen / Wrap / Bite / Fire Spin
+2: Lv24 Salandit : Poison Fang / Ember / Will-O-Wisp / Scratch
+---
+=========
+
+163 - Gym Trainer: Elle
+AI: 257 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv24 Salandit : Fake Out / Sand Attack / Will-O-Wisp
+---
+=========
+
+164 - Gym Leader: Melony
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+165 - Youngster: Noah
+AI: 16 | Mode: Singles | Money: 1200
+Pokémon Count: 1
+---
+1: Lv10 Qwilfish : Brine / Waterfall / Poison Jab / Pin Missile
+---
+=========
+
+166 - Office Worker: Dean
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Throh : Mega Punch / Revenge / Bind / Brick Break
+---
+=========
+
+167 - Gentleman: Martin
+AI: 16 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv10 Solrock : Cosmic Power / Rock Throw / Psychic / Rock Polish
+---
+=========
+
+168 - Pokémon Breeder: Kit
+AI: 16 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv10 Dhelmise : Gyro Ball / Slam / Shadow Ball / Giga Drain
+---
+=========
+
+169 - Office Worker: Portia
+AI: 16 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv10 Heatmor : Fire Lash / Bind / Thunder Punch / Slash
+---
+=========
+
+170 - Madame: Sophie
+AI: 16 | Mode: Singles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv10 Maractus : Sucker Punch / Giga Drain / Solar Beam / Pin Missile
+---
+=========
+
+171 - Beauty: Catherine
+AI: 16 | Mode: Singles | Money: 1680
+Pokémon Count: 1
+---
+1: Lv10 Togepi : Life Dew / Ancient Power / Draining Kiss / Swift
+---
+=========
+
+172 - Doctor: Janet
+AI: 16 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv10 Snorlax : Giga Impact / Body Slam / Crunch / Stomping Tantrum
+---
+=========
+
+173 - Police Officer: Sean
+AI: 16 | Mode: Singles | Money: 1200
+Pokémon Count: 1
+---
+1: Lv10 Torkoal : Rapid Spin / Flame Wheel / Flamethrower / Clear Smog
+---
+=========
+
+174 - Dancer: Patricia
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Wishiwashi : Liquidation / Aqua Tail / Whirlpool / Brine
+---
+=========
+
+175 - Macro Cosmos’s: Rose
+AI: 7 | Mode: Singles | Money: 4000
+Pokémon Count: 5
+---
+1: Lv55 Escavalier : Drill Run / Iron Head / Megahorn / Swords Dance
+2: Lv55 Ferrothorn : Gyro Ball / Power Whip / Body Press / Curse
+3: Lv55 Perrserker : Iron Head / Screech / Shadow Claw / Throat Chop
+4: Lv56 Klinklang : Gear Grind / Shift Gear / Wild Charge / Assurance
+5: Lv57 Copperajah : Heavy Slam / Iron Head / High Horsepower / Zen Headbutt
+---
+=========
+
+176 - Model: Nicola
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv30 Skorupi : Venoshock / Bug Bite / Hone Claws
+2: Lv30 Pawniard : Assurance / Metal Claw / Metal Sound
+---
+=========
+
+177 - Black Belt: Carter
+AI: 3 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv41 Grapploct : Bind / Reversal / Taunt / Brick Break
+---
+=========
+
+178 - Swimmer: Logan
+AI: 3 | Mode: Singles | Money: 1280
+Pokémon Count: 2
+---
+1: Lv40 Wishiwashi : Uproar / Dive / Aqua Tail
+2: Lv40 Wailord : Body Slam / Heavy Slam / Whirlpool
+---
+=========
+
+179 - Swimmer: Jacob
+AI: 1 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv39 Cloyster : Icicle Spear / Protect / Supersonic / Whirlpool
+---
+=========
+
+180 - Swimmer: Scarlett
+AI: 3 | Mode: Singles | Money: 1280
+Pokémon Count: 3
+---
+1: Lv39 Remoraid : Bubble Beam / Aurora Beam / Lock-On
+2: Lv40 Octillery : Aurora Beam / Psybeam / Focus Energy / Bubble Beam
+3: Lv40 Mantine : Aqua Ring / Air Slash / Bounce
+---
+=========
+
+181 - Swimmer: Layla
+AI: 3 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv39 Toxapex : Baneful Bunker / Liquidation / Venoshock
+---
+=========
+
+182 - Postman: Harper
+AI: 7 | Mode: Singles | Money: 1920
+Pokémon Count: 2
+---
+1: Lv46 Pelipper : Tailwind / Roost / Water Pulse / Air Slash
+2: Lv46 Noctowl : Hypnosis / Moonblast / Roost / Air Slash
+---
+=========
+
+183 - Gentleman: Caden
+AI: 7 | Mode: Singles | Money: 4000
+Pokémon Count: 3
+---
+1: Lv44 Doublade : Iron Head / Night Slash / Slash / Aerial Ace
+2: Lv44 Passimian : Double-Edge / Bulk Up / Fling / Acrobatics
+3: Lv44 Polteageist-1 : Sucker Punch / Giga Drain / Nasty Plot
+---
+=========
+
+184 - Model: Mila
+AI: 1 | Mode: Singles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv35 Ribombee : Pollen Puff / Dazzling Gleam / Stun Spore
+2: Lv36 Vespiquen : Attack Order / Defend Order
+---
+=========
+
+185 - Doctor: Iwan
+AI: 9 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv31 Pawniard : Metal Claw / Torment / Fury Cutter / Metal Sound
+---
+=========
+
+186 - Doctor: Evelyn
+AI: 9 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv31 Togetic : Fairy Wind / Yawn / Ancient Power / Life Dew
+---
+=========
+
+187 - Fisher: Marina
+AI: 3 | Mode: Singles | Money: 1280
+Pokémon Count: 2
+---
+1: Lv39 Qwilfish : Poison Jab / Pin Missile
+2: Lv40 Pyukumuku : Taunt / Counter / Harden
+---
+=========
+
+188 - Café Master: George
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+189 - Champion: Leon
+AI: 1031 | Mode: Singles | Money: 4800
+Pokémon Count: 6
+---
+1: Lv62 Aegislash : King’s Shield / Shadow Ball / Sacred Sword / Flash Cannon
+2: Lv62 Dragapult : Shadow Ball / Flamethrower / Thunderbolt / Dragon Breath
+3: Lv63 Haxorus : Poison Jab / Iron Tail / Outrage / Earthquake
+4: Lv64 Mr. Rime : Teeter Dance / Psychic / Freeze-Dry / Thunderbolt
+5: Lv64 Inteleon : Snipe Shot / Dark Pulse / Mud Shot / Tearful Look
+6: Lv65 Charizard : Fire Blast / Air Slash / Solar Beam / Ancient Power
+---
+=========
+
+190 - Champion: Leon
+AI: 1031 | Mode: Singles | Money: 4800
+Pokémon Count: 6
+---
+1: Lv62 Aegislash : King’s Shield / Shadow Ball / Sacred Sword / Flash Cannon
+2: Lv62 Dragapult : Shadow Ball / Flamethrower / Thunderbolt / Dragon Breath
+3: Lv63 Haxorus : Poison Jab / Iron Tail / Outrage / Earthquake
+4: Lv64 Rhyperior : Earthquake / Stone Edge / Megahorn / Heat Crash
+5: Lv64 Rillaboom : Drum Beating / Knock Off / High Horsepower / Endeavor
+6: Lv65 Charizard : Fire Blast / Air Slash / Solar Beam / Ancient Power
+---
+=========
+
+191 - Pokémon Trainer: Hop
+AI: 1057 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv11 Wooloo : Tackle / Growl
+2: Lv12 Rookidee : Peck / Leer
+3: Lv14 Sobble : Pound / Growl / Water Gun / Bind
+---
+=========
+
+192 - Pokémon Trainer: Hop
+AI: 1057 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv11 Wooloo : Tackle / Growl
+2: Lv12 Rookidee : Peck / Leer
+3: Lv14 Grookey : Scratch / Growl / Branch Poke / Taunt
+---
+=========
+
+193 - Pokémon Trainer: Hop
+AI: 1057 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv11 Wooloo : Tackle / Growl
+2: Lv12 Rookidee : Peck / Leer
+3: Lv14 Scorbunny : Tackle / Growl / Ember / Quick Attack
+---
+=========
+
+194 - GAME FREAK’s: Morimoto
+AI: 1039 | Mode: Doubles | Money: 4000
+Pokémon Count: 6
+---
+1: Lv65 Cursola : Disable / Strength Sap / Shadow Ball / Mirror Coat
+2: Lv65 Grapploct : Octolock / Detect / Dig / Body Slam
+3: Lv65 Stonjourner : Stealth Rock / Stone Edge / Heavy Slam / Rest
+4: Lv65 Dragapult : Dragon Darts / Thunder Wave / Shadow Ball / Protect
+5: Lv65 Coalossal : Tar Shot / Body Press / Flare Blitz / Stone Edge
+6: Lv65 Snorlax : High Horsepower / Superpower / Giga Impact / Gunk Shot
+---
+=========
+
+195 - Pokémon Trainer: Bede
+AI: 3 | Mode: Singles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv13 Solosis : Endeavor / Confusion
+2: Lv15 Gothita : Psybeam / Tickle / Pound
+3: Lv16 Hatenna : Confusion / Round / Disarming Voice
+---
+=========
+
+196 - Pokémon Trainer: Marnie
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv24 Croagunk : Poison Sting / Venoshock / Revenge / Sucker Punch
+2: Lv24 Scraggy : Beat Up / Headbutt / Low Kick
+3: Lv26 Morpeko : Bite / Quick Attack / Thunder Shock
+---
+=========
+
+197 - Pokémon Trainer: Hop
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv10 Wooloo : Tackle / Growl / Defense Curl
+2: Lv11 Rookidee : Peck / Leer
+3: Lv12 Sobble : Pound / Growl / Water Gun / Bind
+---
+=========
+
+198 - Pokémon Trainer: Hop
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv10 Wooloo : Tackle / Growl / Defense Curl
+2: Lv11 Rookidee : Peck / Leer
+3: Lv12 Grookey : Scratch / Growl / Branch Poke / Taunt
+---
+=========
+
+199 - Pokémon Trainer: Hop
+AI: 9 | Mode: Singles | Money: 1600
+Pokémon Count: 3
+---
+1: Lv10 Wooloo : Tackle / Growl / Defense Curl
+2: Lv11 Rookidee : Peck / Leer
+3: Lv12 Scorbunny : Tackle / Growl / Ember / Quick Attack
+---
+=========
+
+200 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+201 - Team Yell: Grunt
+AI: 33 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv09 Nickit : Tail Whip / Quick Attack
+---
+=========
+
+202 - Pokémon Trainer: Hop
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv40 Dubwool : Double Kick / Take Down / Growl / Defense Curl
+2: Lv40 Corviknight : Drill Peck / Scary Face / Pluck / Fury Attack
+3: Lv39 Pincurchin : Spark / Bubble Beam / Curse
+4: Lv39 Snorlax : Heavy Slam / Body Slam / Crunch
+5: Lv41 Inteleon : Snipe Shot / Tearful Look / Sucker Punch / Liquidation
+---
+=========
+
+203 - Pokémon Trainer: Hop
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv40 Dubwool : Double Kick / Take Down / Growl / Defense Curl
+2: Lv40 Corviknight : Drill Peck / Scary Face / Pluck / Fury Attack
+3: Lv39 Pincurchin : Spark / Bubble Beam / Curse
+4: Lv39 Snorlax : Heavy Slam / Body Slam / Crunch
+5: Lv41 Rillaboom : Drum Beating / Double Hit / Brick Break / Knock Off
+---
+=========
+
+204 - Pokémon Trainer: Hop
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 5
+---
+1: Lv40 Dubwool : Double Kick / Take Down / Growl / Defense Curl
+2: Lv40 Corviknight : Drill Peck / Scary Face / Pluck / Fury Attack
+3: Lv39 Pincurchin : Spark / Bubble Beam / Curse
+4: Lv39 Snorlax : Heavy Slam / Body Slam / Crunch
+5: Lv41 Cinderace : Pyro Ball / Counter / Mega Kick / Double Kick
+---
+=========
+
+205 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv17 Zigzagoon-1 : Tackle / Lick / Snarl / Baby-Doll Eyes
+2: Lv18 Thievul : Quick Attack / Snarl / Tail Whip / Beat Up
+---
+=========
+
+206 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv18 Sableye : Disable / Astonish / Scratch
+---
+=========
+
+207 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv29 Stunky : Bite / Feint / Poison Gas
+2: Lv30 Linoone-1 : Hone Claws / Take Down / Night Slash / Baby-Doll Eyes
+---
+=========
+
+208 - Team Yell: Grunt
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv30 Liepard : Fake Out / Fury Swipes / Assurance / Sand Attack
+---
+=========
+
+209 - League Staff: Cyrene
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+210 - Gym Leader: Nessa
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv51 Golisopod : First Impression / Liquidation / Swords Dance / Shadow Claw
+2: Lv51 Pelipper : Roost / Air Slash / Water Pulse / Tailwind
+3: Lv52 Barraskewda : Liquidation / Throat Chop / Ice Fang / Drill Run
+4: Lv52 Seaking : Smart Strike / Megahorn / Aqua Ring / Waterfall
+5: Lv53 Drednaw : Liquidation / Jaw Lock / Rock Tomb / Crunch
+---
+=========
+
+211 - Gym Leader: Bea
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv52 Hawlucha : Flying Press / High Jump Kick / Bounce
+2: Lv52 Grapploct : Octolock / Submission / Bind / Mega Punch
+3: Lv53 Sirfetch’d : Leaf Blade / Slam / Brick Break / Brutal Swing
+4: Lv53 Falinks : No Retreat / Bulk Up / Close Combat / Rock Tomb
+5: Lv54 Machamp : Cross Chop / Revenge / Fire Punch / Strength
+---
+=========
+
+212 - Gym Leader: Allister
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv52 Dusknoir : Shadow Punch / Thunder Punch / Rock Tomb / Disable
+2: Lv52 Chandelure : Shadow Ball / Mystical Fire / Will-O-Wisp
+3: Lv53 Cursola : Hex / Strength Sap / Ancient Power / Amnesia
+4: Lv53 Polteageist : Shadow Ball / Protect / Nasty Plot / Giga Drain
+5: Lv54 Gengar : Shadow Ball / Sludge Bomb / Dark Pulse / Hypnosis
+---
+=========
+
+213 - Gym Leader: Raihan
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv53 Torkoal : Lava Plume / Body Press / Solar Beam / Yawn
+2: Lv54 Goodra : Rain Dance / Surf / Thunder / Muddy Water
+3: Lv54 Turtonator : Sunny Day / Dragon Pulse / Shell Trap / Fire Blast
+4: Lv54 Flygon : Sandstorm / Dragon Claw / Earthquake / Crunch
+5: Lv55 Duraludon : Dragon Claw / Body Press / Stone Edge / Iron Head
+---
+=========
+
+214 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 2400
+Pokémon Count: 6
+---
+1: Lv59 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv59 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv58 Pincurchin : Zing Zap / Poison Jab / Bubble Beam / Fury Attack
+4: Lv58 Snorlax : Hammer Arm / High Horsepower / Heavy Slam / Crunch
+5: Lv58 Cramorant : Dive / Drill Peck / Throat Chop / Steel Wing
+6: Lv60 Inteleon : Snipe Shot / Sucker Punch / Liquidation / U-turn
+---
+=========
+
+215 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 2400
+Pokémon Count: 6
+---
+1: Lv59 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv59 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv58 Pincurchin : Zing Zap / Poison Jab / Bubble Beam / Fury Attack
+4: Lv58 Snorlax : Hammer Arm / High Horsepower / Heavy Slam / Crunch
+5: Lv58 Cramorant : Dive / Drill Peck / Throat Chop / Steel Wing
+6: Lv60 Rillaboom : Drum Beating / Slam / Knock Off / Uproar
+---
+=========
+
+216 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 2400
+Pokémon Count: 6
+---
+1: Lv59 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv59 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv58 Pincurchin : Zing Zap / Poison Jab / Bubble Beam / Fury Attack
+4: Lv58 Snorlax : Hammer Arm / High Horsepower / Heavy Slam / Crunch
+5: Lv58 Cramorant : Dive / Drill Peck / Throat Chop / Steel Wing
+6: Lv60 Cinderace : Double-Edge / Headbutt / Pyro Ball / Agility
+---
+=========
+
+217 - Pokémon Trainer: Piers
+AI: 23 | Mode: Singles | Money: 3200
+Pokémon Count: 1
+---
+1: Lv62 Obstagoon : Cross Chop / Snarl / Throat Chop / Shadow Claw
+---
+=========
+
+218 - Gym Leader: Milo
+AI: 23 | Mode: Singles | Money: 3200
+Pokémon Count: 1
+---
+1: Lv62 Flapple : Grav Apple / Dragon Pulse / Dragon Dance / Seed Bomb
+---
+=========
+
+219 - Gym Leader: Nessa
+AI: 23 | Mode: Singles | Money: 3200
+Pokémon Count: 1
+---
+1: Lv62 Drednaw : Liquidation / Jaw Lock / Body Slam / Rock Tomb
+---
+=========
+
+220 - Gym Leader: Kabu
+AI: 23 | Mode: Singles | Money: 3200
+Pokémon Count: 1
+---
+1: Lv62 Centiskorch : Fire Spin / Crunch / X-Scissor
+---
+=========
+
+221 - Pokémon Trainer: Sordward
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 4
+---
+1: Lv60 Sirfetch’d : Leaf Blade / Slam / Meteor Assault / Swords Dance
+2: Lv60 Golisopod : First Impression / Liquidation / X-Scissor / Sucker Punch
+3: Lv60 Doublade : Sacred Sword / Iron Head / Night Slash / Swords Dance
+4: Lv60 Bisharp : Iron Head / Night Slash / Swords Dance / Stone Edge
+---
+=========
+
+222 - Pokémon Trainer: Shielbert
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 4
+---
+1: Lv60 Sirfetch’d : Leaf Blade / Slam / Meteor Assault / Iron Defense
+2: Lv60 Bronzong : Light Screen / Extrasensory / Gyro Ball / Hypnosis
+3: Lv60 Falinks : No Retreat / First Impression / Close Combat / Megahorn
+4: Lv60 Klinklang : Gear Grind / Shift Gear / Protect / Wild Charge
+---
+=========
+
+223 - Pokémon Trainer: Sordward
+AI: 15 | Mode: Doubles | Money: 4000
+Pokémon Count: 3
+---
+1: Lv62 Golisopod : First Impression / Liquidation / X-Scissor / Sucker Punch
+2: Lv62 Doublade : Sacred Sword / Iron Head / Night Slash / Shadow Claw
+3: Lv62 Bisharp : Iron Head / Night Slash / Stone Edge / Swords Dance
+---
+=========
+
+224 - Pokémon Trainer: Shielbert
+AI: 15 | Mode: Doubles | Money: 4000
+Pokémon Count: 3
+---
+1: Lv62 Bronzong : Light Screen / Extrasensory / Gyro Ball / Hypnosis
+2: Lv62 Falinks : No Retreat / First Impression / Close Combat / Megahorn
+3: Lv62 Klinklang : Gear Grind / Shift Gear / Protect / Wild Charge
+---
+=========
+
+225 - Pokémon Trainer: Hop
+AI: 15 | Mode: Doubles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv61 Dubwool : Take Down / Double Kick / Double-Edge / Headbutt
+2: Lv61 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv62 Inteleon : Snipe Shot / Sucker Punch / Liquidation / U-turn
+---
+=========
+
+226 - Pokémon Trainer: Hop
+AI: 15 | Mode: Doubles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv61 Dubwool : Take Down / Double Kick / Double-Edge / Headbutt
+2: Lv61 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv62 Rillaboom : Drum Beating / Slam / Knock Off / Uproar
+---
+=========
+
+227 - Pokémon Trainer: Hop
+AI: 15 | Mode: Doubles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv61 Dubwool : Take Down / Double Kick / Double-Edge / Headbutt
+2: Lv61 Corviknight : Steel Wing / Drill Peck / Scary Face / Brave Bird
+3: Lv62 Cinderace : Double-Edge / Headbutt / Pyro Ball / Agility
+---
+=========
+
+228 - Pokémon Trainer: Hop
+AI: 23 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv60 Inteleon : Snipe Shot / Sucker Punch / Liquidation
+---
+=========
+
+229 - Pokémon Trainer: Hop
+AI: 23 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv60 Rillaboom : Drum Beating / Slam / Uproar
+---
+=========
+
+230 - Pokémon Trainer: Hop
+AI: 23 | Mode: Singles | Money: 2400
+Pokémon Count: 1
+---
+1: Lv60 Cinderace : Double-Edge / Headbutt / Pyro Ball / Agility
+---
+=========
+
+231 - Gym Leader: Bede
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 4
+---
+1: Lv61 Mawile : Play Rough / Fake Tears / Iron Head / Crunch
+2: Lv61 Gardevoir : Dazzling Gleam / Psychic / Future Sight / Magical Leaf
+3: Lv62 Rapidash-1 : Smart Strike / Psycho Cut / Dazzling Gleam / Stomp
+4: Lv63 Hatterene : Psychic / Calm Mind / Dazzling Gleam / Mystical Fire
+---
+=========
+
+232 - Pokémon Trainer: Sordward
+AI: 7 | Mode: Singles | Money: 4000
+Pokémon Count: 4
+---
+1: Lv64 Sirfetch’d : Leaf Blade / Slam / Meteor Assault / Swords Dance
+2: Lv64 Golisopod : First Impression / Liquidation / X-Scissor / Sucker Punch
+3: Lv64 Doublade : Sacred Sword / Iron Head / Night Slash / Swords Dance
+4: Lv64 Bisharp : Iron Head / Night Slash / Swords Dance / Stone Edge
+---
+=========
+
+233 - Pokémon Trainer: Shielbert
+AI: 7 | Mode: Singles | Money: 4000
+Pokémon Count: 4
+---
+1: Lv64 Sirfetch’d : Leaf Blade / Slam / Meteor Assault / Iron Defense
+2: Lv64 Bronzong : Light Screen / Extrasensory / Gyro Ball / Hypnosis
+3: Lv64 Falinks : No Retreat / First Impression / Close Combat / Megahorn
+4: Lv64 Klinklang : Gear Grind / Shift Gear / Protect / Wild Charge
+---
+=========
+
+234 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 6
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv68 Pincurchin : Zing Zap / Poison Jab / Liquidation / Recover
+4: Lv69 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Inteleon : Snipe Shot / Sucker Punch / Ice Beam / Dark Pulse
+6: Lv70 Zamazenta : Crunch / Behemoth Bash / Psychic Fangs / Play Rough
+---
+=========
+
+235 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 6
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv68 Pincurchin : Zing Zap / Poison Jab / Liquidation / Recover
+4: Lv69 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Inteleon : Snipe Shot / Sucker Punch / Ice Beam / Dark Pulse
+6: Lv70 Zacian : Crunch / Behemoth Blade / Wild Charge / Close Combat
+---
+=========
+
+236 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 6
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv68 Pincurchin : Zing Zap / Poison Jab / Liquidation / Recover
+4: Lv69 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Rillaboom : Drum Beating / Slam / Knock Off / High Horsepower
+6: Lv70 Zamazenta : Crunch / Behemoth Bash / Psychic Fangs / Play Rough
+---
+=========
+
+237 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 6
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv68 Pincurchin : Zing Zap / Poison Jab / Liquidation / Recover
+4: Lv69 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Rillaboom : Drum Beating / Slam / Knock Off / High Horsepower
+6: Lv70 Zacian : Crunch / Behemoth Blade / Wild Charge / Close Combat
+---
+=========
+
+238 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 6
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv68 Pincurchin : Zing Zap / Poison Jab / Liquidation / Recover
+4: Lv69 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Cinderace : Gunk Shot / Iron Head / Pyro Ball / Zen Headbutt
+6: Lv70 Zamazenta : Crunch / Behemoth Bash / Psychic Fangs / Play Rough
+---
+=========
+
+239 - Pokémon Trainer: Hop
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 6
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv68 Pincurchin : Zing Zap / Poison Jab / Liquidation / Recover
+4: Lv69 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Cinderace : Gunk Shot / Iron Head / Pyro Ball / Zen Headbutt
+6: Lv70 Zacian : Crunch / Behemoth Blade / Wild Charge / Close Combat
+---
+=========
+
+240 - Pokémon Trainer: Bede
+AI: 1027 | Mode: Singles | Money: 2400
+Pokémon Count: 4
+---
+1: Lv21 Solosis : Psyshock / Psybeam / Endeavor
+2: Lv22 Gothita : Psyshock / Rock Tomb / Psybeam
+3: Lv22 Ponyta-1 : Confusion / Fairy Wind
+4: Lv23 Hatenna : Psybeam / Disarming Voice
+---
+=========
+
+241 - Café Master: Dwight
+AI: 1 | Mode: Singles | Money: 1600
+Pokémon Count: 1
+---
+1: Lv10 Combee : Sweet Scent / Gust / Struggle Bug / Bug Bite
+---
+=========
+
+242 - Café Master: Dwight
+AI: 9 | Mode: Doubles | Money: 1600
+Pokémon Count: 2
+---
+1: Lv24 Swirlix : Cotton Spore / Fairy Wind / Round / Play Nice
+2: Lv24 Milcery : Attract / Sweet Kiss / Sweet Scent / Draining Kiss
+---
+=========
+
+243 - Café Master: Bernard
+AI: 15 | Mode: Doubles | Money: 2400
+Pokémon Count: 2
+---
+1: Lv37 Slurpuff : Play Rough / Round / Helping Hand / Energy Ball
+2: Lv37 Alcremie-1 : Dazzling Gleam / Round / Attract / Magical Leaf
+---
+=========
+
+244 - Café Master: Richard
+AI: 15 | Mode: Doubles | Money: 3200
+Pokémon Count: 2
+---
+1: Lv47 Slurpuff : Dazzling Gleam / Flamethrower / Helping Hand / Thunderbolt
+2: Lv47 Alcremie-7 : Dazzling Gleam / Recover / Psychic / Magical Leaf
+---
+=========
+
+245 - Black Belt: Brian
+AI: 7 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv02 Cottonee : Endeavor
+---
+=========
+
+246 - Pokémon Breeder: Elena
+AI: 7 | Mode: Singles | Money: 1920
+Pokémon Count: 1
+---
+1: Lv30 Dottler : Reflect / Light Screen / Psyshock / Bug Buzz
+---
+=========
+
+247 - League Staff: Isaac
+AI: 7 | Mode: Singles | Money: 2000
+Pokémon Count: 3
+---
+1: Lv34 Rotom-5 : Leaf Storm / Volt Switch / Will-O-Wisp / Light Screen
+2: Lv34 Rotom-2 : Hydro Pump / Volt Switch / Will-O-Wisp / Hex
+3: Lv34 Rotom-1 : Overheat / Volt Switch / Will-O-Wisp / Hex
+---
+=========
+
+248 - Pokémon Trainer: Marnie
+AI: 1031 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv59 Liepard : Fake Out / Torment / Nasty Plot / Snarl
+2: Lv59 Toxicroak : Drain Punch / Gunk Shot / Earthquake / Poison Jab
+3: Lv59 Scrafty : Ice Punch / Thunder Punch / Drain Punch / Crunch
+4: Lv60 Morpeko : Aura Wheel / Seed Bomb / Torment / Quick Attack
+5: Lv60 Grimmsnarl : Spirit Break / Darkest Lariat / Bulk Up / Play Rough
+---
+=========
+
+249 - Pokémon Trainer: Leon
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv70 Aegislash : King’s Shield / Shadow Ball / Sacred Sword / Steel Beam
+2: Lv68 Dragapult : Shadow Ball / Flamethrower / Thunderbolt / Draco Meteor
+3: Lv69 Seismitoad : Toxic / Drain Punch / Liquidation / Earthquake
+4: Lv70 Cinderace : Pyro Ball / Feint / Acrobatics / Quick Attack
+5: Lv70 Charizard : Fire Blast / Air Slash / Solar Beam / Ancient Power
+---
+=========
+
+250 - Pokémon Trainer: Leon
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv70 Aegislash : King’s Shield / Shadow Ball / Sacred Sword / Steel Beam
+2: Lv68 Dragapult : Shadow Ball / Flamethrower / Thunderbolt / Draco Meteor
+3: Lv69 Mr. Rime : Teeter Dance / Psychic / Freeze-Dry / Thunderbolt
+4: Lv70 Inteleon : Snipe Shot / Dark Pulse / Mud Shot / Tearful Look
+5: Lv70 Charizard : Fire Blast / Air Slash / Solar Beam / Ancient Power
+---
+=========
+
+251 - Pokémon Trainer: Leon
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv70 Aegislash : King’s Shield / Shadow Ball / Sacred Sword / Steel Beam
+2: Lv68 Dragapult : Shadow Ball / Flamethrower / Thunderbolt / Draco Meteor
+3: Lv69 Rhyperior : Earthquake / Stone Edge / Megahorn / Heat Crash
+4: Lv70 Rillaboom : Drum Beating / Knock Off / High Horsepower / Endeavor
+5: Lv70 Charizard : Fire Blast / Air Slash / Solar Beam / Ancient Power
+---
+=========
+
+252 - Pokémon Trainer: Hop
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv70 Inteleon : Snipe Shot / Sucker Punch / Ice Beam / Dark Pulse
+4: Lv70 Corviknight : Steel Wing / Drill Peck / Light Screen / Swagger
+5: Lv70 Zamazenta : Crunch / Behemoth Bash / Iron Defense / Play Rough
+---
+=========
+
+253 - Pokémon Trainer: Hop
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv70 Inteleon : Snipe Shot / Sucker Punch / Ice Beam / Dark Pulse
+4: Lv70 Corviknight : Steel Wing / Drill Peck / Light Screen / Swagger
+5: Lv70 Zacian : Crunch / Behemoth Blade / Swords Dance / Close Combat
+---
+=========
+
+254 - Pokémon Trainer: Hop
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv70 Rillaboom : Drum Beating / Slam / Knock Off / High Horsepower
+4: Lv70 Corviknight : Steel Wing / Drill Peck / Light Screen / Swagger
+5: Lv70 Zamazenta : Crunch / Behemoth Bash / Iron Defense / Play Rough
+---
+=========
+
+255 - Pokémon Trainer: Hop
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv70 Rillaboom : Drum Beating / Slam / Knock Off / High Horsepower
+4: Lv70 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Zacian : Crunch / Behemoth Blade / Swords Dance / Close Combat
+---
+=========
+
+256 - Pokémon Trainer: Hop
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv70 Cinderace : Gunk Shot / Iron Head / Pyro Ball / Low Sweep
+4: Lv70 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Zamazenta : Crunch / Behemoth Bash / Iron Defense / Play Rough
+---
+=========
+
+257 - Pokémon Trainer: Hop
+AI: 7 | Mode: Singles | Money: 4800
+Pokémon Count: 5
+---
+1: Lv69 Dubwool : Cotton Guard / Double Kick / Double-Edge / Headbutt
+2: Lv68 Snorlax : Hammer Arm / Earthquake / Heavy Slam / Crunch
+3: Lv70 Cinderace : Gunk Shot / Iron Head / Pyro Ball / Low Sweep
+4: Lv70 Corviknight : Steel Wing / Drill Peck / Swagger / Light Screen
+5: Lv70 Zacian : Crunch / Behemoth Blade / Swords Dance / Close Combat
+---
+=========
+
+258 - Gym Leader: Milo
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Shiftry : Leaf Blade / Throat Chop / Body Slam / Fake Out
+2: Lv60 Eldegoss : Giga Drain / Cotton Guard / Protect / Hyper Voice
+3: Lv61 Bellossom : Sunny Day / Solar Beam / Sludge Bomb / Moonblast
+4: Lv61 Cherrim : Sunny Day / Solar Beam / Dazzling Gleam / Weather Ball
+5: Lv62 Flapple : Grav Apple / Dragon Rush / Dragon Dance / Acrobatics
+---
+=========
+
+259 - Gym Leader: Nessa
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Golisopod : First Impression / Liquidation / Swords Dance / Shadow Claw
+2: Lv60 Pelipper : Roost / Hurricane / Water Pulse / Tailwind
+3: Lv61 Quagsire : Earthquake / Scald / Ice Punch / Toxic
+4: Lv61 Toxapex : Baneful Bunker / Recover / Venoshock / Liquidation
+5: Lv62 Drednaw : Liquidation / Jaw Lock / Rock Tomb / Crunch
+---
+=========
+
+260 - Gym Leader: Kabu
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Torkoal : Heat Crash / Stealth Rock / Body Press / Earthquake
+2: Lv60 Ninetales : Extrasensory / Fire Blast / Solar Beam / Quick Attack
+3: Lv61 Arcanine : Extreme Speed / Flare Blitz / Play Rough / Iron Head
+4: Lv61 Salazzle : Flamethrower / Dragon Pulse / Sludge Wave / Foul Play
+5: Lv62 Centiskorch : Fire Lash / Lunge / Crunch / Power Whip
+---
+=========
+
+261 - Gym Leader: Bea
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Hawlucha : Flying Press / Swords Dance / High Jump Kick / Poison Jab
+2: Lv60 Grapploct : Octolock / Detect / Liquidation / Close Combat
+3: Lv61 Sirfetch’d : Leaf Blade / Meteor Assault / Knock Off / First Impression
+4: Lv61 Falinks : No Retreat / Megahorn / Close Combat / Throat Chop
+5: Lv62 Machamp : Fire Punch / Knock Off / Cross Chop / Ice Punch
+---
+=========
+
+262 - Gym Leader: Allister
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Dusknoir : Shadow Punch / Fire Punch / Ice Punch / Disable
+2: Lv60 Chandelure : Shadow Ball / Heat Wave / Energy Ball / Will-O-Wisp
+3: Lv61 Cursola : Hex / Strength Sap / Ancient Power / Amnesia
+4: Lv61 Runerigus : Earthquake / Shadow Claw / Disable / Rock Tomb
+5: Lv62 Gengar : Shadow Ball / Sludge Bomb / Dark Pulse / Hypnosis
+---
+=========
+
+263 - Gym Leader: Opal
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+264 - Gym Leader: Gordie
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Barbaracle : Shell Smash / Stone Edge / Earthquake / Liquidation
+2: Lv60 Shuckle : Sticky Web / Stealth Rock / Gastro Acid / Rock Tomb
+3: Lv61 Stonjourner : Stealth Rock / Rock Tomb / Body Press / Wonder Room
+4: Lv61 Tyranitar : Crunch / Stone Edge / Body Press / Ice Punch
+5: Lv62 Coalossal : Tar Shot / Earthquake / Flare Blitz / Stone Edge
+---
+=========
+
+265 - Gym Leader: Melony
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Frosmoth : Hurricane / Blizzard / Tailwind / Hail
+2: Lv60 Mr. Rime : Freeze-Dry / Psychic / Energy Ball / Nasty Plot
+3: Lv61 Eiscue : Hail / Freeze-Dry / Surf / Rest
+4: Lv61 Darmanitan-2 : Flare Blitz / Icicle Crash / Stone Edge / Earthquake
+5: Lv62 Lapras : Blizzard / Hydro Pump / Thunder / Life Dew
+---
+=========
+
+266 - Pokémon Trainer: Piers
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Scrafty : Fake Out / Sand Attack / Brick Break / Payback
+2: Lv60 Malamar : Night Slash / Foul Play / Psycho Cut / Payback
+3: Lv61 Skuntank : Sucker Punch / Screech / Toxic / Snarl
+4: Lv61 Toxtricity-1 : Overdrive / Sludge Bomb / Taunt / Venom Drench
+5: Lv62 Obstagoon : Obstruct / Throat Chop / Counter / Shadow Claw
+---
+=========
+
+267 - Gym Leader: Raihan
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Torkoal : Lava Plume / Body Press / Solar Beam / Gyro Ball
+2: Lv60 Goodra : Life Dew / Thunder / Hydro Pump / Sludge Bomb
+3: Lv61 Turtonator : Sunny Day / Dragon Pulse / Shell Trap / Fire Blast
+4: Lv61 Flygon : Sandstorm / Dragon Claw / Earthquake / Crunch
+5: Lv62 Duraludon : Dragon Claw / Iron Head / Stone Edge / Body Press
+---
+=========
+
+268 - Gym Leader: Marnie
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv59 Liepard : Fake Out / Torment / Nasty Plot / Snarl
+2: Lv59 Toxicroak : Drain Punch / Gunk Shot / Earthquake / Poison Jab
+3: Lv59 Scrafty : Ice Punch / Thunder Punch / Drain Punch / Crunch
+4: Lv60 Morpeko : Aura Wheel / Seed Bomb / Torment / Quick Attack
+5: Lv60 Grimmsnarl : Spirit Break / Darkest Lariat / Bulk Up / Play Rough
+---
+=========
+
+269 - Gym Leader: Bede
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv61 Mawile : Iron Head / Fake Tears / Crunch / Play Rough
+2: Lv61 Gardevoir : Shadow Ball / Energy Ball / Psychic / Dazzling Gleam
+3: Lv62 Rapidash-1 : Zen Headbutt / Smart Strike / Dazzling Gleam / Drill Run
+4: Lv62 Sylveon : Moonblast / Light Screen / Shadow Ball / Psyshock
+5: Lv63 Hatterene : Psychic / Dazzling Gleam / Dark Pulse / Calm Mind
+---
+=========
+
+270 - Gym Challenger: Yue
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Greedent : Stockpile / Rest / Psychic Fangs / Super Fang
+2: Lv56 Cinccino : Tail Slap / Bullet Seed / Rock Blast / Baby-Doll Eyes
+3: Lv57 Diggersby : Earthquake / Hammer Arm / Body Slam / Quick Attack
+4: Lv57 Dubwool : Double Kick / Body Slam / Zen Headbutt / Cotton Guard
+5: Lv58 Snorlax : Heavy Slam / Protect / Yawn / Facade
+---
+=========
+
+271 - Gym Challenger: Polaire
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Ribombee : Quiver Dance / Bug Buzz / Dazzling Gleam / Psychic
+2: Lv56 Golisopod : First Impression / Liquidation / Sucker Punch / Throat Chop
+3: Lv57 Crustle : Stealth Rock / Stone Edge / X-Scissor / Heavy Slam
+4: Lv57 Orbeetle : Mirror Coat / Bug Buzz / Calm Mind / Future Sight
+5: Lv58 Vikavolt : Thunderbolt / Bug Buzz / Flash Cannon / Energy Ball
+---
+=========
+
+272 - Gym Challenger: Kent
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Sigilyph : Psychic / Air Slash / Ice Beam / Dazzling Gleam
+2: Lv56 Unfezant : Quick Attack / U-turn / Sky Attack / Steel Wing
+3: Lv57 Mandibuzz : Toxic / Protect / Iron Defense / Air Slash
+4: Lv57 Cramorant : Surf / Hurricane / Weather Ball / Blizzard
+5: Lv58 Braviary : Close Combat / Brave Bird / Zen Headbutt / Iron Head
+---
+=========
+
+273 - Gym Challenger: Vega
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Pelipper : Scald / Hurricane / Blizzard / Protect
+2: Lv56 Barraskewda : Liquidation / Throat Chop / Drill Run / Poison Jab
+3: Lv57 Seismitoad : Drain Punch / Earthquake / Liquidation / Rain Dance
+4: Lv57 Araquanid : Leech Life / Liquidation / Crunch / Poison Jab
+5: Lv58 Gyarados : Aqua Tail / Dragon Dance / Stone Edge / Earthquake
+---
+=========
+
+274 - Gym Challenger: Cher
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Gigalith : Stone Edge / Earthquake / Stealth Rock / Body Press
+2: Lv56 Stonjourner : Heavy Slam / Body Slam / Rock Tomb / Heat Crash
+3: Lv57 Shuckle : Sludge Bomb / Protect / Sand Tomb / Sandstorm
+4: Lv57 Sudowoodo : Sucker Punch / Head Smash / Body Press / Earthquake
+5: Lv58 Barbaracle : Stone Edge / Razor Shell / Cross Chop / Protect
+---
+=========
+
+275 - Gym Challenger: Deneb
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Falinks : Megahorn / No Retreat / First Impression / Close Combat
+2: Lv56 Grapploct : Octolock / Brick Break / Body Slam / Liquidation
+3: Lv57 Hawlucha : High Jump Kick / Aerial Ace / Zen Headbutt / Swords Dance
+4: Lv57 Lucario : Aura Sphere / Flash Cannon / Shadow Ball / Dragon Pulse
+5: Lv58 Sirfetch’d : Meteor Assault / Leaf Blade / Brave Bird / Throat Chop
+---
+=========
+
+276 - Gym Challenger: Icla
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Toxicroak : Toxic / Protect / Sucker Punch / Revenge
+2: Lv56 Drapion : Cross Poison / X-Scissor / Crunch / Ice Fang
+3: Lv57 Garbodor : Amnesia / Toxic Spikes / Drain Punch / Spikes
+4: Lv57 Weezing-1 : Sludge Bomb / Strange Steam / Flamethrower / Protect
+5: Lv58 Toxapex : Toxic / Venoshock / Hydro Pump / Protect
+---
+=========
+
+277 - Gym Challenger: Wei
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Polteageist : Shadow Ball / Giga Drain / Psychic / Foul Play
+2: Lv56 Froslass : Will-O-Wisp / Hex / Blizzard / Draining Kiss
+3: Lv57 Trevenant : Shadow Claw / Wood Hammer / Curse / Leech Seed
+4: Lv57 Golurk : Shadow Punch / Thunder Punch / Fire Punch / Earthquake
+5: Lv58 Jellicent : Water Spout / Shadow Ball / Blizzard / Energy Ball
+---
+=========
+
+278 - Gym Challenger: Izar
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Vanilluxe : Blizzard / Flash Cannon / Protect / Freeze-Dry
+2: Lv56 Frosmoth : Quiver Dance / Blizzard / Bug Buzz / Hurricane
+3: Lv57 Beartic : Frost Breath / Aqua Jet / Icicle Crash / Swords Dance
+4: Lv57 Mr. Rime : Blizzard / Psychic / Hail / Protect
+5: Lv58 Mamoswine : Earthquake / Ice Shard / Heavy Slam / Stone Edge
+---
+=========
+
+279 - Gym Challenger: Dunne
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Sandaconda : Earthquake / Coil / Stone Edge
+2: Lv56 Dugtrio : Earthquake / Shadow Claw / Rock Slide / Sucker Punch
+3: Lv57 Claydol : Earth Power / Extrasensory / Dazzling Gleam / Ice Beam
+4: Lv57 Mudsdale : High Horsepower / Heavy Slam / Counter / Body Slam
+5: Lv58 Flygon : Earthquake / Dragon Rush / Stone Edge / Iron Tail
+---
+=========
+
+280 - Gym Challenger: Pia
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Shiinotic : Spore / Moonblast / Giga Drain / Dream Eater
+2: Lv56 Eldegoss : Cotton Guard / Synthesis / Giga Drain / Pollen Puff
+3: Lv57 Ferrothorn : Curse / Gyro Ball / Power Whip / Body Press
+4: Lv57 Vileplume : Petal Dance / Moonblast / Sludge Bomb / Grassy Terrain
+5: Lv58 Tsareena : Trop Kick / High Jump Kick / Play Rough / Zen Headbutt
+---
+=========
+
+281 - Gym Challenger: Corvin
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Boltund : Thunder / Hyper Voice / Snarl / Electric Terrain
+2: Lv56 Raichu : Play Rough / Wild Charge / Nuzzle / Iron Tail
+3: Lv57 Lanturn : Hydro Pump / Blizzard / Thunder / Agility
+4: Lv57 Toxtricity : Overdrive / Boomburst / Gunk Shot / Nuzzle
+5: Lv58 Dracozolt : Dragon Pulse / Bolt Beak / Stone Edge / Low Kick
+---
+=========
+
+282 - Gym Challenger: Terry
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Drampa : Hyper Voice / Dragon Pulse / Extrasensory / Glare
+2: Lv56 Noivern : Dragon Pulse / Psychic / Air Slash / Flamethrower
+3: Lv57 Turtonator : Shell Trap / Dragon Pulse / Focus Blast / Flash Cannon
+4: Lv57 Dracovish : Fishious Rend / Dragon Rush / Crunch / Psychic Fangs
+5: Lv58 Haxorus : Dual Chop / Crunch / X-Scissor / Close Combat
+---
+=========
+
+283 - Gym Challenger: Theemin
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Perrserker : Iron Head / Fake Out / Throat Chop / Close Combat
+2: Lv56 Mawile : Iron Head / Play Rough / Sucker Punch / Psychic Fangs
+3: Lv57 Bronzong : Trick Room / Gyro Ball / Zen Headbutt / Body Press
+4: Lv57 Steelix : Stone Edge / Gyro Ball / Earthquake / Crunch
+5: Lv58 Copperajah : Heavy Slam / Heat Crash / Earthquake / Stone Edge
+---
+=========
+
+284 - Gym Challenger: Phoebus
+AI: 7 | Mode: Singles | Money: 2800
+Pokémon Count: 5
+---
+1: Lv56 Torkoal : Earth Power / Fire Blast / Sludge Bomb / Will-O-Wisp
+2: Lv56 Heatmor : Fire Lash / Throat Chop / Shadow Claw / Drain Punch
+3: Lv57 Rotom-1 : Overheat / Thunderbolt / Shadow Ball / Volt Switch
+4: Lv57 Chandelure : Shadow Ball / Overheat / Energy Ball / Psychic
+5: Lv58 Arcanine : Extreme Speed / Flare Blitz / Wild Charge / Protect
+---
+=========
+
+285 - Macro Cosmos’s: Eric
+AI: 1 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv47 Meowth-2 : Slash / Assurance / Play Rough
+2: Lv47 Durant : Iron Head / Crunch / X-Scissor
+---
+=========
+
+286 - Macro Cosmos’s: Eric
+AI: 1 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv47 Mawile : Iron Head / Crunch
+2: Lv47 Excadrill : Metal Claw / Crush Claw / Rock Slide
+---
+=========
+
+287 - Macro Cosmos’s: Eric
+AI: 1 | Mode: Singles | Money: 2000
+Pokémon Count: 2
+---
+1: Lv47 Ferroseed : Iron Head / Flash Cannon / Pin Missile
+2: Lv47 Steelix : Slam / Dragon Breath / Rock Slide / Crunch
+---
+=========
+
+288 - Gym Leader: Milo
+AI: 23 | Mode: Singles | Money: 3200
+Pokémon Count: 1
+---
+1: Lv62 Appletun : Apple Acid / Dragon Pulse / Round / Iron Defense
+---
+=========
+
+289 - Gym Leader: Milo
+AI: 7 | Mode: Singles | Money: 3200
+Pokémon Count: 5
+---
+1: Lv60 Ludicolo : Seed Bomb / Waterfall / Body Slam / Fake Out
+2: Lv60 Eldegoss : Giga Drain / Cotton Guard / Protect / Hyper Voice
+3: Lv61 Bellossom : Sunny Day / Solar Beam / Sludge Bomb / Moonblast
+4: Lv61 Cherrim : Sunny Day / Solar Beam / Dazzling Gleam / Weather Ball
+5: Lv62 Appletun : Apple Acid / Dragon Pulse / Iron Defense / Recover
+---
+=========
+
+290 - Pokémon Breeder: Lily
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+291 - Youngster: Charlie
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+292 - Lass: Fortuna
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+293 - Gym Leader: Nessa
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+294 - Schoolboy: William
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Mudbray : Strength / Rock Tomb / High Horsepower / Superpower
+---
+=========
+
+295 - Schoolgirl: Isabella
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Magikarp : Flail / Tackle / Hydro Pump
+---
+=========
+
+296 - Model: Nicki
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Jolteon : Double Kick / Quick Attack / Electro Ball / Swift
+---
+=========
+
+297 - Cabbie: Alfie
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Wobbuffet : Counter / Mirror Coat / Safeguard / Amnesia
+---
+=========
+
+298 - Black Belt: Oscar
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Hawlucha : Wing Attack / Feather Dance / Flying Press / Thunder Punch
+---
+=========
+
+299 - Backpacker: Amelia
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Clefairy : Life Dew / Follow Me / Dazzling Gleam / Disarming Voice
+---
+=========
+
+300 - Pokémon Breeder: Poppy
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Pikachu : Thunderbolt / Quick Attack / Iron Tail / Electroweb
+---
+=========
+
+301 - Lass: Ivy
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Weavile : Metal Claw / Slash / Assurance / Ice Shard
+---
+=========
+
+302 - Poké Kid: Freya
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Eevee : Helping Hand / Round / Quick Attack / Bite
+---
+=========
+
+303 - Musician: Arthur
+AI: 16 | Mode: Singles | Money: 1280
+Pokémon Count: 1
+---
+1: Lv10 Salazzle : Flamethrower / Fire Lash / Sludge Bomb
+---
+=========
+
+304 - Pokémon Breeder: Chloe
+AI: 5 | Mode: Singles | Money: 4000
+Pokémon Count: 3
+---
+1: Lv13 Grookey : Scratch / Branch Poke / Growl
+2: Lv13 Scorbunny : Quick Attack / Ember / Growl
+3: Lv13 Sobble : Pound / Water Gun / Growl
+---
+=========
+
+305 - Pokémon Breeder: Chloe
+AI: 7 | Mode: Singles | Money: 6000
+Pokémon Count: 3
+---
+1: Lv30 Raboot : Flame Charge / Agility / Double Kick
+2: Lv30 Drizzile : Water Pulse / Tearful Look / Sucker Punch
+3: Lv30 Thwackey : Razor Leaf / Screech / Double Hit
+---
+=========
+
+306 - Pokémon Breeder: Chloe
+AI: 7 | Mode: Singles | Money: 8000
+Pokémon Count: 3
+---
+1: Lv60 Inteleon : Snipe Shot / Sucker Punch / U-turn / Tearful Look
+2: Lv60 Rillaboom : Drum Beating / Double Hit / Knock Off / Screech
+3: Lv60 Cinderace : Pyro Ball / Double Kick / Bounce / Agility
+---
+=========
+
+307 - Gentleman: [~ 307]
+AI: 1 | Mode: Singles | Money: 400
+Pokémon Count: 1
+---
+1: Lv05 Skwovet : Default Level Up
+---
+=========
+
+308 - Ball Guy: Ball Guy
+AI: 1031 | Mode: Singles | Money: 8000
+Pokémon Count: 1
+---
+1: Lv50 Stunfisk-1 : Snap Trap / Muddy Water / Iron Defense / Bounce
+---
+=========
+
+309 - Macro Cosmos’s: Jane
+AI: 9 | Mode: Doubles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv48 Cufant : Iron Head / Play Rough / Strength / Dig
+---
+=========
+
+310 - Macro Cosmos’s: Carla
+AI: 9 | Mode: Doubles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv48 Mawile : Iron Head / Fake Tears / Crunch / Astonish
+---
+=========
+
+311 - Macro Cosmos’s: Justin
+AI: 9 | Mode: Doubles | Money: 2000
+Pokémon Count: 1
+---
+1: Lv49 Stunfisk-1 : Snap Trap / Muddy Water / Metal Sound / Bounce
+---
+=========
+
+312 - Pokémon Trainer: Hop
+AI: 15 | Mode: Singles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv49 Dubwool : Zen Headbutt / Reversal / Body Slam
+2: Lv49 Corviknight : Steel Wing / Drill Peck / Scary Face / Swagger
+3: Lv50 Inteleon : Snipe Shot / Mud Shot / Icy Wind / Dark Pulse
+---
+=========
+
+313 - Pokémon Trainer: Hop
+AI: 15 | Mode: Singles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv49 Dubwool : Zen Headbutt / Reversal / Body Slam
+2: Lv49 Corviknight : Steel Wing / Drill Peck / Scary Face / Swagger
+3: Lv50 Rillaboom : Drum Beating / High Horsepower / Snarl / Uproar
+---
+=========
+
+314 - Pokémon Trainer: Hop
+AI: 15 | Mode: Singles | Money: 2400
+Pokémon Count: 3
+---
+1: Lv49 Dubwool : Zen Headbutt / Reversal / Body Slam
+2: Lv49 Corviknight : Steel Wing / Drill Peck / Scary Face / Swagger
+3: Lv50 Cinderace : Pyro Ball / Counter / Gunk Shot / Bounce
+---
+=========

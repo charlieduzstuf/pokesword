@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.13)
+add_library(decomp_subsdk0 STATIC fn_0030.c fn_111ba0.c fn_11f5a0.c fn_12f090.c fn_14f760.c fn_16dba0.c fn_17260.c fn_189260.c fn_1b6300.c fn_1d9dc0.c fn_1fc020.c fn_2225c0.c fn_23ef40.c fn_25d280.c fn_28d5e0.c fn_2c6130.c fn_34020.c fn_355620.c fn_876a0.c fn_e6100.c)
+target_include_directories(decomp_subsdk0 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/subsdk0)
+target_link_libraries(decomp_subsdk0 PUBLIC recomp_static_subsdk0)
+target_compile_definitions(decomp_subsdk0 PRIVATE SUYU_HOSTED_RECOMP=1 RECOMP_STATIC_MODULE=1 MODULE_BASE=g_module_base_subsdk0 RECOMP_LOOKUP=recomp_lookup_subsdk0)
+# Hosted flavor already provided by decomp_subsdk0 above.
+# Standalone flavor: stock runtime + stock blocks (plain
+# symbols, real SVC servicing) plus this module's chunks.
+add_library(decomp_subsdk0_plain OBJECT fn_0030.c fn_111ba0.c fn_11f5a0.c fn_12f090.c fn_14f760.c fn_16dba0.c fn_17260.c fn_189260.c fn_1b6300.c fn_1d9dc0.c fn_1fc020.c fn_2225c0.c fn_23ef40.c fn_25d280.c fn_28d5e0.c fn_2c6130.c fn_34020.c fn_355620.c fn_876a0.c fn_e6100.c)
+target_include_directories(decomp_subsdk0_plain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/subsdk0)
+target_compile_definitions(decomp_subsdk0_plain PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+file(GLOB RECOMP_ORIG_SUBSDK0 "${RECOMP_SRC_DIR}/subsdk0/src/recompiled*.c")
+if(MSVC)
+  set_source_files_properties(${RECOMP_ORIG_SUBSDK0} PROPERTIES COMPILE_OPTIONS "/O1")
+else()
+  set_source_files_properties(${RECOMP_ORIG_SUBSDK0} PROPERTIES COMPILE_OPTIONS "-O1")
+endif()
+add_executable(decompiled_subsdk0 decomp_main.c ${RECOMP_SRC_DIR}/subsdk0/recomp_runtime.c ${RECOMP_ORIG_SUBSDK0})
+target_include_directories(decompiled_subsdk0 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/subsdk0)
+target_compile_definitions(decompiled_subsdk0 PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+target_link_libraries(decompiled_subsdk0 PRIVATE decomp_subsdk0_plain)

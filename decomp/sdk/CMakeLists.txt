@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.13)
+add_library(decomp_sdk STATIC fn_0030.c fn_12d8b0.c fn_17a510.c fn_193280.c fn_1c4100.c fn_1e3520.c fn_1fb0d0.c fn_1fed0.c fn_2134d0.c fn_230f90.c fn_244e30.c fn_252f60.c fn_25f1b0.c fn_28a940.c fn_2b4a90.c fn_2c46f0.c fn_2e66e0.c fn_2f5330.c fn_308390.c fn_31580.c fn_31b9e0.c fn_328950.c fn_334450.c fn_345dd0.c fn_353820.c fn_360e40.c fn_37b190.c fn_388ea0.c fn_3a51d0.c fn_3b6eb0.c fn_3cf180.c fn_3efde0.c fn_3ffae0.c fn_413090.c fn_42220.c fn_431a10.c fn_453070.c fn_474920.c fn_492f88.c fn_4b39a8.c fn_4d6c68.c fn_4f5be8.c fn_50c358.c fn_51aa0.c fn_5f950.c fn_6cba0.c fn_7ac30.c fn_88db0.c fn_99510.c fn_abfb0.c fn_c60f0.c fn_e550.c fn_e8fb0.c)
+target_include_directories(decomp_sdk PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/sdk)
+target_link_libraries(decomp_sdk PUBLIC recomp_static_sdk)
+target_compile_definitions(decomp_sdk PRIVATE SUYU_HOSTED_RECOMP=1 RECOMP_STATIC_MODULE=1 MODULE_BASE=g_module_base_sdk RECOMP_LOOKUP=recomp_lookup_sdk)
+# Hosted flavor already provided by decomp_sdk above.
+# Standalone flavor: stock runtime + stock blocks (plain
+# symbols, real SVC servicing) plus this module's chunks.
+add_library(decomp_sdk_plain OBJECT fn_0030.c fn_12d8b0.c fn_17a510.c fn_193280.c fn_1c4100.c fn_1e3520.c fn_1fb0d0.c fn_1fed0.c fn_2134d0.c fn_230f90.c fn_244e30.c fn_252f60.c fn_25f1b0.c fn_28a940.c fn_2b4a90.c fn_2c46f0.c fn_2e66e0.c fn_2f5330.c fn_308390.c fn_31580.c fn_31b9e0.c fn_328950.c fn_334450.c fn_345dd0.c fn_353820.c fn_360e40.c fn_37b190.c fn_388ea0.c fn_3a51d0.c fn_3b6eb0.c fn_3cf180.c fn_3efde0.c fn_3ffae0.c fn_413090.c fn_42220.c fn_431a10.c fn_453070.c fn_474920.c fn_492f88.c fn_4b39a8.c fn_4d6c68.c fn_4f5be8.c fn_50c358.c fn_51aa0.c fn_5f950.c fn_6cba0.c fn_7ac30.c fn_88db0.c fn_99510.c fn_abfb0.c fn_c60f0.c fn_e550.c fn_e8fb0.c)
+target_include_directories(decomp_sdk_plain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/sdk)
+target_compile_definitions(decomp_sdk_plain PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+file(GLOB RECOMP_ORIG_SDK "${RECOMP_SRC_DIR}/sdk/src/recompiled*.c")
+if(MSVC)
+  set_source_files_properties(${RECOMP_ORIG_SDK} PROPERTIES COMPILE_OPTIONS "/O1")
+else()
+  set_source_files_properties(${RECOMP_ORIG_SDK} PROPERTIES COMPILE_OPTIONS "-O1")
+endif()
+add_executable(decompiled_sdk decomp_main.c ${RECOMP_SRC_DIR}/sdk/recomp_runtime.c ${RECOMP_ORIG_SDK})
+target_include_directories(decompiled_sdk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${RECOMP_SRC_DIR}/sdk)
+target_compile_definitions(decompiled_sdk PRIVATE MODULE_BASE=g_module_base RECOMP_LOOKUP=recomp_lookup)
+target_link_libraries(decompiled_sdk PRIVATE decomp_sdk_plain)
