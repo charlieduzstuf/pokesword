@@ -11,6 +11,28 @@ decomp.me-shaped C++ tree, matching **under the project's own toolchain**: Clang
 5.0.1 + `ToolchainNX64.cmake` flags. Matching means byte-identical instructions,
 not behavioural equivalence.
 
+Published as a network fork: `github.com/charlieduzstuf/pokesword`, forked from
+`notyourav/pokesword` (whose default branch is `master`; this project's work is
+on `main`). `origin` is the fork, `upstream` is the original.
+
+### What is deliberately not in the repository
+
+`exefs/` (5.7 GB of decrypted Nintendo NSO binaries plus a third-party
+block-dispatch tree), `*.keys` (console key material), and all prebuilt binaries
+are excluded by `.gitignore`. `tools/hactool/prod.keys` was sitting *inside*
+`tools/`, where the original ignore rules did not cover it, so a blanket
+`git add -A` would have staged and pushed 14,612 bytes of console master keys.
+`.gitignore` now excludes it and the rule is documented in place. **Check
+`git ls-files | grep -i keys` before ever publishing** — deleting a commit does
+not un-push a secret.
+
+Three compile definitions (`SUYU_HOSTED_RECOMP`, `RECOMP_STATIC_MODULE`,
+`RECOMP_STATIC_ONLY`) and `RECOMP_LOOKUP` keep their original spellings because
+the untracked `exefs/` sources consume them (measured: 10, 6, 20 and 30
+references respectively) and every user regenerates that tree. Renaming them
+would break the build for anyone but the author. `RECOMP_SRC_DIR` *was* renamed
+to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
+
 ## Current number
 
 ```
@@ -174,3 +196,18 @@ over the whole population rather than a sample:
 - Do not leave a generator registered that declines everything it is offered
   unless the reason is recorded in its docstring.
 - Do not leave non-idiomatic C that demonstrably changes nothing.
+- **Do not bulk-replace text across files without reading the result.** A
+  PowerShell pass intended to swap one phrase used `$pair[0]`/`$pair[1]` on a
+  hashtable value that PowerShell had unrolled to a bare *string*, so
+  `$pair[0]`/`$pair[1]` were the first two **characters** — `u` and `n`. The
+  result was `$c.Replace('u','n')`, which silently destroyed 126 characters in
+  `CONTRIBUTING.md` (`function` → `fnnction`, `status` → `statns`). It was
+  caught by diffing letter counts against the staged copy, not by looking at
+  the file.
+  Two related traps in the same investigation: a signature list of `nse`,
+  `ntil`, `nique` produced only false positives, because those are substrings
+  of "response", "until" and "unique". Detect corruption with
+  `du=`/`dn=` letter-count drift against a known-good copy, not substring
+  matching.
+- **Do not write files through a shell redirect.** Use the write/edit tools, or
+  verify byte-for-byte afterwards.
