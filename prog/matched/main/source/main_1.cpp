@@ -198,7 +198,24 @@ namespace main { void sub_7b9ba0(); }
 namespace main { void sub_7bac50(); }
 namespace main { void sub_7bc520(); }
 namespace main { void sub_7c0260(); }
-extern void main_f_782ea0();
+
+// sub_4faa90  (orig 0x4faa90, mov_ret)
+uint32_t main_f_4faa90() { return 0; }
+
+// sub_4faaa0  (orig 0x4faaa0, mov_ret)
+uint32_t main_f_4faaa0() { return 0; }
+
+// sub_4faab0  (orig 0x4faab0, mov_ret)
+uint32_t main_f_4faab0() { return 0; }
+
+// sub_4fb440  (orig 0x4fb440, getter)
+uint32_t main_f_4fb440(void* a0) { return *(uint32_t*)((char*)(a0) + 16); }
+
+// sub_4fcb20  (orig 0x4fcb20, ptr_add)
+void* main_f_4fcb20(void* a0) { return (char*)a0 + 56; }
+
+// sub_4fcb30  (orig 0x4fcb30, ptr_add)
+void* main_f_4fcb30(void* a0) { return (char*)a0 + 48; }
 
 // sub_4fcb40  (orig 0x4fcb40, getter)
 uint32_t main_f_4fcb40(void* a0) { return *(uint32_t*)((char*)(a0) + 104); }
@@ -4257,6 +4274,9 @@ void main_f_6a0360() { main::sub_6a0380(); }
 // sub_6a0370  (orig 0x6a0370, tailcall)
 void main_f_6a0370() { main::sub_6a0380(); }
 
+// sub_6a0d90  (orig 0x6a0d90, strlit-ret)
+const char *main_f_6a0d90() { static char g_f_6a0d90[1]; __asm__ volatile("" ::: "memory"); return g_f_6a0d90; }
+
 // sub_6a1620  (orig 0x6a1620, ret_only)
 void main_f_6a1620() {}
 
@@ -6318,25 +6338,4 @@ void* main_f_7bfe80(void* a0) { return (char*)a0 + 168; }
 
 // sub_7c04e0  (orig 0x7c04e0, tailcall)
 void main_f_7c04e0() { main::sub_7c0260(); }
-
-// sub_7c1b10  (orig 0x7c1b10, ret_only)
-void main_f_7c1b10() {}
-
-// sub_7c1b90  (orig 0x7c1b90, ret_only)
-void main_f_7c1b90() {}
-
-// sub_7c1c10  (orig 0x7c1c10, mov_ret)
-uint32_t main_f_7c1c10() { return 2; }
-
-// sub_7c2230  (orig 0x7c2230, tailcall)
-void main_f_7c2230() { main_f_782ea0(); }
-
-// sub_7c2250  (orig 0x7c2250, tailcall)
-void main_f_7c2250() { main_f_782ea0(); }
-
-// sub_7c2270  (orig 0x7c2270, compare)
-bool main_f_7c2270(uint64_t unused0, uint64_t a1) { return (uint32_t)(a1) == (uint64_t)(229); }
-
-// sub_7c22a0  (orig 0x7c22a0, getter)
-uint8_t main_f_7c22a0(void* a0) { return *(uint8_t*)((char*)(a0) + 80); }
 

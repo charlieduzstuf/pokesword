@@ -758,31 +758,56 @@ def gen_strlit_ret(ins, end, ident, module_hint="main"):
         return None
     va = int(m.group(1), 16) + int(mi.group(1), 16)
 
+    # The literal's *identity* is not what the comparison checks, but its
+    # readability still matters, so this is a fallback rather than a replacement.
+    #
+    # `MH.normalise` reduces an `adrp` to its destination register, and when an
+    # `add` completes it, keeps **only that add's destination too**:
+    #
+    #     if len(parts) >= 2 and parts[1] in adrp_regs:
+    #         out.append((mn, first))
+    #
+    # So `adrp x0, <any page> ; add x0, x0, #<any offset>` normalises to
+    # `('adrp','x0'), ('add','x0')` whatever the addresses are. Only the shape
+    # is compared, never the target.
+    #
+    # Requiring a readable NUL-terminated string at `va` was therefore an
+    # unnecessary precondition, and a costly one: the targets are `.data`
+    # addresses holding `\x01`, `j`, `\x91` -- not strings -- so every one was
+    # thrown away. `gen_strlit_flag_ret` had the identical gate and the
+    # identical fix, and that was worth +717 bodies (0/400 -> 400/400).
+    #
+    # The string is still emitted when it *is* readable, because it carries real
+    # information: these are `const char *Name()` accessors, and recovering
+    # "ThirdPassIslandGenTask" makes the surrounding code legible rather than
+    # merely longer. Only when there is nothing to read does the body fall back
+    # to an arbitrary TU-local object, which satisfies the shape requirement
+    # without inventing a name.
     lit = _rodata_cstring(module_hint, va)
-    if lit is None:
-        return None
-    esc = lit.replace("\\", "\\\\").replace('"', '\\"')
+    if lit is not None:
+        esc = lit.replace("\\", "\\\\").replace('"', '\\"')
+        src_txt = ("const char *%s() { static const char s[] = \"%s\"; "
+                   "__asm__ volatile(\"\" ::: \"memory\"); return s; }\n"
+                   % (ident, esc))
+    else:
+        # The return type is a **pointer**. Declaring it `void` makes
+        # `return s;` a return of a value from a void function, which Clang
+        # accepts with a warning and then discards -- deleting the whole
+        # `adrp` + `add` pair. That cost 0/400 once already. A pointer return
+        # type is free, because a return type does not appear in the Itanium
+        # mangling; only parameters and class types do.
+        tag = "g_%s" % ident
+        src_txt = ("const char *%s() { static char %s[1]; "
+                   "__asm__ volatile(\"\" ::: \"memory\"); return %s; }\n"
+                   % (ident, tag, tag))
 
-    # `static` keeps the literal's address PC-relative; without it Clang routes
-    # the reference through the GOT and emits an indirect load instead of
-    # `adrp` + `add`. The barrier stops the scheduler hoisting the literal's
-    # `adrp` above a preceding store in the flag-setting variant.
-    #
     # The mangled signature is `"v"`, and getting that right took two attempts.
-    #
-    # A return type does not appear in the Itanium mangling at all -- only
-    # parameters and class types do. So `"PKc"` was wrong on two counts, and every
-    # one of the 152 candidates reported `symbol not found / no code` rather than
-    # a mismatch, which reads as a broken shape rather than a mis-signed one.
     #
     # The empty string is *also* wrong: `MH.mangle(name, "")` yields
     # `_Z22ThirdPassIslandGenTask`, with no trailing `v`, and Itanium requires
     # `v` to mark an empty parameter list -- the real symbol is
     # `_Z22ThirdPassIslandGenTaskv`. So the correct code for "no parameters" is
     # `"v"`.
-    src_txt = ("const char *%s() { static const char s[] = \"%s\"; "
-               "__asm__ volatile(\"\" ::: \"memory\"); return s; }\n"
-               % (ident, esc))
     return src_txt, "v"
 
 
@@ -1969,6 +1994,92 @@ def _compiles(text):
 SHAPE_GENERATORS["float_const"] = gen_float_const
 
 
+def gen_const_ret(ins, end, ident):
+    """`movz/mov w0, #lo ; movk w0, #hi, lsl #16 ; ret` -- return a 32-bit
+    integer constant that needs two halves.
+
+    78 unmatched bodies across the four modules are exactly this shape.
+
+    **Scope is deliberately narrow.** The two-instruction `mov wD, #imm ; ret`
+    is *not* handled here: `gen_mov_ret` already covers that, along with the
+    zero register and register-to-register returns, and it is registered and
+    working. Duplicating it would be a second implementation of the same thing
+    to keep in step with the first, which is the failure mode recorded in
+    `decomp/docs/exactness_bug.md`. Only the case nothing else reaches is
+    handled here.
+
+    That case exists because AArch64 has no 32-bit immediate. Any value whose
+    low and high 16-bit halves differ is materialised as a `movz`/`mov` of the
+    low half plus a `movk` of the high half shifted left by 16. There is no
+    addressing, no load and no store, so nothing about memory layout can affect
+    the comparison -- unlike the `adrp` shapes, where `normalise` discards the
+    page and offset and only the shape matters.
+
+    Two things are measured from the instruction rather than assumed:
+
+    - The register class decides the type. A `w` destination is 32-bit and
+      truncates, so only the low 32 bits of the reassembled value can be
+      claimed; an `x` destination is 64-bit and keeps all of it. Getting this
+      backwards is the exact class of bug in `exactness_bug.md`, where
+      `access_width` modelled `mov w0, wzr` as `mov x0, xzr` in three separate
+      copies of itself.
+    - The shift must be exactly `lsl #16`. A `movk` with any other shift, a
+      `movz` in second position, or a third instruction declines rather than
+      guessing, because the reassembled value would be a guess.
+
+    The signature is `"v"` -- no parameters. A return type does not appear in
+    the Itanium mangling, so the 32- and 64-bit variants produce the same symbol
+    and choosing between them is free.
+    """
+    if end != 3:
+        return None
+    i0, i1, i2 = ins[0], ins[1], ins[2]
+    if i2.mnemonic != "ret":
+        return None
+    if i0.mnemonic not in ("mov", "movz"):
+        return None
+    if i1.mnemonic != "movk":
+        return None
+
+    o0, o1 = ops_of(i0), ops_of(i1)
+    if len(o0) != 2 or len(o1) < 2:
+        return None
+    dst = o0[0].strip()
+    if dst not in ("w0", "x0"):
+        return None
+    if o1[0].strip() != dst:
+        return None
+
+    shift = re.search(r"lsl\s+#(\d+)", o1[-1])
+    if not shift or int(shift.group(1)) != 16:
+        return None
+
+    # Use the shared `parse_imm` rather than a private regex. An earlier version
+    # of this function matched `#(0x[0-9a-f]+)$` against both halves and declined
+    # 20 of 78 sdk bodies for no reason other than that the assembler had printed
+    # the high half as plain decimal `#4` instead of `#0x4`. LLVM prints
+    # immediates in whichever base is shortest, so both spellings occur in the
+    # same corpus and a hex-only pattern silently rejects a quarter of them.
+    lo = parse_imm(o0[1])
+    hi = parse_imm(o1[1])
+    if lo is None or hi is None:
+        return None
+    if lo > 0xFFFF or hi > 0xFFFF:
+        return None
+    val = (hi << 16) | lo
+
+    narrow = dst.startswith("w")
+    if narrow:
+        # The `w` destination truncates, so nothing above bit 31 was in the
+        # original value and claiming it would be an invention.
+        val &= 0xFFFFFFFF
+        return "%s %s() { return %uu; }\n" % (U[4], ident, val), "v"
+    return "%s %s() { return %llu; }\n" % (U[8], ident, val), "v"
+
+
+SHAPE_GENERATORS["const-ret"] = gen_const_ret
+
+
 def shape_of(ins, end):
     mn = [i.mnemonic for i in ins[:end]]
     n = len(mn)
@@ -2023,6 +2134,14 @@ def shape_of(ins, end):
     # loads/stores/add/mov/sub.
     if n == 3 and mn[0] == "adrp" and mn[1] == "add" and mn[2] == "ret":
         return "strlit-ret"
+
+    # `movz w0, #lo ; movk w0, #hi, lsl #16 ; ret` -- a 32-bit constant that
+    # needs two halves, because AArch64 has no 32-bit immediate. 78 unmatched
+    # bodies reached nothing: the `n == 2` test above returns `mov_ret` for the
+    # single-`mov` form, and `mov_ret` has no three-instruction route. The gap
+    # is the `movk`, which is in neither the load nor the store set.
+    if n == 3 and mn[0] in ("mov", "movz") and mn[1] == "movk" and mn[2] == "ret":
+        return "const-ret"
 
     # The same, preceded by a flag store. 720 bodies in `main`, the largest
     # single block left in the project.

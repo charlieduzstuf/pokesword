@@ -25,6 +25,7 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 
+extern void main_f_782ea0();
 namespace main { void sub_7c3160(); }
 namespace main { void sub_ce0(); }
 namespace main { void sub_7cdf00(); }
@@ -67,7 +68,27 @@ namespace battle { void battle_btlwatch_data_holder_2(); }
 namespace battle { void battle_watch_cmd_2(); }
 namespace main { void sub_8bb9b0(); }
 namespace battle { void battle_btlwatch_async_data_holder_2(); }
-namespace battle { void battle_watch_body_2(); }
+
+// sub_7c1b10  (orig 0x7c1b10, ret_only)
+void main_f_7c1b10() {}
+
+// sub_7c1b90  (orig 0x7c1b90, ret_only)
+void main_f_7c1b90() {}
+
+// sub_7c1c10  (orig 0x7c1c10, mov_ret)
+uint32_t main_f_7c1c10() { return 2; }
+
+// sub_7c2230  (orig 0x7c2230, tailcall)
+void main_f_7c2230() { main_f_782ea0(); }
+
+// sub_7c2250  (orig 0x7c2250, tailcall)
+void main_f_7c2250() { main_f_782ea0(); }
+
+// sub_7c2270  (orig 0x7c2270, compare)
+bool main_f_7c2270(uint64_t unused0, uint64_t a1) { return (uint32_t)(a1) == (uint64_t)(229); }
+
+// sub_7c22a0  (orig 0x7c22a0, getter)
+uint8_t main_f_7c22a0(void* a0) { return *(uint8_t*)((char*)(a0) + 80); }
 
 // sub_7c2ad0  (orig 0x7c2ad0, ret_only)
 void main_f_7c2ad0() {}
@@ -6128,25 +6149,4 @@ uint32_t main_f_8bd6b0(void* a0) { return *(uint32_t*)((char*)(a0) + 28); }
 
 // sub_8bd6c0  (orig 0x8bd6c0, mov_ret)
 uint32_t main_f_8bd6c0() { return 1; }
-
-// sub_8bdea0  (orig 0x8bdea0, setter)
-void main_f_8bdea0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 112) = a1; }
-
-// sub_8bf440  (orig 0x8bf440, mov_ret)
-uint32_t main_f_8bf440() { return 1; }
-
-// sub_8bf4f0  (orig 0x8bf4f0, getter)
-uint32_t main_f_8bf4f0(void* a0) { return *(uint32_t*)((char*)(a0) + 112); }
-
-// sub_8bf500  (orig 0x8bf500, mov_ret)
-uint32_t main_f_8bf500() { return 1; }
-
-// sub_8bf510  (orig 0x8bf510, tailcall)
-void main_f_8bf510() { battle::battle_watch_body_2(); }
-
-// sub_8bfa90  (orig 0x8bfa90, ret_only)
-void main_f_8bfa90() {}
-
-// sub_8bfaa0  (orig 0x8bfaa0, ret_only)
-void main_f_8bfaa0() {}
 

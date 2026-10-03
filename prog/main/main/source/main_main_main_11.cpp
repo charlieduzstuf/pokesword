@@ -19,7 +19,7 @@ void sub_b580f0() { /* 0xb580f0 */ }
 void sub_b58140() { /* 0xb58140 */ }
 // sub_b58150: implemented in prog/matched/main/
 void sub_b58160() { /* 0xb58160 */ }
-void sub_b58170() { /* 0xb58170 */ }
+// sub_b58170: implemented in prog/matched/main/
 void sub_b58180() { /* 0xb58180 */ }
 void sub_b58260() { /* 0xb58260 */ }
 void autoblink() { /* 0xb58340 */ }
@@ -28,7 +28,7 @@ void sub_b583c0() { /* 0xb583c0 */ }
 void sub_b583e0() { /* 0xb583e0 */ }
 void sub_b58410() { /* 0xb58410 */ }
 void sub_b58430() { /* 0xb58430 */ }
-void sub_b58460() { /* 0xb58460 */ }
+// sub_b58460: implemented in prog/matched/main/
 void sub_b58470() { /* 0xb58470 */ }
 void outline_parameter() { /* 0xb588c0 */ }
 void sub_b58900() { /* 0xb58900 */ }
@@ -283,7 +283,7 @@ void sub_b74420() { /* 0xb74420 */ }
 void sub_b74440() { /* 0xb74440 */ }
 void sub_b74470() { /* 0xb74470 */ }
 void sub_b74490() { /* 0xb74490 */ }
-void sub_b744c0() { /* 0xb744c0 */ }
+// sub_b744c0: implemented in prog/matched/main/
 void sub_b744d0() { /* 0xb744d0 */ }
 void sub_b745d0() { /* 0xb745d0 */ }
 void sub_b746b0() { /* 0xb746b0 */ }
@@ -293,7 +293,7 @@ void sub_b747a0() { /* 0xb747a0 */ }
 void sub_b747c0() { /* 0xb747c0 */ }
 void sub_b747f0() { /* 0xb747f0 */ }
 void sub_b74810() { /* 0xb74810 */ }
-void sub_b74840() { /* 0xb74840 */ }
+// sub_b74840: implemented in prog/matched/main/
 void sub_b74850() { /* 0xb74850 */ }
 void dressup_preset_table() { /* 0xb74980 */ }
 void eyelash() { /* 0xb749c0 */ }
@@ -583,7 +583,7 @@ void sub_b83950() { /* 0xb83950 */ }
 void sub_b83970() { /* 0xb83970 */ }
 void sub_b839a0() { /* 0xb839a0 */ }
 void sub_b839c0() { /* 0xb839c0 */ }
-void sub_b839f0() { /* 0xb839f0 */ }
+// sub_b839f0: implemented in prog/matched/main/
 void sub_b83a00() { /* 0xb83a00 */ }
 void sub_b83a30() { /* 0xb83a30 */ }
 void cycling_wear_color_table() { /* 0xb83c30 */ }
@@ -592,7 +592,7 @@ void sub_b83cb0() { /* 0xb83cb0 */ }
 void sub_b83cd0() { /* 0xb83cd0 */ }
 void sub_b83d00() { /* 0xb83d00 */ }
 void sub_b83d20() { /* 0xb83d20 */ }
-void sub_b83d50() { /* 0xb83d50 */ }
+// sub_b83d50: implemented in prog/matched/main/
 void sub_b83d60() { /* 0xb83d60 */ }
 void sub_b83f10() { /* 0xb83f10 */ }
 void orion_npc_table() { /* 0xb84330 */ }

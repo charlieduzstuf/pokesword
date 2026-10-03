@@ -73,7 +73,7 @@ void sub_322a00() { /* 0x322a00 */ }
 // sub_322a10: implemented in prog/matched/sdk/
 void sub_322a20() { /* 0x322a20 */ }
 void sub_322aa0() { /* 0x322aa0 */ }
-void sub_322b40() { /* 0x322b40 */ }
+// sub_322b40: implemented in prog/matched/sdk/
 void sub_322b50() { /* 0x322b50 */ }
 void sub_322c20() { /* 0x322c20 */ }
 void sub_322c80() { /* 0x322c80 */ }
@@ -309,7 +309,7 @@ void sub_327f80() { /* 0x327f80 */ }
 void sub_327fa0() { /* 0x327fa0 */ }
 void sub_327fc0() { /* 0x327fc0 */ }
 void sub_327fd0() { /* 0x327fd0 */ }
-void sub_327fe0() { /* 0x327fe0 */ }
+// sub_327fe0: implemented in prog/matched/sdk/
 void sub_327ff0() { /* 0x327ff0 */ }
 void sub_328010() { /* 0x328010 */ }
 void sub_328030() { /* 0x328030 */ }
@@ -3490,7 +3490,7 @@ void sub_38bd90() { /* 0x38bd90 */ }
 void sub_38c160() { /* 0x38c160 */ }
 void sub_38c170() { /* 0x38c170 */ }
 void sub_38c240() { /* 0x38c240 */ }
-void sub_38c310() { /* 0x38c310 */ }
+// sub_38c310: implemented in prog/matched/sdk/
 void sub_38c320() { /* 0x38c320 */ }
 void sub_38c610() { /* 0x38c610 */ }
 // sub_38c620: implemented in prog/matched/sdk/
@@ -3549,7 +3549,7 @@ void sub_396c00() { /* 0x396c00 */ }
 void sub_397540() { /* 0x397540 */ }
 void sub_397930() { /* 0x397930 */ }
 void sub_3979e0() { /* 0x3979e0 */ }
-void f_1_2_11_f_NINTENDO_SDK_v1_sdk_397ee0() { /* 0x397ee0 */ }
+// f_1_2_11_f_NINTENDO_SDK_v1_sdk_397ee0: implemented in prog/matched/sdk/
 // sub_397ef0: implemented in prog/matched/sdk/
 void sub_397f00() { /* 0x397f00 */ }
 void sub_397f20() { /* 0x397f20 */ }
@@ -3902,7 +3902,7 @@ void sub_3a37d0() { /* 0x3a37d0 */ }
 void sub_3a37f0() { /* 0x3a37f0 */ }
 void sub_3a3810() { /* 0x3a3810 */ }
 void sub_3a3980() { /* 0x3a3980 */ }
-void sub_3a39a0() { /* 0x3a39a0 */ }
+// sub_3a39a0: implemented in prog/matched/sdk/
 void sub_3a39b0() { /* 0x3a39b0 */ }
 void ZN2nn2sf4cmif6client6detail13CmifProxyImplINS_7account6d() { /* 0x3a3d90 */ }
 void sub_3a42d0() { /* 0x3a42d0 */ }

@@ -409,6 +409,21 @@ def main():
         extra = " ".join("%s=%d" % (k, v) for k, v in fails.most_common())
         print("  %-9s %6d functions  %6d verified  %7.2f%%  %s"
               % (m, n, ok, rate, extra or "clean"))
+        # Print the samples the loop already collected.
+        #
+        # `verify()` gathers up to five concrete failing symbols with the reason
+        # each one failed, and this function used to drop them on the floor,
+        # printing only the `failures` histogram. That made every diagnosis of a
+        # *new* mismatch require reimplementing the verifier's compile-and-compare
+        # loop in a scratch script -- which is exactly what happened when
+        # sdk went from mismatch=3 to mismatch=4 and subsdk0 from 0 to 1, and
+        # the reason those two were unidentified for several minutes.
+        #
+        # A count tells you that something regressed. It does not tell you which
+        # symbol regressed or why, and the reason is usually a single wrong
+        # assumption in one generator.
+        for verdict, detail in samples:
+            print("      %-18s %s" % (verdict, detail))
 
     print()
     if grand_n:

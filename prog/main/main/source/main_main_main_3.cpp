@@ -334,7 +334,7 @@ void sub_3f7fe0() { /* 0x3f7fe0 */ }
 void sub_3f8200() { /* 0x3f8200 */ }
 void sub_3f8280() { /* 0x3f8280 */ }
 void sub_3f8290() { /* 0x3f8290 */ }
-void sub_3f83b0() { /* 0x3f83b0 */ }
+// sub_3f83b0: implemented in prog/matched/main/
 void sub_3f83c0() { /* 0x3f83c0 */ }
 void sub_3f8580() { /* 0x3f8580 */ }
 void sub_3f86a0() { /* 0x3f86a0 */ }
@@ -1508,8 +1508,8 @@ void sub_472cd0() { /* 0x472cd0 */ }
 void sub_473150() { /* 0x473150 */ }
 void sub_4732b0() { /* 0x4732b0 */ }
 void sub_473410() { /* 0x473410 */ }
-void sub_4738c0() { /* 0x4738c0 */ }
-void sub_4738d0() { /* 0x4738d0 */ }
+// sub_4738c0: implemented in prog/matched/main/
+// sub_4738d0: implemented in prog/matched/main/
 void sub_4738e0() { /* 0x4738e0 */ }
 void GPUTextureUtil_cpp_d_PPFX_ERROR_2() { /* 0x473b50 */ }
 void sub_473d90() { /* 0x473d90 */ }
@@ -2072,7 +2072,7 @@ void sub_4c34a0() { /* 0x4c34a0 */ }
 void sub_4c3510() { /* 0x4c3510 */ }
 void sub_4c3560() { /* 0x4c3560 */ }
 void sub_4c35c0() { /* 0x4c35c0 */ }
-void sub_4c3640() { /* 0x4c3640 */ }
+// sub_4c3640: implemented in prog/matched/main/
 void sub_4c3650() { /* 0x4c3650 */ }
 void Unknown_File_2() { /* 0x4c3740 */ }
 void sub_4c3950() { /* 0x4c3950 */ }

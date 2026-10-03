@@ -1181,18 +1181,18 @@ void sub_18c800() { /* 0x18c800 */ }
 void sub_18c810() { /* 0x18c810 */ }
 void sub_18c830() { /* 0x18c830 */ }
 void sub_18c850() { /* 0x18c850 */ }
-void sub_18c870() { /* 0x18c870 */ }
-void sub_18c880() { /* 0x18c880 */ }
-void sub_18c890() { /* 0x18c890 */ }
-void sub_18c8a0() { /* 0x18c8a0 */ }
-void sub_18c8b0() { /* 0x18c8b0 */ }
-void sub_18c8c0() { /* 0x18c8c0 */ }
-void sub_18c8d0() { /* 0x18c8d0 */ }
-void sub_18c8e0() { /* 0x18c8e0 */ }
-void sub_18c8f0() { /* 0x18c8f0 */ }
-void sub_18c900() { /* 0x18c900 */ }
-void sub_18c910_subsdk0_18c910() { /* 0x18c910 */ }
-void sub_18c920() { /* 0x18c920 */ }
+// sub_18c870: implemented in prog/matched/subsdk0/
+// sub_18c880: implemented in prog/matched/subsdk0/
+// sub_18c890: implemented in prog/matched/subsdk0/
+// sub_18c8a0: implemented in prog/matched/subsdk0/
+// sub_18c8b0: implemented in prog/matched/subsdk0/
+// sub_18c8c0: implemented in prog/matched/subsdk0/
+// sub_18c8d0: implemented in prog/matched/subsdk0/
+// sub_18c8e0: implemented in prog/matched/subsdk0/
+// sub_18c8f0: implemented in prog/matched/subsdk0/
+// sub_18c900: implemented in prog/matched/subsdk0/
+// sub_18c910_subsdk0_18c910: implemented in prog/matched/subsdk0/
+// sub_18c920: implemented in prog/matched/subsdk0/
 // sub_18c930: implemented in prog/matched/subsdk0/
 void sub_18c940() { /* 0x18c940 */ }
 void OMX_google_aac_encoder() { /* 0x18c960 */ }

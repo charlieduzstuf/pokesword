@@ -36,23 +36,61 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-25,431 / 152,062  =  16.72%
+26,317 / 152,062  =  17.31%
 ```
+
+Up from 25,431 (16.72%) at the start of the most recent working session, and
+24,703 at the start of the one before it. The session's gains were all
+over-constraints in existing generators, not new capability — see
+`decomp/docs/exactness_bug.md`.
 
 | module | bodies | independent re-verification |
 |---|---|---|
-| main | 20,203 | 19,978 / 20,012 = 99.83% (mismatch=34) |
-| sdk | 3,057 | 3,046 / 3,049 = 99.90% (mismatch=3) |
-| subsdk0 | 854 | 854 / 854 = 100% |
-| subsdk1 | 1,317 | 1,317 / 1,317 = 100% |
+| main | 20,952 | 20,690 / 20,727 = 99.82% (mismatch=37) |
+| sdk | 3,171 | 3,107 / 3,111 = 99.87% (mismatch=4) |
+| subsdk0 | 873 | 868 / 869 = 99.88% (mismatch=1) |
+| subsdk1 | 1,321 | 1,319 / 1,319 = 100% |
 
-Full build links clean, 152,267 symbols.
+Full build links clean, 153,084 symbols. `build/prog.elf` 22,012,288 bytes.
 
-**The 34 main mismatches are fully explained**, not a defect: every one is a
-`tailcall` whose emitted body is a bare `ret`, because its destination was an
-empty function in the same compilation batch. Measured:
-`failures by (shape, body contains a call): tailcall call=False 34`. The real
-build is unaffected — each function is a separate external symbol there.
+**All 42 residual mismatches are one bug class, and the cause is now known.**
+They are every one a `tailcall` whose original body is a bare 4-byte
+`b <target>`, and every one of them is caused by `gen_tailcall` emitting a
+**hardcoded `uint64_t` return type**:
+
+```python
+return ("uint64_t %s() { return %s(); }\n" % (ident, tname), "v")
+```
+
+The destinations commonly return `uint32_t`. That mismatch forces a conversion,
+so Clang cannot treat the call as a tail call. Measured directly against
+`sdk+0x3bc670` (original: `b #0x3c4790`):
+
+```
+extern uint32_t g_dst();          ->  stp x29,x30,[sp,#-0x10]! ; mov x29,sp ; bl
+                                     a full call with a prologue, not a tail call
+```
+
+The likely fix is to give the thunk the **destination's own return type**, which
+Clang then tail-calls into a bare `b`. That type has to come from the
+destination's registry record, by parsing the return type out of its emitted
+`src`. **This was not finished** — the experiment was cut short, so the fix is a
+hypothesis with one supporting measurement, not a verified change. It is worth
+~42 bodies if it holds, so verify it before trusting it.
+
+Two mechanisms produce these, and both are in-batch artefacts that the real
+build does not have, because there each function is a separate external symbol:
+
+- destination is an **empty** function → the call elides to a bare `ret`
+- destination **returns a constant** → the call constant-folds to
+  `mov w0, #imm ; ret`
+
+The second only started appearing when constant-returning bodies were added:
+`sdk_f_3bc670` jumps to `sdk_f_3c4790`, which is `mov_ret` →
+`uint32_t f_3c4790() { return 1; }`. Adding 62 such functions to `sdk` is what
+took its mismatch count from 3 to 4. **Adding matched bodies can therefore break
+previously-verified tail-calls**, which is worth remembering before any future
+harvest is judged by its mismatch delta.
 
 ## How to verify (never trust a number that skipped a step)
 
@@ -99,17 +137,12 @@ all (the tailcall round reported +9,083 and delivered zero).
 
 ## Next three steps, in order
 
-1. **Make `main`'s sections link-distinguishable, then link at base 0.**
-   Worth **974 functions** and it also fixes the `--from-elf` gap.
-   `build/prog.elf` relocates `main` by `-0x669020`, so `adrp`+`add` to a global
-   in `main`'s `.data` can never resolve to the original address. A linker script
-   is drafted at `tools/link_main_base0.ld` but is **not wired in**: with
-   `-ffunction-sections` every module's code lands in `.text.<mangled>`, so a
-   script's `*(.text*)` at base 0 would capture the SDK modules too. `main`'s
-   objects must be made identifiable first — by compiling them with a distinct
-   section prefix, or by linking `main` separately and combining.
-   **Blast radius:** this moves every module. Re-verify all four afterwards; a
-   misplaced `.rodata` turns 25,431 verified bodies into 25,431 mismatches.
+1. **Fix the tail-call return type.** Worth **~42 bodies** — every remaining
+   mismatch in the project. `gen_tailcall` hardcodes `uint64_t`; the destinations
+   often return `uint32_t`, and the conversion stops Clang emitting a bare `b`.
+   Read the destination's return type out of its registry `src` and reuse it in
+   the thunk. See "Current number" above for the measurement and for why this is
+   still a hypothesis. Cheap, and it is the only item here with a known cause.
 
 2. **The 303 `ldp; stp; ret` bodies.** Confirmed by sampling to be
    copy-constructor-plus-zero-fill, not plain copies — `stp` appears among the
@@ -124,6 +157,24 @@ all (the tailcall round reported +9,083 and delivered zero).
    happens at instruction selection, not in the scheduler. The same source shape
    matches in `sdk` (10/12) and `subsdk0` (8/8), so it is a codegen question
    about the original source.
+
+### Retired: the base-0 link. Do not attempt it.
+
+`decomp/docs/link_base0.md` and `tools/link_main_base0.ld` describe a 974-function
+unlock that **does not exist**. The whole analysis was wrong, and reading
+`MH.normalise` is what proved it:
+
+```python
+if len(parts) >= 2 and parts[1] in adrp_regs:
+    out.append((mn, first))     # ONLY the destination register
+```
+
+`adrp x0, <any page> ; add x0, x0, #<any offset>` normalises to
+`('adrp','x0'), ('add','x0')` whatever the addresses are. The shape is compared,
+never the target. So relocating `main` by `0x669020` **cannot** affect whether
+those bodies match, and no linker script is needed. Both files are kept only so
+the negative result is not rediscovered from scratch — wiring that script in
+would be a large, risky change for nothing.
 
 ## The honest ceiling
 
@@ -144,6 +195,19 @@ over the whole population rather than a sample:
 - a shared `struct pair16_` tag colliding in-batch, failing 7 of 7 candidates
 - **`access_width` ignoring register class** — `mov w0, wzr` modelled as
   `mov x0, xzr`; reproduced independently in three separate copies of the helper
+- **a hex-only immediate regex** — `#(0x[0-9a-f]+)$` rejected 20 of 78 sdk
+  bodies because LLVM had printed the high half as decimal `#4`. It prints
+  whichever base is shortest, so both spellings occur in one corpus. Use the
+  existing `parse_imm`.
+- **a generator registered with no route to it** — `const-ret` was added and
+  worked, but `shape_of` returned `"mov_ret"` for the 2-insn form and had no rule
+  at all for the 3-insn one, so it was offered zero candidates and reported
+  nothing at all. Registering a generator and routing to it are two separate
+  steps; check both.
+- **`gen_strlit_ret` gating on a readable string** when `normalise` never
+  compares the target — the same bug as `gen_strlit_flag_ret`, worth +100. A
+  generator's precondition has to be justified by what the *comparison* checks,
+  not by what would be nice to recover.
 
 ## Traps — these have each cost real time
 

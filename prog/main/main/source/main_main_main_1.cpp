@@ -455,7 +455,7 @@ void sub_194520() { /* 0x194520 */ }
 void GuBounds_2() { /* 0x194760 */ }
 void sub_195060() { /* 0x195060 */ }
 void sub_195b60() { /* 0x195b60 */ }
-void sub_195d60() { /* 0x195d60 */ }
+// sub_195d60: implemented in prog/matched/main/
 void sub_195d70() { /* 0x195d70 */ }
 void sub_195e80() { /* 0x195e80 */ }
 void sub_1963b0() { /* 0x1963b0 */ }

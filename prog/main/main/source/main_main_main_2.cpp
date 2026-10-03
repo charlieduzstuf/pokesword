@@ -3408,7 +3408,7 @@ void sub_3c2200() { /* 0x3c2200 */ }
 void sub_3c22b0() { /* 0x3c22b0 */ }
 void sub_3c22f0() { /* 0x3c22f0 */ }
 void sub_3c2330() { /* 0x3c2330 */ }
-void sub_3c23a0() { /* 0x3c23a0 */ }
+// sub_3c23a0: implemented in prog/matched/main/
 void sub_3c23b0() { /* 0x3c23b0 */ }
 void sub_3c23f0() { /* 0x3c23f0 */ }
 void sub_3c2490() { /* 0x3c2490 */ }

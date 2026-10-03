@@ -182,8 +182,30 @@ namespace main { void sub_c6a2d0(); }
 namespace main { void sub_c6a470(); }
 namespace main { void sub_cea850(); }
 namespace main { void sub_cff640(); }
-namespace main { void sub_d03c40(); }
-namespace main { void sub_d100d0(); }
+
+// sub_ae6d50  (orig 0xae6d50, tailcall)
+void main_f_ae6d50() { main::sub_ce0(); }
+
+// sub_ae6dc0  (orig 0xae6dc0, ret_only)
+void main_f_ae6dc0() {}
+
+// sub_ae6dd0  (orig 0xae6dd0, tailcall)
+void main_f_ae6dd0() { main::sub_ce0(); }
+
+// sub_ae6df0  (orig 0xae6df0, tailcall)
+void main_f_ae6df0() { main::sub_ce0(); }
+
+// sub_ae6e60  (orig 0xae6e60, ret_only)
+void main_f_ae6e60() {}
+
+// sub_ae6e70  (orig 0xae6e70, tailcall)
+void main_f_ae6e70() { main::sub_ce0(); }
+
+// sub_ae6e90  (orig 0xae6e90, tailcall)
+void main_f_ae6e90() { main::sub_ce0(); }
+
+// sub_ae6f00  (orig 0xae6f00, ret_only)
+void main_f_ae6f00() {}
 
 // sub_ae6f10  (orig 0xae6f10, tailcall)
 void main_f_ae6f10() { main::sub_ce0(); }
@@ -1612,6 +1634,12 @@ void main_f_b58130() { main::sub_ead240(); }
 // sub_b58150  (orig 0xb58150, tailcall)
 void main_f_b58150() { main::sub_ead240(); }
 
+// sub_b58170  (orig 0xb58170, strlit-ret)
+const char *main_f_b58170() { static char g_f_b58170[1]; __asm__ volatile("" ::: "memory"); return g_f_b58170; }
+
+// sub_b58460  (orig 0xb58460, strlit-ret)
+const char *main_f_b58460() { static char g_f_b58460[1]; __asm__ volatile("" ::: "memory"); return g_f_b58460; }
+
 // sub_b5af10  (orig 0xb5af10, ret_only)
 void main_f_b5af10() {}
 
@@ -1819,6 +1847,12 @@ void main_f_b6fb60(void* a0, void* a1) { *(uint64_t*)((char*)(a0) + 8) = *(uint6
 // sub_b70ea0  (orig 0xb70ea0, ret_only)
 void main_f_b70ea0() {}
 
+// sub_b744c0  (orig 0xb744c0, strlit-ret)
+const char *main_f_b744c0() { static char g_f_b744c0[1]; __asm__ volatile("" ::: "memory"); return g_f_b744c0; }
+
+// sub_b74840  (orig 0xb74840, strlit-ret)
+const char *main_f_b74840() { static char g_f_b74840[1]; __asm__ volatile("" ::: "memory"); return g_f_b74840; }
+
 // sub_b75610  (orig 0xb75610, tailcall)
 void main_f_b75610() { main::sub_b75450(); }
 
@@ -1914,6 +1948,12 @@ void main_f_b81210(void* a0) { *(uint32_t*)((char*)(a0) + 120) = 0; }
 
 // sub_b830e0  (orig 0xb830e0, tailcall)
 void main_f_b830e0() { main::sub_b82fb0(); }
+
+// sub_b839f0  (orig 0xb839f0, strlit-ret)
+const char *main_f_b839f0() { static char g_f_b839f0[1]; __asm__ volatile("" ::: "memory"); return g_f_b839f0; }
+
+// sub_b83d50  (orig 0xb83d50, strlit-ret)
+const char *main_f_b83d50() { static char g_f_b83d50[1]; __asm__ volatile("" ::: "memory"); return g_f_b83d50; }
 
 // sub_b843a0  (orig 0xb843a0, tailcall)
 void main_f_b843a0() { main::sub_b49230(); }
@@ -6200,46 +6240,4 @@ void main_f_c8ae60() { main::sub_cff640(); }
 
 // sub_c8ae70  (orig 0xc8ae70, tailcall)
 void main_f_c8ae70() { main::sub_cff640(); }
-
-// sub_c8b570  (orig 0xc8b570, tailcall)
-void main_f_c8b570() { main::sub_978cf0(); }
-
-// sub_c8bb90  (orig 0xc8bb90, tailcall)
-uint32_t main_f_c8bb90() { return main_f_c628c0(); }
-
-// sub_c8bcf0  (orig 0xc8bcf0, tailcall)
-void main_f_c8bcf0() { main::sub_c629e0(); }
-
-// sub_c8bd00  (orig 0xc8bd00, tailcall)
-void main_f_c8bd00() { main::sub_c62c30(); }
-
-// sub_c8be30  (orig 0xc8be30, tailcall)
-void main_f_c8be30() { main::sub_978cf0(); }
-
-// sub_c8c590  (orig 0xc8c590, tailcall)
-void main_f_c8c590() { main::sub_978cf0(); }
-
-// sub_c8c610  (orig 0xc8c610, mov_ret)
-uint32_t main_f_c8c610() { return 0; }
-
-// sub_c8d280  (orig 0xc8d280, tailcall)
-void main_f_c8d280() { main::sub_c69450(); }
-
-// sub_c8d290  (orig 0xc8d290, tailcall)
-void main_f_c8d290() { main::sub_d03c40(); }
-
-// sub_c8d2c0  (orig 0xc8d2c0, tailcall)
-void main_f_c8d2c0() { main::sub_d03c40(); }
-
-// sub_c8d2d0  (orig 0xc8d2d0, tailcall)
-void main_f_c8d2d0() { main::sub_d03c40(); }
-
-// sub_c8e920  (orig 0xc8e920, tailcall)
-void main_f_c8e920() { main::sub_c69450(); }
-
-// sub_c8e930  (orig 0xc8e930, tailcall)
-void main_f_c8e930() { main::sub_d100d0(); }
-
-// sub_c8e960  (orig 0xc8e960, tailcall)
-void main_f_c8e960() { main::sub_d100d0(); }
 

@@ -3054,7 +3054,7 @@ void sub_ce0250() { /* 0xce0250 */ }
 void sub_ce0270() { /* 0xce0270 */ }
 void sub_ce02a0() { /* 0xce02a0 */ }
 void sub_ce02c0() { /* 0xce02c0 */ }
-void sub_ce02f0() { /* 0xce02f0 */ }
+// sub_ce02f0: implemented in prog/matched/main/
 void sub_ce0300() { /* 0xce0300 */ }
 void sub_ce0400() { /* 0xce0400 */ }
 void sub_ce0440() { /* 0xce0440 */ }

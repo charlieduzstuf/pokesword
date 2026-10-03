@@ -1991,7 +1991,7 @@ void sub_d2170() { /* 0xd2170 */ }
 void sub_d21f0() { /* 0xd21f0 */ }
 void sub_d2580() { /* 0xd2580 */ }
 void unknown_error_subsdk0_d25f0() { /* 0xd25f0 */ }
-void libopus_unknown_fixed_subsdk0_d2620() { /* 0xd2620 */ }
+// libopus_unknown_fixed_subsdk0_d2620: implemented in prog/matched/subsdk0/
 void sub_d2630_subsdk0_d2630() { /* 0xd2630 */ }
 void sub_d2680() { /* 0xd2680 */ }
 void wmW() { /* 0xd2760 */ }

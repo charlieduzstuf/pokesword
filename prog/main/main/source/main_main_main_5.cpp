@@ -2127,7 +2127,7 @@ void sub_6a0b80() { /* 0x6a0b80 */ }
 void sub_6a0cb0() { /* 0x6a0cb0 */ }
 void sub_6a0d40() { /* 0x6a0d40 */ }
 void sub_6a0d50() { /* 0x6a0d50 */ }
-void sub_6a0d90() { /* 0x6a0d90 */ }
+// sub_6a0d90: implemented in prog/matched/main/
 void sub_6a0da0() { /* 0x6a0da0 */ }
 void sub_6a0e50() { /* 0x6a0e50 */ }
 void sub_6a0e70() { /* 0x6a0e70 */ }

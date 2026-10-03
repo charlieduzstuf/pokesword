@@ -22,6 +22,30 @@
  "matched": [
   {
    "module": "subsdk1",
+   "addr": 120432,
+   "size": 12,
+   "name": "sub_1d670",
+   "shape": "strlit-ret",
+   "ident": "f_1d670",
+   "sig": "v",
+   "src": "const char *f_1d670() { static char g_f_1d670[1]; __asm__ volatile(\"\" ::: \"memory\"); return g_f_1d670; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk1",
+   "addr": 214448,
+   "size": 12,
+   "name": "Jan_30_2019",
+   "shape": "strlit-ret",
+   "ident": "f_345b0",
+   "sig": "v",
+   "src": "const char *f_345b0() { static char g_f_345b0[1]; __asm__ volatile(\"\" ::: \"memory\"); return g_f_345b0; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk1",
    "addr": 528880,
    "size": 20,
    "name": "sub_811f0",

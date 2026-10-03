@@ -939,7 +939,7 @@ void sub_299090() { /* 0x299090 */ }
 void sub_2990c0() { /* 0x2990c0 */ }
 void sub_2990d0() { /* 0x2990d0 */ }
 void ZN2nn8irsensor6detail28GetTeraPluginProcessorStatesEPNS0() { /* 0x2991b0 */ }
-void sub_2991d0() { /* 0x2991d0 */ }
+// sub_2991d0: implemented in prog/matched/sdk/
 // sub_2991e0: implemented in prog/matched/sdk/
 void sub_2991f0() { /* 0x2991f0 */ }
 void sub_299270() { /* 0x299270 */ }
@@ -1024,9 +1024,9 @@ void sub_29c990() { /* 0x29c990 */ }
 void sub_29c9b0() { /* 0x29c9b0 */ }
 void sub_29ca40() { /* 0x29ca40 */ }
 void sub_29ca60() { /* 0x29ca60 */ }
-void sub_29ca70() { /* 0x29ca70 */ }
-void sub_29ca80_sdk_29ca80() { /* 0x29ca80 */ }
-void sub_29ca90() { /* 0x29ca90 */ }
+// sub_29ca70: implemented in prog/matched/sdk/
+// sub_29ca80_sdk_29ca80: implemented in prog/matched/sdk/
+// sub_29ca90: implemented in prog/matched/sdk/
 void sub_29caa0() { /* 0x29caa0 */ }
 void sub_29cac0() { /* 0x29cac0 */ }
 void sub_29cae0() { /* 0x29cae0 */ }
@@ -1678,8 +1678,8 @@ void sub_2bdbc0() { /* 0x2bdbc0 */ }
 void sub_2bdc20() { /* 0x2bdc20 */ }
 void sub_2bdcb0() { /* 0x2bdcb0 */ }
 void sub_2bdea0() { /* 0x2bdea0 */ }
-void sub_2bdee0() { /* 0x2bdee0 */ }
-void sub_2bdef0_sdk_2bdef0() { /* 0x2bdef0 */ }
+// sub_2bdee0: implemented in prog/matched/sdk/
+// sub_2bdef0_sdk_2bdef0: implemented in prog/matched/sdk/
 void sub_2bdf00() { /* 0x2bdf00 */ }
 // sub_2bdf50: implemented in prog/matched/sdk/
 void sub_2bdf60() { /* 0x2bdf60 */ }
@@ -3167,7 +3167,7 @@ void sub_2ff190_sdk_2ff190() { /* 0x2ff190 */ }
 // sub_2ff1d0: implemented in prog/matched/sdk/
 // sub_2ff1e0: implemented in prog/matched/sdk/
 void sub_2ff1f0() { /* 0x2ff1f0 */ }
-void sub_2ff390_sdk_2ff390() { /* 0x2ff390 */ }
+// sub_2ff390_sdk_2ff390: implemented in prog/matched/sdk/
 void sub_2ff3a0() { /* 0x2ff3a0 */ }
 void sub_2ff3c0_sdk_2ff3c0() { /* 0x2ff3c0 */ }
 void sub_2ff450() { /* 0x2ff450 */ }
@@ -3826,7 +3826,7 @@ void sub_31b890() { /* 0x31b890 */ }
 void sub_31b8e0() { /* 0x31b8e0 */ }
 void sub_31b920_sdk_31b920() { /* 0x31b920 */ }
 void sub_31b960() { /* 0x31b960 */ }
-void sub_31b9a0() { /* 0x31b9a0 */ }
+// sub_31b9a0: implemented in prog/matched/sdk/
 void sub_31b9b0() { /* 0x31b9b0 */ }
 void sub_31b9e0() { /* 0x31b9e0 */ }
 void sub_31ba10() { /* 0x31ba10 */ }

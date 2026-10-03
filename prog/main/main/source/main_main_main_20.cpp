@@ -3504,7 +3504,7 @@ void sub_13a3400() { /* 0x13a3400 */ }
 // sub_13a3490: implemented in prog/matched/main/
 // sub_13a34a0: implemented in prog/matched/main/
 void sub_13a34b0() { /* 0x13a34b0 */ }
-void sub_13a3530() { /* 0x13a3530 */ }
+// sub_13a3530: implemented in prog/matched/main/
 void sub_13a3540() { /* 0x13a3540 */ }
 void sub_13a35d0() { /* 0x13a35d0 */ }
 void sub_13a39a0() { /* 0x13a39a0 */ }
@@ -3717,7 +3717,7 @@ void sub_13ac340() { /* 0x13ac340 */ }
 // sub_13ac460: implemented in prog/matched/main/
 // sub_13ac470: implemented in prog/matched/main/
 // sub_13ac480: implemented in prog/matched/main/
-void sub_13ac490() { /* 0x13ac490 */ }
+// sub_13ac490: implemented in prog/matched/main/
 void sub_13ac4a0() { /* 0x13ac4a0 */ }
 void sub_13ac500() { /* 0x13ac500 */ }
 void sub_13ac520() { /* 0x13ac520 */ }

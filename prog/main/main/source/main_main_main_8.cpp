@@ -2997,7 +2997,7 @@ void sub_8ed6c0() { /* 0x8ed6c0 */ }
 void sub_8ed7b0() { /* 0x8ed7b0 */ }
 void sub_8edb20() { /* 0x8edb20 */ }
 void sub_8edc30() { /* 0x8edc30 */ }
-void sub_8edd80() { /* 0x8edd80 */ }
+// sub_8edd80: implemented in prog/matched/main/
 // sub_8edd90: implemented in prog/matched/main/
 void sub_8edda0() { /* 0x8edda0 */ }
 void L_HP_boss_00() { /* 0x8edfb0 */ }

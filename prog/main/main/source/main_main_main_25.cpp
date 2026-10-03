@@ -253,7 +253,7 @@ void sub_172c930() { /* 0x172c930 */ }
 // sub_172ca30: implemented in prog/matched/main/
 void sub_172ca40() { /* 0x172ca40 */ }
 // sub_172ca60: implemented in prog/matched/main/
-void sub_172ca70() { /* 0x172ca70 */ }
+// sub_172ca70: implemented in prog/matched/main/
 void sub_172ca80() { /* 0x172ca80 */ }
 void sub_172caa0() { /* 0x172caa0 */ }
 void sub_172cc30() { /* 0x172cc30 */ }

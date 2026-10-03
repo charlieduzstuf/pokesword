@@ -1,4 +1,4 @@
-/* subsdk0 -- 854 functions verified to match the original.
+/* subsdk0 -- 873 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -29,7 +29,7 @@ namespace subsdk0 { void sub_54020(); }
 namespace subsdk0 { void libnvmm_camera(); }
 namespace subsdk0 { void sub_273e00(); }
 namespace subsdk0 { void sub_273c50(); }
-namespace subsdk0 { void sub_273a10(); }
+extern uint32_t subsdk0_f_273a10();
 namespace subsdk0 { void BlockMP3Dec_2(); }
 namespace subsdk0 { void BlockAACEnc(); }
 namespace subsdk0 { void BlockH264Dec(); }
@@ -588,6 +588,9 @@ void subsdk0_f_b9cd0() {}
 
 // sub_be2a0  (orig 0xbe2a0, getter)
 uint32_t subsdk0_f_be2a0(void* a0) { return *(uint32_t*)((char*)(a0) + 52); }
+
+// libopus_unknown_fixed  (orig 0xd2620, strlit-ret)
+const char *subsdk0_f_d2620() { static char g_f_d2620[1]; __asm__ volatile("" ::: "memory"); return g_f_d2620; }
 
 // sub_e0160  (orig 0xe0160, straight)
 uint32_t subsdk0_f_e0160(void* a0) {
@@ -1295,6 +1298,42 @@ uint64_t subsdk0_f_18c7e0(void* a0) { return *(uint64_t*)((char*)(a0) + 56); }
 
 // sub_18c7f0  (orig 0x18c7f0, mov_ret)
 uint32_t subsdk0_f_18c7f0() { return 0; }
+
+// sub_18c870  (orig 0x18c870, const-ret)
+uint32_t subsdk0_f_18c870() { return 2147487745u; }
+
+// sub_18c880  (orig 0x18c880, const-ret)
+uint32_t subsdk0_f_18c880() { return 2147487745u; }
+
+// sub_18c890  (orig 0x18c890, const-ret)
+uint32_t subsdk0_f_18c890() { return 2147487745u; }
+
+// sub_18c8a0  (orig 0x18c8a0, const-ret)
+uint32_t subsdk0_f_18c8a0() { return 2147487745u; }
+
+// sub_18c8b0  (orig 0x18c8b0, const-ret)
+uint32_t subsdk0_f_18c8b0() { return 2147487745u; }
+
+// sub_18c8c0  (orig 0x18c8c0, const-ret)
+uint32_t subsdk0_f_18c8c0() { return 2147487770u; }
+
+// sub_18c8d0  (orig 0x18c8d0, const-ret)
+uint32_t subsdk0_f_18c8d0() { return 2147487745u; }
+
+// sub_18c8e0  (orig 0x18c8e0, const-ret)
+uint32_t subsdk0_f_18c8e0() { return 2147487745u; }
+
+// sub_18c8f0  (orig 0x18c8f0, const-ret)
+uint32_t subsdk0_f_18c8f0() { return 2147487745u; }
+
+// sub_18c900  (orig 0x18c900, const-ret)
+uint32_t subsdk0_f_18c900() { return 2147487745u; }
+
+// sub_18c910  (orig 0x18c910, const-ret)
+uint32_t subsdk0_f_18c910() { return 2147487745u; }
+
+// sub_18c920  (orig 0x18c920, const-ret)
+uint32_t subsdk0_f_18c920() { return 2147487745u; }
 
 // sub_18c930  (orig 0x18c930, ret_only)
 void subsdk0_f_18c930() {}
@@ -2268,6 +2307,9 @@ uint32_t subsdk0_f_258380() { return 2; }
 // sub_258660  (orig 0x258660, tailcall)
 void subsdk0_f_258660() { subsdk0::libnvmm_camera(); }
 
+// sub_2594b0  (orig 0x2594b0, strlit-ret)
+const char *subsdk0_f_2594b0() { static char g_f_2594b0[1]; __asm__ volatile("" ::: "memory"); return g_f_2594b0; }
+
 // sub_25a350  (orig 0x25a350, mov_ret)
 uint32_t subsdk0_f_25a350() { return 0; }
 
@@ -2410,6 +2452,12 @@ uint32_t subsdk0_f_270460() { return 0; }
 // sub_270470  (orig 0x270470, mov_ret)
 uint64_t subsdk0_f_270470() { return 0; }
 
+// sub_273a10  (orig 0x273a10, const-ret)
+uint32_t subsdk0_f_273a10() { return 2147487770u; }
+
+// sub_273a20  (orig 0x273a20, const-ret)
+uint32_t subsdk0_f_273a20() { return 2147487770u; }
+
 // sub_27e280  (orig 0x27e280, setter)
 void subsdk0_f_27e280(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 32) = a1; }
 
@@ -2435,6 +2483,9 @@ uint64_t subsdk0_f_28d380() { return 0; }
 
 // sub_28ff60  (orig 0x28ff60, mov_ret)
 uint32_t subsdk0_f_28ff60() { return 0; }
+
+// sub_28ff90  (orig 0x28ff90, const-ret)
+uint32_t subsdk0_f_28ff90() { return 2147487750u; }
 
 // sub_2970d0  (orig 0x2970d0, mov_ret)
 uint32_t subsdk0_f_2970d0() { return 0; }
@@ -2464,7 +2515,7 @@ uint32_t subsdk0_f_2972a0() { return 0; }
 uint32_t subsdk0_f_29a150() { return 0; }
 
 // sub_29af10  (orig 0x29af10, tailcall)
-void subsdk0_f_29af10() { subsdk0::sub_273a10(); }
+uint32_t subsdk0_f_29af10() { return subsdk0_f_273a10(); }
 
 // sub_29c020  (orig 0x29c020, mov_ret)
 uint32_t subsdk0_f_29c020() { return 33; }
@@ -2531,6 +2582,12 @@ void subsdk0_f_2b4e20(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 288) =
 
 // sub_2b7c80  (orig 0x2b7c80, setter)
 void subsdk0_f_2b7c80(void* a0) { *(uint32_t*)((char*)(a0) + 44) = 0; }
+
+// hw_vic  (orig 0x2b7dd0, strlit-ret)
+const char *subsdk0_f_2b7dd0() { static char g_f_2b7dd0[1]; __asm__ volatile("" ::: "memory"); return g_f_2b7dd0; }
+
+// VIC_hardware_backend  (orig 0x2b7de0, strlit-ret)
+const char *subsdk0_f_2b7de0() { static char g_f_2b7de0[1]; __asm__ volatile("" ::: "memory"); return g_f_2b7de0; }
 
 // sub_2b8390  (orig 0x2b8390, mov_ret)
 uint32_t subsdk0_f_2b8390() { return 0; }

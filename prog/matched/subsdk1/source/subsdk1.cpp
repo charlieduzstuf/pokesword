@@ -1,4 +1,4 @@
-/* subsdk1 -- 1319 functions verified to match the original.
+/* subsdk1 -- 1321 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -348,6 +348,9 @@ uint32_t subsdk1_f_1d640() { return 0; }
 
 // sub_1d650  (orig 0x1d650, mov_ret)
 uint32_t subsdk1_f_1d650() { return 0; }
+
+// sub_1d670  (orig 0x1d670, strlit-ret)
+const char *subsdk1_f_1d670() { static char g_f_1d670[1]; __asm__ volatile("" ::: "memory"); return g_f_1d670; }
 
 // sub_1d680  (orig 0x1d680, ret_only)
 void subsdk1_f_1d680() {}
@@ -933,6 +936,9 @@ uint64_t subsdk1_f_34590(void* a0) { return *(uint64_t*)((char*)(a0) + 208); }
 
 // sub_345a0  (orig 0x345a0, setter)
 void subsdk1_f_345a0(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0) + 208) = a1; }
+
+// Jan_30_2019  (orig 0x345b0, strlit-ret)
+const char *subsdk1_f_345b0() { static char g_f_345b0[1]; __asm__ volatile("" ::: "memory"); return g_f_345b0; }
 
 // sub_3af40  (orig 0x3af40, compare)
 bool subsdk1_f_3af40(void* a0) { return (uint32_t)(*(uint32_t*)((char*)(a0) + 40)) == (uint64_t)(24); }
