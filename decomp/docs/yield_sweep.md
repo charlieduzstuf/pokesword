@@ -119,9 +119,38 @@ Ranked by return per unit of work, the sensible order is:
 2. **`mov` register-to-register (9)** — trivial alias, the state machine already
    tracks registers.
 3. **`and`/`sub`/`orr` (99 combined)** — the mask idioms, and by far the largest
-   single item left here. These need a new state form carrying a bitwise
-   operation rather than a load or an immediate, so it is real work, but the
-   arithmetic is fully visible in the operands. **Start here.**
+   single item left here. **Attempted and abandoned; read this before trying
+   again.**
+
+   The prefix loop can record these as a third state form — that part is easy and
+   was verified not to regress anything. Two things then go wrong, and both are
+   structural rather than clerical:
+
+   - **The consumer needs the same three-way branch `classify()` has.** It does
+     `state[side[1]]` directly; a rendered `("expr", text, ctype)` tuple made it
+     raise `KeyError: '(a0 & 4294967294u)'`. That aborted the entire run rather
+     than declining one body, because `collect()` does not catch exceptions from
+     a generator — one bad body kills the batch.
+   - **In-place refinement recurses forever.** The dominant form is
+     `and w8, w8, #imm` — the same register on both sides. Resolving the source
+     operand through `classify()` re-enters on the same register and hits
+     `RecursionError`. Worse, the *correct* value is gone: the prefix loop has
+     already overwritten `state[w8]` with the bitop entry, so the pre-mask value
+     can no longer be read.
+
+   So the fix is not "render the expression recursively". The prefix loop must
+   **capture the previous state entry before overwriting it**, and the bitop
+   tuple must carry that captured entry rather than a register name to be
+   re-resolved. Concretely: when `wreg(src) == wreg(dst)`, store
+   `("bitop", mnem, prev_entry, imm, ctype)` where `prev_entry` is the *old*
+   `state[dst]`; otherwise store the source register name as now. `classify()`
+   then renders from `prev_entry` directly, with no recursion.
+
+   Do not skip the "declining safely" guard from `b6a1dd8`. Returning a bitop
+   tuple as a plain `("state", r, ...)` reference unpacks downstream in the shape
+   of a `("load", ...)` entry — a 5-element tuple unpacks **without error** into
+   the wrong variables and emits C that compiles but is wrong. That failure would
+   look like progress in the batch harness.
 4. **`cmp` as a prefix opcode (48)** — a compound condition
    (`a && b`), which is a different body shape and probably wants its own
    generator rather than an extension to this one.
