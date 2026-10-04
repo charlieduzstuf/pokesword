@@ -151,6 +151,44 @@ Ranked by return per unit of work, the sensible order is:
    of a `("load", ...)` entry — a 5-element tuple unpacks **without error** into
    the wrong variables and emits C that compiles but is wrong. That failure would
    look like progress in the batch harness.
+
+   ### A second full attempt failed, and the chain is the finding
+
+   The five obstacles below were each fixed in turn; each fix exposed the next.
+   Recording all five because the pattern is the lesson: this is not a rendering
+   bug, it is a **parameter-typing** problem, and it needs a different approach
+   rather than another patch.
+
+   | # | symptom | cause |
+   |---|---|---|
+   | 1 | `RecursionError` | `and w8, w8, #imm` re-enters `classify()` on `w8`, and the pre-mask value was already overwritten in `state` |
+   | 2 | `KeyError: '(a0 & 4294967294u)'` | `operand()` does `state[side[1]]` with the *expression string* as key; no `expr` branch. `collect()` does not catch generator exceptions, so one body kills the whole batch |
+   | 3 | `arithmetic on a void pointer` | the masked register is a pointer elsewhere in the body; one parameter cannot be both `void *` and an integer |
+   | 4 | `arithmetic on a pointer to void` | the load was rendered as `(*(T *)(a0 + 4))` — `a0 + 4` on a `void *` is a pointer, not an integer; the existing code casts via `ptr_expr` |
+   | 5 | same error persists | `ptr_expr("x0", exprs, 0)` yields `a0 + 0`; the cast is not applied on this path |
+
+   **The root problem is obstacle 3**, and 4 and 5 are symptoms of working around
+   it. Clang reuses one register for two roles — a pointer base for one load and
+   a 32-bit integer for the mask — while this generator emits exactly one
+   parameter per register. There is no single C declaration that is both `void *`
+   and an integer, and casting down to the mask width would truncate and make
+   Clang emit different code than the original's 32-bit `and`.
+
+   So the fix is **not** another patch. It is a decision about how dual-role
+   registers are declared, for example:
+
+   - declare pointer-role parameters as `uintptr_t` and cast at the load site, so
+     one parameter serves both roles — this changes the mangled signature and
+     must be measured against the original symbol, or
+   - emit the mask operand against a *separate* parameter, accepting that the
+     register-to-parameter mapping stops being one-to-one, or
+   - drop bodies where the masked register is also a pointer base, and accept
+     whatever subset remains.
+
+   Each of those is a change to the parameter model, which affects **every**
+   generator in the file, not just `compare`. That is why this is parked rather
+   than pushed: it needs the same whole-population re-verification discipline as
+   the tail-call fix, and a clean revert is worth more than a partial patch.
 4. **`cmp` as a prefix opcode (48)** — a compound condition
    (`a && b`), which is a different body shape and probably wants its own
    generator rather than an extension to this one.
