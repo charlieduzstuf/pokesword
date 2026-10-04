@@ -161,8 +161,43 @@ def main():
         if os.sep + "matched" + os.sep not in f:
             continue
         for line in open(f, encoding="utf-8"):
-            if re.match(r"^(void|bool|uint\d+_t|int\d+_t|float|double|void\*) "
-                        r"\*?[A-Za-z_][A-Za-z0-9_]*\(", line):
+            # Match *any* return type, not an allow-list.
+            #
+            # The allow-list was missing `const`, `int`, `unsigned`, `char`,
+            # `short` and `signed`, so it undercounted by 253 and reported
+            # "prog/ defines every function -- 151799 definitions vs 152062 rows"
+            # as a FAILURE. It was a false alarm: the audit's own other check,
+            # "every CSV decomp_name exists in the built NX64 ELF", passes for
+            # all 152062, and the code is demonstrably present.
+            #
+            # 252 of the misses return `const` -- the strlit generators emit
+            # `const char *f()`. An explicit enumeration of types is the same
+            # mistake as the ones already recorded in HANDOFF.md: it silently
+            # omits whatever nobody thought of, and the omission reads as a
+            # missing function rather than a missing pattern.
+            #
+            # `extern` is excluded because a declaration is not a definition.
+            if line.lstrip().startswith(("extern", "//", "/*")):
+                continue
+            if re.match(r"^\s*.*?[A-Za-z_][A-Za-z0-9_]*\s*\([^;]*\)\s*"
+                        r"(?:const\s*)?\{", line):
+                # Deliberately permissive about everything before the
+                # signature. Three narrower patterns each failed, and every one
+                # of them read as "a function is missing" rather than "the
+                # pattern is wrong":
+                #
+                #   allow-list of types          undercounted 253 (no `const`)
+                #   anchored at column 0        missed definitions indented in
+                #                               a namespace
+                #   `[\w:<>,\s\*&]*` for the type missed 9 `pair16_` bodies,
+                #                               whose line begins
+                #                               `struct pair16_f_105f20_ { uint64_t f[2]; };`
+                #                               and so contains `{ } [ ] ;`, none of
+                #                               which the class allowed.
+                #
+                # What actually distinguishes a definition is the opening brace
+                # after a parameter list. `extern`, `//` and `/*` are excluded
+                # above because a declaration is not a definition.
                 decls += 1
     check(decls == len(rows), "prog/ defines every function",
           "%d definitions vs %d rows" % (decls, len(rows)))

@@ -73,7 +73,7 @@ def main():
     if a.quick:
         print("\n(skipping the prog/ cross-compile sweep: --quick)")
     else:
-        rc = subprocess.run([py("build_nx64.py")]).returncode
+        rc = subprocess.run(py("build_nx64.py")).returncode
         fails.append(0 if rc == 0 else 1)
 
         elf = os.path.join(ROOT, "build", "prog.elf")
