@@ -2829,7 +2829,24 @@ def main():
             carried = [r for r in prior
                        if r.get("addr") is not None and r["addr"] not in fresh]
 
-        merged = ([{k: r[k] for k in keep if k in r} for r in matched]
+        # `carried` filters prior-vs-fresh, but nothing filtered fresh-vs-fresh:
+        # if two shapes matched the same address in one run, both were appended.
+        # `decomp_project.load_matched` and `sl_register.already` each read the
+        # registry into a dict keyed by address, so a duplicate gets collapsed
+        # silently downstream instead of reported -- which is how two
+        # byte-identical duplicate records survived unnoticed until
+        # `tools/audit.py` compared the raw lists. Keep the first, so the
+        # earliest shape to claim an address still wins.
+        deduped, seen_a = [], set()
+        for r in matched:
+            if r["addr"] in seen_a:
+                print("  dedupe: %s %#x matched twice in one run"
+                      % (r.get("shape"), r["addr"]))
+                continue
+            seen_a.add(r["addr"])
+            deduped.append(r)
+
+        merged = ([{k: r[k] for k in keep if k in r} for r in deduped]
                   + carried)
         with open(a.report, "w", encoding="utf-8") as f:
             json.dump({"module": a.module,

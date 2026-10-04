@@ -51,6 +51,18 @@ jobs:
           python tools/objdiff_report.py --out build/report.json
           ls -l build/report.json
 
+      # Gate on duplicate registry records.
+      #
+      # Two identical `straight-line` records for `main` 0x540950 and 0x718f00
+      # survived because every consumer reads data/matched_*.json into a dict
+      # keyed by address, so a duplicate is silently collapsed and every derived
+      # count looks right. Only comparing the raw lists finds them. Report-only,
+      # exits 1 when dirty; `--apply` would rewrite the registry, which is not
+      # something CI should do to the checkout.
+      - name: Check registry has no duplicate addresses
+        run: |
+          python tools/dedupe_registry.py
+
       # A status table in the README that disagrees with the tool is worse than
       # no table: it is a number nobody checked. Fail rather than let it rot.
       - name: Check README status block is current

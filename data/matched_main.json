@@ -269658,30 +269658,6 @@
    "src": "void* f_718f00(uint64_t unused0, uint64_t unused1, void* a2) { return (char*)(a2) + 1; }\n",
    "orig_insns": 2,
    "new_insns": 2
-  },
-  {
-   "module": "main",
-   "addr": 5507408,
-   "size": 8,
-   "name": "sub_540950",
-   "shape": "straight-line",
-   "ident": "f_540950",
-   "sig": "mPv",
-   "src": "void* f_540950(uint64_t unused0, void* a1) { return (char*)(a1) + 216; }\n",
-   "orig_insns": 2,
-   "new_insns": 2
-  },
-  {
-   "module": "main",
-   "addr": 7442176,
-   "size": 8,
-   "name": "sub_718f00",
-   "shape": "straight-line",
-   "ident": "f_718f00",
-   "sig": "mmPv",
-   "src": "void* f_718f00(uint64_t unused0, uint64_t unused1, void* a2) { return (char*)(a2) + 1; }\n",
-   "orig_insns": 2,
-   "new_insns": 2
   }
  ]
 }

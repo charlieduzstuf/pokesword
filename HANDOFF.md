@@ -161,11 +161,16 @@ all (the tailcall round reported +9,083 and delivered zero).
   verified body. `decomp_project.py --all` regenerates `prog/` from them.
 - Generated sources: `prog/matched/<module>/source/*.cpp`
 - Hand-written bodies register only via `tools/add_handwritten.py` (verify-gated)
+- Keep-alive ping: `python tools\keepalive.py --loop --interval 60 --fast`
+  — **use `--loop`**. Plain `--sleep` only delays a *single* tick and then exits
+  (its help said "for chained relaunch", and nothing relaunches it), which is why
+  the ping used to go silent between turns.
 
 ## Docs, in the order worth reading
 
 | file | what it settles |
 |---|---|
+| `decomp/docs/straight_line.md` | the generic fallback: 84 candidates, 0 matches, and why the "42 of 84" figure was wrong |
 | `decomp/docs/remaining.md` | **what is left and what blocks it** — read this next |
 | `decomp/docs/yield_sweep.md` | **which registered generators are dead** — measured, per shape |
 | `decomp/docs/struct_copy.md` | the 374 `struct-copy` bodies: two families, real disassembly, and the open question about whether either is reachable from C |
@@ -265,7 +270,29 @@ over the whole population rather than a sample:
   types. And a function with *no parameters* mangles with a trailing `v`, so the
   signature is `"v"`, not `""`. Getting this wrong reports
   `symbol not found / no code`, which reads as a broken shape rather than a
-  mis-signature. Three instances.
+  mis-signature. **Four instances** — the fourth was
+  `StraightLine._emit` in `tools/straight_line.py`, which hardcoded `"v"` only on
+  the void path, so a no-argument function that *returns* a value got `sig == ""`
+  and a malformed lookup key. It surfaced as exactly 7 of 84 bodies in
+  `sl_verify` reported as `no-code-emitted`, which blamed the emitter when the
+  emitter was fine. Fixed with `if not codes: codes.append("v")`.
+- **A duplicate cannot be found by counting what a dict already collapsed.**
+  `auto_match` and `sl_register` both read `data/matched_*.json` into a
+  `dict` keyed by address, so duplicate records are silently merged and every
+  consumer sees the right answer. Two identical `straight-line` records survived
+  that way — `main` 0x540950 and 0x718f00 — until `tools/audit.py` counted the
+  *raw lists*. Read the raw JSON to look for duplicates.
+- **A check that cannot fail is worse than no check.** The first version of the
+  duplicate check iterated `reported` (a dict) and so reported 0 duplicates while
+  2 existed. It had to be rewritten against the raw JSON. When a check passes
+  immediately on a corpus you know is dirty, suspect the check.
+- **Filters read at the start of a run, writes at the end, are a duplicate
+  generator.** `sl_register` filtered candidates against a snapshot read when the
+  run began but wrote against the file re-read at the end, so anything written in
+  between was invisible to the filter and visible to the writer. Both writers now
+  re-check at write time; `tools/dedupe_registry.py` cleans up and refuses to
+  drop records that disagree.
+
 - **A compile error and an instruction mismatch are different failures**, but
   `auto_match`'s summary conflates them. This has cost a diagnosis cycle three
   times.

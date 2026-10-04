@@ -10,6 +10,7 @@ Usage:
 """
 
 import csv
+import collections
 import glob
 import json
 import os
@@ -343,6 +344,66 @@ def main():
         check(total_bodies >= len(matching),
               "matched bodies emitted (%d global + %d tail thunks)" % (bodies, tails),
               "%d bodies for %d matching rows" % (total_bodies, len(matching)))
+
+        # `tails` above counts `// tail -> ` comments and is structurally always
+        # 0: tail-call bodies are not emitted as thunks in a separate tree, they
+        # are emitted in prog/matched as
+        #     void sdk_f_1ab80() { sdk::sub_1d5f0(); }
+        # which Clang turns back into the single `b`. So that branch is vestigial
+        # -- harmless, because the check is a `>=` on the total, but it must not
+        # be read as "there are no tail calls". There are 5,241 of them.
+
+        # The `>=` above cannot tell *which* records lack a body, so it stays
+        # green while the registry over-claims. Compare the sets instead.
+        #
+        # `decomp_project.tail_target_ok` deliberately declines a tail-call thunk
+        # whose destination takes parameters -- a bare `b` forwards no
+        # arguments, so the thunk could not carry its own recovered signature --
+        # and `build_prog` drops those from `matched` before emitting, giving
+        # them a plain stub instead. That filtering happens **in memory only**:
+        # the JSON on disk keeps the records. So a small number of body-less
+        # `tailcall` records is expected by design, and anything else is not.
+        emitted_addrs = set()
+        for m in MODULES:
+            p = os.path.join(ROOT, "prog", "matched", m, "source")
+            if not os.path.isdir(p):
+                continue
+            for f in glob.glob(os.path.join(p, "*.cpp")):
+                for a in re.findall(r"^// \S+\s+\(orig (0x[0-9a-f]+),",
+                                    open(f, encoding="utf-8").read(), re.M):
+                    emitted_addrs.add((m, int(a, 16)))
+        bodyless, dups, seen = [], [], set()
+        # `reported` is a dict keyed by (module, addr), so it has already
+        # collapsed any duplicate records -- counting `seen` over it can never
+        # report one. Read the raw JSON lists to count duplicates properly.
+        raw_count = collections.Counter()
+        for m in MODULES:
+            rp = os.path.join(ROOT, "data", "matched_%s.json" % m)
+            if not os.path.exists(rp):
+                continue
+            try:
+                for rec in json.load(open(rp, encoding="utf-8")).get("matched", []):
+                    raw_count[(m, int(rec["addr"]))] += 1
+            except (ValueError, OSError, KeyError):
+                pass
+        dups = [k for k, v in raw_count.items() if v > 1]
+        for key, rec in reported.items():
+            if key not in emitted_addrs:
+                bodyless.append((key, rec.get("shape")))
+        declined = [k for k, s in bodyless if s == "tailcall"]
+        unexplained = [(k, s) for k, s in bodyless if s != "tailcall"]
+        check(not unexplained, "every registry record has an emitted body",
+              "%d unexplained (of %d body-less)" % (len(unexplained),
+                                                     len(bodyless)))
+        for k, s in unexplained[:5]:
+            print("      %s %s shape=%s" % (k[0], hex(k[1]), s))
+        print("      info  %d tail-call thunks declined by tail_target_ok have "
+              "no body by design (destination takes parameters, so a bare `b` "
+              "cannot forward them)" % len(declined))
+        check(not dups, "no duplicate addresses in the registry",
+              "%d duplicate record(s)" % len(dups))
+        for k in dups[:5]:
+            print("      %s %s registered twice" % (k[0], hex(k[1])))
 
     # Function sizes must exclude inter-function padding, or asm-differ reports
     # the padding as unmatched for every function.

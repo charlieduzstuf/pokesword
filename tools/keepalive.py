@@ -127,22 +127,13 @@ def verify(module):
     return None
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--work", default=None,
-                    help="harvest: run the next automated slice")
-    ap.add_argument("--interval", type=int, default=60)
-    ap.add_argument("--sleep", action="store_true",
-                    help="sleep interval seconds first (for chained relaunch)")
-    ap.add_argument("--fast", action="store_true",
-                    help="status only, no verify -- finishes in under a second "
-                         "so it can be relaunched every few seconds")
-    a = ap.parse_args()
+def one_tick(a, st):
+    """Do one tick's work on `st`, then persist it. Returns nothing.
 
-    if a.sleep:
-        time.sleep(a.interval)
-
-    st = load_state()
+    Split out of what used to be `main` so that `--loop` can call it repeatedly.
+    `st` is mutated in place, so the caller can simply keep passing the same dict
+    and the tick counter keeps advancing.
+    """
     st["tick"] += 1
 
     emitted, pop, per = body_count()
@@ -195,8 +186,41 @@ def main():
                 print("  %-8s timeout" % m)
 
     save_state(st)
-    print("\ntick complete. relaunch to continue the loop.")
+    if not a.loop:
+        print("\ntick complete. relaunch to continue the loop.")
     return 0
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--work", default=None,
+                    help="harvest: run the next automated slice")
+    ap.add_argument("--interval", type=int, default=60)
+    ap.add_argument("--sleep", action="store_true",
+                    help="sleep interval seconds first (for chained relaunch)")
+    ap.add_argument("--loop", action="store_true",
+                    help="tick forever, sleeping interval seconds BETWEEN ticks. "
+                         "This is the mode that actually keeps a ping alive; "
+                         "without it one tick runs and the process exits.")
+    ap.add_argument("--fast", action="store_true",
+                    help="status only, no verify -- finishes in under a second")
+    a = ap.parse_args()
+
+    # `--sleep` was the original mechanism, but it only ever delayed a single
+    # tick and then exited -- it assumed something would relaunch the process,
+    # and nothing does. That made it not a keep-alive at all: it went silent
+    # between ticks, which is exactly when a ping is needed. `--loop` is the
+    # real fix; `--sleep` is kept for the chained-relaunch call sites.
+    if a.sleep and not a.loop:
+        time.sleep(a.interval)
+
+    st = load_state()
+    while True:
+        one_tick(a, st)
+        if not a.loop:
+            return 0
+        sys.stdout.flush()
+        time.sleep(a.interval)
 
 
 if __name__ == "__main__":

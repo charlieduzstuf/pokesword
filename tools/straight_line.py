@@ -293,6 +293,25 @@ class StraightLine:
                 codes.append("m")
                 decls.append("uint64_t unused%d" % k)
             names[k] = "a%d" % k
+
+        # An empty parameter list is mangled as a bare `v`, never as nothing.
+        #
+        # Itanium omits the return type from an ordinary function's mangling, so
+        # `sig` carries parameter codes only -- `uint64_t f(void*)` and
+        # `void f(void*)` are both `_Z..Pv`. What it does not allow is the
+        # *absence* of the parameter list: Clang emits `_Z3f_1v` for `f()`,
+        # while `MH.mangle(ident, "")` produced `_Z3f_1`.
+        #
+        # Only the value-returning path below could reach an empty `codes` with
+        # no parameters, because the void path hardcoded "v" -- so this showed
+        # up as exactly 7 of 84 bodies in `sl_verify` reported as
+        # `no-code-emitted`. That label blamed the emitter; the emitter was fine
+        # and the lookup key was malformed. The source still does not match the
+        # original (a 3-instruction body cannot reduce to `return 0;`), so
+        # fixing this reclassifies 7 misreported failures rather than winning
+        # any matches.
+        if not codes:
+            codes.append("v")
         sig = "".join(codes)
         plist = ", ".join(decls)
 

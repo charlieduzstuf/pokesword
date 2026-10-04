@@ -147,11 +147,36 @@ def main():
 
         if not a.dry_run and new_recs:
             blob_j = json.load(open(reg_path, encoding="utf-8"))
-            blob_j.setdefault("matched", []).extend(new_recs)
+            # Re-check against the file as it is *now*, not against the snapshot
+            # `candidates()` was filtered with.
+            #
+            # Those two are minutes or hours apart in a long run. Anything
+            # written to the registry in between -- another module's pass, a
+            # concurrent invocation, an `auto_match` merge -- is invisible to the
+            # candidate filter but visible here, so the old code appended a
+            # second record for an address that already had one.
+            #
+            # That is not hypothetical: `tools/audit.py` found `main` 0x540950 and
+            # `main` 0x718f00 each registered twice, byte-identical in every
+            # field. Two records for one address inflate any count taken from
+            # the registry, and `already()` returns a dict so downstream code
+            # silently collapses them and never notices.
+            have = set()
+            for r in blob_j.get("matched", []):
+                try:
+                    have.add(int(r["addr"]))
+                except (KeyError, TypeError, ValueError):
+                    continue
+            fresh = [r for r in new_recs if int(r["addr"]) not in have]
+            dupes = len(new_recs) - len(fresh)
+            blob_j.setdefault("matched", []).extend(fresh)
             with open(reg_path, "w", encoding="utf-8") as f:
                 json.dump(blob_j, f, indent=1)
             print("           wrote %d record(s) to %s"
-                  % (len(new_recs), os.path.relpath(reg_path, ROOT)))
+                  % (len(fresh), os.path.relpath(reg_path, ROOT)))
+            if dupes:
+                print("           skipped %d already registered in the file"
+                      % dupes)
         grand_ok += ok
         grand_try += tried
 
