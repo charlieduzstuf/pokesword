@@ -8,6 +8,7 @@ capture its output.
 Usage: python pawn_pseudocode.py [--limit N]
 """
 
+import argparse
 import glob
 import io
 import os
@@ -44,7 +45,16 @@ def generate_for(path):
 
 
 def main(argv):
-    limit = int(argv[1].split("=")[1]) if len(argv) > 1 else None
+    # Same defect as pawn_disasm.py: indexing `argv[1].split("=")[1]` raised
+    # IndexError for any argument without an `=`, including `--help`, and
+    # accepted only `--limit=N` while the usage line documents `[--limit N]`.
+    ap = argparse.ArgumentParser(
+        prog="pawn_pseudocode.py",
+        description="Render the extracted Sword Pawn scripts as pseudocode.")
+    ap.add_argument("--limit", type=int, default=None,
+                    help="only process the first N scripts")
+    a = ap.parse_args(argv[1:])
+    limit = a.limit
     os.makedirs(OUT, exist_ok=True)
     files = sorted(glob.glob(os.path.join(SRC, "*.amx")))
     if limit:

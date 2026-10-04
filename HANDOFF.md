@@ -170,6 +170,7 @@ all (the tailcall round reported +9,083 and delivered zero).
 
 | file | what it settles |
 |---|---|
+| `decomp/docs/flag_fidelity.md` | **the 26 bodies that only matched under the wrong flags** — the worst bug here, because it was invisible |
 | `decomp/docs/straight_line.md` | the generic fallback: 84 candidates, 0 matches, and why the "42 of 84" figure was wrong |
 | `decomp/docs/remaining.md` | **what is left and what blocks it** — read this next |
 | `decomp/docs/yield_sweep.md` | **which registered generators are dead** — measured, per shape |
@@ -266,6 +267,34 @@ over the whole population rather than a sample:
 
 - **A vtable carries offsets only, no type tags.** Reading the low byte of the
   next slot offset as a type gives `float32` fields holding 1.6e-41.
+- **The verification harness must compile with the flags the build uses.** This
+  was violated and it was the worst bug found in this project, because it was
+  invisible. `match_harness.CFLAGS` was missing eight flags that
+  `build_nx64.CXXFLAGS` carried, and bisecting them puts the whole effect on
+  **`-mno-implicit-float`**, which changes the order of two independent stores.
+  **26 bodies were registered as matching that do not match the linked binary**
+  (1 main, 3 sdk, 22 subsdk1). Every other flag defect recorded here made
+  correct code look *wrong*, so something went red; this one made
+  correct-looking code look *right* and all four modules reported 100.00% clean.
+  `audit.py` now asserts `set(MH.CFLAGS) == set(B.CXXFLAGS)`, parsing both with
+  `ast` rather than importing them. Full account in
+  `decomp/docs/flag_fidelity.md`.
+- **Two instruments disagreeing beats one instrument.** `check.py` compares
+  against the linked ELF, so it never used the harness's flags — it disagreed by
+  exactly one body, and that disagreement is the only reason the above was found.
+  When a number looks too good, look for a second opinion computed a different
+  way.
+- **A memory barrier fixes store *scheduling* and not store *selection*.** The
+  26 bodies needed `__asm__ __volatile__("" ::: "memory")` to pin the order of two
+  independent stores. The `const-field-set` bodies needed a barrier and got
+  nothing, because there the reordering happens at instruction selection. Same
+  instrument, opposite outcome — identify the stage before reaching for it.
+- **`decomp_project.py --all` must be followed by `prog_cmake.py`.** Skipping the
+  second leaves 95 source directories with no `CMakeLists.txt` and the audit
+  fails on it, which reads like a decomp regression and is not one.
+- **`verify_matches.py` samples its failure output.** It printed 9 of the 26.
+  Do not treat its mismatch list as complete; find the population by shape
+  (`tools/fix_zero_store_order.py`) instead.
 - **Return types do not appear in Itanium mangling.** Only parameters and class
   types. And a function with *no parameters* mangles with a trailing `v`, so the
   signature is `"v"`, not `""`. Getting this wrong reports

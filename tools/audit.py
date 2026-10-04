@@ -9,6 +9,7 @@ Usage:
     python tools/audit.py --quick    # skip the (slow) full prog/ cross-compile
 """
 
+import ast
 import csv
 import collections
 import glob
@@ -273,6 +274,90 @@ def main():
               "tools/diff_settings.py", "tools/py_compat/imp.py",
               "tools/objdump_shim.py", "tools/shim/tail.py", "tools/shim/less.py"):
         check(os.path.exists(os.path.join(ROOT, p)), "present: %s" % p)
+
+    # The verification harness must compile with the flags the build uses.
+    #
+    # `match_harness.CFLAGS` opened with a comment saying exactly that -- "or
+    # 'verified' means nothing" -- and then omitted eight flags that
+    # `build_nx64.CXXFLAGS` carried. 26 bodies were registered as matching on
+    # the strength of the wrong flag set: they compile correctly under the
+    # harness's flags and incorrectly under the build's, because
+    # `-mno-implicit-float` changes the order of two independent stores.
+    #
+    # That direction of error is what makes it worth a permanent check. Every
+    # other flag defect here made correct code look wrong, so something went
+    # red. This one made correct-looking code look *right*, and the suite
+    # reported 100.00% clean on all four modules while 26 bodies did not match
+    # the linked binary.
+    #
+    # Parsed with `ast` rather than imported: an audit that executes the tools
+    # it audits can fail for reasons that have nothing to do with what it checks.
+    def _flag_list(path, name, extra=None):
+        """Read a module-level list of string flags without importing it.
+
+        `build_nx64.CXXFLAGS` is not a literal -- it contains `"--" + TRIPLE`,
+        the name `OPT` and the name `ARCH` -- so `ast.literal_eval` alone cannot
+        read it. Resolve module-level string constants, then whatever the caller
+        supplies for the environment-dependent ones.
+
+        Importing the modules instead would be simpler and worse: an audit that
+        executes the tools it audits can fail for reasons unrelated to what it
+        checks.
+        """
+        try:
+            tree = ast.parse(open(os.path.join(ROOT, path),
+                                  encoding="utf-8").read())
+        except (OSError, SyntaxError):
+            return None
+        consts = dict(extra or {})
+
+        def ev(n):
+            if isinstance(n, ast.Constant) and isinstance(n.value, str):
+                return n.value
+            if isinstance(n, ast.Name):
+                if n.id in consts:
+                    return consts[n.id]
+                raise ValueError(n.id)
+            if isinstance(n, ast.BinOp) and isinstance(n.op, ast.Add):
+                return ev(n.left) + ev(n.right)
+            raise ValueError(ast.dump(n))
+
+        for node in tree.body:
+            if isinstance(node, ast.Assign):
+                for t in node.targets:
+                    if not isinstance(t, ast.Name):
+                        continue
+                    try:
+                        consts[t.id] = ev(node.value) if isinstance(
+                            node.value, ast.BinOp) else ast.literal_eval(node.value)
+                    except (ValueError, SyntaxError, TypeError):
+                        pass
+        for node in tree.body:
+            if isinstance(node, ast.Assign):
+                for t in node.targets:
+                    if isinstance(t, ast.Name) and t.id == name:
+                        try:
+                            return set(ev(e) for e in node.value.elts)
+                        except (ValueError, AttributeError, SyntaxError):
+                            return None
+        return None
+
+    # Both files spell the optimisation level as a name bound to an
+    # os.environ.get, so neither can be read as a literal. Resolve it the same
+    # way for both, which is the point: a mismatch in POKESWORD_OPT has to show
+    # up here rather than being absorbed.
+    opt = os.environ.get("POKESWORD_OPT", "-O3")
+    harness_flags = _flag_list("tools/match_harness.py", "CFLAGS", {"OPT": opt})
+    build_flags = _flag_list("tools/build_nx64.py", "CXXFLAGS", {"OPT": opt})
+    if harness_flags is None or build_flags is None:
+        warn("could not read the flag lists; skipped the parity check")
+    else:
+        only_build = sorted(build_flags - harness_flags)
+        only_harness = sorted(harness_flags - build_flags)
+        check(not only_build and not only_harness,
+              "match_harness flags match the build's flags",
+              "missing %s / extra %s" % (only_build or "none",
+                                         only_harness or "none"))
     prog_elf = os.path.join(ROOT, "build", "prog.elf")
     if os.path.exists(prog_elf):
         llvmnm = r"C:\Users\charl\scoop\apps\llvm\current\bin\llvm-nm.exe"

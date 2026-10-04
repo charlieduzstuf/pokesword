@@ -176,4 +176,15 @@ def name_module(module):
 
 
 if __name__ == "__main__":
+    # Same missing guard as decomp_analyze.py: `--help` was treated as a module
+    # name and surfaced as a FileNotFoundError from inside the JSON loader.
+    _USAGE = "Usage: python decomp_name.py <module>"
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
+        print(_USAGE)
+        sys.exit(0 if len(sys.argv) > 1 else 2)
+    if not os.path.isfile(os.path.join(ROOT, "work", sys.argv[1],
+                                       "manifest.json")):
+        sys.stderr.write("error: no such module: %s\n%s\n"
+                         % (sys.argv[1], _USAGE))
+        sys.exit(2)
     name_module(sys.argv[1])

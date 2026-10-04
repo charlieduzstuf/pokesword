@@ -267,4 +267,18 @@ def analyze(module):
 
 
 if __name__ == "__main__":
+    # Was `analyze(sys.argv[1])` with no guard at all, so `--help` was taken as a
+    # module name and died with a bare FileNotFoundError on
+    # `work/--help/manifest.json`. A tool that cannot print its own usage cannot
+    # be discovered, and the traceback pointed at the JSON loader rather than at
+    # the argument handling.
+    _USAGE = "Usage: python decomp_analyze.py <module>   # e.g. main"
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
+        print(_USAGE)
+        sys.exit(0 if len(sys.argv) > 1 else 2)
+    if not os.path.isfile(os.path.join(ROOT, "work", sys.argv[1],
+                                       "manifest.json")):
+        sys.stderr.write("error: no such module: %s\n%s\n"
+                         % (sys.argv[1], _USAGE))
+        sys.exit(2)
     analyze(sys.argv[1])

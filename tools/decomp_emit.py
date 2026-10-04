@@ -189,8 +189,15 @@ def emit_cmake(module):
 
 
 def main(argv):
+    _USAGE = "Usage: python decomp_emit.py <module> | --all"
+    # `--help` fell through to `argv[1:]`, so it was emitted as a module named
+    # `--help` and died on `work/--help/`. Same missing guard as
+    # decomp_analyze.py and decomp_name.py.
+    if len(argv) < 2 or argv[1] in ("-h", "--help"):
+        sys.stderr.write(_USAGE + "\n")
+        return 0 if len(argv) > 1 else 2
     mods = ["rtld", "main", "sdk", "subsdk0", "subsdk1"] \
-        if len(argv) > 1 and argv[1] == "--all" else argv[1:]
+        if argv[1] == "--all" else argv[1:]
     for m in mods:
         emit_module(m)
         emit_cmake(m)

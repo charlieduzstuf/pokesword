@@ -3141,7 +3141,7 @@ uint32_t main_f_1661340() { return 32; }
 uint32_t main_f_1661350() { return 64; }
 
 // sub_1661510  (orig 0x1661510, setter-chain)
-void main_f_1661510(void* a0) { *(uint64_t*)((char*)(a0) + 112) = 0; *(uint64_t*)((char*)(a0) + 120) = 0; *(uint32_t*)((char*)(a0) + 128) = 0; }
+void main_f_1661510(void* a0) { *(uint64_t*)((char*)(a0) + 112) = 0; *(uint64_t*)((char*)(a0) + 120) = 0; __asm__ __volatile__("" ::: "memory");; *(uint32_t*)((char*)(a0) + 128) = 0; }
 
 // sub_1661520  (orig 0x1661520, ret_only)
 void main_f_1661520() {}

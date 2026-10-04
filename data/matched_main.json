@@ -252216,7 +252216,7 @@
    "shape": "setter-chain",
    "ident": "f_1661510",
    "sig": "Pv",
-   "src": "void f_1661510(void* a0) { *(uint64_t*)((char*)(a0) + 112) = 0; *(uint64_t*)((char*)(a0) + 120) = 0; *(uint32_t*)((char*)(a0) + 128) = 0; }\n",
+   "src": "void f_1661510(void* a0) { *(uint64_t*)((char*)(a0) + 112) = 0; *(uint64_t*)((char*)(a0) + 120) = 0; __asm__ __volatile__(\"\" ::: \"memory\");; *(uint32_t*)((char*)(a0) + 128) = 0; }\n",
    "orig_insns": 3,
    "new_insns": 3
   },

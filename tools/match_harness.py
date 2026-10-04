@@ -82,6 +82,40 @@ CFLAGS = [
     "-fdata-sections",
     "-nostdinc++",
     "-Wno-everything",
+    # The comment above this list says these "must match what the NX64 build
+    # actually uses, or 'verified' means nothing". Eight of them did not, and
+    # that was not a theoretical gap.
+    #
+    # build_nx64.CXXFLAGS carries all eight of the following and this list did
+    # not. Measured consequence: `main` 0x1661510 compiles to
+    #
+    #     stp xzr, xzr, [x0, #0x70] ; str wzr, [x0, #0x80] ; ret      <- harness
+    #     str wzr, [x0, #0x80] ; stp xzr, xzr, [x0, #0x70] ; ret      <- build
+    #
+    # i.e. the two independent zero-stores swap, so the body this harness called
+    # a match is not the body the link produces. Bisecting the eight flags one at
+    # a time puts it squarely on `-mno-implicit-float`: adding that single flag to
+    # the old list reproduces the build's order, and none of the other seven
+    # changes anything about this body.
+    #
+    # `-mcpu=cortex-a57` is not the cause, which is the surprising part -- it was
+    # the obvious suspect. Verified by removing it from the full build flag set:
+    # the order does not change.
+    #
+    # Consequence worth stating plainly: until this was fixed,
+    # `verify_matches.py` reporting "100.00% clean" was a claim about the
+    # harness's flags, not about the build's. One body in main was reported
+    # matching that does not match in the linked binary. The direction of the
+    # error matters -- every other flag bug recorded in this project made correct
+    # code look wrong, and this one made correct code look *right*.
+    "-mcpu=cortex-a57+fp+simd+crypto+crc",
+    "-mno-implicit-float",
+    "-fstandalone-debug",
+    "-DSWITCH",
+    "-D__DEVKITA64__",
+    "-D__ELF__",
+    "-DNNSDK",
+    "-DMATCHING_HACK_NX_CLANG",
 ]
 
 

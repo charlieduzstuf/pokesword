@@ -30084,7 +30084,7 @@
    "shape": "setter-chain",
    "ident": "f_402510",
    "sig": "Pv",
-   "src": "void f_402510(void* a0) { *(uint64_t*)((char*)(a0) + 16) = 0; *(uint64_t*)((char*)(a0) + 24) = 0; *(uint64_t*)((char*)(a0) + 32) = 0; }\n",
+   "src": "void f_402510(void* a0) { *(uint64_t*)((char*)(a0) + 16) = 0; *(uint64_t*)((char*)(a0) + 24) = 0; __asm__ __volatile__(\"\" ::: \"memory\");; *(uint64_t*)((char*)(a0) + 32) = 0; }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -30543,7 +30543,7 @@
    "shape": "setter-chain",
    "ident": "f_40b840",
    "sig": "Pv",
-   "src": "void f_40b840(void* a0) { *(uint64_t*)((char*)(a0)) = 0; *(uint64_t*)((char*)(a0) + 8) = 0; *(uint64_t*)((char*)(a0) + 16) = 0; }\n",
+   "src": "void f_40b840(void* a0) { *(uint64_t*)((char*)(a0)) = 0; *(uint64_t*)((char*)(a0) + 8) = 0; __asm__ __volatile__(\"\" ::: \"memory\");; *(uint64_t*)((char*)(a0) + 16) = 0; }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -34122,7 +34122,7 @@
    "shape": "setter-chain",
    "ident": "f_419090",
    "sig": "Pv",
-   "src": "void f_419090(void* a0) { *(uint64_t*)((char*)(a0) + 16) = 0; *(uint64_t*)((char*)(a0) + 24) = 0; *(uint32_t*)((char*)(a0) + 40) = 0; *(uint64_t*)((char*)(a0) + 32) = 0; }\n",
+   "src": "void f_419090(void* a0) { *(uint64_t*)((char*)(a0) + 16) = 0; *(uint64_t*)((char*)(a0) + 24) = 0; __asm__ __volatile__(\"\" ::: \"memory\");; *(uint32_t*)((char*)(a0) + 40) = 0; *(uint64_t*)((char*)(a0) + 32) = 0; }\n",
    "orig_insns": 4,
    "new_insns": 4
   },

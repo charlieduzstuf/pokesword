@@ -8,6 +8,7 @@ Usage: python pawn_disasm.py [--limit N]
 Outputs: decomp/script/<name>.pasm + decomp/script/manifest.txt
 """
 
+import argparse
 import glob
 import hashlib
 import os
@@ -23,7 +24,19 @@ from pawn_script import PawnDisassembler  # noqa: E402
 
 
 def main(argv):
-    limit = int(argv[1].split("=")[1]) if len(argv) > 1 else None
+    # Was: `limit = int(argv[1].split("=")[1]) if len(argv) > 1 else None`
+    #
+    # That indexed past the end of any argument without an `=`, so `--help`
+    # raised IndexError instead of printing usage, and it contradicted this
+    # file's own docstring, which documents `[--limit N]` while the code only
+    # accepted `--limit=N`. Following the documented usage crashed.
+    ap = argparse.ArgumentParser(
+        prog="pawn_disasm.py",
+        description="Disassemble the extracted Sword Pawn scripts.")
+    ap.add_argument("--limit", type=int, default=None,
+                    help="only process the first N scripts")
+    a = ap.parse_args(argv[1:])
+    limit = a.limit
     os.makedirs(OUT, exist_ok=True)
     files = sorted(glob.glob(os.path.join(SRC, "*.amx")))
     if limit:

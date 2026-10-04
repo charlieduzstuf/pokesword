@@ -59,7 +59,28 @@ def check_function(addr: int, size: int, name: str) -> bool:
     md.detail = True
     adrp_pair_registers: Set[int] = set()
 
-    for i1, i2 in zip(md.disasm(base_fn, addr), md.disasm(my_fn, addr)):
+    # Trim the original's trailing padding before comparing.
+    #
+    # Symbol-table sizes include inter-function alignment padding, which the
+    # original fills with `nop`/`udf` and no C++ can reproduce. `main` 0x32ec80
+    # is 16 bytes of which only the leading `ret` is real; the other three words
+    # are padding. Reading `size` bytes from *our* ELF for that symbol therefore
+    # runs past the 4-byte body we actually emit and pairs the original's
+    # padding against whatever follows in our binary.
+    #
+    # This is why five functions used to be reported here as "marked as matching
+    # but does not match" while `verify_matches.py` called the same module
+    # 100.00% clean. `verify_matches.py` compares through `MH.effective_end`,
+    # which cuts at the first padding word after the last real instruction; this
+    # tool did not, so the two disagreed and this one was wrong. The padding
+    # words trimmed here are exactly the ones `MH.effective_end` ignores.
+    base_insns = list(md.disasm(base_fn, addr))
+    eff = len(base_insns)
+    while eff > 0 and base_insns[eff - 1].mnemonic in ("udf", "brk", "nop"):
+        eff -= 1
+    my_insns = list(md.disasm(my_fn, addr))
+
+    for i1, i2 in zip(base_insns[:eff], my_insns[:eff]):
         if i1.bytes == i2.bytes:
             continue
 
