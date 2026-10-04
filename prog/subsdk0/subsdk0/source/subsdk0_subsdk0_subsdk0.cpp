@@ -1667,7 +1667,7 @@ void sub_9cff0() { /* 0x9cff0 */ }
 void sub_9d060() { /* 0x9d060 */ }
 void sub_9d080() { /* 0x9d080 */ }
 // sub_9d0a0: implemented in prog/matched/subsdk0/
-void sub_9d0b0() { /* 0x9d0b0 */ }
+// sub_9d0b0: implemented in prog/matched/subsdk0/
 void sub_9d0c0() { /* 0x9d0c0 */ }
 // sub_9d110: implemented in prog/matched/subsdk0/
 // sub_9d120: implemented in prog/matched/subsdk0/

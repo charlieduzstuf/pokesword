@@ -1967,7 +1967,7 @@ void sub_3568f0_sdk_3568f0() { /* 0x3568f0 */ }
 void sub_356920() { /* 0x356920 */ }
 void sub_356a70() { /* 0x356a70 */ }
 void sub_356c70() { /* 0x356c70 */ }
-void sub_356d70() { /* 0x356d70 */ }
+// sub_356d70: implemented in prog/matched/sdk/
 // sub_356d80: implemented in prog/matched/sdk/
 void sub_356d90() { /* 0x356d90 */ }
 // sub_356da0: implemented in prog/matched/sdk/

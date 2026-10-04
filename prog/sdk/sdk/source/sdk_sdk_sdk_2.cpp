@@ -553,7 +553,7 @@ void sub_1b3980() { /* 0x1b3980 */ }
 void sub_1b3a50() { /* 0x1b3a50 */ }
 void sub_1b3ab0() { /* 0x1b3ab0 */ }
 void sub_1b3ad0() { /* 0x1b3ad0 */ }
-void sub_1b3ae0() { /* 0x1b3ae0 */ }
+// sub_1b3ae0: implemented in prog/matched/sdk/
 void sub_1b3af0() { /* 0x1b3af0 */ }
 void sub_1b3b00() { /* 0x1b3b00 */ }
 void sub_1b3c10() { /* 0x1b3c10 */ }

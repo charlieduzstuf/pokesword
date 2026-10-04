@@ -6042,6 +6042,18 @@
   },
   {
    "module": "sdk",
+   "addr": 523520,
+   "size": 12,
+   "name": "sub_7fd00",
+   "shape": "copy2",
+   "ident": "f_7fd00",
+   "sig": "Pv",
+   "src": "void f_7fd00(void* a0) { (*(uint8_t *)((char *)(*(void **)((char*)(a0))) + 72)) = 0; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
    "addr": 523744,
    "size": 12,
    "name": "sub_7fde0",
@@ -6049,6 +6061,30 @@
    "ident": "f_7fde0",
    "sig": "Pv",
    "src": "uint16_t f_7fde0(void* a0) { return *(uint16_t*)((char*)((*(uint64_t*)((char*)(a0)))) + 12); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 524544,
+   "size": 12,
+   "name": "sub_80100",
+   "shape": "copy2",
+   "ident": "f_80100",
+   "sig": "Pv",
+   "src": "void f_80100(void* a0) { (*(uint8_t *)((char *)(*(void **)((char*)(a0))) + 64)) = 0; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 525984,
+   "size": 12,
+   "name": "sub_806a0",
+   "shape": "copy2",
+   "ident": "f_806a0",
+   "sig": "Pv",
+   "src": "void f_806a0(void* a0) { (*(uint8_t *)((char *)(*(void **)((char*)(a0))) + 52)) = 0; }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -6085,6 +6121,18 @@
    "ident": "f_80ca0",
    "sig": "Pv",
    "src": "uint16_t f_80ca0(void* a0) { return *(uint16_t*)((char*)((*(uint64_t*)((char*)(a0)))) + 80); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 527536,
+   "size": 12,
+   "name": "sub_80cb0",
+   "shape": "copy2",
+   "ident": "f_80cb0",
+   "sig": "Pv",
+   "src": "void f_80cb0(void* a0) { (*(uint8_t *)((char *)(*(void **)((char*)(a0))) + 84)) = 0; }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -8487,18 +8535,6 @@
    "src": "void f_a7b20(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 4) = a1; }\n",
    "orig_insns": 2,
    "new_insns": 2
-  },
-  {
-   "module": "sdk",
-   "addr": 686912,
-   "size": 12,
-   "name": "sub_a7b40",
-   "shape": "copy2",
-   "ident": "f_a7b40",
-   "sig": "PvS_",
-   "src": "void f_a7b40(void* a0, void* a1) { *(uint64_t*)((char*)(a0) + 8) = *(uint64_t*)((char*)(a1)); }\n",
-   "orig_insns": 3,
-   "new_insns": 3
   },
   {
    "module": "sdk",
@@ -13473,6 +13509,18 @@
   },
   {
    "module": "sdk",
+   "addr": 1784544,
+   "size": 12,
+   "name": "sub_1b3ae0",
+   "shape": "copy2",
+   "ident": "f_1b3ae0",
+   "sig": "Pv",
+   "src": "void f_1b3ae0(void* a0) { (*(uint8_t *)((char *)(*(void **)((char*)(a0) + 64)) + 162)) = 0; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
    "addr": 1785296,
    "size": 4,
    "name": "sub_1b3dd0",
@@ -17634,30 +17682,6 @@
    "src": "void f_299e80() {}\n",
    "orig_insns": 1,
    "new_insns": 1
-  },
-  {
-   "module": "sdk",
-   "addr": 2730176,
-   "size": 12,
-   "name": "sub_29a8c0",
-   "shape": "copy2",
-   "ident": "f_29a8c0",
-   "sig": "PvmS_",
-   "src": "void f_29a8c0(void* a0, uint64_t unused1, void* a2) { *(uint32_t*)((char*)(a0) + 376) = *(uint32_t*)((char*)(a2)); }\n",
-   "orig_insns": 3,
-   "new_insns": 3
-  },
-  {
-   "module": "sdk",
-   "addr": 2730192,
-   "size": 12,
-   "name": "sub_29a8d0",
-   "shape": "copy2",
-   "ident": "f_29a8d0",
-   "sig": "PvS_",
-   "src": "void f_29a8d0(void* a0, void* a1) { *(uint32_t*)((char*)(a1)) = *(uint32_t*)((char*)(a0) + 376); }\n",
-   "orig_insns": 3,
-   "new_insns": 3
   },
   {
    "module": "sdk",
@@ -22998,6 +23022,18 @@
    "src": "void* f_355e20(void* a0) { return (char*)(a0) - 8; }\n",
    "orig_insns": 2,
    "new_insns": 2
+  },
+  {
+   "module": "sdk",
+   "addr": 3501424,
+   "size": 12,
+   "name": "sub_356d70",
+   "shape": "copy2",
+   "ident": "f_356d70",
+   "sig": "Pvm",
+   "src": "void f_356d70(void* a0, uint64_t a1) { (*(uint16_t *)((char *)(*(void **)((char*)(a0) + 24)) + 0)) = a1; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
   },
   {
    "module": "sdk",
@@ -29163,18 +29199,6 @@
    "src": "uint32_t f_3f49a0(void* a0) { return *(uint32_t*)((char*)(a0) + 20); }\n",
    "orig_insns": 2,
    "new_insns": 2
-  },
-  {
-   "module": "sdk",
-   "addr": 4147632,
-   "size": 12,
-   "name": "sub_3f49b0",
-   "shape": "copy2",
-   "ident": "f_3f49b0",
-   "sig": "PvS_",
-   "src": "void f_3f49b0(void* a0, void* a1) { *(uint32_t*)((char*)(a1)) = *(uint32_t*)((char*)(a0) + 24); }\n",
-   "orig_insns": 3,
-   "new_insns": 3
   },
   {
    "module": "sdk",
@@ -38313,6 +38337,54 @@
    "src": "uint8_t f_50c328(void* a0) { return *(uint8_t*)((char*)(a0) + 617); }\n",
    "orig_insns": 2,
    "new_insns": 2
+  },
+  {
+   "module": "sdk",
+   "addr": 686912,
+   "size": 12,
+   "name": "sub_a7b40",
+   "shape": "copy2",
+   "ident": "f_a7b40",
+   "sig": "PvS_",
+   "src": "void f_a7b40(void* a0, void* a1) { *(uint64_t*)((char*)(a0) + 8) = *(uint64_t*)((char*)(a1)); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 2730176,
+   "size": 12,
+   "name": "sub_29a8c0",
+   "shape": "copy2",
+   "ident": "f_29a8c0",
+   "sig": "PvmS_",
+   "src": "void f_29a8c0(void* a0, uint64_t unused1, void* a2) { *(uint32_t*)((char*)(a0) + 376) = *(uint32_t*)((char*)(a2)); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 2730192,
+   "size": 12,
+   "name": "sub_29a8d0",
+   "shape": "copy2",
+   "ident": "f_29a8d0",
+   "sig": "PvS_",
+   "src": "void f_29a8d0(void* a0, void* a1) { *(uint32_t*)((char*)(a1)) = *(uint32_t*)((char*)(a0) + 376); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 4147632,
+   "size": 12,
+   "name": "sub_3f49b0",
+   "shape": "copy2",
+   "ident": "f_3f49b0",
+   "sig": "PvS_",
+   "src": "void f_3f49b0(void* a0, void* a1) { *(uint32_t*)((char*)(a1)) = *(uint32_t*)((char*)(a0) + 24); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
   }
  ]
 }

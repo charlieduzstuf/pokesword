@@ -1355,7 +1355,7 @@ void sub_7ab390() { /* 0x7ab390 */ }
 // sub_7ab3d0: implemented in prog/matched/main/
 // sub_7ab3e0: implemented in prog/matched/main/
 // sub_7ab3f0: implemented in prog/matched/main/
-void sub_7ab400() { /* 0x7ab400 */ }
+// sub_7ab400: implemented in prog/matched/main/
 // sub_7ab410: implemented in prog/matched/main/
 // sub_7ab420: implemented in prog/matched/main/
 // sub_7ab430: implemented in prog/matched/main/

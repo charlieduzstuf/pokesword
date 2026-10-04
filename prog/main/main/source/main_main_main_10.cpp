@@ -3162,7 +3162,7 @@ void sub_bc0290() { /* 0xbc0290 */ }
 // sub_bc0330: implemented in prog/matched/main/
 void sub_bc0340() { /* 0xbc0340 */ }
 void sub_bc09d0() { /* 0xbc09d0 */ }
-void sub_bc0a00() { /* 0xbc0a00 */ }
+// sub_bc0a00: implemented in prog/matched/main/
 void sub_bc0a10() { /* 0xbc0a10 */ }
 void sub_bc0b00() { /* 0xbc0b00 */ }
 void sub_bc0e90() { /* 0xbc0e90 */ }

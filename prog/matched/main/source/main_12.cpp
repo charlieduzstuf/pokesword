@@ -1,4 +1,4 @@
-/* main -- 43 functions verified to match the original.
+/* main -- 61 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -24,6 +24,60 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+
+// sub_17ab1b0  (orig 0x17ab1b0, mov_ret)
+uint32_t main_f_17ab1b0() { return -1; }
+
+// sub_17ab1c0  (orig 0x17ab1c0, ret_only)
+void main_f_17ab1c0() {}
+
+// sub_17ab210  (orig 0x17ab210, mov_ret)
+uint32_t main_f_17ab210() { return 255; }
+
+// sub_17ab220  (orig 0x17ab220, ret_only)
+void main_f_17ab220() {}
+
+// sub_17ac430  (orig 0x17ac430, ret_only)
+void main_f_17ac430() {}
+
+// sub_17ac6f0  (orig 0x17ac6f0, mov_ret)
+uint32_t main_f_17ac6f0() { return 0; }
+
+// sub_17b0e00  (orig 0x17b0e00, compare)
+bool main_f_17b0e00(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(a0) + 216)) != (uint64_t)(0); }
+
+// sub_17b2c00  (orig 0x17b2c00, ret_only)
+void main_f_17b2c00() {}
+
+// sub_17b2d00  (orig 0x17b2d00, ret_only)
+void main_f_17b2d00() {}
+
+// sub_17b2f40  (orig 0x17b2f40, mov_ret)
+uint64_t main_f_17b2f40() { return 0; }
+
+// sub_17b2f50  (orig 0x17b2f50, ret_only)
+void main_f_17b2f50() {}
+
+// sub_17b3330  (orig 0x17b3330, ret_only)
+void main_f_17b3330() {}
+
+// sub_17b49d0  (orig 0x17b49d0, ret_only)
+void main_f_17b49d0() {}
+
+// sub_17b4a70  (orig 0x17b4a70, ret_only)
+void main_f_17b4a70() {}
+
+// sub_17b4a80  (orig 0x17b4a80, ret_only)
+void main_f_17b4a80() {}
+
+// sub_17b5cb0  (orig 0x17b5cb0, compare)
+bool main_f_17b5cb0(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(a0) + 320)) != (uint64_t)(0); }
+
+// sub_17b7510  (orig 0x17b7510, getter)
+uint64_t main_f_17b7510(void* a0) { return *(uint64_t*)((char*)(a0) + 240); }
+
+// sub_17b7780  (orig 0x17b7780, ret_only)
+void main_f_17b7780() {}
 
 // sub_17b8250  (orig 0x17b8250, ret_only)
 void main_f_17b8250() {}

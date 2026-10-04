@@ -2195,6 +2195,140 @@ def gen_const_ret(ins, end, ident):
     return "%s %s() { return %llu; }\n" % (U[8], ident, val), "v"
 
 
+
+def gen_ptr_field_set(ins, end, ident):
+    """`ldr xD, [xB, #o1] ; str <src>, [xD, #o2] ; ret` -- write through a stored
+    pointer.
+
+    72 unmatched bodies in `main` are exactly this shape, and it is the largest
+    tractable item found so far that is not blocked on a structural problem:
+
+        ldr  x8, [x0, #0x750]
+        str  w1,  [x8, #0x8c]
+        ret
+
+    which is a field write through a pointer held in another field:
+
+        *(uint32_t *)(*(void **)((char *)this + 0x750) + 0x8c) = arg;
+
+    `gen_const_field_set` already covers the neighbouring shape where the value
+    is a *materialised constant* (`ldr ; mov wN, #imm ; str wN, [xD, #o] ; ret`,
+    four instructions). This one takes the value straight from an argument
+    register with no `mov`, which is why `const-field-set` never saw it.
+
+    Also handled, 31 more bodies between them:
+
+        ldr ; strb  ; ret   -> byte field            (11)
+        ldrsb ; str ; ret   -> signed byte copy       (8)
+        ldrsh ; str ; ret   -> signed halfword copy   (8)
+        ldr ; strh ; ret    -> halfword field        (3)
+        ldrh ; str ; ret    -> unsigned byte copy     (1)
+
+    The signed loads only became reachable once `ldrsb`/`ldrsh` were added to
+    `LOADS` and to `access_width`; before that they matched no shape at all.
+
+    Two things are measured rather than assumed, because both have bitten this
+    file before:
+
+    * **The pointer load must be 64-bit.** A `w` destination would make the
+      following store a 32-bit address, which is a different program.
+    * **The store width comes from its own mnemonic**, not from the load. `strb`
+      after an 8-byte load is a byte field, and inferring the width from the
+      pointer load would emit `uint64_t` and never match.
+    """
+    if end != 3:
+        return None
+    i0, i1, i2 = ins[0], ins[1], ins[2]
+    if i2.mnemonic != "ret" or i0.mnemonic != "ldr":
+        return None
+    if i1.mnemonic not in ("str", "strb", "strh"):
+        return None
+
+    o0, o1 = ops_of(i0), ops_of(i1)
+    if len(o0) != 2 or len(o1) != 2:
+        return None
+    ld_dst, ld_mem = o0[0].strip(), o0[1]
+    st_src, st_mem = o1[0].strip(), o1[1]
+
+    # 64-bit destination only: a `w` pointer load is a different program.
+    if not ld_dst.startswith("x"):
+        return None
+
+    base, off1 = parse_mem(ld_mem)
+    if base is None or off1 is None:
+        return None
+    if wreg(st_src) == wreg(base):
+        return None
+
+    sb, off2 = parse_mem(st_mem)
+    if sb is None or off2 is None:
+        return None
+    # The store must go through the pointer that was just loaded.
+    if wreg(sb) != wreg(ld_dst):
+        return None
+
+    # --- the stored value: an argument register, or zero -------------------
+    wimm = parse_imm(st_src)
+    zero = st_src in ("wzr", "xzr")
+    if wimm is None and not zero:
+        srcreg = wreg(st_src)
+        sn = reg_num(srcreg)
+        if sn is None or sn > 3:
+            return None
+        src_expr = "a%d" % sn
+        src_code = "m"
+    else:
+        sn = None
+        src_expr = "0"
+        src_code = None
+
+    bn = reg_num(wreg(base))
+    if bn is None or bn > 3:
+        return None
+
+    # Store width from the store mnemonic alone.
+    w = {"str": 4, "strb": 1, "strh": 2}[i1.mnemonic]
+    if w == 4 and not st_src.startswith("w"):
+        return None              # a 64-bit store is a different shape
+    if w != 4 and st_src.startswith("x"):
+        return None
+    ctype = U[w]
+
+    # One parameter per register read. A parameter that is only ever used as a
+    # pointer base is declared `void *`; one that is stored from is an integer.
+    used = {bn}
+    if sn is not None:
+        used.add(sn)
+    top = max(used)
+    ptr_args = {bn}
+    decls, codes = [], []
+    ptrs = 0
+    for k in range(top + 1):
+        if k in ptr_args:
+            codes.append("S_" if ptrs else "Pv")
+            ptrs += 1
+            decls.append("void* a%d" % k)
+        elif k in used:
+            codes.append("m")
+            decls.append("uint64_t a%d" % k)
+        else:
+            codes.append("m")
+            decls.append("uint64_t unused%d" % k)
+
+    exprs = {"x%d" % k: "a%d" % k for k in range(top + 1)}
+    inner = ptr_expr("x%d" % bn, exprs, off1)
+    # Dereference the loaded field as a pointer *before* adding the inner
+    # offset. Writing `(*(uint32_t *)((char *)a0 + 0x750 + 0x8c))` treats the
+    # field as an inline array rather than as a stored pointer, and Clang duly
+    # emitted `str w1, [x0, ...]` -- the load disappeared entirely. Every one of
+    # the first 32 candidates missed with the instruction order reversed, which
+    # is what gave it away.
+    addr = "(*(%s *)((char *)(*(void **)(%s)) + %d))" % (ctype, inner, off2)
+    return ("void %s(%s) { %s = %s; }\n"
+            % (ident, ", ".join(decls), addr, src_expr), "".join(codes))
+
+
+SHAPE_GENERATORS["copy2"] = gen_ptr_field_set
 SHAPE_GENERATORS["const-ret"] = gen_const_ret
 
 

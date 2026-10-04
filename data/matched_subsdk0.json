@@ -610,18 +610,6 @@
   },
   {
    "module": "subsdk0",
-   "addr": 83232,
-   "size": 12,
-   "name": "sub_14520",
-   "shape": "copy2",
-   "ident": "f_14520",
-   "sig": "Pv",
-   "src": "void f_14520(void* a0) { *(uint64_t*)((char*)(a0) + 1832) = *(uint64_t*)((char*)(a0) + 1824); }\n",
-   "orig_insns": 3,
-   "new_insns": 3
-  },
-  {
-   "module": "subsdk0",
    "addr": 83248,
    "size": 8,
    "name": "sub_14530",
@@ -703,18 +691,6 @@
    "src": "uint32_t f_19b20(void* a0) { return *(uint32_t*)((char*)(a0) + 124); }\n",
    "orig_insns": 2,
    "new_insns": 2
-  },
-  {
-   "module": "subsdk0",
-   "addr": 106240,
-   "size": 12,
-   "name": "sub_19f00",
-   "shape": "copy2",
-   "ident": "f_19f00",
-   "sig": "PvS_",
-   "src": "void f_19f00(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0) + 128); }\n",
-   "orig_insns": 3,
-   "new_insns": 3
   },
   {
    "module": "subsdk0",
@@ -1928,6 +1904,18 @@
    "ident": "f_9d0a0",
    "sig": "Pv",
    "src": "uint32_t f_9d0a0(void* a0) { return *(uint32_t*)((char*)((*(uint64_t*)((char*)(a0) + 32))) + 224); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk0",
+   "addr": 643248,
+   "size": 12,
+   "name": "sub_9d0b0",
+   "shape": "copy2",
+   "ident": "f_9d0b0",
+   "sig": "Pvm",
+   "src": "void f_9d0b0(void* a0, uint64_t a1) { (*(uint32_t *)((char *)(*(void **)((char*)(a0) + 32)) + 312)) = a1; }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -10591,6 +10579,30 @@
    "src": "void f_35dfa0() {}\n",
    "orig_insns": 1,
    "new_insns": 1
+  },
+  {
+   "module": "subsdk0",
+   "addr": 83232,
+   "size": 12,
+   "name": "sub_14520",
+   "shape": "copy2",
+   "ident": "f_14520",
+   "sig": "Pv",
+   "src": "void f_14520(void* a0) { *(uint64_t*)((char*)(a0) + 1832) = *(uint64_t*)((char*)(a0) + 1824); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk0",
+   "addr": 106240,
+   "size": 12,
+   "name": "sub_19f00",
+   "shape": "copy2",
+   "ident": "f_19f00",
+   "sig": "PvS_",
+   "src": "void f_19f00(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0) + 128); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
   }
  ]
 }

@@ -927,7 +927,7 @@ void sub_6868c0() { /* 0x6868c0 */ }
 // sub_686970: implemented in prog/matched/main/
 // sub_686980: implemented in prog/matched/main/
 // sub_686990: implemented in prog/matched/main/
-void sub_6869a0() { /* 0x6869a0 */ }
+// sub_6869a0: implemented in prog/matched/main/
 // sub_6869b0: implemented in prog/matched/main/
 // sub_6869c0: implemented in prog/matched/main/
 // sub_6869d0: implemented in prog/matched/main/
