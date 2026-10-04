@@ -460,10 +460,46 @@ def build_prog(mod, names, addrs, used=None, matched=None):
     # identifier is only known once all of them have been assigned.
     ident_of = {}
     scope_of = {}
+    # A tail-call thunk must never share a translation unit with its
+    # destination.
+    #
+    # Measured, on sdk+0x3bc670 (`b #0x3c4790` -> `mov w0, #1 ; ret`):
+    #
+    #     both in one TU, destination *defined*  ->  movl $1,%eax ; retq   FOLDED
+    #     separate TU, destination *declared*   ->  jmp                    correct
+    #
+    # `noinline` does not help. So do `noinline,noclone,noipa`, and so does
+    # matching the return type. Clang constant-propagates through any definition
+    # it can see, and `retype_thunk` already makes the return types agree, so
+    # the only thing left is TU placement. The emitted file already forward
+    # declares the destination; the definition just has to live elsewhere.
+    #
+    # This is a real build defect, not a harness artefact: `prog/CMakeLists.txt`
+    # compiles one object per .cpp, so a thunk sharing a .cpp with its
+    # destination is folded in the shipped build too.
+    thunks = set()
+    dests = set()
+    for a in addrs:
+        r = matched.get(a)
+        if r is None or r.get("shape") != "tailcall":
+            continue
+        thunks.add(a)
+        t = r.get("tail_target_addr")
+        if t is not None:
+            dests.add(t)
+
     buckets = {}
     for a in addrs:
         nm = names.get(a) or ("sub_%x" % a)
         group, sub, ns = classify(mod, nm)
+        # Destinations go in their own bucket so no thunk can land beside them.
+        # A function that is both a thunk and a destination stays with the
+        # thunks; whether any thunk chains to another thunk is measured by the
+        # re-verification, not assumed here.
+        if a in dests and a not in thunks:
+            group, sub = "_taildest", "taildest"
+        elif a in thunks:
+            group, sub = "_tailthunk", "tailthunk"
         ident = safe_ident(nm)
         if not ident:
             continue
@@ -560,6 +596,68 @@ def emit_matched(mod, matched, defname=None, emittable=None):
     """
     keep = emittable if emittable is not None else set(matched)
     recs = [matched[a] for a in sorted(matched) if a in keep]
+
+    # A tail-call thunk must not share a translation unit with its
+    # destination, or Clang constant-folds the branch away.
+    #
+    # Measured on sdk+0x3bc670, whose original is a bare `b #0x3c4790` and
+    # whose destination is `mov w0, #1 ; ret`:
+    #
+    #   both defined in one TU  ->  movl $1,%eax ; retq    FOLDED, no branch
+    #   destination declared     ->  jmp                   correct
+    #
+    # This was tested against the obvious fixes and they all fail: `noinline`,
+    # `noinline,noclone,noipa`, and giving the thunk its destination's real
+    # return type (`retype_thunk` below already does this, and the emitted
+    # source shows matching types). Clang propagates the constant through any
+    # definition it can see, so the only remaining lever is which translation
+    # unit the definition lands in.
+    #
+    # It is a real build defect, not a harness artefact: prog/CMakeLists.txt
+    # compiles one object per .cpp, so a thunk sharing a .cpp with its
+    # destination folds in the shipped build too.
+    #
+    # Destinations are pulled out and appended after the thunks. Appending
+    # rather than prepending guarantees separation for the chain case as well:
+    # a thunk's destination lands in a later chunk than the thunk, never the
+    # same one.
+    _tdests = set()
+    for _r in recs:
+        if _r.get("shape") == "tailcall":
+            _t = _r.get("tail_target_addr")
+            if _t is not None and _t in keep:
+                _tdests.add(_t)
+    # Partitions, not just an ordering: reordering is not enough, because a
+    # module's whole thunk+destination set can fit inside one 2000-record
+    # chunk, and then "thunks first, destinations after" still lands them in the
+    # same translation unit. Each partition is chunked independently, so a thunk
+    # and its destination are always in different .cpp files.
+    _parts = []
+    if _tdests:
+        _parts.append([r for r in recs if r.get("shape") == "tailcall"])
+        # `shape != tailcall` here is load-bearing, not tidiness. A function that
+        # is *both* a thunk and another thunk's destination -- a chain -- matches
+        # both partitions, and emitting it twice is a duplicate definition that
+        # fails the whole 400-record batch to compile. That showed up as
+        # compile-error=400 in main and subsdk1, with subsdk1 dropping to 69.72%
+        # from a clean 100%. The partitions must be disjoint.
+        _parts.append([r for r in recs
+                       if r["addr"] in _tdests
+                       and r.get("shape") != "tailcall"])
+        _parts.append([r for r in recs
+                       if r.get("shape") != "tailcall"
+                       and r["addr"] not in _tdests])
+    else:
+        _parts = [recs]
+    # Belt and braces: a duplicate definition is a whole-batch compile failure, so
+    # assert disjointness rather than trusting the three filters to stay that way.
+    _seen_addrs = set()
+    for _p in _parts:
+        for _r in _p:
+            if _r["addr"] in _seen_addrs:
+                raise AssertionError(
+                    "duplicate emit for %#x in matched/%s" % (_r["addr"], mod))
+            _seen_addrs.add(_r["addr"])
     if not recs:
         return []
     defname = defname or {}
@@ -569,7 +667,12 @@ def emit_matched(mod, matched, defname=None, emittable=None):
     os.makedirs(src_dir, exist_ok=True)
 
     CHUNK = 2000
-    chunks = [recs[i:i + CHUNK] for i in range(0, len(recs), CHUNK)]
+    # Chunk each partition independently (see the note above `_parts`), then
+    # concatenate, so no translation unit holds both a thunk and its
+    # destination. `recs` is kept for the fallback path below.
+    chunks = []
+    for part in _parts:
+        chunks.extend(part[i:i + CHUNK] for i in range(0, len(part), CHUNK))
     made = []
     for ci, chunk in enumerate(chunks):
         name = mod if len(chunks) == 1 else "%s_%d" % (mod, ci)

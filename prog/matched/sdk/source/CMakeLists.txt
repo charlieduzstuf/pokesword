@@ -3,4 +3,6 @@
 target_sources(pokesword PRIVATE
   sdk_0.cpp
   sdk_1.cpp
+  sdk_2.cpp
+  sdk_3.cpp
 )

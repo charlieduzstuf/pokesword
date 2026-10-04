@@ -1,4 +1,4 @@
-/* subsdk0 -- 873 functions verified to match the original.
+/* subsdk0 -- 844 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -24,35 +24,6 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
-
-namespace subsdk0 { void sub_54020(); }
-namespace subsdk0 { void libnvmm_camera(); }
-namespace subsdk0 { void sub_273e00(); }
-namespace subsdk0 { void sub_273c50(); }
-extern uint32_t subsdk0_f_273a10();
-namespace subsdk0 { void BlockMP3Dec_2(); }
-namespace subsdk0 { void BlockAACEnc(); }
-namespace subsdk0 { void BlockH264Dec(); }
-namespace subsdk0 { void OMX_Nvidia_h264_decode_low_latency(); }
-namespace subsdk0 { void BlockH264Dec_2(); }
-namespace subsdk0 { void BlockVc1Dec(); }
-namespace subsdk0 { void BlockMpeg2Dec(); }
-namespace subsdk0 { void BlockAACDec(); }
-namespace subsdk0 { void BlockJpgEnc(); }
-namespace subsdk0 { void BlockWMADec(); }
-namespace subsdk0 { void BlockMJpgDec(); }
-namespace subsdk0 { void BlockSuperJpgDec(); }
-namespace subsdk0 { void sub_2baa90(); }
-namespace subsdk0 { void sub_31abc0_subsdk0_31abc0(); }
-namespace subsdk0 { void sub_338590(); }
-namespace subsdk0 { void sub_338a90_subsdk0_338a90(); }
-namespace subsdk0 { void sub_353db0(); }
-namespace subsdk0 { void sub_355620(); }
-namespace subsdk0 { void sub_3557e0_subsdk0_3557e0(); }
-namespace subsdk0 { void sub_355580(); }
-namespace subsdk0 { void sub_356390(); }
-namespace subsdk0 { void sub_3554b0(); }
-namespace subsdk0 { void sub_356ef0(); }
 
 // sub_1b0  (orig 0x1b0, mov_ret)
 uint32_t subsdk0_f_1b0() { return 0; }
@@ -459,9 +430,6 @@ uint32_t subsdk0_f_54000(void* a0, void* a1) {
     *(uint32_t*)((char*)(a0)) = *(uint32_t*)((char*)(a1) + 1388);
     return 0;
 }
-
-// sub_54010  (orig 0x54010, tailcall)
-void subsdk0_f_54010() { subsdk0::sub_54020(); }
 
 // sub_55980  (orig 0x55980, getter)
 uint32_t subsdk0_f_55980(void* a0) { return *(uint32_t*)((char*)(a0)); }
@@ -2304,9 +2272,6 @@ uint32_t subsdk0_f_258370() { return 2; }
 // sub_258380  (orig 0x258380, mov_ret)
 uint32_t subsdk0_f_258380() { return 2; }
 
-// sub_258660  (orig 0x258660, tailcall)
-void subsdk0_f_258660() { subsdk0::libnvmm_camera(); }
-
 // sub_2594b0  (orig 0x2594b0, strlit-ret)
 const char *subsdk0_f_2594b0() { static char g_f_2594b0[1]; __asm__ volatile("" ::: "memory"); return g_f_2594b0; }
 
@@ -2452,9 +2417,6 @@ uint32_t subsdk0_f_270460() { return 0; }
 // sub_270470  (orig 0x270470, mov_ret)
 uint64_t subsdk0_f_270470() { return 0; }
 
-// sub_273a10  (orig 0x273a10, const-ret)
-uint32_t subsdk0_f_273a10() { return 2147487770u; }
-
 // sub_273a20  (orig 0x273a20, const-ret)
 uint32_t subsdk0_f_273a20() { return 2147487770u; }
 
@@ -2502,20 +2464,11 @@ uint32_t subsdk0_f_297110() { return 0; }
 // sub_297120  (orig 0x297120, mov_ret)
 uint32_t subsdk0_f_297120() { return 0; }
 
-// sub_297280  (orig 0x297280, tailcall)
-void subsdk0_f_297280() { subsdk0::sub_273e00(); }
-
-// sub_297290  (orig 0x297290, tailcall)
-void subsdk0_f_297290() { subsdk0::sub_273c50(); }
-
 // sub_2972a0  (orig 0x2972a0, mov_ret)
 uint32_t subsdk0_f_2972a0() { return 0; }
 
 // sub_29a150  (orig 0x29a150, mov_ret)
 uint32_t subsdk0_f_29a150() { return 0; }
-
-// sub_29af10  (orig 0x29af10, tailcall)
-uint32_t subsdk0_f_29af10() { return subsdk0_f_273a10(); }
 
 // sub_29c020  (orig 0x29c020, mov_ret)
 uint32_t subsdk0_f_29c020() { return 33; }
@@ -2525,42 +2478,6 @@ uint32_t subsdk0_f_29e6c0() { return 0; }
 
 // sub_29e6d0  (orig 0x29e6d0, ret_only)
 void subsdk0_f_29e6d0() {}
-
-// sub_2a6fa0  (orig 0x2a6fa0, tailcall)
-void subsdk0_f_2a6fa0() { subsdk0::BlockMP3Dec_2(); }
-
-// sub_2a6fb0  (orig 0x2a6fb0, tailcall)
-void subsdk0_f_2a6fb0() { subsdk0::BlockAACEnc(); }
-
-// sub_2a6fc0  (orig 0x2a6fc0, tailcall)
-void subsdk0_f_2a6fc0() { subsdk0::BlockH264Dec(); }
-
-// sub_2a6fd0  (orig 0x2a6fd0, tailcall)
-void subsdk0_f_2a6fd0() { subsdk0::OMX_Nvidia_h264_decode_low_latency(); }
-
-// sub_2a6fe0  (orig 0x2a6fe0, tailcall)
-void subsdk0_f_2a6fe0() { subsdk0::BlockH264Dec_2(); }
-
-// sub_2a6ff0  (orig 0x2a6ff0, tailcall)
-void subsdk0_f_2a6ff0() { subsdk0::BlockVc1Dec(); }
-
-// sub_2a7000  (orig 0x2a7000, tailcall)
-void subsdk0_f_2a7000() { subsdk0::BlockMpeg2Dec(); }
-
-// sub_2a7010  (orig 0x2a7010, tailcall)
-void subsdk0_f_2a7010() { subsdk0::BlockAACDec(); }
-
-// sub_2a7020  (orig 0x2a7020, tailcall)
-void subsdk0_f_2a7020() { subsdk0::BlockJpgEnc(); }
-
-// sub_2a7030  (orig 0x2a7030, tailcall)
-void subsdk0_f_2a7030() { subsdk0::BlockWMADec(); }
-
-// sub_2a7040  (orig 0x2a7040, tailcall)
-void subsdk0_f_2a7040() { subsdk0::BlockMJpgDec(); }
-
-// sub_2a7050  (orig 0x2a7050, tailcall)
-void subsdk0_f_2a7050() { subsdk0::BlockSuperJpgDec(); }
 
 // sub_2ae640  (orig 0x2ae640, mov_ret)
 uint32_t subsdk0_f_2ae640() { return 0; }
@@ -2597,9 +2514,6 @@ void subsdk0_f_2b83a0() {}
 
 // sub_2ba9d0  (orig 0x2ba9d0, getter-chain)
 uint16_t subsdk0_f_2ba9d0(void* a0) { return *(uint16_t*)((char*)((*(uint64_t*)((char*)(a0) + 24))) + 74); }
-
-// sub_2baa70  (orig 0x2baa70, tailcall)
-void subsdk0_f_2baa70() { subsdk0::sub_2baa90(); }
 
 // sub_2baa80  (orig 0x2baa80, ret_only)
 void subsdk0_f_2baa80() {}
@@ -2646,17 +2560,8 @@ uint32_t subsdk0_f_3052f0() { return 0; }
 // sub_318fc0  (orig 0x318fc0, mov_ret)
 uint32_t subsdk0_f_318fc0() { return 0; }
 
-// sub_31cc70  (orig 0x31cc70, tailcall)
-void subsdk0_f_31cc70() { subsdk0::sub_31abc0_subsdk0_31abc0(); }
-
 // sub_337b00  (orig 0x337b00, mov_ret)
 uint32_t subsdk0_f_337b00() { return 1; }
-
-// sub_338580  (orig 0x338580, tailcall)
-void subsdk0_f_338580() { subsdk0::sub_338590(); }
-
-// sub_338a80  (orig 0x338a80, tailcall)
-void subsdk0_f_338a80() { subsdk0::sub_338a90_subsdk0_338a90(); }
 
 // sub_338ce0  (orig 0x338ce0, mov_ret)
 uint32_t subsdk0_f_338ce0() { return 0; }
@@ -2684,24 +2589,6 @@ void subsdk0_f_3489c0() {}
 
 // sub_348a70  (orig 0x348a70, ret_only)
 void subsdk0_f_348a70() {}
-
-// sub_348a80  (orig 0x348a80, tailcall)
-void subsdk0_f_348a80() { subsdk0::sub_353db0(); }
-
-// sub_348a90  (orig 0x348a90, tailcall)
-void subsdk0_f_348a90() { subsdk0::sub_355620(); }
-
-// sub_348aa0  (orig 0x348aa0, tailcall)
-void subsdk0_f_348aa0() { subsdk0::sub_3557e0_subsdk0_3557e0(); }
-
-// sub_348ad0  (orig 0x348ad0, tailcall)
-void subsdk0_f_348ad0() { subsdk0::sub_355580(); }
-
-// sub_348ae0  (orig 0x348ae0, tailcall)
-void subsdk0_f_348ae0() { subsdk0::sub_356390(); }
-
-// sub_348af0  (orig 0x348af0, tailcall)
-void subsdk0_f_348af0() { subsdk0::sub_3554b0(); }
 
 // sub_34b0d0  (orig 0x34b0d0, ret_only)
 void subsdk0_f_34b0d0() {}
@@ -2783,9 +2670,6 @@ uint32_t subsdk0_f_35bba0() { return 0; }
 
 // sub_35bbb0  (orig 0x35bbb0, mov_ret)
 uint32_t subsdk0_f_35bbb0() { return 0; }
-
-// sub_35bbc0  (orig 0x35bbc0, tailcall)
-void subsdk0_f_35bbc0() { subsdk0::sub_356ef0(); }
 
 // sub_35bc90  (orig 0x35bc90, mov_ret)
 uint32_t subsdk0_f_35bc90() { return 1; }

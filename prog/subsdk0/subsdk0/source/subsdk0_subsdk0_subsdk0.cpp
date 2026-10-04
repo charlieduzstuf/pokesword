@@ -1221,8 +1221,6 @@ void sub_53970_subsdk0_53970() { /* 0x53970 */ }
 void sub_53ed0() { /* 0x53ed0 */ }
 void sub_53ff0() { /* 0x53ff0 */ }
 // sub_54000: implemented in prog/matched/subsdk0/
-// sub_54010: implemented in prog/matched/subsdk0/
-void sub_54020() { /* 0x54020 */ }
 void sub_542d0_subsdk0_542d0() { /* 0x542d0 */ }
 void sub_54450() { /* 0x54450 */ }
 void d_d_d_3_subsdk0_54490() { /* 0x54490 */ }
@@ -4004,5 +4002,7 @@ void sub_14be40() { /* 0x14be40 */ }
 void sub_14be70() { /* 0x14be70 */ }
 void sub_14bfa0() { /* 0x14bfa0 */ }
 void sub_14c010() { /* 0x14c010 */ }
+void sub_14c100() { /* 0x14c100 */ }
+void NuPlayerDriver_2() { /* 0x14c180 */ }
 
 }  // namespace subsdk0

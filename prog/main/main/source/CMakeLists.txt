@@ -19,7 +19,6 @@ target_sources(pokesword PRIVATE
   main_main_main_22.cpp
   main_main_main_23.cpp
   main_main_main_24.cpp
-  main_main_main_25.cpp
   main_main_main_3.cpp
   main_main_main_4.cpp
   main_main_main_5.cpp

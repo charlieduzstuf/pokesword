@@ -4,10 +4,6 @@
 #include "sdk_sdk_sdk_1.h"
 
 namespace sdk {
-// sub_78030: implemented in prog/matched/sdk/
-// sub_78040: implemented in prog/matched/sdk/
-void sub_78050() { /* 0x78050 */ }
-void sub_78060() { /* 0x78060 */ }
 void sub_78070() { /* 0x78070 */ }
 void sub_780d0() { /* 0x780d0 */ }
 void sub_78160() { /* 0x78160 */ }
@@ -3361,8 +3357,6 @@ void sub_14cfd0() { /* 0x14cfd0 */ }
 void sub_14d530() { /* 0x14d530 */ }
 void sub_14d650() { /* 0x14d650 */ }
 // sub_14d660: implemented in prog/matched/sdk/
-// sub_14d670: implemented in prog/matched/sdk/
-void sub_14d680() { /* 0x14d680 */ }
 void sub_14d960() { /* 0x14d960 */ }
 void sub_14dae0() { /* 0x14dae0 */ }
 void d_d_d_3() { /* 0x14db20 */ }
@@ -4004,5 +3998,11 @@ void sub_189f40() { /* 0x189f40 */ }
 void sub_189f50() { /* 0x189f50 */ }
 void sub_189fb0() { /* 0x189fb0 */ }
 void sub_18a020() { /* 0x18a020 */ }
+void sub_18a320() { /* 0x18a320 */ }
+void sub_18a3d0() { /* 0x18a3d0 */ }
+// sub_18a410: implemented in prog/matched/sdk/
+void sub_18a420() { /* 0x18a420 */ }
+void sub_18a460() { /* 0x18a460 */ }
+void sub_18a530() { /* 0x18a530 */ }
 
 }  // namespace sdk

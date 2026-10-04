@@ -4,1034 +4,6 @@
 #include "main_main_main_7.h"
 
 namespace main {
-void sub_7ff4f0() { /* 0x7ff4f0 */ }
-void sub_7ff540() { /* 0x7ff540 */ }
-void sub_7ff570() { /* 0x7ff570 */ }
-// sub_7ff5c0: implemented in prog/matched/main/
-// sub_7ff5d0: implemented in prog/matched/main/
-void sub_7ff5e0() { /* 0x7ff5e0 */ }
-// sub_7ff600: implemented in prog/matched/main/
-void sub_7ff610() { /* 0x7ff610 */ }
-void sub_7ff630() { /* 0x7ff630 */ }
-void sub_7ff6d0() { /* 0x7ff6d0 */ }
-// sub_7ff780: implemented in prog/matched/main/
-void sub_7ff7c0() { /* 0x7ff7c0 */ }
-void sub_7ff840() { /* 0x7ff840 */ }
-// sub_7ff860: implemented in prog/matched/main/
-// sub_7ff870: implemented in prog/matched/main/
-void sub_7ff880() { /* 0x7ff880 */ }
-void sub_7ff890() { /* 0x7ff890 */ }
-// sub_7ff8a0: implemented in prog/matched/main/
-// sub_7ff8b0: implemented in prog/matched/main/
-void sub_7ff8c0() { /* 0x7ff8c0 */ }
-void sub_7ff8f0() { /* 0x7ff8f0 */ }
-// sub_7ffa70: implemented in prog/matched/main/
-// sub_7ffa80: implemented in prog/matched/main/
-void sub_7ffa90() { /* 0x7ffa90 */ }
-// sub_7ffaa0: implemented in prog/matched/main/
-// sub_7ffab0: implemented in prog/matched/main/
-void sub_7ffac0() { /* 0x7ffac0 */ }
-// sub_7ffaf0: implemented in prog/matched/main/
-void sub_7ffb00() { /* 0x7ffb00 */ }
-// sub_7ffb30: implemented in prog/matched/main/
-void sub_7ffb40() { /* 0x7ffb40 */ }
-void sub_7ffb60() { /* 0x7ffb60 */ }
-void sub_7ffb80() { /* 0x7ffb80 */ }
-void sub_7ffbd0() { /* 0x7ffbd0 */ }
-void sub_7ffce0() { /* 0x7ffce0 */ }
-void sub_7ffd80() { /* 0x7ffd80 */ }
-void sub_7ffe20() { /* 0x7ffe20 */ }
-void sub_7ffe50() { /* 0x7ffe50 */ }
-void sub_800000() { /* 0x800000 */ }
-void sub_8000b0() { /* 0x8000b0 */ }
-void sub_800130() { /* 0x800130 */ }
-void sub_800170() { /* 0x800170 */ }
-void sub_8001d0() { /* 0x8001d0 */ }
-void sub_800240() { /* 0x800240 */ }
-// sub_800280: implemented in prog/matched/main/
-void sub_800290() { /* 0x800290 */ }
-void sub_8002a0() { /* 0x8002a0 */ }
-// sub_8003c0: implemented in prog/matched/main/
-// sub_8003d0: implemented in prog/matched/main/
-void sub_8003e0() { /* 0x8003e0 */ }
-void sub_800430() { /* 0x800430 */ }
-void sub_800480() { /* 0x800480 */ }
-void sub_8004b0() { /* 0x8004b0 */ }
-void sub_8004d0() { /* 0x8004d0 */ }
-void sub_800550() { /* 0x800550 */ }
-void sub_8005a0() { /* 0x8005a0 */ }
-// sub_8005e0: implemented in prog/matched/main/
-// sub_8005f0: implemented in prog/matched/main/
-void sub_800600() { /* 0x800600 */ }
-void sub_800610() { /* 0x800610 */ }
-void sub_800680() { /* 0x800680 */ }
-void sub_8006e0() { /* 0x8006e0 */ }
-void sub_800720() { /* 0x800720 */ }
-void sub_800760() { /* 0x800760 */ }
-void sub_8008d0() { /* 0x8008d0 */ }
-void sub_800900() { /* 0x800900 */ }
-void sub_800940() { /* 0x800940 */ }
-void sub_800990() { /* 0x800990 */ }
-void sub_8009a0() { /* 0x8009a0 */ }
-void sub_8009b0() { /* 0x8009b0 */ }
-void sub_800a30() { /* 0x800a30 */ }
-void sub_800a70() { /* 0x800a70 */ }
-void sub_800ab0() { /* 0x800ab0 */ }
-void sub_800ae0() { /* 0x800ae0 */ }
-void sub_800b30() { /* 0x800b30 */ }
-void sub_800b60() { /* 0x800b60 */ }
-void sub_800ba0() { /* 0x800ba0 */ }
-// sub_800bf0: implemented in prog/matched/main/
-void sub_800c00() { /* 0x800c00 */ }
-void sub_800c20() { /* 0x800c20 */ }
-void sub_800c60() { /* 0x800c60 */ }
-void sub_800c80() { /* 0x800c80 */ }
-void sub_800d00() { /* 0x800d00 */ }
-void sub_800d20() { /* 0x800d20 */ }
-void sub_800d40() { /* 0x800d40 */ }
-void sub_800d90() { /* 0x800d90 */ }
-void sub_8011e0() { /* 0x8011e0 */ }
-void sub_801270() { /* 0x801270 */ }
-void sub_8013b0() { /* 0x8013b0 */ }
-void sub_801440() { /* 0x801440 */ }
-void sub_8015d0() { /* 0x8015d0 */ }
-void sub_8016e0() { /* 0x8016e0 */ }
-void sub_801720() { /* 0x801720 */ }
-// sub_801750: implemented in prog/matched/main/
-// sub_801760: implemented in prog/matched/main/
-void sub_801770() { /* 0x801770 */ }
-void sub_801780() { /* 0x801780 */ }
-// sub_8017b0: implemented in prog/matched/main/
-// sub_8017c0: implemented in prog/matched/main/
-// sub_8017d0: implemented in prog/matched/main/
-// sub_8017e0: implemented in prog/matched/main/
-void sub_8017f0() { /* 0x8017f0 */ }
-void sub_801810() { /* 0x801810 */ }
-void sub_801830() { /* 0x801830 */ }
-// sub_801860: implemented in prog/matched/main/
-void sub_801870() { /* 0x801870 */ }
-// sub_801890: implemented in prog/matched/main/
-void sub_8018a0() { /* 0x8018a0 */ }
-void sub_8018c0() { /* 0x8018c0 */ }
-void sub_8018f0() { /* 0x8018f0 */ }
-// sub_801910: implemented in prog/matched/main/
-// sub_801920: implemented in prog/matched/main/
-void sub_801930() { /* 0x801930 */ }
-void sub_801980() { /* 0x801980 */ }
-void sub_801b90() { /* 0x801b90 */ }
-void sub_801cb0() { /* 0x801cb0 */ }
-void sub_801ce0() { /* 0x801ce0 */ }
-void sub_801e30() { /* 0x801e30 */ }
-void sub_8021d0() { /* 0x8021d0 */ }
-void sub_8022b0() { /* 0x8022b0 */ }
-void sub_802310() { /* 0x802310 */ }
-// sub_802330: implemented in prog/matched/main/
-// sub_802340: implemented in prog/matched/main/
-void sub_802350() { /* 0x802350 */ }
-void sub_802370() { /* 0x802370 */ }
-void sub_8023b0() { /* 0x8023b0 */ }
-void sub_802430() { /* 0x802430 */ }
-// sub_802460: implemented in prog/matched/main/
-// sub_802470: implemented in prog/matched/main/
-void sub_802480() { /* 0x802480 */ }
-// sub_802490: implemented in prog/matched/main/
-void sub_8024a0() { /* 0x8024a0 */ }
-void sub_8024c0() { /* 0x8024c0 */ }
-// sub_8024e0: implemented in prog/matched/main/
-void sub_8024f0() { /* 0x8024f0 */ }
-void sub_802500() { /* 0x802500 */ }
-void sub_802510() { /* 0x802510 */ }
-void sub_802530() { /* 0x802530 */ }
-void sub_802560() { /* 0x802560 */ }
-// sub_802580: implemented in prog/matched/main/
-// sub_802590: implemented in prog/matched/main/
-void sub_8025a0() { /* 0x8025a0 */ }
-// sub_8025d0: implemented in prog/matched/main/
-// sub_8025e0: implemented in prog/matched/main/
-// sub_8025f0: implemented in prog/matched/main/
-// sub_802600: implemented in prog/matched/main/
-// sub_802610: implemented in prog/matched/main/
-// sub_802620: implemented in prog/matched/main/
-void sub_802630() { /* 0x802630 */ }
-// sub_802650: implemented in prog/matched/main/
-void sub_802660() { /* 0x802660 */ }
-void sub_802670() { /* 0x802670 */ }
-void sub_802780() { /* 0x802780 */ }
-void sub_802870() { /* 0x802870 */ }
-void sub_8028d0() { /* 0x8028d0 */ }
-void sub_802940() { /* 0x802940 */ }
-void sub_802ac0() { /* 0x802ac0 */ }
-void sub_802af0() { /* 0x802af0 */ }
-void sub_802b50() { /* 0x802b50 */ }
-void sub_802b90() { /* 0x802b90 */ }
-void sub_802bc0() { /* 0x802bc0 */ }
-void sub_802c10() { /* 0x802c10 */ }
-void sub_802c60() { /* 0x802c60 */ }
-void sub_802cc0() { /* 0x802cc0 */ }
-void sub_802d50() { /* 0x802d50 */ }
-void sub_802dd0() { /* 0x802dd0 */ }
-void sub_802df0() { /* 0x802df0 */ }
-void sub_802e30() { /* 0x802e30 */ }
-void sub_802ff0() { /* 0x802ff0 */ }
-void sub_803080() { /* 0x803080 */ }
-void sub_8030d0() { /* 0x8030d0 */ }
-void sub_8032d0() { /* 0x8032d0 */ }
-void sub_803390() { /* 0x803390 */ }
-void sub_8034a0() { /* 0x8034a0 */ }
-void sub_803560() { /* 0x803560 */ }
-void sub_803600() { /* 0x803600 */ }
-void sub_8036a0() { /* 0x8036a0 */ }
-void sub_803760() { /* 0x803760 */ }
-void sub_803790() { /* 0x803790 */ }
-void sub_8037b0() { /* 0x8037b0 */ }
-void sub_803830() { /* 0x803830 */ }
-void sub_803860() { /* 0x803860 */ }
-void sub_803890() { /* 0x803890 */ }
-void sub_8038c0() { /* 0x8038c0 */ }
-void sub_803930() { /* 0x803930 */ }
-void sub_8039a0() { /* 0x8039a0 */ }
-// sub_803a10: implemented in prog/matched/main/
-// sub_803a20: implemented in prog/matched/main/
-void sub_803a30() { /* 0x803a30 */ }
-void sub_803a50() { /* 0x803a50 */ }
-void sub_803a70() { /* 0x803a70 */ }
-void sub_803a90() { /* 0x803a90 */ }
-void sub_803b90() { /* 0x803b90 */ }
-void sub_803c00() { /* 0x803c00 */ }
-void sub_803c60() { /* 0x803c60 */ }
-void sub_803c70() { /* 0x803c70 */ }
-void sub_803c80() { /* 0x803c80 */ }
-void sub_803cb0() { /* 0x803cb0 */ }
-void sub_803ce0() { /* 0x803ce0 */ }
-void sub_803d10() { /* 0x803d10 */ }
-void sub_803d20() { /* 0x803d20 */ }
-// sub_803d40: implemented in prog/matched/main/
-void sub_803d50() { /* 0x803d50 */ }
-void sub_803d60() { /* 0x803d60 */ }
-void sub_803d90() { /* 0x803d90 */ }
-void sub_803db0() { /* 0x803db0 */ }
-// sub_803dc0: implemented in prog/matched/main/
-void sub_803dd0() { /* 0x803dd0 */ }
-void sub_803df0() { /* 0x803df0 */ }
-// sub_803e00: implemented in prog/matched/main/
-void sub_803e10() { /* 0x803e10 */ }
-void sub_803e20() { /* 0x803e20 */ }
-// sub_803e30: implemented in prog/matched/main/
-void sub_803e40() { /* 0x803e40 */ }
-void sub_803ef0() { /* 0x803ef0 */ }
-void sub_804060() { /* 0x804060 */ }
-void sub_804160() { /* 0x804160 */ }
-void sub_804180() { /* 0x804180 */ }
-void sub_804200() { /* 0x804200 */ }
-void sub_804230() { /* 0x804230 */ }
-void sub_804480() { /* 0x804480 */ }
-// sub_804590: implemented in prog/matched/main/
-// sub_8045a0: implemented in prog/matched/main/
-void sub_8045b0() { /* 0x8045b0 */ }
-void sub_804630() { /* 0x804630 */ }
-void sub_804700() { /* 0x804700 */ }
-void sub_8047c0() { /* 0x8047c0 */ }
-void sub_804810() { /* 0x804810 */ }
-void sub_804820() { /* 0x804820 */ }
-void sub_804840() { /* 0x804840 */ }
-void sub_8048c0() { /* 0x8048c0 */ }
-void sub_804920() { /* 0x804920 */ }
-void sub_804980() { /* 0x804980 */ }
-// sub_8049b0: implemented in prog/matched/main/
-// sub_8049c0: implemented in prog/matched/main/
-void sub_8049d0() { /* 0x8049d0 */ }
-void sub_804ad0() { /* 0x804ad0 */ }
-void sub_804db0() { /* 0x804db0 */ }
-void sub_804e90() { /* 0x804e90 */ }
-void sub_805000() { /* 0x805000 */ }
-void sub_805540() { /* 0x805540 */ }
-void sub_805600() { /* 0x805600 */ }
-void sub_805760() { /* 0x805760 */ }
-void sub_805a50() { /* 0x805a50 */ }
-void sub_805ce0() { /* 0x805ce0 */ }
-void sub_805dc0() { /* 0x805dc0 */ }
-void sub_805e40() { /* 0x805e40 */ }
-void sub_805ee0() { /* 0x805ee0 */ }
-void sub_806030() { /* 0x806030 */ }
-void sub_8062b0() { /* 0x8062b0 */ }
-void sub_806380() { /* 0x806380 */ }
-void sub_8064e0() { /* 0x8064e0 */ }
-void sub_806590() { /* 0x806590 */ }
-void sub_806770() { /* 0x806770 */ }
-void sub_806810() { /* 0x806810 */ }
-void sub_806880() { /* 0x806880 */ }
-void sub_8068f0() { /* 0x8068f0 */ }
-void sub_806a80() { /* 0x806a80 */ }
-void sub_806ba0() { /* 0x806ba0 */ }
-void sub_806c70() { /* 0x806c70 */ }
-void sub_806cf0() { /* 0x806cf0 */ }
-void sub_806d90() { /* 0x806d90 */ }
-void sub_806df0() { /* 0x806df0 */ }
-void sub_806e40() { /* 0x806e40 */ }
-void sub_806f10() { /* 0x806f10 */ }
-void sub_807040() { /* 0x807040 */ }
-void sub_8070e0() { /* 0x8070e0 */ }
-void sub_807150() { /* 0x807150 */ }
-void sub_807250() { /* 0x807250 */ }
-void sub_807300() { /* 0x807300 */ }
-void sub_8073a0() { /* 0x8073a0 */ }
-void sub_807490() { /* 0x807490 */ }
-void sub_807530() { /* 0x807530 */ }
-void sub_8075a0() { /* 0x8075a0 */ }
-void sub_8075e0() { /* 0x8075e0 */ }
-void sub_8076b0() { /* 0x8076b0 */ }
-void sub_807810() { /* 0x807810 */ }
-void sub_8078a0() { /* 0x8078a0 */ }
-void sub_807910() { /* 0x807910 */ }
-void sub_807990() { /* 0x807990 */ }
-void sub_807a20() { /* 0x807a20 */ }
-void sub_807a80() { /* 0x807a80 */ }
-void sub_807b40() { /* 0x807b40 */ }
-void sub_807bd0() { /* 0x807bd0 */ }
-void sub_807c30() { /* 0x807c30 */ }
-void sub_807c90() { /* 0x807c90 */ }
-void sub_807cd0() { /* 0x807cd0 */ }
-void sub_807d10() { /* 0x807d10 */ }
-void sub_807d70() { /* 0x807d70 */ }
-void sub_807e00() { /* 0x807e00 */ }
-void sub_807ea0() { /* 0x807ea0 */ }
-void sub_807f30() { /* 0x807f30 */ }
-void sub_807fc0() { /* 0x807fc0 */ }
-void sub_8080b0() { /* 0x8080b0 */ }
-void sub_808110() { /* 0x808110 */ }
-void sub_808180() { /* 0x808180 */ }
-void sub_808230() { /* 0x808230 */ }
-void sub_8082d0() { /* 0x8082d0 */ }
-void sub_808380() { /* 0x808380 */ }
-void sub_8084c0() { /* 0x8084c0 */ }
-void sub_808560() { /* 0x808560 */ }
-void sub_808610() { /* 0x808610 */ }
-void sub_8086f0() { /* 0x8086f0 */ }
-void sub_8087d0() { /* 0x8087d0 */ }
-void sub_808880() { /* 0x808880 */ }
-void sub_808a90() { /* 0x808a90 */ }
-void sub_808b60() { /* 0x808b60 */ }
-void sub_808df0() { /* 0x808df0 */ }
-void sub_808eb0() { /* 0x808eb0 */ }
-void sub_808f20() { /* 0x808f20 */ }
-void sub_808f90() { /* 0x808f90 */ }
-void sub_809050() { /* 0x809050 */ }
-void sub_8091d0() { /* 0x8091d0 */ }
-void sub_809270() { /* 0x809270 */ }
-void sub_8093a0() { /* 0x8093a0 */ }
-void sub_809440() { /* 0x809440 */ }
-void sub_8094f0() { /* 0x8094f0 */ }
-void sub_809650() { /* 0x809650 */ }
-void sub_8096b0() { /* 0x8096b0 */ }
-void sub_809750() { /* 0x809750 */ }
-void sub_8097c0() { /* 0x8097c0 */ }
-void sub_8098b0() { /* 0x8098b0 */ }
-void sub_809b00() { /* 0x809b00 */ }
-void sub_809b90() { /* 0x809b90 */ }
-void sub_809c20() { /* 0x809c20 */ }
-void sub_809cc0() { /* 0x809cc0 */ }
-void sub_809d50() { /* 0x809d50 */ }
-void sub_809dc0() { /* 0x809dc0 */ }
-void sub_809f70() { /* 0x809f70 */ }
-void sub_80a020() { /* 0x80a020 */ }
-void sub_80a0d0() { /* 0x80a0d0 */ }
-void sub_80a180() { /* 0x80a180 */ }
-void sub_80a270() { /* 0x80a270 */ }
-void sub_80a390() { /* 0x80a390 */ }
-void sub_80a470() { /* 0x80a470 */ }
-void sub_80a530() { /* 0x80a530 */ }
-void sub_80a5d0() { /* 0x80a5d0 */ }
-void sub_80a660() { /* 0x80a660 */ }
-void sub_80a6c0() { /* 0x80a6c0 */ }
-void sub_80a7e0() { /* 0x80a7e0 */ }
-void sub_80a870() { /* 0x80a870 */ }
-void sub_80a950() { /* 0x80a950 */ }
-void sub_80a9f0() { /* 0x80a9f0 */ }
-void sub_80aaa0() { /* 0x80aaa0 */ }
-void sub_80ab10() { /* 0x80ab10 */ }
-void sub_80abb0() { /* 0x80abb0 */ }
-void sub_80ac20() { /* 0x80ac20 */ }
-void sub_80ad90() { /* 0x80ad90 */ }
-void sub_80af10() { /* 0x80af10 */ }
-void sub_80af70() { /* 0x80af70 */ }
-void sub_80b020() { /* 0x80b020 */ }
-void sub_80b0f0() { /* 0x80b0f0 */ }
-void sub_80b140() { /* 0x80b140 */ }
-void sub_80b190() { /* 0x80b190 */ }
-void sub_80b1f0() { /* 0x80b1f0 */ }
-void sub_80b290() { /* 0x80b290 */ }
-void sub_80b390() { /* 0x80b390 */ }
-void sub_80b430() { /* 0x80b430 */ }
-void sub_80b4a0() { /* 0x80b4a0 */ }
-void sub_80b590() { /* 0x80b590 */ }
-void sub_80b610() { /* 0x80b610 */ }
-void sub_80b6e0() { /* 0x80b6e0 */ }
-void sub_80b770() { /* 0x80b770 */ }
-void sub_80b910() { /* 0x80b910 */ }
-void sub_80b9e0() { /* 0x80b9e0 */ }
-void sub_80ba80() { /* 0x80ba80 */ }
-void sub_80bc10() { /* 0x80bc10 */ }
-void sub_80bc70() { /* 0x80bc70 */ }
-void sub_80bcd0() { /* 0x80bcd0 */ }
-void sub_80bde0() { /* 0x80bde0 */ }
-void sub_80bf00() { /* 0x80bf00 */ }
-void sub_80bfd0() { /* 0x80bfd0 */ }
-void sub_80c050() { /* 0x80c050 */ }
-void sub_80c100() { /* 0x80c100 */ }
-void sub_80c1d0() { /* 0x80c1d0 */ }
-void sub_80c260() { /* 0x80c260 */ }
-void sub_80c300() { /* 0x80c300 */ }
-void sub_80c4c0() { /* 0x80c4c0 */ }
-void sub_80c5e0() { /* 0x80c5e0 */ }
-void sub_80c6b0() { /* 0x80c6b0 */ }
-void sub_80c710() { /* 0x80c710 */ }
-void sub_80c840() { /* 0x80c840 */ }
-void sub_80c8d0() { /* 0x80c8d0 */ }
-void sub_80c9e0() { /* 0x80c9e0 */ }
-void sub_80ca80() { /* 0x80ca80 */ }
-void sub_80cae0() { /* 0x80cae0 */ }
-void sub_80cb50() { /* 0x80cb50 */ }
-void sub_80cbb0() { /* 0x80cbb0 */ }
-void sub_80cc80() { /* 0x80cc80 */ }
-void sub_80cd20() { /* 0x80cd20 */ }
-void sub_80cd60() { /* 0x80cd60 */ }
-void sub_80ce10() { /* 0x80ce10 */ }
-void sub_80ce90() { /* 0x80ce90 */ }
-void sub_80cf50() { /* 0x80cf50 */ }
-void sub_80cfe0() { /* 0x80cfe0 */ }
-void sub_80d0e0() { /* 0x80d0e0 */ }
-void sub_80d190() { /* 0x80d190 */ }
-void sub_80d220() { /* 0x80d220 */ }
-void sub_80d2c0() { /* 0x80d2c0 */ }
-void sub_80d3a0() { /* 0x80d3a0 */ }
-void sub_80d430() { /* 0x80d430 */ }
-void sub_80d4b0() { /* 0x80d4b0 */ }
-void sub_80d540() { /* 0x80d540 */ }
-void sub_80d5d0() { /* 0x80d5d0 */ }
-void sub_80d700() { /* 0x80d700 */ }
-void sub_80d8f0() { /* 0x80d8f0 */ }
-void sub_80d910() { /* 0x80d910 */ }
-// sub_80d940: implemented in prog/matched/main/
-void sub_80d950() { /* 0x80d950 */ }
-void sub_80d980() { /* 0x80d980 */ }
-void sub_80d9c0() { /* 0x80d9c0 */ }
-void sub_80daf0() { /* 0x80daf0 */ }
-void sub_80db30() { /* 0x80db30 */ }
-void sub_80dbd0() { /* 0x80dbd0 */ }
-void sub_80dca0() { /* 0x80dca0 */ }
-void sub_80dd20() { /* 0x80dd20 */ }
-void sub_80dd60() { /* 0x80dd60 */ }
-void sub_80de70() { /* 0x80de70 */ }
-void sub_80df50() { /* 0x80df50 */ }
-void sub_80e030() { /* 0x80e030 */ }
-void sub_80e0e0() { /* 0x80e0e0 */ }
-void sub_80e190() { /* 0x80e190 */ }
-void sub_80e1b0() { /* 0x80e1b0 */ }
-void sub_80e1d0() { /* 0x80e1d0 */ }
-void sub_80e1f0() { /* 0x80e1f0 */ }
-void sub_80e230() { /* 0x80e230 */ }
-void sub_80e250() { /* 0x80e250 */ }
-void sub_80e270() { /* 0x80e270 */ }
-void sub_80e2a0() { /* 0x80e2a0 */ }
-void sub_80e2d0() { /* 0x80e2d0 */ }
-void sub_80e310() { /* 0x80e310 */ }
-void sub_80e820() { /* 0x80e820 */ }
-void sub_80e840() { /* 0x80e840 */ }
-void sub_80e880() { /* 0x80e880 */ }
-void sub_80e8e0() { /* 0x80e8e0 */ }
-void sub_80e920() { /* 0x80e920 */ }
-void sub_80ecb0() { /* 0x80ecb0 */ }
-void sub_80ecf0() { /* 0x80ecf0 */ }
-void sub_80ee90() { /* 0x80ee90 */ }
-void sub_80eed0() { /* 0x80eed0 */ }
-void sub_80ef50() { /* 0x80ef50 */ }
-void sub_80efb0() { /* 0x80efb0 */ }
-void sub_80f000() { /* 0x80f000 */ }
-void sub_80f050() { /* 0x80f050 */ }
-void sub_80f0a0() { /* 0x80f0a0 */ }
-void sub_80f100() { /* 0x80f100 */ }
-void sub_80f1a0() { /* 0x80f1a0 */ }
-void sub_80f230() { /* 0x80f230 */ }
-void sub_80f280() { /* 0x80f280 */ }
-void sub_80f2f0() { /* 0x80f2f0 */ }
-void sub_80f370() { /* 0x80f370 */ }
-void sub_80f3e0() { /* 0x80f3e0 */ }
-void sub_80f410() { /* 0x80f410 */ }
-void sub_80f470() { /* 0x80f470 */ }
-void sub_80f490() { /* 0x80f490 */ }
-void sub_80f520() { /* 0x80f520 */ }
-void sub_80f5c0() { /* 0x80f5c0 */ }
-void sub_80f620() { /* 0x80f620 */ }
-void sub_80f660() { /* 0x80f660 */ }
-void sub_80f6c0() { /* 0x80f6c0 */ }
-void sub_80f730() { /* 0x80f730 */ }
-void sub_80f7a0() { /* 0x80f7a0 */ }
-void sub_80f810() { /* 0x80f810 */ }
-void sub_80f880() { /* 0x80f880 */ }
-void sub_80f900() { /* 0x80f900 */ }
-void sub_80f970() { /* 0x80f970 */ }
-void sub_80f9c0() { /* 0x80f9c0 */ }
-void sub_80fa10() { /* 0x80fa10 */ }
-void sub_80fa50() { /* 0x80fa50 */ }
-void sub_80fa90() { /* 0x80fa90 */ }
-void sub_80faf0() { /* 0x80faf0 */ }
-void sub_80fb50() { /* 0x80fb50 */ }
-void sub_80fb90() { /* 0x80fb90 */ }
-void sub_80fcb0() { /* 0x80fcb0 */ }
-void sub_80fd50() { /* 0x80fd50 */ }
-void sub_80fe00() { /* 0x80fe00 */ }
-void sub_80feb0() { /* 0x80feb0 */ }
-void sub_80ff10() { /* 0x80ff10 */ }
-void sub_80ffa0() { /* 0x80ffa0 */ }
-void sub_810070() { /* 0x810070 */ }
-void sub_810170() { /* 0x810170 */ }
-void sub_810200() { /* 0x810200 */ }
-void sub_810450() { /* 0x810450 */ }
-void sub_8104c0() { /* 0x8104c0 */ }
-void sub_8104d0() { /* 0x8104d0 */ }
-void sub_810520() { /* 0x810520 */ }
-void sub_810600() { /* 0x810600 */ }
-void sub_810650() { /* 0x810650 */ }
-void sub_8106b0() { /* 0x8106b0 */ }
-void sub_810700() { /* 0x810700 */ }
-void sub_810750() { /* 0x810750 */ }
-void sub_8107a0() { /* 0x8107a0 */ }
-void sub_8107f0() { /* 0x8107f0 */ }
-void sub_810830() { /* 0x810830 */ }
-void sub_810870() { /* 0x810870 */ }
-void sub_8108c0() { /* 0x8108c0 */ }
-void sub_810900() { /* 0x810900 */ }
-void sub_810950() { /* 0x810950 */ }
-void sub_810990() { /* 0x810990 */ }
-void sub_8109e0() { /* 0x8109e0 */ }
-void sub_810a70() { /* 0x810a70 */ }
-void sub_810a90() { /* 0x810a90 */ }
-void sub_810ae0() { /* 0x810ae0 */ }
-void sub_810b00() { /* 0x810b00 */ }
-void sub_810b50() { /* 0x810b50 */ }
-void sub_810ba0() { /* 0x810ba0 */ }
-void sub_810be0() { /* 0x810be0 */ }
-void sub_810d10() { /* 0x810d10 */ }
-void sub_810d80() { /* 0x810d80 */ }
-void sub_810e20() { /* 0x810e20 */ }
-void sub_810fb0() { /* 0x810fb0 */ }
-void sub_811070() { /* 0x811070 */ }
-void sub_8110b0() { /* 0x8110b0 */ }
-void sub_8110f0() { /* 0x8110f0 */ }
-void sub_811140() { /* 0x811140 */ }
-void sub_811190() { /* 0x811190 */ }
-void sub_8111e0() { /* 0x8111e0 */ }
-void sub_811240() { /* 0x811240 */ }
-void sub_8112d0() { /* 0x8112d0 */ }
-void sub_811320() { /* 0x811320 */ }
-void sub_811370() { /* 0x811370 */ }
-void sub_8113c0() { /* 0x8113c0 */ }
-void sub_811400() { /* 0x811400 */ }
-void sub_8114b0() { /* 0x8114b0 */ }
-void sub_811520() { /* 0x811520 */ }
-void sub_811550() { /* 0x811550 */ }
-void sub_811560() { /* 0x811560 */ }
-void sub_8115a0() { /* 0x8115a0 */ }
-void sub_8116e0() { /* 0x8116e0 */ }
-void sub_811730() { /* 0x811730 */ }
-void sub_811770() { /* 0x811770 */ }
-void sub_811780() { /* 0x811780 */ }
-void sub_8117d0() { /* 0x8117d0 */ }
-void sub_8117f0() { /* 0x8117f0 */ }
-void sub_811860() { /* 0x811860 */ }
-void sub_8118b0() { /* 0x8118b0 */ }
-void sub_811900() { /* 0x811900 */ }
-void sub_811950() { /* 0x811950 */ }
-void sub_811990() { /* 0x811990 */ }
-void sub_8119e0() { /* 0x8119e0 */ }
-void sub_811a20() { /* 0x811a20 */ }
-void sub_811a60() { /* 0x811a60 */ }
-void sub_811aa0() { /* 0x811aa0 */ }
-void sub_811af0() { /* 0x811af0 */ }
-void sub_811b40() { /* 0x811b40 */ }
-void sub_811b80() { /* 0x811b80 */ }
-void sub_811bd0() { /* 0x811bd0 */ }
-void sub_811c10() { /* 0x811c10 */ }
-void sub_811c50() { /* 0x811c50 */ }
-void sub_811c90() { /* 0x811c90 */ }
-void sub_811cc0() { /* 0x811cc0 */ }
-void sub_811d00() { /* 0x811d00 */ }
-void sub_811d40() { /* 0x811d40 */ }
-void sub_811d50() { /* 0x811d50 */ }
-void sub_811d90() { /* 0x811d90 */ }
-void sub_811dd0() { /* 0x811dd0 */ }
-void sub_811e10() { /* 0x811e10 */ }
-void sub_811e50() { /* 0x811e50 */ }
-void sub_811e90() { /* 0x811e90 */ }
-void sub_811ee0() { /* 0x811ee0 */ }
-void sub_811f20() { /* 0x811f20 */ }
-void sub_811f40() { /* 0x811f40 */ }
-void sub_811f90() { /* 0x811f90 */ }
-void sub_811fa0() { /* 0x811fa0 */ }
-void sub_811fb0() { /* 0x811fb0 */ }
-void sub_811fc0() { /* 0x811fc0 */ }
-void sub_811fe0() { /* 0x811fe0 */ }
-void sub_812000() { /* 0x812000 */ }
-void sub_812010() { /* 0x812010 */ }
-void sub_812020() { /* 0x812020 */ }
-void sub_812040() { /* 0x812040 */ }
-void sub_812080() { /* 0x812080 */ }
-void sub_812090() { /* 0x812090 */ }
-void sub_8120a0() { /* 0x8120a0 */ }
-void sub_8120c0() { /* 0x8120c0 */ }
-void sub_8120d0() { /* 0x8120d0 */ }
-void sub_8120f0() { /* 0x8120f0 */ }
-void sub_812110() { /* 0x812110 */ }
-void sub_812160() { /* 0x812160 */ }
-void sub_812190() { /* 0x812190 */ }
-void sub_8121b0() { /* 0x8121b0 */ }
-void sub_8121d0() { /* 0x8121d0 */ }
-void sub_8121e0() { /* 0x8121e0 */ }
-void sub_812240() { /* 0x812240 */ }
-void sub_812260() { /* 0x812260 */ }
-void sub_812280() { /* 0x812280 */ }
-void sub_8122b0() { /* 0x8122b0 */ }
-void sub_8122d0() { /* 0x8122d0 */ }
-void sub_8122e0() { /* 0x8122e0 */ }
-void sub_812330() { /* 0x812330 */ }
-void sub_812340() { /* 0x812340 */ }
-void sub_812390() { /* 0x812390 */ }
-void sub_8123d0() { /* 0x8123d0 */ }
-void sub_812420() { /* 0x812420 */ }
-void sub_8124b0() { /* 0x8124b0 */ }
-void sub_812520() { /* 0x812520 */ }
-void sub_812570() { /* 0x812570 */ }
-void sub_8125c0() { /* 0x8125c0 */ }
-void sub_812600() { /* 0x812600 */ }
-void sub_812640() { /* 0x812640 */ }
-void sub_812680() { /* 0x812680 */ }
-void sub_8126d0() { /* 0x8126d0 */ }
-void sub_812710() { /* 0x812710 */ }
-void sub_812750() { /* 0x812750 */ }
-void sub_8127d0() { /* 0x8127d0 */ }
-void sub_812820() { /* 0x812820 */ }
-void sub_812890() { /* 0x812890 */ }
-void sub_8128e0() { /* 0x8128e0 */ }
-void sub_812930() { /* 0x812930 */ }
-void sub_812980() { /* 0x812980 */ }
-void sub_8129d0() { /* 0x8129d0 */ }
-void sub_812a10() { /* 0x812a10 */ }
-void sub_812a50() { /* 0x812a50 */ }
-void sub_812a90() { /* 0x812a90 */ }
-void sub_812ae0() { /* 0x812ae0 */ }
-// sub_812b30: implemented in prog/matched/main/
-// sub_812b40: implemented in prog/matched/main/
-void sub_812b50() { /* 0x812b50 */ }
-void sub_812bd0() { /* 0x812bd0 */ }
-void sub_812bf0() { /* 0x812bf0 */ }
-void sub_812c10() { /* 0x812c10 */ }
-void sub_812c50() { /* 0x812c50 */ }
-// sub_812ca0: implemented in prog/matched/main/
-// sub_812cb0: implemented in prog/matched/main/
-void sub_812cc0() { /* 0x812cc0 */ }
-// sub_812cf0: implemented in prog/matched/main/
-void sub_812d00() { /* 0x812d00 */ }
-// sub_812db0: implemented in prog/matched/main/
-// sub_812dc0: implemented in prog/matched/main/
-// sub_812dd0: implemented in prog/matched/main/
-// sub_812de0: implemented in prog/matched/main/
-void sub_812df0() { /* 0x812df0 */ }
-// sub_812e10: implemented in prog/matched/main/
-// sub_812e20: implemented in prog/matched/main/
-// sub_812e30: implemented in prog/matched/main/
-void sub_812e40() { /* 0x812e40 */ }
-void sub_812e90() { /* 0x812e90 */ }
-// sub_812ea0: implemented in prog/matched/main/
-// sub_812eb0: implemented in prog/matched/main/
-void sub_812ec0() { /* 0x812ec0 */ }
-void sub_812ee0() { /* 0x812ee0 */ }
-void sub_812f00() { /* 0x812f00 */ }
-void sub_812f80() { /* 0x812f80 */ }
-void sub_8130b0() { /* 0x8130b0 */ }
-void sub_813110() { /* 0x813110 */ }
-// sub_813130: implemented in prog/matched/main/
-void sub_813140() { /* 0x813140 */ }
-void sub_813170() { /* 0x813170 */ }
-void sub_8131d0() { /* 0x8131d0 */ }
-void sub_813230() { /* 0x813230 */ }
-// sub_813270: implemented in prog/matched/main/
-// sub_813280: implemented in prog/matched/main/
-void sub_813290() { /* 0x813290 */ }
-// sub_813320: implemented in prog/matched/main/
-void sub_813330() { /* 0x813330 */ }
-void sub_813360() { /* 0x813360 */ }
-void sub_813480() { /* 0x813480 */ }
-void sub_8135c0() { /* 0x8135c0 */ }
-void sub_813700() { /* 0x813700 */ }
-void sub_813850() { /* 0x813850 */ }
-void sub_8138c0() { /* 0x8138c0 */ }
-void sub_813940() { /* 0x813940 */ }
-// sub_8139c0: implemented in prog/matched/main/
-// sub_8139d0: implemented in prog/matched/main/
-void sub_8139e0() { /* 0x8139e0 */ }
-// sub_813a20: implemented in prog/matched/main/
-// sub_813a30: implemented in prog/matched/main/
-void sub_813a40() { /* 0x813a40 */ }
-// sub_813b20: implemented in prog/matched/main/
-void sub_813b30() { /* 0x813b30 */ }
-void sub_813b40() { /* 0x813b40 */ }
-// sub_813d50: implemented in prog/matched/main/
-void sub_813d60() { /* 0x813d60 */ }
-void sub_8150c0() { /* 0x8150c0 */ }
-void sub_8151d0() { /* 0x8151d0 */ }
-void sub_816320() { /* 0x816320 */ }
-void sub_816420() { /* 0x816420 */ }
-void sub_816460() { /* 0x816460 */ }
-void sub_816500() { /* 0x816500 */ }
-void sub_816680() { /* 0x816680 */ }
-void sub_8167c0() { /* 0x8167c0 */ }
-void sub_8168e0() { /* 0x8168e0 */ }
-void sub_816910() { /* 0x816910 */ }
-void sub_816930() { /* 0x816930 */ }
-void sub_816960() { /* 0x816960 */ }
-void sub_8169a0() { /* 0x8169a0 */ }
-void sub_8169e0() { /* 0x8169e0 */ }
-void sub_816a20() { /* 0x816a20 */ }
-void sub_816a60() { /* 0x816a60 */ }
-void sub_816aa0() { /* 0x816aa0 */ }
-void sub_816af0() { /* 0x816af0 */ }
-void sub_816b40() { /* 0x816b40 */ }
-void sub_816b90() { /* 0x816b90 */ }
-void sub_816bc0() { /* 0x816bc0 */ }
-void sub_816c00() { /* 0x816c00 */ }
-void sub_816c80() { /* 0x816c80 */ }
-void sub_816cb0() { /* 0x816cb0 */ }
-void sub_816d00() { /* 0x816d00 */ }
-void sub_816d40() { /* 0x816d40 */ }
-void sub_816da0() { /* 0x816da0 */ }
-void sub_816e00() { /* 0x816e00 */ }
-void sub_816e40() { /* 0x816e40 */ }
-void sub_816e80() { /* 0x816e80 */ }
-void sub_816eb0() { /* 0x816eb0 */ }
-void sub_816ee0() { /* 0x816ee0 */ }
-void sub_816f20() { /* 0x816f20 */ }
-void sub_816f60() { /* 0x816f60 */ }
-void sub_816f90() { /* 0x816f90 */ }
-void sub_816ff0() { /* 0x816ff0 */ }
-void sub_8170d0() { /* 0x8170d0 */ }
-void sub_817100() { /* 0x817100 */ }
-void sub_817130() { /* 0x817130 */ }
-void sub_817160() { /* 0x817160 */ }
-void sub_817190() { /* 0x817190 */ }
-void sub_8171c0() { /* 0x8171c0 */ }
-void sub_8171f0() { /* 0x8171f0 */ }
-void sub_817270() { /* 0x817270 */ }
-void sub_8172b0() { /* 0x8172b0 */ }
-void sub_817370() { /* 0x817370 */ }
-void sub_8173b0() { /* 0x8173b0 */ }
-void sub_817410() { /* 0x817410 */ }
-void sub_817460() { /* 0x817460 */ }
-void sub_8174b0() { /* 0x8174b0 */ }
-void sub_8174f0() { /* 0x8174f0 */ }
-void sub_817540() { /* 0x817540 */ }
-void sub_8175a0() { /* 0x8175a0 */ }
-void sub_8175f0() { /* 0x8175f0 */ }
-void sub_817630() { /* 0x817630 */ }
-void sub_817710() { /* 0x817710 */ }
-void sub_817770() { /* 0x817770 */ }
-void sub_8177b0() { /* 0x8177b0 */ }
-void sub_8177f0() { /* 0x8177f0 */ }
-void sub_817830() { /* 0x817830 */ }
-void sub_817860() { /* 0x817860 */ }
-void sub_8178c0() { /* 0x8178c0 */ }
-void sub_817910() { /* 0x817910 */ }
-void sub_817980() { /* 0x817980 */ }
-void sub_8179f0() { /* 0x8179f0 */ }
-void sub_817a20() { /* 0x817a20 */ }
-void sub_817a50() { /* 0x817a50 */ }
-void sub_817a80() { /* 0x817a80 */ }
-void sub_817b70() { /* 0x817b70 */ }
-void sub_817bb0() { /* 0x817bb0 */ }
-void sub_817bf0() { /* 0x817bf0 */ }
-void sub_817c40() { /* 0x817c40 */ }
-void sub_817c60() { /* 0x817c60 */ }
-void sub_817c80() { /* 0x817c80 */ }
-void sub_817cb0() { /* 0x817cb0 */ }
-void sub_817ce0() { /* 0x817ce0 */ }
-void sub_817d10() { /* 0x817d10 */ }
-void sub_817d40() { /* 0x817d40 */ }
-void sub_817d70() { /* 0x817d70 */ }
-void sub_817db0() { /* 0x817db0 */ }
-void sub_817de0() { /* 0x817de0 */ }
-void sub_817e00() { /* 0x817e00 */ }
-void sub_817e30() { /* 0x817e30 */ }
-void sub_817e60() { /* 0x817e60 */ }
-void sub_817e90() { /* 0x817e90 */ }
-void sub_817ed0() { /* 0x817ed0 */ }
-void sub_817f00() { /* 0x817f00 */ }
-void sub_817f30() { /* 0x817f30 */ }
-void sub_817f60() { /* 0x817f60 */ }
-void sub_817fa0() { /* 0x817fa0 */ }
-void sub_818000() { /* 0x818000 */ }
-void sub_818040() { /* 0x818040 */ }
-void sub_818080() { /* 0x818080 */ }
-void sub_8180c0() { /* 0x8180c0 */ }
-void sub_818100() { /* 0x818100 */ }
-void sub_818140() { /* 0x818140 */ }
-void sub_818170() { /* 0x818170 */ }
-void sub_8181a0() { /* 0x8181a0 */ }
-void sub_8181d0() { /* 0x8181d0 */ }
-void sub_8181f0() { /* 0x8181f0 */ }
-void sub_818210() { /* 0x818210 */ }
-void sub_818240() { /* 0x818240 */ }
-void sub_818270() { /* 0x818270 */ }
-void sub_8182e0() { /* 0x8182e0 */ }
-void sub_818310() { /* 0x818310 */ }
-void sub_818340() { /* 0x818340 */ }
-void sub_818390() { /* 0x818390 */ }
-void sub_8183e0() { /* 0x8183e0 */ }
-void sub_818430() { /* 0x818430 */ }
-void sub_818470() { /* 0x818470 */ }
-void sub_8184b0() { /* 0x8184b0 */ }
-void sub_8184f0() { /* 0x8184f0 */ }
-void sub_818550() { /* 0x818550 */ }
-void sub_818590() { /* 0x818590 */ }
-void sub_8185d0() { /* 0x8185d0 */ }
-void sub_8185e0() { /* 0x8185e0 */ }
-void sub_8185f0() { /* 0x8185f0 */ }
-void sub_818600() { /* 0x818600 */ }
-void sub_818610() { /* 0x818610 */ }
-void sub_818620() { /* 0x818620 */ }
-void sub_818630() { /* 0x818630 */ }
-void sub_818640() { /* 0x818640 */ }
-void sub_818650() { /* 0x818650 */ }
-void sub_818690() { /* 0x818690 */ }
-void sub_8186d0() { /* 0x8186d0 */ }
-void sub_818720() { /* 0x818720 */ }
-// sub_818770: implemented in prog/matched/main/
-// sub_818780: implemented in prog/matched/main/
-void sub_818790() { /* 0x818790 */ }
-// sub_818810: implemented in prog/matched/main/
-void sub_818830() { /* 0x818830 */ }
-void sub_8188f0() { /* 0x8188f0 */ }
-// sub_8189b0: implemented in prog/matched/main/
-// sub_8189c0: implemented in prog/matched/main/
-// sub_8189e0: implemented in prog/matched/main/
-// sub_818a00: implemented in prog/matched/main/
-// sub_818a20: implemented in prog/matched/main/
-// sub_818a40: implemented in prog/matched/main/
-void sub_818a60() { /* 0x818a60 */ }
-void sub_818b90() { /* 0x818b90 */ }
-void sub_818c30() { /* 0x818c30 */ }
-void sub_818cb0() { /* 0x818cb0 */ }
-void sub_818d90() { /* 0x818d90 */ }
-void sub_818e90() { /* 0x818e90 */ }
-void sub_818f90() { /* 0x818f90 */ }
-void sub_819160() { /* 0x819160 */ }
-void sub_819320() { /* 0x819320 */ }
-void sub_8194e0() { /* 0x8194e0 */ }
-void sub_819580() { /* 0x819580 */ }
-void sub_819600() { /* 0x819600 */ }
-void sub_819610() { /* 0x819610 */ }
-void sub_819630() { /* 0x819630 */ }
-void sub_819640() { /* 0x819640 */ }
-void sub_819650() { /* 0x819650 */ }
-void sub_819660() { /* 0x819660 */ }
-void sub_819670() { /* 0x819670 */ }
-void sub_819680() { /* 0x819680 */ }
-void sub_819690() { /* 0x819690 */ }
-void sub_8196a0() { /* 0x8196a0 */ }
-void sub_8196b0() { /* 0x8196b0 */ }
-void sub_8196c0() { /* 0x8196c0 */ }
-void sub_8196d0() { /* 0x8196d0 */ }
-void sub_819700() { /* 0x819700 */ }
-void sub_819730() { /* 0x819730 */ }
-void sub_819770() { /* 0x819770 */ }
-void sub_819790() { /* 0x819790 */ }
-void sub_8197a0() { /* 0x8197a0 */ }
-void sub_8197b0() { /* 0x8197b0 */ }
-void sub_8197e0() { /* 0x8197e0 */ }
-void sub_8197f0() { /* 0x8197f0 */ }
-void sub_819800() { /* 0x819800 */ }
-void sub_819810() { /* 0x819810 */ }
-void sub_819830() { /* 0x819830 */ }
-void sub_819840() { /* 0x819840 */ }
-void sub_819850() { /* 0x819850 */ }
-void sub_819860() { /* 0x819860 */ }
-void sub_819890() { /* 0x819890 */ }
-void sub_8198c0() { /* 0x8198c0 */ }
-void sub_8198f0() { /* 0x8198f0 */ }
-void sub_819910() { /* 0x819910 */ }
-void sub_819920() { /* 0x819920 */ }
-void sub_819930() { /* 0x819930 */ }
-void sub_819940() { /* 0x819940 */ }
-void sub_819950() { /* 0x819950 */ }
-void sub_819960() { /* 0x819960 */ }
-void sub_819970() { /* 0x819970 */ }
-void sub_8199a0() { /* 0x8199a0 */ }
-void sub_819a10() { /* 0x819a10 */ }
-void sub_819a20() { /* 0x819a20 */ }
-void sub_819a30() { /* 0x819a30 */ }
-void sub_819a60() { /* 0x819a60 */ }
-void sub_819a70() { /* 0x819a70 */ }
-void sub_819a80() { /* 0x819a80 */ }
-void sub_819ac0() { /* 0x819ac0 */ }
-void sub_819b00() { /* 0x819b00 */ }
-void sub_819b40() { /* 0x819b40 */ }
-void sub_819b80() { /* 0x819b80 */ }
-void sub_819bc0() { /* 0x819bc0 */ }
-void sub_819c00() { /* 0x819c00 */ }
-void sub_819c40() { /* 0x819c40 */ }
-void sub_819c80() { /* 0x819c80 */ }
-void sub_819cc0() { /* 0x819cc0 */ }
-void sub_819d00() { /* 0x819d00 */ }
-void sub_819d40() { /* 0x819d40 */ }
-void sub_819df0() { /* 0x819df0 */ }
-void sub_819e30() { /* 0x819e30 */ }
-void sub_819e70() { /* 0x819e70 */ }
-void sub_819eb0() { /* 0x819eb0 */ }
-void sub_819ef0() { /* 0x819ef0 */ }
-void sub_819f30() { /* 0x819f30 */ }
-void sub_819f70() { /* 0x819f70 */ }
-void sub_819fb0() { /* 0x819fb0 */ }
-void sub_819ff0() { /* 0x819ff0 */ }
-void sub_81a030() { /* 0x81a030 */ }
-void sub_81a060() { /* 0x81a060 */ }
-void sub_81a0a0() { /* 0x81a0a0 */ }
-void sub_81a0e0() { /* 0x81a0e0 */ }
-void sub_81a120() { /* 0x81a120 */ }
-void sub_81a160() { /* 0x81a160 */ }
-void sub_81a190() { /* 0x81a190 */ }
-void sub_81a1d0() { /* 0x81a1d0 */ }
-void sub_81a210() { /* 0x81a210 */ }
-void sub_81a250() { /* 0x81a250 */ }
-void sub_81a290() { /* 0x81a290 */ }
-void sub_81a2d0() { /* 0x81a2d0 */ }
-void sub_81a310() { /* 0x81a310 */ }
-void sub_81a350() { /* 0x81a350 */ }
-void sub_81a390() { /* 0x81a390 */ }
-void sub_81a3b0() { /* 0x81a3b0 */ }
-void sub_81a3c0() { /* 0x81a3c0 */ }
-void sub_81a400() { /* 0x81a400 */ }
-void sub_81a440() { /* 0x81a440 */ }
-void sub_81a470() { /* 0x81a470 */ }
-void sub_81a4a0() { /* 0x81a4a0 */ }
-void sub_81a4e0() { /* 0x81a4e0 */ }
-void sub_81a510() { /* 0x81a510 */ }
-void sub_81a550() { /* 0x81a550 */ }
-void sub_81a590() { /* 0x81a590 */ }
-void sub_81a5c0() { /* 0x81a5c0 */ }
-void sub_81a600() { /* 0x81a600 */ }
-void sub_81a640() { /* 0x81a640 */ }
-void sub_81a670() { /* 0x81a670 */ }
-void sub_81a680() { /* 0x81a680 */ }
-void sub_81a6b0() { /* 0x81a6b0 */ }
-void sub_81a6e0() { /* 0x81a6e0 */ }
-void sub_81a720() { /* 0x81a720 */ }
-void sub_81a760() { /* 0x81a760 */ }
-void sub_81a7a0() { /* 0x81a7a0 */ }
-void sub_81a7d0() { /* 0x81a7d0 */ }
-void sub_81a810() { /* 0x81a810 */ }
-void sub_81a840() { /* 0x81a840 */ }
-void sub_81a880() { /* 0x81a880 */ }
-void sub_81a8c0() { /* 0x81a8c0 */ }
-void sub_81a900() { /* 0x81a900 */ }
-void sub_81a940() { /* 0x81a940 */ }
-void sub_81a980() { /* 0x81a980 */ }
-void sub_81a9c0() { /* 0x81a9c0 */ }
-void sub_81aa00() { /* 0x81aa00 */ }
-void sub_81aa40() { /* 0x81aa40 */ }
-void sub_81aa70() { /* 0x81aa70 */ }
-void sub_81aab0() { /* 0x81aab0 */ }
-void sub_81aae0() { /* 0x81aae0 */ }
-void sub_81ab10() { /* 0x81ab10 */ }
-void sub_81ab50() { /* 0x81ab50 */ }
-void sub_81ab90() { /* 0x81ab90 */ }
-void sub_81abd0() { /* 0x81abd0 */ }
-void sub_81ac10() { /* 0x81ac10 */ }
-void sub_81ac50() { /* 0x81ac50 */ }
-void sub_81ac90() { /* 0x81ac90 */ }
-void sub_81acc0() { /* 0x81acc0 */ }
-void sub_81ad70() { /* 0x81ad70 */ }
-void sub_81ae20() { /* 0x81ae20 */ }
-void sub_81aed0() { /* 0x81aed0 */ }
-void sub_81af00() { /* 0x81af00 */ }
-void sub_81b040() { /* 0x81b040 */ }
-void sub_81b090() { /* 0x81b090 */ }
-void sub_81b100() { /* 0x81b100 */ }
-void sub_81b200() { /* 0x81b200 */ }
-void sub_81b230() { /* 0x81b230 */ }
-void sub_81b320() { /* 0x81b320 */ }
-void sub_81b430() { /* 0x81b430 */ }
-void sub_81b500() { /* 0x81b500 */ }
-void sub_81b550() { /* 0x81b550 */ }
-void sub_81b5b0() { /* 0x81b5b0 */ }
-void sub_81b610() { /* 0x81b610 */ }
-void sub_81b6e0() { /* 0x81b6e0 */ }
-void sub_81b750() { /* 0x81b750 */ }
-void sub_81b7a0() { /* 0x81b7a0 */ }
-void sub_81b7e0() { /* 0x81b7e0 */ }
-void sub_81b860() { /* 0x81b860 */ }
-void sub_81b8d0() { /* 0x81b8d0 */ }
-void sub_81b930() { /* 0x81b930 */ }
-void sub_81bb60() { /* 0x81bb60 */ }
-void sub_81bba0() { /* 0x81bba0 */ }
-void sub_81bc20() { /* 0x81bc20 */ }
-void sub_81bd20() { /* 0x81bd20 */ }
-void sub_81bd40() { /* 0x81bd40 */ }
-void sub_81bdd0() { /* 0x81bdd0 */ }
-void sub_81be10() { /* 0x81be10 */ }
-void sub_81be40() { /* 0x81be40 */ }
-void sub_81be80() { /* 0x81be80 */ }
-void sub_81be90() { /* 0x81be90 */ }
-void sub_81bea0() { /* 0x81bea0 */ }
-void sub_81bed0() { /* 0x81bed0 */ }
-void sub_81bf10() { /* 0x81bf10 */ }
-void sub_81bf20() { /* 0x81bf20 */ }
-void sub_81bf30() { /* 0x81bf30 */ }
-void sub_81bf40() { /* 0x81bf40 */ }
-void sub_81bf90() { /* 0x81bf90 */ }
-void sub_81bfc0() { /* 0x81bfc0 */ }
-void sub_81c060() { /* 0x81c060 */ }
-void sub_81c100() { /* 0x81c100 */ }
-void sub_81c1b0() { /* 0x81c1b0 */ }
-void sub_81c220() { /* 0x81c220 */ }
-void sub_81c2b0() { /* 0x81c2b0 */ }
-void sub_81c300() { /* 0x81c300 */ }
-void sub_81c370() { /* 0x81c370 */ }
-void sub_81c3a0() { /* 0x81c3a0 */ }
-void sub_81c3b0() { /* 0x81c3b0 */ }
-void sub_81c430() { /* 0x81c430 */ }
-void sub_81c460() { /* 0x81c460 */ }
-// sub_81c590: implemented in prog/matched/main/
-// sub_81c5a0: implemented in prog/matched/main/
-void sub_81c5b0() { /* 0x81c5b0 */ }
-void sub_81c630() { /* 0x81c630 */ }
-// sub_828410: implemented in prog/matched/main/
-// sub_828420: implemented in prog/matched/main/
-// sub_828430: implemented in prog/matched/main/
-// sub_828440: implemented in prog/matched/main/
-// sub_828450: implemented in prog/matched/main/
-// sub_828460: implemented in prog/matched/main/
-// sub_828470: implemented in prog/matched/main/
-// sub_828480: implemented in prog/matched/main/
-// sub_828490: implemented in prog/matched/main/
-// sub_8284a0: implemented in prog/matched/main/
-// sub_8284b0: implemented in prog/matched/main/
-// sub_8284c0: implemented in prog/matched/main/
-// sub_8284d0: implemented in prog/matched/main/
-// sub_8284e0: implemented in prog/matched/main/
-// sub_8284f0: implemented in prog/matched/main/
-// sub_828500: implemented in prog/matched/main/
-// sub_828510: implemented in prog/matched/main/
-// sub_828520: implemented in prog/matched/main/
-// sub_828530: implemented in prog/matched/main/
-// sub_828540: implemented in prog/matched/main/
-// sub_828550: implemented in prog/matched/main/
-// sub_828560: implemented in prog/matched/main/
-// sub_828570: implemented in prog/matched/main/
-// sub_828580: implemented in prog/matched/main/
-// sub_828590: implemented in prog/matched/main/
-// sub_8285a0: implemented in prog/matched/main/
-// sub_8285b0: implemented in prog/matched/main/
-// sub_8285c0: implemented in prog/matched/main/
-// sub_8285d0: implemented in prog/matched/main/
-// sub_8285e0: implemented in prog/matched/main/
 // sub_8285f0: implemented in prog/matched/main/
 // sub_828600: implemented in prog/matched/main/
 // sub_828610: implemented in prog/matched/main/
@@ -1239,7 +211,6 @@ void sub_81c630() { /* 0x81c630 */ }
 void sub_8292b0() { /* 0x8292b0 */ }
 void sub_829330() { /* 0x829330 */ }
 void sub_829360() { /* 0x829360 */ }
-// sub_8293f0: implemented in prog/matched/main/
 void sub_829400() { /* 0x829400 */ }
 void sub_829480() { /* 0x829480 */ }
 void sub_8294b0() { /* 0x8294b0 */ }
@@ -1250,19 +221,16 @@ void sub_829970() { /* 0x829970 */ }
 void sub_829a20() { /* 0x829a20 */ }
 void sub_829aa0() { /* 0x829aa0 */ }
 void sub_829ba0() { /* 0x829ba0 */ }
-// sub_829c70: implemented in prog/matched/main/
 void sub_829c80() { /* 0x829c80 */ }
 void sub_829d00() { /* 0x829d00 */ }
 void sub_829d30() { /* 0x829d30 */ }
 // sub_829d50: implemented in prog/matched/main/
-// sub_829d60: implemented in prog/matched/main/
 void sub_829d70() { /* 0x829d70 */ }
 void sub_829e20() { /* 0x829e20 */ }
 void sub_829e50() { /* 0x829e50 */ }
 void sub_829f20() { /* 0x829f20 */ }
 void sub_829fc0() { /* 0x829fc0 */ }
 void sub_82a050() { /* 0x82a050 */ }
-// sub_82a1e0: implemented in prog/matched/main/
 void sub_82a1f0() { /* 0x82a1f0 */ }
 void sub_82a270() { /* 0x82a270 */ }
 void sub_82a2a0() { /* 0x82a2a0 */ }
@@ -1270,11 +238,9 @@ void sub_82a3c0() { /* 0x82a3c0 */ }
 void sub_82a460() { /* 0x82a460 */ }
 void sub_82a520() { /* 0x82a520 */ }
 void sub_82a5e0() { /* 0x82a5e0 */ }
-// sub_82a6d0: implemented in prog/matched/main/
 void sub_82a6e0() { /* 0x82a6e0 */ }
 void sub_82a760() { /* 0x82a760 */ }
 void sub_82a790() { /* 0x82a790 */ }
-// sub_82a8a0: implemented in prog/matched/main/
 void sub_82a8b0() { /* 0x82a8b0 */ }
 void sub_82a930() { /* 0x82a930 */ }
 // sub_82a9b0: implemented in prog/matched/main/
@@ -1319,7 +285,6 @@ void sub_82ae00() { /* 0x82ae00 */ }
 void sub_82ae20() { /* 0x82ae20 */ }
 void sub_82ae30() { /* 0x82ae30 */ }
 void sub_82ae40() { /* 0x82ae40 */ }
-// sub_82ae70: implemented in prog/matched/main/
 void sub_82ae80() { /* 0x82ae80 */ }
 void sub_82af00() { /* 0x82af00 */ }
 void sub_82af90() { /* 0x82af90 */ }
@@ -1327,7 +292,6 @@ void sub_82afd0() { /* 0x82afd0 */ }
 void sub_82aff0() { /* 0x82aff0 */ }
 void sub_82b050() { /* 0x82b050 */ }
 // sub_82b070: implemented in prog/matched/main/
-// sub_82b080: implemented in prog/matched/main/
 void sub_82b090() { /* 0x82b090 */ }
 void sub_82b0b0() { /* 0x82b0b0 */ }
 // sub_82b0d0: implemented in prog/matched/main/
@@ -1359,7 +323,6 @@ void sub_82b7b0() { /* 0x82b7b0 */ }
 void sub_82b7e0() { /* 0x82b7e0 */ }
 void sub_82b800() { /* 0x82b800 */ }
 // sub_82b810: implemented in prog/matched/main/
-// sub_82b820: implemented in prog/matched/main/
 void sub_82b830() { /* 0x82b830 */ }
 void sub_82b850() { /* 0x82b850 */ }
 void sub_82b880() { /* 0x82b880 */ }
@@ -1367,35 +330,27 @@ void sub_82b8b0() { /* 0x82b8b0 */ }
 void sub_82baf0() { /* 0x82baf0 */ }
 void sub_82bbc0() { /* 0x82bbc0 */ }
 void sub_82bc70() { /* 0x82bc70 */ }
-// sub_82bd30: implemented in prog/matched/main/
 void sub_82bd40() { /* 0x82bd40 */ }
 void sub_82bdc0() { /* 0x82bdc0 */ }
 void sub_82bdf0() { /* 0x82bdf0 */ }
-// sub_82be90: implemented in prog/matched/main/
 void sub_82bea0() { /* 0x82bea0 */ }
 void sub_82bf20() { /* 0x82bf20 */ }
 void sub_82bf50() { /* 0x82bf50 */ }
-// sub_82bfc0: implemented in prog/matched/main/
 void sub_82bfd0() { /* 0x82bfd0 */ }
 void sub_82c050() { /* 0x82c050 */ }
 void sub_82c080() { /* 0x82c080 */ }
-// sub_82c150: implemented in prog/matched/main/
 void sub_82c160() { /* 0x82c160 */ }
 void sub_82c1e0() { /* 0x82c1e0 */ }
 void sub_82c210() { /* 0x82c210 */ }
-// sub_82c270: implemented in prog/matched/main/
 void sub_82c280() { /* 0x82c280 */ }
 void sub_82c300() { /* 0x82c300 */ }
 void sub_82c330() { /* 0x82c330 */ }
-// sub_82c5f0: implemented in prog/matched/main/
 void sub_82c600() { /* 0x82c600 */ }
 void sub_82c680() { /* 0x82c680 */ }
 void sub_82c6b0() { /* 0x82c6b0 */ }
-// sub_82c900: implemented in prog/matched/main/
 void sub_82c910() { /* 0x82c910 */ }
 void sub_82c990() { /* 0x82c990 */ }
 void sub_82c9c0() { /* 0x82c9c0 */ }
-// sub_82caf0: implemented in prog/matched/main/
 void sub_82cb00() { /* 0x82cb00 */ }
 void sub_82cb80() { /* 0x82cb80 */ }
 // sub_82cca0: implemented in prog/matched/main/
@@ -1415,7 +370,6 @@ void sub_82d2e0() { /* 0x82d2e0 */ }
 void sub_82d3f0() { /* 0x82d3f0 */ }
 void sub_82d530() { /* 0x82d530 */ }
 // sub_82d5d0: implemented in prog/matched/main/
-// sub_82d5e0: implemented in prog/matched/main/
 void sub_82d5f0() { /* 0x82d5f0 */ }
 void sub_82d670() { /* 0x82d670 */ }
 void sub_82d680() { /* 0x82d680 */ }
@@ -1429,24 +383,18 @@ void sub_82d950() { /* 0x82d950 */ }
 void sub_82d960() { /* 0x82d960 */ }
 void sub_82d970() { /* 0x82d970 */ }
 void sub_82d980() { /* 0x82d980 */ }
-// sub_82d990: implemented in prog/matched/main/
 void sub_82d9a0() { /* 0x82d9a0 */ }
 void sub_82da30() { /* 0x82da30 */ }
-// sub_82da60: implemented in prog/matched/main/
-// sub_82da70: implemented in prog/matched/main/
 void sub_82da80() { /* 0x82da80 */ }
 void sub_82dab0() { /* 0x82dab0 */ }
 void sub_82db80() { /* 0x82db80 */ }
-// sub_82dc70: implemented in prog/matched/main/
 void sub_82dc80() { /* 0x82dc80 */ }
 void sub_82dd00() { /* 0x82dd00 */ }
 void sub_82dd30() { /* 0x82dd30 */ }
-// sub_82ddb0: implemented in prog/matched/main/
 void sub_82ddc0() { /* 0x82ddc0 */ }
 void sub_82de40() { /* 0x82de40 */ }
 void sub_82de70() { /* 0x82de70 */ }
 void sub_82dec0() { /* 0x82dec0 */ }
-// sub_82df50: implemented in prog/matched/main/
 void sub_82df60() { /* 0x82df60 */ }
 void INEFFECTIVE_SKILL() { /* 0x82dfe0 */ }
 void USE_WARUAGAKI() { /* 0x82e090 */ }
@@ -1460,32 +408,25 @@ void sub_82e530() { /* 0x82e530 */ }
 void sub_82e790() { /* 0x82e790 */ }
 void sub_82e900() { /* 0x82e900 */ }
 void sub_82ea10() { /* 0x82ea10 */ }
-// sub_82eb60: implemented in prog/matched/main/
 void sub_82eb70() { /* 0x82eb70 */ }
 void sub_82ebf0() { /* 0x82ebf0 */ }
 void sub_82ec20() { /* 0x82ec20 */ }
-// sub_82edb0: implemented in prog/matched/main/
 void sub_82edc0() { /* 0x82edc0 */ }
 void sub_82ee40() { /* 0x82ee40 */ }
 void sub_82ee70() { /* 0x82ee70 */ }
-// sub_82ef00: implemented in prog/matched/main/
 void sub_82ef10() { /* 0x82ef10 */ }
 void sub_82ef90() { /* 0x82ef90 */ }
 void sub_82efc0() { /* 0x82efc0 */ }
-// sub_82f040: implemented in prog/matched/main/
 void sub_82f050() { /* 0x82f050 */ }
 void sub_82f0d0() { /* 0x82f0d0 */ }
 void sub_82f100() { /* 0x82f100 */ }
-// sub_82f150: implemented in prog/matched/main/
 void sub_82f160() { /* 0x82f160 */ }
 void sub_82f1e0() { /* 0x82f1e0 */ }
 void sub_82f210() { /* 0x82f210 */ }
-// sub_82f390: implemented in prog/matched/main/
 void sub_82f3a0() { /* 0x82f3a0 */ }
 void sub_82f420() { /* 0x82f420 */ }
 void sub_82f450() { /* 0x82f450 */ }
 void sub_82f6e0() { /* 0x82f6e0 */ }
-// sub_82f760: implemented in prog/matched/main/
 void sub_82f770() { /* 0x82f770 */ }
 void sub_82f7f0() { /* 0x82f7f0 */ }
 // sub_82f800: implemented in prog/matched/main/
@@ -1496,31 +437,25 @@ void sub_82f870() { /* 0x82f870 */ }
 void sub_82f960() { /* 0x82f960 */ }
 void sub_82f9e0() { /* 0x82f9e0 */ }
 void sub_82fa10() { /* 0x82fa10 */ }
-// sub_82fb50: implemented in prog/matched/main/
 void sub_82fb60() { /* 0x82fb60 */ }
 void sub_82fbe0() { /* 0x82fbe0 */ }
 void sub_82fc10() { /* 0x82fc10 */ }
-// sub_82fdc0: implemented in prog/matched/main/
 void sub_82fdd0() { /* 0x82fdd0 */ }
 void sub_82fe50() { /* 0x82fe50 */ }
 void sub_82fe80() { /* 0x82fe80 */ }
-// sub_82ffc0: implemented in prog/matched/main/
 void sub_82ffd0() { /* 0x82ffd0 */ }
 void sub_830050() { /* 0x830050 */ }
 void sub_830080() { /* 0x830080 */ }
 void sub_830320() { /* 0x830320 */ }
 void sub_830400() { /* 0x830400 */ }
-// sub_8304d0: implemented in prog/matched/main/
 void sub_8304e0() { /* 0x8304e0 */ }
 void sub_830560() { /* 0x830560 */ }
 void sub_830590() { /* 0x830590 */ }
 void sub_8306f0() { /* 0x8306f0 */ }
-// sub_8307f0: implemented in prog/matched/main/
 void sub_830800() { /* 0x830800 */ }
 void sub_830880() { /* 0x830880 */ }
 void sub_8308b0() { /* 0x8308b0 */ }
 void sub_830c60() { /* 0x830c60 */ }
-// sub_830d30: implemented in prog/matched/main/
 void sub_830d40() { /* 0x830d40 */ }
 void sub_830dc0() { /* 0x830dc0 */ }
 void sub_830df0() { /* 0x830df0 */ }
@@ -1529,61 +464,49 @@ void sub_830e80() { /* 0x830e80 */ }
 void sub_830f40() { /* 0x830f40 */ }
 void sub_830fa0() { /* 0x830fa0 */ }
 // sub_831000: implemented in prog/matched/main/
-// sub_831010: implemented in prog/matched/main/
 // sub_831020: implemented in prog/matched/main/
 void sub_831030() { /* 0x831030 */ }
 void sub_831040() { /* 0x831040 */ }
 void sub_831080() { /* 0x831080 */ }
 void sub_8310b0() { /* 0x8310b0 */ }
-// sub_831220: implemented in prog/matched/main/
 void sub_831230() { /* 0x831230 */ }
 void sub_8312b0() { /* 0x8312b0 */ }
 void sub_8312e0() { /* 0x8312e0 */ }
-// sub_831310: implemented in prog/matched/main/
 void sub_831320() { /* 0x831320 */ }
 void sub_8313a0() { /* 0x8313a0 */ }
 void sub_8313d0() { /* 0x8313d0 */ }
-// sub_8315d0: implemented in prog/matched/main/
 void sub_8315e0() { /* 0x8315e0 */ }
 void sub_831660() { /* 0x831660 */ }
 void sub_831690() { /* 0x831690 */ }
 void sub_831830() { /* 0x831830 */ }
 void sub_8319c0() { /* 0x8319c0 */ }
-// sub_831a80: implemented in prog/matched/main/
 void sub_831a90() { /* 0x831a90 */ }
 void sub_831b10() { /* 0x831b10 */ }
 void sub_831b40() { /* 0x831b40 */ }
 void sub_831c60() { /* 0x831c60 */ }
 void sub_831d80() { /* 0x831d80 */ }
 void sub_831e80() { /* 0x831e80 */ }
-// sub_831f00: implemented in prog/matched/main/
 void sub_831f10() { /* 0x831f10 */ }
 void sub_831f90() { /* 0x831f90 */ }
 void sub_831fc0() { /* 0x831fc0 */ }
 void sub_832190() { /* 0x832190 */ }
 void sub_832400() { /* 0x832400 */ }
-// sub_8324d0: implemented in prog/matched/main/
 void sub_8324e0() { /* 0x8324e0 */ }
 void sub_832560() { /* 0x832560 */ }
 void sub_832590() { /* 0x832590 */ }
-// sub_832670: implemented in prog/matched/main/
 void sub_832680() { /* 0x832680 */ }
 void sub_832700() { /* 0x832700 */ }
 void sub_832730() { /* 0x832730 */ }
-// sub_8327b0: implemented in prog/matched/main/
 void sub_8327c0() { /* 0x8327c0 */ }
 void sub_832840() { /* 0x832840 */ }
 void sub_832870() { /* 0x832870 */ }
-// sub_8328b0: implemented in prog/matched/main/
 void sub_8328c0() { /* 0x8328c0 */ }
 void sub_832940() { /* 0x832940 */ }
 void sub_832970() { /* 0x832970 */ }
-// sub_8329b0: implemented in prog/matched/main/
 void sub_8329c0() { /* 0x8329c0 */ }
 void sub_832a40() { /* 0x832a40 */ }
 void sub_832a70() { /* 0x832a70 */ }
 void sub_832b30() { /* 0x832b30 */ }
-// sub_832c20: implemented in prog/matched/main/
 void sub_832c30() { /* 0x832c30 */ }
 void sub_832cb0() { /* 0x832cb0 */ }
 void sub_832db0() { /* 0x832db0 */ }
@@ -1593,33 +516,26 @@ void sub_832f10() { /* 0x832f10 */ }
 void sub_832f40() { /* 0x832f40 */ }
 void sub_832f70() { /* 0x832f70 */ }
 void sub_832fa0() { /* 0x832fa0 */ }
-// sub_833140: implemented in prog/matched/main/
 void sub_833150() { /* 0x833150 */ }
 void sub_8331d0() { /* 0x8331d0 */ }
 void sub_833200() { /* 0x833200 */ }
-// sub_833250: implemented in prog/matched/main/
 void sub_833260() { /* 0x833260 */ }
 void sub_8332e0() { /* 0x8332e0 */ }
 void sub_833310() { /* 0x833310 */ }
-// sub_8333b0: implemented in prog/matched/main/
 void sub_8333c0() { /* 0x8333c0 */ }
 void sub_833440() { /* 0x833440 */ }
 void sub_833470() { /* 0x833470 */ }
 void sub_833af0() { /* 0x833af0 */ }
-// sub_833c20: implemented in prog/matched/main/
 void sub_833c30() { /* 0x833c30 */ }
 void sub_833cb0() { /* 0x833cb0 */ }
 void sub_833ce0() { /* 0x833ce0 */ }
 void sub_833fd0() { /* 0x833fd0 */ }
-// sub_8340e0: implemented in prog/matched/main/
 void sub_8340f0() { /* 0x8340f0 */ }
 void sub_834170() { /* 0x834170 */ }
 void sub_8341a0() { /* 0x8341a0 */ }
-// sub_834200: implemented in prog/matched/main/
 void sub_834210() { /* 0x834210 */ }
 void sub_834290() { /* 0x834290 */ }
 void sub_8342c0() { /* 0x8342c0 */ }
-// sub_834690: implemented in prog/matched/main/
 void sub_8346a0() { /* 0x8346a0 */ }
 void sub_834720() { /* 0x834720 */ }
 void sub_834750() { /* 0x834750 */ }
@@ -1642,11 +558,9 @@ void sub_836110() { /* 0x836110 */ }
 void sub_8361e0() { /* 0x8361e0 */ }
 void sub_8362b0() { /* 0x8362b0 */ }
 void sub_8363b0() { /* 0x8363b0 */ }
-// sub_836460: implemented in prog/matched/main/
 void sub_836470() { /* 0x836470 */ }
 void sub_8364f0() { /* 0x8364f0 */ }
 void sub_836520() { /* 0x836520 */ }
-// sub_8366c0: implemented in prog/matched/main/
 void sub_8366d0() { /* 0x8366d0 */ }
 void sub_836750() { /* 0x836750 */ }
 void sub_836780() { /* 0x836780 */ }
@@ -1654,13 +568,11 @@ void sub_8368a0() { /* 0x8368a0 */ }
 void sub_836990() { /* 0x836990 */ }
 void sub_836ab0() { /* 0x836ab0 */ }
 void sub_836ba0() { /* 0x836ba0 */ }
-// sub_836ce0: implemented in prog/matched/main/
 void sub_836cf0() { /* 0x836cf0 */ }
 void sub_836d70() { /* 0x836d70 */ }
 void sub_836da0() { /* 0x836da0 */ }
 void sub_836f10() { /* 0x836f10 */ }
 void sub_837060() { /* 0x837060 */ }
-// sub_8372c0: implemented in prog/matched/main/
 void sub_8372d0() { /* 0x8372d0 */ }
 // sub_837350: implemented in prog/matched/main/
 void sub_837360() { /* 0x837360 */ }
@@ -1694,128 +606,98 @@ void sub_8387c0() { /* 0x8387c0 */ }
 void sub_838820() { /* 0x838820 */ }
 void sub_8388a0() { /* 0x8388a0 */ }
 void sub_8388d0() { /* 0x8388d0 */ }
-// sub_838960: implemented in prog/matched/main/
 void sub_838970() { /* 0x838970 */ }
 void sub_8389f0() { /* 0x8389f0 */ }
 void sub_838a20() { /* 0x838a20 */ }
-// sub_838ab0: implemented in prog/matched/main/
 void sub_838ac0() { /* 0x838ac0 */ }
 void sub_838b40() { /* 0x838b40 */ }
 void sub_838b70() { /* 0x838b70 */ }
-// sub_838c50: implemented in prog/matched/main/
 void sub_838c60() { /* 0x838c60 */ }
 void sub_838ce0() { /* 0x838ce0 */ }
 void sub_838d10() { /* 0x838d10 */ }
-// sub_838d40: implemented in prog/matched/main/
 void sub_838d50() { /* 0x838d50 */ }
 void sub_838dd0() { /* 0x838dd0 */ }
 void sub_838e00() { /* 0x838e00 */ }
-// sub_838ed0: implemented in prog/matched/main/
 void sub_838ee0() { /* 0x838ee0 */ }
 void sub_838f60() { /* 0x838f60 */ }
 void sub_838f90() { /* 0x838f90 */ }
-// sub_839130: implemented in prog/matched/main/
 void sub_839140() { /* 0x839140 */ }
 void sub_8391c0() { /* 0x8391c0 */ }
 void sub_8391f0() { /* 0x8391f0 */ }
-// sub_839330: implemented in prog/matched/main/
 void sub_839340() { /* 0x839340 */ }
 void sub_8393c0() { /* 0x8393c0 */ }
 void sub_8393f0() { /* 0x8393f0 */ }
 void sub_839560() { /* 0x839560 */ }
-// sub_839970: implemented in prog/matched/main/
 void sub_839980() { /* 0x839980 */ }
 void sub_839a00() { /* 0x839a00 */ }
 void sub_839a30() { /* 0x839a30 */ }
-// sub_839be0: implemented in prog/matched/main/
 void sub_839bf0() { /* 0x839bf0 */ }
 void sub_839c70() { /* 0x839c70 */ }
 void sub_839ca0() { /* 0x839ca0 */ }
-// sub_839d90: implemented in prog/matched/main/
 void sub_839da0() { /* 0x839da0 */ }
 void sub_839e20() { /* 0x839e20 */ }
 void sub_839e50() { /* 0x839e50 */ }
-// sub_839f20: implemented in prog/matched/main/
 void sub_839f30() { /* 0x839f30 */ }
 void sub_839fb0() { /* 0x839fb0 */ }
 void sub_839fe0() { /* 0x839fe0 */ }
-// sub_83a050: implemented in prog/matched/main/
 void sub_83a060() { /* 0x83a060 */ }
 void sub_83a0e0() { /* 0x83a0e0 */ }
 void sub_83a110() { /* 0x83a110 */ }
-// sub_83a250: implemented in prog/matched/main/
 void sub_83a260() { /* 0x83a260 */ }
 void sub_83a2e0() { /* 0x83a2e0 */ }
 void sub_83a310() { /* 0x83a310 */ }
 void sub_83a400() { /* 0x83a400 */ }
-// sub_83a4a0: implemented in prog/matched/main/
 void sub_83a4b0() { /* 0x83a4b0 */ }
 void sub_83a530() { /* 0x83a530 */ }
 void sub_83a560() { /* 0x83a560 */ }
-// sub_83a6a0: implemented in prog/matched/main/
 void sub_83a6b0() { /* 0x83a6b0 */ }
 void sub_83a730() { /* 0x83a730 */ }
 void sub_83a760() { /* 0x83a760 */ }
-// sub_83a820: implemented in prog/matched/main/
 void sub_83a830() { /* 0x83a830 */ }
 void sub_83a8b0() { /* 0x83a8b0 */ }
 void sub_83a8e0() { /* 0x83a8e0 */ }
-// sub_83a990: implemented in prog/matched/main/
 void sub_83a9a0() { /* 0x83a9a0 */ }
 void sub_83aa20() { /* 0x83aa20 */ }
 void sub_83aa50() { /* 0x83aa50 */ }
-// sub_83ab20: implemented in prog/matched/main/
 void sub_83ab30() { /* 0x83ab30 */ }
 void sub_83abb0() { /* 0x83abb0 */ }
 void sub_83abe0() { /* 0x83abe0 */ }
-// sub_83ac50: implemented in prog/matched/main/
 void sub_83ac60() { /* 0x83ac60 */ }
 void sub_83ace0() { /* 0x83ace0 */ }
 void sub_83ad10() { /* 0x83ad10 */ }
-// sub_83adb0: implemented in prog/matched/main/
 void sub_83adc0() { /* 0x83adc0 */ }
 void sub_83ae40() { /* 0x83ae40 */ }
 void sub_83ae70() { /* 0x83ae70 */ }
 void sub_83afc0() { /* 0x83afc0 */ }
-// sub_83b230: implemented in prog/matched/main/
 void sub_83b240() { /* 0x83b240 */ }
 void sub_83b2c0() { /* 0x83b2c0 */ }
 void sub_83b2f0() { /* 0x83b2f0 */ }
 void sub_83b390() { /* 0x83b390 */ }
-// sub_83b430: implemented in prog/matched/main/
 void sub_83b440() { /* 0x83b440 */ }
 void sub_83b4c0() { /* 0x83b4c0 */ }
 void sub_83b4f0() { /* 0x83b4f0 */ }
-// sub_83b620: implemented in prog/matched/main/
 void sub_83b630() { /* 0x83b630 */ }
 void sub_83b6b0() { /* 0x83b6b0 */ }
 void sub_83b6e0() { /* 0x83b6e0 */ }
-// sub_83b7c0: implemented in prog/matched/main/
 void sub_83b7d0() { /* 0x83b7d0 */ }
 void sub_83b850() { /* 0x83b850 */ }
 void sub_83b880() { /* 0x83b880 */ }
-// sub_83b9d0: implemented in prog/matched/main/
 void sub_83b9e0() { /* 0x83b9e0 */ }
 void sub_83ba60() { /* 0x83ba60 */ }
 void sub_83ba90() { /* 0x83ba90 */ }
 void sub_83bbf0() { /* 0x83bbf0 */ }
-// sub_83bce0: implemented in prog/matched/main/
 void sub_83bcf0() { /* 0x83bcf0 */ }
 void sub_83bd70() { /* 0x83bd70 */ }
 void sub_83bda0() { /* 0x83bda0 */ }
-// sub_83c130: implemented in prog/matched/main/
 void sub_83c140() { /* 0x83c140 */ }
 void sub_83c1c0() { /* 0x83c1c0 */ }
-// sub_83c1f0: implemented in prog/matched/main/
 void sub_83c200() { /* 0x83c200 */ }
 void sub_83c280() { /* 0x83c280 */ }
 void sub_83c2b0() { /* 0x83c2b0 */ }
 void sub_83c460() { /* 0x83c460 */ }
-// sub_83c530: implemented in prog/matched/main/
 void sub_83c540() { /* 0x83c540 */ }
 void sub_83c5c0() { /* 0x83c5c0 */ }
 void sub_83c5f0() { /* 0x83c5f0 */ }
-// sub_83c6f0: implemented in prog/matched/main/
 void sub_83c700() { /* 0x83c700 */ }
 void sub_83c780() { /* 0x83c780 */ }
 void sub_83c7b0() { /* 0x83c7b0 */ }
@@ -1823,164 +705,129 @@ void sub_83c8d0() { /* 0x83c8d0 */ }
 void sub_83ca20() { /* 0x83ca20 */ }
 void sub_83cba0() { /* 0x83cba0 */ }
 void sub_83cce0() { /* 0x83cce0 */ }
-// sub_83cd90: implemented in prog/matched/main/
 void sub_83cda0() { /* 0x83cda0 */ }
 void sub_83ce20() { /* 0x83ce20 */ }
 void sub_83ce50() { /* 0x83ce50 */ }
-// sub_83cf60: implemented in prog/matched/main/
 void sub_83cf70() { /* 0x83cf70 */ }
 void sub_83cff0() { /* 0x83cff0 */ }
 void sub_83d020() { /* 0x83d020 */ }
-// sub_83d1c0: implemented in prog/matched/main/
 void sub_83d1d0() { /* 0x83d1d0 */ }
 void sub_83d250() { /* 0x83d250 */ }
 void sub_83d280() { /* 0x83d280 */ }
 void sub_83d380() { /* 0x83d380 */ }
 void sub_83d410() { /* 0x83d410 */ }
-// sub_83d540: implemented in prog/matched/main/
 void sub_83d550() { /* 0x83d550 */ }
 void sub_83d5d0() { /* 0x83d5d0 */ }
 void sub_83d600() { /* 0x83d600 */ }
-// sub_83d720: implemented in prog/matched/main/
 void sub_83d730() { /* 0x83d730 */ }
 void sub_83d7b0() { /* 0x83d7b0 */ }
 void sub_83d7e0() { /* 0x83d7e0 */ }
-// sub_83d920: implemented in prog/matched/main/
 void sub_83d930() { /* 0x83d930 */ }
 void sub_83d9b0() { /* 0x83d9b0 */ }
 void sub_83d9e0() { /* 0x83d9e0 */ }
-// sub_83db30: implemented in prog/matched/main/
 void sub_83db40() { /* 0x83db40 */ }
 void sub_83dbc0() { /* 0x83dbc0 */ }
 void sub_83dbf0() { /* 0x83dbf0 */ }
-// sub_83dd00: implemented in prog/matched/main/
 void sub_83dd10() { /* 0x83dd10 */ }
 void sub_83dd90() { /* 0x83dd90 */ }
 void sub_83ddc0() { /* 0x83ddc0 */ }
 void sub_83dfb0() { /* 0x83dfb0 */ }
-// sub_83e0d0: implemented in prog/matched/main/
 void sub_83e0e0() { /* 0x83e0e0 */ }
 void sub_83e160() { /* 0x83e160 */ }
 void sub_83e190() { /* 0x83e190 */ }
-// sub_83e240: implemented in prog/matched/main/
 void sub_83e250() { /* 0x83e250 */ }
 void sub_83e2d0() { /* 0x83e2d0 */ }
 void sub_83e300() { /* 0x83e300 */ }
-// sub_83e340: implemented in prog/matched/main/
 void sub_83e350() { /* 0x83e350 */ }
 void sub_83e3d0() { /* 0x83e3d0 */ }
 void sub_83e400() { /* 0x83e400 */ }
-// sub_83e5d0: implemented in prog/matched/main/
 void sub_83e5e0() { /* 0x83e5e0 */ }
 void sub_83e660() { /* 0x83e660 */ }
 void sub_83e690() { /* 0x83e690 */ }
 void sub_83e730() { /* 0x83e730 */ }
 void sub_83e7f0() { /* 0x83e7f0 */ }
-// sub_83e880: implemented in prog/matched/main/
 void sub_83e890() { /* 0x83e890 */ }
 void sub_83e910() { /* 0x83e910 */ }
 void sub_83e940() { /* 0x83e940 */ }
-// sub_83ea10: implemented in prog/matched/main/
 void sub_83ea20() { /* 0x83ea20 */ }
 void sub_83eaa0() { /* 0x83eaa0 */ }
 void sub_83ead0() { /* 0x83ead0 */ }
-// sub_83ec40: implemented in prog/matched/main/
 void sub_83ec50() { /* 0x83ec50 */ }
 void sub_83ecd0() { /* 0x83ecd0 */ }
 void sub_83ed00() { /* 0x83ed00 */ }
 void sub_83eea0() { /* 0x83eea0 */ }
 void sub_83efd0() { /* 0x83efd0 */ }
-// sub_83f0c0: implemented in prog/matched/main/
 void sub_83f0d0() { /* 0x83f0d0 */ }
 void sub_83f150() { /* 0x83f150 */ }
 void sub_83f180() { /* 0x83f180 */ }
 void sub_83f1f0() { /* 0x83f1f0 */ }
-// sub_83f2b0: implemented in prog/matched/main/
 void sub_83f2c0() { /* 0x83f2c0 */ }
 void sub_83f340() { /* 0x83f340 */ }
 void sub_83f370() { /* 0x83f370 */ }
 void sub_83f720() { /* 0x83f720 */ }
 void sub_83f7f0() { /* 0x83f7f0 */ }
 void sub_83f8d0() { /* 0x83f8d0 */ }
-// sub_83fa70: implemented in prog/matched/main/
 void sub_83fa80() { /* 0x83fa80 */ }
 void sub_83fb00() { /* 0x83fb00 */ }
 void sub_83fb30() { /* 0x83fb30 */ }
-// sub_83fcb0: implemented in prog/matched/main/
 void sub_83fcc0() { /* 0x83fcc0 */ }
 void sub_83fd40() { /* 0x83fd40 */ }
 void sub_83fd70() { /* 0x83fd70 */ }
-// sub_83fe30: implemented in prog/matched/main/
 void sub_83fe40() { /* 0x83fe40 */ }
 void sub_83fec0() { /* 0x83fec0 */ }
 void sub_83fef0() { /* 0x83fef0 */ }
 void sub_83fff0() { /* 0x83fff0 */ }
-// sub_8400e0: implemented in prog/matched/main/
 void sub_8400f0() { /* 0x8400f0 */ }
 void sub_840170() { /* 0x840170 */ }
 void sub_8401a0() { /* 0x8401a0 */ }
-// sub_840210: implemented in prog/matched/main/
 void sub_840220() { /* 0x840220 */ }
 void sub_8402a0() { /* 0x8402a0 */ }
 void sub_8402d0() { /* 0x8402d0 */ }
 void sub_840430() { /* 0x840430 */ }
-// sub_8405a0: implemented in prog/matched/main/
 void sub_8405b0() { /* 0x8405b0 */ }
 void sub_840630() { /* 0x840630 */ }
 void sub_840660() { /* 0x840660 */ }
-// sub_8406d0: implemented in prog/matched/main/
 void sub_8406e0() { /* 0x8406e0 */ }
 void sub_840760() { /* 0x840760 */ }
 void sub_840790() { /* 0x840790 */ }
-// sub_840880: implemented in prog/matched/main/
 void sub_840890() { /* 0x840890 */ }
 void sub_840910() { /* 0x840910 */ }
 void sub_840940() { /* 0x840940 */ }
-// sub_840a90: implemented in prog/matched/main/
 void sub_840aa0() { /* 0x840aa0 */ }
 void sub_840b20() { /* 0x840b20 */ }
 void sub_840b50() { /* 0x840b50 */ }
-// sub_840c20: implemented in prog/matched/main/
 void sub_840c30() { /* 0x840c30 */ }
 void sub_840cb0() { /* 0x840cb0 */ }
 void sub_840ce0() { /* 0x840ce0 */ }
-// sub_840d40: implemented in prog/matched/main/
 void sub_840d50() { /* 0x840d50 */ }
 void sub_840dd0() { /* 0x840dd0 */ }
 void sub_840e00() { /* 0x840e00 */ }
-// sub_840ef0: implemented in prog/matched/main/
 void sub_840f00() { /* 0x840f00 */ }
 void sub_840f80() { /* 0x840f80 */ }
 void sub_840fb0() { /* 0x840fb0 */ }
-// sub_841050: implemented in prog/matched/main/
 void sub_841060() { /* 0x841060 */ }
 void sub_8410e0() { /* 0x8410e0 */ }
 void sub_841110() { /* 0x841110 */ }
 void sub_8411b0() { /* 0x8411b0 */ }
 void sub_841270() { /* 0x841270 */ }
-// sub_841360: implemented in prog/matched/main/
 void sub_841370() { /* 0x841370 */ }
 void sub_8413f0() { /* 0x8413f0 */ }
 void sub_841420() { /* 0x841420 */ }
 void sub_841490() { /* 0x841490 */ }
-// sub_8415b0: implemented in prog/matched/main/
 void sub_8415c0() { /* 0x8415c0 */ }
 void sub_841640() { /* 0x841640 */ }
 void sub_841670() { /* 0x841670 */ }
 void sub_8416f0() { /* 0x8416f0 */ }
 void sub_841840() { /* 0x841840 */ }
-// sub_841900: implemented in prog/matched/main/
 void sub_841910() { /* 0x841910 */ }
 void sub_841990() { /* 0x841990 */ }
 void sub_8419c0() { /* 0x8419c0 */ }
 void sub_841b20() { /* 0x841b20 */ }
-// sub_841d50: implemented in prog/matched/main/
 void sub_841d60() { /* 0x841d60 */ }
 void sub_841de0() { /* 0x841de0 */ }
 void sub_841e10() { /* 0x841e10 */ }
 void sub_841f40() { /* 0x841f40 */ }
 void sub_841ff0() { /* 0x841ff0 */ }
-// sub_842090: implemented in prog/matched/main/
 void sub_8420a0() { /* 0x8420a0 */ }
 void sub_842120() { /* 0x842120 */ }
 void sub_842150() { /* 0x842150 */ }
@@ -1990,24 +837,20 @@ void sub_842660() { /* 0x842660 */ }
 void sub_8427b0() { /* 0x8427b0 */ }
 void sub_842920() { /* 0x842920 */ }
 void sub_842c20() { /* 0x842c20 */ }
-// sub_842fb0: implemented in prog/matched/main/
 void sub_842fc0() { /* 0x842fc0 */ }
 void sub_843040() { /* 0x843040 */ }
 void sub_843070() { /* 0x843070 */ }
 void sub_843110() { /* 0x843110 */ }
 void sub_843210() { /* 0x843210 */ }
-// sub_843350: implemented in prog/matched/main/
 void sub_843360() { /* 0x843360 */ }
 void sub_8433e0() { /* 0x8433e0 */ }
 void sub_843410() { /* 0x843410 */ }
-// sub_843660: implemented in prog/matched/main/
 void sub_843670() { /* 0x843670 */ }
 void sub_8436f0() { /* 0x8436f0 */ }
 void sub_843720() { /* 0x843720 */ }
 void sub_844110() { /* 0x844110 */ }
 void sub_844210() { /* 0x844210 */ }
 void sub_844320() { /* 0x844320 */ }
-// sub_8443b0: implemented in prog/matched/main/
 void sub_8443c0() { /* 0x8443c0 */ }
 void sub_844440() { /* 0x844440 */ }
 void sub_8444a0() { /* 0x8444a0 */ }
@@ -2018,11 +861,9 @@ void sub_844570() { /* 0x844570 */ }
 void sub_8445f0() { /* 0x8445f0 */ }
 void sub_844620() { /* 0x844620 */ }
 void sub_844700() { /* 0x844700 */ }
-// sub_8448a0: implemented in prog/matched/main/
 void sub_8448b0() { /* 0x8448b0 */ }
 void sub_844930() { /* 0x844930 */ }
 void sub_844960() { /* 0x844960 */ }
-// sub_844ad0: implemented in prog/matched/main/
 void sub_844ae0() { /* 0x844ae0 */ }
 void sub_844b60() { /* 0x844b60 */ }
 void sub_844b90() { /* 0x844b90 */ }
@@ -2035,47 +876,37 @@ void sub_845410() { /* 0x845410 */ }
 void sub_845560() { /* 0x845560 */ }
 void sub_845610() { /* 0x845610 */ }
 void sub_845720() { /* 0x845720 */ }
-// sub_845800: implemented in prog/matched/main/
 void sub_845810() { /* 0x845810 */ }
 void sub_845890() { /* 0x845890 */ }
 void sub_8458c0() { /* 0x8458c0 */ }
-// sub_845970: implemented in prog/matched/main/
 void sub_845980() { /* 0x845980 */ }
 void sub_845a00() { /* 0x845a00 */ }
 void sub_845a30() { /* 0x845a30 */ }
-// sub_845ae0: implemented in prog/matched/main/
 void sub_845af0() { /* 0x845af0 */ }
 void sub_845b70() { /* 0x845b70 */ }
 void sub_845ba0() { /* 0x845ba0 */ }
 void sub_845d10() { /* 0x845d10 */ }
-// sub_845e60: implemented in prog/matched/main/
 void sub_845e70() { /* 0x845e70 */ }
 void sub_845ef0() { /* 0x845ef0 */ }
 void sub_845f20() { /* 0x845f20 */ }
-// sub_846050: implemented in prog/matched/main/
 void sub_846060() { /* 0x846060 */ }
 void sub_8460e0() { /* 0x8460e0 */ }
 void sub_846110() { /* 0x846110 */ }
-// sub_846270: implemented in prog/matched/main/
 void sub_846280() { /* 0x846280 */ }
 void sub_846300() { /* 0x846300 */ }
 void sub_846330() { /* 0x846330 */ }
 void sub_8463a0() { /* 0x8463a0 */ }
-// sub_846440: implemented in prog/matched/main/
 void sub_846450() { /* 0x846450 */ }
 void sub_8464d0() { /* 0x8464d0 */ }
 void sub_846500() { /* 0x846500 */ }
 void sub_846620() { /* 0x846620 */ }
-// sub_8466f0: implemented in prog/matched/main/
 void sub_846700() { /* 0x846700 */ }
 void sub_846780() { /* 0x846780 */ }
 void sub_8467b0() { /* 0x8467b0 */ }
 void sub_8468d0() { /* 0x8468d0 */ }
-// sub_8469a0: implemented in prog/matched/main/
 void sub_8469b0() { /* 0x8469b0 */ }
 void sub_846a30() { /* 0x846a30 */ }
 void sub_846a60() { /* 0x846a60 */ }
-// sub_846ac0: implemented in prog/matched/main/
 void sub_846ad0() { /* 0x846ad0 */ }
 void sub_846b50() { /* 0x846b50 */ }
 void sub_846b80() { /* 0x846b80 */ }
@@ -2083,18 +914,15 @@ void sub_846cb0() { /* 0x846cb0 */ }
 void sub_846dc0() { /* 0x846dc0 */ }
 void sub_846eb0() { /* 0x846eb0 */ }
 void sub_846f60() { /* 0x846f60 */ }
-// sub_847010: implemented in prog/matched/main/
 void sub_847020() { /* 0x847020 */ }
 // sub_8470a0: implemented in prog/matched/main/
 void sub_8470b0() { /* 0x8470b0 */ }
 void sub_8470e0() { /* 0x8470e0 */ }
 void sub_847320() { /* 0x847320 */ }
 void sub_8473d0() { /* 0x8473d0 */ }
-// sub_847460: implemented in prog/matched/main/
 void sub_847470() { /* 0x847470 */ }
 void sub_8474f0() { /* 0x8474f0 */ }
 void sub_847520() { /* 0x847520 */ }
-// sub_847600: implemented in prog/matched/main/
 void sub_847610() { /* 0x847610 */ }
 void sub_847690() { /* 0x847690 */ }
 void sub_8476c0() { /* 0x8476c0 */ }
@@ -2110,14 +938,12 @@ void sub_848180() { /* 0x848180 */ }
 void sub_848260() { /* 0x848260 */ }
 void sub_848340() { /* 0x848340 */ }
 void sub_848410() { /* 0x848410 */ }
-// sub_8484b0: implemented in prog/matched/main/
 void sub_8484c0() { /* 0x8484c0 */ }
 void sub_848540() { /* 0x848540 */ }
 void sub_848570() { /* 0x848570 */ }
 void sub_848730() { /* 0x848730 */ }
 void sub_848890() { /* 0x848890 */ }
 void sub_848910() { /* 0x848910 */ }
-// sub_8489d0: implemented in prog/matched/main/
 void sub_8489e0() { /* 0x8489e0 */ }
 void sub_848a60() { /* 0x848a60 */ }
 void sub_848c50() { /* 0x848c50 */ }
@@ -2154,21 +980,17 @@ void sub_84a240() { /* 0x84a240 */ }
 void sub_84a350() { /* 0x84a350 */ }
 void sub_84a420() { /* 0x84a420 */ }
 void sub_84a520() { /* 0x84a520 */ }
-// sub_84a6e0: implemented in prog/matched/main/
 void sub_84a6f0() { /* 0x84a6f0 */ }
 void sub_84a770() { /* 0x84a770 */ }
 void sub_84a7a0() { /* 0x84a7a0 */ }
-// sub_84a850: implemented in prog/matched/main/
 void sub_84a860() { /* 0x84a860 */ }
 void sub_84a8e0() { /* 0x84a8e0 */ }
 void sub_84a910() { /* 0x84a910 */ }
 void sub_84a9f0() { /* 0x84a9f0 */ }
 void sub_84aac0() { /* 0x84aac0 */ }
-// sub_84ad80: implemented in prog/matched/main/
 void sub_84ad90() { /* 0x84ad90 */ }
 void sub_84ae10() { /* 0x84ae10 */ }
 void sub_84ae40() { /* 0x84ae40 */ }
-// sub_84aed0: implemented in prog/matched/main/
 void sub_84aee0() { /* 0x84aee0 */ }
 void sub_84af60() { /* 0x84af60 */ }
 void sub_84b260() { /* 0x84b260 */ }
@@ -2181,12 +1003,10 @@ void sub_84b9a0() { /* 0x84b9a0 */ }
 void sub_84b9b0() { /* 0x84b9b0 */ }
 void sub_84ba10() { /* 0x84ba10 */ }
 void sub_84ba40() { /* 0x84ba40 */ }
-// sub_84bae0: implemented in prog/matched/main/
 void sub_84baf0() { /* 0x84baf0 */ }
 void sub_84bb70() { /* 0x84bb70 */ }
 void sub_84bba0() { /* 0x84bba0 */ }
 void sub_84bc60() { /* 0x84bc60 */ }
-// sub_84c080: implemented in prog/matched/main/
 void sub_84c090() { /* 0x84c090 */ }
 void sub_84c110() { /* 0x84c110 */ }
 void sub_84c140() { /* 0x84c140 */ }
@@ -2205,44 +1025,34 @@ void sub_84cf30() { /* 0x84cf30 */ }
 void sub_84cfd0() { /* 0x84cfd0 */ }
 void sub_84d100() { /* 0x84d100 */ }
 void sub_84d1e0() { /* 0x84d1e0 */ }
-// sub_84d2e0: implemented in prog/matched/main/
 void sub_84d2f0() { /* 0x84d2f0 */ }
 void sub_84d370() { /* 0x84d370 */ }
 void sub_84d3a0() { /* 0x84d3a0 */ }
 void sub_84d540() { /* 0x84d540 */ }
-// sub_84d6c0: implemented in prog/matched/main/
 void sub_84d6d0() { /* 0x84d6d0 */ }
 void sub_84d750() { /* 0x84d750 */ }
 void sub_84d780() { /* 0x84d780 */ }
-// sub_84d890: implemented in prog/matched/main/
 void sub_84d8a0() { /* 0x84d8a0 */ }
 void sub_84d920() { /* 0x84d920 */ }
 void sub_84d950() { /* 0x84d950 */ }
-// sub_84db20: implemented in prog/matched/main/
 void sub_84db30() { /* 0x84db30 */ }
 void sub_84dbb0() { /* 0x84dbb0 */ }
 void sub_84dbe0() { /* 0x84dbe0 */ }
-// sub_84dd20: implemented in prog/matched/main/
 void sub_84dd30() { /* 0x84dd30 */ }
 void sub_84ddb0() { /* 0x84ddb0 */ }
 void sub_84dde0() { /* 0x84dde0 */ }
-// sub_84ded0: implemented in prog/matched/main/
 void sub_84dee0() { /* 0x84dee0 */ }
 void sub_84df60() { /* 0x84df60 */ }
 void sub_84df90() { /* 0x84df90 */ }
-// sub_84e020: implemented in prog/matched/main/
 void sub_84e030() { /* 0x84e030 */ }
 void sub_84e0b0() { /* 0x84e0b0 */ }
 void sub_84e0e0() { /* 0x84e0e0 */ }
-// sub_84e270: implemented in prog/matched/main/
 void sub_84e280() { /* 0x84e280 */ }
 void sub_84e300() { /* 0x84e300 */ }
 void sub_84e330() { /* 0x84e330 */ }
-// sub_84e4b0: implemented in prog/matched/main/
 void sub_84e4c0() { /* 0x84e4c0 */ }
 void sub_84e540() { /* 0x84e540 */ }
 void sub_84e570() { /* 0x84e570 */ }
-// sub_84e790: implemented in prog/matched/main/
 void sub_84e7a0() { /* 0x84e7a0 */ }
 void sub_84e820() { /* 0x84e820 */ }
 void sub_84e850() { /* 0x84e850 */ }
@@ -2251,12 +1061,10 @@ void sub_84e980() { /* 0x84e980 */ }
 void sub_84eb30() { /* 0x84eb30 */ }
 void sub_84ec00() { /* 0x84ec00 */ }
 void sub_84ed40() { /* 0x84ed40 */ }
-// sub_84edd0: implemented in prog/matched/main/
 void sub_84ede0() { /* 0x84ede0 */ }
 void sub_84ee60() { /* 0x84ee60 */ }
 void sub_84ee90() { /* 0x84ee90 */ }
 void sub_84ef80() { /* 0x84ef80 */ }
-// sub_84f0a0: implemented in prog/matched/main/
 void sub_84f0b0() { /* 0x84f0b0 */ }
 // sub_84f130: implemented in prog/matched/main/
 // sub_84f140: implemented in prog/matched/main/
@@ -2273,26 +1081,21 @@ void sub_84f640() { /* 0x84f640 */ }
 void sub_84f710() { /* 0x84f710 */ }
 void sub_84f7b0() { /* 0x84f7b0 */ }
 void sub_84f830() { /* 0x84f830 */ }
-// sub_84f8c0: implemented in prog/matched/main/
 void sub_84f8d0() { /* 0x84f8d0 */ }
 void sub_84f950() { /* 0x84f950 */ }
 void sub_84f980() { /* 0x84f980 */ }
-// sub_84f9b0: implemented in prog/matched/main/
 void sub_84f9c0() { /* 0x84f9c0 */ }
 void sub_84fa40() { /* 0x84fa40 */ }
 void sub_84fa70() { /* 0x84fa70 */ }
-// sub_84fb20: implemented in prog/matched/main/
 void sub_84fb30() { /* 0x84fb30 */ }
 void sub_84fbb0() { /* 0x84fbb0 */ }
 void sub_84fbe0() { /* 0x84fbe0 */ }
-// sub_84fd00: implemented in prog/matched/main/
 void sub_84fd10() { /* 0x84fd10 */ }
 void sub_84fd90() { /* 0x84fd90 */ }
 void sub_84fdc0() { /* 0x84fdc0 */ }
 void sub_84fdf0() { /* 0x84fdf0 */ }
 void sub_850000() { /* 0x850000 */ }
 void sub_850120() { /* 0x850120 */ }
-// sub_850310: implemented in prog/matched/main/
 void sub_850320() { /* 0x850320 */ }
 void sub_8503a0() { /* 0x8503a0 */ }
 void sub_8503e0() { /* 0x8503e0 */ }
@@ -2316,62 +1119,49 @@ void sub_8505e0() { /* 0x8505e0 */ }
 void sub_850610() { /* 0x850610 */ }
 void sub_850640() { /* 0x850640 */ }
 void sub_850700() { /* 0x850700 */ }
-// sub_8507c0: implemented in prog/matched/main/
 void sub_8507d0() { /* 0x8507d0 */ }
 void sub_850850() { /* 0x850850 */ }
 void sub_850880() { /* 0x850880 */ }
 void sub_8509d0() { /* 0x8509d0 */ }
 void sub_850aa0() { /* 0x850aa0 */ }
-// sub_850b70: implemented in prog/matched/main/
 void sub_850b80() { /* 0x850b80 */ }
 void sub_850c00() { /* 0x850c00 */ }
 void sub_850c30() { /* 0x850c30 */ }
-// sub_850d90: implemented in prog/matched/main/
 void sub_850da0() { /* 0x850da0 */ }
 void sub_850e20() { /* 0x850e20 */ }
 void sub_850e50() { /* 0x850e50 */ }
-// sub_850ef0: implemented in prog/matched/main/
 void sub_850f00() { /* 0x850f00 */ }
 void sub_850f80() { /* 0x850f80 */ }
 void sub_850fb0() { /* 0x850fb0 */ }
-// sub_851180: implemented in prog/matched/main/
 void sub_851190() { /* 0x851190 */ }
 void sub_851210() { /* 0x851210 */ }
 void sub_851240() { /* 0x851240 */ }
-// sub_8512a0: implemented in prog/matched/main/
 void sub_8512b0() { /* 0x8512b0 */ }
 void sub_851330() { /* 0x851330 */ }
 void sub_851360() { /* 0x851360 */ }
-// sub_851530: implemented in prog/matched/main/
 void sub_851540() { /* 0x851540 */ }
 void sub_8515c0() { /* 0x8515c0 */ }
 void sub_8515f0() { /* 0x8515f0 */ }
 void sub_851730() { /* 0x851730 */ }
-// sub_8517d0: implemented in prog/matched/main/
 void sub_8517e0() { /* 0x8517e0 */ }
 void sub_851860() { /* 0x851860 */ }
 void sub_851890() { /* 0x851890 */ }
-// sub_8519f0: implemented in prog/matched/main/
 void sub_851a00() { /* 0x851a00 */ }
 void sub_851a80() { /* 0x851a80 */ }
 void sub_851ab0() { /* 0x851ab0 */ }
 void sub_851d30() { /* 0x851d30 */ }
 void sub_851db0() { /* 0x851db0 */ }
-// sub_851f90: implemented in prog/matched/main/
 void sub_851fa0() { /* 0x851fa0 */ }
 void sub_852020() { /* 0x852020 */ }
 void sub_852050() { /* 0x852050 */ }
 void sub_852230() { /* 0x852230 */ }
 void sub_852350() { /* 0x852350 */ }
-// sub_852420: implemented in prog/matched/main/
 void sub_852430() { /* 0x852430 */ }
 void sub_8524b0() { /* 0x8524b0 */ }
 void sub_8524e0() { /* 0x8524e0 */ }
-// sub_852550: implemented in prog/matched/main/
 void sub_852560() { /* 0x852560 */ }
 void sub_8525e0() { /* 0x8525e0 */ }
 void sub_852610() { /* 0x852610 */ }
-// sub_8526a0: implemented in prog/matched/main/
 void sub_8526b0() { /* 0x8526b0 */ }
 void sub_852730() { /* 0x852730 */ }
 void sub_852760() { /* 0x852760 */ }
@@ -2379,151 +1169,116 @@ void sub_852830() { /* 0x852830 */ }
 void sub_852910() { /* 0x852910 */ }
 void sub_8529f0() { /* 0x8529f0 */ }
 void sub_852aa0() { /* 0x852aa0 */ }
-// sub_852bc0: implemented in prog/matched/main/
 void sub_852bd0() { /* 0x852bd0 */ }
 void sub_852c50() { /* 0x852c50 */ }
 void sub_852c80() { /* 0x852c80 */ }
 void sub_852d20() { /* 0x852d20 */ }
 void sub_852dd0() { /* 0x852dd0 */ }
-// sub_852e70: implemented in prog/matched/main/
 void sub_852e80() { /* 0x852e80 */ }
 void sub_852f00() { /* 0x852f00 */ }
-// sub_852f30: implemented in prog/matched/main/
 void sub_852f40() { /* 0x852f40 */ }
 void sub_852fc0() { /* 0x852fc0 */ }
 void sub_852ff0() { /* 0x852ff0 */ }
-// sub_853010: implemented in prog/matched/main/
 void sub_853020() { /* 0x853020 */ }
 void sub_8530a0() { /* 0x8530a0 */ }
 void sub_8530d0() { /* 0x8530d0 */ }
-// sub_8535a0: implemented in prog/matched/main/
 void sub_8535b0() { /* 0x8535b0 */ }
 void sub_853630() { /* 0x853630 */ }
 void sub_853660() { /* 0x853660 */ }
-// sub_853860: implemented in prog/matched/main/
 void sub_853870() { /* 0x853870 */ }
 void sub_8538f0() { /* 0x8538f0 */ }
 void sub_853920() { /* 0x853920 */ }
-// sub_853980: implemented in prog/matched/main/
 void sub_853990() { /* 0x853990 */ }
 void sub_853a10() { /* 0x853a10 */ }
 void sub_853a40() { /* 0x853a40 */ }
 void sub_853ba0() { /* 0x853ba0 */ }
 void sub_853c40() { /* 0x853c40 */ }
-// sub_853d00: implemented in prog/matched/main/
 void sub_853d10() { /* 0x853d10 */ }
 void sub_853d90() { /* 0x853d90 */ }
 void sub_853dc0() { /* 0x853dc0 */ }
-// sub_853e60: implemented in prog/matched/main/
 void sub_853e70() { /* 0x853e70 */ }
 void sub_853ef0() { /* 0x853ef0 */ }
 void sub_853f20() { /* 0x853f20 */ }
 void sub_853fc0() { /* 0x853fc0 */ }
-// sub_8540c0: implemented in prog/matched/main/
 void sub_8540d0() { /* 0x8540d0 */ }
 void sub_854150() { /* 0x854150 */ }
 void sub_854180() { /* 0x854180 */ }
-// sub_854220: implemented in prog/matched/main/
 void sub_854230() { /* 0x854230 */ }
 void sub_8542b0() { /* 0x8542b0 */ }
 void sub_8542e0() { /* 0x8542e0 */ }
-// sub_8543e0: implemented in prog/matched/main/
 void sub_8543f0() { /* 0x8543f0 */ }
 void sub_854470() { /* 0x854470 */ }
 void sub_8544a0() { /* 0x8544a0 */ }
-// sub_854610: implemented in prog/matched/main/
 void sub_854620() { /* 0x854620 */ }
 void sub_8546a0() { /* 0x8546a0 */ }
 void sub_8546d0() { /* 0x8546d0 */ }
-// sub_854900: implemented in prog/matched/main/
 void sub_854910() { /* 0x854910 */ }
 void sub_854990() { /* 0x854990 */ }
 void sub_8549c0() { /* 0x8549c0 */ }
-// sub_854ac0: implemented in prog/matched/main/
 void sub_854ad0() { /* 0x854ad0 */ }
 void sub_854b50() { /* 0x854b50 */ }
 void sub_854b80() { /* 0x854b80 */ }
-// sub_854d80: implemented in prog/matched/main/
 void sub_854d90() { /* 0x854d90 */ }
 void sub_854e10() { /* 0x854e10 */ }
 void sub_854e40() { /* 0x854e40 */ }
-// sub_854fc0: implemented in prog/matched/main/
 void sub_854fd0() { /* 0x854fd0 */ }
 void sub_855050() { /* 0x855050 */ }
 void sub_855080() { /* 0x855080 */ }
-// sub_8550f0: implemented in prog/matched/main/
 void sub_855100() { /* 0x855100 */ }
 void sub_855180() { /* 0x855180 */ }
 void sub_8551b0() { /* 0x8551b0 */ }
-// sub_8551f0: implemented in prog/matched/main/
 void sub_855200() { /* 0x855200 */ }
 void sub_855280() { /* 0x855280 */ }
 void sub_8552b0() { /* 0x8552b0 */ }
-// sub_8554a0: implemented in prog/matched/main/
 void sub_8554b0() { /* 0x8554b0 */ }
 void sub_855530() { /* 0x855530 */ }
 void sub_855560() { /* 0x855560 */ }
 void sub_855680() { /* 0x855680 */ }
-// sub_8556f0: implemented in prog/matched/main/
 void sub_855700() { /* 0x855700 */ }
 void sub_855780() { /* 0x855780 */ }
 void sub_8557b0() { /* 0x8557b0 */ }
 void sub_855820() { /* 0x855820 */ }
-// sub_855900: implemented in prog/matched/main/
 void sub_855910() { /* 0x855910 */ }
 void sub_855990() { /* 0x855990 */ }
 void sub_8559c0() { /* 0x8559c0 */ }
-// sub_855aa0: implemented in prog/matched/main/
 void sub_855ab0() { /* 0x855ab0 */ }
 void sub_855b30() { /* 0x855b30 */ }
 void sub_855b70() { /* 0x855b70 */ }
 void sub_855ba0() { /* 0x855ba0 */ }
-// sub_855bf0: implemented in prog/matched/main/
 void sub_855c00() { /* 0x855c00 */ }
 void sub_855c80() { /* 0x855c80 */ }
 void sub_855cb0() { /* 0x855cb0 */ }
-// sub_855cf0: implemented in prog/matched/main/
 void sub_855d00() { /* 0x855d00 */ }
 void sub_855d80() { /* 0x855d80 */ }
 void sub_855db0() { /* 0x855db0 */ }
-// sub_855e60: implemented in prog/matched/main/
 void sub_855e70() { /* 0x855e70 */ }
 void sub_855ef0() { /* 0x855ef0 */ }
 void sub_855f20() { /* 0x855f20 */ }
-// sub_855f60: implemented in prog/matched/main/
 void sub_855f70() { /* 0x855f70 */ }
 void sub_855ff0() { /* 0x855ff0 */ }
 void sub_856020() { /* 0x856020 */ }
-// sub_856130: implemented in prog/matched/main/
 void sub_856140() { /* 0x856140 */ }
 void sub_8561c0() { /* 0x8561c0 */ }
 void sub_8561f0() { /* 0x8561f0 */ }
-// sub_8562d0: implemented in prog/matched/main/
 void sub_8562e0() { /* 0x8562e0 */ }
 void sub_856360() { /* 0x856360 */ }
 void sub_856390() { /* 0x856390 */ }
-// sub_8563f0: implemented in prog/matched/main/
 void sub_856400() { /* 0x856400 */ }
 void sub_856480() { /* 0x856480 */ }
 void sub_8564b0() { /* 0x8564b0 */ }
-// sub_856500: implemented in prog/matched/main/
 void sub_856510() { /* 0x856510 */ }
 void sub_856590() { /* 0x856590 */ }
 void sub_8565c0() { /* 0x8565c0 */ }
-// sub_856620: implemented in prog/matched/main/
 void sub_856630() { /* 0x856630 */ }
 void sub_8566b0() { /* 0x8566b0 */ }
 void sub_8566e0() { /* 0x8566e0 */ }
 void sub_856820() { /* 0x856820 */ }
-// sub_8568d0: implemented in prog/matched/main/
 void sub_8568e0() { /* 0x8568e0 */ }
 void sub_856960() { /* 0x856960 */ }
 void sub_856990() { /* 0x856990 */ }
-// sub_856a10: implemented in prog/matched/main/
 void sub_856a20() { /* 0x856a20 */ }
 void sub_856aa0() { /* 0x856aa0 */ }
 void sub_856ad0() { /* 0x856ad0 */ }
-// sub_856cc0: implemented in prog/matched/main/
 void sub_856cd0() { /* 0x856cd0 */ }
 void sub_856d50() { /* 0x856d50 */ }
 void sub_856d80() { /* 0x856d80 */ }
@@ -2532,27 +1287,21 @@ void sub_856e90() { /* 0x856e90 */ }
 void sub_856f50() { /* 0x856f50 */ }
 void sub_856ff0() { /* 0x856ff0 */ }
 void sub_8570f0() { /* 0x8570f0 */ }
-// sub_8571c0: implemented in prog/matched/main/
 void sub_8571d0() { /* 0x8571d0 */ }
 void sub_857250() { /* 0x857250 */ }
-// sub_857280: implemented in prog/matched/main/
 void sub_857290() { /* 0x857290 */ }
 void sub_857310() { /* 0x857310 */ }
 void sub_857340() { /* 0x857340 */ }
-// sub_857450: implemented in prog/matched/main/
 void sub_857460() { /* 0x857460 */ }
 void sub_8574e0() { /* 0x8574e0 */ }
 void sub_857500() { /* 0x857500 */ }
 void sub_857530() { /* 0x857530 */ }
-// sub_857590: implemented in prog/matched/main/
 void sub_8575a0() { /* 0x8575a0 */ }
 void sub_857620() { /* 0x857620 */ }
 void sub_857650() { /* 0x857650 */ }
-// sub_8576b0: implemented in prog/matched/main/
 void sub_8576c0() { /* 0x8576c0 */ }
 void sub_857740() { /* 0x857740 */ }
 void sub_857770() { /* 0x857770 */ }
-// sub_8578d0: implemented in prog/matched/main/
 void sub_8578e0() { /* 0x8578e0 */ }
 // sub_857960: implemented in prog/matched/main/
 // sub_857980: implemented in prog/matched/main/
@@ -2750,7 +1499,6 @@ void sub_8590c0() { /* 0x8590c0 */ }
 void sub_859180() { /* 0x859180 */ }
 void sub_859280() { /* 0x859280 */ }
 void sub_859320() { /* 0x859320 */ }
-// sub_859440: implemented in prog/matched/main/
 void sub_859450() { /* 0x859450 */ }
 void sub_859460() { /* 0x859460 */ }
 void sub_859470() { /* 0x859470 */ }
@@ -2833,8 +1581,6 @@ void sub_85b420() { /* 0x85b420 */ }
 void sub_85b500() { /* 0x85b500 */ }
 void sub_85b600() { /* 0x85b600 */ }
 void sub_85b6c0() { /* 0x85b6c0 */ }
-void sub_85b740() { /* 0x85b740 */ }
-// sub_85b830: implemented in prog/matched/main/
 void sub_85b840() { /* 0x85b840 */ }
 void sub_85b940() { /* 0x85b940 */ }
 void sub_85b980() { /* 0x85b980 */ }
@@ -2923,7 +1669,6 @@ void sub_85ec70() { /* 0x85ec70 */ }
 void sub_85ed20() { /* 0x85ed20 */ }
 void sub_85edd0() { /* 0x85edd0 */ }
 void sub_85ee80() { /* 0x85ee80 */ }
-// sub_85ef10: implemented in prog/matched/main/
 void sub_85ef20() { /* 0x85ef20 */ }
 void sub_85efc0() { /* 0x85efc0 */ }
 void sub_85f010() { /* 0x85f010 */ }
@@ -2976,7 +1721,6 @@ void sub_860cb0() { /* 0x860cb0 */ }
 void sub_860d10() { /* 0x860d10 */ }
 void sub_860dd0() { /* 0x860dd0 */ }
 void sub_860e20() { /* 0x860e20 */ }
-// sub_860f20: implemented in prog/matched/main/
 void sub_860f30() { /* 0x860f30 */ }
 void sub_861020() { /* 0x861020 */ }
 void sub_8610a0() { /* 0x8610a0 */ }
@@ -3053,98 +1797,74 @@ void sub_862980() { /* 0x862980 */ }
 void sub_8629e0() { /* 0x8629e0 */ }
 void sub_862a60() { /* 0x862a60 */ }
 void sub_862a90() { /* 0x862a90 */ }
-// sub_862bf0: implemented in prog/matched/main/
 void sub_862c00() { /* 0x862c00 */ }
 void sub_862c80() { /* 0x862c80 */ }
 void sub_862cb0() { /* 0x862cb0 */ }
-// sub_862d60: implemented in prog/matched/main/
 void sub_862d70() { /* 0x862d70 */ }
 void sub_862df0() { /* 0x862df0 */ }
 void sub_862e20() { /* 0x862e20 */ }
-// sub_862e70: implemented in prog/matched/main/
 void sub_862e80() { /* 0x862e80 */ }
 void sub_862f00() { /* 0x862f00 */ }
 void sub_862f30() { /* 0x862f30 */ }
-// sub_862f90: implemented in prog/matched/main/
 void sub_862fa0() { /* 0x862fa0 */ }
 void sub_863020() { /* 0x863020 */ }
 void sub_863050() { /* 0x863050 */ }
-// sub_8630f0: implemented in prog/matched/main/
 void sub_863100() { /* 0x863100 */ }
 void sub_863180() { /* 0x863180 */ }
 void sub_8631b0() { /* 0x8631b0 */ }
-// sub_863360: implemented in prog/matched/main/
 void sub_863370() { /* 0x863370 */ }
 void sub_8633f0() { /* 0x8633f0 */ }
 void sub_863420() { /* 0x863420 */ }
 void sub_8634c0() { /* 0x8634c0 */ }
-// sub_8635e0: implemented in prog/matched/main/
 void sub_8635f0() { /* 0x8635f0 */ }
 void sub_863670() { /* 0x863670 */ }
 void sub_8636a0() { /* 0x8636a0 */ }
-// sub_8638d0: implemented in prog/matched/main/
 void sub_8638e0() { /* 0x8638e0 */ }
 void sub_863960() { /* 0x863960 */ }
 void sub_863990() { /* 0x863990 */ }
-// sub_8639f0: implemented in prog/matched/main/
 void sub_863a00() { /* 0x863a00 */ }
 void sub_863a80() { /* 0x863a80 */ }
 void sub_863ab0() { /* 0x863ab0 */ }
-// sub_863b10: implemented in prog/matched/main/
 void sub_863b20() { /* 0x863b20 */ }
 void sub_863ba0() { /* 0x863ba0 */ }
 void sub_863bd0() { /* 0x863bd0 */ }
-// sub_863c30: implemented in prog/matched/main/
 void sub_863c40() { /* 0x863c40 */ }
 void sub_863cc0() { /* 0x863cc0 */ }
 void sub_863cf0() { /* 0x863cf0 */ }
-// sub_863e00: implemented in prog/matched/main/
 void sub_863e10() { /* 0x863e10 */ }
 void sub_863e90() { /* 0x863e90 */ }
 void sub_863ec0() { /* 0x863ec0 */ }
-// sub_863fb0: implemented in prog/matched/main/
 void sub_863fc0() { /* 0x863fc0 */ }
 void sub_864040() { /* 0x864040 */ }
 void sub_864070() { /* 0x864070 */ }
-// sub_8640e0: implemented in prog/matched/main/
 void sub_8640f0() { /* 0x8640f0 */ }
 void sub_864170() { /* 0x864170 */ }
 void sub_8641a0() { /* 0x8641a0 */ }
-// sub_8641f0: implemented in prog/matched/main/
 void sub_864200() { /* 0x864200 */ }
 void sub_864280() { /* 0x864280 */ }
 void sub_8642b0() { /* 0x8642b0 */ }
-// sub_864300: implemented in prog/matched/main/
 void sub_864310() { /* 0x864310 */ }
 void sub_864390() { /* 0x864390 */ }
 void sub_8643c0() { /* 0x8643c0 */ }
-// sub_8643f0: implemented in prog/matched/main/
 void sub_864400() { /* 0x864400 */ }
 void sub_864480() { /* 0x864480 */ }
 void sub_8644b0() { /* 0x8644b0 */ }
-// sub_8644d0: implemented in prog/matched/main/
 void sub_8644e0() { /* 0x8644e0 */ }
 void sub_864560() { /* 0x864560 */ }
-// sub_864590: implemented in prog/matched/main/
 void sub_8645a0() { /* 0x8645a0 */ }
 void sub_864620() { /* 0x864620 */ }
 void sub_864650() { /* 0x864650 */ }
-// sub_8646d0: implemented in prog/matched/main/
 void sub_8646e0() { /* 0x8646e0 */ }
 void sub_864760() { /* 0x864760 */ }
 void sub_864790() { /* 0x864790 */ }
-// sub_8647e0: implemented in prog/matched/main/
 void sub_8647f0() { /* 0x8647f0 */ }
 void sub_864870() { /* 0x864870 */ }
 void sub_8648a0() { /* 0x8648a0 */ }
-// sub_8649c0: implemented in prog/matched/main/
 void sub_8649d0() { /* 0x8649d0 */ }
 void sub_864a50() { /* 0x864a50 */ }
 void sub_864a80() { /* 0x864a80 */ }
-// sub_864ac0: implemented in prog/matched/main/
 void sub_864ad0() { /* 0x864ad0 */ }
 void sub_864b50() { /* 0x864b50 */ }
-// sub_864b80: implemented in prog/matched/main/
 void sub_864b90() { /* 0x864b90 */ }
 // sub_864c10: implemented in prog/matched/main/
 // sub_864c30: implemented in prog/matched/main/
@@ -3594,10 +2314,8 @@ void sub_86e7a0() { /* 0x86e7a0 */ }
 void sub_86e830() { /* 0x86e830 */ }
 void sub_86e930() { /* 0x86e930 */ }
 void sub_86e9d0() { /* 0x86e9d0 */ }
-// sub_86ea90: implemented in prog/matched/main/
 void sub_86eaa0() { /* 0x86eaa0 */ }
 void sub_86eb00() { /* 0x86eb00 */ }
-// sub_86eb40: implemented in prog/matched/main/
 void sub_86eb50() { /* 0x86eb50 */ }
 void sub_86eca0() { /* 0x86eca0 */ }
 void sub_86eeb0() { /* 0x86eeb0 */ }
@@ -3614,10 +2332,8 @@ void sub_86f480() { /* 0x86f480 */ }
 void sub_86f4f0() { /* 0x86f4f0 */ }
 void sub_86f530() { /* 0x86f530 */ }
 void sub_86f570() { /* 0x86f570 */ }
-// sub_86f5f0: implemented in prog/matched/main/
 void sub_86f600() { /* 0x86f600 */ }
 void sub_86f640() { /* 0x86f640 */ }
-void sub_86f720() { /* 0x86f720 */ }
 void sub_86f7e0() { /* 0x86f7e0 */ }
 void sub_86f8e0() { /* 0x86f8e0 */ }
 void sub_86fa70() { /* 0x86fa70 */ }
@@ -3825,9 +2541,7 @@ void sub_879e30() { /* 0x879e30 */ }
 void sub_879ef0() { /* 0x879ef0 */ }
 void sub_87a010() { /* 0x87a010 */ }
 void sub_87a0a0() { /* 0x87a0a0 */ }
-// sub_87a1b0: implemented in prog/matched/main/
 void sub_87a1c0() { /* 0x87a1c0 */ }
-void sub_87a210() { /* 0x87a210 */ }
 void sub_87a310() { /* 0x87a310 */ }
 void sub_87a430() { /* 0x87a430 */ }
 void sub_87a4c0() { /* 0x87a4c0 */ }
@@ -3835,9 +2549,7 @@ void sub_87a560() { /* 0x87a560 */ }
 void sub_87a5c0() { /* 0x87a5c0 */ }
 void sub_87a640() { /* 0x87a640 */ }
 void sub_87a6f0() { /* 0x87a6f0 */ }
-// sub_87a750: implemented in prog/matched/main/
 void sub_87a760() { /* 0x87a760 */ }
-void sub_87a7b0() { /* 0x87a7b0 */ }
 void sub_87a860() { /* 0x87a860 */ }
 void sub_87a8d0() { /* 0x87a8d0 */ }
 void sub_87a960() { /* 0x87a960 */ }
@@ -4004,5 +2716,1293 @@ void sub_880160() { /* 0x880160 */ }
 // sub_880210: implemented in prog/matched/main/
 void sub_880230() { /* 0x880230 */ }
 // sub_880300: implemented in prog/matched/main/
+void sub_880320() { /* 0x880320 */ }
+// sub_880380: implemented in prog/matched/main/
+void sub_8803a0() { /* 0x8803a0 */ }
+// sub_880400: implemented in prog/matched/main/
+void sub_880420() { /* 0x880420 */ }
+// sub_8804a0: implemented in prog/matched/main/
+void sub_8804c0() { /* 0x8804c0 */ }
+// sub_880540: implemented in prog/matched/main/
+void sub_880560() { /* 0x880560 */ }
+// sub_8805b0: implemented in prog/matched/main/
+void sub_8805d0() { /* 0x8805d0 */ }
+void sub_8805e0() { /* 0x8805e0 */ }
+void sub_8805f0() { /* 0x8805f0 */ }
+void sub_8806b0() { /* 0x8806b0 */ }
+// sub_8807b0: implemented in prog/matched/main/
+void sub_8807d0() { /* 0x8807d0 */ }
+void sub_8807e0() { /* 0x8807e0 */ }
+void sub_8807f0() { /* 0x8807f0 */ }
+// sub_880840: implemented in prog/matched/main/
+void sub_880860() { /* 0x880860 */ }
+void sub_880870() { /* 0x880870 */ }
+// sub_880880: implemented in prog/matched/main/
+void sub_8808a0() { /* 0x8808a0 */ }
+// sub_880910: implemented in prog/matched/main/
+void sub_880930() { /* 0x880930 */ }
+void sub_8809c0() { /* 0x8809c0 */ }
+void sub_880a30() { /* 0x880a30 */ }
+// sub_880a90: implemented in prog/matched/main/
+void sub_880ab0() { /* 0x880ab0 */ }
+void sub_880ae0() { /* 0x880ae0 */ }
+void sub_880b30() { /* 0x880b30 */ }
+void sub_880b40() { /* 0x880b40 */ }
+// sub_880bf0: implemented in prog/matched/main/
+void sub_880c10() { /* 0x880c10 */ }
+void sub_880c80() { /* 0x880c80 */ }
+void sub_880cd0() { /* 0x880cd0 */ }
+void sub_880d20() { /* 0x880d20 */ }
+// sub_880d30: implemented in prog/matched/main/
+void sub_880d50() { /* 0x880d50 */ }
+void sub_880d80() { /* 0x880d80 */ }
+void sub_880dd0() { /* 0x880dd0 */ }
+// sub_880de0: implemented in prog/matched/main/
+void sub_880e00() { /* 0x880e00 */ }
+void sub_880e30() { /* 0x880e30 */ }
+void sub_880eb0() { /* 0x880eb0 */ }
+// sub_880ec0: implemented in prog/matched/main/
+void sub_880ee0() { /* 0x880ee0 */ }
+void sub_880f10() { /* 0x880f10 */ }
+void sub_880f60() { /* 0x880f60 */ }
+// sub_880f70: implemented in prog/matched/main/
+void sub_880f90() { /* 0x880f90 */ }
+void sub_880fc0() { /* 0x880fc0 */ }
+void sub_880fd0() { /* 0x880fd0 */ }
+void sub_881050() { /* 0x881050 */ }
+void sub_881060() { /* 0x881060 */ }
+void sub_8810d0() { /* 0x8810d0 */ }
+void sub_8810e0() { /* 0x8810e0 */ }
+// sub_8811b0: implemented in prog/matched/main/
+void sub_8811d0() { /* 0x8811d0 */ }
+void sub_881250() { /* 0x881250 */ }
+void sub_8812d0() { /* 0x8812d0 */ }
+void sub_8813b0() { /* 0x8813b0 */ }
+void sub_8813f0() { /* 0x8813f0 */ }
+void sub_881460() { /* 0x881460 */ }
+// sub_881470: implemented in prog/matched/main/
+void sub_881490() { /* 0x881490 */ }
+void sub_881510() { /* 0x881510 */ }
+void sub_881590() { /* 0x881590 */ }
+void sub_8815a0() { /* 0x8815a0 */ }
+void sub_8815b0() { /* 0x8815b0 */ }
+void sub_881690() { /* 0x881690 */ }
+// sub_8817a0: implemented in prog/matched/main/
+void sub_8817c0() { /* 0x8817c0 */ }
+// sub_881890: implemented in prog/matched/main/
+void sub_8818b0() { /* 0x8818b0 */ }
+// sub_881980: implemented in prog/matched/main/
+void sub_8819a0() { /* 0x8819a0 */ }
+// sub_881a70: implemented in prog/matched/main/
+void sub_881a90() { /* 0x881a90 */ }
+// sub_881b70: implemented in prog/matched/main/
+void sub_881b90() { /* 0x881b90 */ }
+// sub_881c60: implemented in prog/matched/main/
+void sub_881c80() { /* 0x881c80 */ }
+void sub_881d00() { /* 0x881d00 */ }
+// sub_881e40: implemented in prog/matched/main/
+void sub_881e60() { /* 0x881e60 */ }
+void sub_881ee0() { /* 0x881ee0 */ }
+// sub_882020: implemented in prog/matched/main/
+void sub_882040() { /* 0x882040 */ }
+void sub_8820c0() { /* 0x8820c0 */ }
+// sub_882200: implemented in prog/matched/main/
+void sub_882220() { /* 0x882220 */ }
+void sub_8822b0() { /* 0x8822b0 */ }
+// sub_8822c0: implemented in prog/matched/main/
+void sub_8822e0() { /* 0x8822e0 */ }
+void sub_8822f0() { /* 0x8822f0 */ }
+// sub_882400: implemented in prog/matched/main/
+void sub_882420() { /* 0x882420 */ }
+// sub_882430: implemented in prog/matched/main/
+void sub_882450() { /* 0x882450 */ }
+void sub_882530() { /* 0x882530 */ }
+// sub_8825a0: implemented in prog/matched/main/
+void sub_8825c0() { /* 0x8825c0 */ }
+void sub_882650() { /* 0x882650 */ }
+void sub_8826c0() { /* 0x8826c0 */ }
+void sub_882710() { /* 0x882710 */ }
+void sub_882760() { /* 0x882760 */ }
+// sub_8827b0: implemented in prog/matched/main/
+void sub_8827d0() { /* 0x8827d0 */ }
+void sub_882830() { /* 0x882830 */ }
+// sub_882880: implemented in prog/matched/main/
+void sub_8828a0() { /* 0x8828a0 */ }
+// sub_882970: implemented in prog/matched/main/
+void sub_882990() { /* 0x882990 */ }
+// sub_882a40: implemented in prog/matched/main/
+void sub_882a60() { /* 0x882a60 */ }
+// sub_882b30: implemented in prog/matched/main/
+void sub_882b50() { /* 0x882b50 */ }
+// sub_882ba0: implemented in prog/matched/main/
+void sub_882bc0() { /* 0x882bc0 */ }
+// sub_882c20: implemented in prog/matched/main/
+void sub_882c40() { /* 0x882c40 */ }
+// sub_882d50: implemented in prog/matched/main/
+void sub_882d70() { /* 0x882d70 */ }
+void sub_882dc0() { /* 0x882dc0 */ }
+// sub_882ea0: implemented in prog/matched/main/
+void sub_882ec0() { /* 0x882ec0 */ }
+// sub_882f10: implemented in prog/matched/main/
+void sub_882f30() { /* 0x882f30 */ }
+// sub_882f80: implemented in prog/matched/main/
+void sub_882fa0() { /* 0x882fa0 */ }
+// sub_8830a0: implemented in prog/matched/main/
+void sub_8830c0() { /* 0x8830c0 */ }
+// sub_8831b0: implemented in prog/matched/main/
+void sub_8831d0() { /* 0x8831d0 */ }
+// sub_883310: implemented in prog/matched/main/
+void sub_883330() { /* 0x883330 */ }
+void sub_883450() { /* 0x883450 */ }
+void sub_883470() { /* 0x883470 */ }
+// sub_883640: implemented in prog/matched/main/
+void sub_883660() { /* 0x883660 */ }
+// sub_883750: implemented in prog/matched/main/
+void sub_883770() { /* 0x883770 */ }
+// sub_8838c0: implemented in prog/matched/main/
+void sub_8838e0() { /* 0x8838e0 */ }
+// sub_883930: implemented in prog/matched/main/
+void sub_883950() { /* 0x883950 */ }
+void sub_8839c0() { /* 0x8839c0 */ }
+void sub_883a30() { /* 0x883a30 */ }
+// sub_883a80: implemented in prog/matched/main/
+void sub_883aa0() { /* 0x883aa0 */ }
+// sub_883cd0: implemented in prog/matched/main/
+void sub_883cf0() { /* 0x883cf0 */ }
+// sub_883d80: implemented in prog/matched/main/
+void sub_883da0() { /* 0x883da0 */ }
+// sub_883ec0: implemented in prog/matched/main/
+void sub_883ee0() { /* 0x883ee0 */ }
+// sub_884100: implemented in prog/matched/main/
+void sub_884120() { /* 0x884120 */ }
+void sub_884240() { /* 0x884240 */ }
+// sub_884320: implemented in prog/matched/main/
+void sub_884340() { /* 0x884340 */ }
+// sub_8844c0: implemented in prog/matched/main/
+void sub_8844e0() { /* 0x8844e0 */ }
+void sub_8845b0() { /* 0x8845b0 */ }
+void sub_884630() { /* 0x884630 */ }
+// sub_8846f0: implemented in prog/matched/main/
+void sub_884710() { /* 0x884710 */ }
+void sub_884780() { /* 0x884780 */ }
+void sub_8847d0() { /* 0x8847d0 */ }
+// sub_884820: implemented in prog/matched/main/
+void sub_884840() { /* 0x884840 */ }
+void sub_8848a0() { /* 0x8848a0 */ }
+void sub_884920() { /* 0x884920 */ }
+void sub_884a50() { /* 0x884a50 */ }
+// sub_884b50: implemented in prog/matched/main/
+void sub_884b70() { /* 0x884b70 */ }
+void sub_884cb0() { /* 0x884cb0 */ }
+void sub_884d10() { /* 0x884d10 */ }
+// sub_884dc0: implemented in prog/matched/main/
+void sub_884de0() { /* 0x884de0 */ }
+void sub_884e40() { /* 0x884e40 */ }
+// sub_884ea0: implemented in prog/matched/main/
+void sub_884ec0() { /* 0x884ec0 */ }
+// sub_884f70: implemented in prog/matched/main/
+void sub_884f90() { /* 0x884f90 */ }
+// sub_885040: implemented in prog/matched/main/
+void sub_885060() { /* 0x885060 */ }
+// sub_885120: implemented in prog/matched/main/
+void sub_885140() { /* 0x885140 */ }
+void sub_8851a0() { /* 0x8851a0 */ }
+void sub_885210() { /* 0x885210 */ }
+void sub_885250() { /* 0x885250 */ }
+void sub_8852c0() { /* 0x8852c0 */ }
+// sub_8852d0: implemented in prog/matched/main/
+void sub_8852f0() { /* 0x8852f0 */ }
+// sub_8853e0: implemented in prog/matched/main/
+void sub_885400() { /* 0x885400 */ }
+void sub_885470() { /* 0x885470 */ }
+void sub_885530() { /* 0x885530 */ }
+// sub_885580: implemented in prog/matched/main/
+void sub_8855a0() { /* 0x8855a0 */ }
+// sub_885680: implemented in prog/matched/main/
+void sub_8856a0() { /* 0x8856a0 */ }
+void sub_885730() { /* 0x885730 */ }
+void sub_885790() { /* 0x885790 */ }
+void sub_885850() { /* 0x885850 */ }
+void sub_8858b0() { /* 0x8858b0 */ }
+// sub_885910: implemented in prog/matched/main/
+void sub_885930() { /* 0x885930 */ }
+void sub_8859d0() { /* 0x8859d0 */ }
+void sub_885a90() { /* 0x885a90 */ }
+void sub_885ab0() { /* 0x885ab0 */ }
+void sub_885af0() { /* 0x885af0 */ }
+// sub_885b20: implemented in prog/matched/main/
+void sub_885b40() { /* 0x885b40 */ }
+void sub_885cc0() { /* 0x885cc0 */ }
+void sub_885d40() { /* 0x885d40 */ }
+// sub_885db0: implemented in prog/matched/main/
+void sub_885dd0() { /* 0x885dd0 */ }
+// sub_885f50: implemented in prog/matched/main/
+void sub_885f80() { /* 0x885f80 */ }
+// sub_886010: implemented in prog/matched/main/
+void sub_886030() { /* 0x886030 */ }
+void sub_886100() { /* 0x886100 */ }
+void sub_886170() { /* 0x886170 */ }
+void sub_8861d0() { /* 0x8861d0 */ }
+// sub_886230: implemented in prog/matched/main/
+void sub_886250() { /* 0x886250 */ }
+void sub_886280() { /* 0x886280 */ }
+void sub_8862e0() { /* 0x8862e0 */ }
+void sub_886350() { /* 0x886350 */ }
+void sub_8863a0() { /* 0x8863a0 */ }
+void sub_8863e0() { /* 0x8863e0 */ }
+void sub_886420() { /* 0x886420 */ }
+void sub_886520() { /* 0x886520 */ }
+// sub_8865d0: implemented in prog/matched/main/
+void sub_8865f0() { /* 0x8865f0 */ }
+void sub_886680() { /* 0x886680 */ }
+void sub_886700() { /* 0x886700 */ }
+void sub_8867b0() { /* 0x8867b0 */ }
+// sub_886870: implemented in prog/matched/main/
+void sub_886890() { /* 0x886890 */ }
+void sub_886920() { /* 0x886920 */ }
+void sub_8869a0() { /* 0x8869a0 */ }
+// sub_886a60: implemented in prog/matched/main/
+void sub_886a80() { /* 0x886a80 */ }
+// sub_886b40: implemented in prog/matched/main/
+void sub_886b60() { /* 0x886b60 */ }
+void sub_886c60() { /* 0x886c60 */ }
+// sub_886ca0: implemented in prog/matched/main/
+void sub_886cc0() { /* 0x886cc0 */ }
+void sub_886d30() { /* 0x886d30 */ }
+void sub_886d70() { /* 0x886d70 */ }
+void sub_886de0() { /* 0x886de0 */ }
+void sub_886e60() { /* 0x886e60 */ }
+void sub_886f30() { /* 0x886f30 */ }
+// sub_887020: implemented in prog/matched/main/
+void sub_887040() { /* 0x887040 */ }
+void sub_887120() { /* 0x887120 */ }
+void sub_887190() { /* 0x887190 */ }
+// sub_887240: implemented in prog/matched/main/
+void sub_887260() { /* 0x887260 */ }
+void sub_887270() { /* 0x887270 */ }
+void sub_887310() { /* 0x887310 */ }
+// sub_8873c0: implemented in prog/matched/main/
+void sub_8873e0() { /* 0x8873e0 */ }
+// sub_887430: implemented in prog/matched/main/
+void sub_887450() { /* 0x887450 */ }
+void sub_8874b0() { /* 0x8874b0 */ }
+void sub_8874d0() { /* 0x8874d0 */ }
+// sub_8875a0: implemented in prog/matched/main/
+void sub_8875c0() { /* 0x8875c0 */ }
+// sub_8876a0: implemented in prog/matched/main/
+void sub_8876c0() { /* 0x8876c0 */ }
+// sub_887780: implemented in prog/matched/main/
+void sub_8877a0() { /* 0x8877a0 */ }
+void sub_887810() { /* 0x887810 */ }
+// sub_887890: implemented in prog/matched/main/
+void sub_8878b0() { /* 0x8878b0 */ }
+void sub_8879e0() { /* 0x8879e0 */ }
+// sub_887ae0: implemented in prog/matched/main/
+void sub_887b00() { /* 0x887b00 */ }
+// sub_887bf0: implemented in prog/matched/main/
+void sub_887c10() { /* 0x887c10 */ }
+// sub_887d50: implemented in prog/matched/main/
+void sub_887d70() { /* 0x887d70 */ }
+// sub_887ec0: implemented in prog/matched/main/
+void sub_887ee0() { /* 0x887ee0 */ }
+// sub_888050: implemented in prog/matched/main/
+void sub_888070() { /* 0x888070 */ }
+void sub_8880d0() { /* 0x8880d0 */ }
+void sub_888130() { /* 0x888130 */ }
+void sub_888180() { /* 0x888180 */ }
+void sub_8881e0() { /* 0x8881e0 */ }
+// sub_8882f0: implemented in prog/matched/main/
+void sub_888310() { /* 0x888310 */ }
+// sub_8883e0: implemented in prog/matched/main/
+void sub_888400() { /* 0x888400 */ }
+// sub_8884e0: implemented in prog/matched/main/
+void sub_888500() { /* 0x888500 */ }
+// sub_888590: implemented in prog/matched/main/
+void sub_8885b0() { /* 0x8885b0 */ }
+// sub_888610: implemented in prog/matched/main/
+void sub_888630() { /* 0x888630 */ }
+// sub_888690: implemented in prog/matched/main/
+void sub_8886b0() { /* 0x8886b0 */ }
+// sub_8887e0: implemented in prog/matched/main/
+void sub_888800() { /* 0x888800 */ }
+// sub_888880: implemented in prog/matched/main/
+void sub_8888a0() { /* 0x8888a0 */ }
+// sub_888920: implemented in prog/matched/main/
+void sub_888940() { /* 0x888940 */ }
+// sub_888a40: implemented in prog/matched/main/
+void sub_888a60() { /* 0x888a60 */ }
+// sub_888ee0: implemented in prog/matched/main/
+void sub_888f10() { /* 0x888f10 */ }
+void sub_888fd0() { /* 0x888fd0 */ }
+void sub_888ff0() { /* 0x888ff0 */ }
+// sub_889100: implemented in prog/matched/main/
+void sub_889120() { /* 0x889120 */ }
+// sub_8891f0: implemented in prog/matched/main/
+void sub_889210() { /* 0x889210 */ }
+void sub_889220() { /* 0x889220 */ }
+// sub_889230: implemented in prog/matched/main/
+void sub_889250() { /* 0x889250 */ }
+// sub_8892b0: implemented in prog/matched/main/
+void sub_8892d0() { /* 0x8892d0 */ }
+// sub_889340: implemented in prog/matched/main/
+void sub_889360() { /* 0x889360 */ }
+// sub_8893d0: implemented in prog/matched/main/
+void sub_8893f0() { /* 0x8893f0 */ }
+// sub_889480: implemented in prog/matched/main/
+void sub_8894a0() { /* 0x8894a0 */ }
+void sub_8895f0() { /* 0x8895f0 */ }
+// sub_8896c0: implemented in prog/matched/main/
+void sub_8896e0() { /* 0x8896e0 */ }
+// sub_889790: implemented in prog/matched/main/
+void sub_8897b0() { /* 0x8897b0 */ }
+void sub_889800() { /* 0x889800 */ }
+void sub_889840() { /* 0x889840 */ }
+void sub_889890() { /* 0x889890 */ }
+// sub_889910: implemented in prog/matched/main/
+void sub_889930() { /* 0x889930 */ }
+// sub_8899a0: implemented in prog/matched/main/
+void sub_8899c0() { /* 0x8899c0 */ }
+// sub_889a60: implemented in prog/matched/main/
+void sub_889a80() { /* 0x889a80 */ }
+// sub_889bb0: implemented in prog/matched/main/
+void sub_889bd0() { /* 0x889bd0 */ }
+// sub_889c80: implemented in prog/matched/main/
+void sub_889ca0() { /* 0x889ca0 */ }
+void sub_889d70() { /* 0x889d70 */ }
+void sub_889df0() { /* 0x889df0 */ }
+// sub_889ea0: implemented in prog/matched/main/
+void sub_889ec0() { /* 0x889ec0 */ }
+// sub_889f80: implemented in prog/matched/main/
+void sub_889fa0() { /* 0x889fa0 */ }
+// sub_88a100: implemented in prog/matched/main/
+void sub_88a120() { /* 0x88a120 */ }
+// sub_88a240: implemented in prog/matched/main/
+void sub_88a260() { /* 0x88a260 */ }
+// sub_88a340: implemented in prog/matched/main/
+void sub_88a360() { /* 0x88a360 */ }
+// sub_88a420: implemented in prog/matched/main/
+void sub_88a440() { /* 0x88a440 */ }
+void sub_88a4d0() { /* 0x88a4d0 */ }
+void sub_88a530() { /* 0x88a530 */ }
+void sub_88a5a0() { /* 0x88a5a0 */ }
+// sub_88a610: implemented in prog/matched/main/
+// sub_88a630: implemented in prog/matched/main/
+void sub_88a650() { /* 0x88a650 */ }
+// sub_88a760: implemented in prog/matched/main/
+void sub_88a780() { /* 0x88a780 */ }
+// sub_88a7d0: implemented in prog/matched/main/
+void sub_88a7f0() { /* 0x88a7f0 */ }
+// sub_88a840: implemented in prog/matched/main/
+void sub_88a860() { /* 0x88a860 */ }
+// sub_88a8d0: implemented in prog/matched/main/
+void sub_88a8f0() { /* 0x88a8f0 */ }
+void sub_88a9d0() { /* 0x88a9d0 */ }
+// sub_88aa30: implemented in prog/matched/main/
+void sub_88aa50() { /* 0x88aa50 */ }
+void sub_88ab20() { /* 0x88ab20 */ }
+// sub_88ab80: implemented in prog/matched/main/
+void sub_88aba0() { /* 0x88aba0 */ }
+// sub_88ac00: implemented in prog/matched/main/
+void sub_88ac20() { /* 0x88ac20 */ }
+// sub_88ad30: implemented in prog/matched/main/
+void sub_88ad50() { /* 0x88ad50 */ }
+void sub_88ade0() { /* 0x88ade0 */ }
+void sub_88ae50() { /* 0x88ae50 */ }
+// sub_88aef0: implemented in prog/matched/main/
+void sub_88af10() { /* 0x88af10 */ }
+// sub_88af70: implemented in prog/matched/main/
+void sub_88af90() { /* 0x88af90 */ }
+void sub_88b040() { /* 0x88b040 */ }
+// sub_88b050: implemented in prog/matched/main/
+void sub_88b070() { /* 0x88b070 */ }
+void sub_88b0f0() { /* 0x88b0f0 */ }
+void sub_88b180() { /* 0x88b180 */ }
+void sub_88b240() { /* 0x88b240 */ }
+void sub_88b2c0() { /* 0x88b2c0 */ }
+// sub_88b340: implemented in prog/matched/main/
+void sub_88b360() { /* 0x88b360 */ }
+void sub_88b400() { /* 0x88b400 */ }
+void sub_88b410() { /* 0x88b410 */ }
+// sub_88b470: implemented in prog/matched/main/
+void sub_88b490() { /* 0x88b490 */ }
+void sub_88b540() { /* 0x88b540 */ }
+// sub_88b620: implemented in prog/matched/main/
+void sub_88b640() { /* 0x88b640 */ }
+// sub_88b750: implemented in prog/matched/main/
+void sub_88b770() { /* 0x88b770 */ }
+// sub_88b820: implemented in prog/matched/main/
+void sub_88b840() { /* 0x88b840 */ }
+// sub_88b950: implemented in prog/matched/main/
+void sub_88b970() { /* 0x88b970 */ }
+void sub_88b980() { /* 0x88b980 */ }
+// sub_88b9f0: implemented in prog/matched/main/
+void sub_88ba10() { /* 0x88ba10 */ }
+void sub_88ba20() { /* 0x88ba20 */ }
+// sub_88ba90: implemented in prog/matched/main/
+void sub_88bab0() { /* 0x88bab0 */ }
+void sub_88bac0() { /* 0x88bac0 */ }
+// sub_88bad0: implemented in prog/matched/main/
+void sub_88baf0() { /* 0x88baf0 */ }
+// sub_88bb50: implemented in prog/matched/main/
+void sub_88bb70() { /* 0x88bb70 */ }
+void sub_88bc00() { /* 0x88bc00 */ }
+void sub_88bc70() { /* 0x88bc70 */ }
+void sub_88bd10() { /* 0x88bd10 */ }
+// sub_88bd70: implemented in prog/matched/main/
+void sub_88bd90() { /* 0x88bd90 */ }
+// sub_88bdf0: implemented in prog/matched/main/
+void sub_88be10() { /* 0x88be10 */ }
+// sub_88be80: implemented in prog/matched/main/
+void sub_88bea0() { /* 0x88bea0 */ }
+// sub_88bfa0: implemented in prog/matched/main/
+void sub_88bfc0() { /* 0x88bfc0 */ }
+// sub_88c020: implemented in prog/matched/main/
+void sub_88c040() { /* 0x88c040 */ }
+void sub_88c0c0() { /* 0x88c0c0 */ }
+void sub_88c130() { /* 0x88c130 */ }
+void sub_88c140() { /* 0x88c140 */ }
+// sub_88c1a0: implemented in prog/matched/main/
+void sub_88c1c0() { /* 0x88c1c0 */ }
+void sub_88c240() { /* 0x88c240 */ }
+void sub_88c2b0() { /* 0x88c2b0 */ }
+// sub_88c310: implemented in prog/matched/main/
+void sub_88c330() { /* 0x88c330 */ }
+void sub_88c3b0() { /* 0x88c3b0 */ }
+void sub_88c420() { /* 0x88c420 */ }
+// sub_88c480: implemented in prog/matched/main/
+void sub_88c4a0() { /* 0x88c4a0 */ }
+void sub_88c530() { /* 0x88c530 */ }
+// sub_88c590: implemented in prog/matched/main/
+void sub_88c5b0() { /* 0x88c5b0 */ }
+// sub_88c630: implemented in prog/matched/main/
+void sub_88c650() { /* 0x88c650 */ }
+// sub_88c730: implemented in prog/matched/main/
+void sub_88c750() { /* 0x88c750 */ }
+// sub_88c7f0: implemented in prog/matched/main/
+void sub_88c820() { /* 0x88c820 */ }
+void sub_88c940() { /* 0x88c940 */ }
+// sub_88ca30: implemented in prog/matched/main/
+void sub_88ca50() { /* 0x88ca50 */ }
+void sub_88ca90() { /* 0x88ca90 */ }
+void sub_88cb10() { /* 0x88cb10 */ }
+void sub_88cc10() { /* 0x88cc10 */ }
+// sub_88cd70: implemented in prog/matched/main/
+void sub_88cd90() { /* 0x88cd90 */ }
+void sub_88cdf0() { /* 0x88cdf0 */ }
+// sub_88cfa0: implemented in prog/matched/main/
+void sub_88cfc0() { /* 0x88cfc0 */ }
+// sub_88d080: implemented in prog/matched/main/
+void sub_88d0a0() { /* 0x88d0a0 */ }
+// sub_88d150: implemented in prog/matched/main/
+void sub_88d170() { /* 0x88d170 */ }
+// sub_88d210: implemented in prog/matched/main/
+void sub_88d230() { /* 0x88d230 */ }
+// sub_88d290: implemented in prog/matched/main/
+void sub_88d2b0() { /* 0x88d2b0 */ }
+// sub_88d310: implemented in prog/matched/main/
+void sub_88d330() { /* 0x88d330 */ }
+// sub_88d3a0: implemented in prog/matched/main/
+void sub_88d3c0() { /* 0x88d3c0 */ }
+// sub_88d420: implemented in prog/matched/main/
+void sub_88d440() { /* 0x88d440 */ }
+// sub_88d4b0: implemented in prog/matched/main/
+void sub_88d4d0() { /* 0x88d4d0 */ }
+void sub_88d550() { /* 0x88d550 */ }
+void sub_88d5c0() { /* 0x88d5c0 */ }
+// sub_88d620: implemented in prog/matched/main/
+void sub_88d640() { /* 0x88d640 */ }
+// sub_88d6a0: implemented in prog/matched/main/
+void sub_88d6c0() { /* 0x88d6c0 */ }
+// sub_88d730: implemented in prog/matched/main/
+void sub_88d750() { /* 0x88d750 */ }
+// sub_88d7a0: implemented in prog/matched/main/
+void sub_88d7c0() { /* 0x88d7c0 */ }
+// sub_88d8c0: implemented in prog/matched/main/
+void sub_88d8e0() { /* 0x88d8e0 */ }
+// sub_88d960: implemented in prog/matched/main/
+void sub_88d980() { /* 0x88d980 */ }
+// sub_88d9e0: implemented in prog/matched/main/
+void sub_88da00() { /* 0x88da00 */ }
+// sub_88da80: implemented in prog/matched/main/
+void sub_88daa0() { /* 0x88daa0 */ }
+// sub_88db00: implemented in prog/matched/main/
+void sub_88db20() { /* 0x88db20 */ }
+// sub_88dc10: implemented in prog/matched/main/
+void sub_88dc30() { /* 0x88dc30 */ }
+void sub_88dc90() { /* 0x88dc90 */ }
+void sub_88dcf0() { /* 0x88dcf0 */ }
+// sub_88de30: implemented in prog/matched/main/
+void sub_88de50() { /* 0x88de50 */ }
+void sub_88deb0() { /* 0x88deb0 */ }
+// sub_88e050: implemented in prog/matched/main/
+void sub_88e070() { /* 0x88e070 */ }
+// sub_88e1a0: implemented in prog/matched/main/
+void sub_88e1c0() { /* 0x88e1c0 */ }
+void sub_88e280() { /* 0x88e280 */ }
+void sub_88e310() { /* 0x88e310 */ }
+// sub_88e440: implemented in prog/matched/main/
+void sub_88e460() { /* 0x88e460 */ }
+void sub_88e540() { /* 0x88e540 */ }
+void sub_88e590() { /* 0x88e590 */ }
+void sub_88e670() { /* 0x88e670 */ }
+void sub_88e720() { /* 0x88e720 */ }
+void sub_88e7b0() { /* 0x88e7b0 */ }
+void sub_88e8b0() { /* 0x88e8b0 */ }
+void sub_88e970() { /* 0x88e970 */ }
+// sub_88ea20: implemented in prog/matched/main/
+void sub_88ea40() { /* 0x88ea40 */ }
+// sub_88ead0: implemented in prog/matched/main/
+void sub_88eaf0() { /* 0x88eaf0 */ }
+void sub_88eb40() { /* 0x88eb40 */ }
+void sub_88ec20() { /* 0x88ec20 */ }
+// sub_88ed70: implemented in prog/matched/main/
+void sub_88ed90() { /* 0x88ed90 */ }
+// sub_88ee00: implemented in prog/matched/main/
+void sub_88ee20() { /* 0x88ee20 */ }
+// sub_88eee0: implemented in prog/matched/main/
+void sub_88ef00() { /* 0x88ef00 */ }
+// sub_88efc0: implemented in prog/matched/main/
+void sub_88efe0() { /* 0x88efe0 */ }
+// sub_88f0a0: implemented in prog/matched/main/
+void sub_88f0c0() { /* 0x88f0c0 */ }
+// sub_88f180: implemented in prog/matched/main/
+void sub_88f1a0() { /* 0x88f1a0 */ }
+void sub_88f1f0() { /* 0x88f1f0 */ }
+// sub_88f330: implemented in prog/matched/main/
+void sub_88f350() { /* 0x88f350 */ }
+// sub_88f3c0: implemented in prog/matched/main/
+void sub_88f3e0() { /* 0x88f3e0 */ }
+void sub_88f550() { /* 0x88f550 */ }
+void sub_88f5f0() { /* 0x88f5f0 */ }
+// sub_88f690: implemented in prog/matched/main/
+void sub_88f6b0() { /* 0x88f6b0 */ }
+void sub_88f750() { /* 0x88f750 */ }
+void sub_88f800() { /* 0x88f800 */ }
+void sub_88f870() { /* 0x88f870 */ }
+void sub_88f910() { /* 0x88f910 */ }
+void sub_88f960() { /* 0x88f960 */ }
+// sub_88faf0: implemented in prog/matched/main/
+void sub_88fb10() { /* 0x88fb10 */ }
+void sub_88fb60() { /* 0x88fb60 */ }
+void sub_88fbd0() { /* 0x88fbd0 */ }
+void sub_88fc20() { /* 0x88fc20 */ }
+void sub_88fcd0() { /* 0x88fcd0 */ }
+void sub_88fd90() { /* 0x88fd90 */ }
+void sub_88fe10() { /* 0x88fe10 */ }
+void sub_88feb0() { /* 0x88feb0 */ }
+void sub_88ff20() { /* 0x88ff20 */ }
+// sub_88fff0: implemented in prog/matched/main/
+void sub_890010() { /* 0x890010 */ }
+void sub_890070() { /* 0x890070 */ }
+void sub_8900d0() { /* 0x8900d0 */ }
+void sub_890330() { /* 0x890330 */ }
+// sub_890400: implemented in prog/matched/main/
+void sub_890420() { /* 0x890420 */ }
+void sub_8904c0() { /* 0x8904c0 */ }
+// sub_890530: implemented in prog/matched/main/
+void sub_890550() { /* 0x890550 */ }
+// sub_8905b0: implemented in prog/matched/main/
+void sub_8905d0() { /* 0x8905d0 */ }
+// sub_890670: implemented in prog/matched/main/
+void sub_890690() { /* 0x890690 */ }
+// sub_890730: implemented in prog/matched/main/
+void sub_890750() { /* 0x890750 */ }
+void sub_8907a0() { /* 0x8907a0 */ }
+void sub_8907f0() { /* 0x8907f0 */ }
+void sub_890870() { /* 0x890870 */ }
+void sub_8908e0() { /* 0x8908e0 */ }
+void sub_890950() { /* 0x890950 */ }
+void sub_890a20() { /* 0x890a20 */ }
+void sub_890ac0() { /* 0x890ac0 */ }
+void sub_890b30() { /* 0x890b30 */ }
+void sub_890b90() { /* 0x890b90 */ }
+// sub_890c10: implemented in prog/matched/main/
+void sub_890c40() { /* 0x890c40 */ }
+void sub_890c90() { /* 0x890c90 */ }
+void sub_890ce0() { /* 0x890ce0 */ }
+void sub_890d30() { /* 0x890d30 */ }
+void sub_890d80() { /* 0x890d80 */ }
+void sub_890dd0() { /* 0x890dd0 */ }
+void sub_890e20() { /* 0x890e20 */ }
+void sub_890e60() { /* 0x890e60 */ }
+void sub_890ee0() { /* 0x890ee0 */ }
+void sub_890f40() { /* 0x890f40 */ }
+void sub_8912c0() { /* 0x8912c0 */ }
+void sub_891670() { /* 0x891670 */ }
+void sub_8919a0() { /* 0x8919a0 */ }
+void sub_891a20() { /* 0x891a20 */ }
+void sub_891d50() { /* 0x891d50 */ }
+void sub_891d70() { /* 0x891d70 */ }
+void sub_891d80() { /* 0x891d80 */ }
+void sub_891e00() { /* 0x891e00 */ }
+void sub_891ee0() { /* 0x891ee0 */ }
+void sub_891f80() { /* 0x891f80 */ }
+void sub_892020() { /* 0x892020 */ }
+void sub_8920d0() { /* 0x8920d0 */ }
+// sub_892310: implemented in prog/matched/main/
+// sub_892320: implemented in prog/matched/main/
+// sub_892330: implemented in prog/matched/main/
+// sub_892340: implemented in prog/matched/main/
+// sub_892350: implemented in prog/matched/main/
+void sub_892360() { /* 0x892360 */ }
+// sub_892380: implemented in prog/matched/main/
+void sub_892390() { /* 0x892390 */ }
+// sub_8923d0: implemented in prog/matched/main/
+// sub_8923e0: implemented in prog/matched/main/
+void sub_892400() { /* 0x892400 */ }
+void sub_892430() { /* 0x892430 */ }
+void sub_892460() { /* 0x892460 */ }
+// sub_892490: implemented in prog/matched/main/
+// sub_8924a0: implemented in prog/matched/main/
+// sub_8924b0: implemented in prog/matched/main/
+// sub_8924c0: implemented in prog/matched/main/
+// sub_8924d0: implemented in prog/matched/main/
+void sub_8924e0() { /* 0x8924e0 */ }
+void sub_8924f0() { /* 0x8924f0 */ }
+// sub_8925a0: implemented in prog/matched/main/
+// sub_8925b0: implemented in prog/matched/main/
+// sub_8925c0: implemented in prog/matched/main/
+void sub_8925d0() { /* 0x8925d0 */ }
+void sub_892600() { /* 0x892600 */ }
+void sub_8926a0() { /* 0x8926a0 */ }
+void sub_892a10() { /* 0x892a10 */ }
+// sub_892af0: implemented in prog/matched/main/
+// sub_892b10: implemented in prog/matched/main/
+// sub_892b20: implemented in prog/matched/main/
+void sub_892b30() { /* 0x892b30 */ }
+void sub_892bb0() { /* 0x892bb0 */ }
+void sub_892bc0() { /* 0x892bc0 */ }
+// sub_892bd0: implemented in prog/matched/main/
+// sub_892be0: implemented in prog/matched/main/
+void sub_892bf0() { /* 0x892bf0 */ }
+void sub_892c10() { /* 0x892c10 */ }
+void sub_892c20() { /* 0x892c20 */ }
+void sub_892c60() { /* 0x892c60 */ }
+void sub_892e60() { /* 0x892e60 */ }
+void sub_892ef0() { /* 0x892ef0 */ }
+void sub_892f20() { /* 0x892f20 */ }
+void sub_892f60() { /* 0x892f60 */ }
+void sub_892f80() { /* 0x892f80 */ }
+void sub_892fa0() { /* 0x892fa0 */ }
+void sub_893060() { /* 0x893060 */ }
+void sub_8930a0() { /* 0x8930a0 */ }
+void sub_8930c0() { /* 0x8930c0 */ }
+void sub_893100() { /* 0x893100 */ }
+void sub_8931a0() { /* 0x8931a0 */ }
+void sub_893310() { /* 0x893310 */ }
+void sub_893990() { /* 0x893990 */ }
+void sub_8939a0() { /* 0x8939a0 */ }
+void sub_8939c0() { /* 0x8939c0 */ }
+void sub_8939d0() { /* 0x8939d0 */ }
+void sub_8939e0() { /* 0x8939e0 */ }
+void sub_894000() { /* 0x894000 */ }
+// sub_8944f0: implemented in prog/matched/main/
+// sub_894500: implemented in prog/matched/main/
+void sub_894510() { /* 0x894510 */ }
+void sub_894570() { /* 0x894570 */ }
+void sub_8946b0() { /* 0x8946b0 */ }
+void sub_8946f0() { /* 0x8946f0 */ }
+void sub_8947d0() { /* 0x8947d0 */ }
+void sub_894c30() { /* 0x894c30 */ }
+void sub_894ca0() { /* 0x894ca0 */ }
+void sub_894cb0() { /* 0x894cb0 */ }
+void sub_894d10() { /* 0x894d10 */ }
+void sub_894db0() { /* 0x894db0 */ }
+// sub_894f90: implemented in prog/matched/main/
+void sub_894fa0() { /* 0x894fa0 */ }
+void sub_894fd0() { /* 0x894fd0 */ }
+void sub_894ff0() { /* 0x894ff0 */ }
+void sub_895190() { /* 0x895190 */ }
+void sub_8952c0() { /* 0x8952c0 */ }
+void sub_8954a0() { /* 0x8954a0 */ }
+void sub_8954b0() { /* 0x8954b0 */ }
+void sub_8954c0() { /* 0x8954c0 */ }
+void sub_8954d0() { /* 0x8954d0 */ }
+// sub_895540: implemented in prog/matched/main/
+// sub_895550: implemented in prog/matched/main/
+void sub_895560() { /* 0x895560 */ }
+void sub_895920() { /* 0x895920 */ }
+void sub_895a30() { /* 0x895a30 */ }
+void sub_895b10() { /* 0x895b10 */ }
+void sub_895f90() { /* 0x895f90 */ }
+void sub_896170() { /* 0x896170 */ }
+void sub_896190() { /* 0x896190 */ }
+void sub_8961d0() { /* 0x8961d0 */ }
+void sub_896220() { /* 0x896220 */ }
+void sub_8965f0() { /* 0x8965f0 */ }
+void sub_896720() { /* 0x896720 */ }
+void sub_896890() { /* 0x896890 */ }
+void sub_8969b0() { /* 0x8969b0 */ }
+void sub_8969d0() { /* 0x8969d0 */ }
+void sub_896b10() { /* 0x896b10 */ }
+void sub_896c30() { /* 0x896c30 */ }
+// sub_896c60: implemented in prog/matched/main/
+void sub_896c70() { /* 0x896c70 */ }
+void sub_8972b0() { /* 0x8972b0 */ }
+void sub_8972c0() { /* 0x8972c0 */ }
+void sub_8972d0() { /* 0x8972d0 */ }
+void sub_8972e0() { /* 0x8972e0 */ }
+void sub_897350() { /* 0x897350 */ }
+void sub_8973c0() { /* 0x8973c0 */ }
+void sub_8974a0() { /* 0x8974a0 */ }
+void sub_897580() { /* 0x897580 */ }
+void sub_897640() { /* 0x897640 */ }
+void sub_897750() { /* 0x897750 */ }
+void sub_897810() { /* 0x897810 */ }
+void sub_897880() { /* 0x897880 */ }
+void sub_8978f0() { /* 0x8978f0 */ }
+void sub_897960() { /* 0x897960 */ }
+void sub_8979d0() { /* 0x8979d0 */ }
+void sub_897a10() { /* 0x897a10 */ }
+void sub_897a50() { /* 0x897a50 */ }
+void sub_897bf0() { /* 0x897bf0 */ }
+void sub_897d10() { /* 0x897d10 */ }
+void sub_897d20() { /* 0x897d20 */ }
+void sub_897d70() { /* 0x897d70 */ }
+void sub_897dc0() { /* 0x897dc0 */ }
+void sub_897ec0() { /* 0x897ec0 */ }
+void sub_897ed0() { /* 0x897ed0 */ }
+void sub_897ef0() { /* 0x897ef0 */ }
+void sub_897f10() { /* 0x897f10 */ }
+void sub_897f30() { /* 0x897f30 */ }
+void sub_897f50() { /* 0x897f50 */ }
+void sub_897f70() { /* 0x897f70 */ }
+void sub_898100() { /* 0x898100 */ }
+void sub_898250() { /* 0x898250 */ }
+void sub_898280() { /* 0x898280 */ }
+void sub_8982d0() { /* 0x8982d0 */ }
+// sub_898320: implemented in prog/matched/main/
+// sub_898330: implemented in prog/matched/main/
+// sub_898340: implemented in prog/matched/main/
+// sub_898350: implemented in prog/matched/main/
+// sub_898360: implemented in prog/matched/main/
+// sub_898370: implemented in prog/matched/main/
+void sub_898380() { /* 0x898380 */ }
+void sub_8984b0() { /* 0x8984b0 */ }
+void sub_8985d0() { /* 0x8985d0 */ }
+void sub_898740() { /* 0x898740 */ }
+void sub_898860() { /* 0x898860 */ }
+void sub_898ab0() { /* 0x898ab0 */ }
+void sub_898ac0() { /* 0x898ac0 */ }
+// sub_898b40: implemented in prog/matched/main/
+void sub_898b50() { /* 0x898b50 */ }
+void sub_898c10() { /* 0x898c10 */ }
+void sub_898d00() { /* 0x898d00 */ }
+void sub_898d10() { /* 0x898d10 */ }
+// sub_898d20: implemented in prog/matched/main/
+// sub_898d30: implemented in prog/matched/main/
+// sub_898d40: implemented in prog/matched/main/
+// sub_898d50: implemented in prog/matched/main/
+// sub_898d60: implemented in prog/matched/main/
+// sub_898d70: implemented in prog/matched/main/
+void sub_898d80() { /* 0x898d80 */ }
+void sub_898dd0() { /* 0x898dd0 */ }
+void sub_898e30() { /* 0x898e30 */ }
+void sub_899000() { /* 0x899000 */ }
+void sub_8990d0() { /* 0x8990d0 */ }
+void sub_8994b0() { /* 0x8994b0 */ }
+void sub_8995a0() { /* 0x8995a0 */ }
+void sub_8995c0() { /* 0x8995c0 */ }
+void sub_899620() { /* 0x899620 */ }
+void sub_8996b0() { /* 0x8996b0 */ }
+void sub_899820() { /* 0x899820 */ }
+void sub_8999a0() { /* 0x8999a0 */ }
+void sub_899b70() { /* 0x899b70 */ }
+void sub_899c20() { /* 0x899c20 */ }
+void sub_899c30() { /* 0x899c30 */ }
+void sub_899c40() { /* 0x899c40 */ }
+void sub_899c50() { /* 0x899c50 */ }
+void sub_899c60() { /* 0x899c60 */ }
+void sub_899c70() { /* 0x899c70 */ }
+void sub_899c80() { /* 0x899c80 */ }
+void sub_899ce0() { /* 0x899ce0 */ }
+void sub_899d70() { /* 0x899d70 */ }
+void sub_899e20() { /* 0x899e20 */ }
+void sub_899e30() { /* 0x899e30 */ }
+void sub_899e40() { /* 0x899e40 */ }
+// sub_899e50: implemented in prog/matched/main/
+void sub_899e60() { /* 0x899e60 */ }
+void sub_899e80() { /* 0x899e80 */ }
+void sub_89a0f0() { /* 0x89a0f0 */ }
+void sub_89a1c0() { /* 0x89a1c0 */ }
+void sub_89a290() { /* 0x89a290 */ }
+// sub_89a2e0: implemented in prog/matched/main/
+void sub_89a2f0() { /* 0x89a2f0 */ }
+void sub_89a300() { /* 0x89a300 */ }
+void sub_89a310() { /* 0x89a310 */ }
+void sub_89a460() { /* 0x89a460 */ }
+void sub_89a6a0() { /* 0x89a6a0 */ }
+// sub_89a720: implemented in prog/matched/main/
+void sub_89a730() { /* 0x89a730 */ }
+void sub_89a800() { /* 0x89a800 */ }
+void sub_89a920() { /* 0x89a920 */ }
+void sub_89aa50() { /* 0x89aa50 */ }
+void sub_89abc0() { /* 0x89abc0 */ }
+void sub_89abe0() { /* 0x89abe0 */ }
+void sub_89ac00() { /* 0x89ac00 */ }
+// sub_89ace0: implemented in prog/matched/main/
+void sub_89acf0() { /* 0x89acf0 */ }
+void sub_89ad10() { /* 0x89ad10 */ }
+void sub_89ad30() { /* 0x89ad30 */ }
+void sub_89ae20() { /* 0x89ae20 */ }
+void sub_89b040() { /* 0x89b040 */ }
+void sub_89b090() { /* 0x89b090 */ }
+// sub_89b100: implemented in prog/matched/main/
+void sub_89b110() { /* 0x89b110 */ }
+void sub_89b150() { /* 0x89b150 */ }
+void sub_89b170() { /* 0x89b170 */ }
+void sub_89b1c0() { /* 0x89b1c0 */ }
+void sub_89b210() { /* 0x89b210 */ }
+void sub_89b280() { /* 0x89b280 */ }
+void sub_89b2f0() { /* 0x89b2f0 */ }
+void sub_89b340() { /* 0x89b340 */ }
+void sub_89b390() { /* 0x89b390 */ }
+void sub_89b480() { /* 0x89b480 */ }
+void sub_89b690() { /* 0x89b690 */ }
+void sub_89b8a0() { /* 0x89b8a0 */ }
+void sub_89b8f0() { /* 0x89b8f0 */ }
+// sub_89b960: implemented in prog/matched/main/
+void sub_89b970() { /* 0x89b970 */ }
+void sub_89b9b0() { /* 0x89b9b0 */ }
+void sub_89b9e0() { /* 0x89b9e0 */ }
+void sub_89ba30() { /* 0x89ba30 */ }
+void sub_89ba80() { /* 0x89ba80 */ }
+void sub_89baf0() { /* 0x89baf0 */ }
+void sub_89bb60() { /* 0x89bb60 */ }
+void sub_89bbb0() { /* 0x89bbb0 */ }
+void sub_89bc00() { /* 0x89bc00 */ }
+void sub_89bca0() { /* 0x89bca0 */ }
+void sub_89beb0() { /* 0x89beb0 */ }
+void sub_89bf50() { /* 0x89bf50 */ }
+void sub_89bff0() { /* 0x89bff0 */ }
+void sub_89c090() { /* 0x89c090 */ }
+void sub_89c130() { /* 0x89c130 */ }
+void sub_89c1d0() { /* 0x89c1d0 */ }
+void sub_89c440() { /* 0x89c440 */ }
+void sub_89c4e0() { /* 0x89c4e0 */ }
+void sub_89c580() { /* 0x89c580 */ }
+void sub_89c620() { /* 0x89c620 */ }
+void sub_89c6c0() { /* 0x89c6c0 */ }
+void sub_89c760() { /* 0x89c760 */ }
+void sub_89c9a0() { /* 0x89c9a0 */ }
+void sub_89ca40() { /* 0x89ca40 */ }
+void sub_89cae0() { /* 0x89cae0 */ }
+void sub_89cb80() { /* 0x89cb80 */ }
+void sub_89cc20() { /* 0x89cc20 */ }
+void sub_89cd60() { /* 0x89cd60 */ }
+void sub_89ce80() { /* 0x89ce80 */ }
+void sub_89cff0() { /* 0x89cff0 */ }
+void sub_89d0e0() { /* 0x89d0e0 */ }
+void sub_89d210() { /* 0x89d210 */ }
+void sub_89d340() { /* 0x89d340 */ }
+void sub_89d460() { /* 0x89d460 */ }
+void sub_89d590() { /* 0x89d590 */ }
+void sub_89d700() { /* 0x89d700 */ }
+void sub_89d830() { /* 0x89d830 */ }
+void sub_89d960() { /* 0x89d960 */ }
+void sub_89da90() { /* 0x89da90 */ }
+void sub_89dd60() { /* 0x89dd60 */ }
+void sub_89ded0() { /* 0x89ded0 */ }
+void sub_89df30() { /* 0x89df30 */ }
+void sub_89df90() { /* 0x89df90 */ }
+// sub_89dff0: implemented in prog/matched/main/
+void sub_89e0d0() { /* 0x89e0d0 */ }
+void sub_89e130() { /* 0x89e130 */ }
+// sub_89e150: implemented in prog/matched/main/
+void sub_89e160() { /* 0x89e160 */ }
+void sub_89e360() { /* 0x89e360 */ }
+void sub_89e3b0() { /* 0x89e3b0 */ }
+void sub_89e430() { /* 0x89e430 */ }
+void sub_89e630() { /* 0x89e630 */ }
+void sub_89e680() { /* 0x89e680 */ }
+// sub_89e6d0: implemented in prog/matched/main/
+void sub_89e6e0() { /* 0x89e6e0 */ }
+void sub_89e750() { /* 0x89e750 */ }
+void sub_89e760() { /* 0x89e760 */ }
+// sub_89e780: implemented in prog/matched/main/
+// sub_89e790: implemented in prog/matched/main/
+void sub_89ea70() { /* 0x89ea70 */ }
+void sub_89ebe0() { /* 0x89ebe0 */ }
+void sub_89ec30() { /* 0x89ec30 */ }
+void sub_89ec90() { /* 0x89ec90 */ }
+// sub_89ecf0: implemented in prog/matched/main/
+void sub_89edd0() { /* 0x89edd0 */ }
+void sub_89ee30() { /* 0x89ee30 */ }
+// sub_89ee50: implemented in prog/matched/main/
+void sub_89ee60() { /* 0x89ee60 */ }
+// sub_89ef00: implemented in prog/matched/main/
+// sub_89ef10: implemented in prog/matched/main/
+void sub_89ef20() { /* 0x89ef20 */ }
+void sub_89f090() { /* 0x89f090 */ }
+void sub_89f0e0() { /* 0x89f0e0 */ }
+// sub_89f100: implemented in prog/matched/main/
+void sub_89f110() { /* 0x89f110 */ }
+void sub_89f180() { /* 0x89f180 */ }
+void sub_89f190() { /* 0x89f190 */ }
+// sub_89f1b0: implemented in prog/matched/main/
+// sub_89f1c0: implemented in prog/matched/main/
+void sub_89f500() { /* 0x89f500 */ }
+void sub_89f580() { /* 0x89f580 */ }
+void sub_89f640() { /* 0x89f640 */ }
+void sub_89f760() { /* 0x89f760 */ }
+void sub_89f800() { /* 0x89f800 */ }
+// sub_89f8a0: implemented in prog/matched/main/
+void sub_89f8b0() { /* 0x89f8b0 */ }
+void sub_89f8f0() { /* 0x89f8f0 */ }
+void sub_89f9b0() { /* 0x89f9b0 */ }
+void sub_89f9d0() { /* 0x89f9d0 */ }
+void sub_89fa10() { /* 0x89fa10 */ }
+void sub_89fd00() { /* 0x89fd00 */ }
+void sub_89fd90() { /* 0x89fd90 */ }
+void sub_89fe80() { /* 0x89fe80 */ }
+void sub_8a00e0() { /* 0x8a00e0 */ }
+void sub_8a0130() { /* 0x8a0130 */ }
+// sub_8a01c0: implemented in prog/matched/main/
+void sub_8a01d0() { /* 0x8a01d0 */ }
+void sub_8a0240() { /* 0x8a0240 */ }
+void sub_8a0290() { /* 0x8a0290 */ }
+void sub_8a02f0() { /* 0x8a02f0 */ }
+// sub_8a0350: implemented in prog/matched/main/
+void sub_8a0360() { /* 0x8a0360 */ }
+void sub_8a03a0() { /* 0x8a03a0 */ }
+void sub_8a0400() { /* 0x8a0400 */ }
+// sub_8a0420: implemented in prog/matched/main/
+void sub_8a0430() { /* 0x8a0430 */ }
+// sub_8a04d0: implemented in prog/matched/main/
+// sub_8a04e0: implemented in prog/matched/main/
+void sub_8a04f0() { /* 0x8a04f0 */ }
+void sub_8a05e0() { /* 0x8a05e0 */ }
+// sub_8a0630: implemented in prog/matched/main/
+void sub_8a0640() { /* 0x8a0640 */ }
+void sub_8a06b0() { /* 0x8a06b0 */ }
+void sub_8a06c0() { /* 0x8a06c0 */ }
+// sub_8a06e0: implemented in prog/matched/main/
+// sub_8a06f0: implemented in prog/matched/main/
+void sub_8a0700() { /* 0x8a0700 */ }
+void sub_8a0710() { /* 0x8a0710 */ }
+// sub_8a0730: implemented in prog/matched/main/
+// sub_8a0740: implemented in prog/matched/main/
+void sub_8a09b0() { /* 0x8a09b0 */ }
+void sub_8a0a10() { /* 0x8a0a10 */ }
+void sub_8a0aa0() { /* 0x8a0aa0 */ }
+void sub_8a0cc0() { /* 0x8a0cc0 */ }
+void sub_8a0d60() { /* 0x8a0d60 */ }
+void sub_8a0d90() { /* 0x8a0d90 */ }
+// sub_8a0de0: implemented in prog/matched/main/
+void sub_8a0df0() { /* 0x8a0df0 */ }
+void sub_8a0e50() { /* 0x8a0e50 */ }
+void sub_8a0e70() { /* 0x8a0e70 */ }
+void sub_8a0ec0() { /* 0x8a0ec0 */ }
+void sub_8a12b0() { /* 0x8a12b0 */ }
+void sub_8a1340() { /* 0x8a1340 */ }
+void sub_8a1480() { /* 0x8a1480 */ }
+void sub_8a1600() { /* 0x8a1600 */ }
+// sub_8a1650: implemented in prog/matched/main/
+void sub_8a1660() { /* 0x8a1660 */ }
+void sub_8a16d0() { /* 0x8a16d0 */ }
+void sub_8a16e0() { /* 0x8a16e0 */ }
+// sub_8a1700: implemented in prog/matched/main/
+// sub_8a1710: implemented in prog/matched/main/
+void sub_8a1970() { /* 0x8a1970 */ }
+void sub_8a1ae0() { /* 0x8a1ae0 */ }
+void sub_8a1b50() { /* 0x8a1b50 */ }
+void sub_8a1bb0() { /* 0x8a1bb0 */ }
+// sub_8a1c10: implemented in prog/matched/main/
+void sub_8a1cf0() { /* 0x8a1cf0 */ }
+void sub_8a1d50() { /* 0x8a1d50 */ }
+void sub_8a1d70() { /* 0x8a1d70 */ }
+void sub_8a1d80() { /* 0x8a1d80 */ }
+void sub_8a2000() { /* 0x8a2000 */ }
+void sub_8a2070() { /* 0x8a2070 */ }
+void sub_8a2130() { /* 0x8a2130 */ }
+void sub_8a2340() { /* 0x8a2340 */ }
+void sub_8a2390() { /* 0x8a2390 */ }
+// sub_8a23f0: implemented in prog/matched/main/
+void sub_8a2400() { /* 0x8a2400 */ }
+void sub_8a2470() { /* 0x8a2470 */ }
+void sub_8a2480() { /* 0x8a2480 */ }
+// sub_8a24a0: implemented in prog/matched/main/
+// sub_8a24b0: implemented in prog/matched/main/
+void sub_8a2780() { /* 0x8a2780 */ }
+void sub_8a27d0() { /* 0x8a27d0 */ }
+void sub_8a2860() { /* 0x8a2860 */ }
+void sub_8a2980() { /* 0x8a2980 */ }
+void sub_8a2a20() { /* 0x8a2a20 */ }
+// sub_8a2ac0: implemented in prog/matched/main/
+void sub_8a2ad0() { /* 0x8a2ad0 */ }
+void sub_8a2b10() { /* 0x8a2b10 */ }
+void sub_8a2bd0() { /* 0x8a2bd0 */ }
+void sub_8a2bf0() { /* 0x8a2bf0 */ }
+void sub_8a2c30() { /* 0x8a2c30 */ }
+void sub_8a2e30() { /* 0x8a2e30 */ }
+void sub_8a2ea0() { /* 0x8a2ea0 */ }
+void sub_8a2f30() { /* 0x8a2f30 */ }
+void sub_8a3110() { /* 0x8a3110 */ }
+// sub_8a3160: implemented in prog/matched/main/
+void sub_8a3170() { /* 0x8a3170 */ }
+void sub_8a31e0() { /* 0x8a31e0 */ }
+void sub_8a31f0() { /* 0x8a31f0 */ }
+// sub_8a3210: implemented in prog/matched/main/
+// sub_8a3220: implemented in prog/matched/main/
+void sub_8a3480() { /* 0x8a3480 */ }
+void sub_8a35f0() { /* 0x8a35f0 */ }
+void sub_8a3640() { /* 0x8a3640 */ }
+void sub_8a36a0() { /* 0x8a36a0 */ }
+// sub_8a3700: implemented in prog/matched/main/
+void sub_8a37e0() { /* 0x8a37e0 */ }
+void sub_8a3840() { /* 0x8a3840 */ }
+// sub_8a3860: implemented in prog/matched/main/
+void sub_8a3870() { /* 0x8a3870 */ }
+void sub_8a39c0() { /* 0x8a39c0 */ }
+void sub_8a39e0() { /* 0x8a39e0 */ }
+void sub_8a3a30() { /* 0x8a3a30 */ }
+void sub_8a3bf0() { /* 0x8a3bf0 */ }
+void sub_8a3c40() { /* 0x8a3c40 */ }
+// sub_8a3c80: implemented in prog/matched/main/
+void sub_8a3c90() { /* 0x8a3c90 */ }
+void sub_8a3d00() { /* 0x8a3d00 */ }
+void sub_8a3d10() { /* 0x8a3d10 */ }
+// sub_8a3d30: implemented in prog/matched/main/
+// sub_8a3d40: implemented in prog/matched/main/
+void sub_8a4080() { /* 0x8a4080 */ }
+void sub_8a40e0() { /* 0x8a40e0 */ }
+void sub_8a4170() { /* 0x8a4170 */ }
+void sub_8a44a0() { /* 0x8a44a0 */ }
+void sub_8a4540() { /* 0x8a4540 */ }
+void sub_8a4570() { /* 0x8a4570 */ }
+// sub_8a45d0: implemented in prog/matched/main/
+void sub_8a45e0() { /* 0x8a45e0 */ }
+void sub_8a4640() { /* 0x8a4640 */ }
+void sub_8a4660() { /* 0x8a4660 */ }
+void sub_8a46c0() { /* 0x8a46c0 */ }
+void sub_8a4d30() { /* 0x8a4d30 */ }
+void sub_8a4e10() { /* 0x8a4e10 */ }
+void sub_8a5010() { /* 0x8a5010 */ }
+void sub_8a51c0() { /* 0x8a51c0 */ }
+// sub_8a5210: implemented in prog/matched/main/
+void sub_8a5220() { /* 0x8a5220 */ }
+void sub_8a5290() { /* 0x8a5290 */ }
+void sub_8a52a0() { /* 0x8a52a0 */ }
+// sub_8a52c0: implemented in prog/matched/main/
+// sub_8a52d0: implemented in prog/matched/main/
+void sub_8a5520() { /* 0x8a5520 */ }
+void sub_8a5690() { /* 0x8a5690 */ }
+void sub_8a56f0() { /* 0x8a56f0 */ }
+void sub_8a5750() { /* 0x8a5750 */ }
+// sub_8a57b0: implemented in prog/matched/main/
+void sub_8a5890() { /* 0x8a5890 */ }
+void sub_8a58f0() { /* 0x8a58f0 */ }
+// sub_8a5910: implemented in prog/matched/main/
+void sub_8a5920() { /* 0x8a5920 */ }
+void sub_8a5b20() { /* 0x8a5b20 */ }
+void sub_8a5b70() { /* 0x8a5b70 */ }
+void sub_8a5bf0() { /* 0x8a5bf0 */ }
+void sub_8a5df0() { /* 0x8a5df0 */ }
+void sub_8a5e40() { /* 0x8a5e40 */ }
+// sub_8a5e90: implemented in prog/matched/main/
+void sub_8a5ea0() { /* 0x8a5ea0 */ }
+void sub_8a5f10() { /* 0x8a5f10 */ }
+void sub_8a5f20() { /* 0x8a5f20 */ }
+// sub_8a5f40: implemented in prog/matched/main/
+// sub_8a5f50: implemented in prog/matched/main/
+void sub_8a6010() { /* 0x8a6010 */ }
+void sub_8a60a0() { /* 0x8a60a0 */ }
+void sub_8a6130() { /* 0x8a6130 */ }
+void sub_8a61c0() { /* 0x8a61c0 */ }
+void sub_8a6250() { /* 0x8a6250 */ }
+void sub_8a62e0() { /* 0x8a62e0 */ }
+void sub_8a6370() { /* 0x8a6370 */ }
+void sub_8a6400() { /* 0x8a6400 */ }
+void sub_8a6490() { /* 0x8a6490 */ }
+void sub_8a6520() { /* 0x8a6520 */ }
+void sub_8a6a90() { /* 0x8a6a90 */ }
+void sub_8a6bc0() { /* 0x8a6bc0 */ }
+void sub_8a6be0() { /* 0x8a6be0 */ }
+void sub_8a6c40() { /* 0x8a6c40 */ }
+void sub_8a6cc0() { /* 0x8a6cc0 */ }
+// sub_8a6d00: implemented in prog/matched/main/
+void sub_8a6d10() { /* 0x8a6d10 */ }
+void sub_8a6ea0() { /* 0x8a6ea0 */ }
+void sub_8a6f70() { /* 0x8a6f70 */ }
+void sub_8a6fd0() { /* 0x8a6fd0 */ }
+void sub_8a7000() { /* 0x8a7000 */ }
+void sub_8a7050() { /* 0x8a7050 */ }
+void sub_8a7090() { /* 0x8a7090 */ }
+void sub_8a73c0() { /* 0x8a73c0 */ }
+void sub_8a73e0() { /* 0x8a73e0 */ }
+void sub_8a7400() { /* 0x8a7400 */ }
+void sub_8a74f0() { /* 0x8a74f0 */ }
+void sub_8a7500() { /* 0x8a7500 */ }
+void sub_8a7510() { /* 0x8a7510 */ }
+void sub_8a76d0() { /* 0x8a76d0 */ }
+void sub_8a7710() { /* 0x8a7710 */ }
+void sub_8a7740() { /* 0x8a7740 */ }
+void sub_8a7770() { /* 0x8a7770 */ }
+void sub_8a77f0() { /* 0x8a77f0 */ }
+void sub_8a7830() { /* 0x8a7830 */ }
+void sub_8a7860() { /* 0x8a7860 */ }
+void sub_8a7890() { /* 0x8a7890 */ }
+void sub_8a7910() { /* 0x8a7910 */ }
+void sub_8a79a0() { /* 0x8a79a0 */ }
+void sub_8a79f0() { /* 0x8a79f0 */ }
+void sub_8a7a10() { /* 0x8a7a10 */ }
+void sub_8a7a20() { /* 0x8a7a20 */ }
+void sub_8a7a40() { /* 0x8a7a40 */ }
+void sub_8a7ab0() { /* 0x8a7ab0 */ }
+void sub_8a7bd0() { /* 0x8a7bd0 */ }
+void sub_8a7be0() { /* 0x8a7be0 */ }
+void sub_8a7c00() { /* 0x8a7c00 */ }
+void sub_8a7c10() { /* 0x8a7c10 */ }
+void sub_8a7ce0() { /* 0x8a7ce0 */ }
+void sub_8a7d60() { /* 0x8a7d60 */ }
+void sub_8a7df0() { /* 0x8a7df0 */ }
+void sub_8a7e10() { /* 0x8a7e10 */ }
+void sub_8a7e40() { /* 0x8a7e40 */ }
+void sub_8a7e70() { /* 0x8a7e70 */ }
+void sub_8a7e80() { /* 0x8a7e80 */ }
+void sub_8a7ea0() { /* 0x8a7ea0 */ }
+void sub_8a7eb0() { /* 0x8a7eb0 */ }
+void sub_8a7f30() { /* 0x8a7f30 */ }
+// sub_8a7f50: implemented in prog/matched/main/
+// sub_8a7f60: implemented in prog/matched/main/
+// sub_8a7f70: implemented in prog/matched/main/
+// sub_8a7f80: implemented in prog/matched/main/
+// sub_8a7f90: implemented in prog/matched/main/
+// sub_8a7fa0: implemented in prog/matched/main/
+void sub_8a7fc0() { /* 0x8a7fc0 */ }
+void sub_8a7fe0() { /* 0x8a7fe0 */ }
+// sub_8a8010: implemented in prog/matched/main/
+// sub_8a8020: implemented in prog/matched/main/
+void sub_8a8030() { /* 0x8a8030 */ }
+void sub_8a8080() { /* 0x8a8080 */ }
+void sub_8a80e0() { /* 0x8a80e0 */ }
+void sub_8a8100() { /* 0x8a8100 */ }
+// sub_8a8110: implemented in prog/matched/main/
+void sub_8a8120() { /* 0x8a8120 */ }
+void sub_8a8140() { /* 0x8a8140 */ }
+void sub_8a8160() { /* 0x8a8160 */ }
+void sub_8a81c0() { /* 0x8a81c0 */ }
+void sub_8a8230() { /* 0x8a8230 */ }
+// sub_8a8250: implemented in prog/matched/main/
+void sub_8a8260() { /* 0x8a8260 */ }
+void sub_8a8290() { /* 0x8a8290 */ }
+void sub_8a82c0() { /* 0x8a82c0 */ }
+void sub_8a82d0() { /* 0x8a82d0 */ }
+void sub_8a82e0() { /* 0x8a82e0 */ }
+void sub_8a8330() { /* 0x8a8330 */ }
+void sub_8a8440() { /* 0x8a8440 */ }
+void sub_8a8550() { /* 0x8a8550 */ }
+void sub_8a85b0() { /* 0x8a85b0 */ }
+void sub_8a8620() { /* 0x8a8620 */ }
+void sub_8a8690() { /* 0x8a8690 */ }
+void sub_8a86e0() { /* 0x8a86e0 */ }
+void sub_8a8770() { /* 0x8a8770 */ }
+void sub_8a8800() { /* 0x8a8800 */ }
+void sub_8a8880() { /* 0x8a8880 */ }
+void sub_8a88a0() { /* 0x8a88a0 */ }
+void sub_8a88f0() { /* 0x8a88f0 */ }
+void sub_8a8940() { /* 0x8a8940 */ }
+// sub_8a89b0: implemented in prog/matched/main/
+// sub_8a89c0: implemented in prog/matched/main/
+void sub_8a89d0() { /* 0x8a89d0 */ }
+void sub_8a89f0() { /* 0x8a89f0 */ }
+void sub_8a8a70() { /* 0x8a8a70 */ }
+void sub_8a8aa0() { /* 0x8a8aa0 */ }
+void sub_8a8af0() { /* 0x8a8af0 */ }
+void sub_8a8b40() { /* 0x8a8b40 */ }
+// sub_8a8bb0: implemented in prog/matched/main/
+// sub_8a8bc0: implemented in prog/matched/main/
+void sub_8a8bd0() { /* 0x8a8bd0 */ }
+void sub_8a8db0() { /* 0x8a8db0 */ }
+void sub_8a8e30() { /* 0x8a8e30 */ }
+void sub_8a8f00() { /* 0x8a8f00 */ }
+// sub_8a9060: implemented in prog/matched/main/
+// sub_8a9070: implemented in prog/matched/main/
+// sub_8a9080: implemented in prog/matched/main/
+void sub_8a9090() { /* 0x8a9090 */ }
+void sub_8a90a0() { /* 0x8a90a0 */ }
+void sub_8a9100() { /* 0x8a9100 */ }
+void sub_8a91b0() { /* 0x8a91b0 */ }
+void sub_8a9210() { /* 0x8a9210 */ }
+void sub_8a9250() { /* 0x8a9250 */ }
+void sub_8a9290() { /* 0x8a9290 */ }
+void sub_8a92d0() { /* 0x8a92d0 */ }
+// sub_8a9300: implemented in prog/matched/main/
+// sub_8a9310: implemented in prog/matched/main/
+void sub_8a9320() { /* 0x8a9320 */ }
+void sub_8a9330() { /* 0x8a9330 */ }
+void sub_8a9340() { /* 0x8a9340 */ }
+void sub_8a9350() { /* 0x8a9350 */ }
+void sub_8a9360() { /* 0x8a9360 */ }
+void sub_8a9380() { /* 0x8a9380 */ }
+void sub_8a9450() { /* 0x8a9450 */ }
+void sub_8a9460() { /* 0x8a9460 */ }
+void sub_8a94d0() { /* 0x8a94d0 */ }
+void sub_8a9500() { /* 0x8a9500 */ }
+void sub_8a9520() { /* 0x8a9520 */ }
+void sub_8a9530() { /* 0x8a9530 */ }
+void sub_8a9540() { /* 0x8a9540 */ }
+void sub_8a9550() { /* 0x8a9550 */ }
+void sub_8a9560() { /* 0x8a9560 */ }
+void sub_8a9570() { /* 0x8a9570 */ }
+void sub_8a9590() { /* 0x8a9590 */ }
+void sub_8a95d0() { /* 0x8a95d0 */ }
+void sub_8a9640() { /* 0x8a9640 */ }
+void sub_8a96c0() { /* 0x8a96c0 */ }
+void sub_8a9720() { /* 0x8a9720 */ }
+void sub_8a9760() { /* 0x8a9760 */ }
+void sub_8a9770() { /* 0x8a9770 */ }
+void sub_8a9840() { /* 0x8a9840 */ }
+void sub_8a9860() { /* 0x8a9860 */ }
+void sub_8a9870() { /* 0x8a9870 */ }
+// sub_8a9880: implemented in prog/matched/main/
+void sub_8a9890() { /* 0x8a9890 */ }
+void sub_8a9900() { /* 0x8a9900 */ }
+void sub_8a9940() { /* 0x8a9940 */ }
+void sub_8a9980() { /* 0x8a9980 */ }
+void sub_8a99b0() { /* 0x8a99b0 */ }
+void sub_8a99f0() { /* 0x8a99f0 */ }
+void sub_8a9a20() { /* 0x8a9a20 */ }
+void sub_8a9a30() { /* 0x8a9a30 */ }
+void sub_8a9a40() { /* 0x8a9a40 */ }
+void sub_8a9a50() { /* 0x8a9a50 */ }
+void sub_8a9a60() { /* 0x8a9a60 */ }
+void sub_8a9a90() { /* 0x8a9a90 */ }
+void sub_8a9ac0() { /* 0x8a9ac0 */ }
+void sub_8a9ad0() { /* 0x8a9ad0 */ }
+void sub_8a9af0() { /* 0x8a9af0 */ }
+void sub_8a9b00() { /* 0x8a9b00 */ }
+void sub_8a9b20() { /* 0x8a9b20 */ }
+void sub_8a9b30() { /* 0x8a9b30 */ }
+void sub_8a9b50() { /* 0x8a9b50 */ }
+void sub_8a9c10() { /* 0x8a9c10 */ }
+void sub_8a9c30() { /* 0x8a9c30 */ }
+void sub_8a9c50() { /* 0x8a9c50 */ }
+void sub_8a9cc0() { /* 0x8a9cc0 */ }
+void sub_8a9d10() { /* 0x8a9d10 */ }
+void sub_8a9d80() { /* 0x8a9d80 */ }
+void sub_8a9da0() { /* 0x8a9da0 */ }
+void sub_8a9dc0() { /* 0x8a9dc0 */ }
+void sub_8a9e30() { /* 0x8a9e30 */ }
+void sub_8a9f30() { /* 0x8a9f30 */ }
+void sub_8aa020() { /* 0x8aa020 */ }
+void sub_8aa030() { /* 0x8aa030 */ }
+void sub_8aa040() { /* 0x8aa040 */ }
+void sub_8aa050() { /* 0x8aa050 */ }
+void sub_8aa160() { /* 0x8aa160 */ }
+void sub_8aa230() { /* 0x8aa230 */ }
+void sub_8aa360() { /* 0x8aa360 */ }
+void sub_8aa430() { /* 0x8aa430 */ }
+void sub_8aa4b0() { /* 0x8aa4b0 */ }
+void sub_8aa4d0() { /* 0x8aa4d0 */ }
+void sub_8aa4f0() { /* 0x8aa4f0 */ }
+void sub_8aa500() { /* 0x8aa500 */ }
+void sub_8aa590() { /* 0x8aa590 */ }
+void sub_8aa5e0() { /* 0x8aa5e0 */ }
+void sub_8aa5f0() { /* 0x8aa5f0 */ }
+void sub_8aa600() { /* 0x8aa600 */ }
+void sub_8aa790() { /* 0x8aa790 */ }
+void sub_8aa880() { /* 0x8aa880 */ }
+void sub_8aa930() { /* 0x8aa930 */ }
 
 }  // namespace main

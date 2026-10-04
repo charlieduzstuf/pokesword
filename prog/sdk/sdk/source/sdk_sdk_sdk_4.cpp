@@ -4,12 +4,6 @@
 #include "sdk_sdk_sdk_4.h"
 
 namespace sdk {
-void sub_3204a0() { /* 0x3204a0 */ }
-void sub_3204d0() { /* 0x3204d0 */ }
-void sub_320500() { /* 0x320500 */ }
-void sub_320530() { /* 0x320530 */ }
-void sub_320560() { /* 0x320560 */ }
-void sub_320590() { /* 0x320590 */ }
 void sub_3205c0() { /* 0x3205c0 */ }
 void sub_3205f0() { /* 0x3205f0 */ }
 void sub_320620() { /* 0x320620 */ }
@@ -2722,23 +2716,11 @@ void sub_373970() { /* 0x373970 */ }
 void System_busy_try_again_2() { /* 0x373bf0 */ }
 void sub_373d40() { /* 0x373d40 */ }
 void sub_373ee0() { /* 0x373ee0 */ }
-void sub_373ef0() { /* 0x373ef0 */ }
 void sub_374180() { /* 0x374180 */ }
-void sub_374190() { /* 0x374190 */ }
-// sub_374420: implemented in prog/matched/sdk/
-// sub_374430_sdk_374430: implemented in prog/matched/sdk/
 void sub_374440() { /* 0x374440 */ }
-void sub_374450() { /* 0x374450 */ }
 void sub_3746c0() { /* 0x3746c0 */ }
-void sub_3746d0() { /* 0x3746d0 */ }
-// sub_374940: implemented in prog/matched/sdk/
-// sub_374950: implemented in prog/matched/sdk/
 void sub_374960() { /* 0x374960 */ }
-void sub_374970() { /* 0x374970 */ }
 void sub_374d40() { /* 0x374d40 */ }
-void sub_374d50() { /* 0x374d50 */ }
-// sub_3750f0: implemented in prog/matched/sdk/
-// sub_375100: implemented in prog/matched/sdk/
 void sub_375110() { /* 0x375110 */ }
 void sub_375140() { /* 0x375140 */ }
 void sub_375300() { /* 0x375300 */ }
@@ -3493,9 +3475,6 @@ void sub_38c240() { /* 0x38c240 */ }
 // sub_38c310: implemented in prog/matched/sdk/
 void sub_38c320() { /* 0x38c320 */ }
 void sub_38c610() { /* 0x38c610 */ }
-// sub_38c620: implemented in prog/matched/sdk/
-void sub_38c630() { /* 0x38c630 */ }
-// sub_38c940: implemented in prog/matched/sdk/
 void sub_38c950() { /* 0x38c950 */ }
 void sub_38c970() { /* 0x38c970 */ }
 void sub_38cc90() { /* 0x38cc90 */ }
@@ -3684,17 +3663,9 @@ void f_1_2_11_f_NINTENDO_SDK_v1_6() { /* 0x39ab60 */ }
 void f_1_2_11_f_NINTENDO_SDK_v1_7() { /* 0x39abf0 */ }
 void f_1_2_11_f_NINTENDO_SDK_v1_8() { /* 0x39ac80 */ }
 void f_1_2_11_f_NINTENDO_SDK_v1_9() { /* 0x39ad10 */ }
-// sub_39ada0: implemented in prog/matched/sdk/
-void sub_39adb0() { /* 0x39adb0 */ }
-// sub_39aea0: implemented in prog/matched/sdk/
-// sub_39aeb0: implemented in prog/matched/sdk/
 void f_1_2_11_f_NINTENDO_SDK_v1_10() { /* 0x39aec0 */ }
 void f_1_2_11_f_NINTENDO_SDK_v1_11() { /* 0x39af50 */ }
 void f_1_2_11_f_NINTENDO_SDK_v1_12() { /* 0x39afe0 */ }
-// sub_39b070: implemented in prog/matched/sdk/
-void sub_39b080() { /* 0x39b080 */ }
-// sub_39b1b0: implemented in prog/matched/sdk/
-// sub_39b1c0: implemented in prog/matched/sdk/
 void sub_39b1d0() { /* 0x39b1d0 */ }
 void sub_39b260() { /* 0x39b260 */ }
 void sub_39ba10() { /* 0x39ba10 */ }
@@ -4004,5 +3975,34 @@ void sub_3a6820() { /* 0x3a6820 */ }
 void sub_3a6930() { /* 0x3a6930 */ }
 void sub_3a6a40() { /* 0x3a6a40 */ }
 void sub_3a6c10() { /* 0x3a6c10 */ }
+void sub_3a6d60() { /* 0x3a6d60 */ }
+void sub_3a6ec0() { /* 0x3a6ec0 */ }
+void sub_3a6ff0() { /* 0x3a6ff0 */ }
+void sub_3a70a0() { /* 0x3a70a0 */ }
+void sub_3a70b0() { /* 0x3a70b0 */ }
+// sub_3a7160: implemented in prog/matched/sdk/
+void sub_3a7170() { /* 0x3a7170 */ }
+void sub_3a7190() { /* 0x3a7190 */ }
+void sub_3a71b0() { /* 0x3a71b0 */ }
+void sub_3a71d0() { /* 0x3a71d0 */ }
+void sub_3a7200() { /* 0x3a7200 */ }
+void sub_3a7220() { /* 0x3a7220 */ }
+void sub_3a7260() { /* 0x3a7260 */ }
+void sub_3a7280() { /* 0x3a7280 */ }
+void sub_3a72a0_sdk_3a72a0() { /* 0x3a72a0 */ }
+void sub_3a72c0_sdk_3a72c0() { /* 0x3a72c0 */ }
+void sub_3a72e0() { /* 0x3a72e0 */ }
+void sub_3a7300_sdk_3a7300() { /* 0x3a7300 */ }
+void sub_3a7320_sdk_3a7320() { /* 0x3a7320 */ }
+void sub_3a7340_sdk_3a7340() { /* 0x3a7340 */ }
+void sub_3a7360() { /* 0x3a7360 */ }
+void sub_3a7380_sdk_3a7380() { /* 0x3a7380 */ }
+void sub_3a73a0() { /* 0x3a73a0 */ }
+void sub_3a73c0() { /* 0x3a73c0 */ }
+void sub_3a73f0() { /* 0x3a73f0 */ }
+void sub_3a7410() { /* 0x3a7410 */ }
+void sub_3a7440() { /* 0x3a7440 */ }
+void sub_3a7470() { /* 0x3a7470 */ }
+void sub_3a74a0() { /* 0x3a74a0 */ }
 
 }  // namespace sdk

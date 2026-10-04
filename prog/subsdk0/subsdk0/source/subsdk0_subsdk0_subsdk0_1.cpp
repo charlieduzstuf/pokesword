@@ -4,8 +4,6 @@
 #include "subsdk0_subsdk0_subsdk0_1.h"
 
 namespace subsdk0 {
-void sub_14c100() { /* 0x14c100 */ }
-void NuPlayerDriver_2() { /* 0x14c180 */ }
 void sub_14c300() { /* 0x14c300 */ }
 // sub_14c320: implemented in prog/matched/subsdk0/
 void sub_14c330() { /* 0x14c330 */ }
@@ -4004,5 +4002,7 @@ void sub_255430_subsdk0_255430() { /* 0x255430 */ }
 void sub_255510() { /* 0x255510 */ }
 void sub_255530() { /* 0x255530 */ }
 void sub_255540_subsdk0_255540() { /* 0x255540 */ }
+void sub_255570() { /* 0x255570 */ }
+void sub_2555e0() { /* 0x2555e0 */ }
 
 }  // namespace subsdk0
