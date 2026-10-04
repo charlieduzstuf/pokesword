@@ -2,7 +2,10 @@
 import argparse
 from colorama import Fore, Style
 import diff_settings
+import os
+import shutil
 import subprocess
+import sys
 import utils
 
 parser = argparse.ArgumentParser(description="Prints build/pokesword.elf symbols")
@@ -23,7 +26,41 @@ config: dict = dict()
 diff_settings.apply(config, {})
 myimg: str = config["myimg"]
 
-entries = [x.strip().split() for x in subprocess.check_output(["nm", myimg], universal_newlines=True).split("\n")]
+def find_nm():
+    """Locate an `nm` that can read the linked NX64 ELF.
+
+    Was a bare `subprocess.check_output(["nm", myimg])`, which raised
+    FileNotFoundError on this machine: the project's toolchain
+    (`C:\\llvm-5.0.1\\bin`) ships `llvm-objdump` but no `nm`, and there is no GNU
+    `nm` on PATH. `tools/audit.py` already knows this -- it hardcodes the scoop
+    LLVM's `llvm-nm.exe` and skips the check when it is absent.
+
+    Resolved in the order that actually works here: the project toolchain via
+    `match_harness.tool`, then the scoop LLVM that audit.py uses, then PATH.
+    Failing loudly beats a bare WinError 2 from deep inside subprocess, which
+    says nothing about which binary was missing or where it was looked for.
+    """
+    import match_harness as MH
+    try:
+        return MH.tool("llvm-nm")
+    except SystemExit:
+        pass
+    scoop = os.path.join(r"C:\Users\charl\scoop\apps\llvm\current\bin",
+                         "llvm-nm.exe")
+    if os.path.isfile(scoop):
+        return scoop
+    found = shutil.which("nm") or shutil.which("llvm-nm")
+    if found:
+        return found
+    sys.exit("error: no nm found. Looked in %s, %s and on PATH.\n"
+             "       tools/audit.py uses the scoop LLVM; install it or set "
+             "POKESWORD_CLANG to a toolchain containing llvm-nm."
+             % (MH.LLVM_BIN, scoop))
+
+
+entries = [x.strip().split() for x in subprocess.check_output(
+    [find_nm(), myimg], universal_newlines=True).split("\n")]
+
 
 for entry in entries:
     if len(entry) == 3:

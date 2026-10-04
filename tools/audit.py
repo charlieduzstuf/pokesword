@@ -359,6 +359,13 @@ def main():
               "missing %s / extra %s" % (only_build or "none",
                                          only_harness or "none"))
     prog_elf = os.path.join(ROOT, "build", "prog.elf")
+    if not os.path.exists(prog_elf):
+        # Say so. A silently skipped check is how this project shipped a false
+        # "AUDIT PASSED" for a whole session -- and once audit runs in CI on a
+        # checkout with no build/, a green result would otherwise imply the
+        # linked-ELF checks had run when they had not.
+        warn("build/prog.elf absent; skipped the linked-ELF symbol checks "
+             "(run tools/build_nx64.py first)")
     if os.path.exists(prog_elf):
         llvmnm = r"C:\Users\charl\scoop\apps\llvm\current\bin\llvm-nm.exe"
         if os.path.isfile(llvmnm):
@@ -457,7 +464,7 @@ def main():
                 for a in re.findall(r"^// \S+\s+\(orig (0x[0-9a-f]+),",
                                     open(f, encoding="utf-8").read(), re.M):
                     emitted_addrs.add((m, int(a, 16)))
-        bodyless, dups, seen = [], [], set()
+        bodyless, dups = [], []
         # `reported` is a dict keyed by (module, addr), so it has already
         # collapsed any duplicate records -- counting `seen` over it can never
         # report one. Read the raw JSON lists to count duplicates properly.
@@ -489,6 +496,85 @@ def main():
               "%d duplicate record(s)" % len(dups))
         for k in dups[:5]:
             print("      %s %s registered twice" % (k[0], hex(k[1])))
+
+        # Every percentage quoted in prose must match the authoritative tool.
+        #
+        # CI has a README drift gate, and it was still not enough: `README.md`
+        # carried 26,536 / 17.45% while `match_progress.py` said 26,562 / 17.47%,
+        # and `HANDOFF.md` plus `decomp/docs/progress_weighting.md` carried the
+        # same stale pair. The gate could only ever see one file, and it evidently
+        # had not been run since the count moved.
+        #
+        # The figure drifts every time a body is matched, so a number copied into
+        # prose is stale the moment it is written. Rather than trust the copy,
+        # check it: any doc quoting a different numerator or percentage fails.
+        # Mentions that are *about* the drift are exempt by local context.
+        stale = []
+        # Use the numbers this audit already computed and validated: `rows` is
+        # every CSV row and `matching` the ones marked matching, and the check
+        # above has just confirmed emitted bodies == matching rows. No import
+        # needed, and no second source of truth.
+        #
+        # The byte totals are derived here too, and they agree with
+        # `build/report.json` exactly (199,224 matched of 38,172,368), so the
+        # byte figure quoted in prose is checkable without the report.
+        matched_bytes = sum(int(r["size"]) for r in matching)
+        total_bytes = sum(int(r["size"]) for r in rows)
+        want = {
+            "functions matched": str(len(matching)),
+            "matched bytes": str(matched_bytes),
+            "total code bytes": str(total_bytes),
+        }
+        # Only the unambiguous `N / DENOMINATOR` forms. An earlier version also
+        # scraped any `\d+.\d\d%`, which flagged the per-module percentages in
+        # the README status table -- 11.47% and 11.92% are correct and are not
+        # claims about the total. A check that fires on correct text trains you
+        # to ignore it.
+        pats = ((r"\b(\d{1,3}(?:,\d{3})*)\s*/\s*152,?062\b", "functions matched"),
+                (r"\b(\d{1,3}(?:,\d{3})*)\s*/\s*38,?172,?368\b", "matched bytes"),
+                # The arithmetic block in progress_weighting.md states the byte
+                # figures as labelled lines rather than as a fraction, so the
+                # pattern above cannot see them. Label-anchored, so no risk of
+                # matching an unrelated number.
+                (r"^matched_code\s+(\d{1,3}(?:,\d{3})*)\s", "matched bytes"),
+                (r"^total_code\s+(\d{1,3}(?:,\d{3})*)\s", "total code bytes"))
+        docs = ("README.md", "HANDOFF.md", "decomp/docs/progress_weighting.md")
+        for rel in docs:
+            p = os.path.join(ROOT, rel)
+            if not os.path.exists(p):
+                continue
+            txt = open(p, encoding="utf-8").read()
+            for pat, label in pats:
+                # re.M: two of the patterns are line-anchored (`^matched_code`).
+                for mnum in re.finditer(pat, txt, re.M):
+                    hit = mnum.group(1)
+                    ctx = txt[max(0, mnum.start() - 110):mnum.start()]
+                    # A mention *about* the drift is not itself drift.
+                    if any(w in ctx for w in ("stale", "drift", "26,544",
+                                              "count moved", "read it there")):
+                        continue
+                    if hit == want[label] or hit.replace(",", "") == want[label]:
+                        continue
+                    stale.append("%s: %s claims %s" % (rel, hit, label))
+        # The README status table's total row, compared as a whole.
+        m = re.search(r"<!-- STATUS:BEGIN.*?<!-- STATUS:END -->",
+                      open(os.path.join(ROOT, "README.md"),
+                           encoding="utf-8").read(), re.S) \
+            if os.path.exists(os.path.join(ROOT, "README.md")) else None
+        if m:
+            # Match the bolded total row specifically. Filtering on `"total" in l`
+            # also picks up the table header `| module | matched | total | % |`,
+            # which of course never contains the count -- so the check failed
+            # against a perfectly correct README.
+            row = [l for l in m.group(0).splitlines() if "**total**" in l]
+            if not row:
+                stale.append("README.md status table has no total row")
+            elif ("**%s**" % len(matching)) not in row[0]:
+                stale.append("README.md status table total row is stale")
+        check(not stale, "quoted figures agree with the CSV",
+              "%d stale" % len(stale))
+        for s in sorted(set(stale))[:6]:
+            print("      %s" % s)
 
     # Function sizes must exclude inter-function padding, or asm-differ reports
     # the padding as unmatched for every function.

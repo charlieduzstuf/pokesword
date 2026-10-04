@@ -231,15 +231,57 @@ def main():
             print("   %08X  (%d site(s))" % (h, len(want[h])))
 
     out = os.path.join(ROOT, "data", "pawn_natives.json")
-    with open(out, "w", encoding="utf-8") as f:
-        json.dump({"%08X" % h: found[h] for h in sorted(found)}, f, indent=1)
-    print("\nmapping -> %s" % os.path.relpath(out, ROOT))
+
+    # Do not let a report run overwrite a tracked file, and never replace a
+    # populated mapping with an empty one.
+    #
+    # This used to write unconditionally, before the `--apply` check further
+    # down -- so the line "(dry run; pass --apply to ...)" printed *after* the
+    # data file had already been rewritten. Running the tool the way its own
+    # docstring documents (`python tools/pawn_natives.py  # report`) was enough
+    # to clobber it.
+    #
+    # It cost this repository 87 entries once: a sweep that ran every tool with
+    # no arguments resolved nothing (`found` empty, because the dictionary had
+    # moved on since those hashes were recorded) and replaced the whole mapping
+    # with `{}`. Nothing reads the file, so no check failed -- which is the
+    # worst part. The damage was only visible in `git status`.
+    existing = {}
+    if os.path.isfile(out):
+        try:
+            existing = json.load(open(out, encoding="utf-8"))
+        except (ValueError, OSError):
+            existing = {}
+
+    if not a.apply:
+        print("\n(dry run; not writing %s -- pass --apply to update it)"
+              % os.path.relpath(out, ROOT))
+    elif not found and existing:
+        print("\nrefusing to write an empty mapping over %d existing entr%s"
+              % (len(existing), "y" if len(existing) == 1 else "ies"))
+        print("  %s left unchanged" % os.path.relpath(out, ROOT))
+        a.apply = False
+
+    if a.apply:
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump({"%08X" % h: found[h] for h in sorted(found)}, f, indent=1)
+        print("\nmapping -> %s" % os.path.relpath(out, ROOT))
+
+    # `--emit` names its own output path and is honoured regardless. An earlier
+    # version of the guard above returned before reaching this, so `--emit` did
+    # nothing at all whenever the mapping came out empty -- the fix for the
+    # clobbering broke the documented `--emit json` invocation.
     if a.emit:
         with open(a.emit, "w", encoding="utf-8") as f:
             json.dump(found, f, indent=1)
+        print("emitted %d entr%s -> %s"
+              % (len(found), "y" if len(found) == 1 else "ies", a.emit))
 
     if not a.apply:
-        print("(dry run; pass --apply to extend the dictionary and rebuild)")
+        # Distinct from the message above, which is about data/pawn_natives.json.
+        # This one is about rewriting the .pasm files and the dictionary.
+        print("(not rewriting the .pasm files or the dictionary; "
+              "pass --apply to extend the dictionary and rebuild)")
         return 0
 
     # Fix the *dictionary*, not the generated output.

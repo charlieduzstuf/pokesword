@@ -1,16 +1,16 @@
 # Byte-weighted vs function-count progress
 
-decomp.dev reports **0.52%**. This project reports **17.45%**. Both are correct
+decomp.dev reports **0.52%**. This project reports **17.47%**. Both are correct
 and they measure different things.
 
 ## The arithmetic
 
 ```
 total_code            38,172,368 bytes   (36.4 MB)
-matched_code             198,912 bytes
+matched_code             199,224 bytes
 matched_code_percent          0.52%   <-- decomp.dev's headline
 
-functions matched       26,536 / 152,062 = 17.45%   <-- this project's headline
+functions matched       26,562 / 152,062 = 17.47%   <-- this project's headline
 ```
 
 The 0.52% is not a bug and not a mis-parse. objdiff's `Measures` carries both,
@@ -18,9 +18,9 @@ and the report populates both:
 
 | field | value | meaning |
 |---|---:|---|
-| `matched_functions_percent` | 17.46% | count-weighted |
+| `matched_functions_percent` | 17.47% | count-weighted |
 | `matched_code_percent` | 0.52% | byte-weighted |
-| `fuzzy_match_percent` | 17.46% | same as count here; this project records no partial credit |
+| `fuzzy_match_percent` | 17.47% | same as count here; this project records no partial credit |
 
 decomp.dev's headline badge is the byte-weighted one. That is the objdiff
 convention and it is what comparable projects (OGSW and others) show, so it is

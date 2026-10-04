@@ -63,6 +63,22 @@ jobs:
         run: |
           python tools/dedupe_registry.py
 
+      # Run the audit in CI at all.
+      #
+      # Every check added to `tools/audit.py` -- the flag-parity check that would
+      # have caught the 26 bodies matching only under the harness's flags, the
+      # registry-vs-emitted set comparison, the duplicate check, the doc-figure
+      # check -- was local-only until now. Checks that only run on the machine
+      # that wrote them are not checks.
+      #
+      # Placed in the `progress` job rather than `verify` because it needs no
+      # toolchain: every check that matters here is pure Python over `data/`,
+      # `prog/` and the flag lists. The ones that need `build/prog.elf` skip, and
+      # the audit now warns when they do rather than passing quietly.
+      - name: Run audit
+        run: |
+          python tools/audit.py
+
       # A status table in the README that disagrees with the tool is worse than
       # no table: it is a number nobody checked. Fail rather than let it rot.
       - name: Check README status block is current

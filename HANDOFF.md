@@ -36,8 +36,13 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-26,536 / 152,062  =  17.45%
+26,562 / 152,062  =  17.47%
 ```
+
+`tools/match_progress.py` is the only authoritative figure. Do not copy a number
+out of this file or `README.md` into prose without re-reading it there — both went
+stale at 26,536 / 17.45% while the tool said 17.47%, and `README.md`'s drift gate
+in CI would have been red the whole time.
 
 Up from 25,431 (16.72%) at the start of the most recent run of working sessions,
 and 24,703 at the start of the one before it. Every gain has come from
@@ -295,6 +300,27 @@ over the whole population rather than a sample:
 - **`verify_matches.py` samples its failure output.** It printed 9 of the 26.
   Do not treat its mismatch list as complete; find the population by shape
   (`tools/fix_zero_store_order.py`) instead.
+- **A "report" run must not mutate a tracked file.** `pawn_natives.py` wrote
+  `data/pawn_natives.json` *before* its `--apply` check, so the line
+  "(dry run; pass --apply ...)" printed after it had already overwritten the
+  file. Running it the way its own docstring documents wiped 87 entries to `{}`.
+  Nothing reads that file, so **no check failed** — the damage was visible only
+  in `git status`. It now refuses to write unless `--apply`/`--emit`, and refuses
+  to replace a populated mapping with an empty one.
+- **`git add -A` after running project tools is how that would have shipped.** A
+  sweep that runs every tool with no arguments is a good way to find crashes; it
+  is also a good way to have tools write files. Check `git status` after any batch
+  that runs tools, and `git checkout --` anything you did not mean to change
+  *before* staging.
+- **A number quoted in prose is stale the moment it is written.** `README.md`,
+  `HANDOFF.md` and `decomp/docs/progress_weighting.md` all carried
+  26,536 / 17.45% while `match_progress.py` said 26,562 / 17.47%. CI had a
+  README drift gate and still did not catch it. `audit.py` now checks the
+  `N / 152,062` and `N / 38,172,368` forms plus the README total row.
+- **Do not scrape prose for percentages.** The first version of that check
+  flagged the README's per-module figures (11.47%, 11.92%), which are correct
+  and are not claims about the total. A check that fires on correct text trains
+  you to ignore it.
 - **Return types do not appear in Itanium mangling.** Only parameters and class
   types. And a function with *no parameters* mangles with a trailing `v`, so the
   signature is `"v"`, not `""`. Getting this wrong reports
