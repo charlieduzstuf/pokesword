@@ -37,6 +37,11 @@ jobs:
           python tools/progress_json.py --format markdown >> progress.txt
           python tools/progress_json.py --format json \
             --out badge/status.json
+          # report.json is the filename decomp.dev looks for inside the
+          # <VERSION>_report artifact. See the upload step and
+          # decomp/docs/decomp_dev.md for what it does and does not yet contain.
+          mkdir -p build
+          python tools/progress_json.py --format objdiff > build/report.json
 
       # A status table in the README that disagrees with the tool is worse than
       # no table: it is a number nobody checked. Fail rather than let it rot.
@@ -70,11 +75,32 @@ jobs:
             cat progress.txt
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload status and badge payload
+      # decomp.dev discovers progress by scraping workflow artifacts. Its
+      # documented convention (decomp.wiki -> tools -> decomp-dev) is:
+      #
+      #   - the artifact must be named `<VERSION>_report`, e.g.
+      #     `SLUS_203.88_report`
+      #   - it must contain `report.json`, in objdiff's protobuf progress-report
+      #     format
+      #
+      # The first attempt uploaded an artifact called `progress` containing
+      # `progress.txt`, and decomp.dev reported "No workflows found in
+      # repository" and then "No workflow runs containing reports found" --
+      # i.e. it found the workflow and could not find a report inside any run.
+      #
+      # The name is fixed here. The contents are NOT yet objdiff protobuf: this
+      # project has its own matching harness and does not build through objdiff,
+      # so `report.json` here is a placeholder in the project's own JSON shape.
+      # decomp.dev will not be able to chart it until a real objdiff-format
+      # report is produced. See decomp/docs/decomp_dev.md.
+      - name: Upload progress report
         uses: actions/upload-artifact@v4
         with:
-          name: progress
+          # VERSION here is the build identifier, matching the report-naming
+          # convention. Bump it when the target changes.
+          name: build562_report
           path: |
+            report.json
             progress.txt
             badge/status.json
 

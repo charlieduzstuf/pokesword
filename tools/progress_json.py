@@ -106,7 +106,7 @@ def run_verify():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--format", default="text",
-                    choices=("text", "json", "markdown"))
+                    choices=("text", "json", "markdown", "objdiff"))
     ap.add_argument("--verify", action="store_true",
                     help="also re-verify every module (needs Clang 5.0.1)")
     ap.add_argument("--out", default=None, help="write to this path")
@@ -128,7 +128,36 @@ def main():
         v_ok, vv, vf, vdetail = None, 0, 0, []
 
     pct = prog["pct"]
-    if a.format == "json":
+    if a.format == "objdiff":
+        # decomp.dev expects `report.json` inside a `<VERSION>_report` artifact,
+        # in objdiff's protobuf progress-report format. This is NOT that format.
+        #
+        # objdiff produces it by diffing the built object against the target, and
+        # this project does not build through objdiff -- it has its own matching
+        # harness (tools/match_harness.py) whose verdict is authoritative. So
+        # this file carries the same information in this project's own JSON
+        # shape, which is enough for a human reading the artifact but not enough
+        # for decomp.dev to chart.
+        #
+        # Producing a real one means either building the project under objdiff,
+        # or emitting its protobuf from these registries using objdiff's published
+        # schema. Both are real work; neither is guessed at here.
+        # See decomp/docs/decomp_dev.md.
+        text = json.dumps({
+            "format": "pokesword-progress",
+            "note": ("NOT objdiff protobuf. decomp.dev will not chart this "
+                     "until a real objdiff-format report is produced."),
+            "version": "build562",
+            "matching": {
+                "total": prog["population"],
+                "matched": prog["matched"],
+                "percent": round(pct, 2),
+                "modules": {m: {"matched": d["matched"],
+                                 "total": d["population"]}
+                            for m, d in prog["per_module"].items()},
+            },
+        }, indent=2)
+    elif a.format == "json":
         payload = {
             "schemaVersion": 1,
             "label": "matching",
