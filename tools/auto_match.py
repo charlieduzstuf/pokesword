@@ -1861,6 +1861,37 @@ def gen_compare_ret(ins, end, ident):
             if imm is None:
                 return None
             state[wreg(o[0])] = ("imm", imm, U[access_width("mov", o[0])])
+        elif i.mnemonic in ("and", "orr", "eor", "bic", "sub") and len(o) == 3:
+            # Bitwise mask idioms -- the flag-test family.
+            #
+            # 99 unmatched `compare` bodies are blocked on exactly these
+            # opcodes (sub 49, and 40, orr 10 in the decline census), and they
+            # are ordinary C:
+            #
+            #     and w8, w1, #0xfffffffe   ->  (a1 & ~1) == 0
+            #     sub w8, w1, #0x4ff        ->  (a1 - 0x4ff)
+            #     orr w8, w1, #imm         ->  (a1 | imm)
+            #
+            # `sub` is included in the same branch because Clang emits `x & ~m`
+            # as `sub x, m`, so it is the same idiom with a different mnemonic.
+            #
+            # A third state form is required: "load" and "imm" cannot describe a
+            # computed value. The source operand may be a register already in
+            # `state` or an argument register; the second operand must be an
+            # immediate, since a register-to-register form would need a
+            # two-operand expression this generator does not build and it is
+            # better to decline than to guess.
+            dst_r, src_r, imm_tok = (o[0].strip(), o[1].strip(), o[2])
+            imm = parse_imm(imm_tok)
+            if imm is None:
+                return None
+            # Record argument registers the mask reads so the parameter list is
+            # complete before it is rendered.
+            mb = reg_num(wreg(src_r))
+            if mb is not None and mb <= 3:
+                used.add(mb)
+            ctype = U[4 if dst_r.startswith("w") else 8]
+            state[wreg(dst_r)] = ("bitop", i.mnemonic, src_r, imm, ctype)
         else:
             return None
 
@@ -1872,6 +1903,20 @@ def gen_compare_ret(ins, end, ident):
             return ("imm", imm, None, 8)
         r = wreg(op)
         if r in state:
+            # A `bitop` entry is a computed mask, not a value this function
+            # knows how to name. It must decline rather than fall through as a
+            # "state" reference: downstream the tuple is unpacked in the shape
+            # of a ("load", ...) entry, and a 5-element bitop tuple would unpack
+            # *without error* into the wrong variables, emitting C that compiles
+            # but is wrong. Declining is the safe failure.
+            #
+            # The prefix loop above now accepts and/sub/orr/eor/bic with an
+            # immediate, so this is the only thing standing between the mask
+            # families and silently wrong output. Implementing the rendering
+            # means resolving the source operand recursively to build
+            # `(expr & mask)`. See decomp/docs/yield_sweep.md.
+            if state[r][0] == "bitop":
+                return None
             return ("state", r, None, 8)
         bn = reg_num(r)
         if bn is None or bn > 3:
