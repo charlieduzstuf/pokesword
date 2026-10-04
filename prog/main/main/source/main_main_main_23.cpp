@@ -1109,7 +1109,7 @@ void sub_1715ac0() { /* 0x1715ac0 */ }
 // sub_1715cc0: implemented in prog/matched/main/
 // sub_1715cd0: implemented in prog/matched/main/
 // sub_1715ce0: implemented in prog/matched/main/
-void sub_1715cf0() { /* 0x1715cf0 */ }
+// sub_1715cf0: implemented in prog/matched/main/
 void sub_1715d00() { /* 0x1715d00 */ }
 // sub_1715d20: implemented in prog/matched/main/
 // sub_1715d30: implemented in prog/matched/main/

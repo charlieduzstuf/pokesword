@@ -974,19 +974,52 @@ def gen_indexed_getter(ins, end, ident):
 
     o0 = ops_of(i0)
     o1 = ops_of(i1)
-    if len(o0) != 3 or len(o1) != 2:
-        return None
-    dst, base, shift = o0[0].strip(), o0[1].strip(), o0[2]
-    ld_dst, ld_mem = o1[0].strip(), o1[1]
 
-    m = re.fullmatch(r"(x\d+),\s*lsl\s*#(\d+)", shift)
-    if not m:
+    # `ops_of` splits on commas, so a shifted or extended `add` yields FOUR
+    # fields, not three:
+    #
+    #     add x8, x0, x1, lsl #5   -> ['x8', 'x0', 'x1', 'lsl #5']
+    #     add x8, x0, w1, uxtw #2  -> ['x8', 'x0', 'w1', 'uxtw #2']
+    #     add x8, x0, w1, uxtw     -> ['x8', 'x0', 'w1', 'uxtw']
+    #
+    # This code previously required exactly three fields and then matched the
+    # third with `(x\d+),\s*lsl\s*#(\d+)` -- a pattern that needs a comma
+    # `ops_of` had already consumed, so it could never match anything. Every one
+    # of the 246 `indexed-getter` bodies was declined by a generator that was
+    # supposed to handle them.
+    #
+    # That is the same failure as `got_map.py`'s `ops.split(",")` recorded in
+    # HANDOFF.md, and it is worth checking a field count against the actual
+    # disassembly spelling rather than against the mnemonic.
+    if len(o0) == 3:
+        dst, base = o0[0].strip(), o0[1].strip()
+        idx_reg, shift_txt = o0[2].strip(), ""
+    elif len(o0) == 4:
+        dst, base = o0[0].strip(), o0[1].strip()
+        idx_reg, shift_txt = o0[2].strip(), o0[3].strip()
+    else:
         return None
-    scale = int(m.group(2), 10)
-    if m.group(1) != o0[1].strip() and m.group(1) != base:
+    ld_dst, ld_mem = o1[0].strip(), o1[1]
+    if len(o1) != 2:
         return None
-    # The shifted register must be the third operand's own source register.
-    idx_reg = m.group(1)
+
+    # `lsl #n` scales by 2**n. `uxtw #n` zero-extends the 32-bit index and then
+    # scales by 2**n; a bare `uxtw` only zero-extends. Anything else (a second
+    # shift, a signed extend, `sxtw`) declines rather than guessing an element
+    # size that the instruction does not state.
+    if shift_txt:
+        m = re.fullmatch(r"lsl\s*#(\d+)", shift_txt)
+        if m:
+            scale = int(m.group(1), 10)
+            idx_32 = False
+        else:
+            m = re.fullmatch(r"uxtw(?:\s*#(\d+))?", shift_txt)
+            if not m:
+                return None
+            idx_32 = True
+            scale = int(m.group(1), 10) if m.group(1) else 0
+    else:
+        scale, idx_32 = 0, idx_reg.startswith("w")
     if base == idx_reg:
         return None
 
@@ -994,7 +1027,10 @@ def gen_indexed_getter(ins, end, ident):
     inr = reg_num(wreg(idx_reg))
     if bn is None or inr is None or bn > 3 or inr > 3 or bn == inr:
         return None
-    if not ld_dst.startswith(("x", "w")):
+    # The loaded value is the return value, so its destination has to be a
+    # return register. `s`/`d` are included because 212 of the 246 bodies load a
+    # float into `s0`; rejecting them was discarding the majority of the shape.
+    if not ld_dst.startswith(("x", "w", "s", "d", "q")):
         return None
 
     mem_base, mem_off = parse_mem(ld_mem)
@@ -1007,9 +1043,25 @@ def gen_indexed_getter(ins, end, ident):
     # so the whole address is expressed as one byte-arithmetic term.
     width = access_width(i1.mnemonic, ld_dst)
     ctype = "int32_t" if i1.mnemonic == "ldrsw" else U[width]
-    expr = "((char *)%s + %s * %d + %d)" % (base, idx_reg, 1 << scale, mem_off)
-    roles = {wreg(base): ("void*", "P"), wreg(idx_reg): ("uint64_t", "m")}
-    decls, _exprs, sig = build_params(roles)
+    # A `uxtw` index is a 32-bit value that the instruction zero-extends, so its
+    # parameter has to be 32-bit too. Declaring it `uint64_t` would make Clang
+    # treat it as already-64-bit and emit no extend at all -- the `uxtw` is
+    # load-bearing and was the whole reason those 12 bodies missed.
+    roles = {wreg(base): ("void*", "P"),
+             wreg(idx_reg): (("uint32_t", "j") if idx_32 else ("uint64_t", "m"))}
+    decls, exprs, sig = build_params(roles)
+    # Substitute the parameter names for the register names.
+    #
+    # `build_params` declares parameters as `a0`, `a1`, ... and returns the
+    # register -> expression mapping as its second value. That mapping was
+    # discarded here (`_exprs`), so the address expression was built from raw
+    # register names -- `(char *)x0 + x1 * 32 + 8` -- which do not exist in the
+    # generated C++. Every candidate failed to compile with "use of undeclared
+    # identifier". This went unnoticed because the whole branch was
+    # unreachable: the field-count bug above declined all 246 bodies first.
+    bexpr = exprs.get(base, exprs.get(wreg(base), base))
+    iexpr = exprs.get(idx_reg, exprs.get(wreg(idx_reg), idx_reg))
+    expr = "((char *)%s + %s * %d + %d)" % (bexpr, iexpr, 1 << scale, mem_off)
     return ("%s %s(%s) { return *(%s *)(%s); }\n"
             % (ctype, ident, ", ".join(decls), ctype, expr), sig)
 

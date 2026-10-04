@@ -1486,8 +1486,8 @@ void sub_6a51e0() { /* 0x6a51e0 */ }
 void sub_6a5230() { /* 0x6a5230 */ }
 void sub_6a54a0() { /* 0x6a54a0 */ }
 // sub_6a5650: implemented in prog/matched/main/
-void sub_6a5660() { /* 0x6a5660 */ }
-void sub_6a5670() { /* 0x6a5670 */ }
+// sub_6a5660: implemented in prog/matched/main/
+// sub_6a5670: implemented in prog/matched/main/
 void sub_6a5680() { /* 0x6a5680 */ }
 void sub_6a56b0() { /* 0x6a56b0 */ }
 void sub_6a56c0() { /* 0x6a56c0 */ }

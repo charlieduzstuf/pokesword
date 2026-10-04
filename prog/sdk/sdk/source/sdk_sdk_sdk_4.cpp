@@ -3604,7 +3604,7 @@ void sub_399920() { /* 0x399920 */ }
 void sub_399950() { /* 0x399950 */ }
 // sub_399980: implemented in prog/matched/sdk/
 void sub_399990() { /* 0x399990 */ }
-void sub_399a60() { /* 0x399a60 */ }
+// sub_399a60: implemented in prog/matched/sdk/
 void sub_399a70() { /* 0x399a70 */ }
 void f_1_2_11_f_NINTENDO_SDK_v1_3_sdk_399a80() { /* 0x399a80 */ }
 void sub_399b80() { /* 0x399b80 */ }

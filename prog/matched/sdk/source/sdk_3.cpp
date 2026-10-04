@@ -1,4 +1,4 @@
-/* sdk -- 1096 functions verified to match the original.
+/* sdk -- 1097 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -155,6 +155,9 @@ void sdk_f_398e00(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 16) = a1; 
 
 // sub_399980  (orig 0x399980, ret_only)
 void sdk_f_399980() {}
+
+// sub_399a60  (orig 0x399a60, indexed-getter)
+uint32_t sdk_f_399a60(uint64_t a0, void* a1) { return *(uint32_t *)(((char *)a1 + a0 * 1 + -4)); }
 
 // sub_39a2b0  (orig 0x39a2b0, setter)
 void sdk_f_39a2b0(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0)) = a1; }

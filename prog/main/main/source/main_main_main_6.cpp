@@ -1600,8 +1600,8 @@ void sub_7bea00() { /* 0x7bea00 */ }
 void sub_7bea70() { /* 0x7bea70 */ }
 void sub_7beb10() { /* 0x7beb10 */ }
 // sub_7bebd0: implemented in prog/matched/main/
-void sub_7bebe0() { /* 0x7bebe0 */ }
-void sub_7bebf0() { /* 0x7bebf0 */ }
+// sub_7bebe0: implemented in prog/matched/main/
+// sub_7bebf0: implemented in prog/matched/main/
 void sub_7bec00() { /* 0x7bec00 */ }
 void sub_7bec20() { /* 0x7bec20 */ }
 void sub_7bed00() { /* 0x7bed00 */ }
@@ -1615,8 +1615,8 @@ void sub_7bf290() { /* 0x7bf290 */ }
 void sub_7bf300() { /* 0x7bf300 */ }
 void sub_7bf3a0() { /* 0x7bf3a0 */ }
 // sub_7bf460: implemented in prog/matched/main/
-void sub_7bf470() { /* 0x7bf470 */ }
-void sub_7bf480() { /* 0x7bf480 */ }
+// sub_7bf470: implemented in prog/matched/main/
+// sub_7bf480: implemented in prog/matched/main/
 void sub_7bf490() { /* 0x7bf490 */ }
 void sub_7bf4b0() { /* 0x7bf4b0 */ }
 void sub_7bf590() { /* 0x7bf590 */ }
@@ -1639,8 +1639,8 @@ void sub_7c1b20() { /* 0x7c1b20 */ }
 // sub_7c1b90: implemented in prog/matched/main/
 void sub_7c1ba0() { /* 0x7c1ba0 */ }
 // sub_7c1c10: implemented in prog/matched/main/
-void sub_7c1c20() { /* 0x7c1c20 */ }
-void sub_7c1c30() { /* 0x7c1c30 */ }
+// sub_7c1c20: implemented in prog/matched/main/
+// sub_7c1c30: implemented in prog/matched/main/
 void sub_7c1c40() { /* 0x7c1c40 */ }
 void sub_7c1c60() { /* 0x7c1c60 */ }
 void sub_7c1d40() { /* 0x7c1d40 */ }
@@ -2580,7 +2580,7 @@ void sub_7ef670() { /* 0x7ef670 */ }
 void sub_7ef6a0() { /* 0x7ef6a0 */ }
 void sub_7ef710() { /* 0x7ef710 */ }
 void sub_7ef750() { /* 0x7ef750 */ }
-void sub_7ef760() { /* 0x7ef760 */ }
+// sub_7ef760: implemented in prog/matched/main/
 void sub_7ef770() { /* 0x7ef770 */ }
 void sub_7ef7f0() { /* 0x7ef7f0 */ }
 void sub_7ef8d0() { /* 0x7ef8d0 */ }
@@ -2631,7 +2631,7 @@ void sub_7f0b00() { /* 0x7f0b00 */ }
 void sub_7f0b30() { /* 0x7f0b30 */ }
 void sub_7f0b70() { /* 0x7f0b70 */ }
 void sub_7f0b80() { /* 0x7f0b80 */ }
-void sub_7f0ba0() { /* 0x7f0ba0 */ }
+// sub_7f0ba0: implemented in prog/matched/main/
 void sub_7f0bb0() { /* 0x7f0bb0 */ }
 void sub_7f0c00() { /* 0x7f0c00 */ }
 void sub_7f0c80() { /* 0x7f0c80 */ }
