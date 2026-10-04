@@ -13,6 +13,17 @@
 | **total** | **26536** | **152062** | **17.45%** |
 <!-- STATUS:END -->
 
+> **Two percentages, both correct.** This project's headline is **17.45% by
+> function count** (26,536 / 152,062). decomp.dev reports **0.52%**, which is
+> **byte-weighted** (198,912 / 38,172,368 bytes of code). They diverge because
+> everything matched so far is a tiny accessor — the median matched function is
+> 8 bytes (`ldr ; ret`) while the median unmatched one is 132 bytes and the
+> largest is 239 KB. Byte-weighting is the harsher and more honest measure of how
+> much *code* is recovered, and it is what comparable projects show, so quote it
+> when comparing against other decompilation projects. Full breakdown in
+> [`decomp/docs/progress_weighting.md`](decomp/docs/progress_weighting.md),
+> including why the remaining branch-free bodies are nearly worthless byte-wise.
+
 Decompilation of **Pokemon Sword** (title `0100ABF008968000`, US v0) for
 Nintendo Switch, laid out as a standard [decomp.me](https://decomp.me) /
 [decomp.dev](https://decomp.dev) project and structured as a fork of
