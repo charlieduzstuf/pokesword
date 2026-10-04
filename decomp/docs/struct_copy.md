@@ -277,6 +277,30 @@ bodies it is not worth opening before the 351 were done.
 
 - **28 bodies where the original does *not* pair** (`ldr str ldp ldp stp stp ret`,
   14 of them). This generator forces a pair via the struct type; those need the
-  opposite, i.e. barriers *preventing* pairing. The same lever, turned around.
+  opposite. **The barrier does not work here, and it is worth saying why**, since
+  it worked twice already in this project and the obvious next move is to reach
+  for it again.
+
+  These bodies also *interleave* a read and a write -- `ldr x8,[x1]` immediately
+  followed by `str x8,[x0]` -- which the all-reads-then-all-writes emitter above
+  cannot express at all. Emitting in true instruction order and adding barriers
+  between groups produces, instead of the original's seven instructions:
+
+  ```
+  sub sp, sp, #0x20 ; ldr x8, [x1] ; str x8, [x0] ; ldr x8, [x1, #0x10] ;
+  str x8, [sp, #0x18] ; ... ; ldr x8, [sp], #0x20 ; add sp, sp, #0x20 ; ret
+  ```
+
+  A barrier between statements forces the intermediate 16-byte values out of
+  registers and onto the stack, so the fix for the ordering problem *causes* a
+  register-allocation problem. A 40-byte copy already needs five registers; add
+  barriers and it spills. Tried three placements -- barrier between every
+  statement, barrier only where read/write kind changes, and no barrier -- and all
+  three spill or mis-order.
+
+  So the lever that works for a body whose reads and writes are already grouped
+  (the 278) is actively harmful for one where they interleave. Worth separating
+  these two sub-shapes before spending more on them.
+
 - **64 declined** -- stack traffic (`stp x8, x9, [sp, #-0x10]!`), `ldur`/`stur`,
   or zero-register pairs, which need the family-B recipe.
