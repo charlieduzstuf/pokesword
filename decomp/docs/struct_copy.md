@@ -89,7 +89,75 @@ same register-class trap that has bitten this project repeatedly.
 
 `sub_19f5c0` (37 instructions) is the same family at larger size.
 
-## Why this is hard, stated plainly
+## ANSWER: family B is reachable from C. Here is the recipe.
+
+The open question below was **settled by measurement**, not reasoning.
+`sub_19f500` was hand-written as plain C and now matches all 18 instructions
+byte-for-byte. The only hard part was the `stp` pairing, and it is fully
+determined.
+
+### The one thing that matters: `stp` pairing and order
+
+The original ends:
+
+```
+str wzr, [x1]
+str xzr, [x1, #8]
+str wzr, [x1, #0x10]
+stp xzr, xzr, [x1, #0x18]      <-- paired
+str xzr, [x1, #0x28]
+ret
+```
+
+Given six ordinary zero-stores at offsets 0, 8, 0x10, 0x18, 0x20, 0x28, Clang
+pairs **`0x20` + `0x28`** and leaves `0x18` alone — the wrong pair. Four
+formulations were tried and none of them changed it:
+
+| attempt | result |
+|---|---|
+| plain ascending-order stores | `stp [x1,#0x20]` + `str [x1,#0x18]` |
+| zeroing order reversed | unchanged |
+| explicit 16-byte `struct { uint64_t a, b; }` assignment at 0x18 | unchanged |
+| `__asm__ volatile("" ::: "memory")` isolating 0x28 | **right instructions, wrong order**: `str [x1,#0x28]` then `stp [x1,#0x18]` |
+
+Source order does not steer it — Clang canonicalises the pairing. What *does*
+work is two memory barriers: the first stops `0x28` pairing with `0x20`, which
+leaves `0x18`+`0x20` adjacent and so paired; the second keeps the pair ahead of
+the now-isolated `0x28` store.
+
+```c
+*(uint32_t *)((char *)a1 + 0)    = 0;
+*(uint64_t *)((char *)a1 + 8)    = 0;
+*(uint32_t *)((char *)a1 + 0x10) = 0;
+__asm__ volatile("" ::: "memory");
+*(uint64_t *)((char *)a1 + 0x20) = 0;   /* these two become stp [x1,#0x18] */
+*(uint64_t *)((char *)a1 + 0x18) = 0;
+__asm__ volatile("" ::: "memory");
+*(uint64_t *)((char *)a1 + 0x28) = 0;   /* stays a separate str */
+```
+
+Result: **18 instructions, 72 bytes, `MH.compare` verdict `match`.**
+
+The barrier is the same device already used elsewhere in this project for the
+`strlit` shapes, where it likewise does nothing about instruction *selection*
+and everything about *scheduling* — which is exactly the distinction that
+matters here.
+
+### What this means for the generator
+
+The 374 bodies are now split by a measured answer rather than a guess:
+
+- **Family B is reachable.** A generator can emit it, and must reproduce the
+  barrier placement. Note that the *copy* half needs no barriers; only the
+  zeroing tail does.
+- **Family A remains untested.** Its zero-stores are interleaved *between the
+  loads*, so the same barrier trick may not apply — a barrier also forbids the
+  scheduler from doing whatever produced the original interleaving. It should be
+  tried on one body before any generator is written for it.
+
+A generator must also carry the field widths (4, 8, 4, 8, 8, 8 here) per field
+and the source/target register roles, neither of which is derivable from the
+mnemonic sequence alone.
 
 Neither family is "a copy". A generator must:
 
