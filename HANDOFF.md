@@ -167,6 +167,7 @@ all (the tailcall round reported +9,083 and delivered zero).
 | file | what it settles |
 |---|---|
 | `decomp/docs/remaining.md` | **what is left and what blocks it** — read this next |
+| `decomp/docs/yield_sweep.md` | **which registered generators are dead** — measured, per shape |
 | `decomp/docs/exactness_bug.md` | the tooling bugs that were worth +568 functions |
 | `decomp/docs/link_base0.md` | the 974-function unlock and its blocker |
 | `decomp/docs/prmb_loaders.md` | `.prmb` data tables and their loaders |
@@ -181,11 +182,20 @@ all (the tailcall round reported +9,083 and delivered zero).
    All four modules now verify at 100%; there is no outstanding mismatch left to
    chase, so nothing here is a bug fix any more.
 
-2. **The 303 `ldp; stp; ret` bodies.** Confirmed by sampling to be
-   copy-constructor-plus-zero-fill, not plain copies — `stp` appears among the
-   *zero* stores. Needs a generator that carries load semantics through to the
-   stores with interleaving preserved. `gen_struct_copy_ret` exists and declines
-   all of them, correctly.
+2. **`compare`: 393 unmatched bodies, 3 generated.** The most promising target,
+   because that ratio is the `indexed-getter` signature — a registered generator
+   holding a large population and producing almost nothing. The declines cluster
+   into flag-test families (`ldr ; ldrb ; cmp ; cset`, `ldr ; ldr ; cmp ; cset`,
+   `ldr ; sub ; cmp ; cset`, `and ; cmp ; cset`), i.e. `return (obj->field & mask)
+   == value;`. The arithmetic is all visible in the operands, so this is
+   tractable by hand. Full per-family breakdown in
+   `decomp/docs/yield_sweep.md`.
+
+3. **The 374 `struct-copy` bodies** (`ldp ; stp ; ret` and wider interleaved
+   forms). The only shape over the 50-body threshold where the generator produces
+   literally nothing. Genuinely hard rather than buggy: the loads interleave with
+   the *zero* stores, so load-then-store order cannot express them. Needs a
+   generator that carries load semantics through to the stores.
 
 3. **`main`'s 180 `const-field-set` bodies.** All fail identically:
    `insn 0: orig ('ldr', 'x8, [x0]') vs new ('mov', 'w8', #1)` — Clang
