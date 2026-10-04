@@ -3113,7 +3113,7 @@ void sub_8021d0() { /* 0x8021d0 */ }
 void sub_8022b0() { /* 0x8022b0 */ }
 void sub_802310() { /* 0x802310 */ }
 // sub_802330: implemented in prog/matched/main/
-void sub_802350() { /* 0x802350 */ }
+// sub_802350: implemented in prog/matched/main/
 void sub_802370() { /* 0x802370 */ }
 void sub_8023b0() { /* 0x8023b0 */ }
 void sub_802430() { /* 0x802430 */ }

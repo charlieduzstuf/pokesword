@@ -1542,7 +1542,7 @@ void sub_3f3190() { /* 0x3f3190 */ }
 void sub_3f31b0() { /* 0x3f31b0 */ }
 // sub_3f3250_sdk_3f3250: implemented in prog/matched/sdk/
 void sub_3f3260() { /* 0x3f3260 */ }
-void sub_3f3290() { /* 0x3f3290 */ }
+// sub_3f3290: implemented in prog/matched/sdk/
 void sub_3f32b0() { /* 0x3f32b0 */ }
 void sub_3f32f0() { /* 0x3f32f0 */ }
 void sub_3f3330() { /* 0x3f3330 */ }

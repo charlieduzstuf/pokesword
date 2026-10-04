@@ -921,8 +921,8 @@ void sub_f4ba70() { /* 0xf4ba70 */ }
 void sub_f4ba80() { /* 0xf4ba80 */ }
 void sub_f4bbc0() { /* 0xf4bbc0 */ }
 // sub_f4bbe0: implemented in prog/matched/main/
-void sub_f4bbf0() { /* 0xf4bbf0 */ }
-void sub_f4bc10() { /* 0xf4bc10 */ }
+// sub_f4bbf0: implemented in prog/matched/main/
+// sub_f4bc10: implemented in prog/matched/main/
 void sub_f4bc30() { /* 0xf4bc30 */ }
 void uikit_live_tournament_detail_btlcup_01() { /* 0xf4bdc0 */ }
 void sub_f4bfa0() { /* 0xf4bfa0 */ }
@@ -945,8 +945,8 @@ void sub_f4ce30() { /* 0xf4ce30 */ }
 void sub_f4ce40() { /* 0xf4ce40 */ }
 void sub_f4cf80() { /* 0xf4cf80 */ }
 // sub_f4cfa0: implemented in prog/matched/main/
-void sub_f4cfb0() { /* 0xf4cfb0 */ }
-void sub_f4cfd0() { /* 0xf4cfd0 */ }
+// sub_f4cfb0: implemented in prog/matched/main/
+// sub_f4cfd0: implemented in prog/matched/main/
 void sub_f4cff0() { /* 0xf4cff0 */ }
 void host_menu() { /* 0xf4d180 */ }
 void OptionBar_6() { /* 0xf4d590 */ }
@@ -3855,12 +3855,12 @@ void sub_fe9610() { /* 0xfe9610 */ }
 void sub_fe9620() { /* 0xfe9620 */ }
 void sub_fe9630() { /* 0xfe9630 */ }
 // sub_fe96b0: implemented in prog/matched/main/
-void sub_fe96c0() { /* 0xfe96c0 */ }
-void sub_fe96e0() { /* 0xfe96e0 */ }
+// sub_fe96c0: implemented in prog/matched/main/
+// sub_fe96e0: implemented in prog/matched/main/
 void sub_fe9700() { /* 0xfe9700 */ }
 // sub_fe97e0: implemented in prog/matched/main/
-void sub_fe97f0() { /* 0xfe97f0 */ }
-void sub_fe9810() { /* 0xfe9810 */ }
+// sub_fe97f0: implemented in prog/matched/main/
+// sub_fe9810: implemented in prog/matched/main/
 void sub_fe9830() { /* 0xfe9830 */ }
 void sub_fe9a50() { /* 0xfe9a50 */ }
 void sub_fe9aa0() { /* 0xfe9aa0 */ }

@@ -195,12 +195,12 @@ void sub_14f2e00() { /* 0x14f2e00 */ }
 void sub_14f2f40() { /* 0x14f2f40 */ }
 void sub_14f3110() { /* 0x14f3110 */ }
 // sub_14f3140: implemented in prog/matched/main/
-void sub_14f3150() { /* 0x14f3150 */ }
-void sub_14f3170() { /* 0x14f3170 */ }
+// sub_14f3150: implemented in prog/matched/main/
+// sub_14f3170: implemented in prog/matched/main/
 void sub_14f3190() { /* 0x14f3190 */ }
 // sub_14f31b0: implemented in prog/matched/main/
-void sub_14f31c0() { /* 0x14f31c0 */ }
-void sub_14f31e0() { /* 0x14f31e0 */ }
+// sub_14f31c0: implemented in prog/matched/main/
+// sub_14f31e0: implemented in prog/matched/main/
 void sub_14f3200() { /* 0x14f3200 */ }
 void sub_14f3380() { /* 0x14f3380 */ }
 void sub_14f3500() { /* 0x14f3500 */ }
@@ -1095,12 +1095,12 @@ void sub_152fa80() { /* 0x152fa80 */ }
 void sub_152fb70() { /* 0x152fb70 */ }
 void sub_152fd50() { /* 0x152fd50 */ }
 // sub_152fd80: implemented in prog/matched/main/
-void sub_152fd90() { /* 0x152fd90 */ }
-void sub_152fdb0() { /* 0x152fdb0 */ }
+// sub_152fd90: implemented in prog/matched/main/
+// sub_152fdb0: implemented in prog/matched/main/
 void sub_152fdd0() { /* 0x152fdd0 */ }
 // sub_152fdf0: implemented in prog/matched/main/
-void sub_152fe00() { /* 0x152fe00 */ }
-void sub_152fe20() { /* 0x152fe20 */ }
+// sub_152fe00: implemented in prog/matched/main/
+// sub_152fe20: implemented in prog/matched/main/
 void TownmapView_4() { /* 0x152fe40 */ }
 void sub_1530150() { /* 0x1530150 */ }
 // sub_1530270: implemented in prog/matched/main/
@@ -1221,12 +1221,12 @@ void sub_1536940() { /* 0x1536940 */ }
 void sub_1536950() { /* 0x1536950 */ }
 void sub_1536a90() { /* 0x1536a90 */ }
 // sub_1536ab0: implemented in prog/matched/main/
-void sub_1536ac0() { /* 0x1536ac0 */ }
-void sub_1536ae0() { /* 0x1536ae0 */ }
+// sub_1536ac0: implemented in prog/matched/main/
+// sub_1536ae0: implemented in prog/matched/main/
 void sub_1536b00() { /* 0x1536b00 */ }
 // sub_1536b20: implemented in prog/matched/main/
-void sub_1536b30() { /* 0x1536b30 */ }
-void sub_1536b50() { /* 0x1536b50 */ }
+// sub_1536b30: implemented in prog/matched/main/
+// sub_1536b50: implemented in prog/matched/main/
 void ViewDetails_4() { /* 0x1536b70 */ }
 void sub_1537210() { /* 0x1537210 */ }
 // sub_15372c0: implemented in prog/matched/main/

@@ -140,8 +140,8 @@ void sub_cdcab0() { /* 0xcdcab0 */ }
 void sub_cdcb10() { /* 0xcdcb10 */ }
 void sub_cdccd0() { /* 0xcdccd0 */ }
 // sub_cdcda0: implemented in prog/matched/main/
-void sub_cdcdb0() { /* 0xcdcdb0 */ }
-void sub_cdcdd0() { /* 0xcdcdd0 */ }
+// sub_cdcdb0: implemented in prog/matched/main/
+// sub_cdcdd0: implemented in prog/matched/main/
 void sub_cdcdf0() { /* 0xcdcdf0 */ }
 // sub_cdce60: implemented in prog/matched/main/
 // sub_cdce70: implemented in prog/matched/main/
@@ -518,8 +518,8 @@ void Target() { /* 0xcf9ba0 */ }
 void Target_2() { /* 0xcfa220 */ }
 void sub_cfa340() { /* 0xcfa340 */ }
 // sub_cfa360: implemented in prog/matched/main/
-void sub_cfa370() { /* 0xcfa370 */ }
-void sub_cfa390() { /* 0xcfa390 */ }
+// sub_cfa370: implemented in prog/matched/main/
+// sub_cfa390: implemented in prog/matched/main/
 void sub_cfa4c0() { /* 0xcfa4c0 */ }
 void sub_cfa5b0() { /* 0xcfa5b0 */ }
 void sub_cfa5c0() { /* 0xcfa5c0 */ }

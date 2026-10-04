@@ -1,4 +1,4 @@
-/* sdk -- 1103 functions verified to match the original.
+/* sdk -- 1104 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -1132,6 +1132,16 @@ uint32_t sdk_f_3f2fa0() { return 2; }
 
 // sub_3f3250  (orig 0x3f3250, mov_ret)
 uint32_t sdk_f_3f3250() { return 0; }
+
+// sub_3f3290  (orig 0x3f3290, struct-copy)
+void sdk_f_3f3290(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)((char*)a0 + 24);
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 40);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
 
 // sub_3f3370  (orig 0x3f3370, mov_ret)
 uint32_t sdk_f_3f3370() { return 2; }

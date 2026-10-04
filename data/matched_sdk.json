@@ -38385,6 +38385,18 @@
    "src": "void f_3f49b0(void* a0, void* a1) { *(uint32_t*)((char*)(a1)) = *(uint32_t*)((char*)(a0) + 24); }\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "addr": 4141712,
+   "ident": "f_3f3290",
+   "module": "sdk",
+   "name": "sub_3f3290",
+   "shape": "struct-copy",
+   "sig": "PvS_",
+   "src": "void f_3f3290(void* a0, void* a1) {\n    struct u64x2 { uint64_t a, b; };\n    struct u64x2 s0 = *(struct u64x2*)((char*)a0 + 24);\n    uint64_t v1 = *(uint64_t*)((char*)a0 + 40);\n    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)(char*)a1 = s0.a;\n}\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
   }
  ]
 }

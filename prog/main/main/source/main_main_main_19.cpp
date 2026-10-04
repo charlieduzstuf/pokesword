@@ -139,8 +139,8 @@ void sub_13202b0() { /* 0x13202b0 */ }
 void sub_13203a0() { /* 0x13203a0 */ }
 void sub_1320570() { /* 0x1320570 */ }
 // sub_13205a0: implemented in prog/matched/main/
-void sub_13205b0() { /* 0x13205b0 */ }
-void sub_13205d0() { /* 0x13205d0 */ }
+// sub_13205b0: implemented in prog/matched/main/
+// sub_13205d0: implemented in prog/matched/main/
 void sub_13205f0() { /* 0x13205f0 */ }
 void OptionBar_11() { /* 0x1320670 */ }
 void sub_13209a0() { /* 0x13209a0 */ }

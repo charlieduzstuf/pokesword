@@ -192,3 +192,91 @@ family A is not hand-decompilable and the effort belongs elsewhere.
 Note that `copy-chain` and `copy2` already exist and handle the plain
 load-all-then-store-all case; what is missing is specifically the interleaved and
 zero-clearing behaviour above.
+
+## SOLVED: the generator exists, and it matched 278 bodies
+
+`tools/gen_struct_copy.py`. Offered 311, matched **278 byte-for-byte**, all of the
+`ldp ldr stp str ret` family. That is 17.47% -> 17.65% of the project.
+
+The two findings that made it work, both measured:
+
+### 1. A 16-byte _struct_ gives GPR `ldp`/`stp`. A vector type does not.
+
+The natural emission -- one assignment per field -- compiles to separate
+`ldr`/`str` pairs: Clang will not pair general-purpose registers for scalar
+copies at all, so every candidate had the wrong mnemonics.
+
+| formulation | result |
+|---|---|
+| scalar assignments | `ldr x8, [x0,#8] ; str x8, [x1,#8] ; ...` -- no pairing |
+| `u64 __attribute__((vector_size(16)))` | `ldr q0, [x0] ; dup v1.2d, ... ; ld1 ; stur q1` -- **NEON, further away** |
+| `struct u64x2 { uint64_t a, b; }` | `ldp x8, x9, [x0] ; stp x8, x9, [x1]` -- **what we want** |
+
+Only an aggregate makes Clang pair GPRs. The vector route is the obvious one to
+try first and it is a dead end.
+
+### 2. Clang canonicalises a shifted 16-byte store back into a contiguous copy.
+
+Given the build-the-value-then-store form, Clang re-laid the stores out as
+`stp x8, x9, [x1]` + `str x10, [x1, #0x10]` -- semantically identical to the
+original, different bytes. The original instead pairs registers `x9,x10`, which
+hold source offsets 8 and 16, into a store at *destination* offset 8.
+
+One `__asm__ __volatile__("" ::: "memory")` between the write groups stops the
+merge and reproduces the original exactly:
+
+```c
+void f(void* a0, void* a1) {
+    struct u64x2 t = *(struct u64x2*)a0;            /* ldp x8, x9, [x0]      */
+    uint64_t u = *(uint64_t*)((char*)a0 + 16);      /* ldr x10, [x0, #0x10]  */
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ t.b, u };
+                                                    /* stp x9, x10, [x1, #8] */
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)((char*)a1) = t.a;                  /* str x8, [x1]          */
+}
+```
+
+Same barrier device as the zero-store shapes above, and the 26 `setter-chain`
+bodies in `flag_fidelity.md`. It does nothing for instruction *selection* and
+everything for *scheduling*.
+
+### 3. Declare the struct **inside** the function, or the build fails
+
+The first version put `typedef unsigned long u64;` and `struct u64x2 {...};` at
+file scope in every body. All 278 candidates compiled and matched **in
+isolation** -- and then the real build failed, because `decomp_project` packs many
+bodies into one translation unit and each redeclared both.
+
+```
+struct u64x2 { u64 a, b; };
+            ^
+```
+
+A per-body compile cannot see this class of failure; there is nothing to collide
+with. Same lesson as the tail-call partitioning bug: verification that does not
+model the real build passes code the build rejects. A function-local struct has
+identical codegen and cannot collide.
+
+### What the shape census actually said
+
+The open question above framed this as 374 hard bodies. Measured, of the 375
+`struct-copy` bodies unmatched at the time:
+
+| | count |
+|---|---:|
+| no zero stores at all (plain copies) | 351 |
+| family B (zeros all after the last load) | 15 |
+| family A (zeros interleaved with loads) | 6 |
+| other | 3 |
+
+So 94% of the shape needs no barrier reasoning at all -- it is a copy, and the
+only hard part was `ldp`/`stp` formation. Family A is still untested, and at 6
+bodies it is not worth opening before the 351 were done.
+
+### Still unmatched after this
+
+- **28 bodies where the original does *not* pair** (`ldr str ldp ldp stp stp ret`,
+  14 of them). This generator forces a pair via the struct type; those need the
+  opposite, i.e. barriers *preventing* pairing. The same lever, turned around.
+- **64 declined** -- stack traffic (`stp x8, x9, [sp, #-0x10]!`), `ldur`/`stur`,
+  or zero-register pairs, which need the family-B recipe.
