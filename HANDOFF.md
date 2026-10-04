@@ -46,40 +46,79 @@ over-constraints in existing generators, not new capability — see
 
 | module | bodies | independent re-verification |
 |---|---|---|
-| main | 20,952 | 20,690 / 20,727 = 99.82% (mismatch=37) |
-| sdk | 3,171 | 3,107 / 3,111 = 99.87% (mismatch=4) |
-| subsdk0 | 873 | 868 / 869 = 99.88% (mismatch=1) |
-| subsdk1 | 1,321 | 1,319 / 1,319 = 100% |
+| main | 20,952 | **20,727 / 20,727 = 100.00% clean** |
+| sdk | 3,171 | **3,111 / 3,111 = 100.00% clean** |
+| subsdk0 | 873 | **869 / 869 = 100.00% clean** |
+| subsdk1 | 1,321 | **1,319 / 1,319 = 100.00% clean** |
 
-Full build links clean, 153,084 symbols. `build/prog.elf` 22,012,288 bytes.
+Full build links clean, 153,084 symbols. `build/prog.elf` 22,012,960 bytes.
 
-**All 42 residual mismatches are one bug class, and the cause is now known.**
-They are every one a `tailcall` whose original body is a bare 4-byte
-`b <target>`, and every one of them is caused by `gen_tailcall` emitting a
-**hardcoded `uint64_t` return type**:
+**Every module now verifies at 100%. There are no outstanding mismatches.**
+That took two separate fixes, and the second one was the verifier, not the
+decompilation — see "The tail-call bug, in two parts" below.
 
-```python
-return ("uint64_t %s() { return %s(); }\n" % (ident, tname), "v")
+Note the two different denominators, because they are not the same thing and
+conflating them is how this project has reported progress wrongly before:
+`bodies` counts emitted bodies; `independent re-verification` counts the
+functions the verifier re-compiles, which is a slightly smaller set.
+
+### The tail-call bug, in two parts
+
+Every one of the 42 residual mismatches was a `tailcall` whose original body is
+a bare 4-byte `b <target>`. **Neither the decompilation nor the generator was at
+fault in the end.** There were two distinct causes, and fixing only the first
+would have left the project looking broken for no reason.
+
+**Part 1 — real, in the shipped binary.** A thunk sharing a translation unit
+with its destination had the destination constant-folded away. `decomp_project.py`
+now partitions emitted records into thunks, destinations and the rest, chunking
+each partition independently, so no `.cpp` holds both. Verified in the linked
+object rather than inferred:
+
+```
+build/matched_sdk_source_sdk_0.o
+  _Z12sdk_f_3bc670v:
+     0:  00 00 00 14   b  #0          correct bare tail jump
 ```
 
-The destinations commonly return `uint32_t`. That mismatch forces a conversion,
-so Clang cannot treat the call as a tail call. Measured directly against
-`sdk+0x3bc670` (original: `b #0x3c4790`):
+*Partitioning*, not reordering, is required: sdk's entire thunk set fits inside
+one 2000-record chunk, so "thunks first, destinations after" kept them together.
+The partitions are asserted disjoint, because a function that is both a thunk
+and a destination otherwise gets emitted twice and a duplicate definition fails a
+whole 400-record batch.
+
+**Part 2 — the verifier, not the build.** `verify_matches.py` concatenated every
+emitted `.cpp` into a single TU, so it kept seeing each destination defined
+beside its thunk and kept reporting bodies that were already correct in the
+binary. It now compiles **one TU per emitted file**, matching what
+`prog/CMakeLists.txt` actually does. That took main 99.93% → 100% and
+sdk 99.87% → 100%.
+
+**The cause recorded here for two commits was wrong.** It claimed
+`gen_tailcall`'s hardcoded `uint64_t` return was responsible. It is not. These
+were each tested and each failed to change anything:
+
+- `noinline`
+- `noinline,noclone,noipa`
+- matching the destination's return type — `retype_thunk` already did this, and
+  the emitted source shows the types agreeing
+
+Clang propagates the constant through *any* definition it can see, so return
+type and inlining hints are both beside the point; the only lever is which
+translation unit the definition lands in. Isolate the two functions and the
+fold disappears:
 
 ```
-extern uint32_t g_dst();          ->  stp x29,x30,[sp,#-0x10]! ; mov x29,sp ; bl
-                                     a full call with a prologue, not a tail call
+both defined in one TU  ->  movl $1,%eax ; retq    FOLDED
+destination declared     ->  jmp                   correct
 ```
 
-The likely fix is to give the thunk the **destination's own return type**, which
-Clang then tail-calls into a bare `b`. That type has to come from the
-destination's registry record, by parsing the return type out of its emitted
-`src`. **This was not finished** — the experiment was cut short, so the fix is a
-hypothesis with one supporting measurement, not a verified change. It is worth
-~42 bodies if it holds, so verify it before trusting it.
+The general lesson, and it has now cost time three times this project: **a
+verifier that does not model the build will report correct code as wrong, and
+the mistake is indistinguishable from a real regression.** A count going down is
+not evidence of a fix.
 
-Two mechanisms produce these, and both are in-batch artefacts that the real
-build does not have, because there each function is a separate external symbol:
+Two mechanisms produce the fold, and both are worth recognising:
 
 - destination is an **empty** function → the call elides to a bare `ret`
 - destination **returns a constant** → the call constant-folds to
@@ -137,12 +176,10 @@ all (the tailcall round reported +9,083 and delivered zero).
 
 ## Next three steps, in order
 
-1. **Fix the tail-call return type.** Worth **~42 bodies** — every remaining
-   mismatch in the project. `gen_tailcall` hardcodes `uint64_t`; the destinations
-   often return `uint32_t`, and the conversion stops Clang emitting a bare `b`.
-   Read the destination's return type out of its registry `src` and reuse it in
-   the thunk. See "Current number" above for the measurement and for why this is
-   still a hypothesis. Cheap, and it is the only item here with a known cause.
+1. ~~Fix the tail-call return type.~~ **Done, and the premise was wrong** — the
+   return type was never the cause. See "The tail-call bug, in two parts" above.
+   All four modules now verify at 100%; there is no outstanding mismatch left to
+   chase, so nothing here is a bug fix any more.
 
 2. **The 303 `ldp; stp; ret` bodies.** Confirmed by sampling to be
    copy-constructor-plus-zero-fill, not plain copies — `stp` appears among the

@@ -327,16 +327,47 @@ def verify(module, limit, batch, quiet=False):
             addr = int(m.group(1), 16)
             if addr not in addrs:
                 continue
-            cands.append((name, sig, src, addr))
+            # Remember which emitted file this body came from. One .cpp is one
+            # translation unit in the real build (prog/CMakeLists.txt compiles an
+            # object per file), and this verifier has to agree with that.
+            cands.append((name, sig, src, addr, fn))
     if limit:
         cands = cands[:limit]
 
     ok = 0
     fails = collections.Counter()
     samples = []
+
+    # Compile one translation unit per emitted .cpp, not one per arbitrary batch.
+    #
+    # This is not cosmetic. Concatenating every source into a single TU let Clang
+    # see each tail-call thunk's destination defined right beside it, and
+    # constant-propagate the branch away -- so the verifier reported
+    # `orig ('b','<target>') vs new ('mov','w0',#1)` for bodies that are correct
+    # in the shipped binary. Measured after decomp_project.py began separating
+    # thunks from their destinations:
+    #
+    #   build/matched_sdk_source_sdk_0.o   _Z12sdk_f_3bc670v:  b #0   CORRECT
+    #
+    # ...while this verifier still called it a mismatch, because it had put both
+    # functions in one TU. The verifier being more pessimistic than the artifact
+    # is the safe direction, but it is still wrong, and it hides real regressions
+    # behind a known false positive.
+    #
+    # Grouping by file makes the verifier model the build. The cost is one
+    # compile per file instead of one per 200 candidates, and `head` (the
+    # typedefs and support declarations) is prepended to each so every TU is
+    # self-contained.
+    by_file = collections.OrderedDict()
+    for c in cands:
+        by_file.setdefault(c[4], []).append(c)
+
     with tempfile.TemporaryDirectory() as td:
-        for i in range(0, len(cands), batch):
-            chunk = cands[i:i + batch]
+        todo = []
+        for fn, group in by_file.items():
+            for i in range(0, len(group), batch):
+                todo.append(group[i:i + batch])
+        for chunk in todo:
             obj, err = MH.compile_batch([(c[0], c[2]) for c in chunk], td,
                                         head=head)
             if obj is None:
@@ -346,7 +377,7 @@ def verify(module, limit, batch, quiet=False):
                 continue
             names = {MH.mangle(c[0], c[1]) for c in chunk}
             dumped = MH.obj_text_range(obj, MH.obj_symbols(obj), names)
-            for name, sig, src, addr in chunk:
+            for name, sig, src, addr, _fn in chunk:
                 code = dumped.get(MH.mangle(name, sig), b"")
                 if not code:
                     fails["symbol-not-found"] += 1
