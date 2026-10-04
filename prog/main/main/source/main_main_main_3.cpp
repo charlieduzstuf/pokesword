@@ -1324,7 +1324,7 @@ void sub_4a0100() { /* 0x4a0100 */ }
 void sub_4a0170() { /* 0x4a0170 */ }
 void sub_4a0190() { /* 0x4a0190 */ }
 void sub_4a02c0() { /* 0x4a02c0 */ }
-void sub_4a0530() { /* 0x4a0530 */ }
+// sub_4a0530: implemented in prog/matched/main/
 void GPUGlareDef() { /* 0x4a0540 */ }
 void sub_4a0680() { /* 0x4a0680 */ }
 void GPUGlareDef_2() { /* 0x4a06e0 */ }

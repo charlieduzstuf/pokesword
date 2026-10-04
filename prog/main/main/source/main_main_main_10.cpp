@@ -1965,7 +1965,7 @@ void sub_b75230() { /* 0xb75230 */ }
 void sub_b75330() { /* 0xb75330 */ }
 void sub_b75620() { /* 0xb75620 */ }
 void sub_b75630() { /* 0xb75630 */ }
-void sub_b75640() { /* 0xb75640 */ }
+// sub_b75640: implemented in prog/matched/main/
 void sub_b75660() { /* 0xb75660 */ }
 void sub_b756b0() { /* 0xb756b0 */ }
 void sub_b75860() { /* 0xb75860 */ }

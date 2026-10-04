@@ -2342,7 +2342,7 @@ void sub_ea4590() { /* 0xea4590 */ }
 // sub_ea46a0: implemented in prog/matched/main/
 // sub_ea46b0: implemented in prog/matched/main/
 void sub_ea46c0() { /* 0xea46c0 */ }
-void sub_ea4720() { /* 0xea4720 */ }
+// sub_ea4720: implemented in prog/matched/main/
 void sub_ea4740() { /* 0xea4740 */ }
 // sub_ea4750: implemented in prog/matched/main/
 void sub_ea4760() { /* 0xea4760 */ }
@@ -2609,7 +2609,7 @@ void sub_eaf360() { /* 0xeaf360 */ }
 // sub_eaf470: implemented in prog/matched/main/
 // sub_eaf480: implemented in prog/matched/main/
 void WK_EV_REAL_DAYS() { /* 0xeaf490 */ }
-void sub_eaf4d0() { /* 0xeaf4d0 */ }
+// sub_eaf4d0: implemented in prog/matched/main/
 void sub_eaf4f0() { /* 0xeaf4f0 */ }
 void sub_eaf520() { /* 0xeaf520 */ }
 void sub_eaf660() { /* 0xeaf660 */ }

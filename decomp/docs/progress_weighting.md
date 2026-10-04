@@ -1,16 +1,16 @@
 # Byte-weighted vs function-count progress
 
-decomp.dev reports **0.54%**. This project reports **17.70%**. Both are correct
+decomp.dev reports **0.54%**. This project reports **17.78%**. Both are correct
 and they measure different things.
 
 ## The arithmetic
 
 ```
 total_code            38,172,368 bytes   (36.4 MB)
-matched_code             206,244 bytes
-matched_code_percent          0.54%   <-- decomp.dev's headline
+matched_code             209,592 bytes
+matched_code_percent          0.55%   <-- decomp.dev's headline
 
-functions matched       26,911 / 152,062 = 17.70%   <-- this project's headline
+functions matched       27,040 / 152,062 = 17.78%   <-- this project's headline
 ```
 
 The 0.52% is not a bug and not a mis-parse. objdiff's `Measures` carries both,
@@ -18,9 +18,9 @@ and the report populates both:
 
 | field | value | meaning |
 |---|---:|---|
-| `matched_functions_percent` | 17.70% | count-weighted |
+| `matched_functions_percent` | 17.78% | count-weighted |
 | `matched_code_percent` | 0.52% | byte-weighted |
-| `fuzzy_match_percent` | 17.70% | same as count here; this project records no partial credit |
+| `fuzzy_match_percent` | 17.78% | same as count here; this project records no partial credit |
 
 decomp.dev's headline badge is the byte-weighted one. That is the objdiff
 convention and it is what comparable projects (OGSW and others) show, so it is
@@ -100,7 +100,7 @@ The largest branch-free unmatched bodies, for completeness:
 | 3,012 B | `main@0xc5c850` | 753 |
 
 All nine together are 30,764 bytes — **0.08%** of the 38 MB. Matching every one
-of them would move the decomp.dev badge from 0.54% to 0.62%.
+of them would move the decomp.dev badge from 0.55% to 0.63%.
 
 That is the honest arithmetic of this metric. The accessor work that produced the
 count gains is worth doing and has been done; the byte figure is a different

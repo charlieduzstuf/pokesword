@@ -263,7 +263,7 @@ void f_TEX00() { /* 0x16650 */ }
 // sub_16990: implemented in prog/matched/subsdk1/
 void sub_169a0() { /* 0x169a0 */ }
 void sub_16a90() { /* 0x16a90 */ }
-void sub_17170() { /* 0x17170 */ }
+// sub_17170: implemented in prog/matched/subsdk1/
 void sub_17190() { /* 0x17190 */ }
 void sub_171b0() { /* 0x171b0 */ }
 void sub_17210_subsdk1_17210() { /* 0x17210 */ }
@@ -3397,7 +3397,7 @@ void sub_152270() { /* 0x152270 */ }
 // sub_152370: implemented in prog/matched/subsdk1/
 // sub_152380: implemented in prog/matched/subsdk1/
 // sub_152390: implemented in prog/matched/subsdk1/
-void sub_1523a0() { /* 0x1523a0 */ }
+// sub_1523a0: implemented in prog/matched/subsdk1/
 // sub_1523b0: implemented in prog/matched/subsdk1/
 void sub_1523c0() { /* 0x1523c0 */ }
 void sub_1523d0() { /* 0x1523d0 */ }

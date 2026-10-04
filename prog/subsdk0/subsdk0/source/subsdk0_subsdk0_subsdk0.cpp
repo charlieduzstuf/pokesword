@@ -174,7 +174,7 @@ void sub_55d0_subsdk0_55d0() { /* 0x55d0 */ }
 void sub_55e0_subsdk0_55e0() { /* 0x55e0 */ }
 void sub_5600() { /* 0x5600 */ }
 void AvOffsetDiffCountLt1Mb() { /* 0x5650 */ }
-void sub_56f0_subsdk0_56f0() { /* 0x56f0 */ }
+// sub_56f0_subsdk0_56f0: implemented in prog/matched/subsdk0/
 void sub_5700() { /* 0x5700 */ }
 void sub_5730() { /* 0x5730 */ }
 void sub_5770_subsdk0_5770() { /* 0x5770 */ }
@@ -750,7 +750,7 @@ void sub_23860() { /* 0x23860 */ }
 void sub_238b0() { /* 0x238b0 */ }
 void sub_23900() { /* 0x23900 */ }
 void sub_23a10() { /* 0x23a10 */ }
-void sub_23a60() { /* 0x23a60 */ }
+// sub_23a60: implemented in prog/matched/subsdk0/
 void sub_23a80() { /* 0x23a80 */ }
 void sub_23ac0() { /* 0x23ac0 */ }
 void sub_23ae0_subsdk0_23ae0() { /* 0x23ae0 */ }
@@ -1923,7 +1923,7 @@ void DEBUGGING_MALLOC_ERROR_freeing_unmalloced_memory_2() { /* 0xc03d0 */ }
 void sub_c04d0() { /* 0xc04d0 */ }
 void sub_c0520() { /* 0xc0520 */ }
 void sub_c09d0() { /* 0xc09d0 */ }
-void sub_c1330() { /* 0xc1330 */ }
+// sub_c1330: implemented in prog/matched/subsdk0/
 void sub_c1340() { /* 0xc1340 */ }
 void sub_c1470() { /* 0xc1470 */ }
 void sub_c1580() { /* 0xc1580 */ }
@@ -3334,10 +3334,10 @@ void sub_1263a0() { /* 0x1263a0 */ }
 void sub_126470() { /* 0x126470 */ }
 // sub_126520: implemented in prog/matched/subsdk0/
 // sub_126530: implemented in prog/matched/subsdk0/
-void sub_126540() { /* 0x126540 */ }
+// sub_126540: implemented in prog/matched/subsdk0/
 // sub_126550: implemented in prog/matched/subsdk0/
 // sub_126560: implemented in prog/matched/subsdk0/
-void sub_126570() { /* 0x126570 */ }
+// sub_126570: implemented in prog/matched/subsdk0/
 void sub_126580() { /* 0x126580 */ }
 // sub_1267d0: implemented in prog/matched/subsdk0/
 void sub_1267e0() { /* 0x1267e0 */ }

@@ -3259,7 +3259,7 @@ void sub_15bb6c0() { /* 0x15bb6c0 */ }
 void sub_15bb700() { /* 0x15bb700 */ }
 void sub_15bb7c0() { /* 0x15bb7c0 */ }
 void sub_15bb850() { /* 0x15bb850 */ }
-void sub_15bb880() { /* 0x15bb880 */ }
+// sub_15bb880: implemented in prog/matched/main/
 void sub_15bb890() { /* 0x15bb890 */ }
 // sub_15bb900: implemented in prog/matched/main/
 void sub_15bb910() { /* 0x15bb910 */ }

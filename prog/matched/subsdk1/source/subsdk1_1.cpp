@@ -1,4 +1,4 @@
-/* subsdk1 -- 1278 functions verified to match the original.
+/* subsdk1 -- 1280 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -144,6 +144,24 @@ uint32_t subsdk1_f_16980() { return 1; }
 
 // sub_16990  (orig 0x16990, mov_ret)
 uint32_t subsdk1_f_16990() { return 1; }
+
+// sub_17170  (orig 0x17170, setter-chain-zero)
+void subsdk1_f_17170(void* a0) {
+    struct u64x2 { uint64_t a, b; };
+    *(uint32_t*)((char*)a0 + 72) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)((char*)a0 + 64) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a0 = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)((char*)a0 + 56) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 40) = (struct u64x2){ 0, 0 };
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 24) = (struct u64x2){ 0, 0 };
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 8) = (struct u64x2){ 0, 0 };
+}
 
 // sub_17640  (orig 0x17640, getter)
 uint64_t subsdk1_f_17640(void* a0) { return *(uint64_t*)((char*)(a0) + 264); }
@@ -1662,6 +1680,15 @@ uint32_t subsdk1_f_152380() { return 0; }
 
 // sub_152390  (orig 0x152390, mov_ret)
 uint32_t subsdk1_f_152390() { return 0; }
+
+// sub_1523a0  (orig 0x1523a0, setter-chain-zero)
+void subsdk1_f_1523a0(uint64_t unused0, uint64_t unused1, uint64_t unused2, void* a3, void* a4, void* a5) {
+    *(uint32_t*)(char*)a5 = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)(char*)a4 = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)(char*)a3 = 0;
+}
 
 // sub_1523b0  (orig 0x1523b0, mov_ret)
 uint32_t subsdk1_f_1523b0() { return 0; }

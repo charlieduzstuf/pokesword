@@ -1752,7 +1752,7 @@ void sub_5c6460() { /* 0x5c6460 */ }
 void sub_5c6490() { /* 0x5c6490 */ }
 void sub_5c6540() { /* 0x5c6540 */ }
 void sub_5c6830() { /* 0x5c6830 */ }
-void sub_5c6870() { /* 0x5c6870 */ }
+// sub_5c6870: implemented in prog/matched/main/
 void sub_5c6880() { /* 0x5c6880 */ }
 void sub_5c68f0() { /* 0x5c68f0 */ }
 // sub_5c6930: implemented in prog/matched/main/

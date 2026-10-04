@@ -177,7 +177,7 @@ void sub_65eae0() { /* 0x65eae0 */ }
 void sub_65eba0() { /* 0x65eba0 */ }
 void no_name() { /* 0x65ed00 */ }
 void sub_65eda0() { /* 0x65eda0 */ }
-void sub_65edc0() { /* 0x65edc0 */ }
+// sub_65edc0: implemented in prog/matched/main/
 // sub_65edd0: implemented in prog/matched/main/
 // sub_65ede0: implemented in prog/matched/main/
 void sub_65edf0() { /* 0x65edf0 */ }

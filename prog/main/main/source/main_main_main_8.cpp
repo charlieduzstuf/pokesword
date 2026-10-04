@@ -255,14 +255,14 @@ void sub_8ac010() { /* 0x8ac010 */ }
 void sub_8ac060() { /* 0x8ac060 */ }
 void sub_8ac0d0() { /* 0x8ac0d0 */ }
 void sub_8ac140() { /* 0x8ac140 */ }
-void sub_8ac1b0() { /* 0x8ac1b0 */ }
+// sub_8ac1b0: implemented in prog/matched/main/
 void sub_8ac1f0() { /* 0x8ac1f0 */ }
 void sub_8ac230() { /* 0x8ac230 */ }
 void sub_8ac350() { /* 0x8ac350 */ }
 void sub_8ac420() { /* 0x8ac420 */ }
 void sub_8ac500() { /* 0x8ac500 */ }
 void sub_8ac590() { /* 0x8ac590 */ }
-void sub_8ac5d0() { /* 0x8ac5d0 */ }
+// sub_8ac5d0: implemented in prog/matched/main/
 void sub_8ac5f0() { /* 0x8ac5f0 */ }
 // sub_8ac690: implemented in prog/matched/main/
 // sub_8ac6a0: implemented in prog/matched/main/

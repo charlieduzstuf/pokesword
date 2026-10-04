@@ -1415,7 +1415,7 @@ void sub_34db80() { /* 0x34db80 */ }
 void sub_34dbf0() { /* 0x34dbf0 */ }
 // sub_34dc00: implemented in prog/matched/main/
 void sub_34dc10() { /* 0x34dc10 */ }
-void sub_34dc20() { /* 0x34dc20 */ }
+// sub_34dc20: implemented in prog/matched/main/
 // sub_34dc40: implemented in prog/matched/main/
 void sub_34dc50() { /* 0x34dc50 */ }
 // sub_34dc90: implemented in prog/matched/main/
@@ -2022,7 +2022,7 @@ void sub_375950() { /* 0x375950 */ }
 void sub_376790() { /* 0x376790 */ }
 void sub_376b40() { /* 0x376b40 */ }
 void sub_377500() { /* 0x377500 */ }
-void sub_377570() { /* 0x377570 */ }
+// sub_377570: implemented in prog/matched/main/
 // sub_377580: implemented in prog/matched/main/
 void sub_377590() { /* 0x377590 */ }
 void sub_3775f0() { /* 0x3775f0 */ }
@@ -2295,7 +2295,7 @@ void sub_38a240() { /* 0x38a240 */ }
 void sub_38a3b0() { /* 0x38a3b0 */ }
 void sub_38a3c0() { /* 0x38a3c0 */ }
 void sub_38a420() { /* 0x38a420 */ }
-void sub_38a6f0() { /* 0x38a6f0 */ }
+// sub_38a6f0: implemented in prog/matched/main/
 // sub_38a700: implemented in prog/matched/main/
 void sub_38a710() { /* 0x38a710 */ }
 void sub_38a770() { /* 0x38a770 */ }
@@ -2531,7 +2531,7 @@ void sub_397350() { /* 0x397350 */ }
 void sub_3973d0() { /* 0x3973d0 */ }
 void sub_397450() { /* 0x397450 */ }
 void sub_3974d0() { /* 0x3974d0 */ }
-void sub_397550() { /* 0x397550 */ }
+// sub_397550: implemented in prog/matched/main/
 void sub_397570() { /* 0x397570 */ }
 void sub_3975b0() { /* 0x3975b0 */ }
 void sub_397630() { /* 0x397630 */ }
@@ -2693,7 +2693,7 @@ void sub_3a5410() { /* 0x3a5410 */ }
 void sub_3a5480() { /* 0x3a5480 */ }
 void sub_3a55d0() { /* 0x3a55d0 */ }
 void sub_3a5660() { /* 0x3a5660 */ }
-void sub_3a56f0() { /* 0x3a56f0 */ }
+// sub_3a56f0: implemented in prog/matched/main/
 // sub_3a5700: implemented in prog/matched/main/
 void sub_3a5710() { /* 0x3a5710 */ }
 void sub_3a5800() { /* 0x3a5800 */ }
@@ -2917,7 +2917,7 @@ void sub_3baa60() { /* 0x3baa60 */ }
 void sub_3baa80() { /* 0x3baa80 */ }
 void sub_3baab0() { /* 0x3baab0 */ }
 void sub_3bab30() { /* 0x3bab30 */ }
-void sub_3babc0() { /* 0x3babc0 */ }
+// sub_3babc0: implemented in prog/matched/main/
 // sub_3babe0: implemented in prog/matched/main/
 void sub_3babf0() { /* 0x3babf0 */ }
 void sub_3bac50() { /* 0x3bac50 */ }

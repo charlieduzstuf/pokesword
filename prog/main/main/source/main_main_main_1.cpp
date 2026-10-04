@@ -318,16 +318,16 @@ void sub_19ef80() { /* 0x19ef80 */ }
 void sub_19efa0() { /* 0x19efa0 */ }
 // sub_19eff0: implemented in prog/matched/main/
 // sub_19f000: implemented in prog/matched/main/
-void sub_19f010() { /* 0x19f010 */ }
+// sub_19f010: implemented in prog/matched/main/
 void sub_19f030() { /* 0x19f030 */ }
 void NonTrackedAlloc_106() { /* 0x19f0d0 */ }
 void NonTrackedAlloc_107() { /* 0x19f280 */ }
 void sub_19f390() { /* 0x19f390 */ }
 void sub_19f440() { /* 0x19f440 */ }
-void sub_19f4a0() { /* 0x19f4a0 */ }
+// sub_19f4a0: implemented in prog/matched/main/
 void sub_19f4c0() { /* 0x19f4c0 */ }
 void sub_19f500() { /* 0x19f500 */ }
-void sub_19f550() { /* 0x19f550 */ }
+// sub_19f550: implemented in prog/matched/main/
 void sub_19f570() { /* 0x19f570 */ }
 void sub_19f5c0() { /* 0x19f5c0 */ }
 void sub_19f660() { /* 0x19f660 */ }
@@ -367,7 +367,7 @@ void GuTriangleMesh_2() { /* 0x1a0460 */ }
 void sub_1a0500() { /* 0x1a0500 */ }
 void GuTriangleMesh_3() { /* 0x1a0540 */ }
 void GuTriangleMesh_4() { /* 0x1a0580 */ }
-void sub_1a0600() { /* 0x1a0600 */ }
+// sub_1a0600: implemented in prog/matched/main/
 void sub_1a0620() { /* 0x1a0620 */ }
 void NonTrackedAlloc_109() { /* 0x1a06a0 */ }
 void sub_1a08f0() { /* 0x1a08f0 */ }
@@ -2655,7 +2655,7 @@ void NonTrackedAlloc_131() { /* 0x2989d0 */ }
 void sub_298de0() { /* 0x298de0 */ }
 void NonTrackedAlloc_132() { /* 0x298f00 */ }
 void PsArray_182() { /* 0x2991a0 */ }
-void sub_299330() { /* 0x299330 */ }
+// sub_299330: implemented in prog/matched/main/
 void sub_299340() { /* 0x299340 */ }
 void sub_299430() { /* 0x299430 */ }
 void sub_2994e0() { /* 0x2994e0 */ }
@@ -3048,7 +3048,7 @@ void PsArray_196() { /* 0x2b1fd0 */ }
 void PsArray_197() { /* 0x2b20e0 */ }
 void PsArray_198() { /* 0x2b21f0 */ }
 void sub_2b2300() { /* 0x2b2300 */ }
-void sub_2b2320() { /* 0x2b2320 */ }
+// sub_2b2320: implemented in prog/matched/main/
 void sub_2b2330() { /* 0x2b2330 */ }
 void sub_2b23b0() { /* 0x2b23b0 */ }
 void sub_2b2510() { /* 0x2b2510 */ }
@@ -3307,7 +3307,7 @@ void sub_2c1530() { /* 0x2c1530 */ }
 void sub_2c1560() { /* 0x2c1560 */ }
 void sub_2c1620() { /* 0x2c1620 */ }
 void sub_2c16f0() { /* 0x2c16f0 */ }
-void sub_2c1710() { /* 0x2c1710 */ }
+// sub_2c1710: implemented in prog/matched/main/
 void sub_2c1730() { /* 0x2c1730 */ }
 void sub_2c1850() { /* 0x2c1850 */ }
 void sub_2c1930() { /* 0x2c1930 */ }

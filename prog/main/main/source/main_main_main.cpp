@@ -440,7 +440,7 @@ void PsArray_20() { /* 0x200f0 */ }
 void sub_202c0() { /* 0x202c0 */ }
 // sub_202e0: implemented in prog/matched/main/
 void sub_202f0() { /* 0x202f0 */ }
-void sub_20310() { /* 0x20310 */ }
+// sub_20310: implemented in prog/matched/main/
 void sub_20320() { /* 0x20320 */ }
 void sub_20510() { /* 0x20510 */ }
 void sub_20560() { /* 0x20560 */ }
@@ -767,7 +767,7 @@ void sub_3f930() { /* 0x3f930 */ }
 // sub_3f9e0: implemented in prog/matched/main/
 // sub_3f9f0: implemented in prog/matched/main/
 // sub_3fa00: implemented in prog/matched/main/
-void sub_3fa10() { /* 0x3fa10 */ }
+// sub_3fa10: implemented in prog/matched/main/
 // sub_3fa30: implemented in prog/matched/main/
 void NonTrackedAlloc_31() { /* 0x3fa40 */ }
 void sub_3fb90() { /* 0x3fb90 */ }

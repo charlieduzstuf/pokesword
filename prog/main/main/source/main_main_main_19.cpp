@@ -1533,7 +1533,7 @@ void sub_1370850() { /* 0x1370850 */ }
 void sub_1370870() { /* 0x1370870 */ }
 void sub_13708c0() { /* 0x13708c0 */ }
 void sub_1370970() { /* 0x1370970 */ }
-void sub_1370980() { /* 0x1370980 */ }
+// sub_1370980: implemented in prog/matched/main/
 void PokeCampSave_NPCKey_() { /* 0x13709a0 */ }
 void PokeCampSave_NPCKey__2() { /* 0x1370c50 */ }
 void PokeCampSave_NPCKey__3() { /* 0x1370f00 */ }

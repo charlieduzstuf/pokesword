@@ -2367,11 +2367,11 @@ void sub_7e9860() { /* 0x7e9860 */ }
 void sub_7e98a0() { /* 0x7e98a0 */ }
 void sub_7e9910() { /* 0x7e9910 */ }
 void sub_7e9940() { /* 0x7e9940 */ }
-void sub_7e9970() { /* 0x7e9970 */ }
+// sub_7e9970: implemented in prog/matched/main/
 // sub_7e9990: implemented in prog/matched/main/
 void sub_7e99b0() { /* 0x7e99b0 */ }
 // sub_7e99e0: implemented in prog/matched/main/
-void sub_7e99f0() { /* 0x7e99f0 */ }
+// sub_7e99f0: implemented in prog/matched/main/
 void sub_7e9a00() { /* 0x7e9a00 */ }
 void sub_7e9a10() { /* 0x7e9a10 */ }
 void sub_7e9a20() { /* 0x7e9a20 */ }
@@ -2893,9 +2893,9 @@ void sub_7fc160() { /* 0x7fc160 */ }
 // sub_7fc170: implemented in prog/matched/main/
 // sub_7fc180: implemented in prog/matched/main/
 void sub_7fc190() { /* 0x7fc190 */ }
-void sub_7fc1c0() { /* 0x7fc1c0 */ }
+// sub_7fc1c0: implemented in prog/matched/main/
 // sub_7fc1e0: implemented in prog/matched/main/
-void sub_7fc1f0() { /* 0x7fc1f0 */ }
+// sub_7fc1f0: implemented in prog/matched/main/
 void sub_7fc210() { /* 0x7fc210 */ }
 void sub_7fc230() { /* 0x7fc230 */ }
 // sub_7fc2e0: implemented in prog/matched/main/
@@ -2992,7 +2992,7 @@ void sub_7ff280() { /* 0x7ff280 */ }
 void sub_7ff2a0() { /* 0x7ff2a0 */ }
 void sub_7ff320() { /* 0x7ff320 */ }
 void sub_7ff3a0() { /* 0x7ff3a0 */ }
-void sub_7ff3e0() { /* 0x7ff3e0 */ }
+// sub_7ff3e0: implemented in prog/matched/main/
 void sub_7ff410() { /* 0x7ff410 */ }
 void sub_7ff460() { /* 0x7ff460 */ }
 void sub_7ff480() { /* 0x7ff480 */ }
@@ -3048,7 +3048,7 @@ void sub_800480() { /* 0x800480 */ }
 void sub_8004b0() { /* 0x8004b0 */ }
 void sub_8004d0() { /* 0x8004d0 */ }
 void sub_800550() { /* 0x800550 */ }
-void sub_8005a0() { /* 0x8005a0 */ }
+// sub_8005a0: implemented in prog/matched/main/
 // sub_8005e0: implemented in prog/matched/main/
 void sub_800600() { /* 0x800600 */ }
 void sub_800610() { /* 0x800610 */ }
@@ -3183,8 +3183,8 @@ void sub_803a70() { /* 0x803a70 */ }
 void sub_803a90() { /* 0x803a90 */ }
 void sub_803b90() { /* 0x803b90 */ }
 void sub_803c00() { /* 0x803c00 */ }
-void sub_803c60() { /* 0x803c60 */ }
-void sub_803c70() { /* 0x803c70 */ }
+// sub_803c60: implemented in prog/matched/main/
+// sub_803c70: implemented in prog/matched/main/
 void sub_803c80() { /* 0x803c80 */ }
 void sub_803cb0() { /* 0x803cb0 */ }
 void sub_803ce0() { /* 0x803ce0 */ }

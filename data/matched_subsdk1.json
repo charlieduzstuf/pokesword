@@ -16225,6 +16225,30 @@
    "size": 20,
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "addr": 94576,
+   "ident": "f_17170",
+   "module": "subsdk1",
+   "name": "sub_17170",
+   "shape": "setter-chain-zero",
+   "sig": "Pv",
+   "src": "void f_17170(void* a0) {\n    struct u64x2 { uint64_t a, b; };\n    *(uint32_t*)((char*)a0 + 72) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)((char*)a0 + 64) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)(char*)a0 = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint32_t*)((char*)a0 + 56) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(struct u64x2*)((char*)a0 + 40) = (struct u64x2){ 0, 0 };\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(struct u64x2*)((char*)a0 + 24) = (struct u64x2){ 0, 0 };\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(struct u64x2*)((char*)a0 + 8) = (struct u64x2){ 0, 0 };\n}\n",
+   "size": 32,
+   "orig_insns": 8,
+   "new_insns": 8
+  },
+  {
+   "addr": 1385376,
+   "ident": "f_1523a0",
+   "module": "subsdk1",
+   "name": "sub_1523a0",
+   "shape": "setter-chain-zero",
+   "sig": "mmmPvS_S_",
+   "src": "void f_1523a0(uint64_t unused0, uint64_t unused1, uint64_t unused2, void* a3, void* a4, void* a5) {\n    *(uint32_t*)(char*)a5 = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint32_t*)(char*)a4 = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint32_t*)(char*)a3 = 0;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }
