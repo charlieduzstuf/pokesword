@@ -175,6 +175,9 @@ all (the tailcall round reported +9,083 and delivered zero).
 
 | file | what it settles |
 |---|---|
+| `tools/gen_struct_copy.py` | 278 bodies; a 16-byte **struct** forces `ldp`/`stp`, a barrier pins the order |
+| `tools/gen_compare_pred.py` | 71 bodies; cset condition picks the operator *and* the signedness |
+| `tools/gen_zero_fill.py` | 129 bodies at 100% yield; register class picks the store width |
 | `decomp/docs/flag_fidelity.md` | **the 26 bodies that only matched under the wrong flags** — the worst bug here, because it was invisible |
 | `decomp/docs/straight_line.md` | the generic fallback: 84 candidates, 0 matches, and why the "42 of 84" figure was wrong |
 | `decomp/docs/remaining.md` | **what is left and what blocks it** — read this next |
@@ -189,33 +192,69 @@ all (the tailcall round reported +9,083 and delivered zero).
 
 ## Next three steps, in order
 
-1. ~~Fix the tail-call return type.~~ **Done, and the premise was wrong** — the
-   return type was never the cause. See "The tail-call bug, in two parts" above.
-   All four modules now verify at 100%; there is no outstanding mismatch left to
-   chase, so nothing here is a bug fix any more.
+1. ~~`compare`, `struct-copy`, `setter-chain`.~~ **All three done** — three new
+   generators, **+478 bodies, 17.47% -> 17.78%**, in one session:
 
-2. **`compare`: 393 unmatched bodies, 3 generated.** The most promising target,
-   because that ratio is the `indexed-getter` signature — a registered generator
-   holding a large population and producing almost nothing. The declines cluster
-   into flag-test families (`ldr ; ldrb ; cmp ; cset`, `ldr ; ldr ; cmp ; cset`,
-   `ldr ; sub ; cmp ; cset`, `and ; cmp ; cset`), i.e. `return (obj->field & mask)
-   == value;`. The arithmetic is all visible in the operands, so this is
-   tractable by hand. Full per-family breakdown in
-   `decomp/docs/yield_sweep.md`.
+   | generator | offered | matched | note |
+   |---|---:|---:|---|
+   | `tools/gen_struct_copy.py` | 311 | **278** | 16-byte struct to force `ldp`/`stp`, barrier between write groups |
+   | `tools/gen_compare_pred.py` | 79 | **71** | 89.9% yield; cset condition picks operator *and* signedness |
+   | `tools/gen_zero_fill.py` | 129 | **129** | 100% yield; register class picks the store width |
 
-3. **The 374 `struct-copy` bodies** (`ldp ; stp ; ret` and wider interleaved
-   forms). The only shape over the 50-body threshold where the generator produces
-   literally nothing. Genuinely hard rather than buggy: the loads interleave with
-   the *zero* stores, so load-then-store order cannot express them. Needs a
-   generator that carries load semantics through to the stores.
+   Each is report-only by default and needs `--apply`. **Always read the
+   offered/matched lines before believing a gain**, and re-run
+   `decomp_project --all` *then* `prog_cmake.py` *then* `build_nx64.py` — skipping
+   `prog_cmake` leaves 95 directories without a `CMakeLists.txt`.
 
-3. **`main`'s 180 `const-field-set` bodies.** All fail identically:
-   `insn 0: orig ('ldr', 'x8, [x0]') vs new ('mov', 'w8', #1)` — Clang
-   materialises the constant before the pointer load. An `__asm__ memory`
-   barrier changed **nothing** (0/180, byte-identical), because the reordering
-   happens at instruction selection, not in the scheduler. The same source shape
-   matches in `sdk` (10/12) and `subsdk0` (8/8), so it is a codegen question
-   about the original source.
+2. **`copy-chain`: 199 unmatched bodies, dominated by `ldr str str ret` (115) and
+   `ldr ldr str ret` (52).** The obvious next target, and the machinery now exists:
+   `gen_struct_copy` handles copy shapes where the loads and writes are already
+   grouped, so the first thing to try is running its ideas over `copy-chain`'s
+   indexed store (`str x2, [x8, w1, uxtw #3]`, i.e. `(char*)p[idx] = v`).
+   `gen_zero_fill` declines all 196 of them, correctly — that is a copy, not a
+   clear.
+
+3. **`getter-chain` (190) and `const-field-set` (187).** `const-field-set` all
+   fail identically — `insn 0: orig ('ldr', 'x8, [x0]') vs new ('mov', 'w8', #1)`
+   — Clang materialises the constant before the pointer load, and an
+   `__asm__ memory` barrier changed **nothing** (byte-identical), because the
+   reordering is at instruction selection rather than in the scheduler. Do not
+   reach for a barrier there; that is the case the barrier cannot fix.
+
+4. **The 8 missing build flags were suppressing matches, not only mis-reporting
+   them.** Re-running the four registered chain generators with the corrected flag
+   set found one new body in each. Before calling any generator dead at 0% yield,
+   re-run it — the flags it was developed against were wrong.
+
+## What is not worth doing
+
+- **The 1,037 unmatched `tailcall` bodies.** All branch to an address that is not
+  a function start; 1,035 of 1,037 land *inside* main's last function, which is
+  13,184 bytes long, so they branch 448 bytes into an existing body. Expressing
+  them means treating interior branch targets as function entries and splitting
+  that body. Not tractable, and the census makes it look like the biggest
+  opportunity available. It is not.
+- **A memory barrier on any body that interleaves a read with a write.** The
+  barrier is the right tool for scheduling and the wrong tool for selection, and
+  on interleaved bodies it forces the intermediates onto the stack. See
+  `decomp/docs/struct_copy.md`.
+- **`vector_size(16)` for anything.** It sends Clang to NEON (`ldr q0`, `ld1`,
+  `stur q1`), which is further from `ldp`/`stp`, not closer. Only a plain struct
+  pairs general-purpose registers.
+
+## The rule that keeps biting
+
+**Register class decides width, never the opcode.** `str` with `wzr` clears four
+bytes and `str` with `xzr` clears eight; `ldrh w8` yields a 32-bit value from a
+two-byte load. Getting this wrong compiles cleanly to the wrong instruction, so
+it reads as a codegen problem rather than a source bug. It has now cost a
+diagnosis in `gen_compare_pred` (42 of 129 candidates) and again in
+`gen_zero_fill`, and it is why `gen_zero_fill` went from 67.4% to 100%.
+
+The related one: **a base register may hold a loaded pointer rather than be an
+argument.** Assuming every base is an argument produced a nine-parameter function
+in `gen_compare_pred` that compiled to reloading `x0` from the stack. Neither bug
+raised an error; both were found only by disassembling the output.
 
 ### Retired: the base-0 link. Do not attempt it.
 
