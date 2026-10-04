@@ -36,22 +36,22 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-26,317 / 152,062  =  17.31%
+26,536 / 152,062  =  17.45%
 ```
 
-Up from 25,431 (16.72%) at the start of the most recent working session, and
-24,703 at the start of the one before it. The session's gains were all
-over-constraints in existing generators, not new capability — see
-`decomp/docs/exactness_bug.md`.
+Up from 25,431 (16.72%) at the start of the most recent run of working sessions,
+and 24,703 at the start of the one before it. Every gain has come from
+over-constraints and silent omissions in *existing* generators rather than new
+capability — see `decomp/docs/exactness_bug.md` and `decomp/docs/yield_sweep.md`.
 
 | module | bodies | independent re-verification |
 |---|---|---|
-| main | 20,952 | **20,727 / 20,727 = 100.00% clean** |
-| sdk | 3,171 | **3,111 / 3,111 = 100.00% clean** |
-| subsdk0 | 873 | **869 / 869 = 100.00% clean** |
+| main | 21,169 | **20,944 / 20,944 = 100.00% clean** |
+| sdk | 3,172 | **3,112 / 3,112 = 100.00% clean** |
+| subsdk0 | 874 | **870 / 870 = 100.00% clean** |
 | subsdk1 | 1,321 | **1,319 / 1,319 = 100.00% clean** |
 
-Full build links clean, 153,084 symbols. `build/prog.elf` 22,012,960 bytes.
+Full build links clean, 153,084 symbols. `build/prog.elf` 22,012,400 bytes.
 
 **Every module now verifies at 100%. There are no outstanding mismatches.**
 That took two separate fixes, and the second one was the verifier, not the
@@ -295,7 +295,14 @@ over the whole population rather than a sample:
 ## Do not do these again
 
 - Do not report a generator's hit rate as a gain. Read the body count before and
-  after.
+  after. **This has now been done twice**, most recently when a `compare` match
+  rate of "200 / 201 = 99.50%" was reported as a large win and turned out to be
+  **+3 bodies** — the 200 were already matched through other shapes. Run the
+  `--report` harvest and read `match_progress.py` before saying any number.
+- Do not rank work by a per-generator decline count. A body that
+  `gen_compare_ret` declines is often reachable by another shape, so a family's
+  body count is an upper bound on *that generator's* value, not the shape's.
+  The `ldrsb` fix measured 9 declines and delivered 3.
 - Do not trust a census that cannot see control flow. An unguarded classifier
   reported `fp` as 6,980 when the real figure was 445, and three of six sampled
   members were branchy bodies that merely did float arithmetic. **A census that

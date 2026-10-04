@@ -97,28 +97,45 @@ Every other opcode falls through to `else: return None`. Counting 382 declined
 
 Ranked by return per unit of work, the sensible order is:
 
-1. **`ldrsb` (9) and `ldrsh`/`ldrsh`/`ldur*` (likely a few more)** — cheapest of
-   all if they are genuinely absent from `LOADS` rather than declined later. One
-   set membership test. Check this first.
-2. **`movk` (14)** — reuse the two-half constant logic already written for
+0. ~~**`ldrsb` / `ldrsh`**~~ — **DONE, and it was the smallest item on the list,
+   not the largest.** `ldrsb` and `ldrsh` were absent from both `LOADS` *and*
+   `access_width`; the latter reported width **8** for `ldrsb`, which reads one
+   byte, so it would have produced 8-byte C types for 1-byte accesses. Fixed in
+   `566b825`.
+
+   **Measured net effect: +3 bodies**, not the ~9 the table suggests and nowhere
+   near the 200 the `compare` match rate appeared to show. Those 200 were already
+   matched through other shapes — a *match rate*, not a delta. See the trap noted
+   in `HANDOFF.md`; it has now been fallen into twice.
+
+   The lesson for the rest of this list: **a body being declined by
+   `gen_compare_ret` does not mean `compare` is the only route to it.** Several
+   of the families above are reachable by other shapes once their real blocker is
+   removed, so a per-family body count is an upper bound on *this* generator's
+   value, not on the shape's.
+
+1. **`movk` (14)** — reuse the two-half constant logic already written for
    `gen_const_ret`; `movz`+`movk` is the same idiom.
-3. **`mov` register-to-register (9)** — trivial alias, the state machine already
+2. **`mov` register-to-register (9)** — trivial alias, the state machine already
    tracks registers.
-4. **`and`/`sub`/`orr` (99 combined)** — the mask idioms, and the largest single
-   win. These need a new state form carrying a bitwise operation rather than a
-   load or an immediate, so it is real work but the arithmetic is fully visible
-   in the operands.
-5. **`cmp` as a prefix opcode (48)** — a compound condition
+3. **`and`/`sub`/`orr` (99 combined)** — the mask idioms, and by far the largest
+   single item left here. These need a new state form carrying a bitwise
+   operation rather than a load or an immediate, so it is real work, but the
+   arithmetic is fully visible in the operands. **Start here.**
+4. **`cmp` as a prefix opcode (48)** — a compound condition
    (`a && b`), which is a different body shape and probably wants its own
    generator rather than an extension to this one.
-6. **`cbz` (42) and `adrp` (41)** — skip. `cbz` bodies branch and so belong to
+5. **`cbz` (42) and `adrp` (41)** — skip. `cbz` bodies branch and so belong to
    the branchy population; `adrp` bodies need a global whose address is
    irrelevant to `normalise` (see the `strlit-ret` note above), so they should be
    routed to a shape of their own rather than forced through `compare`.
 
 The 50 "passes the loop, fails later" cases are a separate question and were not
 diagnosed; they are the residue once the prefix is understood, so re-measure
-after items 1-4 rather than chasing them first.
+after the items above rather than chasing them first.
+
+Re-measure this whole table before acting on it. It was taken at 26,533 bodies
+and these counts are only meaningful relative to that baseline.
 
 **`straight` is the largest pool** (1,083 unmatched, 5.1% yield) but it is the
 generic fallback translator, so a low yield there is expected and not by itself
@@ -130,8 +147,14 @@ why, but it is a broad survey rather than a single defect.
 - Yield here is *generator output*, not a match rate. A generator can produce
   source that then fails to match; the figures above are an upper bound on what
   is available, and each candidate still has to pass the batch recompile.
+- **A body declining in one generator is not a body only that generator can
+  reach.** `ldrsb` measured 9 declines here and delivered +3, because most of
+  those bodies are matched by other shapes. Per-family counts are an upper bound
+  on the value of *this* generator, not on the shape's.
 - `tailcall` shows 100% because its generator only declines when the branch
   target is not another recovered function.
 - This sweep counts *unmatched* bodies only, so a drained shape reads as 0
   unmatched rather than 0 generated. `strlit-ret` at 2 unmatched is drained, not
   broken.
+- Baseline: taken at 26,533 emitted bodies. Re-measure before acting on any
+  count here.
