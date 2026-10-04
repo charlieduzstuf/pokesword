@@ -576,6 +576,54 @@ def main():
         for s in sorted(set(stale))[:6]:
             print("      %s" % s)
 
+        # Per-module reconciliation.
+        #
+        # Every other count here is a total, and totals hide per-module errors:
+        # bodies emitted into the wrong module's directory, or a `matching` row
+        # counted in one module and its body in another, both balance out.
+        #
+        # Reconciles, per module: the `matching` rows in the CSV, the bodies
+        # actually emitted into `prog/matched/<module>/source`, and the registry
+        # records. The first two must be equal exactly. The registry is allowed to
+        # exceed them by the tail-call thunks `tail_target_ok` declines, and is
+        # reported rather than required to match.
+        emitted_per = collections.Counter()
+        for m in MODULES:
+            p = os.path.join(ROOT, "prog", "matched", m, "source")
+            if not os.path.isdir(p):
+                continue
+            for f in glob.glob(os.path.join(p, "*.cpp")):
+                emitted_per[m] += len(re.findall(
+                    r"^// \S+\s+\(orig (0x[0-9a-f]+),",
+                    open(f, encoding="utf-8").read(), re.M))
+        csv_per = collections.Counter()
+        for r in rows:
+            dn = r.get("decomp_name") or ""
+            if dn and not dn.endswith("!"):
+                csv_per[r["module"]] += 1
+        reg_per = collections.Counter()
+        for m in MODULES:
+            rp = os.path.join(ROOT, "data", "matched_%s.json" % m)
+            if os.path.exists(rp):
+                try:
+                    reg_per[m] = len({int(x["addr"]) for x in json.load(
+                        open(rp, encoding="utf-8")).get("matched", [])})
+                except (ValueError, OSError, KeyError):
+                    pass
+        skew = [(m, emitted_per[m], csv_per[m]) for m in MODULES
+                if emitted_per[m] != csv_per[m]]
+        check(not skew, "emitted bodies match the CSV row count per module",
+              "%d module(s) differ" % len(skew))
+        for m, e, c in skew:
+            print("      %-8s emitted=%d csv-matching=%d (%+d)"
+                  % (m, e, c, e - c))
+        extra = {m: reg_per[m] - emitted_per[m] for m in MODULES
+                 if reg_per[m] - emitted_per[m]}
+        print("      info  registry exceeds emitted by %s (declined tail-call "
+              "thunks, no body by design)"
+              % ", ".join("%s:+%d" % (m, n) for m, n in sorted(extra.items()))
+                 if extra else "      info  registry equals emitted exactly")
+
     # Function sizes must exclude inter-function padding, or asm-differ reports
     # the padding as unmatched for every function.
     padded = 0

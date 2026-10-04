@@ -182,20 +182,52 @@ jobs:
           POKESWORD_CLANG: ${{ steps.clang.outputs.dir }}
           POKESWORD_OPT: '-O3'
         run: |
-          set -e
+          # `set -o pipefail`, and an unparsed count is a failure rather than 0.
+          #
+          # This gate used to be unable to fail in the most likely failure mode.
+          # `python tools/verify_matches.py | tee log` reports *tee's* exit status
+          # as the pipeline's, so `set -e` never saw the verifier crash; `sed`
+          # then found no VERIFIED line, `${n:-0}` turned "unparsed" into 0, and
+          # the final test was `0 != 0` -- false, so the job went green having
+          # verified nothing at all. Every module crashing was a passing run.
+          #
+          # That is the same defect as the audit's duplicate check that counted a
+          # dict: a check that cannot fail is worse than no check, because it gets
+          # read as evidence.
+          set -euo pipefail
           total_ok=0
           total_fn=0
+          failed=0
           for m in main sdk subsdk0 subsdk1; do
             echo "=== $m ==="
-            python tools/verify_matches.py --module "$m" | tee "verify-$m.txt"
+            if ! python tools/verify_matches.py --module "$m" | tee "verify-$m.txt"; then
+              echo "::error title=Verifier crashed::$m did not complete"
+              failed=1
+              continue
+            fi
             n=$(sed -n 's/.*VERIFIED[[:space:]]*\([0-9]*\)[[:space:]]*\/.*/\1/p' \
                   "verify-$m.txt" | tail -1)
             d=$(sed -n 's/.*VERIFIED[[:space:]]*[0-9]*[[:space:]]*\/[[:space:]]*\([0-9]*\).*/\1/p' \
                   "verify-$m.txt" | tail -1)
-            total_ok=$((total_ok + ${n:-0}))
-            total_fn=$((total_fn + ${d:-0}))
+            if [ -z "${n:-}" ] || [ -z "${d:-}" ] || [ "$d" -eq 0 ]; then
+              echo "::error title=No verdict parsed::$m produced no usable"
+              echo "::error::VERIFIED line. A verifier that ran but reported"
+              echo "::error::nothing is a failure, not a pass."
+              failed=1
+              continue
+            fi
+            total_ok=$((total_ok + n))
+            total_fn=$((total_fn + d))
           done
           echo "verified $total_ok / $total_fn"
+          if [ "$failed" -ne 0 ]; then
+            echo "::error title=Verification incomplete::a module did not report"
+            exit 1
+          fi
+          if [ "$total_fn" -eq 0 ]; then
+            echo "::error title=Nothing verified::total denominator is 0"
+            exit 1
+          fi
           if [ "$total_ok" != "$total_fn" ]; then
             echo "::error title=Verification mismatch::$total_ok / $total_fn"
             exit 1
