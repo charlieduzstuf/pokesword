@@ -1142,7 +1142,7 @@ void sub_33e510() { /* 0x33e510 */ }
 // sub_33e800: implemented in prog/matched/main/
 void sub_33e810() { /* 0x33e810 */ }
 void sub_33e830() { /* 0x33e830 */ }
-void sub_33e840() { /* 0x33e840 */ }
+// sub_33e840: implemented in prog/matched/main/
 void sub_33e860() { /* 0x33e860 */ }
 void sub_33e890() { /* 0x33e890 */ }
 void sub_33e8e0() { /* 0x33e8e0 */ }

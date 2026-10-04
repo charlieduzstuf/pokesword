@@ -25,6 +25,12 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 
+// sub_858b60  (orig 0x858b60, strlit-flag-ret)
+void *main_f_858b60(void* a0) { static char g_f_858b60[1]; *(uint32_t *)((char*)(a0)) = 1; __asm__ volatile("" ::: "memory"); return g_f_858b60; }
+
+// sub_858b80  (orig 0x858b80, strlit-flag-ret)
+void *main_f_858b80(void* a0) { static char g_f_858b80[1]; *(uint32_t *)((char*)(a0)) = 1; __asm__ volatile("" ::: "memory"); return g_f_858b80; }
+
 // sub_858ba0  (orig 0x858ba0, strlit-flag-ret)
 void *main_f_858ba0(void* a0) { static char g_f_858ba0[1]; *(uint32_t *)((char*)(a0)) = 3; __asm__ volatile("" ::: "memory"); return g_f_858ba0; }
 
@@ -6088,10 +6094,4 @@ void main_f_a672a0() {}
 
 // sub_a672b0  (orig 0xa672b0, copy2)
 void main_f_a672b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_a672c0  (orig 0xa672c0, copy2)
-void main_f_a672c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_a672f0  (orig 0xa672f0, ret_only)
-void main_f_a672f0() {}
 

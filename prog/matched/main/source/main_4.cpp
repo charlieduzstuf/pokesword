@@ -5232,6 +5232,9 @@ uint32_t main_f_33e7f0() { return 1; }
 // sub_33e800  (orig 0x33e800, mov_ret)
 uint32_t main_f_33e800() { return 1; }
 
+// sub_33e840  (orig 0x33e840, compare)
+bool main_f_33e840(void* a0) { return (int8_t)(*(uint8_t*)((char*)(a0) + 54)) < (int64_t)(0); }
+
 // sub_33f4b0  (orig 0x33f4b0, setter)
 void main_f_33f4b0(uint64_t unused0, void* a1) { *(uint32_t*)((char*)(a1)) = 0; }
 
@@ -7980,7 +7983,4 @@ uint8_t main_f_55a8c0(void* a0) { return *(uint8_t*)((char*)(a0) + 124); }
 
 // sub_55a8d0  (orig 0x55a8d0, getter)
 uint64_t main_f_55a8d0(void* a0) { return *(uint64_t*)((char*)(a0) + 176); }
-
-// sub_55a8e0  (orig 0x55a8e0, getter)
-uint64_t main_f_55a8e0(void* a0) { return *(uint64_t*)((char*)(a0) + 128); }
 

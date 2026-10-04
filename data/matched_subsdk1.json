@@ -15,59 +15,11 @@
   "strlit-ret": 2,
   "strlit-flag-ret": 2,
   "ptr_add": 3,
-  "copy2": 43,
+  "copy2": 59,
   "fp-conv-store": 35,
   "fp-compare": 18
  },
  "matched": [
-  {
-   "module": "subsdk1",
-   "addr": 120432,
-   "size": 12,
-   "name": "sub_1d670",
-   "shape": "strlit-ret",
-   "ident": "f_1d670",
-   "sig": "v",
-   "src": "const char *f_1d670() { static char g_f_1d670[1]; __asm__ volatile(\"\" ::: \"memory\"); return g_f_1d670; }\n",
-   "orig_insns": 3,
-   "new_insns": 3
-  },
-  {
-   "module": "subsdk1",
-   "addr": 214448,
-   "size": 12,
-   "name": "Jan_30_2019",
-   "shape": "strlit-ret",
-   "ident": "f_345b0",
-   "sig": "v",
-   "src": "const char *f_345b0() { static char g_f_345b0[1]; __asm__ volatile(\"\" ::: \"memory\"); return g_f_345b0; }\n",
-   "orig_insns": 3,
-   "new_insns": 3
-  },
-  {
-   "module": "subsdk1",
-   "addr": 528880,
-   "size": 20,
-   "name": "sub_811f0",
-   "shape": "strlit-flag-ret",
-   "ident": "f_811f0",
-   "sig": "Pv",
-   "src": "void *f_811f0(void* a0) { static char g_f_811f0[1]; *(uint32_t *)((char*)(a0)) = 111; __asm__ volatile(\"\" ::: \"memory\"); return g_f_811f0; }\n",
-   "orig_insns": 5,
-   "new_insns": 5
-  },
-  {
-   "module": "subsdk1",
-   "addr": 528912,
-   "size": 20,
-   "name": "sub_81210",
-   "shape": "strlit-flag-ret",
-   "ident": "f_81210",
-   "sig": "Pv",
-   "src": "void *f_81210(void* a0) { static char g_f_81210[1]; *(uint32_t *)((char*)(a0)) = 60; __asm__ volatile(\"\" ::: \"memory\"); return g_f_81210; }\n",
-   "orig_insns": 5,
-   "new_insns": 5
-  },
   {
    "module": "subsdk1",
    "addr": 432,
@@ -1249,6 +1201,18 @@
    "src": "uint32_t f_1d650() { return 0; }\n",
    "orig_insns": 2,
    "new_insns": 2
+  },
+  {
+   "module": "subsdk1",
+   "addr": 120432,
+   "size": 12,
+   "name": "sub_1d670",
+   "shape": "strlit-ret",
+   "ident": "f_1d670",
+   "sig": "v",
+   "src": "const char *f_1d670() { static char g_f_1d670[1]; __asm__ volatile(\"\" ::: \"memory\"); return g_f_1d670; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
   },
   {
    "module": "subsdk1",
@@ -3550,6 +3514,18 @@
   },
   {
    "module": "subsdk1",
+   "addr": 214448,
+   "size": 12,
+   "name": "Jan_30_2019",
+   "shape": "strlit-ret",
+   "ident": "f_345b0",
+   "sig": "v",
+   "src": "const char *f_345b0() { static char g_f_345b0[1]; __asm__ volatile(\"\" ::: \"memory\"); return g_f_345b0; }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk1",
    "addr": 241472,
    "size": 16,
    "name": "sub_3af40",
@@ -4495,6 +4471,30 @@
    "src": "void f_7eb10(void* a0) { *(uint64_t*)((char*)(a0) + 8) = 0; *(uint64_t*)((char*)(a0) + 16) = 0; *(uint32_t*)((char*)(a0) + 24) = 0; }\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "subsdk1",
+   "addr": 528880,
+   "size": 20,
+   "name": "sub_811f0",
+   "shape": "strlit-flag-ret",
+   "ident": "f_811f0",
+   "sig": "Pv",
+   "src": "void *f_811f0(void* a0) { static char g_f_811f0[1]; *(uint32_t *)((char*)(a0)) = 111; __asm__ volatile(\"\" ::: \"memory\"); return g_f_811f0; }\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk1",
+   "addr": 528912,
+   "size": 20,
+   "name": "sub_81210",
+   "shape": "strlit-flag-ret",
+   "ident": "f_81210",
+   "sig": "Pv",
+   "src": "void *f_81210(void* a0) { static char g_f_81210[1]; *(uint32_t *)((char*)(a0)) = 60; __asm__ volatile(\"\" ::: \"memory\"); return g_f_81210; }\n",
+   "orig_insns": 5,
+   "new_insns": 5
   },
   {
    "module": "subsdk1",

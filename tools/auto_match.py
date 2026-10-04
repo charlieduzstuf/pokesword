@@ -146,6 +146,21 @@ def access_width(mn, reg):
     """
     if mn in ("ldrb", "strb", "ldurb", "sturb"):
         return 1
+    # The signed byte/halfword loads read the same number of *bytes* as their
+    # unsigned counterparts and differ only in extension. They were missing from
+    # this enumeration entirely, so they fell through to the default and
+    # reported width 8 for `ldrsb`, which loads one byte -- producing an 8-byte C
+    # type for a 1-byte access, and therefore a candidate that could never match.
+    #
+    # This is the same failure as `access_width` ignoring register class, which
+    # was reproduced independently in three separate copies of this helper, and
+    # as `got_map.py`'s `ops.split(",")`: an explicit enumeration that silently
+    # omits a case. When a helper lists mnemonics, check the list against the
+    # disassembly rather than assuming it is complete.
+    if mn in ("ldrsb",):
+        return 1
+    if mn in ("ldrsh",):
+        return 2
     if mn in ("ldrh", "strh", "ldurh", "sturh"):
         return 2
     if mn in ("ldrsw", "ldursw"):
@@ -1986,7 +2001,13 @@ CHAIN_SHAPES = ("getter-chain", "setter-chain", "copy-chain",
 # rather than dropping the function -- see the fallback in `collect`.
 
 LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb",
-         "ldur", "ldurh", "ldursw")
+         "ldur", "ldurh", "ldursw",
+         # The signed loads were missing here as well as in `access_width`, so a
+         # body whose only distinguishing feature was `ldrsb` reached no
+         # generator at all. `ldrsb`/`ldrsh` read 1 and 2 bytes exactly like
+         # `ldrb`/`ldrh`; only the extension differs, and the C type is chosen by
+         # the caller from `access_width`.
+         "ldrsb", "ldrsh")
 STORES = ("str", "strb", "strh", "stur", "sturh")
 
 

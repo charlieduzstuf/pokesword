@@ -25,6 +25,12 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 
+// sub_cd2a20  (orig 0xcd2a20, copy2)
+void main_f_cd2a20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_cd30b0  (orig 0xcd30b0, mov_ret)
+uint32_t main_f_cd30b0() { return 0; }
+
 // sub_cd30f0  (orig 0xcd30f0, mov_ret)
 uint32_t main_f_cd30f0() { return 1; }
 
@@ -6128,10 +6134,4 @@ void main_f_10127a0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 32) = a1
 
 // sub_1012d20  (orig 0x1012d20, mov_ret)
 uint32_t main_f_1012d20() { return 1; }
-
-// sub_1012dd0  (orig 0x1012dd0, getter)
-uint32_t main_f_1012dd0(void* a0) { return *(uint32_t*)((char*)(a0) + 32); }
-
-// sub_1012de0  (orig 0x1012de0, mov_ret)
-uint32_t main_f_1012de0() { return 1; }
 

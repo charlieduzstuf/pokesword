@@ -25,6 +25,12 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 
+// sub_1472200  (orig 0x1472200, copy2)
+void main_f_1472200(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_1472220  (orig 0x1472220, ret_only)
+void main_f_1472220() {}
+
 // sub_1472230  (orig 0x1472230, copy2)
 void main_f_1472230(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
@@ -6138,10 +6144,4 @@ uint64_t main_f_17b7510(void* a0) { return *(uint64_t*)((char*)(a0) + 240); }
 
 // sub_17b7780  (orig 0x17b7780, ret_only)
 void main_f_17b7780() {}
-
-// sub_17b8250  (orig 0x17b8250, ret_only)
-void main_f_17b8250() {}
-
-// sub_17b8990  (orig 0x17b8990, getter-chain)
-uint32_t main_f_17b8990(void* a0) { return *(uint32_t*)((char*)((*(uint64_t*)((char*)(a0) + 16))) + 28); }
 

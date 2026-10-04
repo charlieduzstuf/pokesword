@@ -3200,7 +3200,7 @@ void sub_803dd0() { /* 0x803dd0 */ }
 void sub_803df0() { /* 0x803df0 */ }
 // sub_803e00: implemented in prog/matched/main/
 void sub_803e10() { /* 0x803e10 */ }
-void sub_803e20() { /* 0x803e20 */ }
+// sub_803e20: implemented in prog/matched/main/
 // sub_803e30: implemented in prog/matched/main/
 void sub_803e40() { /* 0x803e40 */ }
 void sub_803ef0() { /* 0x803ef0 */ }

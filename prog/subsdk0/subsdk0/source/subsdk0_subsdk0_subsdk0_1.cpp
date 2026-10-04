@@ -3675,7 +3675,7 @@ void sub_2413e0() { /* 0x2413e0 */ }
 void sub_241490() { /* 0x241490 */ }
 void sub_2414c0() { /* 0x2414c0 */ }
 void sub_241b20() { /* 0x241b20 */ }
-void sub_241b90_subsdk0_241b90() { /* 0x241b90 */ }
+// sub_241b90_subsdk0_241b90: implemented in prog/matched/subsdk0/
 void sub_241ba0() { /* 0x241ba0 */ }
 // sub_241dc0: implemented in prog/matched/subsdk0/
 // sub_241dd0: implemented in prog/matched/subsdk0/
