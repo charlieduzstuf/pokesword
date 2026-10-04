@@ -69,6 +69,43 @@ There is a floor worth stating plainly: even matching every remaining
 *branch-free* body would leave the byte figure in the low single digits, because
 those bodies are small. The 36 MB is in the branchy population.
 
+## Measured: how much of the byte mass is actually tractable
+
+Taking the **1,500 largest unmatched bodies** in the whole project:
+
+| | bodies | bytes |
+|---|---:|---:|
+| branchy | 1,491 | 7,816,168 |
+| branch-free | 9 | 30,764 |
+
+**99.6% of the bytes in the largest unmatched bodies require real control-flow
+decompilation.** There is no large easy win hiding behind the byte metric.
+
+Worse for the metric: `auto_match.shape_of` returns `None` for 1,499 of those
+1,500, so no generator is even *offered* them. That is not a classification bug
+to be fixed cheaply — it reflects that the straight-line translator does not
+claim function bodies of this size. (Note the distinction from
+`data/shapes.csv`, which was produced by `scan_shapes.classify_shape`; the two
+classifiers are not the same, and `shapes.csv` labels these `branchy` while
+`shape_of` declines them.)
+
+The largest branch-free unmatched bodies, for completeness:
+
+| size | function | insns |
+|---:|---|---:|
+| 4,980 B | `main@0x138a350` | 1,245 |
+| 4,664 B | `subsdk0@0x46a40` | 1,166 |
+| 4,636 B | `sdk@0x13e080` | 1,159 |
+| 3,300 B | `sdk@0x4d16e0` | 825 |
+| 3,012 B | `main@0xc5c850` | 753 |
+
+All nine together are 30,764 bytes — **0.08%** of the 38 MB. Matching every one
+of them would move the decomp.dev badge from 0.52% to 0.60%.
+
+That is the honest arithmetic of this metric. The accessor work that produced the
+count gains is worth doing and has been done; the byte figure is a different
+project, and it is hand decompilation of large branchy functions.
+
 ## Reproducing
 
 `tools/objdiff_report.py` computes both figures from `data/functions.csv` and
