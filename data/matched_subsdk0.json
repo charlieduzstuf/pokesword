@@ -10603,6 +10603,30 @@
    "src": "void f_19f00(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0) + 128); }\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "addr": 643408,
+   "ident": "f_9d150",
+   "module": "subsdk0",
+   "name": "sub_9d150",
+   "shape": "compare-pred",
+   "sig": "Pv",
+   "src": "bool f_9d150(void* a0) { return (uint32_t)(*(uint64_t*)((char*)(*(uint64_t*)((char*)a0 + 32)) + 232)) == (uint32_t)(0); }\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "addr": 645520,
+   "ident": "f_9d990",
+   "module": "subsdk0",
+   "name": "sub_9d990",
+   "shape": "compare-pred",
+   "sig": "Pv",
+   "src": "bool f_9d990(void* a0) { return (uint32_t)(*(uint64_t*)((char*)(*(uint64_t*)((char*)a0 + 32)) + 256)) == (uint32_t)(0); }\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
   }
  ]
 }

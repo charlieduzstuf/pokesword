@@ -3424,7 +3424,7 @@ void sub_4ce030() { /* 0x4ce030 */ }
 // sub_4ce040: implemented in prog/matched/subsdk1/
 // sub_4ce050: implemented in prog/matched/subsdk1/
 // sub_4ce060_subsdk1_4ce060: implemented in prog/matched/subsdk1/
-void sub_4ce070_subsdk1_4ce070() { /* 0x4ce070 */ }
+// sub_4ce070_subsdk1_4ce070: implemented in prog/matched/subsdk1/
 void sub_4ce090() { /* 0x4ce090 */ }
 // sub_4ce0d0: implemented in prog/matched/subsdk1/
 // sub_4ce0e0: implemented in prog/matched/subsdk1/

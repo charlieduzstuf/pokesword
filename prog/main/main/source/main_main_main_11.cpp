@@ -1974,7 +1974,7 @@ void P_fade_cross_texture_00_2() { /* 0xc46200 */ }
 void sub_c466c0() { /* 0xc466c0 */ }
 void sub_c466f0() { /* 0xc466f0 */ }
 void sub_c46710() { /* 0xc46710 */ }
-void sub_c46810() { /* 0xc46810 */ }
+// sub_c46810: implemented in prog/matched/main/
 void sub_c46830() { /* 0xc46830 */ }
 void sub_c46970() { /* 0xc46970 */ }
 void P_fade_cross_texture_00_3() { /* 0xc46c20 */ }
@@ -2004,7 +2004,7 @@ void sub_c48da0() { /* 0xc48da0 */ }
 void sub_c48ed0() { /* 0xc48ed0 */ }
 // sub_c48fd0: implemented in prog/matched/main/
 void sub_c49220() { /* 0xc49220 */ }
-void sub_c49320() { /* 0xc49320 */ }
+// sub_c49320: implemented in prog/matched/main/
 // sub_c49340: implemented in prog/matched/main/
 void sub_c49350() { /* 0xc49350 */ }
 void DestinationDataList() { /* 0xc494b0 */ }

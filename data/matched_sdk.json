@@ -38397,6 +38397,42 @@
    "size": 20,
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "addr": 3884000,
+   "ident": "f_3b43e0",
+   "module": "sdk",
+   "name": "sub_3b43e0",
+   "shape": "compare-pred",
+   "sig": "Pv",
+   "src": "bool f_3b43e0(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(*(uint64_t*)(char*)a0) + 32)) != (uint64_t)(0); }\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "addr": 3890384,
+   "ident": "f_3b5cd0",
+   "module": "sdk",
+   "name": "sub_3b5cd0",
+   "shape": "compare-pred",
+   "sig": "Pv",
+   "src": "bool f_3b5cd0(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(*(uint64_t*)(char*)a0) + 32)) != (uint64_t)(0); }\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "addr": 4269136,
+   "ident": "f_412450",
+   "module": "sdk",
+   "name": "sub_412450",
+   "shape": "compare-pred",
+   "sig": "Pv",
+   "src": "bool f_412450(void* a0) { return (uint32_t)(*(uint8_t*)((char*)(*(uint64_t*)((char*)a0 + 72)) + 2042)) != (uint32_t)(0); }\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
   }
  ]
 }

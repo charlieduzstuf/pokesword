@@ -1313,7 +1313,7 @@ void sub_69e180() { /* 0x69e180 */ }
 void sub_69e1f0() { /* 0x69e1f0 */ }
 void sub_69e310() { /* 0x69e310 */ }
 void sub_69e360() { /* 0x69e360 */ }
-void sub_69e390() { /* 0x69e390 */ }
+// sub_69e390: implemented in prog/matched/main/
 // sub_69e3b0: implemented in prog/matched/main/
 void sub_69e3c0() { /* 0x69e3c0 */ }
 void sub_69e570() { /* 0x69e570 */ }
@@ -3539,7 +3539,7 @@ void InsertOrLookupMapValue() { /* 0x73bab0 */ }
 void DeleteMapValue() { /* 0x73bc10 */ }
 void sub_73c140() { /* 0x73c140 */ }
 void sub_73c230() { /* 0x73c230 */ }
-void sub_73c260() { /* 0x73c260 */ }
+// sub_73c260: implemented in prog/matched/main/
 // sub_73c280: implemented in prog/matched/main/
 void GetMapData() { /* 0x73c460 */ }
 void sub_73c540() { /* 0x73c540 */ }

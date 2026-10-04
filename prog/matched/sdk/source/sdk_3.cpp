@@ -1,4 +1,4 @@
-/* sdk -- 1104 functions verified to match the original.
+/* sdk -- 1107 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -354,6 +354,9 @@ void sdk_f_3b4170() {}
 // sub_3b4180  (orig 0x3b4180, mov_ret)
 uint32_t sdk_f_3b4180() { return 208; }
 
+// sub_3b43e0  (orig 0x3b43e0, compare-pred)
+bool sdk_f_3b43e0(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(*(uint64_t*)(char*)a0) + 32)) != (uint64_t)(0); }
+
 // sub_3b5360  (orig 0x3b5360, ret_only)
 void sdk_f_3b5360() {}
 
@@ -377,6 +380,9 @@ void sdk_f_3b5a60() {}
 
 // sub_3b5a70  (orig 0x3b5a70, mov_ret)
 uint32_t sdk_f_3b5a70() { return 208; }
+
+// sub_3b5cd0  (orig 0x3b5cd0, compare-pred)
+bool sdk_f_3b5cd0(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(*(uint64_t*)(char*)a0) + 32)) != (uint64_t)(0); }
 
 // sub_3b6280  (orig 0x3b6280, compare)
 bool sdk_f_3b6280(uint64_t a0) { return (uint32_t)(a0) == (uint64_t)(0); }
@@ -2069,6 +2075,9 @@ uint64_t sdk_f_412430(void* a0) { return *(uint64_t*)((char*)((*(uint64_t*)((cha
 
 // sub_412440  (orig 0x412440, getter-chain)
 uint64_t sdk_f_412440(void* a0) { return *(uint64_t*)((char*)((*(uint64_t*)((char*)(a0) + 72))) + 2016); }
+
+// sub_412450  (orig 0x412450, compare-pred)
+bool sdk_f_412450(void* a0) { return (uint32_t)(*(uint8_t*)((char*)(*(uint64_t*)((char*)a0 + 72)) + 2042)) != (uint32_t)(0); }
 
 // sub_4124b0  (orig 0x4124b0, mov_ret)
 uint32_t sdk_f_4124b0() { return 2096; }

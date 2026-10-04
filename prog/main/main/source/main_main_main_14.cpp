@@ -3587,7 +3587,7 @@ void sub_fd80c0() { /* 0xfd80c0 */ }
 // sub_fd80d0: implemented in prog/matched/main/
 void sub_fd80e0() { /* 0xfd80e0 */ }
 void sub_fd8110() { /* 0xfd8110 */ }
-void sub_fd8130() { /* 0xfd8130 */ }
+// sub_fd8130: implemented in prog/matched/main/
 void sub_fd8150() { /* 0xfd8150 */ }
 // sub_fd8180: implemented in prog/matched/main/
 void sub_fd8190() { /* 0xfd8190 */ }

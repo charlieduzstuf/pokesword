@@ -3505,8 +3505,8 @@ void sub_debcb0() { /* 0xdebcb0 */ }
 void sub_debcc0() { /* 0xdebcc0 */ }
 // sub_debce0: implemented in prog/matched/main/
 // sub_debcf0: implemented in prog/matched/main/
-void sub_debd00() { /* 0xdebd00 */ }
-void sub_debd20() { /* 0xdebd20 */ }
+// sub_debd00: implemented in prog/matched/main/
+// sub_debd20: implemented in prog/matched/main/
 void sub_debd40() { /* 0xdebd40 */ }
 void sub_debd50() { /* 0xdebd50 */ }
 void sub_debd60() { /* 0xdebd60 */ }
@@ -3518,7 +3518,7 @@ void sub_debd90() { /* 0xdebd90 */ }
 void sub_debdc0() { /* 0xdebdc0 */ }
 void sub_debdd0() { /* 0xdebdd0 */ }
 void sub_debde0() { /* 0xdebde0 */ }
-void sub_debdf0() { /* 0xdebdf0 */ }
+// sub_debdf0: implemented in prog/matched/main/
 void sub_debe10() { /* 0xdebe10 */ }
 void sub_debe20() { /* 0xdebe20 */ }
 void sub_debe30() { /* 0xdebe30 */ }

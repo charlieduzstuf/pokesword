@@ -2435,12 +2435,12 @@ void sub_1672910() { /* 0x1672910 */ }
 void sub_1672b20() { /* 0x1672b20 */ }
 void sub_1672e10() { /* 0x1672e10 */ }
 void sub_1672eb0() { /* 0x1672eb0 */ }
-void sub_16735f0() { /* 0x16735f0 */ }
+// sub_16735f0: implemented in prog/matched/main/
 void sub_1673610() { /* 0x1673610 */ }
-void sub_1673660() { /* 0x1673660 */ }
+// sub_1673660: implemented in prog/matched/main/
 void sub_1673680() { /* 0x1673680 */ }
 void sub_1673700() { /* 0x1673700 */ }
-void sub_1673e40() { /* 0x1673e40 */ }
+// sub_1673e40: implemented in prog/matched/main/
 void sub_1673e60() { /* 0x1673e60 */ }
 // sub_1673e70: implemented in prog/matched/main/
 void sub_1673e80() { /* 0x1673e80 */ }
@@ -2495,7 +2495,7 @@ void LanMatchmakeUpdateJob_Update() { /* 0x1675e40 */ }
 void sub_1675fd0() { /* 0x1675fd0 */ }
 void sub_16767e0() { /* 0x16767e0 */ }
 void sub_1676830() { /* 0x1676830 */ }
-void sub_16768b0() { /* 0x16768b0 */ }
+// sub_16768b0: implemented in prog/matched/main/
 void sub_16768d0() { /* 0x16768d0 */ }
 void sub_1676da0() { /* 0x1676da0 */ }
 // sub_16777e0: implemented in prog/matched/main/
@@ -3224,7 +3224,7 @@ void sub_1695be0() { /* 0x1695be0 */ }
 void sub_1695c30() { /* 0x1695c30 */ }
 void sub_1695d00() { /* 0x1695d00 */ }
 void sub_1695d40() { /* 0x1695d40 */ }
-void sub_1695d90() { /* 0x1695d90 */ }
+// sub_1695d90: implemented in prog/matched/main/
 void sub_1695db0() { /* 0x1695db0 */ }
 void sub_1695fb0() { /* 0x1695fb0 */ }
 void sub_1696090() { /* 0x1696090 */ }

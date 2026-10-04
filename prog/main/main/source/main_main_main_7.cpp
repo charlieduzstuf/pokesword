@@ -1098,10 +1098,10 @@ void sub_850000() { /* 0x850000 */ }
 void sub_850120() { /* 0x850120 */ }
 void sub_850320() { /* 0x850320 */ }
 void sub_8503a0() { /* 0x8503a0 */ }
-void sub_8503e0() { /* 0x8503e0 */ }
+// sub_8503e0: implemented in prog/matched/main/
 void sub_850400() { /* 0x850400 */ }
-void sub_850420() { /* 0x850420 */ }
-void sub_850440() { /* 0x850440 */ }
+// sub_850420: implemented in prog/matched/main/
+// sub_850440: implemented in prog/matched/main/
 void sub_850460() { /* 0x850460 */ }
 void sub_850480() { /* 0x850480 */ }
 void sub_8504a0() { /* 0x8504a0 */ }

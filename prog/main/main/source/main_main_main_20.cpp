@@ -1190,7 +1190,7 @@ void sub_143b970() { /* 0x143b970 */ }
 void sub_143b9e0() { /* 0x143b9e0 */ }
 void sub_143b9f0() { /* 0x143b9f0 */ }
 void StateExecute() { /* 0x143ba00 */ }
-void sub_143bb10() { /* 0x143bb10 */ }
+// sub_143bb10: implemented in prog/matched/main/
 void sub_143bb30() { /* 0x143bb30 */ }
 void sub_143bb90() { /* 0x143bb90 */ }
 void sub_143bc00() { /* 0x143bc00 */ }
@@ -2112,7 +2112,7 @@ void sub_1477550() { /* 0x1477550 */ }
 void sub_1477580() { /* 0x1477580 */ }
 void sub_1477590() { /* 0x1477590 */ }
 void StateNotSharing() { /* 0x14776d0 */ }
-void sub_14778e0() { /* 0x14778e0 */ }
+// sub_14778e0: implemented in prog/matched/main/
 // sub_1477900: implemented in prog/matched/main/
 void sub_1477930() { /* 0x1477930 */ }
 void sub_1477940() { /* 0x1477940 */ }
@@ -2141,7 +2141,7 @@ void sub_1478830() { /* 0x1478830 */ }
 // sub_1478860: implemented in prog/matched/main/
 // sub_1478870: implemented in prog/matched/main/
 void StateCardPassMenu() { /* 0x1478880 */ }
-void sub_1478a90() { /* 0x1478a90 */ }
+// sub_1478a90: implemented in prog/matched/main/
 // sub_1478ab0: implemented in prog/matched/main/
 void sub_1478ae0() { /* 0x1478ae0 */ }
 void sub_1478af0() { /* 0x1478af0 */ }
@@ -3356,7 +3356,7 @@ void sub_14bfa80() { /* 0x14bfa80 */ }
 void sub_14bfa90() { /* 0x14bfa90 */ }
 void sub_14bfb60() { /* 0x14bfb60 */ }
 // sub_14bfb70: implemented in prog/matched/main/
-void sub_14bfb80() { /* 0x14bfb80 */ }
+// sub_14bfb80: implemented in prog/matched/main/
 // sub_14bfba0: implemented in prog/matched/main/
 void sub_14bfbb0() { /* 0x14bfbb0 */ }
 void sub_14bfc40() { /* 0x14bfc40 */ }
@@ -3448,7 +3448,7 @@ void sub_14c5a00() { /* 0x14c5a00 */ }
 void sub_14c5bf0() { /* 0x14c5bf0 */ }
 void sub_14c5c00() { /* 0x14c5c00 */ }
 // sub_14c5e60: implemented in prog/matched/main/
-void sub_14c5e70() { /* 0x14c5e70 */ }
+// sub_14c5e70: implemented in prog/matched/main/
 void sub_14c5e90() { /* 0x14c5e90 */ }
 void sub_14c5f00() { /* 0x14c5f00 */ }
 void sub_14c5f70() { /* 0x14c5f70 */ }
@@ -3936,7 +3936,7 @@ void sub_14e3e60() { /* 0x14e3e60 */ }
 void sub_14e3fb0() { /* 0x14e3fb0 */ }
 void sub_14e4040() { /* 0x14e4040 */ }
 // sub_14e4110: implemented in prog/matched/main/
-void sub_14e4120() { /* 0x14e4120 */ }
+// sub_14e4120: implemented in prog/matched/main/
 void sub_14e4140() { /* 0x14e4140 */ }
 // sub_14e4180: implemented in prog/matched/main/
 void sub_14e4190() { /* 0x14e4190 */ }

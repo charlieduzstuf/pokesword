@@ -1673,7 +1673,7 @@ void sub_9d0c0() { /* 0x9d0c0 */ }
 // sub_9d120: implemented in prog/matched/subsdk0/
 // sub_9d130: implemented in prog/matched/subsdk0/
 // sub_9d140_subsdk0_9d140: implemented in prog/matched/subsdk0/
-void sub_9d150() { /* 0x9d150 */ }
+// sub_9d150: implemented in prog/matched/subsdk0/
 void sub_9d170() { /* 0x9d170 */ }
 void sub_9d2b0() { /* 0x9d2b0 */ }
 void sub_9d310() { /* 0x9d310 */ }
@@ -1682,7 +1682,7 @@ void sub_9d3e0() { /* 0x9d3e0 */ }
 void sub_9d630() { /* 0x9d630 */ }
 void sub_9d8f0_subsdk0_9d8f0() { /* 0x9d8f0 */ }
 // sub_9d980: implemented in prog/matched/subsdk0/
-void sub_9d990_subsdk0_9d990() { /* 0x9d990 */ }
+// sub_9d990_subsdk0_9d990: implemented in prog/matched/subsdk0/
 void sub_9d9b0() { /* 0x9d9b0 */ }
 void sub_9da40_subsdk0_9da40() { /* 0x9da40 */ }
 void sub_9dae0() { /* 0x9dae0 */ }

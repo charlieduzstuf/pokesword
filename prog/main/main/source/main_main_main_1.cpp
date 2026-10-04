@@ -3533,7 +3533,7 @@ void sub_2d9350() { /* 0x2d9350 */ }
 void sub_2d93f0() { /* 0x2d93f0 */ }
 // sub_2d9440: implemented in prog/matched/main/
 // sub_2d9450: implemented in prog/matched/main/
-void sub_2d9460() { /* 0x2d9460 */ }
+// sub_2d9460: implemented in prog/matched/main/
 void sub_2d9480() { /* 0x2d9480 */ }
 void sub_2d94b0() { /* 0x2d94b0 */ }
 void sub_2d94f0() { /* 0x2d94f0 */ }

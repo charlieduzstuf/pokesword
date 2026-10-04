@@ -913,7 +913,7 @@ void sub_45940() { /* 0x45940 */ }
 void sub_45970() { /* 0x45970 */ }
 void NonTrackedAlloc_44() { /* 0x45980 */ }
 void NonTrackedAlloc_45() { /* 0x45a80 */ }
-void sub_45c60() { /* 0x45c60 */ }
+// sub_45c60: implemented in prog/matched/main/
 void PsSort_3() { /* 0x45c80 */ }
 void sub_46190() { /* 0x46190 */ }
 void sub_46370() { /* 0x46370 */ }

@@ -1980,7 +1980,7 @@ void sub_b75de0() { /* 0xb75de0 */ }
 void sub_b76080() { /* 0xb76080 */ }
 // sub_b76130: implemented in prog/matched/main/
 // sub_b76140: implemented in prog/matched/main/
-void sub_b76150() { /* 0xb76150 */ }
+// sub_b76150: implemented in prog/matched/main/
 void sub_b76170() { /* 0xb76170 */ }
 void sub_b76180() { /* 0xb76180 */ }
 void sub_b76190() { /* 0xb76190 */ }

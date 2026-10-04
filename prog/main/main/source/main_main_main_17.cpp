@@ -1360,7 +1360,7 @@ void sub_11802a0() { /* 0x11802a0 */ }
 void sub_11802b0() { /* 0x11802b0 */ }
 void sub_11802c0() { /* 0x11802c0 */ }
 // sub_11802d0: implemented in prog/matched/main/
-void sub_11802e0() { /* 0x11802e0 */ }
+// sub_11802e0: implemented in prog/matched/main/
 void sub_1180300() { /* 0x1180300 */ }
 void sub_1180360() { /* 0x1180360 */ }
 void sub_1180380() { /* 0x1180380 */ }
