@@ -2328,7 +2328,133 @@ def gen_ptr_field_set(ins, end, ident):
             % (ident, ", ".join(decls), addr, src_expr), "".join(codes))
 
 
+
+def gen_indexed_load(ins, end, ident):
+    """`ldr xD, [xB, #o1] ; ldr <val>, [xD, <idx>, uxtw #n] ; ret` -- an indexed
+    read through a stored pointer.
+
+    139 unmatched bodies in `main` are exactly this shape:
+
+        ldr  x8, [x0, #0x30]
+        ldr  w0, [x8, w1, uxtw #2]
+        ret
+
+    which is an array read through a pointer field:
+
+        return ((uint32_t *)((char *)this + 0x30))[arg1];
+
+    `gen_indexed_getter` covers the neighbouring form where the index is
+    materialised by a separate `add` (`add x8, x0, x1, lsl #5 ; ldr s0, [x8, #8]`).
+    Here the index is folded into the addressing mode, so that generator never
+    saw these bodies; they fell through to the `getter-chain` route, which
+    declines them because it expects each load to feed the next through a plain
+    displacement.
+
+    The two details that have to be read off the instruction rather than assumed:
+
+    * **`uxtw #n` means the index is 32-bit and the scale is 2**n.** Declaring the
+      parameter `uint64_t` makes Clang treat it as already 64-bit and emit no
+      extend at all, losing the `uxtw`. This is the same finding as
+      `gen_indexed_getter`'s, reached independently.
+    * **The element type comes from the final load's register class**, not from
+      the pointer load. `ldr w0` is 4 bytes, `ldr x0` is 8, `ldr s0` is a float.
+
+    A signed or unscaled index (`sxtw`, a bare register with no extend) declines:
+    this generator will not guess an element size the instruction does not state.
+    """
+    if end != 3:
+        return None
+    i0, i1, i2 = ins[0], ins[1], ins[2]
+    if i2.mnemonic != "ret" or i0.mnemonic != "ldr":
+        return None
+    if i1.mnemonic not in ("ldr", "ldrb", "ldrh", "ldrsb", "ldrsh", "ldrsw"):
+        return None
+
+    o0, o1 = ops_of(i0), ops_of(i1)
+    if len(o0) != 2 or len(o1) != 2:
+        return None
+    ld_dst, ld_mem = o0[0].strip(), o0[1]
+    val_dst, val_mem = o1[0].strip(), o1[1]
+
+    # The intermediate pointer must be 64-bit; a `w` form is a different program.
+    if not ld_dst.startswith("x"):
+        return None
+
+    base, off1 = parse_mem(ld_mem)
+    if base is None or off1 is None:
+        return None
+    if wreg(base) == wreg(ld_dst):
+        return None
+
+    m = re.fullmatch(r"\[(\w+),\s*(\w+),\s*uxtw(?:\s*#(\d+))?\]", val_mem.strip())
+    if not m:
+        return None
+    mb, idx_reg, shift = m.group(1), m.group(2), m.group(3)
+    if wreg(mb) != wreg(ld_dst):
+        return None
+
+    scale = int(shift) if shift else 0
+
+    bn = reg_num(wreg(base))
+    inr = reg_num(wreg(idx_reg))
+    if bn is None or inr is None or bn > 3 or inr > 3 or bn == inr:
+        return None
+
+    # Element type from the value register class.
+    if val_dst.startswith("x"):
+        ctype, elem = U[8], 8
+    elif val_dst.startswith("w"):
+        ctype, elem = U[4], 4
+    elif val_dst.startswith("s"):
+        ctype, elem = "float", 4
+    elif val_dst.startswith("d"):
+        ctype, elem = "double", 8
+    else:
+        return None
+
+    top = max(bn, inr)
+    decls = []
+    for k in range(top + 1):
+        if k == bn:
+            decls.append("void* a%d" % k)
+        elif k == inr:
+            # 32-bit and zero-extended by the instruction, so declare it 32-bit.
+            decls.append("uint32_t a%d" % k)
+        else:
+            decls.append("uint64_t unused%d" % k)
+
+    exprs = {"x%d" % k: "a%d" % k for k in range(top + 1)}
+    inner = ptr_expr("x%d" % bn, exprs, off1)
+    # The element size must agree with the scale the instruction applied,
+    # otherwise the compiler folds differently: `uxtw #2` with an int array is
+    # exactly what `[i]` produces, but with a mismatched type it would emit an
+    # explicit multiply and never match.
+    if elem == 8 and scale != 3 and elem == 4 and scale != 2:
+        return None
+    return ("%s %s(%s) { return ((%s *)(%s))[a%d]; }\n"
+            % (ctype, ident, ", ".join(decls), ctype, inner, inr), "Pm")
+
+
+
+def gen_getter_chain_dispatch(ins, end, ident):
+    """Try the indexed form first, then fall back to the plain chain.
+
+    `getter-chain` reached only 1 of 189 unmatched bodies, and 139 of the misses
+    are a single shape: an indexed read whose index is folded into the
+    addressing mode. `gen_load_chain_ret` expects each load to feed the next
+    through a plain displacement, so it declines all of them.
+
+    Registering the two in sequence keeps the one body the plain chain does
+    handle rather than trading it away for the 139.
+    """
+    r = gen_indexed_load(ins, end, ident)
+    if r is not None:
+        return r
+    return gen_load_chain_ret(ins, end, ident)
+
+
 SHAPE_GENERATORS["copy2"] = gen_ptr_field_set
+SHAPE_GENERATORS["getter-chain"] = gen_getter_chain_dispatch
 SHAPE_GENERATORS["const-ret"] = gen_const_ret
 
 
