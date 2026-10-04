@@ -37,11 +37,19 @@ jobs:
           python tools/progress_json.py --format markdown >> progress.txt
           python tools/progress_json.py --format json \
             --out badge/status.json
-          # report.json is the filename decomp.dev looks for inside the
-          # <VERSION>_report artifact. See the upload step and
-          # decomp/docs/decomp_dev.md for what it does and does not yet contain.
+          # report.json is the file decomp.dev looks for inside the
+          # <VERSION>_report artifact. It is generated in objdiff's protobuf
+          # progress-report format by tools/objdiff_report.py, which is purely
+          # additive: it reads data/functions.csv and the registries, writes
+          # build/report.json, and imports nothing from the matching pipeline.
+          #
+          # It gates itself against tools/match_progress.py and fails if its own
+          # figures disagree -- see the script's module docstring. An earlier
+          # draft computed its own totals and reported 152,034 / 26,542 where
+          # match_progress said 152,062 / 26,536.
           mkdir -p build
-          python tools/progress_json.py --format objdiff > build/report.json
+          python tools/objdiff_report.py --out build/report.json
+          ls -l build/report.json
 
       # A status table in the README that disagrees with the tool is worse than
       # no table: it is a number nobody checked. Fail rather than let it rot.
@@ -100,7 +108,7 @@ jobs:
           # convention. Bump it when the target changes.
           name: build562_report
           path: |
-            report.json
+            build/report.json
             progress.txt
             badge/status.json
 

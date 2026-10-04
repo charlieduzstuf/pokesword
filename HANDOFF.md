@@ -168,6 +168,7 @@ all (the tailcall round reported +9,083 and delivered zero).
 |---|---|
 | `decomp/docs/remaining.md` | **what is left and what blocks it** — read this next |
 | `decomp/docs/yield_sweep.md` | **which registered generators are dead** — measured, per shape |
+| `decomp/docs/struct_copy.md` | the 374 `struct-copy` bodies: two families, real disassembly, and the open question about whether either is reachable from C |
 | `decomp/docs/exactness_bug.md` | the tooling bugs that were worth +568 functions |
 | `decomp/docs/link_base0.md` | the 974-function unlock and its blocker |
 | `decomp/docs/prmb_loaders.md` | `.prmb` data tables and their loaders |
