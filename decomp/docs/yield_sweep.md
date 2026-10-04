@@ -65,6 +65,61 @@ through, and the `cmp`-against-`#0` forms additionally need the zero case
 recognised. This is the highest-value target after `struct-copy` and is
 tractable by hand — the arithmetic is all visible in the operands.
 
+### Why `compare` declines them: the exact blocker, ranked
+
+`gen_compare_ret` walks the instructions *before* the `cmp` and accepts exactly
+two things — a load, or a `mov` of an immediate:
+
+```python
+if i.mnemonic in LOADS and len(o) == 2:   ... state[dst] = ("load", ...)
+elif i.mnemonic == "mov" and len(o) == 2: ... state[dst] = ("imm", ...)
+else:
+    return None
+```
+
+Every other opcode falls through to `else: return None`. Counting 382 declined
+`compare` bodies by the **first** prefix opcode that trips this test:
+
+| blocking opcode | bodies | what it is |
+|---|---|---|
+| *(passes the loop, fails later)* | 50 | needs the comparison/condition side extended, not the prefix |
+| `sub` | 49 | mask idiom: `x & ~m` is usually emitted as `sub` |
+| `cmp` | 48 | a *second* comparison in the prefix |
+| `cbz` | 42 | early-out test, so the body is not a single comparison |
+| `adrp` | 41 | load through a global — same class as the `strlit` families |
+| `and` | 40 | mask idiom, incl. the test-one-bit `(x & ~1) == 0` |
+| `add` | 19 | pointer arithmetic before the load |
+| `movk` | 14 | builds a 32-bit constant from two halves |
+| `orr` | 10 | bit-set |
+| `ldrsb` | 9 | signed byte load — **probably just missing from `LOADS`** |
+| `mov` (register) | 9 | move between registers, not an immediate |
+| `ldp` | 8 | 16-byte load |
+
+Ranked by return per unit of work, the sensible order is:
+
+1. **`ldrsb` (9) and `ldrsh`/`ldrsh`/`ldur*` (likely a few more)** — cheapest of
+   all if they are genuinely absent from `LOADS` rather than declined later. One
+   set membership test. Check this first.
+2. **`movk` (14)** — reuse the two-half constant logic already written for
+   `gen_const_ret`; `movz`+`movk` is the same idiom.
+3. **`mov` register-to-register (9)** — trivial alias, the state machine already
+   tracks registers.
+4. **`and`/`sub`/`orr` (99 combined)** — the mask idioms, and the largest single
+   win. These need a new state form carrying a bitwise operation rather than a
+   load or an immediate, so it is real work but the arithmetic is fully visible
+   in the operands.
+5. **`cmp` as a prefix opcode (48)** — a compound condition
+   (`a && b`), which is a different body shape and probably wants its own
+   generator rather than an extension to this one.
+6. **`cbz` (42) and `adrp` (41)** — skip. `cbz` bodies branch and so belong to
+   the branchy population; `adrp` bodies need a global whose address is
+   irrelevant to `normalise` (see the `strlit-ret` note above), so they should be
+   routed to a shape of their own rather than forced through `compare`.
+
+The 50 "passes the loop, fails later" cases are a separate question and were not
+diagnosed; they are the residue once the prefix is understood, so re-measure
+after items 1-4 rather than chasing them first.
+
 **`straight` is the largest pool** (1,083 unmatched, 5.1% yield) but it is the
 generic fallback translator, so a low yield there is expected and not by itself
 evidence of a bug. Worth a separate look at which of its bodies it declines and
