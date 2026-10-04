@@ -1,0 +1,147 @@
+name: progress
+
+# Reports how close the decompilation is to complete, and refuses to report a
+# number it has not verified.
+#
+# The percentage is read from tools/match_progress.py, the one source the
+# project treats as authoritative. It is deliberately NOT recomputed here: two
+# implementations of a counting rule drift, and the drift is invisible because
+# both numbers look plausible. That already happened -- tools/keepalive.py
+# reported 26,544 where match_progress.py reported 26,536, with a docstring
+# inventing a reason for the gap.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # Always runs. Pure Python, no toolchain needed. This is the badge job.
+  progress:
+    name: Progress
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compute progress
+        run: |
+          python tools/progress_json.py | tee progress.txt
+          python tools/progress_json.py --format markdown >> progress.txt
+          python tools/progress_json.py --format json \
+            --out badge/status.json
+
+      # A status table in the README that disagrees with the tool is worse than
+      # no table: it is a number nobody checked. Fail rather than let it rot.
+      - name: Check README status block is current
+        run: |
+          set -e
+          python - <<'PY'
+          import re, subprocess, sys, io
+          raw = io.open("README.md", encoding="utf-8").read()
+          m = re.search(r"<!-- STATUS:BEGIN.*?<!-- STATUS:END -->", raw, re.S)
+          if not m:
+              print("::error::README.md has no STATUS block")
+              sys.exit(1)
+          block = m.group(0).split("-->", 1)[1]
+          block = block.rsplit("<!-- STATUS:END -->", 1)[0].strip()
+          tool = subprocess.run(
+              [sys.executable, "tools/progress_json.py", "--format", "markdown"],
+              capture_output=True, text=True).stdout.strip()
+          if block != tool:
+              print("::error::README status table is stale. Regenerate with:")
+              print("::error::  python tools/progress_json.py --format markdown")
+              sys.exit(1)
+          print("README status block is current.")
+          PY
+
+      - name: Summary
+        run: |
+          {
+            echo '## Matching progress'
+            echo
+            cat progress.txt
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload status and badge payload
+        uses: actions/upload-artifact@v4
+        with:
+          name: progress
+          path: |
+            progress.txt
+            badge/status.json
+
+  # Re-verification. Needs the project's own compiler: Clang 5.0.1 plus the
+  # ToolchainNX64.cmake flags. Matching under a different Clang is not matching,
+  # so this job does not fall back to a system clang -- it says so instead.
+  verify:
+    name: Re-verify matches
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Locate Clang 5.0.1
+        id: clang
+        run: |
+          set -e
+          if [ -n "${CLANG5_BIN:-}" ] && [ -x "${CLANG5_BIN}/clang" ]; then
+            echo "dir=${CLANG5_BIN}" >> "$GITHUB_OUTPUT"
+            echo "Using Clang 5.0.1 from ${CLANG5_BIN} (secret CLANG5_BIN)."
+            exit 0
+          fi
+          for d in /opt/llvm-5.0.1 /usr/lib/llvm-5.0.1 "$HOME/llvm-5.0.1"; do
+            if [ -x "$d/bin/clang" ]; then
+              echo "dir=$d" >> "$GITHUB_OUTPUT"
+              echo "Found Clang 5.0.1 at $d."
+              exit 0
+            fi
+          done
+          echo "found=false" >> "$GITHUB_OUTPUT"
+          echo "::warning title=Skipped::Clang 5.0.1 not available on this"
+          echo "::warning::runner. Matching under a different compiler is not"
+          echo "::warning::matching, so this job will not substitute one. Set"
+          echo "::warning::the repository secret CLANG5_BIN to a directory"
+          echo "::warning::containing clang 5.0.1 to enable it."
+
+      - name: Re-verify all modules
+        if: steps.clang.outputs.found != 'false'
+        env:
+          POKESWORD_CLANG: ${{ steps.clang.outputs.dir }}
+          POKESWORD_OPT: '-O3'
+        run: |
+          set -e
+          total_ok=0
+          total_fn=0
+          for m in main sdk subsdk0 subsdk1; do
+            echo "=== $m ==="
+            python tools/verify_matches.py --module "$m" | tee "verify-$m.txt"
+            n=$(sed -n 's/.*VERIFIED[[:space:]]*\([0-9]*\)[[:space:]]*\/.*/\1/p' \
+                  "verify-$m.txt" | tail -1)
+            d=$(sed -n 's/.*VERIFIED[[:space:]]*[0-9]*[[:space:]]*\/[[:space:]]*\([0-9]*\).*/\1/p' \
+                  "verify-$m.txt" | tail -1)
+            total_ok=$((total_ok + ${n:-0}))
+            total_fn=$((total_fn + ${d:-0}))
+          done
+          echo "verified $total_ok / $total_fn"
+          if [ "$total_ok" != "$total_fn" ]; then
+            echo "::error title=Verification mismatch::$total_ok / $total_fn"
+            exit 1
+          fi
+
+      - name: Upload verification logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-logs
+          path: verify-*.txt

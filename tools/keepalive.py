@@ -52,23 +52,38 @@ STATE = os.path.join(ROOT, "work", "keepalive_state.json")
 
 
 def body_count():
-    """Emitted verified bodies, from the registries.
+    """The authoritative figure, read from `tools/match_progress.py`.
 
-    Read from `data/matched_<mod>.json` rather than by counting files in
-    `prog/matched/`, because the two disagree by a few dozen records that do not
-    emit a body, and only the registry total is what the build consumes.
+    This function used to reimplement the count by summing
+    `len(blob["matched"])` over `data/matched_<mod>.json`. It reported a
+    different number from `match_progress.py` -- 26,544 against 26,536 -- and
+    its docstring confidently explained the gap as "records that do not emit a
+    body". **That explanation was invented, not measured.** Counting bodies in
+    `prog/matched/<mod>/source/*.cpp` directly was tried as the fix and returned
+    149, because a naive line-prefix heuristic counts forward declarations as
+    well as definitions.
+
+    Two copies of a counting rule will drift, and the drift is invisible because
+    both numbers look plausible. So there is now one: shell out to
+    `match_progress.py`, which the project already treats as the only source of
+    the percentage, and parse its TOTAL row. If that file cannot be read the
+    tick says so rather than substituting a guess.
     """
-    total = 0
-    per = {}
-    for m in MODULES:
-        p = os.path.join(ROOT, "data", "matched_%s.json" % m)
-        if not os.path.isfile(p):
-            continue
-        blob = json.load(open(p, encoding="utf-8"))
-        n = sum(1 for r in blob.get("matched", []) if isinstance(r, dict))
-        per[m] = n
-        total += n
-    return total, per
+    try:
+        r = subprocess.run([sys.executable,
+                            os.path.join(ROOT, "tools", "match_progress.py")],
+                           capture_output=True, text=True, cwd=ROOT, timeout=300)
+    except Exception as e:                                   # noqa: BLE001
+        return None, "match_progress.py unreadable: %s" % e, {}
+    for line in r.stdout.splitlines():
+        f = line.split()
+        if f and f[0] == "TOTAL" and len(f) >= 3:
+            # TOTAL <population> <matched> <remaining> <pct>
+            try:
+                return int(f[2]), int(f[1]), {}
+            except ValueError:
+                continue
+    return None, "no TOTAL row in match_progress output", {}
 
 
 def population():
@@ -130,13 +145,18 @@ def main():
     st = load_state()
     st["tick"] += 1
 
-    total, per = body_count()
-    pop = population()
-    pct = (100.0 * total / pop) if pop else 0.0
-
+    emitted, pop, per = body_count()
     print("=== keepalive tick %d ===" % st["tick"])
-    print("matching : %d / %d  = %.2f%%" % (total, pop, pct))
-    print("per module: %s" % per)
+    if emitted is None:
+        print("matching : UNAVAILABLE -- %s" % pop)
+    else:
+        pct = (100.0 * emitted / pop) if pop else 0.0
+        print("matching : %d / %d  = %.2f%%   (from match_progress.py --"
+              " the authoritative figure)" % (emitted, pop, pct))
+    if per:
+        print("per module: %s" % per)
+
+
 
     if a.fast:
         save_state(st)
