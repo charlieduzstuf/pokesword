@@ -408,7 +408,7 @@ def main():
     ap.add_argument("--from-elf", action="store_true",
                     help="read the linked build/prog.elf instead of recompiling. "
                          "Off by default: reading the linked image is the more "
-                         "direct check but measured worse (89% vs 99.8%) because "
+                         "direct check but measured worse (89%% vs 99.8%%) because "
                          "asm-differ normalisation assumptions do not all hold "
                          "across a 152k-symbol image, and the recompile path's "
                          "residual failures are understood (see below).")

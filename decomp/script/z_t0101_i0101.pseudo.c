@@ -3060,8 +3060,8 @@ fun_6CF0() {
     pri = 0;
     return pri;
 }
-// public fun_63F02D54
-public fun_63F02D54() {
+// public GetSceneChangeData
+public GetSceneChangeData() {
     alt = 11336;
     pri = arg_0;
     OP_LIDX_P_B 3

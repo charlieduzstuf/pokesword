@@ -8,7 +8,7 @@ fun_0010() {
     OP_PUSH_S 24
     OP_PUSH 0
     var_8 = 48;
-    OP_SYSREQ_C fun_F8A8C823
+    OP_SYSREQ_C AI_CMD
     OP_STACK 56
     return pri;
 }

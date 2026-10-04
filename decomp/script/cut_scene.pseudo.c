@@ -5157,8 +5157,8 @@ fun_B258() {
     pri = 0;
     return pri;
 }
-// public fun_9EEFA62
-public fun_9EEFA62() {
+// public CS_FObjSetPos
+public CS_FObjSetPos() {
     var_8 = 1;
     var_16 = arg_3;
     var_24 = arg_2;
@@ -5169,8 +5169,8 @@ public fun_9EEFA62() {
     pri = 0;
     return pri;
 }
-// public fun_26162C76
-public fun_26162C76() {
+// public CS_FObjSetPosAng
+public CS_FObjSetPosAng() {
     var_8 = 1;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -5182,8 +5182,8 @@ public fun_26162C76() {
     pri = 0;
     return pri;
 }
-// public fun_7E7C7147
-public fun_7E7C7147() {
+// public CS_FObjSetPosVec3
+public CS_FObjSetPosVec3() {
     var_8 = 1;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -5195,8 +5195,8 @@ public fun_7E7C7147() {
     pri = 0;
     return pri;
 }
-// public fun_9EB2ADC
-public fun_9EB2ADC() {
+// public CS_FObjSetAng
+public CS_FObjSetAng() {
     var_8 = 1;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -5205,8 +5205,8 @@ public fun_9EB2ADC() {
     pri = 0;
     return pri;
 }
-// public fun_57E2023F
-public fun_57E2023F() {
+// public CS_FObjSetAngTarget
+public CS_FObjSetAngTarget() {
     var_8 = 1;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -5215,8 +5215,8 @@ public fun_57E2023F() {
     pri = 0;
     return pri;
 }
-// public fun_7CEED08B
-public fun_7CEED08B() {
+// public CS_FObjSetAngTargetPos
+public CS_FObjSetAngTargetPos() {
     var_8 = 1;
     var_16 = arg_2;
     var_24 = arg_1;
@@ -5226,8 +5226,8 @@ public fun_7CEED08B() {
     pri = 0;
     return pri;
 }
-// public fun_588B25D0
-public fun_588B25D0() {
+// public CS_FObjSetVisibility
+public CS_FObjSetVisibility() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5235,8 +5235,8 @@ public fun_588B25D0() {
     pri = 0;
     return pri;
 }
-// public fun_953936CA
-public fun_953936CA() {
+// public CS_FObjSetFloat
+public CS_FObjSetFloat() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5244,8 +5244,8 @@ public fun_953936CA() {
     pri = 0;
     return pri;
 }
-// public fun_4E710A0A
-public fun_4E710A0A() {
+// public CS_FObjSetActiveCollision
+public CS_FObjSetActiveCollision() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5253,8 +5253,8 @@ public fun_4E710A0A() {
     pri = 0;
     return pri;
 }
-// public fun_F3A16A5C
-public fun_F3A16A5C() {
+// public CS_FObjSetActiveStaticCollision
+public CS_FObjSetActiveStaticCollision() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5262,8 +5262,8 @@ public fun_F3A16A5C() {
     pri = 0;
     return pri;
 }
-// public fun_124993AD
-public fun_124993AD() {
+// public CS_FObjSetShadowEnable
+public CS_FObjSetShadowEnable() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5271,8 +5271,8 @@ public fun_124993AD() {
     pri = 0;
     return pri;
 }
-// public fun_356738EE
-public fun_356738EE() {
+// public CS_FObjSetAlwaysVisibleInEvent
+public CS_FObjSetAlwaysVisibleInEvent() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5280,8 +5280,8 @@ public fun_356738EE() {
     pri = 0;
     return pri;
 }
-// public fun_BAA0314B
-public fun_BAA0314B() {
+// public CS_FObjACMove
+public CS_FObjACMove() {
     var_8 = arg_8;
     var_16 = arg_7;
     var_24 = arg_6;
@@ -5296,8 +5296,8 @@ public fun_BAA0314B() {
     pri = 0;
     return pri;
 }
-// public fun_AF534176
-public fun_AF534176() {
+// public CS_FObjACMoveFrame
+public CS_FObjACMoveFrame() {
     var_8 = arg_5;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -5309,8 +5309,8 @@ public fun_AF534176() {
     pri = 0;
     return pri;
 }
-// public fun_790C68D2
-public fun_790C68D2() {
+// public CS_FObjACMoveTurnToTarget
+public CS_FObjACMoveTurnToTarget() {
     var_8 = 1;
     var_16 = 0;
     var_24 = arg_5;
@@ -5324,8 +5324,8 @@ public fun_790C68D2() {
     pri = 0;
     return pri;
 }
-// public fun_6754F8BE
-public fun_6754F8BE() {
+// public CS_FObjACPathMove
+public CS_FObjACPathMove() {
     var_8 = arg_5;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -5337,8 +5337,8 @@ public fun_6754F8BE() {
     pri = 0;
     return pri;
 }
-// public fun_1ACF14A3
-public fun_1ACF14A3() {
+// public CS_FObjACRot
+public CS_FObjACRot() {
     var_8 = arg_4;
     var_16 = arg_3;
     var_24 = arg_2;
@@ -5349,8 +5349,8 @@ public fun_1ACF14A3() {
     pri = 0;
     return pri;
 }
-// public fun_48025B4
-public fun_48025B4() {
+// public CS_FObjACRotTarget
+public CS_FObjACRotTarget() {
     var_8 = 0;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -5362,8 +5362,8 @@ public fun_48025B4() {
     pri = 0;
     return pri;
 }
-// public fun_46E25C52
-public fun_46E25C52() {
+// public CS_FObjACRotTargetPos
+public CS_FObjACRotTargetPos() {
     var_8 = arg_5;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -5375,8 +5375,8 @@ public fun_46E25C52() {
     pri = 0;
     return pri;
 }
-// public fun_DCE5608C
-public fun_DCE5608C() {
+// public CS_FObjACRotEach
+public CS_FObjACRotEach() {
     var_8 = arg_2;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -5385,8 +5385,8 @@ public fun_DCE5608C() {
     pri = 0;
     return pri;
 }
-// public fun_B78DCA27
-public fun_B78DCA27() {
+// public CS_FObjACWait
+public CS_FObjACWait() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_0DF0(var_8)
@@ -5489,8 +5489,8 @@ fun_BC30() {
 // lab_BCB8
     OP_INC_P_S -592
 }
-// public fun_E955732C
-public fun_E955732C() {
+// public CS_FObjMotionPlayOneShot
+public CS_FObjMotionPlayOneShot() {
     var_16 = arg_1;
     pri = GetFnvHash64(var_16)
     var_24 = pri;
@@ -5517,8 +5517,8 @@ public fun_E955732C() {
     pri = 0;
     return pri;
 }
-// public fun_161302DB
-public fun_161302DB() {
+// public CS_FObjMotionPlayLoopIn
+public CS_FObjMotionPlayLoopIn() {
     var_16 = arg_1;
     pri = GetFnvHash64(var_16)
     var_24 = pri;
@@ -5545,8 +5545,8 @@ public fun_161302DB() {
     pri = 0;
     return pri;
 }
-// public fun_4BB8EAF6
-public fun_4BB8EAF6() {
+// public CS_FObjMotionPlayLoopOut
+public CS_FObjMotionPlayLoopOut() {
     var_16 = arg_1;
     pri = GetFnvHash64(var_16)
     var_24 = pri;
@@ -5571,8 +5571,8 @@ public fun_4BB8EAF6() {
     pri = 0;
     return pri;
 }
-// public fun_52EFF9DD
-public fun_52EFF9DD() {
+// public CS_FObjMotionChangeWaitType
+public CS_FObjMotionChangeWaitType() {
     var_16 = arg_1;
     pri = GetFnvHash64(var_16)
     var_24 = pri;
@@ -5595,16 +5595,16 @@ public fun_52EFF9DD() {
     pri = 0;
     return pri;
 }
-// public fun_88168061
-public fun_88168061() {
+// public CS_FObjMotionWait
+public CS_FObjMotionWait() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_1048(var_8)
     pri = 0;
     return pri;
 }
-// public fun_D467F445
-public fun_D467F445() {
+// public CS_FObjMotionWaitStateName
+public CS_FObjMotionWaitStateName() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5612,16 +5612,16 @@ public fun_D467F445() {
     pri = 0;
     return pri;
 }
-// public fun_CF6ADE2B
-public fun_CF6ADE2B() {
+// public CS_FObjMotionReset
+public CS_FObjMotionReset() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_1370(var_8)
     pri = 0;
     return pri;
 }
-// public fun_FB9D6D00
-public fun_FB9D6D00() {
+// public CS_StateSetTrigger
+public CS_StateSetTrigger() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5629,8 +5629,8 @@ public fun_FB9D6D00() {
     pri = 0;
     return pri;
 }
-// public fun_8B678DBC
-public fun_8B678DBC() {
+// public CS_StateSetBool
+public CS_StateSetBool() {
     var_8 = arg_2;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -5639,8 +5639,8 @@ public fun_8B678DBC() {
     pri = 0;
     return pri;
 }
-// public fun_2A17F207
-public fun_2A17F207() {
+// public CS_StateSetInt
+public CS_StateSetInt() {
     var_8 = arg_2;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -5649,8 +5649,8 @@ public fun_2A17F207() {
     pri = 0;
     return pri;
 }
-// public fun_EA9391A
-public fun_EA9391A() {
+// public CS_StateSetFloat
+public CS_StateSetFloat() {
     var_8 = arg_2;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -5659,16 +5659,16 @@ public fun_EA9391A() {
     pri = 0;
     return pri;
 }
-// public fun_2E2D0F4F
-public fun_2E2D0F4F() {
+// public CS_FObjEyeBlink
+public CS_FObjEyeBlink() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_2538(var_8)
     pri = 0;
     return pri;
 }
-// public fun_9E9AEE3
-public fun_9E9AEE3() {
+// public CS_FObjSetEye
+public CS_FObjSetEye() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5676,16 +5676,16 @@ public fun_9E9AEE3() {
     pri = 0;
     return pri;
 }
-// public fun_7543B2E4
-public fun_7543B2E4() {
+// public CS_FObjResetEye
+public CS_FObjResetEye() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_25B8(var_8)
     pri = 0;
     return pri;
 }
-// public fun_FA10627D
-public fun_FA10627D() {
+// public CS_FObjSetMouth
+public CS_FObjSetMouth() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5693,16 +5693,16 @@ public fun_FA10627D() {
     pri = 0;
     return pri;
 }
-// public fun_5B53CA26
-public fun_5B53CA26() {
+// public CS_FObjResetMouth
+public CS_FObjResetMouth() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_2630(var_8)
     pri = 0;
     return pri;
 }
-// public fun_12BD5B5F
-public fun_12BD5B5F() {
+// public CS_FObjSetFace
+public CS_FObjSetFace() {
     var_8 = arg_2;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -5711,16 +5711,16 @@ public fun_12BD5B5F() {
     pri = 0;
     return pri;
 }
-// public fun_183CD5E
-public fun_183CD5E() {
+// public CS_FObjResetFace
+public CS_FObjResetFace() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_26D0(var_8)
     pri = 0;
     return pri;
 }
-// public fun_31BC6BD5
-public fun_31BC6BD5() {
+// public CS_FObjLookAtDirection
+public CS_FObjLookAtDirection() {
     var_8 = 1;
     var_16 = arg_3;
     var_24 = arg_2;
@@ -5731,8 +5731,8 @@ public fun_31BC6BD5() {
     pri = 0;
     return pri;
 }
-// public fun_5A16968E
-public fun_5A16968E() {
+// public CS_FObjLookAtDirectionSpeed
+public CS_FObjLookAtDirectionSpeed() {
     var_8 = 1;
     var_16 = arg_3;
     var_24 = arg_2;
@@ -5743,8 +5743,8 @@ public fun_5A16968E() {
     pri = 0;
     return pri;
 }
-// public fun_E331838C
-public fun_E331838C() {
+// public CS_FObjStartEyeLookAtDirection
+public CS_FObjStartEyeLookAtDirection() {
     var_8 = arg_4;
     var_16 = arg_3;
     var_24 = arg_2;
@@ -5804,22 +5804,22 @@ fun_C648() {
 // lab_C748
     OP_INC_P_S -2744
 }
-// public fun_19854EA6
-public fun_19854EA6() {
+// public CS_EvCameraWait
+public CS_EvCameraWait() {
     var_8 = 0;
     pri = fun_3E00()
     pri = 0;
     return pri;
 }
-// public fun_C2C96E7A
-public fun_C2C96E7A() {
+// public CS_EvCameraShakeWait
+public CS_EvCameraShakeWait() {
     var_8 = 0;
     pri = fun_4058()
     pri = 0;
     return pri;
 }
-// public fun_72729192
-public fun_72729192() {
+// public CS_PfxDofInit
+public CS_PfxDofInit() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -5827,8 +5827,8 @@ public fun_72729192() {
     pri = 0;
     return pri;
 }
-// public fun_1CA90E48
-public fun_1CA90E48() {
+// public CS_PfxDofStart
+public CS_PfxDofStart() {
     var_8 = arg_3;
     var_16 = 8;
     pri = fun_C648(var_8)
@@ -5841,8 +5841,8 @@ public fun_1CA90E48() {
     pri = 0;
     return pri;
 }
-// public fun_C05F9653
-public fun_C05F9653() {
+// public CS_PfxDofEnd
+public CS_PfxDofEnd() {
     var_8 = arg_3;
     var_16 = arg_2;
     var_24 = arg_1;
@@ -5855,21 +5855,21 @@ public fun_C05F9653() {
     pri = 0;
     return pri;
 }
-// public fun_27A966F2
-public fun_27A966F2() {
+// public CS_PfxDofEndInstance
+public CS_PfxDofEndInstance() {
     pri = EndDof_()
     pri = 0;
     return pri;
 }
-// public fun_6F176CE7
-public fun_6F176CE7() {
+// public CS_PfxDofWait
+public CS_PfxDofWait() {
     var_8 = 0;
     pri = fun_4278()
     pri = 0;
     return pri;
 }
-// public fun_57A3D0EB
-public fun_57A3D0EB() {
+// public CS_PfxDofCharaStart
+public CS_PfxDofCharaStart() {
     var_8 = arg_4;
     var_16 = arg_3;
     var_24 = 8;
@@ -5883,8 +5883,8 @@ public fun_57A3D0EB() {
     pri = 0;
     return pri;
 }
-// public fun_94D36D4
-public fun_94D36D4() {
+// public CS_EvCameraShakeInX
+public CS_EvCameraShakeInX() {
     var_8 = arg_8;
     var_16 = arg_7;
     var_24 = arg_6;
@@ -5899,8 +5899,8 @@ public fun_94D36D4() {
     pri = 0;
     return pri;
 }
-// public fun_94D36D5
-public fun_94D36D5() {
+// public CS_EvCameraShakeInY
+public CS_EvCameraShakeInY() {
     var_8 = arg_8;
     var_16 = arg_7;
     var_24 = arg_6;
@@ -5915,8 +5915,8 @@ public fun_94D36D5() {
     pri = 0;
     return pri;
 }
-// public fun_94D36D6
-public fun_94D36D6() {
+// public CS_EvCameraShakeInZ
+public CS_EvCameraShakeInZ() {
     var_8 = arg_8;
     var_16 = arg_7;
     var_24 = arg_6;
@@ -5931,16 +5931,16 @@ public fun_94D36D6() {
     pri = 0;
     return pri;
 }
-// public fun_33038715
-public fun_33038715() {
+// public CS_EvCameraShakeEndAll
+public CS_EvCameraShakeEndAll() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_40E8(var_8)
     pri = 0;
     return pri;
 }
-// public fun_85F308D8
-public fun_85F308D8() {
+// public CS_EffectPlay
+public CS_EffectPlay() {
     pri = CommandNOP()
     var_8 = arg_8;
     var_16 = arg_7;
@@ -5956,8 +5956,8 @@ public fun_85F308D8() {
     pri = 0;
     return pri;
 }
-// public fun_68A112CE
-public fun_68A112CE() {
+// public CS_EffectPlayHead
+public CS_EffectPlayHead() {
     var_8 = arg_5;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -5969,8 +5969,8 @@ public fun_68A112CE() {
     pri = 0;
     return pri;
 }
-// public fun_3690DC2E
-public fun_3690DC2E() {
+// public CS_EffectPlayOnCamera
+public CS_EffectPlayOnCamera() {
     var_8 = arg_8;
     var_16 = arg_7;
     var_24 = arg_6;
@@ -5985,8 +5985,8 @@ public fun_3690DC2E() {
     pri = 0;
     return pri;
 }
-// public fun_B9A3AC64
-public fun_B9A3AC64() {
+// public CS_EffectPlayWorld
+public CS_EffectPlayWorld() {
     var_8 = arg_5;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -6045,8 +6045,8 @@ public fun_62182385() {
 // lab_CEB0
     OP_INC_P_S -496
 }
-// public fun_85550449
-public fun_85550449() {
+// public CS_EffectWait
+public CS_EffectWait() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_2B20(var_8)
@@ -6213,8 +6213,8 @@ fun_D588() {
 // lab_D610
     OP_INC_P_S -344
 }
-// public fun_926671EE
-public fun_926671EE() {
+// public CS_MsgWin
+public CS_MsgWin() {
     var_8 = arg_3;
     var_16 = 8;
     pri = fun_D230(var_8)
@@ -6230,8 +6230,8 @@ public fun_926671EE() {
     pri = 0;
     return pri;
 }
-// public fun_E545B8C9
-public fun_E545B8C9() {
+// public CS_ChrMsg
+public CS_ChrMsg() {
     var_8 = 0;
     var_16 = arg_5;
     var_24 = 8;
@@ -6253,8 +6253,8 @@ public fun_E545B8C9() {
     pri = 0;
     return pri;
 }
-// public fun_CAF5EF
-public fun_CAF5EF() {
+// public CS_ChrMsgRomVersion
+public CS_ChrMsgRomVersion() {
     var_8 = arg_7;
     var_16 = 8;
     pri = fun_D230(var_8)
@@ -6277,8 +6277,8 @@ public fun_CAF5EF() {
     pri = 0;
     return pri;
 }
-// public fun_4ECFF684
-public fun_4ECFF684() {
+// public CS_ChrMsgMF
+public CS_ChrMsgMF() {
     var_8 = 0;
     var_16 = arg_6;
     var_24 = 8;
@@ -6301,8 +6301,8 @@ public fun_4ECFF684() {
     pri = 0;
     return pri;
 }
-// public fun_C2A004B3
-public fun_C2A004B3() {
+// public CS_SysMsg
+public CS_SysMsg() {
     var_8 = arg_2;
     var_16 = 8;
     pri = fun_D230(var_8)
@@ -6314,30 +6314,30 @@ public fun_C2A004B3() {
     pri = 0;
     return pri;
 }
-// public fun_C6FE0AFE
-public fun_C6FE0AFE() {
+// public CS_MsgKeyWait
+public CS_MsgKeyWait() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_3750(var_8)
     pri = 0;
     return pri;
 }
-// public fun_AF6F0C95
-public fun_AF6F0C95() {
+// public CS_MsgWinWait
+public CS_MsgWinWait() {
     var_8 = 0;
     pri = fun_36B8()
     pri = 0;
     return pri;
 }
-// public fun_673B6E28
-public fun_673B6E28() {
+// public CS_MsgClose
+public CS_MsgClose() {
     var_8 = 0;
     pri = fun_3810()
     pri = 0;
     return pri;
 }
-// public fun_4AD61FB3
-public fun_4AD61FB3() {
+// public CS_YesNoWin
+public CS_YesNoWin() {
     var_8 = arg_5;
     var_16 = arg_4;
     var_24 = arg_3;
@@ -6352,8 +6352,8 @@ public fun_4AD61FB3() {
     pri = 0;
     return pri;
 }
-// public fun_CA8901B0
-public fun_CA8901B0() {
+// public CS_ListMenuStart
+public CS_ListMenuStart() {
     pri = 0;
     OP_ADDR_ALT -56
     OP_FILL 56
@@ -6426,8 +6426,8 @@ public fun_CA8901B0() {
 // lab_DD08
     OP_INC_P_S -64
 }
-// public fun_119ED807
-public fun_119ED807() {
+// public CS_WordSetMonsName
+public CS_WordSetMonsName() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -6435,8 +6435,8 @@ public fun_119ED807() {
     pri = 0;
     return pri;
 }
-// public fun_C8E005F1
-public fun_C8E005F1() {
+// public CS_WordSetMonsNameRomVersion
+public CS_WordSetMonsNameRomVersion() {
     var_8 = arg_2;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -6491,8 +6491,8 @@ fun_DEC0() {
 // lab_DF80
     OP_INC_P_S -200
 }
-// public fun_2F0BFEF2
-public fun_2F0BFEF2() {
+// public CS_FadeIn
+public CS_FadeIn() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 8;
@@ -6503,8 +6503,8 @@ public fun_2F0BFEF2() {
     pri = 0;
     return pri;
 }
-// public fun_1322EB5D
-public fun_1322EB5D() {
+// public CS_FadeOut
+public CS_FadeOut() {
     var_8 = arg_3;
     var_16 = arg_2;
     var_24 = arg_1;
@@ -6517,8 +6517,8 @@ public fun_1322EB5D() {
     pri = 0;
     return pri;
 }
-// public fun_967DB9AD
-public fun_967DB9AD() {
+// public CS_FadeInFrame
+public CS_FadeInFrame() {
     var_8 = arg_1;
     var_16 = arg_0;
     var_24 = 16;
@@ -6526,8 +6526,8 @@ public fun_967DB9AD() {
     pri = 0;
     return pri;
 }
-// public fun_4985AC04
-public fun_4985AC04() {
+// public CS_FadeOutFrame
+public CS_FadeOutFrame() {
     var_8 = arg_3;
     var_16 = arg_2;
     var_24 = arg_1;
@@ -6537,23 +6537,23 @@ public fun_4985AC04() {
     pri = 0;
     return pri;
 }
-// public fun_C99ECA68
-public fun_C99ECA68() {
+// public CS_FadeWait
+public CS_FadeWait() {
     var_8 = 0;
     pri = fun_03A8()
     pri = 0;
     return pri;
 }
-// public fun_CB3E0DAD
-public fun_CB3E0DAD() {
+// public CS_SoundWait
+public CS_SoundWait() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_0468(var_8)
     pri = 0;
     return pri;
 }
-// public fun_DCC0E7B4
-public fun_DCC0E7B4() {
+// public CS_ItemEvent
+public CS_ItemEvent() {
     var_8 = arg_4;
     var_16 = arg_3;
     var_24 = arg_2;
@@ -6564,8 +6564,8 @@ public fun_DCC0E7B4() {
     pri = 0;
     return pri;
 }
-// public fun_3DC25001
-public fun_3DC25001() {
+// public CS_ItemEventUnique
+public CS_ItemEventUnique() {
     var_8 = 2;
     var_16 = arg_5;
     var_24 = arg_4;
@@ -6578,8 +6578,8 @@ public fun_3DC25001() {
     pri = 0;
     return pri;
 }
-// public fun_2D96863A
-public fun_2D96863A() {
+// public CS_ItemEventWithMotion
+public CS_ItemEventWithMotion() {
     var_8 = arg_7;
     var_16 = arg_6;
     var_24 = arg_5;
@@ -6593,8 +6593,8 @@ public fun_2D96863A() {
     pri = 0;
     return pri;
 }
-// public fun_75BD1DE0
-public fun_75BD1DE0() {
+// public CS_LicenseCardEvent
+public CS_LicenseCardEvent() {
     var_8 = arg_3;
     var_16 = arg_2;
     var_24 = 8;
@@ -6646,23 +6646,23 @@ fun_E448() {
 // lab_E4D0
     OP_INC_P_S -3592
 }
-// public fun_B9BAF375
-public fun_B9BAF375() {
+// public CS_TimeWait
+public CS_TimeWait() {
     var_8 = arg_0;
     var_16 = 8;
     pri = fun_0090(var_8)
     pri = 0;
     return pri;
 }
-// public fun_A0E636D3
-public fun_A0E636D3() {
+// public CS_PlaceNameDisp
+public CS_PlaceNameDisp() {
     var_8 = 0;
     pri = fun_0438()
     pri = 0;
     return pri;
 }
-// public fun_312F2D2D
-public fun_312F2D2D() {
+// public CS_FieldPlacementSelectParamSet
+public CS_FieldPlacementSelectParamSet() {
     var_8 = arg_2;
     var_16 = arg_1;
     var_24 = arg_0;
@@ -6671,8 +6671,8 @@ public fun_312F2D2D() {
     pri = 0;
     return pri;
 }
-// public fun_25C60EA4
-public fun_25C60EA4() {
+// public CS_FieldPlacementSelectParamReset
+public CS_FieldPlacementSelectParamReset() {
     var_8 = 0;
     pri = fun_09F8()
     pri = 0;
