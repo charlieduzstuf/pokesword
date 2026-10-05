@@ -495,7 +495,7 @@ void sub_15d30_subsdk0_15d30() { /* 0x15d30 */ }
 void sub_15d80() { /* 0x15d80 */ }
 void sub_16040() { /* 0x16040 */ }
 void sub_16170_subsdk0_16170() { /* 0x16170 */ }
-void sub_161b0() { /* 0x161b0 */ }
+// sub_161b0: implemented in prog/matched/subsdk0/
 // sub_161c0_subsdk0_161c0: implemented in prog/matched/subsdk0/
 void sub_161d0() { /* 0x161d0 */ }
 void pcm_alignment_2() { /* 0x161f0 */ }

@@ -25,6 +25,12 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 
+// sub_559270  (orig 0x559270, ptr_add)
+void* main_f_559270(void* a0) { return (char*)a0 + 120; }
+
+// sub_559280  (orig 0x559280, ret_only)
+void main_f_559280() {}
+
 // sub_559290  (orig 0x559290, mov_ret)
 uint32_t main_f_559290() { return 0; }
 
@@ -2524,6 +2530,14 @@ void main_f_690390(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*
 // sub_6903a0  (orig 0x6903a0, copy2)
 void main_f_6903a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_691100  (orig 0x691100, copy-chain-store)
+void main_f_691100(void* a0, void* a1) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    *(uint64_t*)(char*)a0 = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = (uint64_t)(t0);
+}
+
 // sub_692590  (orig 0x692590, ret_only)
 void main_f_692590() {}
 
@@ -3947,6 +3961,13 @@ void main_f_7a6b60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*
 
 // sub_7a6b70  (orig 0x7a6b70, copy2)
 void main_f_7a6b70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_7a6b80  (orig 0x7a6b80, copy-chain-store)
+void main_f_7a6b80(void* a0, void* a1) {
+    uint32_t t0 = *(uint32_t*)(char*)a1;
+    uint64_t t1 = *(uint64_t*)(char*)a0;
+    *(uint32_t*)((char*)(t1) + 2064) = (uint32_t)(t0);
+}
 
 // sub_7a6b90  (orig 0x7a6b90, ret_only)
 void main_f_7a6b90() {}
@@ -6389,16 +6410,4 @@ void *main_f_8583e0(void* a0) { static char g_f_8583e0[1]; *(uint32_t *)((char*)
 
 // sub_858400  (orig 0x858400, strlit-flag-ret)
 void *main_f_858400(void* a0) { static char g_f_858400[1]; *(uint32_t *)((char*)(a0)) = 1; __asm__ volatile("" ::: "memory"); return g_f_858400; }
-
-// sub_858420  (orig 0x858420, strlit-flag-ret)
-void *main_f_858420(void* a0) { static char g_f_858420[1]; *(uint32_t *)((char*)(a0)) = 1; __asm__ volatile("" ::: "memory"); return g_f_858420; }
-
-// sub_858440  (orig 0x858440, strlit-flag-ret)
-void *main_f_858440(void* a0) { static char g_f_858440[1]; *(uint32_t *)((char*)(a0)) = 1; __asm__ volatile("" ::: "memory"); return g_f_858440; }
-
-// sub_858460  (orig 0x858460, strlit-flag-ret)
-void *main_f_858460(void* a0) { static char g_f_858460[1]; *(uint32_t *)((char*)(a0)) = 1; __asm__ volatile("" ::: "memory"); return g_f_858460; }
-
-// sub_858480  (orig 0x858480, strlit-flag-ret)
-void *main_f_858480(void* a0) { static char g_f_858480[1]; *(uint32_t *)((char*)(a0)) = 1; __asm__ volatile("" ::: "memory"); return g_f_858480; }
 

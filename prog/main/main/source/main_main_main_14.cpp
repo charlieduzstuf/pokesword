@@ -102,7 +102,7 @@ void sub_f0cbc0() { /* 0xf0cbc0 */ }
 void sub_f0cbd0() { /* 0xf0cbd0 */ }
 void sub_f0cc00() { /* 0xf0cc00 */ }
 void sub_f0cc10() { /* 0xf0cc10 */ }
-void sub_f0cc20() { /* 0xf0cc20 */ }
+// sub_f0cc20: implemented in prog/matched/main/
 // sub_f0cc30: implemented in prog/matched/main/
 // sub_f0cc40: implemented in prog/matched/main/
 // sub_f0cc50: implemented in prog/matched/main/
@@ -418,7 +418,7 @@ void sub_f26830() { /* 0xf26830 */ }
 // sub_f26850: implemented in prog/matched/main/
 // sub_f26860: implemented in prog/matched/main/
 // sub_f26870: implemented in prog/matched/main/
-void sub_f26880() { /* 0xf26880 */ }
+// sub_f26880: implemented in prog/matched/main/
 // sub_f26890: implemented in prog/matched/main/
 // sub_f268a0: implemented in prog/matched/main/
 // sub_f268b0: implemented in prog/matched/main/
@@ -2109,7 +2109,7 @@ void sub_f8db10() { /* 0xf8db10 */ }
 // sub_f8db20: implemented in prog/matched/main/
 // sub_f8db30: implemented in prog/matched/main/
 // sub_f8db40: implemented in prog/matched/main/
-void sub_f8db50() { /* 0xf8db50 */ }
+// sub_f8db50: implemented in prog/matched/main/
 // sub_f8db60: implemented in prog/matched/main/
 // sub_f8db70: implemented in prog/matched/main/
 // sub_f8db80: implemented in prog/matched/main/

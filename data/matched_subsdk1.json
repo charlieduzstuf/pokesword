@@ -16249,6 +16249,78 @@
    "size": 16,
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "addr": 15408,
+   "ident": "f_3c30",
+   "module": "subsdk1",
+   "name": "sub_3c30",
+   "shape": "copy-chain-store",
+   "sig": "Pv",
+   "src": "void f_3c30(void* a0) {\n    uint32_t t0 = *(uint32_t*)((char*)a0 + 24);\n    uint64_t t1 = *(uint64_t*)((char*)a0 + 32);\n    *(uint32_t*)(char*)(t1) = (uint32_t)(t0);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 15472,
+   "ident": "f_3c70",
+   "module": "subsdk1",
+   "name": "sub_3c70",
+   "shape": "copy-chain-store",
+   "sig": "Pv",
+   "src": "void f_3c70(void* a0) {\n    uint8_t t0 = *(uint8_t*)((char*)a0 + 24);\n    uint64_t t1 = *(uint64_t*)((char*)a0 + 32);\n    *(uint8_t*)(char*)(t1) = (uint8_t)(t0);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 2995408,
+   "ident": "f_2db4d0",
+   "module": "subsdk1",
+   "name": "sub_2db4d0",
+   "shape": "copy-chain-store",
+   "sig": "Pvm",
+   "src": "void f_2db4d0(void* a0, uint64_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 2152);\n    *(uint64_t*)((char*)a1 + 312) = (uint64_t)(t0);\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)((char*)a0 + 2152) = (uint64_t)a1;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 2995424,
+   "ident": "f_2db4e0",
+   "module": "subsdk1",
+   "name": "sub_2db4e0",
+   "shape": "copy-chain-store",
+   "sig": "Pv",
+   "src": "void f_2db4e0(void* a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 2152);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 312);\n    *(uint64_t*)((char*)a0 + 2152) = (uint64_t)(t1);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 3268768,
+   "ident": "f_31e0a0",
+   "module": "subsdk1",
+   "name": "sub_31e0a0",
+   "shape": "copy-chain-store",
+   "sig": "m",
+   "src": "void f_31e0a0(uint64_t a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 48);\n    uint64_t t1 = *(uint64_t*)(char*)(t0);\n    *(uint64_t*)((char*)a0 + 56) = (uint64_t)(t1);\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)(char*)(t0) = (uint64_t)a0;\n}\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "addr": 3404816,
+   "ident": "f_33f410",
+   "module": "subsdk1",
+   "name": "sub_33f410",
+   "shape": "copy-chain-store",
+   "sig": "m",
+   "src": "void f_33f410(uint64_t a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 48);\n    uint64_t t1 = *(uint64_t*)(char*)(t0);\n    *(uint64_t*)((char*)a0 + 56) = (uint64_t)(t1);\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)(char*)(t0) = (uint64_t)a0;\n}\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
   }
  ]
 }

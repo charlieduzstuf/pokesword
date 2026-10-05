@@ -108,9 +108,9 @@ void Unknown_profile_option_s_ignored() { /* 0x39c0 */ }
 void sub_3b60() { /* 0x3b60 */ }
 void s_s_s_subsdk1_3be0() { /* 0x3be0 */ }
 void sub_3c00() { /* 0x3c00 */ }
-void sub_3c30() { /* 0x3c30 */ }
+// sub_3c30: implemented in prog/matched/subsdk1/
 void sub_3c40() { /* 0x3c40 */ }
-void sub_3c70() { /* 0x3c70 */ }
+// sub_3c70: implemented in prog/matched/subsdk1/
 void sub_3c80() { /* 0x3c80 */ }
 void sub_3ca0() { /* 0x3ca0 */ }
 void sub_3cb0() { /* 0x3cb0 */ }

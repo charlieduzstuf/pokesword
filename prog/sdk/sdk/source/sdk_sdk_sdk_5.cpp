@@ -1226,8 +1226,8 @@ void sub_3edff0() { /* 0x3edff0 */ }
 void sub_3ee030() { /* 0x3ee030 */ }
 void sub_3ee040_sdk_3ee040() { /* 0x3ee040 */ }
 void sub_3ee080() { /* 0x3ee080 */ }
-void sub_3ee090() { /* 0x3ee090 */ }
-void sub_3ee0a0() { /* 0x3ee0a0 */ }
+// sub_3ee090: implemented in prog/matched/sdk/
+// sub_3ee0a0: implemented in prog/matched/sdk/
 void sub_3ee0b0() { /* 0x3ee0b0 */ }
 void sub_3ee0d0() { /* 0x3ee0d0 */ }
 void sub_3ee0f0() { /* 0x3ee0f0 */ }

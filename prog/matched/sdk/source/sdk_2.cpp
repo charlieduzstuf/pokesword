@@ -3542,6 +3542,14 @@ bool sdk_f_194e00(void* a0) { return (uint32_t)(*(uint32_t*)((char*)(a0))) != (u
 // sub_194e10  (orig 0x194e10, mov_ret)
 uint64_t sdk_f_194e10() { return 0; }
 
+// sub_194e20  (orig 0x194e20, copy-chain-store)
+void sdk_f_194e20(void* a0, void* a1) {
+    uint32_t t0 = *(uint32_t*)(char*)a1;
+    *(uint32_t*)((char*)a0 + 16) = (uint32_t)(t0);
+    __asm__ __volatile__("" ::: "memory");
+    *(uint8_t*)((char*)a0 + 6) = 0;
+}
+
 // sub_195860  (orig 0x195860, ret_only)
 void sdk_f_195860() {}
 
@@ -3670,6 +3678,13 @@ uint32_t sdk_f_19e580(void* a0) { return *(uint32_t*)((char*)(a0) + 76); }
 uint64_t sdk_f_19e930(void* a0) {
     *(uint32_t*)((char*)(a0) + 72) = 435;
     return 0;
+}
+
+// sub_1b20f0  (orig 0x1b20f0, copy-chain-store)
+void sdk_f_1b20f0(void* a0) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 64);
+    uint64_t t1 = *(uint64_t*)((char*)(t0) + 8);
+    *(uint64_t*)((char*)a0 + 40) = (uint64_t)(t1);
 }
 
 // sub_1b3ae0  (orig 0x1b3ae0, copy2)
@@ -4993,6 +5008,22 @@ uint32_t sdk_f_27d3f0() { return 0; }
 
 // sub_27dc50  (orig 0x27dc50, ret_only)
 void sdk_f_27dc50() {}
+
+// sub_284980  (orig 0x284980, copy-chain-store)
+void sdk_f_284980(void* a0) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 584);
+    *(uint64_t*)((char*)a0 + 296) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)((char*)a0 + 164) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)((char*)a0 + 540) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint16_t*)((char*)(t0) + 24) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)((char*)(t0) + 32) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)((char*)(t0) + 248) = 0;
+}
 
 // sub_288680  (orig 0x288680, setter)
 void sdk_f_288680(uint64_t unused0, uint64_t unused1, uint64_t unused2, void* a3) { *(uint64_t*)((char*)(a3)) = 0; }
@@ -6633,13 +6664,4 @@ void sdk_f_37aaf0(void* a0) {
 
 // sub_37abe0  (orig 0x37abe0, ret_only)
 void sdk_f_37abe0() {}
-
-// sub_37bbc0  (orig 0x37bbc0, ret_only)
-void sdk_f_37bbc0() {}
-
-// sub_37bbd0  (orig 0x37bbd0, getter)
-uint32_t sdk_f_37bbd0(void* a0) { return *(uint32_t*)((char*)(a0)); }
-
-// sub_37bbe0  (orig 0x37bbe0, getter)
-uint32_t sdk_f_37bbe0(void* a0) { return *(uint32_t*)((char*)(a0) + 4); }
 

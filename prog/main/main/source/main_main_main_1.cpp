@@ -930,7 +930,7 @@ void sub_201c30() { /* 0x201c30 */ }
 void sub_201c40() { /* 0x201c40 */ }
 void sub_201c60() { /* 0x201c60 */ }
 void sub_201c70() { /* 0x201c70 */ }
-void sub_201c80() { /* 0x201c80 */ }
+// sub_201c80: implemented in prog/matched/main/
 void sub_201c90() { /* 0x201c90 */ }
 void sub_201cd0() { /* 0x201cd0 */ }
 void sub_201d40() { /* 0x201d40 */ }
@@ -1064,7 +1064,7 @@ void sub_2088e0() { /* 0x2088e0 */ }
 void sub_2088f0() { /* 0x2088f0 */ }
 void sub_208930() { /* 0x208930 */ }
 void sub_208950() { /* 0x208950 */ }
-void sub_208960() { /* 0x208960 */ }
+// sub_208960: implemented in prog/matched/main/
 void sub_208970() { /* 0x208970 */ }
 void sub_2089b0() { /* 0x2089b0 */ }
 void sub_208a20() { /* 0x208a20 */ }

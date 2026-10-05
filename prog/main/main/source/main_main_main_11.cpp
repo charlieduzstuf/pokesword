@@ -2784,7 +2784,7 @@ void sub_c83c70() { /* 0xc83c70 */ }
 void sub_c83cb0() { /* 0xc83cb0 */ }
 void sub_c83cc0() { /* 0xc83cc0 */ }
 void sub_c83d00() { /* 0xc83d00 */ }
-void sub_c83d20() { /* 0xc83d20 */ }
+// sub_c83d20: implemented in prog/matched/main/
 void sub_c83d30() { /* 0xc83d30 */ }
 void sub_c83d60() { /* 0xc83d60 */ }
 void sub_c83d90() { /* 0xc83d90 */ }

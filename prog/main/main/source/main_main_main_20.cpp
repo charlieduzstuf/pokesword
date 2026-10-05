@@ -1762,7 +1762,7 @@ void sub_1460670() { /* 0x1460670 */ }
 void sub_1460680() { /* 0x1460680 */ }
 void sub_1460690() { /* 0x1460690 */ }
 void sub_14606d0() { /* 0x14606d0 */ }
-void sub_14606f0() { /* 0x14606f0 */ }
+// sub_14606f0: implemented in prog/matched/main/
 void sub_1460700() { /* 0x1460700 */ }
 void StateCampStart() { /* 0x1460780 */ }
 void sub_1460a30() { /* 0x1460a30 */ }

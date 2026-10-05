@@ -702,7 +702,7 @@ void sub_284540() { /* 0x284540 */ }
 void sub_284600() { /* 0x284600 */ }
 void sub_284780() { /* 0x284780 */ }
 void sub_2848c0() { /* 0x2848c0 */ }
-void sub_284980() { /* 0x284980 */ }
+// sub_284980: implemented in prog/matched/sdk/
 void sub_2849a0() { /* 0x2849a0 */ }
 void sub_286110() { /* 0x286110 */ }
 void sub_2861d0() { /* 0x2861d0 */ }

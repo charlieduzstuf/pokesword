@@ -1713,7 +1713,7 @@ void sub_1c4000_subsdk0_1c4000() { /* 0x1c4000 */ }
 void ACodec_25() { /* 0x1c40d0 */ }
 void sub_1c4440() { /* 0x1c4440 */ }
 void ACodec_26() { /* 0x1c44b0 */ }
-void sub_1c4540() { /* 0x1c4540 */ }
+// sub_1c4540: implemented in prog/matched/subsdk0/
 void ACodec_27() { /* 0x1c4550 */ }
 void ACodec_28() { /* 0x1c4730 */ }
 void sub_1c49d0_subsdk0_1c49d0() { /* 0x1c49d0 */ }

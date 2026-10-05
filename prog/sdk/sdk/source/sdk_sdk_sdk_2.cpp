@@ -221,7 +221,7 @@ void sub_194d90() { /* 0x194d90 */ }
 void sub_194df0() { /* 0x194df0 */ }
 // sub_194e00: implemented in prog/matched/sdk/
 // sub_194e10: implemented in prog/matched/sdk/
-void sub_194e20() { /* 0x194e20 */ }
+// sub_194e20: implemented in prog/matched/sdk/
 void sub_194e30() { /* 0x194e30 */ }
 void sub_194e50() { /* 0x194e50 */ }
 void sub_194ee0() { /* 0x194ee0 */ }
@@ -519,7 +519,7 @@ void sub_1b2040() { /* 0x1b2040 */ }
 void sub_1b2060() { /* 0x1b2060 */ }
 void sub_1b2080() { /* 0x1b2080 */ }
 void sub_1b20d0() { /* 0x1b20d0 */ }
-void sub_1b20f0() { /* 0x1b20f0 */ }
+// sub_1b20f0: implemented in prog/matched/sdk/
 void sub_1b2100() { /* 0x1b2100 */ }
 void sub_1b2110() { /* 0x1b2110 */ }
 void sub_1b2140() { /* 0x1b2140 */ }

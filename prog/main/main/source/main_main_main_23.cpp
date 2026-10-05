@@ -1907,10 +1907,10 @@ void sub_173bb10() { /* 0x173bb10 */ }
 // sub_173bb30: implemented in prog/matched/main/
 void sub_173bb40() { /* 0x173bb40 */ }
 void sub_173bb80() { /* 0x173bb80 */ }
-void sub_173bc80() { /* 0x173bc80 */ }
+// sub_173bc80: implemented in prog/matched/main/
 void sub_173bc90() { /* 0x173bc90 */ }
 void sub_173bd00() { /* 0x173bd00 */ }
-void sub_173bd40() { /* 0x173bd40 */ }
+// sub_173bd40: implemented in prog/matched/main/
 void sub_173bd50() { /* 0x173bd50 */ }
 void sub_173be10() { /* 0x173be10 */ }
 void Pia_Send() { /* 0x173be20 */ }

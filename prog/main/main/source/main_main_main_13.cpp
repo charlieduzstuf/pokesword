@@ -852,7 +852,7 @@ void sub_e3efe0() { /* 0xe3efe0 */ }
 void sub_e3f0d0() { /* 0xe3f0d0 */ }
 void sub_e3f0e0() { /* 0xe3f0e0 */ }
 void sub_e3f0f0() { /* 0xe3f0f0 */ }
-void sub_e3f1d0() { /* 0xe3f1d0 */ }
+// sub_e3f1d0: implemented in prog/matched/main/
 // sub_e3f1e0: implemented in prog/matched/main/
 // sub_e3f1f0: implemented in prog/matched/main/
 // sub_e3f200: implemented in prog/matched/main/

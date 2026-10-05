@@ -1250,7 +1250,7 @@ void sub_7a6940() { /* 0x7a6940 */ }
 // sub_7a6b50: implemented in prog/matched/main/
 // sub_7a6b60: implemented in prog/matched/main/
 // sub_7a6b70: implemented in prog/matched/main/
-void sub_7a6b80() { /* 0x7a6b80 */ }
+// sub_7a6b80: implemented in prog/matched/main/
 // sub_7a6b90: implemented in prog/matched/main/
 // sub_7a6ba0: implemented in prog/matched/main/
 // sub_7a6bb0: implemented in prog/matched/main/

@@ -1097,7 +1097,7 @@ void sub_690b10() { /* 0x690b10 */ }
 void sub_690e00() { /* 0x690e00 */ }
 void sub_690f30() { /* 0x690f30 */ }
 void sub_6910e0() { /* 0x6910e0 */ }
-void sub_691100() { /* 0x691100 */ }
+// sub_691100: implemented in prog/matched/main/
 void sub_691110() { /* 0x691110 */ }
 void sub_6911d0() { /* 0x6911d0 */ }
 void sub_691260() { /* 0x691260 */ }

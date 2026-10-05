@@ -2785,8 +2785,8 @@ void d_error_C_04d_2() { /* 0x2db050 */ }
 void d_error_C_04d_3() { /* 0x2db1b0 */ }
 void d_fatal_error_C9999() { /* 0x2db2d0 */ }
 void malloc_failed_in_s() { /* 0x2db440 */ }
-void sub_2db4d0_subsdk1_2db4d0() { /* 0x2db4d0 */ }
-void sub_2db4e0() { /* 0x2db4e0 */ }
+// sub_2db4d0_subsdk1_2db4d0: implemented in prog/matched/subsdk1/
+// sub_2db4e0: implemented in prog/matched/subsdk1/
 void sub_2db4f0() { /* 0x2db4f0 */ }
 void sub_2db570() { /* 0x2db570 */ }
 void sub_2db600() { /* 0x2db600 */ }
@@ -3375,7 +3375,7 @@ void sub_31dd40() { /* 0x31dd40 */ }
 void sub_31dda0() { /* 0x31dda0 */ }
 void sub_31de90() { /* 0x31de90 */ }
 void sub_31dfc0() { /* 0x31dfc0 */ }
-void sub_31e0a0() { /* 0x31e0a0 */ }
+// sub_31e0a0: implemented in prog/matched/subsdk1/
 void sub_31e0c0() { /* 0x31e0c0 */ }
 void f_0_s_s() { /* 0x31e290 */ }
 void unnamed_29_subsdk1_31e3c0() { /* 0x31e3c0 */ }
@@ -3884,7 +3884,7 @@ void sub_33f070() { /* 0x33f070 */ }
 void sub_33f110_subsdk1_33f110() { /* 0x33f110 */ }
 void sub_33f200() { /* 0x33f200 */ }
 void sub_33f330() { /* 0x33f330 */ }
-void sub_33f410() { /* 0x33f410 */ }
+// sub_33f410: implemented in prog/matched/subsdk1/
 void sub_33f430_subsdk1_33f430() { /* 0x33f430 */ }
 void f_0_s_s_2() { /* 0x33f620 */ }
 void unnamed_36_subsdk1_33f750() { /* 0x33f750 */ }

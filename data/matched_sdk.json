@@ -38877,6 +38877,66 @@
    "size": 44,
    "orig_insns": 11,
    "new_insns": 11
+  },
+  {
+   "addr": 1658400,
+   "ident": "f_194e20",
+   "module": "sdk",
+   "name": "sub_194e20",
+   "shape": "copy-chain-store",
+   "sig": "PvS_",
+   "src": "void f_194e20(void* a0, void* a1) {\n    uint32_t t0 = *(uint32_t*)(char*)a1;\n    *(uint32_t*)((char*)a0 + 16) = (uint32_t)(t0);\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint8_t*)((char*)a0 + 6) = 0;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 1777904,
+   "ident": "f_1b20f0",
+   "module": "sdk",
+   "name": "sub_1b20f0",
+   "shape": "copy-chain-store",
+   "sig": "Pv",
+   "src": "void f_1b20f0(void* a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 64);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 8);\n    *(uint64_t*)((char*)a0 + 40) = (uint64_t)(t1);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 2640256,
+   "ident": "f_284980",
+   "module": "sdk",
+   "name": "sub_284980",
+   "shape": "copy-chain-store",
+   "sig": "Pv",
+   "src": "void f_284980(void* a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 584);\n    *(uint64_t*)((char*)a0 + 296) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint32_t*)((char*)a0 + 164) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint32_t*)((char*)a0 + 540) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint16_t*)((char*)(t0) + 24) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint32_t*)((char*)(t0) + 32) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)((char*)(t0) + 248) = 0;\n}\n",
+   "size": 32,
+   "orig_insns": 8,
+   "new_insns": 8
+  },
+  {
+   "addr": 4120720,
+   "ident": "f_3ee090",
+   "module": "sdk",
+   "name": "sub_3ee090",
+   "shape": "copy-chain-store",
+   "sig": "Pvj",
+   "src": "void f_3ee090(void* a0, uint32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 328);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 64);\n    *(uint32_t*)((char*)(t1) + 268) = (uint32_t)a1;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 4120736,
+   "ident": "f_3ee0a0",
+   "module": "sdk",
+   "name": "sub_3ee0a0",
+   "shape": "copy-chain-store",
+   "sig": "Pvm",
+   "src": "void f_3ee0a0(void* a0, uint64_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 328);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 64);\n    *(uint64_t*)((char*)(t1) + 312) = (uint64_t)a1;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

@@ -3987,6 +3987,13 @@ void* main_f_200e10(void* a0) { return (char*)(a0) - 24; }
 // sub_200e30  (orig 0x200e30, getter)
 uint64_t main_f_200e30(void* a0) { return *(uint64_t*)((char*)(a0) + 80); }
 
+// sub_201c80  (orig 0x201c80, copy-chain-store)
+void main_f_201c80(void* a0, void* a1) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 104);
+    uint16_t t1 = *(uint16_t*)(char*)a1;
+    *(uint16_t*)((char*)(t0) + 132) = (uint16_t)(t1);
+}
+
 // PxRevoluteJoint  (orig 0x202bc0, strlit-ret)
 const char *main_f_202bc0() { static const char s[] = "PxRevoluteJoint"; __asm__ volatile("" ::: "memory"); return s; }
 
@@ -4058,6 +4065,13 @@ void* main_f_207990(void* a0) { return (char*)(a0) - 24; }
 
 // sub_2079b0  (orig 0x2079b0, getter)
 uint64_t main_f_2079b0(void* a0) { return *(uint64_t*)((char*)(a0) + 80); }
+
+// sub_208960  (orig 0x208960, copy-chain-store)
+void main_f_208960(void* a0, void* a1) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 104);
+    uint16_t t1 = *(uint16_t*)(char*)a1;
+    *(uint16_t*)((char*)(t0) + 116) = (uint16_t)(t1);
+}
 
 // PxSphericalJoint  (orig 0x2097d0, strlit-ret)
 const char *main_f_2097d0() { static const char s[] = "PxSphericalJoint"; __asm__ volatile("" ::: "memory"); return s; }
@@ -8121,10 +8135,4 @@ void main_f_559250() {}
 
 // sub_559260  (orig 0x559260, ret_only)
 void main_f_559260() {}
-
-// sub_559270  (orig 0x559270, ptr_add)
-void* main_f_559270(void* a0) { return (char*)a0 + 120; }
-
-// sub_559280  (orig 0x559280, ret_only)
-void main_f_559280() {}
 

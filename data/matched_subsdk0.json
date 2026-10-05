@@ -10831,6 +10831,54 @@
    "size": 24,
    "orig_insns": 6,
    "new_insns": 6
+  },
+  {
+   "addr": 90544,
+   "ident": "f_161b0",
+   "module": "subsdk0",
+   "name": "sub_161b0",
+   "shape": "copy-chain-store",
+   "sig": "PvS_",
+   "src": "void f_161b0(void* a0, void* a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 104);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 16);\n    *(uint64_t*)(char*)a1 = (uint64_t)(t1);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 1852736,
+   "ident": "f_1c4540",
+   "module": "subsdk0",
+   "name": "sub_1c4540",
+   "shape": "copy-chain-store",
+   "sig": "Pv",
+   "src": "void f_1c4540(void* a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 24);\n    *(uint8_t*)((char*)a0 + 32) = 0;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint8_t*)((char*)(t0) + 608) = 0;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 2553968,
+   "ident": "f_26f870",
+   "module": "subsdk0",
+   "name": "sub_26f870",
+   "shape": "copy-chain-store",
+   "sig": "Pvmm",
+   "src": "void f_26f870(void* a0, uint64_t a1, uint64_t a2) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 16);\n    *(uint64_t*)((char*)(t0) + 104) = (uint64_t)a2;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint64_t*)((char*)(t0) + 48) = (uint64_t)a1;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 2859296,
+   "ident": "f_2ba120",
+   "module": "subsdk0",
+   "name": "sub_2ba120",
+   "shape": "copy-chain-store",
+   "sig": "Pvmj",
+   "src": "void f_2ba120(void* a0, uint64_t a1, uint32_t a2) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 24);\n    *(uint64_t*)((char*)(t0) + 56) = (uint64_t)a1;\n    __asm__ __volatile__(\"\" ::: \"memory\");\n    *(uint32_t*)((char*)(t0) + 64) = (uint32_t)a2;\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

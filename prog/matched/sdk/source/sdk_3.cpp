@@ -1,4 +1,4 @@
-/* sdk -- 1144 functions verified to match the original.
+/* sdk -- 1149 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -24,6 +24,15 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+
+// sub_37bbc0  (orig 0x37bbc0, ret_only)
+void sdk_f_37bbc0() {}
+
+// sub_37bbd0  (orig 0x37bbd0, getter)
+uint32_t sdk_f_37bbd0(void* a0) { return *(uint32_t*)((char*)(a0)); }
+
+// sub_37bbe0  (orig 0x37bbe0, getter)
+uint32_t sdk_f_37bbe0(void* a0) { return *(uint32_t*)((char*)(a0) + 4); }
 
 // sub_37bbf0  (orig 0x37bbf0, getter)
 uint64_t sdk_f_37bbf0(void* a0) { return *(uint64_t*)((char*)(a0) + 8); }
@@ -1027,6 +1036,20 @@ uint32_t sdk_f_3ede70(void* a0) { return *(uint32_t*)((char*)(a0) + 16); }
 
 // sub_3ee020  (orig 0x3ee020, getter-chain)
 uint32_t sdk_f_3ee020(void* a0) { return *(uint32_t*)((char*)((*(uint64_t*)((char*)(a0) + 328))) + 4); }
+
+// sub_3ee090  (orig 0x3ee090, copy-chain-store)
+void sdk_f_3ee090(void* a0, uint32_t a1) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 328);
+    uint64_t t1 = *(uint64_t*)((char*)(t0) + 64);
+    *(uint32_t*)((char*)(t1) + 268) = (uint32_t)a1;
+}
+
+// sub_3ee0a0  (orig 0x3ee0a0, copy-chain-store)
+void sdk_f_3ee0a0(void* a0, uint64_t a1) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 328);
+    uint64_t t1 = *(uint64_t*)((char*)(t0) + 64);
+    *(uint64_t*)((char*)(t1) + 312) = (uint64_t)a1;
+}
 
 // sub_3ef780  (orig 0x3ef780, ret_only)
 void sdk_f_3ef780() {}
