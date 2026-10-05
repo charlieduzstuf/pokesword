@@ -24,6 +24,7 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+typedef unsigned long uintptr_t;
 
 // sub_3c4790  (orig 0x3c4790, mov_ret)
 uint32_t sdk_f_3c4790() { return 1; }

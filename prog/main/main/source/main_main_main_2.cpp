@@ -3447,7 +3447,7 @@ void sub_3dbf80() { /* 0x3dbf80 */ }
 void sub_3dc000() { /* 0x3dc000 */ }
 void sub_3dc0c0() { /* 0x3dc0c0 */ }
 void sub_3dc150() { /* 0x3dc150 */ }
-void sub_3dc310() { /* 0x3dc310 */ }
+// sub_3dc310: implemented in prog/matched/main/
 void sub_3dc320() { /* 0x3dc320 */ }
 void sub_3dc3f0() { /* 0x3dc3f0 */ }
 void sub_3dc4b0() { /* 0x3dc4b0 */ }

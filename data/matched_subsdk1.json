@@ -16333,6 +16333,102 @@
    "size": 16,
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "addr": 635856,
+   "ident": "f_9b3d0",
+   "module": "subsdk1",
+   "name": "sub_9b3d0",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint32_t f_9b3d0(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 248);\n    return *(uint32_t*)((char*)(t0) + (uintptr_t)(a1) * 4);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "addr": 699296,
+   "ident": "f_aaba0",
+   "module": "subsdk1",
+   "name": "sub_aaba0",
+   "shape": "getter-chain",
+   "sig": "Pvj",
+   "src": "uint32_t f_aaba0(void* a0, uint32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 48);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 216);\n    uint64_t t2 = *(uint64_t*)((char*)(t1) + (uintptr_t)(a1) * 8);\n    return *(uint32_t*)((char*)(t2) + 184);\n}\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "addr": 709264,
+   "ident": "f_ad290",
+   "module": "subsdk1",
+   "name": "sub_ad290",
+   "shape": "getter-chain",
+   "sig": "Pvj",
+   "src": "uint32_t f_ad290(void* a0, uint32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 48);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 104);\n    uint64_t t2 = *(uint64_t*)((char*)(t1) + (uintptr_t)(a1) * 8);\n    return *(uint32_t*)((char*)(t2) + 4);\n}\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "addr": 2119216,
+   "ident": "f_205630",
+   "module": "subsdk1",
+   "name": "sub_205630",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint64_t f_205630(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 32);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + (uintptr_t)(a1) * 8);\n    uint64_t t2 = *(uint64_t*)((char*)(t1) + 8);\n    return *(uint64_t*)((char*)(t2) + 16);\n}\n",
+   "size": 20,
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "addr": 2119248,
+   "ident": "f_205650",
+   "module": "subsdk1",
+   "name": "sub_205650",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint64_t f_205650(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 40);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + (uintptr_t)(a1) * 8);\n    return *(uint64_t*)((char*)(t1) + 8);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 3068224,
+   "ident": "f_2ed140",
+   "module": "subsdk1",
+   "name": "sub_2ed140",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint64_t f_2ed140(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 48);\n    return *(uint64_t*)((char*)(t0) + (uintptr_t)(a1) * 8);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "addr": 3068256,
+   "ident": "f_2ed160",
+   "module": "subsdk1",
+   "name": "sub_2ed160",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint16_t f_2ed160(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 56);\n    return *(uint16_t*)((char*)(t0) + (uintptr_t)(a1) * 2);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "addr": 3068288,
+   "ident": "f_2ed180",
+   "module": "subsdk1",
+   "name": "sub_2ed180",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint32_t f_2ed180(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 56);\n    return *(uint32_t*)((char*)(t0) + (uintptr_t)(a1) * 4);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
   }
  ]
 }

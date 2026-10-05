@@ -1104,7 +1104,7 @@ void sub_1633d10() { /* 0x1633d10 */ }
 void InstanceTable_363() { /* 0x1633e50 */ }
 void sub_1634010() { /* 0x1634010 */ }
 void sub_1634040() { /* 0x1634040 */ }
-void sub_16340b0() { /* 0x16340b0 */ }
+// sub_16340b0: implemented in prog/matched/main/
 void sub_16340c0() { /* 0x16340c0 */ }
 // sub_1634130: implemented in prog/matched/main/
 void Protocol() { /* 0x1634140 */ }

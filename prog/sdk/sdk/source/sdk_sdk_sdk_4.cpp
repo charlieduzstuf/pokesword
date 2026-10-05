@@ -1972,9 +1972,9 @@ void sub_356c70() { /* 0x356c70 */ }
 void sub_356d90() { /* 0x356d90 */ }
 // sub_356da0: implemented in prog/matched/sdk/
 void sub_356db0() { /* 0x356db0 */ }
-void sub_356dc0() { /* 0x356dc0 */ }
+// sub_356dc0: implemented in prog/matched/sdk/
 void sub_356dd0() { /* 0x356dd0 */ }
-void sub_356de0() { /* 0x356de0 */ }
+// sub_356de0: implemented in prog/matched/sdk/
 void sub_356df0() { /* 0x356df0 */ }
 void sub_356e30() { /* 0x356e30 */ }
 void sub_356e60_sdk_356e60() { /* 0x356e60 */ }

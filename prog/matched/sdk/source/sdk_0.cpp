@@ -24,6 +24,7 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+typedef unsigned long uintptr_t;
 
 namespace sdk { void sub_1d5f0(); }
 namespace sdk { void sub_29450(); }

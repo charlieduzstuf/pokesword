@@ -36,7 +36,7 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-27,320 / 152,062  =  17.97%
+27,536 / 152,062  =  18.11%
 ```
 
 `tools/match_progress.py` is the only authoritative figure. Do not copy a number
@@ -178,6 +178,9 @@ all (the tailcall round reported +9,083 and delivered zero).
 | `tools/gen_struct_copy.py` | 278 bodies; a 16-byte **struct** forces `ldp`/`stp`, a barrier pins the order |
 | `tools/gen_compare_pred.py` | 71 bodies; cset condition picks the operator *and* the signedness |
 | `tools/gen_zero_fill.py` | 129 bodies at 100% yield; register class picks the store width |
+| `tools/gen_getter_chain.py` | 130 bodies; **an FP destination is a `float` return**, which is 93 of the 139 `ldr ldr ret` bodies |
+| `decomp/docs/const_field_set.md` | **a recorded dead end that was really the flag bug** — 180 bodies, no barrier needed |
+| `decomp/docs/check_py_vacuous_match.md` | **332 "matches" that were not matches** — `zip` over an empty comparison returns equal |
 | `decomp/docs/flag_fidelity.md` | **the 26 bodies that only matched under the wrong flags** — the worst bug here, because it was invisible |
 | `decomp/docs/straight_line.md` | the generic fallback: 84 candidates, 0 matches, and why the "42 of 84" figure was wrong |
 | `decomp/docs/remaining.md` | **what is left and what blocks it** — read this next |
@@ -214,17 +217,38 @@ all (the tailcall round reported +9,083 and delivered zero).
    `gen_zero_fill` declines all 196 of them, correctly — that is a copy, not a
    clear.
 
-3. **`getter-chain` (190) and `const-field-set` (187).** `const-field-set` all
-   fail identically — `insn 0: orig ('ldr', 'x8, [x0]') vs new ('mov', 'w8', #1)`
-   — Clang materialises the constant before the pointer load, and an
-   `__asm__ memory` barrier changed **nothing** (byte-identical), because the
-   reordering is at instruction selection rather than in the scheduler. Do not
-   reach for a barrier there; that is the case the barrier cannot fix.
+3. ~~**`getter-chain` (190) and `const-field-set` (187).**~~ **Both done: 216
+   bodies between them** — and the `const-field-set` entry that used to be here
+   was **wrong**.
+
+   | generator | offered | matched | note |
+   |---|---:|---:|---|
+   | `tools/gen_getter_chain.py` | 167 | **130** | `s0`/`d0` returns carry 93 of the 139 `ldr ldr ret` bodies |
+   | `tools/gen_store_chain.py --shape const-field-set` | 181 | **180** | 99.4% yield |
+
+   `const-field-set` had been recorded here as impossible: *"an `__asm__ memory`
+   barrier changed nothing (0/180, byte-identical)"*. That measurement was taken
+   with the harness missing eight of the build's flags. With the flags corrected,
+   the plain assignment matches and **no barrier is needed at all**. See
+   `decomp/docs/const_field_set.md`. Re-measure every other "dead end" below under
+   the corrected flags before believing it.
 
 4. **The 8 missing build flags were suppressing matches, not only mis-reporting
    them.** Re-running the four registered chain generators with the corrected flag
    set found one new body in each. Before calling any generator dead at 0% yield,
-   re-run it — the flags it was developed against were wrong.
+   re-run it — the flags it was developed against were wrong. This has now cost
+   180 bodies once already (item 3).
+
+5. **17 `ldr q0` bodies in `getter-chain`** — a 16-byte NEON load into `v0` — are
+   the largest untouched group left in that shape. They need `<arm_neon.h>` and a
+   16-byte vector return type. `gen_getter_chain` declines them rather than
+   guessing.
+
+6. **The declined remainder: ~319 `compare`, 98 `setter-chain`, 29 `copy-chain`,
+   8 mismatched, 6 `const-field-set`, 23 `getter-chain`.** The `copy-chain` and
+   mismatched ones are the most tractable: they fail on operand *order*
+   (`cmp w8, w9` vs `cmp w9, w8`) and `ldur` width, both of which a two-way
+   search should take. The rest wait on the relocated memory image.
 
 ## What is not worth doing
 
@@ -356,6 +380,22 @@ over the whole population rather than a sample:
   26,536 / 17.45% while `match_progress.py` said 26,562 / 17.47%. CI had a
   README drift gate and still did not catch it. `audit.py` now checks the
   `N / 152,062` and `N / 38,172,368` forms plus the README total row.
+- **A verdict of "equal" must be reachable only from having compared something.**
+  `check.py` had `for ... in zip(...): ...` then `return True`, so when the
+  disassembly was empty the loop never ran and the function reported a *match*.
+  332 phantom bodies, ready to be registered as a fake +0.22%. Fixed, and the fix
+  is falsified both ways: the phantoms became "not comparable", and while the
+  related length bug was still present the tool exited 1 on `main`, so its
+  silences mean something. See `decomp/docs/check_py_vacuous_match.md`.
+- **`zip` hides a length difference.** Truncating to the shorter side is how a
+  body that stops one instruction early still compares equal. Both sides must be
+  trimmed of alignment padding *identically* before the counts are compared, or
+  every padded body looks one instruction too long — 370 in `main`, 7,843 in
+  `subsdk1`.
+- **A note that fires 31,000 times is not a note.** The length check reported on
+  every unmatched function, where a stub against a real body is the expected
+  case. `check_function` now takes `quiet`, used by the non-matching caller, for
+  which a difference is normal and only a genuine match is worth printing.
 - **Do not scrape prose for percentages.** The first version of that check
   flagged the README's per-module figures (11.47%, 11.92%), which are correct
   and are not claims about the total. A check that fires on correct text trains

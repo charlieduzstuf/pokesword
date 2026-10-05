@@ -39105,6 +39105,90 @@
    "size": 16,
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "addr": 1784528,
+   "ident": "f_1b3ad0",
+   "module": "sdk",
+   "name": "sub_1b3ad0",
+   "shape": "const-field-set-store",
+   "sig": "Pv",
+   "src": "void f_1b3ad0(void* a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 64);\n    uint32_t t1 = 1;\n    *(uint8_t*)((char*)(t0) + 162) = (uint8_t)(t1);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 694592,
+   "ident": "f_a9940",
+   "module": "sdk",
+   "name": "sub_a9940",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint64_t f_a9940(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)(char*)a0;\n    return *(uint64_t*)((char*)(t0) + (uintptr_t)(a1) * 8);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "addr": 709984,
+   "ident": "f_ad560",
+   "module": "sdk",
+   "name": "sub_ad560",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint64_t f_ad560(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)(char*)a0;\n    return *(uint64_t*)((char*)(t0) + (uintptr_t)(a1) * 8);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "addr": 1794384,
+   "ident": "f_1b6150",
+   "module": "sdk",
+   "name": "sub_1b6150",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint32_t f_1b6150(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 64);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 24);\n    return *(uint32_t*)((char*)(t1) + (uintptr_t)(a1) * 4);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "addr": 3501504,
+   "ident": "f_356dc0",
+   "module": "sdk",
+   "name": "sub_356dc0",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint32_t f_356dc0(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 48);\n    return *(uint32_t*)((char*)(t0) + (uintptr_t)(a1) * 4);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "addr": 3501536,
+   "ident": "f_356de0",
+   "module": "sdk",
+   "name": "sub_356de0",
+   "shape": "getter-chain",
+   "sig": "Pvi",
+   "src": "uint32_t f_356de0(void* a0, int32_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 56);\n    return *(uint32_t*)((char*)(t0) + (uintptr_t)(a1) * 4);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "addr": 565152,
+   "ident": "f_89fa0",
+   "module": "sdk",
+   "name": "sub_89fa0",
+   "shape": "const-field-set-store",
+   "sig": "PvS_",
+   "src": "void f_89fa0(void* a0, void* a1) {\n    uint64_t t0 = *(uint64_t*)(char*)a1;\n    uint64_t t1 = -2147483649;\n    *(uint64_t*)((char*)(t0) + 152) = (uint64_t)(t1);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

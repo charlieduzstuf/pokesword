@@ -64,6 +64,19 @@ LOADS = {"ldr": None, "ldrb": 1, "ldrh": 2, "ldrsb": 1, "ldrsh": 2,
          "ldrsw": 4, "ldur": None}
 CT = {1: "uint8_t", 2: "uint16_t", 4: "uint32_t", 8: "uint64_t"}
 
+# A signed load needs a *signed* C type. `ldrsh` and `ldrh` have the same width
+# and differ only in sign, so a width-keyed table emits `*(uint16_t*)` for both
+# and Clang quite correctly compiles that to `ldrh` -- which then reads as a
+# codegen mystery rather than a type error in the source.
+SIGNED = {"ldrsb": "int8_t", "ldrsh": "int16_t", "ldrsw": "int32_t"}
+
+# Signed types keyed by width. A signed load sign-extends to the *whole*
+# destination register, so `ldrsw x8` holds an `int64_t`, not an `int32_t`: the
+# value it produces has to be described by the destination's width or the next
+# use zero-extends it. `ldrsw x8; ldr x0, [x8, x9, lsl #3]` is a *signed* index,
+# and declaring `uint32_t t0` there silently made it unsigned.
+SIGNED_W = {1: "int8_t", 2: "int16_t", 4: "int32_t", 8: "int64_t"}
+
 
 def split_ops(s):
     return SL.split_ops(s)
@@ -85,24 +98,32 @@ def parse_mem(op):
     """`[x8, w1, uxtw #2]`, `[x8, w1, sxtw #3]`, `[x8, x1, lsl #3]`, `[x0, #-0x18]`.
 
     The index forms all reduce to a byte scale taken from the instruction, not
-    from the element size: `uxtw #2` and `lsl #2` scale by 4, `sxtw #3` and
-    `lsl #3` by 8. Only `uxtw` was accepted at first, which declined 25 bodies
-    that differ from the working ones only in the extension written on the
-    instruction.
+    from the element size. `#n` here is a *shift amount*, so the multiplier is
+    `1 << n`: `uxtw #2` and `lsl #2` scale by 4, `sxtw #3` and `lsl #3` by 8.
+    Emitting the shift amount directly as the multiplier scales every indexed
+    getter by 2x too little, which is wrong semantics rather than a failed
+    match -- it has to be right in the source, not merely rejected by the
+    compiler.
+
+    The extension is returned too, because it decides the *signedness* of the
+    index parameter: `sxtw` sign-extends a 32-bit index, so its parameter is
+    `int32_t` and its mangled code is `i`, not `j`. Only `uxtw` was accepted at
+    first, which declined 25 bodies differing only in the extension written on
+    the instruction.
     """
     m = re.match(r"^\[\s*([A-Za-z0-9]+)"
-                 r"(?:\s*,\s*([A-Za-z0-9]+)\s*,\s*(?:uxtw|sxtw|lsl)"
+                 r"(?:\s*,\s*([A-Za-z0-9]+)\s*,\s*(uxtw|sxtw|lsl)"
                  r"(?:\s*#(0x[0-9a-f]+|\d+))?)?"
                  r"(?:\s*,\s*#(-?(?:0x)?[0-9a-fA-F]+))?\s*\]$", op)
     if not m:
         return None
-    base, index, scale, off = m.group(1), m.group(2), m.group(3), m.group(4)
+    base, index, ext, scale, off = m.group(1), m.group(2), m.group(3), m.group(4), m.group(5)
+    if index and scale is None:
+        return None
     s = None
     if index:
-        if scale is None:
-            return None
-        s = int(scale, 16) if scale.lower().startswith("0x") else int(scale)
-    return base, index, parse_int(off) if off else 0, s
+        s = 1 << (int(scale, 16) if scale.lower().startswith("0x") else int(scale))
+    return base, index, (parse_int(off) if off else 0), s, ext
 
 
 def reg_width(r):
@@ -168,7 +189,7 @@ def build(body, ident):
         parsed = parse_mem(ops[1])
         if parsed is None:
             return None
-        base, index, off, scale = parsed
+        base, index, off, scale, ext = parsed
         b = base_of(base)
         if b is None:
             return None
@@ -176,7 +197,18 @@ def build(body, ident):
             n = int(index[1:]) if index[1:].isdigit() else None
             if n is None or n > 7:
                 return None
-            ix, _c = args.setdefault(n, ("a%d" % n, "uint32_t"))
+            # The extension fixes the index's signedness, and with it the
+            # parameter type and therefore the mangled name: `w1, sxtw #3` is a
+            # *signed* 32-bit index, so the parameter is int32_t (`i`), not
+            # uint32_t (`j`). Getting this wrong yields a body that is
+            # semantically different, not merely mismatched.
+            if index[0] == "x":
+                icy = "uint64_t"
+            elif ext == "sxtw":
+                icy = "int32_t"
+            else:
+                icy = "uint32_t"
+            ix, _c = args.setdefault(n, ("a%d" % n, icy))
             ad = "(%s + (uintptr_t)(%s) * %d)" % (b, ix, scale)
         else:
             ad = "(%s + %d)" % (b, off) if off else b
@@ -196,16 +228,48 @@ def build(body, ident):
             # function's return type float/double, which is what carries the 93
             # `ldr s0, [x8]` bodies in this shape.
             fp = fp_kind(dst)
-            rty = fp if fp else CT[w]
-            ret = ("*(%s*)%s" % (rty, ad), rty)
+            # An FP destination makes the function's return type float/double,
+            # which is what carries the 93 `ldr s0, [x8]` bodies in this shape.
+            #
+            # Otherwise the loaded type is signed for a signed opcode and the
+            # *value* has the destination's width, because the instruction
+            # extends into the whole register. Using the destination's width for
+            # the return type also subsumes narrow-signed promotion: with
+            # `int16_t` as the return type AAPCS64 leaves the upper half of w0
+            # unspecified, so Clang may compile `return *(int16_t *)p;` to
+            # `ldrh w0, [p]` -- it did, and the body then differed from the
+            # original by exactly the sign extension. The C integer-promotion
+            # rule says the return is `int32_t`, which makes `ldrsh` write a
+            # correct 32-bit w0 in one instruction.
+            if fp is not None:
+                cty = rty = fp
+            elif mn in SIGNED:
+                cty = SIGNED[mn]              # what is read
+                rty = SIGNED_W[dw]            # what ends up in the register
+            else:
+                cty = rty = CT[w]
+            ret = ("*(%s*)%s" % (cty, ad), rty)
             continue
         local = "t%d" % nload
         nload += 1
-        reads.append("%s %s = *(%s*)%s;" % (CT[w], local, CT[w], ad))
-        state[dst] = (local, CT[w])
+        # A non-return load becomes a local of the destination's width, again so
+        # that a later use of it extends the same way the original does.
+        if mn in SIGNED:
+            cty, lty = SIGNED[mn], SIGNED_W[dw]
+        else:
+            cty = lty = CT[w]
+        reads.append("%s %s = *(%s*)%s;" % (lty, local, cty, ad))
+        state[dst] = (local, lty)
 
     if ret is None:
         return None
+
+    # Parameter slots are contiguous from 0 and assigned by position, not name,
+    # so a body that reads no register below x1 still takes two parameters. See
+    # the same note in `gen_store_chain.build`.
+    if args:
+        for n in range(0, min(args)):
+            args.setdefault(n, ("a%d" % n, "void*"))
 
     decls, codes, ptrs = [], [], 0
     for n in sorted(args):
@@ -214,6 +278,12 @@ def build(body, ident):
             codes.append("S_" if ptrs else "Pv")
             ptrs += 1
             decls.append("void* %s" % name)
+        elif cty == "int32_t":
+            codes.append("i")
+            decls.append("int32_t %s" % name)
+        elif cty == "uint64_t":
+            codes.append("m")
+            decls.append("uint64_t %s" % name)
         else:
             codes.append("j")
             decls.append("uint32_t %s" % name)

@@ -3089,7 +3089,7 @@ void sub_c950c0() { /* 0xc950c0 */ }
 void sub_c95200() { /* 0xc95200 */ }
 void sub_c95250() { /* 0xc95250 */ }
 void sub_c952b0() { /* 0xc952b0 */ }
-void sub_c95340() { /* 0xc95340 */ }
+// sub_c95340: implemented in prog/matched/main/
 // sub_c95350: implemented in prog/matched/main/
 // sub_c95360: implemented in prog/matched/main/
 // sub_c95370: implemented in prog/matched/main/

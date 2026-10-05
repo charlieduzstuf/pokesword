@@ -24,6 +24,7 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+typedef unsigned long uintptr_t;
 
 // sub_210  (orig 0x210, ret_only)
 void main_f_210() {}

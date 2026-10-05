@@ -10879,6 +10879,18 @@
    "size": 16,
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "addr": 1831680,
+   "ident": "f_1bf300",
+   "module": "subsdk0",
+   "name": "sub_1bf300",
+   "shape": "getter-chain",
+   "sig": "Pvm",
+   "src": "uint32_t f_1bf300(void* a0, uint64_t a1) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 24);\n    return *(uint32_t*)((char*)(t0) + (uintptr_t)(a1) * 4);\n}\n",
+   "size": 12,
+   "orig_insns": 3,
+   "new_insns": 3
   }
  ]
 }

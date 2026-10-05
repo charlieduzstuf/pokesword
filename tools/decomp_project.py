@@ -702,7 +702,8 @@ def emit_matched(mod, matched, defname=None, emittable=None):
                     "typedef signed char int8_t;\n"
                     "typedef signed short int16_t;\n"
                     "typedef signed int int32_t;\n"
-                    "typedef signed long int64_t;\n\n"
+                    "typedef signed long int64_t;\n"
+                    "typedef unsigned long uintptr_t;\n\n"
                     % (mod, len(chunk), mod))
 
             # Destinations this chunk calls, declared up front.

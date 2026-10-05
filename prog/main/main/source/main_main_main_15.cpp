@@ -167,7 +167,7 @@ void sub_ff40e0() { /* 0xff40e0 */ }
 void sub_ff4100() { /* 0xff4100 */ }
 void sub_ff4140() { /* 0xff4140 */ }
 void sub_ff4170() { /* 0xff4170 */ }
-void sub_ff41a0() { /* 0xff41a0 */ }
+// sub_ff41a0: implemented in prog/matched/main/
 // sub_ff41b0: implemented in prog/matched/main/
 // sub_ff41c0: implemented in prog/matched/main/
 // sub_ff41d0: implemented in prog/matched/main/
@@ -1621,7 +1621,7 @@ void sub_102c450() { /* 0x102c450 */ }
 // sub_102c470: implemented in prog/matched/main/
 // sub_102c480: implemented in prog/matched/main/
 // sub_102c490: implemented in prog/matched/main/
-void sub_102c4a0() { /* 0x102c4a0 */ }
+// sub_102c4a0: implemented in prog/matched/main/
 // sub_102c4b0: implemented in prog/matched/main/
 // sub_102c4c0: implemented in prog/matched/main/
 // sub_102c4d0: implemented in prog/matched/main/
@@ -1709,7 +1709,7 @@ void sub_102fc40() { /* 0x102fc40 */ }
 void sub_102fc70() { /* 0x102fc70 */ }
 void sub_102fcb0() { /* 0x102fcb0 */ }
 void sub_102fce0() { /* 0x102fce0 */ }
-void sub_102fd10() { /* 0x102fd10 */ }
+// sub_102fd10: implemented in prog/matched/main/
 // sub_102fd20: implemented in prog/matched/main/
 // sub_102fd30: implemented in prog/matched/main/
 // sub_102fd40: implemented in prog/matched/main/

@@ -24,6 +24,7 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+typedef unsigned long uintptr_t;
 
 // sub_273a10  (orig 0x273a10, const-ret)
 uint32_t subsdk0_f_273a10() { return 2147487770u; }

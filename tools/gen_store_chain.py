@@ -98,19 +98,25 @@ def parse_int(tok):
 
 
 def parse_mem(op):
-    """'[x8, w1, uxtw #3]' / '[x0, #0x10]' / '[x0, #-0x18]' -> (base, index, off, scale)."""
+    """'[x8, w1, uxtw #3]' / '[x0, #0x10]' / '[x0, #-0x18]' ->
+    (base, index, off, scale, ext).
+
+    `#n` after an index is a shift amount, so the multiplier is `1 << n`, not
+    `n`. The extension decides the index parameter's signedness.
+    """
     m = re.match(r"^\[\s*([A-Za-z0-9]+)"
-                 r"(?:\s*,\s*([A-Za-z0-9]+)\s*,\s*uxtw(?:\s*#(0x[0-9a-f]+|\d+))?)?"
+                 r"(?:\s*,\s*([A-Za-z0-9]+)\s*,\s*(uxtw|sxtw|lsl)"
+                 r"(?:\s*#(0x[0-9a-f]+|\d+))?)?"
                  r"(?:\s*,\s*#(-?(?:0x)?[0-9a-fA-F]+))?\s*\]$", op)
     if not m:
         return None
-    base, index, scale, off = m.group(1), m.group(2), m.group(3), m.group(4)
+    base, index, ext, scale, off = m.group(1), m.group(2), m.group(3), m.group(4), m.group(5)
+    if index and scale is None:
+        return None
     s = None
     if index:
-        if scale is None:
-            return None
-        s = int(scale, 16) if scale.lower().startswith("0x") else int(scale)
-    return base, index, (parse_int(off) if off else 0), s
+        s = 1 << (int(scale, 16) if scale.lower().startswith("0x") else int(scale))
+    return base, index, (parse_int(off) if off else 0), s, ext
 
 
 def arg_reg(r):
@@ -156,7 +162,7 @@ def build(body, ident):
             return "(char*)a%d" % n
         return None
 
-    def addr_of(base, index, off, scale):
+    def addr_of(base, index, off, scale, ext):
         if base == "sp":
             return None
         b = base_of(base)
@@ -166,7 +172,15 @@ def build(body, ident):
             n = int(index[1:]) if index[1:].isdigit() else None
             if n is None or n > 7:
                 return None
-            ix, _cty = args.setdefault(n, ("a%d" % n, "uint64_t"))
+            # `sxtw` on a w register means the index parameter is signed, which
+            # changes both its C type and its mangled code (`i`, not `j`).
+            if index[0] == "x":
+                icy = "uint64_t"
+            elif ext == "sxtw":
+                icy = "int32_t"
+            else:
+                icy = "uint64_t"
+            ix, _cty = args.setdefault(n, ("a%d" % n, icy))
             return "(%s + (uintptr_t)(%s) * %d)" % (b, ix, scale)
         return "(%s + %d)" % (b, off) if off else b
 
@@ -181,8 +195,8 @@ def build(body, ident):
             parsed = parse_mem(ops[1])
             if parsed is None:
                 return None
-            base, index, off, scale = parsed
-            ad = addr_of(base, index, off, scale)
+            base, index, off, scale, ext = parsed
+            ad = addr_of(base, index, off, scale, ext)
             if ad is None:
                 return None
             w = LOADS[mn]
@@ -204,8 +218,8 @@ def build(body, ident):
             parsed = parse_mem(ops[1])
             if parsed is None:
                 return None
-            base, index, off, scale = parsed
-            ad = addr_of(base, index, off, scale)
+            base, index, off, scale, ext = parsed
+            ad = addr_of(base, index, off, scale, ext)
             if ad is None:
                 return None
             w = STORES[mn]
@@ -231,10 +245,49 @@ def build(body, ident):
                 continue
             return None
 
+        if mn == "mov":
+            # A constant materialisation, which is what makes a body a
+            # `const-field-set` rather than a copy:
+            #
+            #     ldr x8, [x0, #0x20] ; mov w9, #0x42ca0000 ; str w9, [x8, #0x120]
+            #
+            # HANDOFF recorded this shape as unfixable -- "an `__asm__ memory`
+            # barrier changed nothing (0/180, byte-identical)", because Clang
+            # materialised the constant before the pointer load. That measurement
+            # was taken with the harness missing eight of the build's flags, the
+            # same defect as `decomp/docs/flag_fidelity.md`. With the corrected
+            # flags it needs no barrier at all: the plain assignment reproduces
+            # the original exactly.
+            if len(ops) != 2:
+                return None
+            dst, src = ops
+            if not src.strip().startswith("#"):
+                return None          # a register move, not a constant
+            w = reg_class_width(dst)
+            if w is None:
+                return None
+            local = "t%d" % nload
+            nload += 1
+            stmts.append("%s %s = %d;" % (CT[w], local, parse_int(src)))
+            state[dst] = (local, CT[w])
+            continue
+
         return None
 
     if not stmts or not args:
         return None
+
+    # Parameters occupy slots 0..N-1 contiguously, and Itanium assigns slots by
+    # *position*, not by name. So a body whose lowest register is x1 still takes
+    # two parameters -- the first merely unused -- and declaring only the one it
+    # uses puts it in x0 instead:
+    #
+    #     insn 0: orig ('ldr', 'x8', [x1]) vs new ('ldr', 'x8', [x0])
+    #
+    # Fill the gaps with unused pointer parameters before emitting the list.
+    if args:
+        for n in range(0, min(args)):
+            args.setdefault(n, ("a%d" % n, "void*"))
 
     decls, codes, ptrs = [], [], 0
     for n in sorted(args):
@@ -252,6 +305,9 @@ def build(body, ident):
         elif cty == "uint32_t":
             codes.append("j")
             decls.append("uint32_t %s" % name)
+        elif cty == "int32_t":
+            codes.append("i")
+            decls.append("int32_t %s" % name)
         else:
             codes.append("m")
             decls.append("uint64_t %s" % name)

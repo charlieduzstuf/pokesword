@@ -1661,7 +1661,7 @@ void sub_1bef80() { /* 0x1bef80 */ }
 void sub_1bf200() { /* 0x1bf200 */ }
 void sub_1bf280() { /* 0x1bf280 */ }
 // sub_1bf2f0: implemented in prog/matched/subsdk0/
-void sub_1bf300() { /* 0x1bf300 */ }
+// sub_1bf300: implemented in prog/matched/subsdk0/
 void sub_1bf310() { /* 0x1bf310 */ }
 void sub_1bf330() { /* 0x1bf330 */ }
 // sub_1bf370: implemented in prog/matched/subsdk0/

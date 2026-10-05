@@ -1498,7 +1498,7 @@ void sub_1271e30() { /* 0x1271e30 */ }
 // sub_1271e50: implemented in prog/matched/main/
 // sub_1271e60: implemented in prog/matched/main/
 // sub_1271e80: implemented in prog/matched/main/
-void sub_1271ea0() { /* 0x1271ea0 */ }
+// sub_1271ea0: implemented in prog/matched/main/
 // sub_1271eb0: implemented in prog/matched/main/
 // sub_1271ec0: implemented in prog/matched/main/
 // sub_1271ed0: implemented in prog/matched/main/
@@ -2588,23 +2588,23 @@ void sub_12aa400() { /* 0x12aa400 */ }
 // sub_12aa430: implemented in prog/matched/main/
 // sub_12aa440: implemented in prog/matched/main/
 // sub_12aa450: implemented in prog/matched/main/
-void sub_12aa460() { /* 0x12aa460 */ }
+// sub_12aa460: implemented in prog/matched/main/
 // sub_12aa470: implemented in prog/matched/main/
 // sub_12aa480: implemented in prog/matched/main/
 // sub_12aa490: implemented in prog/matched/main/
-void sub_12aa4a0() { /* 0x12aa4a0 */ }
+// sub_12aa4a0: implemented in prog/matched/main/
 // sub_12aa4b0: implemented in prog/matched/main/
 // sub_12aa4c0: implemented in prog/matched/main/
 // sub_12aa4d0: implemented in prog/matched/main/
-void sub_12aa4e0() { /* 0x12aa4e0 */ }
+// sub_12aa4e0: implemented in prog/matched/main/
 // sub_12aa4f0: implemented in prog/matched/main/
 // sub_12aa500: implemented in prog/matched/main/
 // sub_12aa510: implemented in prog/matched/main/
-void sub_12aa520() { /* 0x12aa520 */ }
+// sub_12aa520: implemented in prog/matched/main/
 // sub_12aa530: implemented in prog/matched/main/
 // sub_12aa540: implemented in prog/matched/main/
 // sub_12aa550: implemented in prog/matched/main/
-void sub_12aa560() { /* 0x12aa560 */ }
+// sub_12aa560: implemented in prog/matched/main/
 // sub_12aa570: implemented in prog/matched/main/
 // sub_12aa580: implemented in prog/matched/main/
 // sub_12aa590: implemented in prog/matched/main/
@@ -2641,11 +2641,11 @@ void sub_12ad3d0() { /* 0x12ad3d0 */ }
 // sub_12ad450: implemented in prog/matched/main/
 // sub_12ad460: implemented in prog/matched/main/
 // sub_12ad470: implemented in prog/matched/main/
-void sub_12ad480() { /* 0x12ad480 */ }
+// sub_12ad480: implemented in prog/matched/main/
 // sub_12ad490: implemented in prog/matched/main/
 // sub_12ad4a0: implemented in prog/matched/main/
 // sub_12ad4b0: implemented in prog/matched/main/
-void sub_12ad4c0() { /* 0x12ad4c0 */ }
+// sub_12ad4c0: implemented in prog/matched/main/
 // sub_12ad4d0: implemented in prog/matched/main/
 // sub_12ad4e0: implemented in prog/matched/main/
 // sub_12ad4f0: implemented in prog/matched/main/
@@ -2657,15 +2657,15 @@ void sub_12ad550() { /* 0x12ad550 */ }
 // sub_12ad5a0: implemented in prog/matched/main/
 // sub_12ad5b0: implemented in prog/matched/main/
 // sub_12ad5c0: implemented in prog/matched/main/
-void sub_12ad5d0() { /* 0x12ad5d0 */ }
+// sub_12ad5d0: implemented in prog/matched/main/
 // sub_12ad5e0: implemented in prog/matched/main/
 // sub_12ad5f0: implemented in prog/matched/main/
 // sub_12ad600: implemented in prog/matched/main/
-void sub_12ad610() { /* 0x12ad610 */ }
+// sub_12ad610: implemented in prog/matched/main/
 // sub_12ad620: implemented in prog/matched/main/
 // sub_12ad630: implemented in prog/matched/main/
 // sub_12ad640: implemented in prog/matched/main/
-void sub_12ad650() { /* 0x12ad650 */ }
+// sub_12ad650: implemented in prog/matched/main/
 // sub_12ad660: implemented in prog/matched/main/
 // sub_12ad670: implemented in prog/matched/main/
 // sub_12ad680: implemented in prog/matched/main/
@@ -2674,7 +2674,7 @@ void sub_12ad7b0() { /* 0x12ad7b0 */ }
 // sub_12ad810: implemented in prog/matched/main/
 // sub_12ad820: implemented in prog/matched/main/
 // sub_12ad830: implemented in prog/matched/main/
-void sub_12ad840() { /* 0x12ad840 */ }
+// sub_12ad840: implemented in prog/matched/main/
 // sub_12ad850: implemented in prog/matched/main/
 // sub_12ad860: implemented in prog/matched/main/
 // sub_12ad870: implemented in prog/matched/main/
@@ -2690,11 +2690,11 @@ void sub_12ada00() { /* 0x12ada00 */ }
 // sub_12ada70: implemented in prog/matched/main/
 // sub_12ada80: implemented in prog/matched/main/
 // sub_12ada90: implemented in prog/matched/main/
-void sub_12adaa0() { /* 0x12adaa0 */ }
+// sub_12adaa0: implemented in prog/matched/main/
 // sub_12adab0: implemented in prog/matched/main/
 // sub_12adac0: implemented in prog/matched/main/
 // sub_12adad0: implemented in prog/matched/main/
-void sub_12adae0() { /* 0x12adae0 */ }
+// sub_12adae0: implemented in prog/matched/main/
 // sub_12adaf0: implemented in prog/matched/main/
 // sub_12adb00: implemented in prog/matched/main/
 // sub_12adb10: implemented in prog/matched/main/

@@ -46,7 +46,21 @@ def get_fn_from_my_elf(name: str, size: int) -> bytes:
     return my_elf.stream.read(size)
 
 
-def check_function(addr: int, size: int, name: str) -> bool:
+def check_function(addr: int, size: int, name: str, quiet: bool = False) -> bool:
+    """Byte-compare one function. `quiet` silences the explanatory notes.
+
+    `quiet` exists because the two callers care about opposite things. For a
+    function we claim matches, any difference is a defect worth printing. For one
+    we have *not* claimed, a difference is the expected case — unmatched
+    functions get a short stub against a real body — so the only thing worth
+    saying is "this actually matches". Without this, a length or comparability
+    note fired for all 31,230 unmatched functions in `main` and buried the one
+    finding that mattered.
+    """
+    def note(msg: str) -> None:
+        if not quiet:
+            utils.print_note(msg)
+
     try:
         base_fn = get_fn_from_base_elf(addr, size)
     except KeyError:
@@ -75,12 +89,56 @@ def check_function(addr: int, size: int, name: str) -> bool:
     # tool did not, so the two disagreed and this one was wrong. The padding
     # words trimmed here are exactly the ones `MH.effective_end` ignores.
     base_insns = list(md.disasm(base_fn, addr))
-    eff = len(base_insns)
-    while eff > 0 and base_insns[eff - 1].mnemonic in ("udf", "brk", "nop"):
-        eff -= 1
     my_insns = list(md.disasm(my_fn, addr))
 
-    for i1, i2 in zip(base_insns[:eff], my_insns[:eff]):
+    def trim(insns: list) -> int:
+        """Index just past the last real instruction.
+
+        Applied to *both* sides. The original is trimmed because `size` includes
+        alignment padding; ours must be trimmed identically or the padding shows
+        up as extra instructions and every padded body reports a length
+        difference. Doing it to one side only is what made four padding-case
+        functions (`main_f_32ec80` and friends) look like real mismatches.
+        """
+        n = len(insns)
+        while n > 0 and insns[n - 1].mnemonic in ("udf", "brk", "nop"):
+            n -= 1
+        return n
+
+    eff = trim(base_insns)
+    eff_mine = trim(my_insns)
+
+    # A comparison of nothing is not a comparison.
+    #
+    # The loop below `return True`s when it never runs, so an empty instruction
+    # list silently reports a *match*. That is not hypothetical: 332 functions in
+    # `main` were reported "marked as non-matching but matches" purely because
+    # their bytes (`fedeffe7`, at addresses like 0x33e30) decode to nothing --
+    # `eff` is 0, `zip` is empty, and the verdict is vacuously positive. Those
+    # 332 are unmatchable by any C, so the note was both wrong and a standing
+    # invitation to register 332 phantom bodies.
+    #
+    # Only the padding trim above is allowed to empty the list; if the *original*
+    # has no real instruction, or if our side decodes to nothing where the
+    # original has some, the bodies are not equal.
+    if eff == 0 or eff_mine == 0:
+        note(
+            f"function {utils.format_symbol_name_for_msg(name)} is not comparable: "
+            f"original decodes to {eff} real instruction(s), ours to {eff_mine}"
+        )
+        return False
+
+    # Same real-instruction count required. `zip` would silently drop the tail of
+    # the longer one, so a body that was one instruction short still compared
+    # equal -- a body that stops early is a real difference.
+    if eff != eff_mine:
+        note(
+            f"function {utils.format_symbol_name_for_msg(name)} differs in length: "
+            f"{eff} vs {eff_mine} real instruction(s)"
+        )
+        return False
+
+    for i1, i2 in zip(base_insns[:eff], my_insns[:eff_mine]):
         if i1.bytes == i2.bytes:
             continue
 
@@ -165,7 +223,9 @@ def main() -> None:
                     f"function {utils.format_symbol_name_for_msg(func.decomp_name)} is marked as matching but does not match")
                 failed = True
         elif func.status == utils.FunctionStatus.Equivalent or func.status == utils.FunctionStatus.NonMatching:
-            if check_function(func.addr, func.size, func.decomp_name):
+            # quiet=True: a non-match is the expected case here, so only a
+            # genuine match is worth reporting.
+            if check_function(func.addr, func.size, func.decomp_name, quiet=True):
                 utils.print_note(
                     f"function {utils.format_symbol_name_for_msg(func.decomp_name)} is marked as non-matching but matches")
         checked += 1

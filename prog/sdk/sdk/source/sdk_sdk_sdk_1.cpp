@@ -665,7 +665,7 @@ void sub_89e80() { /* 0x89e80 */ }
 void sub_89ec0() { /* 0x89ec0 */ }
 void sub_89f00() { /* 0x89f00 */ }
 void sub_89f80() { /* 0x89f80 */ }
-void sub_89fa0() { /* 0x89fa0 */ }
+// sub_89fa0: implemented in prog/matched/sdk/
 void sub_89fb0() { /* 0x89fb0 */ }
 void sub_89fe0() { /* 0x89fe0 */ }
 void sub_89ff0() { /* 0x89ff0 */ }
@@ -1549,7 +1549,7 @@ void sub_a96d0() { /* 0xa96d0 */ }
 void sub_a9830() { /* 0xa9830 */ }
 void sub_a9860() { /* 0xa9860 */ }
 void sub_a98a0() { /* 0xa98a0 */ }
-void sub_a9940() { /* 0xa9940 */ }
+// sub_a9940: implemented in prog/matched/sdk/
 void sub_a9950() { /* 0xa9950 */ }
 void sub_a9960() { /* 0xa9960 */ }
 // sub_a9970: implemented in prog/matched/sdk/
@@ -1645,7 +1645,7 @@ void sub_ad510() { /* 0xad510 */ }
 void sub_ad520() { /* 0xad520 */ }
 void sub_ad530() { /* 0xad530 */ }
 // sub_ad550: implemented in prog/matched/sdk/
-void sub_ad560() { /* 0xad560 */ }
+// sub_ad560: implemented in prog/matched/sdk/
 void sub_ad570() { /* 0xad570 */ }
 // sub_ad580: implemented in prog/matched/sdk/
 // sub_ad590: implemented in prog/matched/sdk/

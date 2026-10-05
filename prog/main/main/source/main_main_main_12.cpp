@@ -1622,7 +1622,7 @@ void sub_d49920() { /* 0xd49920 */ }
 // sub_d49980: implemented in prog/matched/main/
 // sub_d49990: implemented in prog/matched/main/
 void sub_d499a0() { /* 0xd499a0 */ }
-void sub_d49b70() { /* 0xd49b70 */ }
+// sub_d49b70: implemented in prog/matched/main/
 // sub_d49b80: implemented in prog/matched/main/
 // sub_d49b90: implemented in prog/matched/main/
 // sub_d49ba0: implemented in prog/matched/main/
@@ -3500,7 +3500,7 @@ void sub_debc60() { /* 0xdebc60 */ }
 // sub_debc70: implemented in prog/matched/main/
 // sub_debc80: implemented in prog/matched/main/
 // sub_debc90: implemented in prog/matched/main/
-void sub_debca0() { /* 0xdebca0 */ }
+// sub_debca0: implemented in prog/matched/main/
 void sub_debcb0() { /* 0xdebcb0 */ }
 void sub_debcc0() { /* 0xdebcc0 */ }
 // sub_debce0: implemented in prog/matched/main/

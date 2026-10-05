@@ -2384,7 +2384,7 @@ void sub_e57d0() { /* 0xe57d0 */ }
 void sub_e57e0() { /* 0xe57e0 */ }
 void sub_e57f0() { /* 0xe57f0 */ }
 void sub_e5800() { /* 0xe5800 */ }
-void sub_e5810() { /* 0xe5810 */ }
+// sub_e5810: implemented in prog/matched/main/
 void sub_e5820() { /* 0xe5820 */ }
 // PxClothFabric: implemented in prog/matched/main/
 void PxClothFabric_2() { /* 0xe5840 */ }

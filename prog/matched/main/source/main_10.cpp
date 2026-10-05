@@ -24,6 +24,761 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+typedef unsigned long uintptr_t;
+
+// sub_119d930  (orig 0x119d930, struct-copy)
+void main_f_119d930(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_119d950  (orig 0x119d950, ret_only)
+void main_f_119d950() {}
+
+// sub_119d960  (orig 0x119d960, ret_only)
+void main_f_119d960() {}
+
+// sub_119d970  (orig 0x119d970, ret_only)
+void main_f_119d970() {}
+
+// sub_119d980  (orig 0x119d980, ret_only)
+void main_f_119d980() {}
+
+// sub_119e410  (orig 0x119e410, ret_only)
+void main_f_119e410() {}
+
+// sub_119e420  (orig 0x119e420, ret_only)
+void main_f_119e420() {}
+
+// sub_119e430  (orig 0x119e430, ret_only)
+void main_f_119e430() {}
+
+// sub_119f140  (orig 0x119f140, ret_only)
+void main_f_119f140() {}
+
+// sub_119f150  (orig 0x119f150, struct-copy)
+void main_f_119f150(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_119f170  (orig 0x119f170, struct-copy)
+void main_f_119f170(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_119fda0  (orig 0x119fda0, ret_only)
+void main_f_119fda0() {}
+
+// sub_119fdb0  (orig 0x119fdb0, struct-copy)
+void main_f_119fdb0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_119fdd0  (orig 0x119fdd0, struct-copy)
+void main_f_119fdd0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a0df0  (orig 0x11a0df0, ret_only)
+void main_f_11a0df0() {}
+
+// sub_11a0e00  (orig 0x11a0e00, struct-copy)
+void main_f_11a0e00(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a0e20  (orig 0x11a0e20, struct-copy)
+void main_f_11a0e20(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a1bf0  (orig 0x11a1bf0, ret_only)
+void main_f_11a1bf0() {}
+
+// sub_11a1c00  (orig 0x11a1c00, struct-copy)
+void main_f_11a1c00(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a1c20  (orig 0x11a1c20, struct-copy)
+void main_f_11a1c20(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a1c90  (orig 0x11a1c90, setter-chain-zero)
+void main_f_11a1c90(void* a0) {
+    struct u64x2 { uint64_t a, b; };
+    *(uint32_t*)((char*)a0 + 184) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 168) = (struct u64x2){ 0, 0 };
+}
+
+// sub_11a2c80  (orig 0x11a2c80, ret_only)
+void main_f_11a2c80() {}
+
+// sub_11a2c90  (orig 0x11a2c90, struct-copy)
+void main_f_11a2c90(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a2cb0  (orig 0x11a2cb0, struct-copy)
+void main_f_11a2cb0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a2d00  (orig 0x11a2d00, ret_only)
+void main_f_11a2d00() {}
+
+// sub_11a2d10  (orig 0x11a2d10, copy2)
+void main_f_11a2d10(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11a2d20  (orig 0x11a2d20, copy2)
+void main_f_11a2d20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11a3c00  (orig 0x11a3c00, setter)
+void main_f_11a3c00(void* a0) { *(uint32_t*)((char*)(a0) + 168) = 0; }
+
+// sub_11a4310  (orig 0x11a4310, ret_only)
+void main_f_11a4310() {}
+
+// sub_11a4320  (orig 0x11a4320, struct-copy)
+void main_f_11a4320(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a4340  (orig 0x11a4340, struct-copy)
+void main_f_11a4340(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a49a0  (orig 0x11a49a0, ret_only)
+void main_f_11a49a0() {}
+
+// sub_11a50c0  (orig 0x11a50c0, ret_only)
+void main_f_11a50c0() {}
+
+// sub_11a50d0  (orig 0x11a50d0, struct-copy)
+void main_f_11a50d0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a50f0  (orig 0x11a50f0, struct-copy)
+void main_f_11a50f0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a5180  (orig 0x11a5180, ret_only)
+void main_f_11a5180() {}
+
+// sub_11a5190  (orig 0x11a5190, copy2)
+void main_f_11a5190(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11a51a0  (orig 0x11a51a0, copy2)
+void main_f_11a51a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11a5b60  (orig 0x11a5b60, ret_only)
+void main_f_11a5b60() {}
+
+// sub_11a5b70  (orig 0x11a5b70, struct-copy)
+void main_f_11a5b70(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a5b90  (orig 0x11a5b90, struct-copy)
+void main_f_11a5b90(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a63e0  (orig 0x11a63e0, ret_only)
+void main_f_11a63e0() {}
+
+// sub_11a63f0  (orig 0x11a63f0, struct-copy)
+void main_f_11a63f0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a6410  (orig 0x11a6410, struct-copy)
+void main_f_11a6410(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a6490  (orig 0x11a6490, ret_only)
+void main_f_11a6490() {}
+
+// sub_11a8ca0  (orig 0x11a8ca0, ret_only)
+void main_f_11a8ca0() {}
+
+// sub_11a8cb0  (orig 0x11a8cb0, struct-copy)
+void main_f_11a8cb0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a8cd0  (orig 0x11a8cd0, struct-copy)
+void main_f_11a8cd0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a8d50  (orig 0x11a8d50, ret_only)
+void main_f_11a8d50() {}
+
+// sub_11a8d60  (orig 0x11a8d60, copy2)
+void main_f_11a8d60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11a8d70  (orig 0x11a8d70, copy2)
+void main_f_11a8d70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11a9820  (orig 0x11a9820, ret_only)
+void main_f_11a9820() {}
+
+// sub_11a9830  (orig 0x11a9830, struct-copy)
+void main_f_11a9830(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11a9850  (orig 0x11a9850, struct-copy)
+void main_f_11a9850(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11ab570  (orig 0x11ab570, ret_only)
+void main_f_11ab570() {}
+
+// sub_11ab580  (orig 0x11ab580, struct-copy)
+void main_f_11ab580(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11ab5a0  (orig 0x11ab5a0, struct-copy)
+void main_f_11ab5a0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11ab7d0  (orig 0x11ab7d0, ret_only)
+void main_f_11ab7d0() {}
+
+// sub_11ab7e0  (orig 0x11ab7e0, copy2)
+void main_f_11ab7e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ab7f0  (orig 0x11ab7f0, copy2)
+void main_f_11ab7f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ab850  (orig 0x11ab850, ret_only)
+void main_f_11ab850() {}
+
+// sub_11ab910  (orig 0x11ab910, ret_only)
+void main_f_11ab910() {}
+
+// sub_11b0cd0  (orig 0x11b0cd0, ret_only)
+void main_f_11b0cd0() {}
+
+// sub_11b0ce0  (orig 0x11b0ce0, struct-copy)
+void main_f_11b0ce0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b0d00  (orig 0x11b0d00, struct-copy)
+void main_f_11b0d00(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b14d0  (orig 0x11b14d0, ret_only)
+void main_f_11b14d0() {}
+
+// sub_11b1730  (orig 0x11b1730, copy2)
+void main_f_11b1730(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11b1740  (orig 0x11b1740, copy2)
+void main_f_11b1740(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11b17c0  (orig 0x11b17c0, ret_only)
+void main_f_11b17c0() {}
+
+// sub_11b17d0  (orig 0x11b17d0, copy2)
+void main_f_11b17d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11b17e0  (orig 0x11b17e0, copy2)
+void main_f_11b17e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11b3bb0  (orig 0x11b3bb0, ret_only)
+void main_f_11b3bb0() {}
+
+// sub_11b3bc0  (orig 0x11b3bc0, struct-copy)
+void main_f_11b3bc0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b3be0  (orig 0x11b3be0, struct-copy)
+void main_f_11b3be0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b4f00  (orig 0x11b4f00, ret_only)
+void main_f_11b4f00() {}
+
+// sub_11b4f10  (orig 0x11b4f10, struct-copy)
+void main_f_11b4f10(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b4f30  (orig 0x11b4f30, struct-copy)
+void main_f_11b4f30(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b51a0  (orig 0x11b51a0, ret_only)
+void main_f_11b51a0() {}
+
+// sub_11b52a0  (orig 0x11b52a0, ret_only)
+void main_f_11b52a0() {}
+
+// sub_11b58a0  (orig 0x11b58a0, ret_only)
+void main_f_11b58a0() {}
+
+// sub_11b7a80  (orig 0x11b7a80, mov_ret)
+uint32_t main_f_11b7a80() { return 0; }
+
+// sub_11b7a90  (orig 0x11b7a90, mov_ret)
+uint32_t main_f_11b7a90() { return 0; }
+
+// sub_11b7f70  (orig 0x11b7f70, ret_only)
+void main_f_11b7f70() {}
+
+// sub_11b7f80  (orig 0x11b7f80, struct-copy)
+void main_f_11b7f80(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b7fa0  (orig 0x11b7fa0, struct-copy)
+void main_f_11b7fa0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b86c0  (orig 0x11b86c0, ret_only)
+void main_f_11b86c0() {}
+
+// sub_11b86d0  (orig 0x11b86d0, struct-copy)
+void main_f_11b86d0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b86f0  (orig 0x11b86f0, struct-copy)
+void main_f_11b86f0(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11b8d20  (orig 0x11b8d20, ret_only)
+void main_f_11b8d20() {}
+
+// sub_11b8d30  (orig 0x11b8d30, mov_ret)
+uint32_t main_f_11b8d30() { return 1; }
+
+// sub_11b9f00  (orig 0x11b9f00, setter-chain)
+void main_f_11b9f00(void* a0, uint64_t a1, uint32_t a2) { *(uint64_t*)((char*)(a0) + 96) = a1; *(uint32_t*)((char*)(a0) + 104) = a2; }
+
+// sub_11ba0a0  (orig 0x11ba0a0, setter)
+void main_f_11ba0a0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 108) = a1; }
+
+// sub_11ba0b0  (orig 0x11ba0b0, ret_only)
+void main_f_11ba0b0() {}
+
+// sub_11ba0c0  (orig 0x11ba0c0, ret_only)
+void main_f_11ba0c0() {}
+
+// sub_11ba0d0  (orig 0x11ba0d0, ret_only)
+void main_f_11ba0d0() {}
+
+// sub_11ba150  (orig 0x11ba150, ret_only)
+void main_f_11ba150() {}
+
+// sub_11ba160  (orig 0x11ba160, copy2)
+void main_f_11ba160(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ba170  (orig 0x11ba170, copy2)
+void main_f_11ba170(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11bb2e0  (orig 0x11bb2e0, ret_only)
+void main_f_11bb2e0() {}
+
+// sub_11bd1b0  (orig 0x11bd1b0, getter)
+uint32_t main_f_11bd1b0(void* a0) { return *(uint32_t*)((char*)(a0) + 120); }
+
+// sub_11bd1c0  (orig 0x11bd1c0, setter)
+void main_f_11bd1c0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 120) = a1; }
+
+// sub_11bdac0  (orig 0x11bdac0, ret_only)
+void main_f_11bdac0() {}
+
+// sub_11bdad0  (orig 0x11bdad0, ret_only)
+void main_f_11bdad0() {}
+
+// sub_11bdae0  (orig 0x11bdae0, ret_only)
+void main_f_11bdae0() {}
+
+// sub_11bdaf0  (orig 0x11bdaf0, ret_only)
+void main_f_11bdaf0() {}
+
+// sub_11bdb00  (orig 0x11bdb00, ret_only)
+void main_f_11bdb00() {}
+
+// sub_11be780  (orig 0x11be780, ret_only)
+void main_f_11be780() {}
+
+// sub_11be9d0  (orig 0x11be9d0, ret_only)
+void main_f_11be9d0() {}
+
+// sub_11be9e0  (orig 0x11be9e0, ret_only)
+void main_f_11be9e0() {}
+
+// sub_11be9f0  (orig 0x11be9f0, ret_only)
+void main_f_11be9f0() {}
+
+// sub_11c7370  (orig 0x11c7370, ret_only)
+void main_f_11c7370() {}
+
+// sub_11c7380  (orig 0x11c7380, ret_only)
+void main_f_11c7380() {}
+
+// sub_11c7390  (orig 0x11c7390, ret_only)
+void main_f_11c7390() {}
+
+// sub_11c73a0  (orig 0x11c73a0, ret_only)
+void main_f_11c73a0() {}
+
+// sub_11c73b0  (orig 0x11c73b0, ret_only)
+void main_f_11c73b0() {}
+
+// sub_11c73c0  (orig 0x11c73c0, ret_only)
+void main_f_11c73c0() {}
+
+// sub_11c73d0  (orig 0x11c73d0, ret_only)
+void main_f_11c73d0() {}
+
+// sub_11c73e0  (orig 0x11c73e0, ret_only)
+void main_f_11c73e0() {}
+
+// sub_11c7e50  (orig 0x11c7e50, ret_only)
+void main_f_11c7e50() {}
+
+// sub_11c7e60  (orig 0x11c7e60, copy2)
+void main_f_11c7e60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c7e70  (orig 0x11c7e70, copy2)
+void main_f_11c7e70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c8490  (orig 0x11c8490, ret_only)
+void main_f_11c8490() {}
+
+// sub_11c84a0  (orig 0x11c84a0, copy2)
+void main_f_11c84a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c84b0  (orig 0x11c84b0, copy2)
+void main_f_11c84b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9100  (orig 0x11c9100, ret_only)
+void main_f_11c9100() {}
+
+// sub_11c9110  (orig 0x11c9110, struct-copy)
+void main_f_11c9110(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11c9130  (orig 0x11c9130, struct-copy)
+void main_f_11c9130(void* a0, void* a1) {
+    struct u64x2 { uint64_t a, b; };
+    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
+    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
+    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a1 = s0.a;
+}
+
+// sub_11c98a0  (orig 0x11c98a0, ret_only)
+void main_f_11c98a0() {}
+
+// sub_11c98b0  (orig 0x11c98b0, ret_only)
+void main_f_11c98b0() {}
+
+// sub_11c98c0  (orig 0x11c98c0, ret_only)
+void main_f_11c98c0() {}
+
+// sub_11c9a00  (orig 0x11c9a00, ret_only)
+void main_f_11c9a00() {}
+
+// sub_11c9a10  (orig 0x11c9a10, copy2)
+void main_f_11c9a10(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9a20  (orig 0x11c9a20, copy2)
+void main_f_11c9a20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9b50  (orig 0x11c9b50, ret_only)
+void main_f_11c9b50() {}
+
+// sub_11c9b60  (orig 0x11c9b60, copy2)
+void main_f_11c9b60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9b70  (orig 0x11c9b70, copy2)
+void main_f_11c9b70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9c60  (orig 0x11c9c60, ret_only)
+void main_f_11c9c60() {}
+
+// sub_11c9c70  (orig 0x11c9c70, copy2)
+void main_f_11c9c70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9c80  (orig 0x11c9c80, copy2)
+void main_f_11c9c80(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9f40  (orig 0x11c9f40, ret_only)
+void main_f_11c9f40() {}
+
+// sub_11c9f50  (orig 0x11c9f50, copy-chain-store)
+void main_f_11c9f50(void* a0, void* a1) {
+    uint64_t t0 = *(uint64_t*)(char*)a1;
+    uint64_t t1 = *(uint64_t*)(char*)a0;
+    *(uint64_t*)(char*)(t0) = (uint64_t)(t1);
+}
+
+// sub_11c9f60  (orig 0x11c9f60, ret_only)
+void main_f_11c9f60() {}
+
+// sub_11c9f70  (orig 0x11c9f70, copy2)
+void main_f_11c9f70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9f80  (orig 0x11c9f80, copy2)
+void main_f_11c9f80(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9f90  (orig 0x11c9f90, copy2)
+void main_f_11c9f90(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9fa0  (orig 0x11c9fa0, copy2)
+void main_f_11c9fa0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9fc0  (orig 0x11c9fc0, ret_only)
+void main_f_11c9fc0() {}
+
+// sub_11c9fd0  (orig 0x11c9fd0, ret_only)
+void main_f_11c9fd0() {}
+
+// sub_11c9fe0  (orig 0x11c9fe0, ret_only)
+void main_f_11c9fe0() {}
+
+// sub_11ca180  (orig 0x11ca180, ret_only)
+void main_f_11ca180() {}
+
+// sub_11ca370  (orig 0x11ca370, ret_only)
+void main_f_11ca370() {}
+
+// sub_11ca380  (orig 0x11ca380, copy2)
+void main_f_11ca380(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ca390  (orig 0x11ca390, copy2)
+void main_f_11ca390(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ca3a0  (orig 0x11ca3a0, copy2)
+void main_f_11ca3a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ca3b0  (orig 0x11ca3b0, copy2)
+void main_f_11ca3b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ca500  (orig 0x11ca500, ret_only)
+void main_f_11ca500() {}
+
+// sub_11ca580  (orig 0x11ca580, ret_only)
+void main_f_11ca580() {}
+
+// sub_11ca5e0  (orig 0x11ca5e0, copy2)
+void main_f_11ca5e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ca5f0  (orig 0x11ca5f0, copy2)
+void main_f_11ca5f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11cc3a0  (orig 0x11cc3a0, setter)
+void main_f_11cc3a0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 700) = a1; }
+
+// sub_11cd2e0  (orig 0x11cd2e0, setter)
+void main_f_11cd2e0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 184) = a1; }
+
+// sub_11d18f0  (orig 0x11d18f0, getter)
+float main_f_11d18f0(void* a0) { return *(float*)((char*)(a0) + 176); }
 
 // sub_11d1900  (orig 0x11d1900, ret_only)
 void main_f_11d1900() {}
@@ -2747,6 +3502,13 @@ void main_f_1271e80(void* a0, void* a1) {
     *(uint64_t*)(char*)a1 = s0.a;
 }
 
+// sub_1271ea0  (orig 0x1271ea0, const-field-set-store)
+void main_f_1271ea0(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 1;
+    *(uint8_t*)((char*)(t0) + 200) = (uint8_t)(t1);
+}
+
 // sub_1271eb0  (orig 0x1271eb0, ret_only)
 void main_f_1271eb0() {}
 
@@ -3662,6 +4424,13 @@ void main_f_12aa440(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 // sub_12aa450  (orig 0x12aa450, copy2)
 void main_f_12aa450(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_12aa460  (orig 0x12aa460, const-field-set-store)
+void main_f_12aa460(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 7;
+    *(uint32_t*)((char*)(t0) + 400) = (uint32_t)(t1);
+}
+
 // sub_12aa470  (orig 0x12aa470, ret_only)
 void main_f_12aa470() {}
 
@@ -3670,6 +4439,13 @@ void main_f_12aa480(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_12aa490  (orig 0x12aa490, copy2)
 void main_f_12aa490(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_12aa4a0  (orig 0x12aa4a0, const-field-set-store)
+void main_f_12aa4a0(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 14;
+    *(uint32_t*)((char*)(t0) + 400) = (uint32_t)(t1);
+}
 
 // sub_12aa4b0  (orig 0x12aa4b0, ret_only)
 void main_f_12aa4b0() {}
@@ -3680,6 +4456,13 @@ void main_f_12aa4c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 // sub_12aa4d0  (orig 0x12aa4d0, copy2)
 void main_f_12aa4d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_12aa4e0  (orig 0x12aa4e0, const-field-set-store)
+void main_f_12aa4e0(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 18;
+    *(uint32_t*)((char*)(t0) + 400) = (uint32_t)(t1);
+}
+
 // sub_12aa4f0  (orig 0x12aa4f0, ret_only)
 void main_f_12aa4f0() {}
 
@@ -3689,6 +4472,13 @@ void main_f_12aa500(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 // sub_12aa510  (orig 0x12aa510, copy2)
 void main_f_12aa510(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_12aa520  (orig 0x12aa520, const-field-set-store)
+void main_f_12aa520(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 10;
+    *(uint32_t*)((char*)(t0) + 400) = (uint32_t)(t1);
+}
+
 // sub_12aa530  (orig 0x12aa530, ret_only)
 void main_f_12aa530() {}
 
@@ -3697,6 +4487,13 @@ void main_f_12aa540(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_12aa550  (orig 0x12aa550, copy2)
 void main_f_12aa550(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_12aa560  (orig 0x12aa560, const-field-set-store)
+void main_f_12aa560(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 11;
+    *(uint32_t*)((char*)(t0) + 400) = (uint32_t)(t1);
+}
 
 // sub_12aa570  (orig 0x12aa570, ret_only)
 void main_f_12aa570() {}
@@ -3743,6 +4540,13 @@ void main_f_12ad460(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 // sub_12ad470  (orig 0x12ad470, copy2)
 void main_f_12ad470(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_12ad480  (orig 0x12ad480, const-field-set-store)
+void main_f_12ad480(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 6;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
+
 // sub_12ad490  (orig 0x12ad490, ret_only)
 void main_f_12ad490() {}
 
@@ -3751,6 +4555,13 @@ void main_f_12ad4a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_12ad4b0  (orig 0x12ad4b0, copy2)
 void main_f_12ad4b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_12ad4c0  (orig 0x12ad4c0, const-field-set-store)
+void main_f_12ad4c0(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 6;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
 
 // sub_12ad4d0  (orig 0x12ad4d0, ret_only)
 void main_f_12ad4d0() {}
@@ -3779,6 +4590,13 @@ void main_f_12ad5b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 // sub_12ad5c0  (orig 0x12ad5c0, copy2)
 void main_f_12ad5c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_12ad5d0  (orig 0x12ad5d0, const-field-set-store)
+void main_f_12ad5d0(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 6;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
+
 // sub_12ad5e0  (orig 0x12ad5e0, ret_only)
 void main_f_12ad5e0() {}
 
@@ -3788,6 +4606,13 @@ void main_f_12ad5f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 // sub_12ad600  (orig 0x12ad600, copy2)
 void main_f_12ad600(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_12ad610  (orig 0x12ad610, const-field-set-store)
+void main_f_12ad610(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 6;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
+
 // sub_12ad620  (orig 0x12ad620, ret_only)
 void main_f_12ad620() {}
 
@@ -3796,6 +4621,13 @@ void main_f_12ad630(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_12ad640  (orig 0x12ad640, copy2)
 void main_f_12ad640(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_12ad650  (orig 0x12ad650, const-field-set-store)
+void main_f_12ad650(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 6;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
 
 // sub_12ad660  (orig 0x12ad660, ret_only)
 void main_f_12ad660() {}
@@ -3814,6 +4646,13 @@ void main_f_12ad820(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_12ad830  (orig 0x12ad830, copy2)
 void main_f_12ad830(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_12ad840  (orig 0x12ad840, const-field-set-store)
+void main_f_12ad840(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 6;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
 
 // sub_12ad850  (orig 0x12ad850, ret_only)
 void main_f_12ad850() {}
@@ -3851,6 +4690,13 @@ void main_f_12ada80(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 // sub_12ada90  (orig 0x12ada90, copy2)
 void main_f_12ada90(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
+// sub_12adaa0  (orig 0x12adaa0, const-field-set-store)
+void main_f_12adaa0(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 6;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
+
 // sub_12adab0  (orig 0x12adab0, ret_only)
 void main_f_12adab0() {}
 
@@ -3859,6 +4705,13 @@ void main_f_12adac0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_12adad0  (orig 0x12adad0, copy2)
 void main_f_12adad0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_12adae0  (orig 0x12adae0, const-field-set-store)
+void main_f_12adae0(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 23;
+    *(uint32_t*)((char*)(t0) + 436) = (uint32_t)(t1);
+}
 
 // sub_12adaf0  (orig 0x12adaf0, ret_only)
 void main_f_12adaf0() {}
@@ -5210,6 +6063,13 @@ void main_f_1339690() {}
 // sub_13396a0  (orig 0x13396a0, ret_only)
 void main_f_13396a0() {}
 
+// sub_133d080  (orig 0x133d080, const-field-set-store)
+void main_f_133d080(void* a0) {
+    uint64_t t0 = *(uint64_t*)(char*)a0;
+    uint32_t t1 = 1;
+    *(uint8_t*)((char*)(t0) + 1528) = (uint8_t)(t1);
+}
+
 // sub_133d090  (orig 0x133d090, ret_only)
 void main_f_133d090() {}
 
@@ -5950,535 +6810,4 @@ void main_f_13aa060(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_13aa0f0  (orig 0x13aa0f0, ret_only)
 void main_f_13aa0f0() {}
-
-// sub_13aa100  (orig 0x13aa100, copy2)
-void main_f_13aa100(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa110  (orig 0x13aa110, copy2)
-void main_f_13aa110(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa420  (orig 0x13aa420, ret_only)
-void main_f_13aa420() {}
-
-// sub_13aa430  (orig 0x13aa430, copy2)
-void main_f_13aa430(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa440  (orig 0x13aa440, copy2)
-void main_f_13aa440(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa4d0  (orig 0x13aa4d0, ret_only)
-void main_f_13aa4d0() {}
-
-// sub_13aa4e0  (orig 0x13aa4e0, copy2)
-void main_f_13aa4e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa4f0  (orig 0x13aa4f0, copy2)
-void main_f_13aa4f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa890  (orig 0x13aa890, ret_only)
-void main_f_13aa890() {}
-
-// sub_13aa8a0  (orig 0x13aa8a0, copy2)
-void main_f_13aa8a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa8b0  (orig 0x13aa8b0, copy2)
-void main_f_13aa8b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa940  (orig 0x13aa940, ret_only)
-void main_f_13aa940() {}
-
-// sub_13aa950  (orig 0x13aa950, copy2)
-void main_f_13aa950(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aa960  (orig 0x13aa960, copy2)
-void main_f_13aa960(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aab50  (orig 0x13aab50, ret_only)
-void main_f_13aab50() {}
-
-// sub_13aab60  (orig 0x13aab60, copy2)
-void main_f_13aab60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aab70  (orig 0x13aab70, copy2)
-void main_f_13aab70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aac00  (orig 0x13aac00, ret_only)
-void main_f_13aac00() {}
-
-// sub_13aac10  (orig 0x13aac10, copy2)
-void main_f_13aac10(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aac20  (orig 0x13aac20, copy2)
-void main_f_13aac20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aafd0  (orig 0x13aafd0, ret_only)
-void main_f_13aafd0() {}
-
-// sub_13aafe0  (orig 0x13aafe0, copy2)
-void main_f_13aafe0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aaff0  (orig 0x13aaff0, copy2)
-void main_f_13aaff0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab080  (orig 0x13ab080, ret_only)
-void main_f_13ab080() {}
-
-// sub_13ab090  (orig 0x13ab090, copy2)
-void main_f_13ab090(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab0a0  (orig 0x13ab0a0, copy2)
-void main_f_13ab0a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab120  (orig 0x13ab120, ret_only)
-void main_f_13ab120() {}
-
-// sub_13ab130  (orig 0x13ab130, copy2)
-void main_f_13ab130(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab140  (orig 0x13ab140, copy2)
-void main_f_13ab140(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab330  (orig 0x13ab330, ret_only)
-void main_f_13ab330() {}
-
-// sub_13ab340  (orig 0x13ab340, copy2)
-void main_f_13ab340(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab350  (orig 0x13ab350, copy2)
-void main_f_13ab350(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab3d0  (orig 0x13ab3d0, ret_only)
-void main_f_13ab3d0() {}
-
-// sub_13ab3e0  (orig 0x13ab3e0, copy2)
-void main_f_13ab3e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ab3f0  (orig 0x13ab3f0, copy2)
-void main_f_13ab3f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aba40  (orig 0x13aba40, ret_only)
-void main_f_13aba40() {}
-
-// sub_13aba50  (orig 0x13aba50, copy2)
-void main_f_13aba50(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aba60  (orig 0x13aba60, copy2)
-void main_f_13aba60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aba90  (orig 0x13aba90, ret_only)
-void main_f_13aba90() {}
-
-// sub_13abaa0  (orig 0x13abaa0, copy2)
-void main_f_13abaa0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abab0  (orig 0x13abab0, copy2)
-void main_f_13abab0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abb40  (orig 0x13abb40, ret_only)
-void main_f_13abb40() {}
-
-// sub_13abb50  (orig 0x13abb50, copy2)
-void main_f_13abb50(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abb60  (orig 0x13abb60, copy2)
-void main_f_13abb60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abcd0  (orig 0x13abcd0, ret_only)
-void main_f_13abcd0() {}
-
-// sub_13abce0  (orig 0x13abce0, copy2)
-void main_f_13abce0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abcf0  (orig 0x13abcf0, copy2)
-void main_f_13abcf0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abe90  (orig 0x13abe90, ret_only)
-void main_f_13abe90() {}
-
-// sub_13abea0  (orig 0x13abea0, copy2)
-void main_f_13abea0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abeb0  (orig 0x13abeb0, copy2)
-void main_f_13abeb0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abf80  (orig 0x13abf80, ret_only)
-void main_f_13abf80() {}
-
-// sub_13abf90  (orig 0x13abf90, copy2)
-void main_f_13abf90(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abfa0  (orig 0x13abfa0, copy2)
-void main_f_13abfa0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ac110  (orig 0x13ac110, ret_only)
-void main_f_13ac110() {}
-
-// sub_13ac120  (orig 0x13ac120, copy2)
-void main_f_13ac120(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ac130  (orig 0x13ac130, copy2)
-void main_f_13ac130(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ac310  (orig 0x13ac310, ret_only)
-void main_f_13ac310() {}
-
-// sub_13ac320  (orig 0x13ac320, copy2)
-void main_f_13ac320(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ac330  (orig 0x13ac330, copy2)
-void main_f_13ac330(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ac460  (orig 0x13ac460, ret_only)
-void main_f_13ac460() {}
-
-// sub_13ac470  (orig 0x13ac470, copy2)
-void main_f_13ac470(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ac480  (orig 0x13ac480, copy2)
-void main_f_13ac480(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13ac490  (orig 0x13ac490, strlit-ret)
-const char *main_f_13ac490() { static char g_f_13ac490[1]; __asm__ volatile("" ::: "memory"); return g_f_13ac490; }
-
-// sub_13ac760  (orig 0x13ac760, getter-chain)
-uint64_t main_f_13ac760(void* a0) { return *(uint64_t*)((char*)((*(uint64_t*)((char*)(a0) + 132))) + 832); }
-
-// sub_13aca70  (orig 0x13aca70, mov_ret)
-uint32_t main_f_13aca70() { return 1; }
-
-// sub_13ae820  (orig 0x13ae820, mov_ret)
-uint64_t main_f_13ae820() { return 0; }
-
-// sub_13ae830  (orig 0x13ae830, mov_ret)
-uint64_t main_f_13ae830() { return 0; }
-
-// sub_13ae840  (orig 0x13ae840, mov_ret)
-uint64_t main_f_13ae840() { return 0; }
-
-// sub_13ae850  (orig 0x13ae850, mov_ret)
-uint64_t main_f_13ae850() { return 0; }
-
-// sub_13ae860  (orig 0x13ae860, mov_ret)
-uint64_t main_f_13ae860() { return 0; }
-
-// sub_13ae870  (orig 0x13ae870, mov_ret)
-uint64_t main_f_13ae870() { return 0; }
-
-// sub_13ae880  (orig 0x13ae880, mov_ret)
-uint64_t main_f_13ae880() { return 0; }
-
-// sub_13ae890  (orig 0x13ae890, mov_ret)
-uint64_t main_f_13ae890() { return 0; }
-
-// sub_13ae8a0  (orig 0x13ae8a0, mov_ret)
-uint64_t main_f_13ae8a0() { return 0; }
-
-// sub_13ae8b0  (orig 0x13ae8b0, mov_ret)
-uint32_t main_f_13ae8b0() { return 1; }
-
-// sub_13ae8c0  (orig 0x13ae8c0, mov_ret)
-uint32_t main_f_13ae8c0() { return 1; }
-
-// sub_13ae8d0  (orig 0x13ae8d0, mov_ret)
-uint32_t main_f_13ae8d0() { return 1; }
-
-// sub_13ae8e0  (orig 0x13ae8e0, mov_ret)
-uint32_t main_f_13ae8e0() { return 1; }
-
-// sub_13ae8f0  (orig 0x13ae8f0, mov_ret)
-uint32_t main_f_13ae8f0() { return 1; }
-
-// sub_13ae900  (orig 0x13ae900, mov_ret)
-uint32_t main_f_13ae900() { return 1; }
-
-// sub_13b0130  (orig 0x13b0130, mov_ret)
-uint32_t main_f_13b0130() { return 1; }
-
-// sub_13b09e0  (orig 0x13b09e0, mov_ret)
-uint32_t main_f_13b09e0() { return 1; }
-
-// sub_13b2050  (orig 0x13b2050, ret_only)
-void main_f_13b2050() {}
-
-// sub_13b2090  (orig 0x13b2090, ret_only)
-void main_f_13b2090() {}
-
-// sub_13b2230  (orig 0x13b2230, mov_ret)
-uint32_t main_f_13b2230() { return 1; }
-
-// sub_13b2240  (orig 0x13b2240, mov_ret)
-uint32_t main_f_13b2240() { return 1; }
-
-// sub_13b2250  (orig 0x13b2250, mov_ret)
-uint32_t main_f_13b2250() { return 1; }
-
-// sub_13b2310  (orig 0x13b2310, ptr_add)
-void* main_f_13b2310(void* a0) { return (char*)a0 + 104; }
-
-// sub_13b2320  (orig 0x13b2320, copy2)
-void main_f_13b2320(void* a0, void* a1) { *(uint64_t*)((char*)(a0) + 112) = *(uint64_t*)((char*)(a1)); }
-
-// sub_13b2330  (orig 0x13b2330, ptr_add)
-void* main_f_13b2330(void* a0) { return (char*)a0 + 112; }
-
-// sub_13b4450  (orig 0x13b4450, ret_only)
-void main_f_13b4450() {}
-
-// sub_13b4460  (orig 0x13b4460, copy2)
-void main_f_13b4460(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4470  (orig 0x13b4470, copy2)
-void main_f_13b4470(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b45b0  (orig 0x13b45b0, ret_only)
-void main_f_13b45b0() {}
-
-// sub_13b45c0  (orig 0x13b45c0, copy2)
-void main_f_13b45c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b45d0  (orig 0x13b45d0, copy2)
-void main_f_13b45d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4660  (orig 0x13b4660, ret_only)
-void main_f_13b4660() {}
-
-// sub_13b4670  (orig 0x13b4670, copy2)
-void main_f_13b4670(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4680  (orig 0x13b4680, copy2)
-void main_f_13b4680(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4990  (orig 0x13b4990, ret_only)
-void main_f_13b4990() {}
-
-// sub_13b49a0  (orig 0x13b49a0, copy2)
-void main_f_13b49a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b49b0  (orig 0x13b49b0, copy2)
-void main_f_13b49b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4be0  (orig 0x13b4be0, ret_only)
-void main_f_13b4be0() {}
-
-// sub_13b4bf0  (orig 0x13b4bf0, copy2)
-void main_f_13b4bf0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4c00  (orig 0x13b4c00, copy2)
-void main_f_13b4c00(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4e30  (orig 0x13b4e30, ret_only)
-void main_f_13b4e30() {}
-
-// sub_13b4e40  (orig 0x13b4e40, copy2)
-void main_f_13b4e40(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b4e50  (orig 0x13b4e50, copy2)
-void main_f_13b4e50(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b50e0  (orig 0x13b50e0, ret_only)
-void main_f_13b50e0() {}
-
-// sub_13b50f0  (orig 0x13b50f0, copy2)
-void main_f_13b50f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5100  (orig 0x13b5100, copy2)
-void main_f_13b5100(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5470  (orig 0x13b5470, ret_only)
-void main_f_13b5470() {}
-
-// sub_13b5480  (orig 0x13b5480, copy2)
-void main_f_13b5480(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5490  (orig 0x13b5490, copy2)
-void main_f_13b5490(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5730  (orig 0x13b5730, ret_only)
-void main_f_13b5730() {}
-
-// sub_13b5740  (orig 0x13b5740, copy2)
-void main_f_13b5740(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5750  (orig 0x13b5750, copy2)
-void main_f_13b5750(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5a60  (orig 0x13b5a60, ret_only)
-void main_f_13b5a60() {}
-
-// sub_13b5a70  (orig 0x13b5a70, copy2)
-void main_f_13b5a70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5a80  (orig 0x13b5a80, copy2)
-void main_f_13b5a80(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5d10  (orig 0x13b5d10, ret_only)
-void main_f_13b5d10() {}
-
-// sub_13b5d20  (orig 0x13b5d20, copy2)
-void main_f_13b5d20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5d30  (orig 0x13b5d30, copy2)
-void main_f_13b5d30(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5fc0  (orig 0x13b5fc0, ret_only)
-void main_f_13b5fc0() {}
-
-// sub_13b5fd0  (orig 0x13b5fd0, copy2)
-void main_f_13b5fd0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5fe0  (orig 0x13b5fe0, copy2)
-void main_f_13b5fe0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6360  (orig 0x13b6360, ret_only)
-void main_f_13b6360() {}
-
-// sub_13b6370  (orig 0x13b6370, copy2)
-void main_f_13b6370(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6380  (orig 0x13b6380, copy2)
-void main_f_13b6380(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6700  (orig 0x13b6700, ret_only)
-void main_f_13b6700() {}
-
-// sub_13b6710  (orig 0x13b6710, copy2)
-void main_f_13b6710(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6720  (orig 0x13b6720, copy2)
-void main_f_13b6720(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6b20  (orig 0x13b6b20, ret_only)
-void main_f_13b6b20() {}
-
-// sub_13b6b30  (orig 0x13b6b30, copy2)
-void main_f_13b6b30(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6b40  (orig 0x13b6b40, copy2)
-void main_f_13b6b40(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6f40  (orig 0x13b6f40, ret_only)
-void main_f_13b6f40() {}
-
-// sub_13b6f50  (orig 0x13b6f50, copy2)
-void main_f_13b6f50(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6f60  (orig 0x13b6f60, copy2)
-void main_f_13b6f60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7360  (orig 0x13b7360, ret_only)
-void main_f_13b7360() {}
-
-// sub_13b7370  (orig 0x13b7370, copy2)
-void main_f_13b7370(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7380  (orig 0x13b7380, copy2)
-void main_f_13b7380(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b73c0  (orig 0x13b73c0, ret_only)
-void main_f_13b73c0() {}
-
-// sub_13b73d0  (orig 0x13b73d0, copy2)
-void main_f_13b73d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b73e0  (orig 0x13b73e0, copy2)
-void main_f_13b73e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7590  (orig 0x13b7590, ret_only)
-void main_f_13b7590() {}
-
-// sub_13b75a0  (orig 0x13b75a0, copy2)
-void main_f_13b75a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b75b0  (orig 0x13b75b0, copy2)
-void main_f_13b75b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7640  (orig 0x13b7640, ret_only)
-void main_f_13b7640() {}
-
-// sub_13b7650  (orig 0x13b7650, copy2)
-void main_f_13b7650(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7660  (orig 0x13b7660, copy2)
-void main_f_13b7660(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7960  (orig 0x13b7960, ret_only)
-void main_f_13b7960() {}
-
-// sub_13b7970  (orig 0x13b7970, copy2)
-void main_f_13b7970(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7980  (orig 0x13b7980, copy2)
-void main_f_13b7980(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7a70  (orig 0x13b7a70, ret_only)
-void main_f_13b7a70() {}
-
-// sub_13b7a80  (orig 0x13b7a80, copy2)
-void main_f_13b7a80(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7a90  (orig 0x13b7a90, copy2)
-void main_f_13b7a90(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7b40  (orig 0x13b7b40, ret_only)
-void main_f_13b7b40() {}
-
-// sub_13b7b50  (orig 0x13b7b50, copy2)
-void main_f_13b7b50(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7b60  (orig 0x13b7b60, copy2)
-void main_f_13b7b60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7c10  (orig 0x13b7c10, ret_only)
-void main_f_13b7c10() {}
-
-// sub_13b7c20  (orig 0x13b7c20, copy2)
-void main_f_13b7c20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b7c30  (orig 0x13b7c30, copy2)
-void main_f_13b7c30(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8050  (orig 0x13b8050, ret_only)
-void main_f_13b8050() {}
-
-// sub_13b8060  (orig 0x13b8060, copy2)
-void main_f_13b8060(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8070  (orig 0x13b8070, copy2)
-void main_f_13b8070(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8520  (orig 0x13b8520, ret_only)
-void main_f_13b8520() {}
-
-// sub_13b8530  (orig 0x13b8530, copy2)
-void main_f_13b8530(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8540  (orig 0x13b8540, copy2)
-void main_f_13b8540(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8660  (orig 0x13b8660, ret_only)
-void main_f_13b8660() {}
-
-// sub_13b8670  (orig 0x13b8670, copy2)
-void main_f_13b8670(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8680  (orig 0x13b8680, copy2)
-void main_f_13b8680(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8710  (orig 0x13b8710, ret_only)
-void main_f_13b8710() {}
-
-// sub_13b8720  (orig 0x13b8720, copy2)
-void main_f_13b8720(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b8730  (orig 0x13b8730, copy2)
-void main_f_13b8730(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b89b0  (orig 0x13b89b0, ret_only)
-void main_f_13b89b0() {}
-
-// sub_13b89c0  (orig 0x13b89c0, copy2)
-void main_f_13b89c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b89d0  (orig 0x13b89d0, copy2)
-void main_f_13b89d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
