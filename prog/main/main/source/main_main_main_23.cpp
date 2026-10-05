@@ -1839,7 +1839,7 @@ void SDK_MW_Nintendo_PiaTransport_5_18_0() { /* 0x17399d0 */ }
 // sub_17399e0: implemented in prog/matched/main/
 // sub_17399f0: implemented in prog/matched/main/
 void sub_1739a00() { /* 0x1739a00 */ }
-void sub_1739a90() { /* 0x1739a90 */ }
+// sub_1739a90: implemented in prog/matched/main/
 // sub_1739ab0: implemented in prog/matched/main/
 void sub_1739ac0() { /* 0x1739ac0 */ }
 void sub_1739b30() { /* 0x1739b30 */ }
@@ -2596,7 +2596,7 @@ void read_function_returned_funny_value() { /* 0x1768850 */ }
 void the_ioctl_callback_returned_d() { /* 0x1768a30 */ }
 void poll_returned_error() { /* 0x1768b60 */ }
 void sub_1769990() { /* 0x1769990 */ }
-void sub_1769a50() { /* 0x1769a50 */ }
+// sub_1769a50: implemented in prog/matched/main/
 void No_URL_set() { /* 0x1769a70 */ }
 // sub_1769c30: implemented in prog/matched/main/
 void unnamed_78() { /* 0x1769c40 */ }

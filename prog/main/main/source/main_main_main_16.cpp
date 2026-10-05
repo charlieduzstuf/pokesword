@@ -2386,7 +2386,7 @@ void sub_10e4180() { /* 0x10e4180 */ }
 void sub_10e4200() { /* 0x10e4200 */ }
 void sub_10e4280() { /* 0x10e4280 */ }
 // sub_10e4410: implemented in prog/matched/main/
-void sub_10e4420() { /* 0x10e4420 */ }
+// sub_10e4420: implemented in prog/matched/main/
 void sub_10e4440() { /* 0x10e4440 */ }
 void sub_10e4460() { /* 0x10e4460 */ }
 void sub_10e44c0() { /* 0x10e44c0 */ }

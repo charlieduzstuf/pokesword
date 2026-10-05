@@ -719,7 +719,7 @@ void sub_115c910() { /* 0x115c910 */ }
 void Play_Camp_Call() { /* 0x115c990 */ }
 void f_33s_fff() { /* 0x115ca50 */ }
 void sub_115cb20() { /* 0x115cb20 */ }
-void sub_115cb30() { /* 0x115cb30 */ }
+// sub_115cb30: implemented in prog/matched/main/
 void sub_115cb50() { /* 0x115cb50 */ }
 void sub_115ce10() { /* 0x115ce10 */ }
 void sub_115cfa0() { /* 0x115cfa0 */ }

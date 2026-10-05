@@ -2693,7 +2693,7 @@ void sub_6ddc30() { /* 0x6ddc30 */ }
 void sub_6ddc80() { /* 0x6ddc80 */ }
 void sub_6ddd00() { /* 0x6ddd00 */ }
 void sub_6ddd70() { /* 0x6ddd70 */ }
-void sub_6ddde0() { /* 0x6ddde0 */ }
+// sub_6ddde0: implemented in prog/matched/main/
 void sub_6dde00() { /* 0x6dde00 */ }
 void sub_6ddfe0() { /* 0x6ddfe0 */ }
 void HttpThread() { /* 0x6de0b0 */ }

@@ -3164,7 +3164,7 @@ void sub_382630_sdk_382630() { /* 0x382630 */ }
 // sub_3826d0: implemented in prog/matched/sdk/
 // sub_3826e0: implemented in prog/matched/sdk/
 // sub_3826f0: implemented in prog/matched/sdk/
-void sub_382700() { /* 0x382700 */ }
+// sub_382700: implemented in prog/matched/sdk/
 void sub_382720() { /* 0x382720 */ }
 void sub_382780() { /* 0x382780 */ }
 void sub_3828b0() { /* 0x3828b0 */ }

@@ -3982,10 +3982,10 @@ void sub_9a59e0() { /* 0x9a59e0 */ }
 void sub_9a5a30() { /* 0x9a5a30 */ }
 void sub_9a5e90() { /* 0x9a5e90 */ }
 void sub_9a6500() { /* 0x9a6500 */ }
-void sub_9a71a0() { /* 0x9a71a0 */ }
+// sub_9a71a0: implemented in prog/matched/main/
 void sub_9a71d0() { /* 0x9a71d0 */ }
-void sub_9a71e0() { /* 0x9a71e0 */ }
-void sub_9a7200() { /* 0x9a7200 */ }
+// sub_9a71e0: implemented in prog/matched/main/
+// sub_9a7200: implemented in prog/matched/main/
 void sub_9a7220() { /* 0x9a7220 */ }
 void sub_9a7230() { /* 0x9a7230 */ }
 void sub_9a7240() { /* 0x9a7240 */ }

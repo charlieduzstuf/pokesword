@@ -157,6 +157,28 @@ def fp_kind(r):
     return None
 
 
+def vec_kind(r):
+    """The 16-byte vector return type if `r` is a NEON register, else None.
+
+    A body ending in `ldr q0, [x8]` is a *16-byte vector return*, not a pair of
+    64-bit halves: a 16-byte struct would come back in v0 **and** v1, needing two
+    loads. One `ldr q0` means the type is a single 128-bit vector, and
+    `vld1q_u8` is the intrinsic that compiles to it exactly:
+
+        uint8x16_t f(void *a0) { ... return vld1q_u8((const uint8_t *)t0); }
+        ->  ldr x8, [x0, #8]
+            ldr q0, [x8]
+            ret
+
+    A `uint8x16_t` return is a builtin type and so is absent from Itanium
+    mangling, which is why the signature stays `"Pv"`.
+    """
+    r = r.strip()
+    if re.match(r"^q[0-9]+$", r):
+        return "uint8x16_t"
+    return None
+
+
 def build(body, ident):
     """Return (src, sig) or None."""
     state = {}        # register -> (expr, ctype) for loaded values
@@ -212,6 +234,17 @@ def build(body, ident):
             ad = "(%s + (uintptr_t)(%s) * %d)" % (b, ix, scale)
         else:
             ad = "(%s + %d)" % (b, off) if off else b
+
+        # A 16-byte vector destination is a return value in its own right and
+        # needs none of the width arithmetic below.
+        vec = vec_kind(dst)
+        if vec is not None:
+            if dst != "q0":
+                return None          # a q-register that is not the result
+            if index is not None:
+                return None          # no such body seen; decline rather than guess
+            ret = ("vld1q_u8((const uint8_t *)%s)" % ad, vec)
+            continue
 
         w = LOADS[mn]
         dw = reg_width(dst)

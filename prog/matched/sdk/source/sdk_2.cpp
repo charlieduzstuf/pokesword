@@ -16,6 +16,7 @@
 
 /* Self-contained: a bare-metal aarch64-none-elf target has no
  * <stdint.h> under -nostdinc++. */
+#include <arm_neon.h>
 typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;
 typedef unsigned int uint32_t;
@@ -3648,6 +3649,12 @@ void sdk_f_194e20(void* a0, void* a1) {
     *(uint8_t*)((char*)a0 + 6) = 0;
 }
 
+// sub_194e30  (orig 0x194e30, straight)
+void sdk_f_194e30(void* a0, void* a1) {
+    *(uint64_t*)((char*)(a0) + 8) = *(uint64_t*)((char*)(a1));
+    *(uint8_t*)((char*)(a0) + 6) = (uint8_t)(1);
+}
+
 // sub_195860  (orig 0x195860, ret_only)
 void sdk_f_195860() {}
 
@@ -3771,6 +3778,12 @@ uint32_t sdk_f_19ded0(void* a0) { return *(uint32_t*)((char*)(a0) + 72); }
 
 // sub_19e580  (orig 0x19e580, getter)
 uint32_t sdk_f_19e580(void* a0) { return *(uint32_t*)((char*)(a0) + 76); }
+
+// sub_19e5c0  (orig 0x19e5c0, straight)
+uint32_t sdk_f_19e5c0(void* a0) {
+    *(uint32_t*)((char*)(a0) + 72) = 432;
+    return 432;
+}
 
 // sub_19e930  (orig 0x19e930, straight)
 uint64_t sdk_f_19e930(void* a0) {
@@ -6711,10 +6724,4 @@ void* sdk_f_35fef0(void* a0) { return (char*)a0 + 16; }
 
 // sub_35ff50  (orig 0x35ff50, ptr_add)
 void* sdk_f_35ff50(void* a0) { return (char*)a0 + 8; }
-
-// sub_35ff60  (orig 0x35ff60, straight)
-void* sdk_f_35ff60(void* a0) { return (char*)(a0) - 8; }
-
-// sub_363250  (orig 0x363250, mov_ret)
-uint32_t sdk_f_363250() { return 4; }
 

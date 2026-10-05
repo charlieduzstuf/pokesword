@@ -695,6 +695,7 @@ def emit_matched(mod, matched, defname=None, emittable=None):
                     " */\n\n"
                     "/* Self-contained: a bare-metal aarch64-none-elf target has no\n"
                     " * <stdint.h> under -nostdinc++. */\n"
+                    "#include <arm_neon.h>\n"
                     "typedef unsigned char uint8_t;\n"
                     "typedef unsigned short uint16_t;\n"
                     "typedef unsigned int uint32_t;\n"

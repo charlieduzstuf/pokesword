@@ -2287,7 +2287,7 @@ void sub_c62240() { /* 0xc62240 */ }
 void sub_c62750() { /* 0xc62750 */ }
 void sub_c627e0() { /* 0xc627e0 */ }
 void sub_c62830() { /* 0xc62830 */ }
-void sub_c628b0() { /* 0xc628b0 */ }
+// sub_c628b0: implemented in prog/matched/main/
 void sub_c628d0() { /* 0xc628d0 */ }
 void sub_c62900() { /* 0xc62900 */ }
 void sub_c62ab0() { /* 0xc62ab0 */ }

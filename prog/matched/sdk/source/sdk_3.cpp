@@ -1,4 +1,4 @@
-/* sdk -- 1170 functions verified to match the original.
+/* sdk -- 1176 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -16,6 +16,7 @@
 
 /* Self-contained: a bare-metal aarch64-none-elf target has no
  * <stdint.h> under -nostdinc++. */
+#include <arm_neon.h>
 typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;
 typedef unsigned int uint32_t;
@@ -25,6 +26,12 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_35ff60  (orig 0x35ff60, straight)
+void* sdk_f_35ff60(void* a0) { return (char*)(a0) - 8; }
+
+// sub_363250  (orig 0x363250, mov_ret)
+uint32_t sdk_f_363250() { return 4; }
 
 // sub_363260  (orig 0x363260, mov_ret)
 uint32_t sdk_f_363260() { return 4; }
@@ -200,6 +207,12 @@ void sdk_f_3826e0(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0) + 88) = a1; 
 
 // sub_3826f0  (orig 0x3826f0, setter)
 void sdk_f_3826f0(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0) + 96) = a1; }
+
+// sub_382700  (orig 0x382700, straight)
+void sdk_f_382700(void* a0, void* a1) {
+    *(uint32_t*)((char*)(a0)) = 1280;
+    *(uint32_t*)((char*)(a1)) = 720;
+}
 
 // sub_382b00  (orig 0x382b00, getter)
 uint64_t sdk_f_382b00(void* a0) { return *(uint64_t*)((char*)(a0)); }
@@ -2449,8 +2462,22 @@ uint32_t sdk_f_413110(void* a0) { return *(uint32_t*)((char*)(a0) + 56); }
 // sub_414c60  (orig 0x414c60, getter)
 uint64_t sdk_f_414c60(void* a0) { return *(uint64_t*)((char*)(a0) + 5960L); }
 
+// sub_414d30  (orig 0x414d30, copy-chain-store)
+void sdk_f_414d30(void* a0, int32_t a1) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 80);
+    uint64_t t1 = *(uint64_t*)((char*)(t0) + (uintptr_t)(a1) * 8);
+    *(uint64_t*)((char*)a0 + 40) = (uint64_t)(t1);
+}
+
 // sub_414d40  (orig 0x414d40, ret_only)
 void sdk_f_414d40() {}
+
+// sub_414d60  (orig 0x414d60, copy-chain-store)
+void sdk_f_414d60(void* a0, int32_t a1) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 48);
+    uint64_t t1 = *(uint64_t*)((char*)a0 + 80);
+    *(uint64_t*)((char*)(t1) + (uintptr_t)(a1) * 8) = (uint64_t)(t0);
+}
 
 // sub_414e50  (orig 0x414e50, setter)
 void sdk_f_414e50(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0)) = a1; }
@@ -2955,6 +2982,12 @@ void sdk_f_437e40() {}
 // sub_4383b0  (orig 0x4383b0, straight)
 void sdk_f_4383b0(void* a0, void* a1) {
     *(uint64_t*)((char*)(a1)) = (uint64_t)((char*)(a0) + 208);
+}
+
+// sub_4383c0  (orig 0x4383c0, straight)
+void sdk_f_4383c0(void* a0, void* a1, void* a2) {
+    *(uint64_t*)((char*)(a1)) = (uint64_t)((char*)(a0) + 1884);
+    *(uint64_t*)((char*)(a2)) = (uint64_t)((char*)(a0) + 2140);
 }
 
 // sub_438ad0  (orig 0x438ad0, mov_ret)

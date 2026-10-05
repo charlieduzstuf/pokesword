@@ -36,7 +36,7 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-27,536 / 152,062  =  18.11%
+27,587 / 152,062  =  18.14%
 ```
 
 `tools/match_progress.py` is the only authoritative figure. Do not copy a number
@@ -380,6 +380,16 @@ over the whole population rather than a sample:
   26,536 / 17.45% while `match_progress.py` said 26,562 / 17.47%. CI had a
   README drift gate and still did not catch it. `audit.py` now checks the
   `N / 152,062` and `N / 38,172,368` forms plus the README total row.
+- **`auto_match.py`'s `MATCH n / m` line is not a delta.** It re-verifies bodies
+  that are *already* registered and counts them again, so it happily reports
+  `MATCH 327 / 344` for a shape where only 27 were new. It also declines to skip
+  already-matched addresses. The only authority is `match_progress.py`, or a
+  by-shape address diff against `HEAD`:
+  `added = {r["addr"] for r in now} - {r["addr"] for r in git show HEAD:...}`,
+  which also catches the reverse error — a merge that *drops* records.
+- **`auto_match.py` has no `--apply`.** It writes whenever `--report` is given,
+  merging into the existing registry. The module docstring advertised
+  `--apply`, and passing it aborts argparse. Fixed in the docstring.
 - **A verdict of "equal" must be reachable only from having compared something.**
   `check.py` had `for ... in zip(...): ...` then `return True`, so when the
   disassembly was empty the loop never ran and the function reported a *match*.

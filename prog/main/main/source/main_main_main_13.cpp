@@ -2574,7 +2574,7 @@ void sub_eadb40() { /* 0xeadb40 */ }
 void sub_eadb60() { /* 0xeadb60 */ }
 void sub_eadb70() { /* 0xeadb70 */ }
 // sub_eadbd0: implemented in prog/matched/main/
-void sub_eadbe0() { /* 0xeadbe0 */ }
+// sub_eadbe0: implemented in prog/matched/main/
 // sub_eadbf0: implemented in prog/matched/main/
 // sub_eadc00: implemented in prog/matched/main/
 void sub_eadc10() { /* 0xeadc10 */ }

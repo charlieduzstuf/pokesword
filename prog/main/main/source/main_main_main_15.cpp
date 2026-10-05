@@ -3138,7 +3138,7 @@ void sub_106b1d0() { /* 0x106b1d0 */ }
 void sub_106b350() { /* 0x106b350 */ }
 // sub_106b4d0: implemented in prog/matched/main/
 // sub_106b4e0: implemented in prog/matched/main/
-void sub_106b4f0() { /* 0x106b4f0 */ }
+// sub_106b4f0: implemented in prog/matched/main/
 // sub_106b510: implemented in prog/matched/main/
 void sub_106b520() { /* 0x106b520 */ }
 void sub_106b5a0() { /* 0x106b5a0 */ }

@@ -2641,7 +2641,7 @@ void sub_7f0e50() { /* 0x7f0e50 */ }
 void sub_7f0f30() { /* 0x7f0f30 */ }
 void sub_7f1000() { /* 0x7f1000 */ }
 void sub_7f10b0() { /* 0x7f10b0 */ }
-void sub_7f11b0() { /* 0x7f11b0 */ }
+// sub_7f11b0: implemented in prog/matched/main/
 void sub_7f11d0() { /* 0x7f11d0 */ }
 void sub_7f12d0() { /* 0x7f12d0 */ }
 // sub_7f1310: implemented in prog/matched/main/

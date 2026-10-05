@@ -27,7 +27,7 @@ an error.
 
 Usage:
     python tools/auto_match.py --module main --all-shapes --limit 5000
-    python tools/auto_match.py --module main --apply --report data/matched_main.json
+    python tools/auto_match.py --module main --report data/matched_main.json
 """
 
 import argparse
