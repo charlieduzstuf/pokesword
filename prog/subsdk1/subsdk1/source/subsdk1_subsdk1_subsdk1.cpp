@@ -826,7 +826,7 @@ void sub_342b0() { /* 0x342b0 */ }
 void sub_34310() { /* 0x34310 */ }
 void sub_34370() { /* 0x34370 */ }
 void sub_343e0() { /* 0x343e0 */ }
-void sub_34530() { /* 0x34530 */ }
+// sub_34530: implemented in prog/matched/subsdk1/
 // sub_34540: implemented in prog/matched/subsdk1/
 // sub_34550_subsdk1_34550: implemented in prog/matched/subsdk1/
 // sub_34560: implemented in prog/matched/subsdk1/
@@ -888,12 +888,12 @@ void sub_383e0() { /* 0x383e0 */ }
 void sub_385f0() { /* 0x385f0 */ }
 void sub_388c0() { /* 0x388c0 */ }
 void sub_389b0_subsdk1_389b0() { /* 0x389b0 */ }
-void sub_38b70() { /* 0x38b70 */ }
+// sub_38b70: implemented in prog/matched/subsdk1/
 void sub_38b80() { /* 0x38b80 */ }
 void sub_38be0() { /* 0x38be0 */ }
 void sub_38cc0_subsdk1_38cc0() { /* 0x38cc0 */ }
-void sub_38cd0_subsdk1_38cd0() { /* 0x38cd0 */ }
-void sub_38ce0() { /* 0x38ce0 */ }
+// sub_38cd0_subsdk1_38cd0: implemented in prog/matched/subsdk1/
+// sub_38ce0: implemented in prog/matched/subsdk1/
 void sub_38cf0_subsdk1_38cf0() { /* 0x38cf0 */ }
 void sub_38d60() { /* 0x38d60 */ }
 void sub_38f80() { /* 0x38f80 */ }
@@ -1073,7 +1073,7 @@ void sub_42e90() { /* 0x42e90 */ }
 void sub_43110() { /* 0x43110 */ }
 void VARYING_2() { /* 0x43200 */ }
 void BadChild() { /* 0x432d0 */ }
-void sub_43500() { /* 0x43500 */ }
+// sub_43500: implemented in prog/matched/subsdk1/
 void COLOR_ZERO() { /* 0x43510 */ }
 void unnamed_4_subsdk1_43590() { /* 0x43590 */ }
 void sub_445b0_subsdk1_445b0() { /* 0x445b0 */ }
@@ -1210,7 +1210,7 @@ void sub_574a0_subsdk1_574a0() { /* 0x574a0 */ }
 // sub_57640_subsdk1_57640: implemented in prog/matched/subsdk1/
 void sub_57650() { /* 0x57650 */ }
 void sub_57670_subsdk1_57670() { /* 0x57670 */ }
-void sub_57760() { /* 0x57760 */ }
+// sub_57760: implemented in prog/matched/subsdk1/
 void sub_57770() { /* 0x57770 */ }
 void sub_58230() { /* 0x58230 */ }
 void sub_584f0() { /* 0x584f0 */ }
@@ -2204,7 +2204,7 @@ void sub_b7c70() { /* 0xb7c70 */ }
 // sub_b7c80: implemented in prog/matched/subsdk1/
 void sub_b7c90() { /* 0xb7c90 */ }
 void sub_b7ca0_subsdk1_b7ca0() { /* 0xb7ca0 */ }
-void sub_b7cb0() { /* 0xb7cb0 */ }
+// sub_b7cb0: implemented in prog/matched/subsdk1/
 // sub_b7cc0: implemented in prog/matched/subsdk1/
 void sub_b7cd0() { /* 0xb7cd0 */ }
 void sub_b7ce0() { /* 0xb7ce0 */ }

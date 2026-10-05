@@ -949,7 +949,7 @@ void sub_134b260() { /* 0x134b260 */ }
 void sub_134b4b0() { /* 0x134b4b0 */ }
 void sub_134b6c0() { /* 0x134b6c0 */ }
 void sub_134b8e0() { /* 0x134b8e0 */ }
-void sub_134b930() { /* 0x134b930 */ }
+// sub_134b930: implemented in prog/matched/main/
 void sub_134b950() { /* 0x134b950 */ }
 void sub_134b9a0() { /* 0x134b9a0 */ }
 void sub_134b9f0() { /* 0x134b9f0 */ }

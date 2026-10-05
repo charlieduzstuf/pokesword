@@ -3376,7 +3376,7 @@ void sub_fd3980() { /* 0xfd3980 */ }
 // sub_fd39a0: implemented in prog/matched/main/
 void sub_fd39c0() { /* 0xfd39c0 */ }
 void sub_fd3a20() { /* 0xfd3a20 */ }
-void sub_fd3e20() { /* 0xfd3e20 */ }
+// sub_fd3e20: implemented in prog/matched/main/
 void sub_fd3e30() { /* 0xfd3e30 */ }
 void sub_fd4390() { /* 0xfd4390 */ }
 // sub_fd43c0: implemented in prog/matched/main/
@@ -3901,7 +3901,7 @@ void sub_feaf30() { /* 0xfeaf30 */ }
 void sub_feaf60() { /* 0xfeaf60 */ }
 // sub_feb000: implemented in prog/matched/main/
 // sub_feb010: implemented in prog/matched/main/
-void sub_feb020() { /* 0xfeb020 */ }
+// sub_feb020: implemented in prog/matched/main/
 void network_live_start_sync_6() { /* 0xfeb030 */ }
 void sub_feb190() { /* 0xfeb190 */ }
 void sub_feb1e0() { /* 0xfeb1e0 */ }
@@ -3951,7 +3951,7 @@ void sub_fec3d0() { /* 0xfec3d0 */ }
 void sub_fec400() { /* 0xfec400 */ }
 // sub_fec4a0: implemented in prog/matched/main/
 // sub_fec4b0: implemented in prog/matched/main/
-void sub_fec4c0() { /* 0xfec4c0 */ }
+// sub_fec4c0: implemented in prog/matched/main/
 void network_live_empty_6() { /* 0xfec4d0 */ }
 void sub_fec630() { /* 0xfec630 */ }
 void sub_fec680() { /* 0xfec680 */ }

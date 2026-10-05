@@ -3763,6 +3763,7 @@ void sub_16b16a0();  // 0x16b16a0
 void sub_16b16f0();  // 0x16b16f0
 void sub_16b1720();  // 0x16b1720
 void sub_16b1780();  // 0x16b1780
+void sub_16b17a0();  // 0x16b17a0
 void sub_16b17b0();  // 0x16b17b0
 void sub_16b1980();  // 0x16b1980
 void sub_16b1b40();  // 0x16b1b40
@@ -4004,6 +4005,5 @@ void sub_16c4550();  // 0x16c4550
 void sub_16c4560();  // 0x16c4560
 void sub_16c45a0();  // 0x16c45a0
 void sub_16c45e0();  // 0x16c45e0
-void sub_16c4780();  // 0x16c4780
 
 }  // namespace main

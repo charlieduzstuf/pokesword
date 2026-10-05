@@ -2011,7 +2011,7 @@ void sub_357e30() { /* 0x357e30 */ }
 void sub_357e40() { /* 0x357e40 */ }
 void sub_357e70() { /* 0x357e70 */ }
 void sub_357ed0() { /* 0x357ed0 */ }
-void sub_357ee0() { /* 0x357ee0 */ }
+// sub_357ee0: implemented in prog/matched/sdk/
 // sub_357ef0: implemented in prog/matched/sdk/
 // sub_357f00: implemented in prog/matched/sdk/
 // sub_357f10: implemented in prog/matched/sdk/
@@ -2103,7 +2103,7 @@ void sub_35bac0() { /* 0x35bac0 */ }
 void sub_35bb20() { /* 0x35bb20 */ }
 void sub_35bb90() { /* 0x35bb90 */ }
 void sub_35bba0() { /* 0x35bba0 */ }
-void sub_35bc20() { /* 0x35bc20 */ }
+// sub_35bc20: implemented in prog/matched/sdk/
 // sub_35bc30: implemented in prog/matched/sdk/
 // sub_35bc40: implemented in prog/matched/sdk/
 void sub_35bc50() { /* 0x35bc50 */ }

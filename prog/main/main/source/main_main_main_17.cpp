@@ -673,7 +673,7 @@ void sub_115a520() { /* 0x115a520 */ }
 void sub_115a6f0() { /* 0x115a6f0 */ }
 // sub_115a710: implemented in prog/matched/main/
 // sub_115a720: implemented in prog/matched/main/
-void sub_115a730() { /* 0x115a730 */ }
+// sub_115a730: implemented in prog/matched/main/
 void sub_115a740() { /* 0x115a740 */ }
 void sub_115a750() { /* 0x115a750 */ }
 void sub_115a7e0() { /* 0x115a7e0 */ }

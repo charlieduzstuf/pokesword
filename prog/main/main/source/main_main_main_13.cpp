@@ -3965,7 +3965,7 @@ void sub_f063c0() { /* 0xf063c0 */ }
 void sub_f06560() { /* 0xf06560 */ }
 void sub_f06650() { /* 0xf06650 */ }
 void cameraPosition() { /* 0xf06740 */ }
-void sub_f06a40() { /* 0xf06a40 */ }
+// sub_f06a40: implemented in prog/matched/main/
 void sub_f06a50() { /* 0xf06a50 */ }
 void fel_910_2() { /* 0xf06db0 */ }
 void sub_f06ee0() { /* 0xf06ee0 */ }

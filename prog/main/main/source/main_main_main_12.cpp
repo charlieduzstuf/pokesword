@@ -2919,7 +2919,7 @@ void sub_daef70() { /* 0xdaef70 */ }
 void sub_daf020() { /* 0xdaf020 */ }
 void sub_daf070() { /* 0xdaf070 */ }
 // sub_daf090: implemented in prog/matched/main/
-void sub_daf0a0() { /* 0xdaf0a0 */ }
+// sub_daf0a0: implemented in prog/matched/main/
 void sub_daf0c0() { /* 0xdaf0c0 */ }
 void sub_daf120() { /* 0xdaf120 */ }
 void sub_daf2b0() { /* 0xdaf2b0 */ }
@@ -2974,7 +2974,7 @@ void sub_db5a10() { /* 0xdb5a10 */ }
 void sub_db5da0() { /* 0xdb5da0 */ }
 void sub_db5df0() { /* 0xdb5df0 */ }
 void sub_db5e10() { /* 0xdb5e10 */ }
-void sub_db5e40() { /* 0xdb5e40 */ }
+// sub_db5e40: implemented in prog/matched/main/
 void sub_db5e60() { /* 0xdb5e60 */ }
 void sub_db5ec0() { /* 0xdb5ec0 */ }
 // sub_db6030: implemented in prog/matched/main/

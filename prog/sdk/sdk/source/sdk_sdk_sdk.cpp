@@ -43,7 +43,7 @@ void sub_7c0() { /* 0x7c0 */ }
 void sub_830() { /* 0x830 */ }
 void sub_8b0() { /* 0x8b0 */ }
 void sub_a00() { /* 0xa00 */ }
-void sub_a40() { /* 0xa40 */ }
+// sub_a40: implemented in prog/matched/sdk/
 void sub_a50() { /* 0xa50 */ }
 void sub_ae0() { /* 0xae0 */ }
 void sub_b80() { /* 0xb80 */ }

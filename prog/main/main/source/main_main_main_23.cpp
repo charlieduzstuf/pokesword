@@ -4,6 +4,7 @@
 #include "main_main_main_23.h"
 
 namespace main {
+void sub_16c4780() { /* 0x16c4780 */ }
 void sub_16c48c0() { /* 0x16c48c0 */ }
 // sub_16c48e0: implemented in prog/matched/main/
 void sub_16c48f0() { /* 0x16c48f0 */ }
@@ -1382,10 +1383,10 @@ void sub_17231f0() { /* 0x17231f0 */ }
 // sub_17232e0: implemented in prog/matched/main/
 void sub_17232f0() { /* 0x17232f0 */ }
 void sub_1723330() { /* 0x1723330 */ }
-void sub_1723340() { /* 0x1723340 */ }
+// sub_1723340: implemented in prog/matched/main/
 // sub_1723350: implemented in prog/matched/main/
 // sub_1723360: implemented in prog/matched/main/
-void sub_1723370() { /* 0x1723370 */ }
+// sub_1723370: implemented in prog/matched/main/
 // sub_1723380: implemented in prog/matched/main/
 // sub_1723390: implemented in prog/matched/main/
 // sub_17233a0: implemented in prog/matched/main/
@@ -1689,7 +1690,7 @@ void sub_1733cd0() { /* 0x1733cd0 */ }
 // sub_1733d00: implemented in prog/matched/main/
 void sub_1733d10() { /* 0x1733d10 */ }
 // sub_1733d50: implemented in prog/matched/main/
-void sub_1733d70() { /* 0x1733d70 */ }
+// sub_1733d70: implemented in prog/matched/main/
 void sub_1733d80() { /* 0x1733d80 */ }
 // sub_1733de0: implemented in prog/matched/main/
 // sub_1733df0: implemented in prog/matched/main/
@@ -1936,6 +1937,7 @@ void sub_173cfb0() { /* 0x173cfb0 */ }
 // sub_173cfc0: implemented in prog/matched/main/
 void sub_173cfd0() { /* 0x173cfd0 */ }
 // sub_173d030: implemented in prog/matched/main/
+// sub_173d1f0: implemented in prog/matched/main/
 void sub_173d210() { /* 0x173d210 */ }
 void sub_173d270() { /* 0x173d270 */ }
 // sub_173d2d0: implemented in prog/matched/main/
@@ -2109,7 +2111,7 @@ void sub_1748930() { /* 0x1748930 */ }
 // sub_1748980: implemented in prog/matched/main/
 void sub_17489a0() { /* 0x17489a0 */ }
 // sub_1748aa0: implemented in prog/matched/main/
-void sub_1748ab0() { /* 0x1748ab0 */ }
+// sub_1748ab0: implemented in prog/matched/main/
 // sub_1748ae0: implemented in prog/matched/main/
 void sub_1748af0() { /* 0x1748af0 */ }
 void sub_1748c00() { /* 0x1748c00 */ }
@@ -2988,7 +2990,7 @@ void sub_1787140() { /* 0x1787140 */ }
 void sub_17871c0() { /* 0x17871c0 */ }
 void sub_1787270() { /* 0x1787270 */ }
 // sub_1787320: implemented in prog/matched/main/
-void sub_1787330() { /* 0x1787330 */ }
+// sub_1787330: implemented in prog/matched/main/
 // sub_1787340: implemented in prog/matched/main/
 // sub_1787350: implemented in prog/matched/main/
 void sub_1787360() { /* 0x1787360 */ }
@@ -2999,7 +3001,7 @@ void sub_1787420() { /* 0x1787420 */ }
 void sub_1787440() { /* 0x1787440 */ }
 void sub_1787490() { /* 0x1787490 */ }
 void sub_17874c0() { /* 0x17874c0 */ }
-void sub_17874f0() { /* 0x17874f0 */ }
+// sub_17874f0: implemented in prog/matched/main/
 void sub_1787500() { /* 0x1787500 */ }
 void sub_1787540() { /* 0x1787540 */ }
 // sub_1787560: implemented in prog/matched/main/
@@ -3012,8 +3014,8 @@ void sub_17875c0() { /* 0x17875c0 */ }
 // sub_1787600: implemented in prog/matched/main/
 void sub_1787610() { /* 0x1787610 */ }
 void sub_1787640() { /* 0x1787640 */ }
-void sub_1787670() { /* 0x1787670 */ }
-void sub_1787690() { /* 0x1787690 */ }
+// sub_1787670: implemented in prog/matched/main/
+// sub_1787690: implemented in prog/matched/main/
 // sub_17876b0: implemented in prog/matched/main/
 void sub_17876c0() { /* 0x17876c0 */ }
 void sub_17876e0() { /* 0x17876e0 */ }
@@ -3384,7 +3386,7 @@ void sub_179a5c0() { /* 0x179a5c0 */ }
 // sub_179a650: implemented in prog/matched/main/
 void sub_179a660() { /* 0x179a660 */ }
 // sub_179a730: implemented in prog/matched/main/
-void sub_179a750() { /* 0x179a750 */ }
+// sub_179a750: implemented in prog/matched/main/
 // sub_179a770: implemented in prog/matched/main/
 // sub_179a780: implemented in prog/matched/main/
 void sub_179a790() { /* 0x179a790 */ }
@@ -4002,7 +4004,5 @@ void sub_17cd550() { /* 0x17cd550 */ }
 void sub_17cda60() { /* 0x17cda60 */ }
 void sub_17cdea0() { /* 0x17cdea0 */ }
 void sub_17ce1e0() { /* 0x17ce1e0 */ }
-void sub_17ce670() { /* 0x17ce670 */ }
-void sub_17ce920() { /* 0x17ce920 */ }
 
 }  // namespace main

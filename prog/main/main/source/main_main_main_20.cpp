@@ -3702,7 +3702,7 @@ void L_rank_gauge_00() { /* 0x14d8c20 */ }
 void sub_14d9790() { /* 0x14d9790 */ }
 void sub_14d9980() { /* 0x14d9980 */ }
 void sub_14d9aa0() { /* 0x14d9aa0 */ }
-void sub_14d9c20() { /* 0x14d9c20 */ }
+// sub_14d9c20: implemented in prog/matched/main/
 void sub_14d9c40() { /* 0x14d9c40 */ }
 void sub_14d9ee0() { /* 0x14d9ee0 */ }
 void sub_14d9fe0() { /* 0x14d9fe0 */ }

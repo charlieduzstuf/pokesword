@@ -871,7 +871,7 @@ void sub_162a4f0() { /* 0x162a4f0 */ }
 void Client_call_close() { /* 0x162a550 */ }
 void sub_162a5a0() { /* 0x162a5a0 */ }
 void sub_162a640() { /* 0x162a640 */ }
-void sub_162a700() { /* 0x162a700 */ }
+// sub_162a700: implemented in prog/matched/main/
 void sub_162a710() { /* 0x162a710 */ }
 void sub_162a7b0() { /* 0x162a7b0 */ }
 // sub_162a8c0: implemented in prog/matched/main/
@@ -1280,7 +1280,7 @@ void InstanceTable_388() { /* 0x163ed00 */ }
 void InstanceTable_389() { /* 0x163ee90 */ }
 void InstanceTable_390() { /* 0x163efb0 */ }
 void InstanceTable_391() { /* 0x163f220 */ }
-void sub_163f4a0() { /* 0x163f4a0 */ }
+// sub_163f4a0: implemented in prog/matched/main/
 void sub_163f4c0() { /* 0x163f4c0 */ }
 void InstanceTable_392() { /* 0x163f4d0 */ }
 void sub_163f860() { /* 0x163f860 */ }
@@ -1743,7 +1743,7 @@ void sub_1655080() { /* 0x1655080 */ }
 void sub_1655110() { /* 0x1655110 */ }
 // sub_1655170: implemented in prog/matched/main/
 void sub_1655180() { /* 0x1655180 */ }
-void sub_1655190() { /* 0x1655190 */ }
+// sub_1655190: implemented in prog/matched/main/
 void sub_16551b0() { /* 0x16551b0 */ }
 void sub_1655220() { /* 0x1655220 */ }
 void sub_1655290() { /* 0x1655290 */ }
@@ -3762,6 +3762,7 @@ void sub_16b16a0() { /* 0x16b16a0 */ }
 void sub_16b16f0() { /* 0x16b16f0 */ }
 void sub_16b1720() { /* 0x16b1720 */ }
 // sub_16b1780: implemented in prog/matched/main/
+void sub_16b17a0() { /* 0x16b17a0 */ }
 void sub_16b17b0() { /* 0x16b17b0 */ }
 void sub_16b1980() { /* 0x16b1980 */ }
 void sub_16b1b40() { /* 0x16b1b40 */ }
@@ -3829,7 +3830,7 @@ void sub_16b71b0() { /* 0x16b71b0 */ }
 void sub_16b7920() { /* 0x16b7920 */ }
 void sub_16b7ab0() { /* 0x16b7ab0 */ }
 void sub_16b7af0() { /* 0x16b7af0 */ }
-void sub_16b7b10() { /* 0x16b7b10 */ }
+// sub_16b7b10: implemented in prog/matched/main/
 void sub_16b7b20() { /* 0x16b7b20 */ }
 // sub_16b7b90: implemented in prog/matched/main/
 void sub_16b7ba0() { /* 0x16b7ba0 */ }
@@ -4003,6 +4004,5 @@ void sub_16c4550() { /* 0x16c4550 */ }
 void sub_16c4560() { /* 0x16c4560 */ }
 void sub_16c45a0() { /* 0x16c45a0 */ }
 void sub_16c45e0() { /* 0x16c45e0 */ }
-void sub_16c4780() { /* 0x16c4780 */ }
 
 }  // namespace main

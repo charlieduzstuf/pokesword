@@ -282,7 +282,7 @@ void sub_8aca00() { /* 0x8aca00 */ }
 // sub_8acb50: implemented in prog/matched/main/
 void sub_8acb60() { /* 0x8acb60 */ }
 // sub_8acbe0: implemented in prog/matched/main/
-void sub_8acbf0() { /* 0x8acbf0 */ }
+// sub_8acbf0: implemented in prog/matched/main/
 void sub_8acc30() { /* 0x8acc30 */ }
 void sub_8ace00() { /* 0x8ace00 */ }
 void sub_8acea0() { /* 0x8acea0 */ }
@@ -1165,7 +1165,7 @@ void sub_8d7ac0() { /* 0x8d7ac0 */ }
 void T_pselect_entry_00() { /* 0x8d7c90 */ }
 void uikit_btl_pokeselect_00() { /* 0x8d8150 */ }
 void sub_8d8330() { /* 0x8d8330 */ }
-void sub_8d8450() { /* 0x8d8450 */ }
+// sub_8d8450: implemented in prog/matched/main/
 void sub_8d8470() { /* 0x8d8470 */ }
 void sub_8d8680() { /* 0x8d8680 */ }
 void sub_8d8690() { /* 0x8d8690 */ }
@@ -1185,7 +1185,7 @@ void sub_8d8780() { /* 0x8d8780 */ }
 // sub_8d8820: implemented in prog/matched/main/
 void P_team_pokelist_icon_03() { /* 0x8d8830 */ }
 void netbtl_standby_00_lyt() { /* 0x8d9070 */ }
-void sub_8d9250() { /* 0x8d9250 */ }
+// sub_8d9250: implemented in prog/matched/main/
 void sub_8d9270() { /* 0x8d9270 */ }
 void N_team_standby_icon() { /* 0x8d92c0 */ }
 void pane__s() { /* 0x8d9690 */ }
@@ -1557,7 +1557,7 @@ void sub_8ec510() { /* 0x8ec510 */ }
 // sub_8ec550: implemented in prog/matched/main/
 void sub_8ec560() { /* 0x8ec560 */ }
 void sub_8ec590() { /* 0x8ec590 */ }
-void sub_8ec680() { /* 0x8ec680 */ }
+// sub_8ec680: implemented in prog/matched/main/
 void sub_8ec6b0() { /* 0x8ec6b0 */ }
 // sub_8ec6f0: implemented in prog/matched/main/
 void sub_8ec700() { /* 0x8ec700 */ }
@@ -1566,10 +1566,10 @@ void sub_8ec800() { /* 0x8ec800 */ }
 // sub_8ec830: implemented in prog/matched/main/
 // sub_8ec840: implemented in prog/matched/main/
 void sub_8ec850() { /* 0x8ec850 */ }
-void sub_8ec890() { /* 0x8ec890 */ }
+// sub_8ec890: implemented in prog/matched/main/
 // sub_8ec8a0: implemented in prog/matched/main/
 // sub_8ec8b0: implemented in prog/matched/main/
-void sub_8ec8c0() { /* 0x8ec8c0 */ }
+// sub_8ec8c0: implemented in prog/matched/main/
 void sub_8ec8e0() { /* 0x8ec8e0 */ }
 // sub_8ec900: implemented in prog/matched/main/
 void sub_8ec910() { /* 0x8ec910 */ }

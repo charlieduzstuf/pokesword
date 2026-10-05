@@ -41,8 +41,8 @@ import re
 U = {1: "uint8_t", 2: "uint16_t", 4: "uint32_t", 8: "uint64_t"}
 S = {1: "int8_t", 2: "int16_t", 4: "int32_t", 8: "int64_t"}
 
-LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw")
-STORES = ("str", "strb", "strh", "sturb", "sturh")
+LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur")
+STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
 
 MAX_INSNS = 14        # beyond this, hand decomp is the better use of time
 MAX_ARG = 4           # x0..x3 are the only argument registers we will model
@@ -161,10 +161,10 @@ def ptr_add(base, off):
 def arg_reg(base):
     """The argument-register number for a memory base, or raise Bail."""
     if base == "sp":
-        raise Bail
+        raise Bail("memory base is sp: a stack slot is not modelled")
     n = reg_num(wreg(base))
     if n is None or n > MAX_ARG:
-        raise Bail
+        raise Bail("memory base %r is not an argument register (x0-x%d)" % (base, MAX_ARG))
     return n
 
 
@@ -175,14 +175,14 @@ class StraightLine:
     def translate(self, ident):
         insns = self.insns
         if not insns or insns[-1].mnemonic != "ret":
-            raise Bail
+            raise Bail("body does not end in ret")
         body = insns[:-1]
         if not body or len(body) > MAX_INSNS:
-            raise Bail
+            raise Bail("empty body, or %d instructions > MAX_INSNS=%d" % (len(body), MAX_INSNS))
         for i in body:
             if i.mnemonic not in LOADS and i.mnemonic not in STORES \
                     and i.mnemonic not in ("add", "mov", "sub"):
-                raise Bail
+                raise Bail("unsupported mnemonic %r" % (i.mnemonic,))
 
         state = {}
         ptr_args = set()      # argument registers used as a pointer
@@ -197,7 +197,7 @@ class StraightLine:
                 dst = ops[0]
                 base, off = parse_mem(ops[1])
                 if base is None:
-                    raise Bail
+                    raise Bail("load operand %r is not a [base, #off] reference" % (ops[1],))
                 n = arg_reg(base)
                 used_args.add(n)
                 ptr_args.add(n)
@@ -210,13 +210,33 @@ class StraightLine:
                 src, mem = ops[0], ops[1]
                 base, off = parse_mem(mem)
                 if base is None:
-                    raise Bail
+                    raise Bail("store operand %r is not a [base, #off] reference" % (mem,))
                 n = arg_reg(base)
                 used_args.add(n)
                 ptr_args.add(n)
                 w = access_width(mn, src)
+                if w not in U:
+                    raise Bail("%d-byte access through %r is not modelled" % (w, src))
                 if wreg(src) not in state:
-                    raise Bail
+                    # Two sources need no prior write, and both were being
+                    # declined as "never written by the body" -- 301 bodies
+                    # between them, the two largest bail classes here.
+                    #
+                    # `str xzr, [x1]` is a plain zero store. The zero register is
+                    # not an argument and is never written, so requiring a
+                    # defining instruction rejected the most ordinary store
+                    # there is.
+                    if src in ("xzr", "wzr"):
+                        state[src] = ("imm", 0, U[w])
+                    else:
+                        # An incoming argument used only as a *store source* is
+                        # still a parameter, and has to be declared as one or the
+                        # body will not compile.
+                        an = arg_reg(src)
+                        used_args.add(an)
+                        state[wreg(src)] = ("arg", an)
+                if wreg(src) not in state:
+                    raise Bail("store source %r is never written by the body" % (src,))
                 stmts.append((w, n, off, state[wreg(src)]))
                 continue
 
@@ -231,7 +251,7 @@ class StraightLine:
                     state[wreg(dst)] = ("imm", 0, U[access_width("mov", dst)])
                     continue
                 if wreg(src) not in state:
-                    raise Bail
+                    raise Bail("mov source %r is neither an immediate nor a known register" % (src,))
                 state[wreg(dst)] = state[wreg(src)]
                 continue
 
@@ -239,7 +259,7 @@ class StraightLine:
                 dst, src, immtxt = ops
                 off = parse_imm(immtxt)
                 if off is None:
-                    raise Bail
+                    raise Bail("add/sub third operand %r is not an immediate" % (immtxt,))
                 if mn == "sub":
                     off = -off
                 s = state.get(wreg(src))
@@ -253,10 +273,10 @@ class StraightLine:
                 elif s[0] == "imm":
                     state[wreg(dst)] = ("imm", s[1] + off, s[2])
                 else:
-                    raise Bail
+                    raise Bail("add/sub applied to a loaded value: %r has no pointer form" % (dst,))
                 continue
 
-            raise Bail
+            raise Bail("unhandled instruction %r %r" % (mn, i.op_str))
 
         return self._emit(ident, state, stmts, used_args, ptr_args)
 
@@ -271,7 +291,11 @@ class StraightLine:
         if kind == "addr":
             _, n, off = val
             return "void*", ptr_add(names[n], off)
-        raise Bail
+        if kind == "arg":
+            # An incoming argument stored straight through. `_emit` applies the
+            # store-width cast, so handing back the bare name is enough.
+            return "void*", names[val[1]]
+        raise Bail("unknown value kind %r" % (kind,))
 
     def _emit(self, ident, state, stmts, used_args, ptr_args):
         # Parameter list: one entry per argument register from x0 up to the
@@ -336,7 +360,7 @@ class StraightLine:
             # translator's conversion rate from 65.5% to 20.0% -- it declined
             # every legitimate pointer store to fix one illegitimate narrow one.
             if val[0] == "addr" and w != 8:
-                raise Bail
+                raise Bail("storing a pointer through a %d-byte type is ill-formed" % (w,))
             if ct != U[w]:
                 expr = "(%s)(%s)" % (U[w], expr)
             body_txt.append("*(%s*)(%s) = %s;"

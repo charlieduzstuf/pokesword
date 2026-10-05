@@ -36,7 +36,7 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-27,587 / 152,062  =  18.14%
+27,840 / 152,062  =  18.31%
 ```
 
 `tools/match_progress.py` is the only authoritative figure. Do not copy a number

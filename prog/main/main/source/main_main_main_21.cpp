@@ -315,7 +315,7 @@ void sub_14f8590() { /* 0x14f8590 */ }
 void sub_14f8750() { /* 0x14f8750 */ }
 void sub_14f8780() { /* 0x14f8780 */ }
 void sub_14f87d0() { /* 0x14f87d0 */ }
-void sub_14f8840() { /* 0x14f8840 */ }
+// sub_14f8840: implemented in prog/matched/main/
 void sub_14f8860() { /* 0x14f8860 */ }
 void sub_14f8a20() { /* 0x14f8a20 */ }
 // sub_14f8bc0: implemented in prog/matched/main/
@@ -1069,7 +1069,7 @@ void sub_152e130() { /* 0x152e130 */ }
 void sub_152e1e0() { /* 0x152e1e0 */ }
 void sub_152e2d0() { /* 0x152e2d0 */ }
 void Play_me_or_st_rating_lv3() { /* 0x152e4f0 */ }
-void sub_152e630() { /* 0x152e630 */ }
+// sub_152e630: implemented in prog/matched/main/
 void sub_152e650() { /* 0x152e650 */ }
 void sub_152ec00() { /* 0x152ec00 */ }
 void sub_152ec60() { /* 0x152ec60 */ }
@@ -3346,8 +3346,8 @@ void sub_15bebf0() { /* 0x15bebf0 */ }
 void sub_15becb0() { /* 0x15becb0 */ }
 void sub_15becc0() { /* 0x15becc0 */ }
 void sub_15bee80() { /* 0x15bee80 */ }
-void sub_15beeb0() { /* 0x15beeb0 */ }
-void sub_15beec0() { /* 0x15beec0 */ }
+// sub_15beeb0: implemented in prog/matched/main/
+// sub_15beec0: implemented in prog/matched/main/
 void sub_15beed0() { /* 0x15beed0 */ }
 void sub_15beef0() { /* 0x15beef0 */ }
 void sub_15bef10() { /* 0x15bef10 */ }
@@ -3574,7 +3574,7 @@ void sub_15cc040() { /* 0x15cc040 */ }
 void sub_15cc060() { /* 0x15cc060 */ }
 void sub_15cc0b0() { /* 0x15cc0b0 */ }
 void sub_15cc1c0() { /* 0x15cc1c0 */ }
-void sub_15cc220() { /* 0x15cc220 */ }
+// sub_15cc220: implemented in prog/matched/main/
 void sub_15cc230() { /* 0x15cc230 */ }
 void sub_15cc250() { /* 0x15cc250 */ }
 void Chrono() { /* 0x15cc270 */ }
@@ -3798,7 +3798,7 @@ void sub_15d7230() { /* 0x15d7230 */ }
 void sub_15d7270() { /* 0x15d7270 */ }
 // sub_15d7280: implemented in prog/matched/main/
 void sub_15d7290() { /* 0x15d7290 */ }
-void sub_15d7310() { /* 0x15d7310 */ }
+// sub_15d7310: implemented in prog/matched/main/
 void InstanceTable_227() { /* 0x15d7320 */ }
 void InstanceTable_228() { /* 0x15d7550 */ }
 void InstanceTable_229() { /* 0x15d76b0 */ }

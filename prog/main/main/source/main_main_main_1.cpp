@@ -830,7 +830,7 @@ void sub_1fd9f0() { /* 0x1fd9f0 */ }
 void sub_1fda20() { /* 0x1fda20 */ }
 void sub_1fda70() { /* 0x1fda70 */ }
 void sub_1fda80() { /* 0x1fda80 */ }
-void sub_1fda90() { /* 0x1fda90 */ }
+// sub_1fda90: implemented in prog/matched/main/
 // sub_1fdaa0: implemented in prog/matched/main/
 void sub_1fdab0() { /* 0x1fdab0 */ }
 // sub_1fdac0: implemented in prog/matched/main/
@@ -905,7 +905,7 @@ void sub_200d60() { /* 0x200d60 */ }
 void sub_200d90() { /* 0x200d90 */ }
 void sub_200de0() { /* 0x200de0 */ }
 void sub_200df0() { /* 0x200df0 */ }
-void sub_200e00() { /* 0x200e00 */ }
+// sub_200e00: implemented in prog/matched/main/
 // sub_200e10: implemented in prog/matched/main/
 void sub_200e20() { /* 0x200e20 */ }
 // sub_200e30: implemented in prog/matched/main/
@@ -980,7 +980,7 @@ void sub_2042a0() { /* 0x2042a0 */ }
 void sub_2042c0() { /* 0x2042c0 */ }
 void sub_204310() { /* 0x204310 */ }
 void sub_204320() { /* 0x204320 */ }
-void sub_204330() { /* 0x204330 */ }
+// sub_204330: implemented in prog/matched/main/
 // sub_204340: implemented in prog/matched/main/
 void sub_204350() { /* 0x204350 */ }
 // sub_204360: implemented in prog/matched/main/
@@ -1049,7 +1049,7 @@ void sub_2078e0() { /* 0x2078e0 */ }
 void sub_207910() { /* 0x207910 */ }
 void sub_207960() { /* 0x207960 */ }
 void sub_207970() { /* 0x207970 */ }
-void sub_207980() { /* 0x207980 */ }
+// sub_207980: implemented in prog/matched/main/
 // sub_207990: implemented in prog/matched/main/
 void sub_2079a0() { /* 0x2079a0 */ }
 // sub_2079b0: implemented in prog/matched/main/
@@ -1114,7 +1114,7 @@ void sub_20aeb0() { /* 0x20aeb0 */ }
 void sub_20aed0() { /* 0x20aed0 */ }
 void sub_20af20() { /* 0x20af20 */ }
 void sub_20af30() { /* 0x20af30 */ }
-void sub_20af40() { /* 0x20af40 */ }
+// sub_20af40: implemented in prog/matched/main/
 // sub_20af50: implemented in prog/matched/main/
 void sub_20af60() { /* 0x20af60 */ }
 // sub_20af70: implemented in prog/matched/main/
@@ -1197,7 +1197,7 @@ void sub_20fc50() { /* 0x20fc50 */ }
 void sub_20fc70() { /* 0x20fc70 */ }
 void sub_20fcc0() { /* 0x20fcc0 */ }
 void sub_20fcd0() { /* 0x20fcd0 */ }
-void sub_20fce0() { /* 0x20fce0 */ }
+// sub_20fce0: implemented in prog/matched/main/
 // sub_20fcf0: implemented in prog/matched/main/
 void sub_20fd00() { /* 0x20fd00 */ }
 // sub_20fd10: implemented in prog/matched/main/
@@ -3374,7 +3374,7 @@ void PsArray_223() { /* 0x2c6c60 */ }
 void sub_2c6d50() { /* 0x2c6d50 */ }
 void sub_2c6d80() { /* 0x2c6d80 */ }
 void sub_2c6da0() { /* 0x2c6da0 */ }
-void sub_2c6df0() { /* 0x2c6df0 */ }
+// sub_2c6df0: implemented in prog/matched/main/
 // sub_2c6e20: implemented in prog/matched/main/
 void mClientBehaviorFlags() { /* 0x2c6e30 */ }
 void solverIterationCounts() { /* 0x2c70a0 */ }

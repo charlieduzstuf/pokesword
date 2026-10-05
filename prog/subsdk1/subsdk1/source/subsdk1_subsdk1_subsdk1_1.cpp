@@ -1851,7 +1851,7 @@ void sub_27a670() { /* 0x27a670 */ }
 void sub_27a6b0() { /* 0x27a6b0 */ }
 void sub_27af10() { /* 0x27af10 */ }
 void sub_27af40() { /* 0x27af40 */ }
-void sub_27af90() { /* 0x27af90 */ }
+// sub_27af90: implemented in prog/matched/subsdk1/
 void threadInWarpMask() { /* 0x27afa0 */ }
 void sub_27bdb0() { /* 0x27bdb0 */ }
 void sub_27be20_subsdk1_27be20() { /* 0x27be20 */ }
@@ -2087,7 +2087,7 @@ void sub_2a1060() { /* 0x2a1060 */ }
 void sub_2a1230() { /* 0x2a1230 */ }
 void sub_2a1240() { /* 0x2a1240 */ }
 void sub_2a1250() { /* 0x2a1250 */ }
-void sub_2a1260() { /* 0x2a1260 */ }
+// sub_2a1260: implemented in prog/matched/subsdk1/
 void sub_2a12a0() { /* 0x2a12a0 */ }
 void sub_2a12e0() { /* 0x2a12e0 */ }
 void sub_2a1350() { /* 0x2a1350 */ }

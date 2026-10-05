@@ -1,4 +1,4 @@
-/* main -- 1078 functions verified to match the original.
+/* main -- 1077 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -381,7 +381,6 @@ namespace main { void sub_173bdc0(); }
 extern void main_f_173cfa0();
 namespace main { void sub_173d040(); }
 namespace main { void sub_174a680(); }
-namespace main { void sub_173d1f0(); }
 namespace main { void sub_16a90b0(); }
 namespace main { void sub_16a9210(); }
 namespace main { void sub_16a9310(); }
@@ -3254,9 +3253,6 @@ void main_f_16b16e0() { main_f_173cfa0(); }
 
 // sub_16b1790  (orig 0x16b1790, tailcall)
 void main_f_16b1790() { main::sub_173d040(); }
-
-// sub_16b17a0  (orig 0x16b17a0, tailcall)
-void main_f_16b17a0() { main::sub_173d1f0(); }
 
 // sub_16b5470  (orig 0x16b5470, tailcall)
 void main_f_16b5470() { main_f_165baa0(); }

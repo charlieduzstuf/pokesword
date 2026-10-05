@@ -753,7 +753,7 @@ void NonTrackedAlloc_30() { /* 0x3ee20 */ }
 void sub_3f110() { /* 0x3f110 */ }
 void sub_3f900() { /* 0x3f900 */ }
 // BpBroadphaseSap_batchUpdate: implemented in prog/matched/main/
-void sub_3f930() { /* 0x3f930 */ }
+// sub_3f930: implemented in prog/matched/main/
 // sub_3f940: implemented in prog/matched/main/
 // sub_3f950: implemented in prog/matched/main/
 // sub_3f960: implemented in prog/matched/main/
@@ -793,7 +793,7 @@ void sub_413b0() { /* 0x413b0 */ }
 // BpSAP_updateWork: implemented in prog/matched/main/
 void sub_413e0() { /* 0x413e0 */ }
 // BpSAP_postUpdateWork: implemented in prog/matched/main/
-void sub_41410() { /* 0x41410 */ }
+// sub_41410: implemented in prog/matched/main/
 void sub_41430() { /* 0x41430 */ }
 void sub_41500() { /* 0x41500 */ }
 void sub_41520() { /* 0x41520 */ }
@@ -3219,7 +3219,7 @@ void GuMidphaseInterface() { /* 0x10a860 */ }
 void sub_10a8c0() { /* 0x10a8c0 */ }
 void sub_10a9c0() { /* 0x10a9c0 */ }
 void sub_10aa50() { /* 0x10aa50 */ }
-void sub_10aaf0() { /* 0x10aaf0 */ }
+// sub_10aaf0: implemented in prog/matched/main/
 void sub_10ab10() { /* 0x10ab10 */ }
 void sub_10ab30() { /* 0x10ab30 */ }
 void sub_10ab80() { /* 0x10ab80 */ }
@@ -3807,7 +3807,7 @@ void sub_117dc0() { /* 0x117dc0 */ }
 void ProjectionPlane() { /* 0x117de0 */ }
 void sub_117e10() { /* 0x117e10 */ }
 void sub_117e20() { /* 0x117e20 */ }
-void sub_117e40() { /* 0x117e40 */ }
+// sub_117e40: implemented in prog/matched/main/
 // sub_117e50: implemented in prog/matched/main/
 void sub_117e60() { /* 0x117e60 */ }
 void sub_117ee0() { /* 0x117ee0 */ }
