@@ -45,6 +45,7 @@ import os
 import subprocess
 import sys
 import time
+import traceback
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODULES = ("main", "sdk", "subsdk0", "subsdk1")
@@ -215,12 +216,36 @@ def main():
         time.sleep(a.interval)
 
     st = load_state()
+    errors = 0
     while True:
-        one_tick(a, st)
+        # A tick must never be able to end the loop. Every step in here shells
+        # out to another tool, so any one of them failing -- a missing file, a
+        # transient lock, a tool that raises -- used to propagate and kill the
+        # process, which is exactly how a "keep-alive" stops keeping anything
+        # alive. Report and carry on; the count is re-read next tick anyway.
+        try:
+            one_tick(a, st)
+            errors = 0
+        except KeyboardInterrupt:
+            raise
+        except BaseException as exc:                # noqa: BLE001
+            errors += 1
+            print("=== keepalive tick %d FAILED (%s: %s) -- continuing ==="
+                  % (st.get("tick", 0), type(exc).__name__, exc))
+            traceback.print_exc()
+            if errors >= 5:
+                # Repeated failure means something structural, not transient.
+                # Say so loudly rather than spinning forever.
+                print("=== 5 consecutive tick failures; giving up so the "
+                      "cause is visible ===")
+                return 1
         if not a.loop:
             return 0
         sys.stdout.flush()
-        time.sleep(a.interval)
+        try:
+            time.sleep(a.interval)
+        except KeyboardInterrupt:
+            raise
 
 
 if __name__ == "__main__":
