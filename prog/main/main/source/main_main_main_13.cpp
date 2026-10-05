@@ -1743,9 +1743,9 @@ void sub_e7f630() { /* 0xe7f630 */ }
 void sub_e7f6a0() { /* 0xe7f6a0 */ }
 void sub_e7f6b0() { /* 0xe7f6b0 */ }
 void sub_e7f6c0() { /* 0xe7f6c0 */ }
-void sub_e7f7b0() { /* 0xe7f7b0 */ }
+// sub_e7f7b0: implemented in prog/matched/main/
 // sub_e7f7c0: implemented in prog/matched/main/
-void sub_e7f7d0() { /* 0xe7f7d0 */ }
+// sub_e7f7d0: implemented in prog/matched/main/
 // sub_e7f7e0: implemented in prog/matched/main/
 void sub_e7f7f0() { /* 0xe7f7f0 */ }
 void anonymous_2() { /* 0xe7f820 */ }

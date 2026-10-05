@@ -3737,7 +3737,7 @@ void sub_bdadc0() { /* 0xbdadc0 */ }
 void sub_bdae30() { /* 0xbdae30 */ }
 void sub_bdae90() { /* 0xbdae90 */ }
 // sub_bdaf00: implemented in prog/matched/main/
-void sub_bdb3f0() { /* 0xbdb3f0 */ }
+// sub_bdb3f0: implemented in prog/matched/main/
 // sub_bdb400: implemented in prog/matched/main/
 // sub_bdb410: implemented in prog/matched/main/
 // sub_bdb420: implemented in prog/matched/main/

@@ -85,12 +85,23 @@ def split_ops(s):
     return SL.split_ops(s)
 
 
+def parse_int(tok):
+    """`-0x18`, `#-4`, `12` -> int. The sign comes before the radix prefix, so a
+    plain `startswith("0x")` test raises ValueError on every negative hex offset.
+    Same fix as `gen_getter_chain.parse_int`; both had it."""
+    t = tok.strip().lstrip("#")
+    neg = t.startswith("-")
+    if neg:
+        t = t[1:]
+    v = int(t, 16) if t.lower().startswith("0x") else int(t)
+    return -v if neg else v
+
+
 def parse_mem(op):
-    """'[x8, w1, uxtw #3]' / '[x0, #0x10]' / '[x0]' -> (base, index, offset, scale)."""
+    """'[x8, w1, uxtw #3]' / '[x0, #0x10]' / '[x0, #-0x18]' -> (base, index, off, scale)."""
     m = re.match(r"^\[\s*([A-Za-z0-9]+)"
                  r"(?:\s*,\s*([A-Za-z0-9]+)\s*,\s*uxtw(?:\s*#(0x[0-9a-f]+|\d+))?)?"
-                 r"(?:\s*,\s*#(-?(?:0x)?[0-9a-fA-F]+))?"
-                 r"\s*\]$", op)
+                 r"(?:\s*,\s*#(-?(?:0x)?[0-9a-fA-F]+))?\s*\]$", op)
     if not m:
         return None
     base, index, scale, off = m.group(1), m.group(2), m.group(3), m.group(4)
@@ -99,10 +110,7 @@ def parse_mem(op):
         if scale is None:
             return None
         s = int(scale, 16) if scale.lower().startswith("0x") else int(scale)
-    o = 0
-    if off:
-        o = int(off, 16) if off.lower().startswith("0x") else int(off)
-    return base, index, o, s
+    return base, index, (parse_int(off) if off else 0), s
 
 
 def arg_reg(r):

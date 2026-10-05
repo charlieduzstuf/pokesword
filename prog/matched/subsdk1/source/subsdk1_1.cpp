@@ -1,4 +1,4 @@
-/* subsdk1 -- 1286 functions verified to match the original.
+/* subsdk1 -- 1287 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -1748,6 +1748,13 @@ void subsdk1_f_168130() {}
 
 // sub_16a750  (orig 0x16a750, compare)
 bool subsdk1_f_16a750(uint64_t unused0, uint64_t a1) { return (uint32_t)(a1) == (uint64_t)(205); }
+
+// sub_16d830  (orig 0x16d830, getter-chain)
+uint32_t subsdk1_f_16d830(void* a0) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 304);
+    uint64_t t1 = *(uint64_t*)((char*)(t0) + 704);
+    return *(uint32_t*)((char*)(t1) + 448);
+}
 
 // sub_16e800  (orig 0x16e800, mov_ret)
 uint32_t subsdk1_f_16e800() { return 0; }

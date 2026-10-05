@@ -180,7 +180,7 @@ void sub_15f6c50() { /* 0x15f6c50 */ }
 void sub_15f6df0() { /* 0x15f6df0 */ }
 void sub_15f6fe0() { /* 0x15f6fe0 */ }
 void sub_15f7160() { /* 0x15f7160 */ }
-void sub_15f71b0() { /* 0x15f71b0 */ }
+// sub_15f71b0: implemented in prog/matched/main/
 void sub_15f71c0() { /* 0x15f71c0 */ }
 void InstanceTable_299() { /* 0x15f7380 */ }
 void InstanceTable_300() { /* 0x15f7470 */ }

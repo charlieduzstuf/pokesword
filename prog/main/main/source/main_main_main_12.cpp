@@ -305,7 +305,7 @@ void sub_ce9d50() { /* 0xce9d50 */ }
 void sub_ce9de0() { /* 0xce9de0 */ }
 // sub_ce9e80: implemented in prog/matched/main/
 void sub_ce9ea0() { /* 0xce9ea0 */ }
-void sub_ce9ec0() { /* 0xce9ec0 */ }
+// sub_ce9ec0: implemented in prog/matched/main/
 void sub_ce9ed0() { /* 0xce9ed0 */ }
 void sub_ce9f60() { /* 0xce9f60 */ }
 void sub_cea010() { /* 0xcea010 */ }
@@ -3507,7 +3507,7 @@ void sub_debcc0() { /* 0xdebcc0 */ }
 // sub_debcf0: implemented in prog/matched/main/
 // sub_debd00: implemented in prog/matched/main/
 // sub_debd20: implemented in prog/matched/main/
-void sub_debd40() { /* 0xdebd40 */ }
+// sub_debd40: implemented in prog/matched/main/
 void sub_debd50() { /* 0xdebd50 */ }
 void sub_debd60() { /* 0xdebd60 */ }
 void sub_debd70() { /* 0xdebd70 */ }
@@ -3515,21 +3515,21 @@ void sub_debd80() { /* 0xdebd80 */ }
 void sub_debd90() { /* 0xdebd90 */ }
 // sub_debda0: implemented in prog/matched/main/
 // sub_debdb0: implemented in prog/matched/main/
-void sub_debdc0() { /* 0xdebdc0 */ }
-void sub_debdd0() { /* 0xdebdd0 */ }
-void sub_debde0() { /* 0xdebde0 */ }
+// sub_debdc0: implemented in prog/matched/main/
+// sub_debdd0: implemented in prog/matched/main/
+// sub_debde0: implemented in prog/matched/main/
 // sub_debdf0: implemented in prog/matched/main/
-void sub_debe10() { /* 0xdebe10 */ }
-void sub_debe20() { /* 0xdebe20 */ }
-void sub_debe30() { /* 0xdebe30 */ }
-void sub_debe40() { /* 0xdebe40 */ }
-void sub_debe50() { /* 0xdebe50 */ }
-void sub_debe60() { /* 0xdebe60 */ }
-void sub_debe70() { /* 0xdebe70 */ }
+// sub_debe10: implemented in prog/matched/main/
+// sub_debe20: implemented in prog/matched/main/
+// sub_debe30: implemented in prog/matched/main/
+// sub_debe40: implemented in prog/matched/main/
+// sub_debe50: implemented in prog/matched/main/
+// sub_debe60: implemented in prog/matched/main/
+// sub_debe70: implemented in prog/matched/main/
 // sub_debe80: implemented in prog/matched/main/
 // sub_debe90: implemented in prog/matched/main/
-void sub_debea0() { /* 0xdebea0 */ }
-void sub_debeb0() { /* 0xdebeb0 */ }
+// sub_debea0: implemented in prog/matched/main/
+// sub_debeb0: implemented in prog/matched/main/
 void sub_debec0() { /* 0xdebec0 */ }
 void sub_debf00() { /* 0xdebf00 */ }
 void sub_debf40() { /* 0xdebf40 */ }

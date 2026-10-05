@@ -3618,7 +3618,7 @@ void sub_16ce40() { /* 0x16ce40 */ }
 void ffffff_subsdk1_16d080() { /* 0x16d080 */ }
 void sub_16d6d0() { /* 0x16d6d0 */ }
 void sub_16d810() { /* 0x16d810 */ }
-void sub_16d830() { /* 0x16d830 */ }
+// sub_16d830: implemented in prog/matched/subsdk1/
 void sub_16d840() { /* 0x16d840 */ }
 void sub_16dbf0_subsdk1_16dbf0() { /* 0x16dbf0 */ }
 void sub_16dcd0() { /* 0x16dcd0 */ }

@@ -16321,6 +16321,18 @@
    "size": 20,
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "addr": 1497136,
+   "ident": "f_16d830",
+   "module": "subsdk1",
+   "name": "sub_16d830",
+   "shape": "getter-chain",
+   "sig": "Pv",
+   "src": "uint32_t f_16d830(void* a0) {\n    uint64_t t0 = *(uint64_t*)((char*)a0 + 304);\n    uint64_t t1 = *(uint64_t*)((char*)(t0) + 704);\n    return *(uint32_t*)((char*)(t1) + 448);\n}\n",
+   "size": 16,
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

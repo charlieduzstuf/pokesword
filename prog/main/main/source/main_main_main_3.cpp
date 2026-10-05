@@ -197,7 +197,7 @@ void sub_4040b0() { /* 0x4040b0 */ }
 void sub_404340() { /* 0x404340 */ }
 void sub_4044a0() { /* 0x4044a0 */ }
 // sub_404530: implemented in prog/matched/main/
-void sub_404540() { /* 0x404540 */ }
+// sub_404540: implemented in prog/matched/main/
 // sub_404550: implemented in prog/matched/main/
 // sub_404560: implemented in prog/matched/main/
 // sub_404570: implemented in prog/matched/main/

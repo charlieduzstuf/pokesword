@@ -1,4 +1,4 @@
-/* sdk -- 1149 functions verified to match the original.
+/* sdk -- 1163 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -24,6 +24,56 @@ typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
+
+// sub_36f9e0  (orig 0x36f9e0, ptr_add)
+void* sdk_f_36f9e0(void* a0) { return (char*)a0 + 8; }
+
+// sub_36f9f0  (orig 0x36f9f0, straight)
+void* sdk_f_36f9f0(void* a0) { return (char*)(a0) - 24; }
+
+// sub_3734b0  (orig 0x3734b0, mov_ret)
+uint64_t sdk_f_3734b0() { return 0; }
+
+// sub_375c10  (orig 0x375c10, ptr_add)
+void* sdk_f_375c10(void* a0) { return (char*)a0 + 16; }
+
+// sub_376150  (orig 0x376150, ptr_add)
+void* sdk_f_376150(void* a0) { return (char*)a0 + 8; }
+
+// sub_376160  (orig 0x376160, straight)
+void* sdk_f_376160(void* a0) { return (char*)(a0) - 8; }
+
+// sub_3784e0  (orig 0x3784e0, setter)
+void sdk_f_3784e0(void* a0) { *(uint64_t*)((char*)(a0)) = 0; }
+
+// sub_3784f0  (orig 0x3784f0, ret_only)
+void sdk_f_3784f0() {}
+
+// sub_378e40  (orig 0x378e40, ret_only)
+void sdk_f_378e40() {}
+
+// sub_378e50  (orig 0x378e50, ret_only)
+void sdk_f_378e50() {}
+
+// sub_378ea0  (orig 0x378ea0, ret_only)
+void sdk_f_378ea0() {}
+
+// sub_37aaf0  (orig 0x37aaf0, setter-chain-zero)
+void sdk_f_37aaf0(void* a0) {
+    struct u64x2 { uint64_t a, b; };
+    *(struct u64x2*)((char*)a0 + 56) = (struct u64x2){ 0, 0 };
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a0 = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 40) = (struct u64x2){ 0, 0 };
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 24) = (struct u64x2){ 0, 0 };
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 8) = (struct u64x2){ 0, 0 };
+}
+
+// sub_37abe0  (orig 0x37abe0, ret_only)
+void sdk_f_37abe0() {}
 
 // sub_37bbc0  (orig 0x37bbc0, ret_only)
 void sdk_f_37bbc0() {}
@@ -1036,6 +1086,13 @@ uint32_t sdk_f_3ede70(void* a0) { return *(uint32_t*)((char*)(a0) + 16); }
 
 // sub_3ee020  (orig 0x3ee020, getter-chain)
 uint32_t sdk_f_3ee020(void* a0) { return *(uint32_t*)((char*)((*(uint64_t*)((char*)(a0) + 328))) + 4); }
+
+// sub_3ee080  (orig 0x3ee080, getter-chain)
+uint32_t sdk_f_3ee080(void* a0) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 328);
+    uint64_t t1 = *(uint64_t*)((char*)(t0) + 64);
+    return *(uint32_t*)((char*)(t1) + 268);
+}
 
 // sub_3ee090  (orig 0x3ee090, copy-chain-store)
 void sdk_f_3ee090(void* a0, uint32_t a1) {
