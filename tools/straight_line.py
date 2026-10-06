@@ -194,6 +194,19 @@ def access_width(mn, reg):
     return 8
 
 
+def _rw(v):
+    """The C type name for an integer value tuple's result width."""
+    k = v[0]
+    if k == "imm":
+        return v[2]
+    if k == "load":
+        _, n, off, w, signed = v
+        return S[w] if signed else U[w]
+    if k == "expr":
+        return v[4]
+    return "uint64_t"  # arg and anything else: pointer-sized is the safe default
+
+
 def ptr_add(base, off):
     b = "(char*)(%s)" % base
     if off == 0:
@@ -455,18 +468,10 @@ class StraightLine:
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s1[0],))
                 if s2[0] not in ("load", "expr", "arg", "imm"):
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s2[0],))
-                _c1, _e1 = self._render(s1, {})
-                _c2, _e2 = self._render(s2, {})
-                # The third operand may be shifted/extended.
-                if len(ops) == 4:
-                    if ext_op == "lsl":
-                        _e2 = "(%s << %d)" % (_e2, shift)
-                    elif ext_op == "uxtw":
-                        _e2 = "((uint32_t)(%s))" % _e2
-                    elif ext_op == "sxtw":
-                        _e2 = "((int32_t)(%s))" % _e2
                 op = "+" if mn == "add" else "-"
-                state[wreg(dst)] = ("expr", "(%s) %s (%s)" % (_e1, op, _e2), _c1)
+                if len(ops) == 4 and ext_op is not None:
+                    s2 = ("shift", ext_op, shift, s2)
+                state[wreg(dst)] = ("expr", op, s1, s2, _rw(s1))
                 continue
 
             raise Bail("unhandled instruction %r %r" % (mn, i.op_str))
@@ -485,11 +490,34 @@ class StraightLine:
             _, n, off = val
             return "void*", ptr_add(names[n], off)
         if kind == "expr":
-            # An integer result of add/sub on loaded/argument values. Rendered
-            # inline; its C type comes from the operand that defined the width
-            # (the destination register class, via access_width), so the store
-            # cast in `_emit` reproduces the original's sign/zero extension.
-            return val[2], "(%s)" % val[1]
+            # An integer result of add/sub on loaded/argument values. The two
+            # operands are themselves value tuples, rendered recursively with the
+            # real names, so this only works in `_emit` -- which is exactly where
+            # the result is needed.
+            _, op, s1, s2, ct = val
+            _ct1, _e1 = self._render(s1, names)
+            if isinstance(s2, tuple):
+                if s2[0] == "shift":
+                    _c2, _e2 = self._render(s2[3], names)
+                    if s2[1] == "lsl":
+                        _e2 = "(%s << %d)" % (_e2, s2[2])
+                    elif s2[1] == "uxtw":
+                        _e2 = "((uint32_t)(%s))" % _e2
+                    elif s2[1] == "sxtw":
+                        _e2 = "((int32_t)(%s))" % _e2
+                else:
+                    _c2, _e2 = self._render(s2, names)
+            else:
+                _e2 = s2
+            return ct, "(%s) %s (%s)" % (_e1, op, _e2)
+        if kind == "shift":
+            _, ext_op, shift, s = val
+            _c2, _e2 = self._render(s, names)
+            if ext_op == "lsl":
+                return _c2, "(%s << %d)" % (_e2, shift)
+            if ext_op == "uxtw":
+                return _c2, "((uint32_t)(%s))" % _e2
+            return _c2, "((int32_t)(%s))" % _e2
         if kind == "addr_i":
             _, n, iexpr, off = val
             return "void*", "((char *)%s + %s)" % (ptr_add(names[n], off), iexpr)
