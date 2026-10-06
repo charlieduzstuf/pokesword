@@ -267,3 +267,4 @@ graph; turning that into C++ that assembles identically is the per-function work
   exporter are reused. See `decomp/docs/keys_and_rom.md`.
 - Deep `.prmb` data-table formats are left to the community
   `swordshield-data` project; the headers are identified and documented.
+
