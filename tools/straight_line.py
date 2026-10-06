@@ -142,7 +142,7 @@ def parse_mem_idx(op_str):
     m = re.fullmatch(
         r"\[\s*([A-Za-z0-9]+)"
         r"(?:\s*,\s*([A-Za-z0-9]+)\s*,\s*(uxtw|sxtw|lsl)(?:\s*#(0x[0-9a-f]+|\d+))?)?"
-        r"(?:\s*,\s*#(-?(?:0x)?[0-9a-fA-F]+))?\s*\]",
+        r"(?:\s*,\s*#(-?(?:0x)?[0-9a-fA-F]+))?\s*\]\s*!?",
         op_str.strip())
     if not m:
         return None, None, None, None, None
@@ -417,7 +417,7 @@ class StraightLine:
 
             raise Bail("unhandled instruction %r %r" % (mn, i.op_str))
 
-        return self._emit(ident, state, stmts, used_args, ptr_args, synth)
+        return self._emit(ident, state, stmts, used_args, ptr_args, synth, idx_args)
 
     def _render(self, val, names):
         kind = val[0]
@@ -430,13 +430,16 @@ class StraightLine:
         if kind == "addr":
             _, n, off = val
             return "void*", ptr_add(names[n], off)
+        if kind == "addr_i":
+            _, n, iexpr, off = val
+            return "void*", "((char *)%s + %s)" % (ptr_add(names[n], off), iexpr)
         if kind == "arg":
             # An incoming argument stored straight through. `_emit` applies the
             # store-width cast, so handing back the bare name is enough.
             return "void*", names[val[1]]
         raise Bail("unknown value kind %r" % (kind,))
 
-    def _emit(self, ident, state, stmts, used_args, ptr_args, synth=()):
+    def _emit(self, ident, state, stmts, used_args, ptr_args, synth=(), idx_args=()):
         # Parameter list: one entry per argument register from x0 up to the
         # highest the body reads. Gaps are real unused parameters -- a body that
         # reads x2 but not x0/x1 belongs to a function whose first two arguments
@@ -449,6 +452,15 @@ class StraightLine:
                 codes.append("S_" if ptrs else "Pv")
                 ptrs += 1
                 decls.append("void* a%d" % k)
+            elif k in idx_args:
+                # An index register's type comes from the extension on the
+                # instruction: `sxtw` is a signed 32-bit index (`i`), `uxtw` an
+                # unsigned one (`j`), `lsl` on an x register 64-bit (`m`).
+                # It changes the mangled name, so it has to be right.
+                _c = idx_args[k]
+                codes.append({"int32_t": "i", "uint32_t": "j",
+                              "uint64_t": "m"}[_c])
+                decls.append("%s a%d" % (_c, k))
             elif k in used_args:
                 codes.append("m")
                 decls.append("uint64_t a%d" % k)
@@ -487,7 +499,9 @@ class StraightLine:
         for key, init in synth:
             names[key] = nm(key)
             pre.append("void* %s = (void*)(%s);" % (nm(key), init))
-        for w, n, off, val in stmts:
+        for stmt in stmts:
+            w, n, off, val = stmt[:4]
+            iexpr = stmt[4] if len(stmt) > 4 else None
             ct, expr = self._render(val, names)
             # An address expression may only be stored at pointer width. Storing
             # one through a narrower type is ill-formed C++ -- `*(uint32_t*)p =
@@ -530,8 +544,10 @@ class StraightLine:
                 expr = "(%s)%s" % (U[w], k)
             elif ct != U[w]:
                 expr = "(%s)(%s)" % (U[w], expr)
-            body_txt.append("*(%s*)(%s) = %s;"
-                            % (U[w], ptr_add(names[n], off), expr))
+            addr = ptr_add(names[n], off)
+            if iexpr:
+                addr = "(%s + %s)" % (addr, iexpr)
+            body_txt.append("*(%s*)(%s) = %s;" % (U[w], addr, expr))
 
         # Is there a return value?
         #
