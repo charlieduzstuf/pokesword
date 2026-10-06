@@ -384,7 +384,7 @@ class StraightLine:
                 state[wreg(dst)] = state[wreg(src)]
                 continue
 
-                        if mn in ("add", "sub"):
+            if mn in ("add", "sub"):
                 #     add x8, x0, #0x10        x8 = x0 + 0x10   (address arith)
                 #     sub w0, w8, #1           w0 = w8 - 1      (value arith)
                 #     add x8, x9, x8, lsl #3   x8 = x9 + (x8<<3) (value arith)
@@ -484,6 +484,12 @@ class StraightLine:
         if kind == "addr":
             _, n, off = val
             return "void*", ptr_add(names[n], off)
+        if kind == "expr":
+            # An integer result of add/sub on loaded/argument values. Rendered
+            # inline; its C type comes from the operand that defined the width
+            # (the destination register class, via access_width), so the store
+            # cast in `_emit` reproduces the original's sign/zero extension.
+            return val[2], "(%s)" % val[1]
         if kind == "addr_i":
             _, n, iexpr, off = val
             return "void*", "((char *)%s + %s)" % (ptr_add(names[n], off), iexpr)
