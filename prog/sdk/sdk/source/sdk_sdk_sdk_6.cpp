@@ -586,7 +586,7 @@ void sub_49ca68() { /* 0x49ca68 */ }
 void sub_49cae8() { /* 0x49cae8 */ }
 void sub_49cb40() { /* 0x49cb40 */ }
 void sub_49cb60() { /* 0x49cb60 */ }
-void sub_49cb78() { /* 0x49cb78 */ }
+// sub_49cb78: implemented in prog/matched/sdk/
 void sub_49cb88() { /* 0x49cb88 */ }
 void sub_49ccc8() { /* 0x49ccc8 */ }
 void sub_49cd30() { /* 0x49cd30 */ }

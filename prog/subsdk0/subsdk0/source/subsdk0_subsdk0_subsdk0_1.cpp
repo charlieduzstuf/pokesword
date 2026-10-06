@@ -446,7 +446,7 @@ void sub_165b70() { /* 0x165b70 */ }
 void sub_165b90() { /* 0x165b90 */ }
 void LiveSession_8() { /* 0x165d10 */ }
 void generation_9() { /* 0x166210 */ }
-void sub_1662a0() { /* 0x1662a0 */ }
+// sub_1662a0: implemented in prog/matched/subsdk0/
 void switchGeneration_3() { /* 0x1662b0 */ }
 void unnamed_5_subsdk0_166510() { /* 0x166510 */ }
 void sub_166ba0() { /* 0x166ba0 */ }
@@ -575,7 +575,7 @@ void PlaylistFetcher_2() { /* 0x16d920 */ }
 void PlaylistFetcher_3() { /* 0x16dba0 */ }
 void PlaylistFetcher_4() { /* 0x16df60 */ }
 void generation_10() { /* 0x16e0b0 */ }
-void sub_16e160() { /* 0x16e160 */ }
+// sub_16e160: implemented in prog/matched/subsdk0/
 void sub_16e170() { /* 0x16e170 */ }
 void subtitleSource() { /* 0x16e1f0 */ }
 void sub_16e380() { /* 0x16e380 */ }
@@ -583,7 +583,7 @@ void sub_16e400() { /* 0x16e400 */ }
 void params() { /* 0x16e490 */ }
 void PlaylistFetcher_5() { /* 0x16e520 */ }
 void subtitleSource_2() { /* 0x16e7b0 */ }
-void sub_16eca0() { /* 0x16eca0 */ }
+// sub_16eca0: implemented in prog/matched/subsdk0/
 void PlaylistFetcher_6() { /* 0x16ecb0 */ }
 void PlaylistFetcher_7() { /* 0x16edd0 */ }
 void PlaylistFetcher_8() { /* 0x16f170 */ }
@@ -1348,7 +1348,7 @@ void sub_19d620() { /* 0x19d620 */ }
 void sub_19d6a0() { /* 0x19d6a0 */ }
 void sub_19daf0() { /* 0x19daf0 */ }
 void sub_19dcf0() { /* 0x19dcf0 */ }
-void sub_19e0b0() { /* 0x19e0b0 */ }
+// sub_19e0b0: implemented in prog/matched/subsdk0/
 void sub_19e0f0() { /* 0x19e0f0 */ }
 void sub_19e240_subsdk0_19e240() { /* 0x19e240 */ }
 void sub_19e4d0() { /* 0x19e4d0 */ }

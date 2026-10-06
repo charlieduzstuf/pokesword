@@ -44,7 +44,7 @@ S = {1: "int8_t", 2: "int16_t", 4: "int32_t", 8: "int64_t"}
 LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur")
 STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
 
-MAX_INSNS = 14        # beyond this, hand decomp is the better use of time
+MAX_INSNS = 32        # beyond this, hand decomp is the better use of time
 MAX_ARG = 4           # x0..x3 are the only argument registers we will model
 # Synthetic base ids for loaded pointers. Kept far above any real argument
 # number so `id < SYNTH_BASE` distinguishes them without a second type.

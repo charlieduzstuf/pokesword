@@ -914,7 +914,7 @@ void sub_2a6a20() { /* 0x2a6a20 */ }
 void sub_2a6a30() { /* 0x2a6a30 */ }
 void sub_2a6a60() { /* 0x2a6a60 */ }
 void sub_2a6c30() { /* 0x2a6c30 */ }
-void sub_2a7060() { /* 0x2a7060 */ }
+// sub_2a7060: implemented in prog/matched/subsdk0/
 void sub_2a70b0() { /* 0x2a70b0 */ }
 void sub_2a70c0() { /* 0x2a70c0 */ }
 void sub_2a7310() { /* 0x2a7310 */ }

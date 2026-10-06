@@ -1515,7 +1515,7 @@ void sub_2b9db0() { /* 0x2b9db0 */ }
 void sub_2b9dd0() { /* 0x2b9dd0 */ }
 void sub_2b9e30() { /* 0x2b9e30 */ }
 void sub_2b9e60() { /* 0x2b9e60 */ }
-void sub_2b9ea0() { /* 0x2b9ea0 */ }
+// sub_2b9ea0: implemented in prog/matched/sdk/
 void sub_2b9eb0_sdk_2b9eb0() { /* 0x2b9eb0 */ }
 void sub_2b9ed0() { /* 0x2b9ed0 */ }
 void Invalid_UTF8_string() { /* 0x2b9fb0 */ }
@@ -2351,10 +2351,10 @@ void sub_2e7630() { /* 0x2e7630 */ }
 void sub_2e7e70() { /* 0x2e7e70 */ }
 void sub_2e7e90() { /* 0x2e7e90 */ }
 void sub_2e7eb0() { /* 0x2e7eb0 */ }
-void sub_2e7f30() { /* 0x2e7f30 */ }
+// sub_2e7f30: implemented in prog/matched/sdk/
 void sub_2e7f90() { /* 0x2e7f90 */ }
 void sub_2e8010() { /* 0x2e8010 */ }
-void sub_2e8030() { /* 0x2e8030 */ }
+// sub_2e8030: implemented in prog/matched/sdk/
 void sub_2e8090() { /* 0x2e8090 */ }
 // sub_2e8130: implemented in prog/matched/sdk/
 // sub_2e8140: implemented in prog/matched/sdk/

@@ -840,8 +840,8 @@ void sub_43760() { /* 0x43760 */ }
 // sub_437c0: implemented in prog/matched/main/
 // sub_437d0: implemented in prog/matched/main/
 // sub_437e0: implemented in prog/matched/main/
-void sub_437f0() { /* 0x437f0 */ }
-void sub_43800() { /* 0x43800 */ }
+// sub_437f0: implemented in prog/matched/main/
+// sub_43800: implemented in prog/matched/main/
 void sub_43810() { /* 0x43810 */ }
 void sub_43820() { /* 0x43820 */ }
 // sub_43830: implemented in prog/matched/main/
@@ -3818,7 +3818,7 @@ void sub_118170() { /* 0x118170 */ }
 void mOwnsMemory() { /* 0x118320 */ }
 // sub_1184c0: implemented in prog/matched/main/
 // sub_1184d0: implemented in prog/matched/main/
-void sub_1184e0() { /* 0x1184e0 */ }
+// sub_1184e0: implemented in prog/matched/main/
 void sub_118570() { /* 0x118570 */ }
 void sub_118620() { /* 0x118620 */ }
 void sub_118a20() { /* 0x118a20 */ }

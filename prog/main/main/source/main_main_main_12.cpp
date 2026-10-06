@@ -509,11 +509,11 @@ void sub_cf7cd0() { /* 0xcf7cd0 */ }
 void sub_cf8ae0() { /* 0xcf8ae0 */ }
 void sub_cf8d20() { /* 0xcf8d20 */ }
 void UseCurrentHeelOffset() { /* 0xcf8f60 */ }
-void sub_cf93e0() { /* 0xcf93e0 */ }
+// sub_cf93e0: implemented in prog/matched/main/
 void UseCurrentHeelOffset_2() { /* 0xcf93f0 */ }
-void sub_cf9870() { /* 0xcf9870 */ }
+// sub_cf9870: implemented in prog/matched/main/
 void EnableHeelOffsetThreshold() { /* 0xcf9880 */ }
-void sub_cf9b90() { /* 0xcf9b90 */ }
+// sub_cf9b90: implemented in prog/matched/main/
 void Target() { /* 0xcf9ba0 */ }
 void Target_2() { /* 0xcfa220 */ }
 void sub_cfa340() { /* 0xcfa340 */ }

@@ -756,7 +756,7 @@ void sub_23ac0() { /* 0x23ac0 */ }
 void sub_23ae0_subsdk0_23ae0() { /* 0x23ae0 */ }
 void sub_23b20() { /* 0x23b20 */ }
 // sub_23b30: implemented in prog/matched/subsdk0/
-void sub_23b40() { /* 0x23b40 */ }
+// sub_23b40: implemented in prog/matched/subsdk0/
 // sub_23b50: implemented in prog/matched/subsdk0/
 // sub_23b60: implemented in prog/matched/subsdk0/
 // sub_23b70: implemented in prog/matched/subsdk0/
@@ -918,7 +918,7 @@ void sub_28d90() { /* 0x28d90 */ }
 // sub_28f00: implemented in prog/matched/subsdk0/
 void media_aac_51_output_enabled() { /* 0x291b0 */ }
 void sub_29230() { /* 0x29230 */ }
-void sub_29370() { /* 0x29370 */ }
+// sub_29370: implemented in prog/matched/subsdk0/
 void sub_29380() { /* 0x29380 */ }
 // sub_29540: implemented in prog/matched/subsdk0/
 void sub_29550() { /* 0x29550 */ }
@@ -1098,7 +1098,7 @@ void sub_40fb0() { /* 0x40fb0 */ }
 void sub_410d0() { /* 0x410d0 */ }
 void sub_41100() { /* 0x41100 */ }
 // sub_41130: implemented in prog/matched/subsdk0/
-void sub_41140() { /* 0x41140 */ }
+// sub_41140: implemented in prog/matched/subsdk0/
 void sub_41150() { /* 0x41150 */ }
 void sub_41220() { /* 0x41220 */ }
 void sub_412e0() { /* 0x412e0 */ }
@@ -1903,7 +1903,7 @@ void sub_bcce0() { /* 0xbcce0 */ }
 void sub_bd040() { /* 0xbd040 */ }
 void sub_bd6c0() { /* 0xbd6c0 */ }
 void sub_bd6d0() { /* 0xbd6d0 */ }
-void sub_bd800() { /* 0xbd800 */ }
+// sub_bd800: implemented in prog/matched/subsdk0/
 void sub_bd810() { /* 0xbd810 */ }
 void sub_bd9a0() { /* 0xbd9a0 */ }
 void sub_bda30() { /* 0xbda30 */ }
@@ -3743,7 +3743,7 @@ void GenericSource_3() { /* 0x13b5f0 */ }
 void sub_13b7a0() { /* 0x13b7a0 */ }
 void sub_13b830_subsdk0_13b830() { /* 0x13b830 */ }
 void sub_13b840() { /* 0x13b840 */ }
-void sub_13b860() { /* 0x13b860 */ }
+// sub_13b860: implemented in prog/matched/subsdk0/
 void sub_13b880() { /* 0x13b880 */ }
 void trackType() { /* 0x13b900 */ }
 void sub_13b9c0() { /* 0x13b9c0 */ }
@@ -3838,7 +3838,7 @@ void sub_144640() { /* 0x144640 */ }
 void NuPlayer_5() { /* 0x1446f0 */ }
 void trackIndex_7() { /* 0x144820 */ }
 void sub_144950() { /* 0x144950 */ }
-void sub_144960() { /* 0x144960 */ }
+// sub_144960: implemented in prog/matched/subsdk0/
 void sub_144970() { /* 0x144970 */ }
 void sub_144a30() { /* 0x144a30 */ }
 void trackIndex_8() { /* 0x144af0 */ }

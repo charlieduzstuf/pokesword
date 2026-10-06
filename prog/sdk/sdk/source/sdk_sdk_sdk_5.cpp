@@ -1980,11 +1980,11 @@ void sub_4026d0() { /* 0x4026d0 */ }
 void sub_402780() { /* 0x402780 */ }
 void CommandBuffer_out_of_memory_callback_didn_t_add_enough_c() { /* 0x402790 */ }
 void CommandBuffer_out_of_memory_callback_didn_t_add_enough_c_2() { /* 0x402960 */ }
-void sub_402a40() { /* 0x402a40 */ }
-void sub_402a50() { /* 0x402a50 */ }
+// sub_402a40: implemented in prog/matched/sdk/
+// sub_402a50: implemented in prog/matched/sdk/
 void sub_402a60() { /* 0x402a60 */ }
 void sub_402a70() { /* 0x402a70 */ }
-void sub_402a90() { /* 0x402a90 */ }
+// sub_402a90: implemented in prog/matched/sdk/
 void sub_402aa0() { /* 0x402aa0 */ }
 void CommandBuffer_out_of_memory_callback_didn_t_add_enough_c_3() { /* 0x402ab0 */ }
 void CommandBuffer_out_of_memory_callback_didn_t_add_enough_c_4() { /* 0x402b60 */ }
@@ -2697,7 +2697,7 @@ void sub_4190c0() { /* 0x4190c0 */ }
 // sub_4190e0_sdk_4190e0: implemented in prog/matched/sdk/
 // sub_4190f0_sdk_4190f0: implemented in prog/matched/sdk/
 void sub_419100() { /* 0x419100 */ }
-void sub_419120() { /* 0x419120 */ }
+// sub_419120: implemented in prog/matched/sdk/
 // sub_419130: implemented in prog/matched/sdk/
 // sub_419140: implemented in prog/matched/sdk/
 void sub_419150() { /* 0x419150 */ }

@@ -309,7 +309,7 @@ void GuConvexMesh() { /* 0x19ed30 */ }
 void sub_19ee20() { /* 0x19ee20 */ }
 void sub_19ee30() { /* 0x19ee30 */ }
 // sub_19ee40: implemented in prog/matched/main/
-void sub_19ee50() { /* 0x19ee50 */ }
+// sub_19ee50: implemented in prog/matched/main/
 void sub_19eec0() { /* 0x19eec0 */ }
 // PxConvexMesh: implemented in prog/matched/main/
 void PxConvexMesh_2() { /* 0x19ef10 */ }
@@ -3119,7 +3119,7 @@ void sub_2ba300() { /* 0x2ba300 */ }
 void sub_2ba370() { /* 0x2ba370 */ }
 void sub_2ba400() { /* 0x2ba400 */ }
 void sub_2ba510() { /* 0x2ba510 */ }
-void sub_2ba570() { /* 0x2ba570 */ }
+// sub_2ba570: implemented in prog/matched/main/
 void sub_2ba590() { /* 0x2ba590 */ }
 void sub_2ba5e0() { /* 0x2ba5e0 */ }
 void sub_2ba6b0() { /* 0x2ba6b0 */ }
