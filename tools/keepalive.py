@@ -28,10 +28,17 @@ What each tick does, in order, and why
 3. **Run one slice of the remaining automated work** if any is queued -- see
    `--work`. Skipped when there is none.
 
-The tick is idempotent and read-only apart from step 3. It never edits the
-registry, never registers a body, and never writes `data/functions.csv`, so a
-ticking agent cannot corrupt verified state by accident. Registration stays a
-deliberate act.
+4. **Sync git.** Commit anything already tracked and modified, then push, retrying
+   because the network here is intermittent ("Could not resolve host", then
+   "Recv failure: Connection was reset" minutes later). Staged with `git add -u`,
+   never `git add -A`: project tools rewrite tracked data files and a blanket add
+   has already nearly shipped a wiped one. If `tools/audit.py` is red the commit is
+   skipped and reported -- a keep-alive that bulldozes a failing audit is worse
+   than one that does nothing.
+
+The tick never edits the registry, never registers a body, and never writes
+`data/functions.csv` itself, so a ticking agent cannot corrupt verified state by
+accident. Registration stays a deliberate act.
 
 Usage:
     python tools/keepalive.py                  # one tick
@@ -128,6 +135,70 @@ def verify(module):
     return None
 
 
+def git(*args, timeout=180):
+    """Run a git command in ROOT. Returns (rc, combined output)."""
+    r = subprocess.run(["git"] + list(args), capture_output=True, text=True,
+                       cwd=ROOT, timeout=timeout)
+    return r.returncode, (r.stdout + r.stderr).strip()
+
+
+def sync(a):
+    """Commit anything tracked-and-dirty, then push. Returns a status line.
+
+    The user asked for a push at the start and end of every ping. The tick had no
+    git step at all, so a session that ended between ticks left verified work
+    uncommitted -- which is the whole thing the keep-alive is supposed to prevent.
+
+    Two deliberate limits:
+
+    * **Never `git add -A`.** Project tools rewrite tracked data files, and a
+      blanket add has already nearly shipped a wiped `functions.csv`. Only paths
+      git already tracks are staged, via `git add -u`.
+    * **Never push a failing tree.** If `tools/audit.py` is available and fails,
+      the commit is skipped and the tick says so. A keep-alive that bulldozes a
+      red audit is worse than one that does nothing.
+
+    Network is intermittent here -- `git push` failed with "Could not resolve host"
+      and later with "Recv failure: Connection was reset" -- so the push retries.
+    """
+    if getattr(a, "no_sync", False):
+        return "sync: skipped (--no-sync)"
+
+    rc, out = git("rev-parse", "--abbrev-ref", "HEAD")
+    if rc != 0:
+        return "sync: not a git repository (%s)" % out.splitlines()[-1][:60]
+
+    rc, dirty = git("status", "--porcelain")
+    lines = [l for l in dirty.splitlines() if l.strip()]
+    if lines:
+        # Audit first: never commit a tree whose own gates are red.
+        audit = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "audit.py")],
+                               capture_output=True, text=True, cwd=ROOT, timeout=900)
+        if audit.returncode != 0:
+            return ("sync: %d path(s) modified but AUDIT FAILED -- not committing"
+                    % len(lines))
+        git("add", "-u")
+        rc, msg = git("commit", "-q", "-m",
+                      "keepalive tick %d: checkpoint verified state" % st_tick(a))
+        if rc != 0:
+            return "sync: commit failed (%s)" % (msg.splitlines()[-1][:60] if msg else "?")
+
+    for attempt in range(1, 4):
+        rc, msg = git("push", "origin", "HEAD")
+        if rc == 0:
+            head = git("rev-parse", "--short", "HEAD")[1]
+            return "sync: pushed %s (attempt %d)%s" % (
+                head, attempt, " [committed]" if lines else "")
+        time.sleep(8 * attempt)
+    return "sync: PUSH FAILED after 3 attempts -- work is committed locally only"
+
+
+def st_tick(a):
+    """Current tick number, for the commit message. Kept tiny and side-effect free."""
+    st = load_state()
+    return st.get("tick", 0)
+
+
 def one_tick(a, st):
     """Do one tick's work on `st`, then persist it. Returns nothing.
 
@@ -147,6 +218,7 @@ def one_tick(a, st):
               " the authoritative figure)" % (emitted, pop, pct))
     if per:
         print("per module: %s" % per)
+    print(sync(a))
 
 
 
@@ -205,6 +277,8 @@ def main():
                          "without it one tick runs and the process exits.")
     ap.add_argument("--fast", action="store_true",
                     help="status only, no verify -- finishes in under a second")
+    ap.add_argument("--no-sync", action="store_true",
+                    help="do not commit/push during the tick (for dry runs)")
     a = ap.parse_args()
 
     # `--sleep` was the original mechanism, but it only ever delayed a single
