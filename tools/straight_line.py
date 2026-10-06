@@ -384,35 +384,89 @@ class StraightLine:
                 state[wreg(dst)] = state[wreg(src)]
                 continue
 
-            if mn in ("add", "sub") and len(ops) == 3:
-                dst, src, immtxt = ops
-                off = parse_imm(immtxt)
-                if off is None:
-                    raise Bail("add/sub third operand %r is not an immediate" % (immtxt,))
-                if mn == "sub":
-                    off = -off
-                s = state.get(wreg(src))
-                if s is None:
-                    n = arg_reg(src)
-                    used_args.add(n)
-                    ptr_args.add(n)
-                    state[wreg(dst)] = ("addr", n, off)
-                elif s[0] == "addr":
-                    state[wreg(dst)] = ("addr", s[1], s[2] + off)
-                elif s[0] == "imm":
-                    state[wreg(dst)] = ("imm", s[1] + off, s[2])
-                elif s[0] == "load" and s[3] == 8 and not s[4]:
-                    # Pointer arithmetic on a loaded pointer: `add x8, x9, #0x20`
-                    # after `ldr x9, [x0, #8]`. The load's own offset carries
-                    # through, so this is the same `addr` value with both added.
-                    if wreg(src) not in synth_of:
-                        key = SYNTH_BASE + len(synth)
-                        synth.append((key, "*(uint64_t *)(%s)"
-                                      % ptr_add(nm(s[1]), s[2])))
-                        synth_of[wreg(src)] = key
-                    state[wreg(dst)] = ("addr", synth_of[wreg(src)], off)
+                        if mn in ("add", "sub"):
+                #     add x8, x0, #0x10        x8 = x0 + 0x10   (address arith)
+                #     sub w0, w8, #1           w0 = w8 - 1      (value arith)
+                #     add x8, x9, x8, lsl #3   x8 = x9 + (x8<<3) (value arith)
+                # The translator models add/sub two ways. The first is *address*
+                # arithmetic: the source is a pointer, and the immediate adjusts
+                # its offset. The other two are *value* arithmetic on loaded or
+                # argument registers, which used to be declined -- 39 bodies were
+                # failing as "add/sub applied to a loaded value" -- because a base
+                # pointer is the only thing the register was ever treated as.
+                ops = split_ops(i.op_str)
+                if len(ops) == 3:
+                    dst, src, immtxt = ops
+                    off = parse_imm(immtxt)
+                    if off is not None:
+                        if mn == "sub":
+                            off = -off
+                        s = state.get(wreg(src))
+                        if s is None:
+                            n = arg_reg(src)
+                            used_args.add(n)
+                            ptr_args.add(n)
+                            state[wreg(dst)] = ("addr", n, off)
+                        elif s[0] == "addr":
+                            state[wreg(dst)] = ("addr", s[1], s[2] + off)
+                        elif s[0] == "imm":
+                            state[wreg(dst)] = ("imm", s[1] + off, s[2])
+                        elif s[0] == "load" and s[3] == 8 and not s[4]:
+                            # Pointer arithmetic on a loaded pointer:
+                            # `add x8, x9, #0x20` after `ldr x9, [x0, #8]`. The
+                            # load's own offset carries through.
+                            if wreg(src) not in synth_of:
+                                key = SYNTH_BASE + len(synth)
+                                synth.append((key, "*(uint64_t *)(%s)"
+                                              % ptr_add(nm(s[1]), s[2])))
+                                synth_of[wreg(src)] = key
+                            state[wreg(dst)] = ("addr", synth_of[wreg(src)], off)
+                        elif s[0] in ("load", "expr", "arg"):
+                            _ct, _ex = self._render(s, {})
+                            state[wreg(dst)] = (
+                                "expr",
+                                "(%s) %s %d" % (_ex, "+" if mn == "add" else "-", abs(off)),
+                                _ct)
+                        else:
+                            raise Bail("add/sub on a %r value: %r" % (s[0], dst))
+                        continue
+                    # Third operand is a register: value arithmetic.
+                    src_r, ext_op, shift = ops[2], None, 0
+                elif len(ops) == 4:
+                    # `add x8, x9, x8, lsl #3` -> dst, src1, src2, ext
+                    dst, src, src2 = ops[0], ops[1], ops[2]
+                    ext = ops[3]
+                    extparts = ext.split()
+                    ext_op = extparts[0]
+                    shift = int(extparts[1][1:]) if len(extparts) > 1 and extparts[1].startswith("#") else 0
+                    if ext_op not in ("lsl", "uxtw", "sxtw"):
+                        raise Bail("add/sub extend %r is not supported" % (ext,))
+                    src_r, sub_mn = src2, mn
+                    off = 0
                 else:
-                    raise Bail("add/sub applied to a loaded value: %r has no pointer form" % (dst,))
+                    raise Bail("add/sub with %d operands is not modelled" % (len(ops),))
+
+                # Value arithmetic on two registers.
+                s1 = state.get(wreg(src))
+                s2 = state.get(wreg(src_r))
+                if s1 is None or s2 is None:
+                    raise Bail("add/sub operand is not a known register")
+                if s1[0] not in ("load", "expr", "arg", "imm"):
+                    raise Bail("add/sub on a %r value is not value arithmetic" % (s1[0],))
+                if s2[0] not in ("load", "expr", "arg", "imm"):
+                    raise Bail("add/sub on a %r value is not value arithmetic" % (s2[0],))
+                _c1, _e1 = self._render(s1, {})
+                _c2, _e2 = self._render(s2, {})
+                # The third operand may be shifted/extended.
+                if len(ops) == 4:
+                    if ext_op == "lsl":
+                        _e2 = "(%s << %d)" % (_e2, shift)
+                    elif ext_op == "uxtw":
+                        _e2 = "((uint32_t)(%s))" % _e2
+                    elif ext_op == "sxtw":
+                        _e2 = "((int32_t)(%s))" % _e2
+                op = "+" if mn == "add" else "-"
+                state[wreg(dst)] = ("expr", "(%s) %s (%s)" % (_e1, op, _e2), _c1)
                 continue
 
             raise Bail("unhandled instruction %r %r" % (mn, i.op_str))
