@@ -435,11 +435,11 @@ class StraightLine:
                                 synth_of[wreg(src)] = key
                             state[wreg(dst)] = ("addr", synth_of[wreg(src)], off)
                         elif s[0] in ("load", "expr", "arg"):
-                            _ct, _ex = self._render(s, {})
+                            # Structured, so `_emit` can render it with real names.
+                            op_str = "+" if mn == "add" else "-"
                             state[wreg(dst)] = (
-                                "expr",
-                                "(%s) %s %d" % (_ex, "+" if mn == "add" else "-", abs(off)),
-                                _ct)
+                                "expr", op_str, s,
+                                ("imm", abs(off), _rw(s)), _rw(s))
                         else:
                             raise Bail("add/sub on a %r value: %r" % (s[0], dst))
                         continue
