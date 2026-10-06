@@ -108,6 +108,12 @@ def parse_imm(text):
 
 
 def parse_mem(op_str):
+    """`(base, offset)` for `[x0, #0x18]`, or `(None, None)` if not that shape.
+
+    Deliberately unchanged: it is the narrow form, and widening its return to a
+    five-tuple would touch every caller for no gain. Indexed operands go through
+    `parse_mem_idx`.
+    """
     m = re.search(r"\[([^,\]]+)(?:,\s*(#[^\]]+))?\]", op_str)
     if not m:
         return None, None
@@ -115,6 +121,44 @@ def parse_mem(op_str):
     if off is None:
         return None, None
     return m.group(1).strip(), off
+
+
+def parse_mem_idx(op_str):
+    """`(base, index, ext, scale, off)` for both plain and indexed operands.
+
+        [x0, #0x18]          -> ('x0', None, None, None, 24)
+        [x8, w1, uxtw #2]    -> ('x8', 'w1', 'uxtw', 4, 0)
+        [x0, x1, lsl #3]     -> ('x0', 'x1', 'lsl',   8, 0)
+
+    `scale` is a **byte** count. The `#n` on an ARM64 indexed operand is a *shift
+    amount*, so the multiplier is `1 << n`: `uxtw #2` scales by 4, not 2. Emitting
+    the shift directly halves every indexed access, which is wrong semantics
+    rather than a failed match, so it has to be right in the source.
+
+    `ext` fixes the index's signedness and therefore its C type: `sxtw` on a
+    `w` register is a *signed* 32-bit index, `uxtw` an unsigned one, and `lsl` on
+    an `x` register a 64-bit one.
+    """
+    m = re.fullmatch(
+        r"\[\s*([A-Za-z0-9]+)"
+        r"(?:\s*,\s*([A-Za-z0-9]+)\s*,\s*(uxtw|sxtw|lsl)(?:\s*#(0x[0-9a-f]+|\d+))?)?"
+        r"(?:\s*,\s*#(-?(?:0x)?[0-9a-fA-F]+))?\s*\]",
+        op_str.strip())
+    if not m:
+        return None, None, None, None, None
+    base, index, ext, shift, off = m.groups()
+    if index and shift is None:
+        return None, None, None, None, None
+    scale = None
+    if index:
+        scale = 1 << (int(shift, 16) if shift.lower().startswith("0x") else int(shift))
+    o = 0
+    if off:
+        try:
+            o = int(off, 16) if off.lower().lstrip("-").startswith("0x") else int(off, 0)
+        except ValueError:
+            return None, None, None, None, None
+    return base.strip(), (index.strip() if index else None), ext, scale, o
 
 
 def access_width(mn, reg):
@@ -240,19 +284,46 @@ class StraightLine:
                 raise Bail("memory base %r holds a %s, not a pointer" % (base, v[0]))
             return arg_reg(base), True
 
+        idx_args = {}      # arg number -> C type, for indexed operands
+
+        def index_expr(index, ext, scale, base_id):
+            """Address contribution of an index register, as a C expression.
+
+            The register is an incoming parameter, so it is declared here rather
+            than left implicit. Its signedness comes from the extension written
+            on the instruction: `sxtw` means a *signed* 32-bit index, and `lsl` on
+            an `x` register a 64-bit one.
+            """
+            if index[0] == "x":
+                icy = "uint64_t"
+            elif ext == "sxtw":
+                icy = "int32_t"
+            else:
+                icy = "uint32_t"
+            n = arg_reg(index)
+            idx_args[n] = icy
+            return "(uintptr_t)%s * %d" % (nm(n), scale)
+
         for i in body:
             mn = i.mnemonic
             ops = split_ops(i.op_str)
 
             if mn in LOADS and len(ops) == 2:
                 dst = ops[0]
-                base, off = parse_mem(ops[1])
+                base, index, ext, scale, off = parse_mem_idx(ops[1])
                 if base is None:
-                    raise Bail("load operand %r is not a [base, #off] reference" % (ops[1],))
+                    raise Bail("load operand %r is not a [base] or [base, index, ext] form"
+                               % (ops[1],))
                 n, real = resolve_base(base)
                 if real:
                     used_args.add(n)
                     ptr_args.add(n)
+                if index is not None:
+                    # An indexed access needs the base and the index separately;
+                    # the `addr` value carries both as one expression.
+                    ie = index_expr(index, ext, scale, n)
+                    state[wreg(dst)] = ("addr_i", n, ie, off)
+                    continue
                 w = access_width(mn, dst)
                 signed = mn in ("ldrsw", "ldursw")
                 state[wreg(dst)] = ("load", n, off, w, signed)
@@ -260,9 +331,10 @@ class StraightLine:
 
             if mn in STORES and len(ops) == 2:
                 src, mem = ops[0], ops[1]
-                base, off = parse_mem(mem)
+                base, index, ext, scale, off = parse_mem_idx(mem)
                 if base is None:
-                    raise Bail("store operand %r is not a [base, #off] reference" % (mem,))
+                    raise Bail("store operand %r is not a [base] or [base, index, ext] form"
+                               % (mem,))
                 n, real = resolve_base(base)
                 if real:
                     used_args.add(n)
@@ -290,7 +362,11 @@ class StraightLine:
                         state[wreg(src)] = ("arg", an)
                 if wreg(src) not in state:
                     raise Bail("store source %r is never written by the body" % (src,))
-                stmts.append((w, n, off, state[wreg(src)]))
+                if index is not None:
+                    ie = index_expr(index, ext, scale, n)
+                    stmts.append((w, n, off, state[wreg(src)], ie))
+                else:
+                    stmts.append((w, n, off, state[wreg(src)]))
                 continue
 
             if mn == "mov" and len(ops) == 2:
