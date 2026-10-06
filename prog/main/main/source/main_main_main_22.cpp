@@ -1833,7 +1833,7 @@ void sub_165ad50() { /* 0x165ad50 */ }
 void sub_165ad70() { /* 0x165ad70 */ }
 void sub_165ae10() { /* 0x165ae10 */ }
 void sub_165aeb0() { /* 0x165aeb0 */ }
-void sub_165af60() { /* 0x165af60 */ }
+// sub_165af60: implemented in prog/matched/main/
 // sub_165af80: implemented in prog/matched/main/
 void sub_165af90() { /* 0x165af90 */ }
 void sub_165b040() { /* 0x165b040 */ }

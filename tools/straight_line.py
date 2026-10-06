@@ -340,6 +340,7 @@ class StraightLine:
         plist = ", ".join(decls)
 
         body_txt = []
+        pre = []          # locals that must exist before the stores
         for w, n, off, val in stmts:
             ct, expr = self._render(val, names)
             # An address expression may only be stored at pointer width. Storing
@@ -361,7 +362,27 @@ class StraightLine:
             # every legitimate pointer store to fix one illegitimate narrow one.
             if val[0] == "addr" and w != 8:
                 raise Bail("storing a pointer through a %d-byte type is ill-formed" % (w,))
-            if ct != U[w]:
+            if val[0] == "imm" and ct != U[w]:
+                # An immediate stored through a *wider* type has to live in a
+                # variable of its own width, or the cast is folded away.
+                #
+                #     mov w8, #-1 ; str x8, [x0]        -> stores 0x00000000ffffffff
+                #     mov x8, #-1 ; str x8, [x0]        -> stores 0xffffffffffffffff
+                #
+                # Writing `*(uint64_t *)p = (uint64_t)(-1);` asks for the second
+                # one, and Clang duly folds it to a single `mov x8, #-1`. The
+                # width of the original's *register* is what carries the
+                # distinction, and only a variable of that width preserves it:
+                #
+                #     uint32_t k0 = -1;  *(uint64_t *)p = (uint64_t)k0;
+                #
+                # which is the original's two instructions. The same reasoning as
+                # the store-width rule -- the register class decides the type,
+                # never the store's width.
+                k = "k%d" % len(pre)
+                pre.append("%s %s = %d;" % (ct, k, val[1]))
+                expr = "(%s)%s" % (U[w], k)
+            elif ct != U[w]:
                 expr = "(%s)(%s)" % (U[w], expr)
             body_txt.append("*(%s*)(%s) = %s;"
                             % (U[w], ptr_add(names[n], off), expr))
@@ -386,15 +407,17 @@ class StraightLine:
         # renderable; a value in some other register is not a return.
         ret_val = state.get("x0")
 
+        all_txt = pre + body_txt
+
         if ret_val is None:
-            if not body_txt:
+            if not all_txt:
                 return "void %s() {}\n" % ident, "v"
             return "void %s(%s) {\n    %s\n}\n" % (
-                ident, plist, "\n    ".join(body_txt)), sig
+                ident, plist, "\n    ".join(all_txt)), sig
 
         rct, rexpr = self._render(ret_val, names)
-        if not body_txt:
+        if not all_txt:
             return "%s %s(%s) { return %s; }\n" % (
                 rct, ident, plist, rexpr), sig
         return "%s %s(%s) {\n    %s\n    return %s;\n}\n" % (
-            rct, ident, plist, "\n    ".join(body_txt), rexpr), sig
+            rct, ident, plist, "\n    ".join(all_txt), rexpr), sig

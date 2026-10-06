@@ -2044,7 +2044,7 @@ void sub_e5d50_subsdk0_e5d50() { /* 0xe5d50 */ }
 void sub_e5e00() { /* 0xe5e00 */ }
 void sub_e5eb0_subsdk0_e5eb0() { /* 0xe5eb0 */ }
 void sub_e6100() { /* 0xe6100 */ }
-void sub_e61a0() { /* 0xe61a0 */ }
+// sub_e61a0: implemented in prog/matched/subsdk0/
 void sub_e61d0() { /* 0xe61d0 */ }
 void sub_e6320() { /* 0xe6320 */ }
 void sub_e6470() { /* 0xe6470 */ }

@@ -6651,7 +6651,7 @@
 0x00000000000e8940,sub_e8940,176,_ZN3sdk9sub_e8940Ev!
 0x00000000000e89f0,sub_e89f0,588,_ZN3sdk9sub_e89f0Ev!
 0x00000000000e8c40,sub_e8c40,148,_ZN3sdk9sub_e8c40Ev!
-0x00000000000e8ce0,sub_e8ce0,44,_ZN3sdk19sub_e8ce0_sdk_e8ce0Ev!
+0x00000000000e8ce0,sub_e8ce0,44,_Z11sdk_f_e8ce0Pvmm
 0x00000000000e8d10,sub_e8d10,324,_ZN3sdk9sub_e8d10Ev!
 0x00000000000e8e60,sub_e8e60,332,_ZN3sdk9sub_e8e60Ev!
 0x00000000000e8fb0,sub_e8fb0,296,_ZN3sdk19sub_e8fb0_sdk_e8fb0Ev!

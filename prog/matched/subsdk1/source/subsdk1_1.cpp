@@ -979,7 +979,8 @@ bool subsdk1_f_42960(void* a0, uint64_t a1) { return (uint64_t)(*(uint64_t*)((ch
 
 // sub_42970  (orig 0x42970, straight)
 void subsdk1_f_42970(void* a0) {
-    *(uint8_t*)((char*)(a0) + 16) = (uint8_t)(1);
+    uint32_t k0 = 1;
+    *(uint8_t*)((char*)(a0) + 16) = (uint8_t)k0;
 }
 
 // sub_42980  (orig 0x42980, setter)
@@ -987,8 +988,9 @@ void subsdk1_f_42980(void* a0) { *(uint8_t*)((char*)(a0) + 16) = 0; }
 
 // sub_43500  (orig 0x43500, straight)
 void subsdk1_f_43500(uint64_t unused0, uint64_t unused1, uint64_t unused2, void* a3) {
+    uint32_t k0 = 17224;
     *(uint8_t*)((char*)(a3) + 2) = 0;
-    *(uint16_t*)((char*)(a3)) = (uint16_t)(17224);
+    *(uint16_t*)((char*)(a3)) = (uint16_t)k0;
 }
 
 // sub_448b0  (orig 0x448b0, setter-chain)
@@ -3771,7 +3773,8 @@ void subsdk1_f_496fb0() {}
 
 // sub_49f680  (orig 0x49f680, straight)
 void subsdk1_f_49f680(void* a0) {
-    *(uint8_t*)((char*)(a0) + 113) = (uint8_t)(1);
+    uint32_t k0 = 1;
+    *(uint8_t*)((char*)(a0) + 113) = (uint8_t)k0;
 }
 
 // sub_4a0300  (orig 0x4a0300, straight)

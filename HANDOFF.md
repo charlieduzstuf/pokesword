@@ -36,7 +36,7 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-27,840 / 152,062  =  18.31%
+27,844 / 152,062  =  18.31%
 ```
 
 `tools/match_progress.py` is the only authoritative figure. Do not copy a number
@@ -182,7 +182,7 @@ all (the tailcall round reported +9,083 and delivered zero).
 | `decomp/docs/const_field_set.md` | **a recorded dead end that was really the flag bug** — 180 bodies, no barrier needed |
 | `decomp/docs/check_py_vacuous_match.md` | **332 "matches" that were not matches** — `zip` over an empty comparison returns equal |
 | `decomp/docs/flag_fidelity.md` | **the 26 bodies that only matched under the wrong flags** — the worst bug here, because it was invisible |
-| `decomp/docs/straight_line.md` | the generic fallback: 84 candidates, 0 matches, and why the "42 of 84" figure was wrong |
+| `decomp/docs/straight_line.md` | **the "84 candidates, 0 matches" verdict was wrong twice** — flags, then 1,033 declines that raised `Bail` with no message |
 | `decomp/docs/remaining.md` | **what is left and what blocks it** — read this next |
 | `decomp/docs/yield_sweep.md` | **which registered generators are dead** — measured, per shape |
 | `decomp/docs/struct_copy.md` | the 374 `struct-copy` bodies: two families, real disassembly, and the open question about whether either is reachable from C |

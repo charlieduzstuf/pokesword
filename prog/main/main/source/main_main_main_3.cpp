@@ -3019,7 +3019,7 @@ void sub_521770() { /* 0x521770 */ }
 void sub_5217f0() { /* 0x5217f0 */ }
 void DLCRoundBold() { /* 0x521870 */ }
 void sub_522680() { /* 0x522680 */ }
-void sub_522740() { /* 0x522740 */ }
+// sub_522740: implemented in prog/matched/main/
 void sub_522760() { /* 0x522760 */ }
 void sub_522790() { /* 0x522790 */ }
 void sub_5227a0() { /* 0x5227a0 */ }

@@ -2647,7 +2647,7 @@ void sub_e8890() { /* 0xe8890 */ }
 void sub_e8940() { /* 0xe8940 */ }
 void sub_e89f0() { /* 0xe89f0 */ }
 void sub_e8c40() { /* 0xe8c40 */ }
-void sub_e8ce0_sdk_e8ce0() { /* 0xe8ce0 */ }
+// sub_e8ce0_sdk_e8ce0: implemented in prog/matched/sdk/
 void sub_e8d10() { /* 0xe8d10 */ }
 void sub_e8e60() { /* 0xe8e60 */ }
 void sub_e8fb0_sdk_e8fb0() { /* 0xe8fb0 */ }
