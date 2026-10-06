@@ -3319,10 +3319,10 @@ void sub_4cd700() { /* 0x4cd700 */ }
 // sub_4cd950: implemented in prog/matched/subsdk1/
 // sub_4cd960: implemented in prog/matched/subsdk1/
 // sub_4cd970: implemented in prog/matched/subsdk1/
-void sub_4cd980() { /* 0x4cd980 */ }
-void sub_4cd990() { /* 0x4cd990 */ }
-void sub_4cd9a0() { /* 0x4cd9a0 */ }
-void sub_4cd9b0() { /* 0x4cd9b0 */ }
+// sub_4cd980: implemented in prog/matched/subsdk1/
+// sub_4cd990: implemented in prog/matched/subsdk1/
+// sub_4cd9a0: implemented in prog/matched/subsdk1/
+// sub_4cd9b0: implemented in prog/matched/subsdk1/
 // sub_4cd9c0: implemented in prog/matched/subsdk1/
 // sub_4cd9d0: implemented in prog/matched/subsdk1/
 void sub_4cd9e0_subsdk1_4cd9e0() { /* 0x4cd9e0 */ }
@@ -3346,7 +3346,7 @@ void sub_4cda60() { /* 0x4cda60 */ }
 // sub_4cdb30: implemented in prog/matched/subsdk1/
 // sub_4cdb40: implemented in prog/matched/subsdk1/
 // sub_4cdb50: implemented in prog/matched/subsdk1/
-void sub_4cdb60() { /* 0x4cdb60 */ }
+// sub_4cdb60: implemented in prog/matched/subsdk1/
 // sub_4cdb70: implemented in prog/matched/subsdk1/
 // sub_4cdb80: implemented in prog/matched/subsdk1/
 // sub_4cdb90: implemented in prog/matched/subsdk1/
@@ -3354,8 +3354,8 @@ void sub_4cdb60() { /* 0x4cdb60 */ }
 // sub_4cdbb0_subsdk1_4cdbb0: implemented in prog/matched/subsdk1/
 // sub_4cdbc0: implemented in prog/matched/subsdk1/
 // sub_4cdbd0: implemented in prog/matched/subsdk1/
-void sub_4cdbe0() { /* 0x4cdbe0 */ }
-void sub_4cdbf0() { /* 0x4cdbf0 */ }
+// sub_4cdbe0: implemented in prog/matched/subsdk1/
+// sub_4cdbf0: implemented in prog/matched/subsdk1/
 // sub_4cdc00: implemented in prog/matched/subsdk1/
 // sub_4cdc10: implemented in prog/matched/subsdk1/
 // sub_4cdc20: implemented in prog/matched/subsdk1/
@@ -3419,8 +3419,8 @@ void sub_4cdc50() { /* 0x4cdc50 */ }
 // sub_4cdff0: implemented in prog/matched/subsdk1/
 // sub_4ce000: implemented in prog/matched/subsdk1/
 // sub_4ce010: implemented in prog/matched/subsdk1/
-void sub_4ce020() { /* 0x4ce020 */ }
-void sub_4ce030() { /* 0x4ce030 */ }
+// sub_4ce020: implemented in prog/matched/subsdk1/
+// sub_4ce030: implemented in prog/matched/subsdk1/
 // sub_4ce040: implemented in prog/matched/subsdk1/
 // sub_4ce050: implemented in prog/matched/subsdk1/
 // sub_4ce060_subsdk1_4ce060: implemented in prog/matched/subsdk1/

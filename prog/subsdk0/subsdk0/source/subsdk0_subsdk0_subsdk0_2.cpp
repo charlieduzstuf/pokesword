@@ -77,7 +77,7 @@ void sub_258b20_subsdk0_258b20() { /* 0x258b20 */ }
 void sub_258b90() { /* 0x258b90 */ }
 void sub_258bf0() { /* 0x258bf0 */ }
 void sub_258cb0() { /* 0x258cb0 */ }
-void sub_258d80() { /* 0x258d80 */ }
+// sub_258d80: implemented in prog/matched/subsdk0/
 void sub_258da0() { /* 0x258da0 */ }
 void sub_258e10() { /* 0x258e10 */ }
 void sub_258e90() { /* 0x258e90 */ }
@@ -311,15 +311,15 @@ void sub_26d0a0() { /* 0x26d0a0 */ }
 void sub_26d120() { /* 0x26d120 */ }
 void sub_26d1d0() { /* 0x26d1d0 */ }
 void sub_26d210() { /* 0x26d210 */ }
-void sub_26d220() { /* 0x26d220 */ }
+// sub_26d220: implemented in prog/matched/subsdk0/
 void sub_26d240() { /* 0x26d240 */ }
 void sub_26d2c0() { /* 0x26d2c0 */ }
-void sub_26d2d0() { /* 0x26d2d0 */ }
-void sub_26d2f0() { /* 0x26d2f0 */ }
+// sub_26d2d0: implemented in prog/matched/subsdk0/
+// sub_26d2f0: implemented in prog/matched/subsdk0/
 void sub_26d310() { /* 0x26d310 */ }
 void sub_26d320() { /* 0x26d320 */ }
 void sub_26d350() { /* 0x26d350 */ }
-void sub_26d370() { /* 0x26d370 */ }
+// sub_26d370: implemented in prog/matched/subsdk0/
 void sub_26d390() { /* 0x26d390 */ }
 void sub_26d3b0() { /* 0x26d3b0 */ }
 void sub_26d4f0() { /* 0x26d4f0 */ }
@@ -358,7 +358,7 @@ void sub_26e650() { /* 0x26e650 */ }
 void sub_26e6b0() { /* 0x26e6b0 */ }
 void sub_26e730() { /* 0x26e730 */ }
 void sub_26e790() { /* 0x26e790 */ }
-void sub_26e820() { /* 0x26e820 */ }
+// sub_26e820: implemented in prog/matched/subsdk0/
 void sub_26e840() { /* 0x26e840 */ }
 void sub_26e890() { /* 0x26e890 */ }
 void sub_26e910() { /* 0x26e910 */ }
@@ -385,7 +385,7 @@ void sub_26f440_subsdk0_26f440() { /* 0x26f440 */ }
 void sub_26f4c0() { /* 0x26f4c0 */ }
 // sub_26f870: implemented in prog/matched/subsdk0/
 void sub_26f880() { /* 0x26f880 */ }
-void sub_26f900() { /* 0x26f900 */ }
+// sub_26f900: implemented in prog/matched/subsdk0/
 void sub_26f920_subsdk0_26f920() { /* 0x26f920 */ }
 void sub_26fa30() { /* 0x26fa30 */ }
 void sub_26fa80() { /* 0x26fa80 */ }
@@ -719,7 +719,7 @@ void sub_293830() { /* 0x293830 */ }
 void sub_2938b0() { /* 0x2938b0 */ }
 void sub_293ab0_subsdk0_293ab0() { /* 0x293ab0 */ }
 void sub_293af0() { /* 0x293af0 */ }
-void sub_293b10() { /* 0x293b10 */ }
+// sub_293b10: implemented in prog/matched/subsdk0/
 void sub_293b30() { /* 0x293b30 */ }
 void iv_renderer_rgb565() { /* 0x293b40 */ }
 void sub_293f60_subsdk0_293f60() { /* 0x293f60 */ }
@@ -823,7 +823,7 @@ void sub_29b920() { /* 0x29b920 */ }
 void OMX_Nvidia_video_extractor() { /* 0x29b930 */ }
 void sub_29ba40() { /* 0x29ba40 */ }
 void sub_29ba70() { /* 0x29ba70 */ }
-void sub_29ba90() { /* 0x29ba90 */ }
+// sub_29ba90: implemented in prog/matched/subsdk0/
 void sub_29bab0() { /* 0x29bab0 */ }
 void sub_29bb60() { /* 0x29bb60 */ }
 void sub_29bb90() { /* 0x29bb90 */ }

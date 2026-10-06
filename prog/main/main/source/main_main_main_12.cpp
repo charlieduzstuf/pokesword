@@ -3226,7 +3226,7 @@ void sub_dd36b0() { /* 0xdd36b0 */ }
 void sub_dd3700() { /* 0xdd3700 */ }
 void sub_dd37b0() { /* 0xdd37b0 */ }
 void sub_dd3b60() { /* 0xdd3b60 */ }
-void sub_dd3cc0() { /* 0xdd3cc0 */ }
+// sub_dd3cc0: implemented in prog/matched/main/
 void sub_dd3ce0() { /* 0xdd3ce0 */ }
 void sub_dd3d00() { /* 0xdd3d00 */ }
 void sub_dd3d50() { /* 0xdd3d50 */ }

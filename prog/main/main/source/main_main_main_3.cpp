@@ -3611,7 +3611,7 @@ void sub_550b10() { /* 0x550b10 */ }
 void sub_550c20() { /* 0x550c20 */ }
 void sub_550d30() { /* 0x550d30 */ }
 void sub_550e40() { /* 0x550e40 */ }
-void sub_550f20() { /* 0x550f20 */ }
+// sub_550f20: implemented in prog/matched/main/
 // sub_550f30: implemented in prog/matched/main/
 // sub_550f40: implemented in prog/matched/main/
 void sub_550f50() { /* 0x550f50 */ }

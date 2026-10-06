@@ -321,7 +321,7 @@ void sub_132b850() { /* 0x132b850 */ }
 void sub_132b8b0() { /* 0x132b8b0 */ }
 void sub_132b930() { /* 0x132b930 */ }
 void sub_132b990() { /* 0x132b990 */ }
-void sub_132b9f0() { /* 0x132b9f0 */ }
+// sub_132b9f0: implemented in prog/matched/main/
 // sub_132ba10: implemented in prog/matched/main/
 void sub_132ba20() { /* 0x132ba20 */ }
 void sub_132ba30() { /* 0x132ba30 */ }

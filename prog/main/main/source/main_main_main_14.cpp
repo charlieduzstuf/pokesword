@@ -1734,7 +1734,7 @@ void sub_f7feb0() { /* 0xf7feb0 */ }
 void sub_f7ff10() { /* 0xf7ff10 */ }
 void sub_f7ff80() { /* 0xf7ff80 */ }
 void sub_f7fff0() { /* 0xf7fff0 */ }
-void sub_f801c0() { /* 0xf801c0 */ }
+// sub_f801c0: implemented in prog/matched/main/
 // sub_f801e0: implemented in prog/matched/main/
 // sub_f801f0: implemented in prog/matched/main/
 // sub_f80200: implemented in prog/matched/main/
@@ -1786,11 +1786,11 @@ void sub_f80940() { /* 0xf80940 */ }
 // sub_f80950: implemented in prog/matched/main/
 // sub_f80960: implemented in prog/matched/main/
 // sub_f80970: implemented in prog/matched/main/
-void sub_f80980() { /* 0xf80980 */ }
+// sub_f80980: implemented in prog/matched/main/
 // sub_f809a0: implemented in prog/matched/main/
 // sub_f809b0: implemented in prog/matched/main/
 // sub_f809c0: implemented in prog/matched/main/
-void sub_f809d0() { /* 0xf809d0 */ }
+// sub_f809d0: implemented in prog/matched/main/
 // sub_f809f0: implemented in prog/matched/main/
 // sub_f80a00: implemented in prog/matched/main/
 // sub_f80a10: implemented in prog/matched/main/
@@ -1888,7 +1888,7 @@ void sub_f858f0() { /* 0xf858f0 */ }
 // sub_f85920: implemented in prog/matched/main/
 // sub_f85930: implemented in prog/matched/main/
 // sub_f85940: implemented in prog/matched/main/
-void sub_f85950() { /* 0xf85950 */ }
+// sub_f85950: implemented in prog/matched/main/
 // sub_f85970: implemented in prog/matched/main/
 // sub_f85980: implemented in prog/matched/main/
 // sub_f85990: implemented in prog/matched/main/
@@ -2037,7 +2037,7 @@ void sub_f89300() { /* 0xf89300 */ }
 // sub_f89520: implemented in prog/matched/main/
 // sub_f89530: implemented in prog/matched/main/
 // sub_f89540: implemented in prog/matched/main/
-void sub_f89550() { /* 0xf89550 */ }
+// sub_f89550: implemented in prog/matched/main/
 // sub_f89570: implemented in prog/matched/main/
 // sub_f89580: implemented in prog/matched/main/
 // sub_f89590: implemented in prog/matched/main/
@@ -2185,7 +2185,7 @@ void sub_f8ff50() { /* 0xf8ff50 */ }
 // sub_f90080: implemented in prog/matched/main/
 // sub_f90090: implemented in prog/matched/main/
 // sub_f900a0: implemented in prog/matched/main/
-void sub_f900b0() { /* 0xf900b0 */ }
+// sub_f900b0: implemented in prog/matched/main/
 // sub_f900d0: implemented in prog/matched/main/
 // sub_f900e0: implemented in prog/matched/main/
 // sub_f900f0: implemented in prog/matched/main/
@@ -2208,7 +2208,7 @@ void sub_f90b50() { /* 0xf90b50 */ }
 // sub_f90c40: implemented in prog/matched/main/
 // sub_f90c50: implemented in prog/matched/main/
 // sub_f90c60: implemented in prog/matched/main/
-void sub_f90c70() { /* 0xf90c70 */ }
+// sub_f90c70: implemented in prog/matched/main/
 // sub_f90c90: implemented in prog/matched/main/
 // sub_f90ca0: implemented in prog/matched/main/
 // sub_f90cb0: implemented in prog/matched/main/
@@ -3614,7 +3614,7 @@ void sub_fd8720() { /* 0xfd8720 */ }
 void sub_fd8750() { /* 0xfd8750 */ }
 // sub_fd8770: implemented in prog/matched/main/
 void sub_fd8780() { /* 0xfd8780 */ }
-void sub_fd87a0() { /* 0xfd87a0 */ }
+// sub_fd87a0: implemented in prog/matched/main/
 void sub_fd87b0() { /* 0xfd87b0 */ }
 void sub_fd87d0() { /* 0xfd87d0 */ }
 void sub_fd8830() { /* 0xfd8830 */ }

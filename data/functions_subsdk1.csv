@@ -6612,7 +6612,7 @@
 0x00000000002c3ac0,sub_2c3ac0,8,_Z16subsdk1_f_2c3ac0mm
 0x00000000002c3ad0,sub_2c3ad0,148,_ZN7subsdk110sub_2c3ad0Ev!
 0x00000000002c3b70,sub_2c3b70,84,_ZN7subsdk110sub_2c3b70Ev!
-0x00000000002c3bd0,sub_2c3bd0,16,_ZN7subsdk110sub_2c3bd0Ev!
+0x00000000002c3bd0,sub_2c3bd0,16,_Z16subsdk1_f_2c3bd0Pv
 0x00000000002c3be0,sub_2c3be0,36,_ZN7subsdk125sub_2c3be0_subsdk1_2c3be0Ev!
 0x00000000002c3c10,sub_2c3c10,92,_ZN7subsdk110sub_2c3c10Ev!
 0x00000000002c3c70,sub_2c3c70,288,_ZN7subsdk110sub_2c3c70Ev!
@@ -11393,10 +11393,10 @@
 0x00000000004cd950,sub_4cd950,12,_Z16subsdk1_f_4cd950Pv
 0x00000000004cd960,sub_4cd960,12,_Z16subsdk1_f_4cd960Pv
 0x00000000004cd970,sub_4cd970,12,_Z16subsdk1_f_4cd970Pv
-0x00000000004cd980,sub_4cd980,12,_ZN7subsdk110sub_4cd980Ev!
-0x00000000004cd990,sub_4cd990,12,_ZN7subsdk110sub_4cd990Ev!
-0x00000000004cd9a0,sub_4cd9a0,12,_ZN7subsdk110sub_4cd9a0Ev!
-0x00000000004cd9b0,sub_4cd9b0,12,_ZN7subsdk110sub_4cd9b0Ev!
+0x00000000004cd980,sub_4cd980,12,_Z16subsdk1_f_4cd980Pv
+0x00000000004cd990,sub_4cd990,12,_Z16subsdk1_f_4cd990Pv
+0x00000000004cd9a0,sub_4cd9a0,12,_Z16subsdk1_f_4cd9a0Pv
+0x00000000004cd9b0,sub_4cd9b0,12,_Z16subsdk1_f_4cd9b0Pv
 0x00000000004cd9c0,sub_4cd9c0,8,_Z16subsdk1_f_4cd9c0v
 0x00000000004cd9d0,sub_4cd9d0,8,_Z16subsdk1_f_4cd9d0v
 0x00000000004cd9e0,sub_4cd9e0,24,_ZN7subsdk125sub_4cd9e0_subsdk1_4cd9e0Ev!
@@ -11420,7 +11420,7 @@
 0x00000000004cdb30,sub_4cdb30,12,_Z16subsdk1_f_4cdb30Pv
 0x00000000004cdb40,sub_4cdb40,12,_Z16subsdk1_f_4cdb40Pv
 0x00000000004cdb50,sub_4cdb50,12,_Z16subsdk1_f_4cdb50Pv
-0x00000000004cdb60,sub_4cdb60,12,_ZN7subsdk110sub_4cdb60Ev!
+0x00000000004cdb60,sub_4cdb60,12,_Z16subsdk1_f_4cdb60Pv
 0x00000000004cdb70,sub_4cdb70,12,_Z16subsdk1_f_4cdb70Pv
 0x00000000004cdb80,sub_4cdb80,12,_Z16subsdk1_f_4cdb80Pv
 0x00000000004cdb90,sub_4cdb90,12,_Z16subsdk1_f_4cdb90Pv
@@ -11428,8 +11428,8 @@
 0x00000000004cdbb0,sub_4cdbb0,12,_Z16subsdk1_f_4cdbb0Pv
 0x00000000004cdbc0,sub_4cdbc0,12,_Z16subsdk1_f_4cdbc0Pv
 0x00000000004cdbd0,sub_4cdbd0,12,_Z16subsdk1_f_4cdbd0Pv
-0x00000000004cdbe0,sub_4cdbe0,12,_ZN7subsdk110sub_4cdbe0Ev!
-0x00000000004cdbf0,sub_4cdbf0,12,_ZN7subsdk110sub_4cdbf0Ev!
+0x00000000004cdbe0,sub_4cdbe0,12,_Z16subsdk1_f_4cdbe0Pv
+0x00000000004cdbf0,sub_4cdbf0,12,_Z16subsdk1_f_4cdbf0Pv
 0x00000000004cdc00,sub_4cdc00,12,_Z16subsdk1_f_4cdc00Pv
 0x00000000004cdc10,sub_4cdc10,12,_Z16subsdk1_f_4cdc10Pv
 0x00000000004cdc20,sub_4cdc20,12,_Z16subsdk1_f_4cdc20Pv
@@ -11496,8 +11496,8 @@
 0x00000000004cdff0,sub_4cdff0,8,_Z16subsdk1_f_4cdff0mPv
 0x00000000004ce000,sub_4ce000,12,_Z16subsdk1_f_4ce000Pv
 0x00000000004ce010,sub_4ce010,12,_Z16subsdk1_f_4ce010Pv
-0x00000000004ce020,sub_4ce020,12,_ZN7subsdk110sub_4ce020Ev!
-0x00000000004ce030,sub_4ce030,12,_ZN7subsdk110sub_4ce030Ev!
+0x00000000004ce020,sub_4ce020,12,_Z16subsdk1_f_4ce020Pv
+0x00000000004ce030,sub_4ce030,12,_Z16subsdk1_f_4ce030Pv
 0x00000000004ce040,sub_4ce040,12,_Z16subsdk1_f_4ce040Pv
 0x00000000004ce050,sub_4ce050,12,_Z16subsdk1_f_4ce050Pv
 0x00000000004ce060,sub_4ce060,12,_Z16subsdk1_f_4ce060Pv

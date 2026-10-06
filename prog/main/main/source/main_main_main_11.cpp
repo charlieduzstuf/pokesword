@@ -3162,7 +3162,7 @@ void sub_c9de70() { /* 0xc9de70 */ }
 void sub_c9e0d0() { /* 0xc9e0d0 */ }
 void fi_unique_event() { /* 0xc9e2a0 */ }
 void sub_c9e5f0() { /* 0xc9e5f0 */ }
-void sub_c9e610() { /* 0xc9e610 */ }
+// sub_c9e610: implemented in prog/matched/main/
 void fi_unique_event_2() { /* 0xc9e630 */ }
 void kw20_drowse01_Enabled_2() { /* 0xc9e820 */ }
 void fi_common_event_2() { /* 0xc9ea20 */ }

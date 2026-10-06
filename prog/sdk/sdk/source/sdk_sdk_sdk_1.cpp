@@ -512,8 +512,8 @@ void sub_86b80() { /* 0x86b80 */ }
 // sub_86c20: implemented in prog/matched/sdk/
 // sub_86c30: implemented in prog/matched/sdk/
 // sub_86c40: implemented in prog/matched/sdk/
-void sub_86c50() { /* 0x86c50 */ }
-void sub_86c70() { /* 0x86c70 */ }
+// sub_86c50: implemented in prog/matched/sdk/
+// sub_86c70: implemented in prog/matched/sdk/
 void sub_86c90() { /* 0x86c90 */ }
 void sub_86d30() { /* 0x86d30 */ }
 // sub_86d50: implemented in prog/matched/sdk/
@@ -657,7 +657,7 @@ void sub_89bb0() { /* 0x89bb0 */ }
 void sub_89bd0() { /* 0x89bd0 */ }
 void sub_89c30() { /* 0x89c30 */ }
 void sub_89c80() { /* 0x89c80 */ }
-void sub_89ca0() { /* 0x89ca0 */ }
+// sub_89ca0: implemented in prog/matched/sdk/
 void sub_89cb0() { /* 0x89cb0 */ }
 void sub_89d90() { /* 0x89d90 */ }
 void sub_89e20() { /* 0x89e20 */ }

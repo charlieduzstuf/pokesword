@@ -971,7 +971,7 @@ void sub_687ab0() { /* 0x687ab0 */ }
 void sub_687cc0() { /* 0x687cc0 */ }
 void sub_687cf0() { /* 0x687cf0 */ }
 void sub_687d30() { /* 0x687d30 */ }
-void sub_687de0() { /* 0x687de0 */ }
+// sub_687de0: implemented in prog/matched/main/
 void sub_687df0() { /* 0x687df0 */ }
 void sub_687e80() { /* 0x687e80 */ }
 void sub_687f10() { /* 0x687f10 */ }

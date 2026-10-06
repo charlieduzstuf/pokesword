@@ -46,6 +46,9 @@ STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
 
 MAX_INSNS = 14        # beyond this, hand decomp is the better use of time
 MAX_ARG = 4           # x0..x3 are the only argument registers we will model
+# Synthetic base ids for loaded pointers. Kept far above any real argument
+# number so `id < SYNTH_BASE` distinguishes them without a second type.
+SYNTH_BASE = 1000
 
 
 class Bail(Exception):
@@ -158,6 +161,17 @@ def ptr_add(base, off):
     return "%s + %dL" % (b, off)
 
 
+def nm(n):
+    """C name for a base id: a real argument, or a synthetic pointer.
+
+    Synthetic ids are `SYNTH_BASE + index` and their locals are `p<index>`,
+    declared in allocation order, so a synthetic pointer may reference an
+    earlier one. Module level rather than a closure because `_emit` needs it
+    too, and `_emit` is not nested inside `translate`.
+    """
+    return "a%d" % n if n < SYNTH_BASE else "p%d" % (n - SYNTH_BASE)
+
+
 def arg_reg(base):
     """The argument-register number for a memory base, or raise Bail."""
     if base == "sp":
@@ -189,6 +203,43 @@ class StraightLine:
         used_args = set()      # every argument register the body reads
         stmts = []             # (width, base_reg, offset, value) deferred
 
+        # A memory base may be a *loaded pointer*, not only an incoming argument.
+        #
+        #     ldr x9, [x0, #0x30]
+        #     ldr x8, [x9, #0x48]        <- base x9 was never an argument
+        #
+        # `arg_reg` rejects anything outside x0-x3, so every such body was
+        # declined -- 236 of them, the largest bail class here, with a further
+        # 148 declined because `add`/`sub` was applied to a loaded value. Each
+        # loaded pointer gets a synthetic id and a `void *` local, which is
+        # exactly what the original's register holds.
+        synth = []             # (id, initialiser expression), in allocation order
+        synth_of = {}          # register -> id, so one load feeds one local
+
+        def resolve_base(base):
+            """(id, is_real_arg) for a memory base register, or raise Bail."""
+            if base == "sp":
+                raise Bail("memory base is sp: a stack slot is not modelled")
+            r = wreg(base)
+            if r in state:
+                if r in synth_of:
+                    return synth_of[r], False
+                v = state[r]
+                if v[0] == "addr":
+                    # Already a pointer: either an argument plus displacement, or
+                    # a synthetic pointer. Reuse its id rather than inventing a
+                    # second local for the same address.
+                    return v[1], False
+                # Only an unsigned 64-bit load can be a pointer. A signed one is
+                # a value, and guessing here would silently mis-type the access.
+                if v[0] == "load" and v[3] == 8 and not v[4]:
+                    key = SYNTH_BASE + len(synth)
+                    synth.append((key, "*(uint64_t *)(%s)" % ptr_add(nm(v[1]), v[2])))
+                    synth_of[r] = key
+                    return key, False
+                raise Bail("memory base %r holds a %s, not a pointer" % (base, v[0]))
+            return arg_reg(base), True
+
         for i in body:
             mn = i.mnemonic
             ops = split_ops(i.op_str)
@@ -198,9 +249,10 @@ class StraightLine:
                 base, off = parse_mem(ops[1])
                 if base is None:
                     raise Bail("load operand %r is not a [base, #off] reference" % (ops[1],))
-                n = arg_reg(base)
-                used_args.add(n)
-                ptr_args.add(n)
+                n, real = resolve_base(base)
+                if real:
+                    used_args.add(n)
+                    ptr_args.add(n)
                 w = access_width(mn, dst)
                 signed = mn in ("ldrsw", "ldursw")
                 state[wreg(dst)] = ("load", n, off, w, signed)
@@ -211,9 +263,10 @@ class StraightLine:
                 base, off = parse_mem(mem)
                 if base is None:
                     raise Bail("store operand %r is not a [base, #off] reference" % (mem,))
-                n = arg_reg(base)
-                used_args.add(n)
-                ptr_args.add(n)
+                n, real = resolve_base(base)
+                if real:
+                    used_args.add(n)
+                    ptr_args.add(n)
                 w = access_width(mn, src)
                 if w not in U:
                     raise Bail("%d-byte access through %r is not modelled" % (w, src))
@@ -272,13 +325,23 @@ class StraightLine:
                     state[wreg(dst)] = ("addr", s[1], s[2] + off)
                 elif s[0] == "imm":
                     state[wreg(dst)] = ("imm", s[1] + off, s[2])
+                elif s[0] == "load" and s[3] == 8 and not s[4]:
+                    # Pointer arithmetic on a loaded pointer: `add x8, x9, #0x20`
+                    # after `ldr x9, [x0, #8]`. The load's own offset carries
+                    # through, so this is the same `addr` value with both added.
+                    if wreg(src) not in synth_of:
+                        key = SYNTH_BASE + len(synth)
+                        synth.append((key, "*(uint64_t *)(%s)"
+                                      % ptr_add(nm(s[1]), s[2])))
+                        synth_of[wreg(src)] = key
+                    state[wreg(dst)] = ("addr", synth_of[wreg(src)], off)
                 else:
                     raise Bail("add/sub applied to a loaded value: %r has no pointer form" % (dst,))
                 continue
 
             raise Bail("unhandled instruction %r %r" % (mn, i.op_str))
 
-        return self._emit(ident, state, stmts, used_args, ptr_args)
+        return self._emit(ident, state, stmts, used_args, ptr_args, synth)
 
     def _render(self, val, names):
         kind = val[0]
@@ -297,7 +360,7 @@ class StraightLine:
             return "void*", names[val[1]]
         raise Bail("unknown value kind %r" % (kind,))
 
-    def _emit(self, ident, state, stmts, used_args, ptr_args):
+    def _emit(self, ident, state, stmts, used_args, ptr_args, synth=()):
         # Parameter list: one entry per argument register from x0 up to the
         # highest the body reads. Gaps are real unused parameters -- a body that
         # reads x2 but not x0/x1 belongs to a function whose first two arguments
@@ -341,6 +404,13 @@ class StraightLine:
 
         body_txt = []
         pre = []          # locals that must exist before the stores
+
+        # Synthetic pointer locals, in allocation order. `names` is keyed by the
+        # same ids the body already uses, so `_render` and `ptr_add` need no
+        # special case.
+        for key, init in synth:
+            names[key] = nm(key)
+            pre.append("void* %s = (void*)(%s);" % (nm(key), init))
         for w, n, off, val in stmts:
             ct, expr = self._render(val, names)
             # An address expression may only be stored at pointer width. Storing

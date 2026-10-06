@@ -2575,7 +2575,7 @@ void sub_2c3970() { /* 0x2c3970 */ }
 // sub_2c3ac0: implemented in prog/matched/subsdk1/
 void sub_2c3ad0() { /* 0x2c3ad0 */ }
 void sub_2c3b70() { /* 0x2c3b70 */ }
-void sub_2c3bd0() { /* 0x2c3bd0 */ }
+// sub_2c3bd0: implemented in prog/matched/subsdk1/
 void sub_2c3be0_subsdk1_2c3be0() { /* 0x2c3be0 */ }
 void sub_2c3c10() { /* 0x2c3c10 */ }
 void sub_2c3c70() { /* 0x2c3c70 */ }

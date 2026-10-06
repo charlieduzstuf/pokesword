@@ -3519,7 +3519,7 @@ void sub_15c8350() { /* 0x15c8350 */ }
 void sub_15c8390() { /* 0x15c8390 */ }
 void sub_15c8420() { /* 0x15c8420 */ }
 void sub_15c84a0() { /* 0x15c84a0 */ }
-void sub_15c85c0() { /* 0x15c85c0 */ }
+// sub_15c85c0: implemented in prog/matched/main/
 void sub_15c85d0() { /* 0x15c85d0 */ }
 void sub_15c8730() { /* 0x15c8730 */ }
 void sub_15c8790() { /* 0x15c8790 */ }

@@ -1664,8 +1664,8 @@ void sub_9c610() { /* 0x9c610 */ }
 void sub_9ca90() { /* 0x9ca90 */ }
 void sub_9ce10() { /* 0x9ce10 */ }
 void sub_9cff0() { /* 0x9cff0 */ }
-void sub_9d060() { /* 0x9d060 */ }
-void sub_9d080() { /* 0x9d080 */ }
+// sub_9d060: implemented in prog/matched/subsdk0/
+// sub_9d080: implemented in prog/matched/subsdk0/
 // sub_9d0a0: implemented in prog/matched/subsdk0/
 // sub_9d0b0: implemented in prog/matched/subsdk0/
 void sub_9d0c0() { /* 0x9d0c0 */ }

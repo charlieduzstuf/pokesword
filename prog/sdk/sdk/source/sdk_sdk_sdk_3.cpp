@@ -719,7 +719,7 @@ void sub_287470() { /* 0x287470 */ }
 void sub_2878a0() { /* 0x2878a0 */ }
 void sub_287a70() { /* 0x287a70 */ }
 void sub_287ab0() { /* 0x287ab0 */ }
-void sub_287c60() { /* 0x287c60 */ }
+// sub_287c60: implemented in prog/matched/sdk/
 void sub_287c80() { /* 0x287c80 */ }
 void sub_287d80() { /* 0x287d80 */ }
 void sub_287f70() { /* 0x287f70 */ }
@@ -728,7 +728,7 @@ void sub_288100() { /* 0x288100 */ }
 void sub_2881c0() { /* 0x2881c0 */ }
 void sub_288270_sdk_288270() { /* 0x288270 */ }
 void sub_288310() { /* 0x288310 */ }
-void sub_288510() { /* 0x288510 */ }
+// sub_288510: implemented in prog/matched/sdk/
 void sub_288530() { /* 0x288530 */ }
 // sub_288680: implemented in prog/matched/sdk/
 // sub_288690: implemented in prog/matched/sdk/
@@ -861,11 +861,11 @@ void sub_295300() { /* 0x295300 */ }
 void sub_295a10() { /* 0x295a10 */ }
 // sub_295a60: implemented in prog/matched/sdk/
 void sub_295a70() { /* 0x295a70 */ }
-void sub_295a80() { /* 0x295a80 */ }
+// sub_295a80: implemented in prog/matched/sdk/
 void sub_295aa0() { /* 0x295aa0 */ }
-void sub_295ac0() { /* 0x295ac0 */ }
+// sub_295ac0: implemented in prog/matched/sdk/
 void sub_295ae0() { /* 0x295ae0 */ }
-void sub_295b00() { /* 0x295b00 */ }
+// sub_295b00: implemented in prog/matched/sdk/
 void sub_295b20_sdk_295b20() { /* 0x295b20 */ }
 void Nintendo_co_ltd() { /* 0x295b40 */ }
 // sub_295fd0: implemented in prog/matched/sdk/

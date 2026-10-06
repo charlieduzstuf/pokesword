@@ -910,7 +910,7 @@ void sub_1167940() { /* 0x1167940 */ }
 void sub_1167a30() { /* 0x1167a30 */ }
 void sub_1167b20() { /* 0x1167b20 */ }
 void sub_1167c10() { /* 0x1167c10 */ }
-void sub_1167c30() { /* 0x1167c30 */ }
+// sub_1167c30: implemented in prog/matched/main/
 // sub_1167c40: implemented in prog/matched/main/
 void sub_1167c50() { /* 0x1167c50 */ }
 void sub_1167d00() { /* 0x1167d00 */ }
@@ -1292,7 +1292,7 @@ void foodstuffDataTable() { /* 0x117bb80 */ }
 void sub_117bcb0() { /* 0x117bcb0 */ }
 void sub_117bd10() { /* 0x117bd10 */ }
 // sub_117bf10: implemented in prog/matched/main/
-void sub_117bf20() { /* 0x117bf20 */ }
+// sub_117bf20: implemented in prog/matched/main/
 void sub_117bf30() { /* 0x117bf30 */ }
 void sub_117bfa0() { /* 0x117bfa0 */ }
 void sub_117bfb0() { /* 0x117bfb0 */ }

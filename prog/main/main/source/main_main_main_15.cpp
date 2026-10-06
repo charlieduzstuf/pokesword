@@ -270,15 +270,15 @@ void sub_ff71a0() { /* 0xff71a0 */ }
 void sub_ff71d0() { /* 0xff71d0 */ }
 void sub_ff7210() { /* 0xff7210 */ }
 void sub_ff7240() { /* 0xff7240 */ }
-void sub_ff7270() { /* 0xff7270 */ }
+// sub_ff7270: implemented in prog/matched/main/
 // sub_ff7290: implemented in prog/matched/main/
 // sub_ff72a0: implemented in prog/matched/main/
 // sub_ff72b0: implemented in prog/matched/main/
-void sub_ff72c0() { /* 0xff72c0 */ }
+// sub_ff72c0: implemented in prog/matched/main/
 // sub_ff72e0: implemented in prog/matched/main/
 // sub_ff72f0: implemented in prog/matched/main/
 // sub_ff7300: implemented in prog/matched/main/
-void sub_ff7310() { /* 0xff7310 */ }
+// sub_ff7310: implemented in prog/matched/main/
 // sub_ff7330: implemented in prog/matched/main/
 // sub_ff7340: implemented in prog/matched/main/
 // sub_ff7350: implemented in prog/matched/main/
@@ -304,11 +304,11 @@ void sub_ff7d20() { /* 0xff7d20 */ }
 void sub_ff7d50() { /* 0xff7d50 */ }
 void sub_ff7d90() { /* 0xff7d90 */ }
 void sub_ff7dc0() { /* 0xff7dc0 */ }
-void sub_ff7df0() { /* 0xff7df0 */ }
+// sub_ff7df0: implemented in prog/matched/main/
 // sub_ff7e10: implemented in prog/matched/main/
 // sub_ff7e20: implemented in prog/matched/main/
 // sub_ff7e30: implemented in prog/matched/main/
-void sub_ff7e40() { /* 0xff7e40 */ }
+// sub_ff7e40: implemented in prog/matched/main/
 // sub_ff7e60: implemented in prog/matched/main/
 // sub_ff7e70: implemented in prog/matched/main/
 // sub_ff7e80: implemented in prog/matched/main/

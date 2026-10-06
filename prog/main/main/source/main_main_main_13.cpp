@@ -3408,7 +3408,7 @@ void sub_ee78c0() { /* 0xee78c0 */ }
 void sub_ee78f0() { /* 0xee78f0 */ }
 void sub_ee7920() { /* 0xee7920 */ }
 void sub_ee7990() { /* 0xee7990 */ }
-void sub_ee79c0() { /* 0xee79c0 */ }
+// sub_ee79c0: implemented in prog/matched/main/
 // sub_ee79d0: implemented in prog/matched/main/
 void sub_ee79e0() { /* 0xee79e0 */ }
 void sub_ee7a30() { /* 0xee7a30 */ }
