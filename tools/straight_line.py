@@ -150,6 +150,7 @@ def mem_reg_offset(op_str, state):
 
 
 def parse_mem_idx(op_str):
+    """`(base, index, ext, scale, off)` for both plain and indexed operands.
 
         [x0, #0x18]          -> ('x0', None, None, None, 24)
         [x8, w1, uxtw #2]    -> ('x8', 'w1', 'uxtw', 4, 0)
@@ -350,6 +351,9 @@ class StraightLine:
                 dst = ops[0]
                 base, index, ext, scale, off = parse_mem_idx(ops[1])
                 if base is None:
+                    base, off = mem_reg_offset(ops[1], state)
+                    index = ext = scale = None
+                if base is None:
                     raise Bail("load operand %r is not a [base] or [base, index, ext] form"
                                % (ops[1],))
                 n, real = resolve_base(base)
@@ -370,6 +374,9 @@ class StraightLine:
             if mn in STORES and len(ops) == 2:
                 src, mem = ops[0], ops[1]
                 base, index, ext, scale, off = parse_mem_idx(mem)
+                if base is None:
+                    base, off = mem_reg_offset(mem, state)
+                    index = ext = scale = None
                 if base is None:
                     raise Bail("store operand %r is not a [base] or [base, index, ext] form"
                                % (mem,))

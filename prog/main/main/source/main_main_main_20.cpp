@@ -3543,7 +3543,7 @@ void anime__s_7() { /* 0x14cc6f0 */ }
 void sub_14cc8c0() { /* 0x14cc8c0 */ }
 void sub_14cc8d0() { /* 0x14cc8d0 */ }
 void anime__s_8() { /* 0x14cc8e0 */ }
-void sub_14cca00() { /* 0x14cca00 */ }
+// sub_14cca00: implemented in prog/matched/main/
 void sub_14cca10() { /* 0x14cca10 */ }
 void sub_14cca80() { /* 0x14cca80 */ }
 void sub_14ccaf0() { /* 0x14ccaf0 */ }

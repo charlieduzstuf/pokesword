@@ -6335,7 +6335,7 @@
 0x00000000000cdda0,sub_cdda0,60,_ZN3sdk9sub_cdda0Ev!
 0x00000000000cdde0,sub_cdde0,200,_ZN3sdk9sub_cdde0Ev!
 0x00000000000cdeb0,sub_cdeb0,60,_ZN3sdk9sub_cdeb0Ev!
-0x00000000000cdef0,sub_cdef0,12,_ZN3sdk9sub_cdef0Ev!
+0x00000000000cdef0,sub_cdef0,12,_Z11sdk_f_cdef0Pv
 0x00000000000cdf00,sub_cdf00,108,_ZN3sdk19sub_cdf00_sdk_cdf00Ev!
 0x00000000000cdf70,sub_cdf70,16,_ZN3sdk9sub_cdf70Ev!
 0x00000000000cdf80,sub_cdf80,16,_ZN3sdk9sub_cdf80Ev!
@@ -8432,7 +8432,7 @@
 0x00000000001a2df0,sub_1a2df0,1940,_ZN3sdk10sub_1a2df0Ev!
 0x00000000001a3590,sub_1a3590,56,_ZN3sdk10sub_1a3590Ev!
 0x00000000001a35d0,sub_1a35d0,32,_ZN3sdk10sub_1a35d0Ev!
-0x00000000001a35f0,sub_1a35f0,16,_ZN3sdk10sub_1a35f0Ev!
+0x00000000001a35f0,sub_1a35f0,16,_Z12sdk_f_1a35f0Pv
 0x00000000001a3600,sub_1a3600,24,_ZN3sdk21sub_1a3600_sdk_1a3600Ev!
 0x00000000001a3620,sub_1a3620,104,_ZN3sdk10sub_1a3620Ev!
 0x00000000001a3690,sub_1a3690,4,_ZN3sdk10sub_1a3690Ev!

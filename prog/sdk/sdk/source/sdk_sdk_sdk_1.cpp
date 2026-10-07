@@ -2331,7 +2331,7 @@ void sub_cdd60() { /* 0xcdd60 */ }
 void sub_cdda0() { /* 0xcdda0 */ }
 void sub_cdde0() { /* 0xcdde0 */ }
 void sub_cdeb0() { /* 0xcdeb0 */ }
-void sub_cdef0() { /* 0xcdef0 */ }
+// sub_cdef0: implemented in prog/matched/sdk/
 void sub_cdf00_sdk_cdf00() { /* 0xcdf00 */ }
 void sub_cdf70() { /* 0xcdf70 */ }
 void sub_cdf80() { /* 0xcdf80 */ }

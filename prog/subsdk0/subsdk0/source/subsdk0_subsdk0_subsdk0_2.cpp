@@ -1249,8 +1249,8 @@ void sub_2e8180_subsdk0_2e8180() { /* 0x2e8180 */ }
 void sub_2e9840() { /* 0x2e9840 */ }
 void sub_2e9900() { /* 0x2e9900 */ }
 void sub_2e99c0() { /* 0x2e99c0 */ }
-void sub_2e9a30_subsdk0_2e9a30() { /* 0x2e9a30 */ }
-void sub_2e9a40() { /* 0x2e9a40 */ }
+// sub_2e9a30_subsdk0_2e9a30: implemented in prog/matched/subsdk0/
+// sub_2e9a40: implemented in prog/matched/subsdk0/
 void sub_2e9a50_subsdk0_2e9a50() { /* 0x2e9a50 */ }
 void s__05u() { /* 0x2e9f30 */ }
 void sub_2eee40() { /* 0x2eee40 */ }

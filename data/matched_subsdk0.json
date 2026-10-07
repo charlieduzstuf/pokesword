@@ -958,6 +958,30 @@
   },
   {
    "module": "subsdk0",
+   "addr": 3054128,
+   "size": 16,
+   "name": "sub_2e9a30",
+   "shape": "straight",
+   "ident": "f_2e9a30",
+   "sig": "Pv",
+   "src": "void f_2e9a30(void* a0) {\n    uint32_t k0 = 1;\n    *(uint8_t*)((char*)(a0) + 63575L) = (uint8_t)k0;\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "subsdk0",
+   "addr": 3054144,
+   "size": 16,
+   "name": "sub_2e9a40",
+   "shape": "straight",
+   "ident": "f_2e9a40",
+   "sig": "Pv",
+   "src": "void f_2e9a40(void* a0) {\n    uint32_t k0 = 1;\n    *(uint8_t*)((char*)(a0) + 63575L) = (uint8_t)k0;\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "subsdk0",
    "addr": 3521168,
    "size": 12,
    "name": "sub_35ba90",

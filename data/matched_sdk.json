@@ -1728,6 +1728,18 @@
   },
   {
    "module": "sdk",
+   "addr": 843504,
+   "size": 12,
+   "name": "sub_cdef0",
+   "shape": "straight",
+   "ident": "f_cdef0",
+   "sig": "Pv",
+   "src": "uint8_t f_cdef0(void* a0) { return *(uint8_t*)((char*)(a0) + 10049L); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
    "addr": 861904,
    "size": 8,
    "name": "sub_d26d0",
@@ -2229,6 +2241,18 @@
    "src": "uint32_t f_19f1b0(void* a0) {\n    *(uint32_t*)((char*)(a0) + 72) = 0;\n    return 0;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 1717744,
+   "size": 16,
+   "name": "sub_1a35f0",
+   "shape": "straight",
+   "ident": "f_1a35f0",
+   "sig": "Pv",
+   "src": "uint32_t f_1a35f0(void* a0) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 128));\n    return *(uint32_t*)((char*)(p0) + 16832L);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "sdk",

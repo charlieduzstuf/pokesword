@@ -425,7 +425,7 @@ void sub_1a2bd0() { /* 0x1a2bd0 */ }
 void sub_1a2df0() { /* 0x1a2df0 */ }
 void sub_1a3590() { /* 0x1a3590 */ }
 void sub_1a35d0() { /* 0x1a35d0 */ }
-void sub_1a35f0() { /* 0x1a35f0 */ }
+// sub_1a35f0: implemented in prog/matched/sdk/
 void sub_1a3600_sdk_1a3600() { /* 0x1a3600 */ }
 void sub_1a3620() { /* 0x1a3620 */ }
 void sub_1a3690() { /* 0x1a3690 */ }

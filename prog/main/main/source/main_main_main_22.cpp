@@ -2177,7 +2177,7 @@ void sub_1667460() { /* 0x1667460 */ }
 void sub_16674b0() { /* 0x16674b0 */ }
 void sub_1667570() { /* 0x1667570 */ }
 void sub_1667580() { /* 0x1667580 */ }
-void sub_16675c0() { /* 0x16675c0 */ }
+// sub_16675c0: implemented in prog/matched/main/
 // sub_16675d0: implemented in prog/matched/main/
 void sub_16675e0() { /* 0x16675e0 */ }
 void sub_1667640() { /* 0x1667640 */ }
@@ -2417,7 +2417,7 @@ void sub_16710b0() { /* 0x16710b0 */ }
 void sub_16710f0() { /* 0x16710f0 */ }
 // sub_16711e0: implemented in prog/matched/main/
 void sub_16711f0() { /* 0x16711f0 */ }
-void sub_1671340() { /* 0x1671340 */ }
+// sub_1671340: implemented in prog/matched/main/
 void sub_1671350() { /* 0x1671350 */ }
 void sub_1671770() { /* 0x1671770 */ }
 void sub_1671900() { /* 0x1671900 */ }
@@ -2455,7 +2455,7 @@ void sub_1674970() { /* 0x1674970 */ }
 void sub_1674a90() { /* 0x1674a90 */ }
 void sub_1674bd0() { /* 0x1674bd0 */ }
 void sub_1674d00() { /* 0x1674d00 */ }
-void sub_1674e70() { /* 0x1674e70 */ }
+// sub_1674e70: implemented in prog/matched/main/
 // sub_1674e80: implemented in prog/matched/main/
 // sub_1674e90: implemented in prog/matched/main/
 // sub_1674ea0: implemented in prog/matched/main/
@@ -3190,9 +3190,9 @@ void sub_1693730() { /* 0x1693730 */ }
 // sub_1693bc0: implemented in prog/matched/main/
 void sub_1693bd0() { /* 0x1693bd0 */ }
 void sub_1693c60() { /* 0x1693c60 */ }
-void sub_1693c70() { /* 0x1693c70 */ }
+// sub_1693c70: implemented in prog/matched/main/
 void sub_1693c80() { /* 0x1693c80 */ }
-void sub_1693c90() { /* 0x1693c90 */ }
+// sub_1693c90: implemented in prog/matched/main/
 void sub_1693ca0() { /* 0x1693ca0 */ }
 void sub_1693f60() { /* 0x1693f60 */ }
 void sub_1694080() { /* 0x1694080 */ }
@@ -3256,7 +3256,7 @@ void sub_1696fb0() { /* 0x1696fb0 */ }
 void sub_1696fc0() { /* 0x1696fc0 */ }
 void sub_1696fd0() { /* 0x1696fd0 */ }
 void sub_16971d0() { /* 0x16971d0 */ }
-void sub_16971e0() { /* 0x16971e0 */ }
+// sub_16971e0: implemented in prog/matched/main/
 void sub_16971f0() { /* 0x16971f0 */ }
 // sub_1697210: implemented in prog/matched/main/
 void sub_1697220() { /* 0x1697220 */ }

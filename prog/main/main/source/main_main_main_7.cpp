@@ -3844,8 +3844,8 @@ void sub_8a7860() { /* 0x8a7860 */ }
 void sub_8a7890() { /* 0x8a7890 */ }
 void sub_8a7910() { /* 0x8a7910 */ }
 void sub_8a79a0() { /* 0x8a79a0 */ }
-void sub_8a79f0() { /* 0x8a79f0 */ }
-void sub_8a7a10() { /* 0x8a7a10 */ }
+// sub_8a79f0: implemented in prog/matched/main/
+// sub_8a7a10: implemented in prog/matched/main/
 void sub_8a7a20() { /* 0x8a7a20 */ }
 void sub_8a7a40() { /* 0x8a7a40 */ }
 void sub_8a7ab0() { /* 0x8a7ab0 */ }
