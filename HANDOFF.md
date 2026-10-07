@@ -380,6 +380,29 @@ over the whole population rather than a sample:
   26,536 / 17.45% while `match_progress.py` said 26,562 / 17.47%. CI had a
   README drift gate and still did not catch it. `audit.py` now checks the
   `N / 152,062` and `N / 38,172,368` forms plus the README total row.
+- **Re-baseline the MATCH gate after every registration, or it will reject
+  improvements.** `auto_match` excludes bodies that are *already registered*, so
+  the count **falls** when a batch lands even though nothing broke. It read 722 in
+  `main` before the +79 straight bodies were registered and 716 after, with
+  identical code. A change gated against the stale 722 looked like a −6
+  regression and got reverted; it was never measured. Proved by counting
+  directly: 722 `straight` bodies in `main` already registered, 337 still
+  unmatched. This is the third distinct way that line misleads -- it also
+  re-confirms existing records (reporting `MATCH 719` for a true delta of 31), and
+  its candidate set shrinks over time so counts are not comparable across runs.
+- **A bail count moving down while another moves up is not a regression.** The
+  same bodies fail one step later. `generated` moves for the same reason. Both
+  are diagnostics; only MATCH (freshly baselined) and `match_progress.py` decide.
+- **A decline you cannot diagnose is not a decline.** `straight_line.py` raised
+  `Bail` with no message at all 14 times, so 1,033 declined bodies were unreadable
+  and three trivially fixable classes hid inside (218 zero-stores, 81
+  argument-sources, 59 `ldur`/`stur`). Annotating the sites took candidates from
+  24 to 357. Same root cause as `check.py`'s vacuous `True`: nobody could see
+  inside the verdict.
+- **A check that cannot fail is worse than no check.** `check.py` did
+  `for ... in zip(...): ...` then `return True`, so an empty disassembly reported
+  a *match*. 332 phantom bodies were ready to be registered as a fake +0.22%, and
+  nothing downstream would have caught it. Fixed and falsified in both directions.
 - **`auto_match.py`'s `MATCH n / m` line is not a delta.** It re-verifies bodies
   that are *already* registered and counts them again, so it happily reports
   `MATCH 327 / 344` for a shape where only 27 were new. It also declines to skip
