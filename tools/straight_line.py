@@ -551,8 +551,19 @@ class StraightLine:
                     raise Bail("add/sub with %d operands is not modelled" % (len(ops),))
 
                 # Value arithmetic on two registers.
+                #
+                # An operand that is an *incoming argument* has no `state` entry,
+                # so requiring one declined every `sub w9, w9, w1` -- arithmetic
+                # on an argument -- as "not a known register". Same shape as the
+                # store-source case: an argument used as a value is still a
+                # parameter, and must be declared as one. Only x0..x7 qualify;
+                # x8 is the struct-return pointer, not a value source.
                 s1 = state.get(wreg(src))
+                if s1 is None:
+                    s1 = self._value_arg(src, used_args, idx_args)
                 s2 = state.get(wreg(src_r))
+                if s2 is None:
+                    s2 = self._value_arg(src_r, used_args, idx_args)
                 if s1 is None or s2 is None:
                     raise Bail("add/sub operand is not a known register")
                 if s1[0] not in ("load", "expr", "arg", "imm"):
@@ -568,6 +579,23 @@ class StraightLine:
             raise Bail("unhandled instruction %r %r" % (mn, i.op_str))
 
         return self._emit(ident, state, stmts, used_args, ptr_args, synth, idx_args)
+
+    @staticmethod
+    def _value_arg(reg, used_args, idx_args):
+        """An incoming argument used as an arithmetic *value*, or None.
+
+        Returns the same `("arg", n)` shape the store-source path already used.
+        `add x8, x8, x1` on its own is address arithmetic and goes through
+        `arg_reg` instead; this covers `sub w9, w9, w1`, where the argument is a
+        plain integer operand.
+        """
+        n = arg_reg(reg)
+        used_args.add(n)
+        # A `w` register as an operand is a 32-bit value, which changes its
+        # parameter type and therefore the mangled name.
+        idx_args.setdefault(n, "uint32_t" if reg.strip().startswith("w")
+                            else "uint64_t")
+        return ("arg", n)
 
     def _render(self, val, names):
         kind = val[0]
