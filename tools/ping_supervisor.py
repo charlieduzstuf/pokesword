@@ -85,6 +85,12 @@ def stop_existing():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--interval", type=int, default=60)
+    ap.add_argument("--work", default=None,
+                    choices=["harvest", "auto"],
+                    help="passed through to keepalive; 'auto' runs one full "
+                         "decompilation slice per tick (generate, emit, build, "
+                         "verify all four, audit gate) so the loop progresses "
+                         "unattended")
     ap.add_argument("--fast", action="store_true",
                     help="status only, no re-verification")
     ap.add_argument("--restart-delay", type=int, default=5)
@@ -108,6 +114,12 @@ def main():
 
     cmd = [sys.executable, os.path.join(HERE, "keepalive.py"),
            "--loop", "--interval", str(a.interval)]
+    if a.work:
+        # `--work auto` makes each tick run a full decompilation slice, so the
+        # loop keeps making progress with nobody in the room. Previously the
+        # supervisor could only pass `--fast` (status + sync), which means it
+        # stayed alive but inert -- the percentage never moved on its own.
+        cmd += ["--work", a.work]
     if a.fast:
         cmd.append("--fast")
 
@@ -128,6 +140,10 @@ def main():
         argv = [sys.executable, os.path.abspath(__file__),
                 "--interval", str(a.interval), "--restart-delay",
                 str(a.restart_delay)]
+        if a.work:
+            # Must be threaded through the re-exec too, or `--detach` would
+            # silently drop the decompilation work and leave an inert loop.
+            argv += ["--work", a.work]
         if a.fast:
             argv.append("--fast")
         log = open(os.path.join(ROOT, "work", "ping.log"), "a", encoding="utf-8")
