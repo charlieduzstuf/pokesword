@@ -49,6 +49,8 @@ MAX_ARG = 4           # x0..x3 are the only argument registers we will model
 # Synthetic base ids for loaded pointers. Kept far above any real argument
 # number so `id < SYNTH_BASE` distinguishes them without a second type.
 SYNTH_BASE = 1000
+# Hidden struct-return pointer id. Distinct from every synthetic pointer.
+SRET_ID = 999
 
 
 class Bail(Exception):
@@ -304,6 +306,25 @@ class StraightLine:
             if base == "sp":
                 raise Bail("memory base is sp: a stack slot is not modelled")
             r = wreg(base)
+            if (r not in state
+                    and re.match(r"^[xw]\d+$", r)
+                    and int(r[1:]) > MAX_ARG):
+                # A register above x3 that the body never writes is the hidden
+                # struct-return pointer. AArch64 passes the destination in x8 for
+                # a return larger than 16 bytes, which is why these bodies store
+                # through a register nothing ever set:
+                #
+                #     ldr w9, [x0, #0x58] ; str w9, [x8] ; ...
+                #
+                # Declaring a struct return reproduces it exactly:
+                #
+                #     typedef struct { unsigned char b[32]; } S;
+                #     S f(void *a0) { S r;
+                #       *(unsigned int *)((char *)&r + 0) = ...; ... return r; }
+                #
+                # Return types are absent from Itanium mangling, so the symbol is
+                # still `_Z1fPv` and the signature is untouched.
+                return SRET_ID, False
             if r in state:
                 if r in synth_of:
                     return synth_of[r], False
@@ -645,6 +666,7 @@ class StraightLine:
 
         body_txt = []
         pre = []          # locals that must exist before the stores
+        sret_writes = []  # (width, offset, type, expr) stored into the result
 
         # Synthetic pointer locals, in allocation order. `names` is keyed by the
         # same ids the body already uses, so `_render` and `ptr_add` need no
@@ -697,6 +719,10 @@ class StraightLine:
                 expr = "(%s)%s" % (U[w], k)
             elif ct != U[w]:
                 expr = "(%s)(%s)" % (U[w], expr)
+            if n == SRET_ID:
+                # Destination is the returned struct, not an argument.
+                sret_writes.append((w, off, ct, expr))
+                continue
             addr = ptr_add(names[n], off)
             if iexpr:
                 addr = "(%s + %s)" % (addr, iexpr)
@@ -721,6 +747,27 @@ class StraightLine:
         # the end of the body. An `addr` in x0 is a pointer return and is
         # renderable; a value in some other register is not a return.
         ret_val = state.get("x0")
+
+        # Hidden struct return: the body stores through the sret register, so the
+        # "return value" is the struct those stores fill in. Declaring a struct
+        # larger than 16 bytes is what makes Clang choose the sret path at all --
+        # a 12-byte struct would come back in x0/x1 instead and emit no stores
+        # through x8 whatsoever.
+        sret_src = None
+        if sret_writes:
+            span = max(off + w for w, off, _ct, _ex in sret_writes)
+            size = max(24, span)
+            if size % 8:
+                size += 8 - (size % 8)
+            td = "__S_%s" % ident
+            lines = ["typedef struct { unsigned char b[%d]; } %s;" % (size, td)]
+            lines.append("%s %s(%s) {" % (td, ident, plist))
+            lines.append("    %s r;" % td)
+            for w, off, ct, ex in sret_writes:
+                lines.append("    *(%s *)((char *)&r + %d) = %s;" % (U[w], off, ex))
+            lines.append("    return r;")
+            lines.append("}")
+            return "\n".join(lines) + "\n", sig
 
         all_txt = pre + body_txt
 
