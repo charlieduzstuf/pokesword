@@ -398,7 +398,11 @@ class StraightLine:
                     # An indexed access needs the base and the index separately;
                     # the `addr` value carries both as one expression.
                     ie = index_expr(index, ext, scale, n)
-                    state[wreg(dst)] = ("addr_i", n, ie, off)
+                    # Same 5-field shape as the indexed-add form: base, offset,
+                    # index *value*, scale. Here the index is already a rendered
+                    # expression string, so it is carried as an "imm"-free raw
+                    # node -- `("raw", text)` renders verbatim.
+                    state[wreg(dst)] = ("addr_i", n, off, ("raw", ie), 1)
                     continue
                 w = access_width(mn, dst)
                 signed = mn in ("ldrsw", "ldursw")
@@ -555,12 +559,21 @@ class StraightLine:
                             used_args.add(bid)
                             ptr_args.add(bid)
                             boff = 0
-                        idx = arg_reg(src2)
-                        idx_args[idx] = ("uint32_t" if ext_op == "uxtw"
-                                         else "int32_t")
-                        state[wreg(dst)] = (
-                            "addr_i", bid, boff,
-                            "(uintptr_t)a%d * %d" % (idx, scale))
+                        # The third operand of `add x8, x9, w9, sxtw #4` is a
+                        # *value*, not a memory base, so `arg_reg` is the wrong
+                        # resolver: it only knows x0-x7 and raised "memory base
+                        # 'x8' is not an argument register" for an index that was
+                        # never a base. It could equally be a computed
+                        # expression -- `mov w9, #1 ; sub w9, w9, w1 ; add x8,
+                        # x8, w9, sxtw #4` -- in which case there is no
+                        # register to look up at all.
+                        iv = state.get(wreg(src2))
+                        if iv is None:
+                            iv = self._value_arg(src2, used_args, idx_args)
+                        if iv is None:
+                            raise Bail("add/sub index %r is not a value"
+                                       % (src2,))
+                        state[wreg(dst)] = ("addr_i", bid, boff, iv, scale)
                         continue
                     off = 0
                 else:
@@ -658,8 +671,15 @@ class StraightLine:
                 return _c2, "((uint32_t)(%s))" % _e2
             return _c2, "((int32_t)(%s))" % _e2
         if kind == "addr_i":
-            _, n, iexpr, off = val
-            return "void*", "((char *)%s + %s)" % (ptr_add(names[n], off), iexpr)
+            # `(base + off) + index * scale`, with the index rendered from its
+            # own value tuple so it may be a load, an expression or an argument.
+            _, n, off, iv, scale = val
+            if isinstance(iv, tuple) and iv[0] == "raw":
+                _ei = iv[1]
+            else:
+                _ci, _ei = self._render(iv, names)
+            return "void*", "((char *)%s + (uintptr_t)(%s) * %d)" % (
+                ptr_add(names[n], off), _ei, scale)
         if kind == "arg":
             # An incoming argument stored straight through. `_emit` applies the
             # store-width cast, so handing back the bare name is enough.
