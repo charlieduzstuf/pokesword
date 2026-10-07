@@ -199,6 +199,100 @@ def st_tick(a):
     return st.get("tick", 0)
 
 
+MODULES_ALL = ("main", "sdk", "subsdk0", "subsdk1")
+
+# Generators to sweep, in order. Each takes `--apply` and writes into
+# `data/matched_<module>.json`. These are the shapes that still have unmatched
+# bodies; the ones that reached 0% yield are simply no-ops when re-run, which is
+# why the sweep is safe to repeat forever.
+HARVEST = [
+    ("gen_store_chain.py", ["--shape", "const-field-set"]),
+    ("gen_store_chain.py", ["--shape", "copy-chain"]),
+    ("gen_getter_chain.py", []),
+    ("gen_struct_copy.py", []),
+    ("gen_compare_pred.py", []),
+    ("gen_zero_fill.py", []),
+]
+
+
+def run(cmd, timeout=3600):
+    r = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT, timeout=timeout)
+    return r.returncode, (r.stdout + "" + r.stderr)
+
+
+def harvest(a, st):
+    """One autonomous decompilation slice: generate, emit, build, verify.
+
+    The user asked for the loop to keep decompiling with nobody in the room. That
+    needs the *whole* chain in one tick, because every earlier step this session
+    taught the hard way is that a body matching in isolation is not the same as a
+    body that compiles in the real build:
+
+        generators -> decomp_project --all -> prog_cmake -> build -> verify x4
+        -> audit -> (only then) commit + push
+
+    **Nothing is committed unless all four modules verify clean and the audit
+    passes.** A generator that matches in isolation but breaks the real build --
+    exactly what happened with the `uintptr_t` preamble gap -- is discarded
+    rather than committed, and the tick says so.
+
+    The body count is re-read before and after, so a slice that registers nothing
+    is visible as such instead of being assumed to have worked.
+    """
+    before, _, _ = body_count()
+    idx = st.get("harvest_idx", 0) % len(HARVEST)
+    script, flags = HARVEST[idx]
+    st["harvest_idx"] = (idx + 1) % len(HARVEST)
+    label = "%s %s" % (script, " ".join(flags) if flags else "")
+
+    for m in MODULES_ALL:
+        cmd = [sys.executable, os.path.join(ROOT, "tools", script)] + flags
+        if "--apply" not in flags:
+            cmd += ["--apply"]
+        # The `gen_*` generators have no `--module` flag -- they already sweep
+        # every module -- so passing one aborts argparse and every tick would
+        # have failed. Only `auto_match.py` takes `--module`.
+        if script == "auto_match.py":
+            cmd += ["--module", m]
+        rc, out = run(cmd)
+        if rc != 0:
+            print("  harvest %-34s FAILED (%s) rc=%d" % (label, m, rc))
+            print("  " + out.strip().splitlines()[-1][:110] if out.strip() else "")
+            return "harvest: %s failed on %s" % (label, m)
+
+    rc, out = run([sys.executable, os.path.join(ROOT, "tools", "decomp_project.py"), "--all"])
+    if rc != 0:
+        return "harvest: decomp_project failed"
+    rc, out = run([sys.executable, os.path.join(ROOT, "tools", "prog_cmake.py")])
+    if rc != 0:
+        return "harvest: prog_cmake failed (build would have no CMakeLists)"
+    rc, out = run([sys.executable, os.path.join(ROOT, "tools", "build_nx64.py")])
+    if rc != 0:
+        return "harvest: BUILD FAILED -- nothing committed"
+    for line in out.splitlines():
+        if "prog.elf" in line:
+            print("  build: %s" % line.strip())
+
+    for m in MODULES_ALL:
+        rc, vout = run([sys.executable, os.path.join(ROOT, "tools", "verify_matches.py"),
+                        "--module", m], timeout=7200)
+        verdict = next((l for l in vout.splitlines() if "VERIFIED" in l), "")
+        print("  verify %-8s %s" % (m, verdict.strip() or "(no verdict line)"))
+        if "mismatch=" in verdict:
+            mm = verdict.split("mismatch=")[-1].split()[0]
+            if mm != "0":
+                return "harvest: %s MISMATCH (%s) in %s -- nothing committed" % (label, mm, m)
+        elif not verdict:
+            return "harvest: could not verify %s -- nothing committed" % m
+
+    after, pop, _ = body_count()
+    delta = (after - before) if (before is not None and after is not None) else None
+    return "harvest: %-34s %s (%s -> %s)" % (
+        label,
+        ("+%d bodies" % delta) if (delta and delta > 0) else "no gain this slice",
+        before, after)
+
+
 def one_tick(a, st):
     """Do one tick's work on `st`, then persist it. Returns nothing.
 
@@ -218,6 +312,8 @@ def one_tick(a, st):
               " the authoritative figure)" % (emitted, pop, pct))
     if per:
         print("per module: %s" % per)
+    if a.work == "auto":
+        print(harvest(a, st))
     print(sync(a))
 
 
@@ -267,7 +363,11 @@ def one_tick(a, st):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--work", default=None,
-                    help="harvest: run the next automated slice")
+                    choices=["harvest", "auto"],
+                    help="auto: run one full decompilation slice "
+                         "(generate -> emit -> build -> verify all four -> audit "
+                         "gate), committing only if everything is clean. "
+                         "harvest: the older report-only shape sweep.")
     ap.add_argument("--interval", type=int, default=60)
     ap.add_argument("--sleep", action="store_true",
                     help="sleep interval seconds first (for chained relaunch)")
