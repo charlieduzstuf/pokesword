@@ -123,8 +123,33 @@ def parse_mem(op_str):
     return m.group(1).strip(), off
 
 
+def mem_reg_offset(op_str, state):
+    """`('[x0, x8]', state)` -> `('x0', 0x4e5c)` when `x8` holds a constant.
+
+        mov w8, #0x4e5c
+        str wzr, [x0, x8]        <- *(uint32_t *)((char *)a0 + 0x4e5c) = 0
+
+    This is *not* a register-indexed access. The second operand is a bare
+    register with no extension, so `parse_mem_idx` rejects it -- but the register
+    holds an immediate the body just materialised, so the whole address is known
+    at compile time and it is an ordinary `[base, #off]`.
+
+    The distinction that matters: a register holding a *constant* collapses to a
+    displacement, whereas one holding a runtime value is a real index and needs
+    the scaled-index path. Only the former is handled here; guessing the latter
+    would silently miscompile.
+    """
+    m = re.fullmatch(r"\[\s*([A-Za-z0-9]+)\s*,\s*([A-Za-z0-9]+)\s*\]", op_str.strip())
+    if not m:
+        return None, None
+    base, reg = m.group(1).strip(), wreg(m.group(2).strip())
+    v = state.get(reg)
+    if v is None or v[0] != "imm":
+        return None, None
+    return base, v[1]
+
+
 def parse_mem_idx(op_str):
-    """`(base, index, ext, scale, off)` for both plain and indexed operands.
 
         [x0, #0x18]          -> ('x0', None, None, None, 24)
         [x8, w1, uxtw #2]    -> ('x8', 'w1', 'uxtw', 4, 0)
