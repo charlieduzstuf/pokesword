@@ -1265,7 +1265,7 @@ void sub_117a710() { /* 0x117a710 */ }
 void sub_117a840() { /* 0x117a840 */ }
 void sub_117a970() { /* 0x117a970 */ }
 void sub_117a9c0() { /* 0x117a9c0 */ }
-void sub_117aaf0() { /* 0x117aaf0 */ }
+// sub_117aaf0: implemented in prog/matched/main/
 void sub_117ab20() { /* 0x117ab20 */ }
 void sub_117ae60() { /* 0x117ae60 */ }
 void sub_117ae70() { /* 0x117ae70 */ }

@@ -245,6 +245,29 @@ def harvest(a, st):
     st["harvest_idx"] = (idx + 1) % len(HARVEST)
     label = "%s %s" % (script, " ".join(flags) if flags else "")
 
+    # Hold the lock for the whole slice: prog/ and data/functions.csv are both
+    # rewritten, and an audit running underneath reports failures that do not
+    # exist. Released in `finally` so a crash here cannot wedge the audit forever
+    # -- a stale lock is worse than a race, because it blocks silently.
+    lock = os.path.join(ROOT, "work", "harvest.lock")
+    os.makedirs(os.path.dirname(lock), exist_ok=True)
+    try:
+        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.write(fd, str(os.getpid()).encode())
+        os.close(fd)
+    except FileExistsError:
+        print("  harvest: lock already held; skipping this slice")
+        return "harvest: another harvest holds the lock"
+    try:
+        return _harvest_locked(a, st, before, label, script, flags)
+    finally:
+        try:
+            os.unlink(lock)
+        except OSError:
+            pass
+
+
+def _harvest_locked(a, st, before, label, script, flags):
     for m in MODULES_ALL:
         cmd = [sys.executable, os.path.join(ROOT, "tools", script)] + flags
         if "--apply" not in flags:

@@ -3257,7 +3257,7 @@ void sub_978280() { /* 0x978280 */ }
 // sub_978290: implemented in prog/matched/main/
 // sub_9782a0: implemented in prog/matched/main/
 // sub_9782b0: implemented in prog/matched/main/
-void sub_9782c0() { /* 0x9782c0 */ }
+// sub_9782c0: implemented in prog/matched/main/
 // sub_9782e0: implemented in prog/matched/main/
 void sub_9782f0() { /* 0x9782f0 */ }
 void sub_9783b0() { /* 0x9783b0 */ }
@@ -3392,7 +3392,7 @@ void Play_PV_Btl_052_sp_roar() { /* 0x9849d0 */ }
 void sub_984ba0() { /* 0x984ba0 */ }
 // sub_984f30: implemented in prog/matched/main/
 // sub_984f40: implemented in prog/matched/main/
-void sub_984f50() { /* 0x984f50 */ }
+// sub_984f50: implemented in prog/matched/main/
 // sub_984fa0: implemented in prog/matched/main/
 void sub_984fb0() { /* 0x984fb0 */ }
 void sub_984fc0() { /* 0x984fc0 */ }
@@ -3644,7 +3644,7 @@ void g_table() { /* 0x98d6a0 */ }
 void sub_98d8c0() { /* 0x98d8c0 */ }
 // sub_98dc80: implemented in prog/matched/main/
 // sub_98dc90: implemented in prog/matched/main/
-void sub_98dca0() { /* 0x98dca0 */ }
+// sub_98dca0: implemented in prog/matched/main/
 void sub_98dcf0() { /* 0x98dcf0 */ }
 void sub_98dd00() { /* 0x98dd00 */ }
 void sub_98dd30() { /* 0x98dd30 */ }

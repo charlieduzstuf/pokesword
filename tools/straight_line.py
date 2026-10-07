@@ -763,6 +763,15 @@ class StraightLine:
             lines = ["typedef struct { unsigned char b[%d]; } %s;" % (size, td)]
             lines.append("%s %s(%s) {" % (td, ident, plist))
             lines.append("    %s r;" % td)
+            # `pre` holds locals the store path may have introduced -- the
+            # widened-immediate bindings (`uint32_t k0 = -1;`) whose cast would
+            # otherwise be constant-folded. This branch returns before the
+            # `all_txt = pre + body_txt` assembly further down, so they have to be
+            # emitted here or the stores reference identifiers that were never
+            # declared: `error: use of undeclared identifier 'k0'`, which poisons
+            # a whole 200-candidate batch.
+            for l in pre:
+                lines.append("    " + l)
             for w, off, ct, ex in sret_writes:
                 lines.append("    *(%s *)((char *)&r + %d) = %s;" % (U[w], off, ex))
             lines.append("    return r;")

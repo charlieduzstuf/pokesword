@@ -2465,6 +2465,86 @@ float main_f_538f0(void* a0) { return *(float*)((char*)(a0) + 260); }
 // sub_53900  (orig 0x53900, getter)
 float main_f_53900(void* a0) { return *(float*)((char*)(a0) + 252); }
 
+// sub_539d0  (orig 0x539d0, straight)
+typedef struct { unsigned char b[24]; } __S_f_539d0;
+__S_f_539d0 main_f_539d0(void* a0) {
+    __S_f_539d0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 88);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 92);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 96);
+    return r;
+}
+
+// sub_539f0  (orig 0x539f0, straight)
+typedef struct { unsigned char b[24]; } __S_f_539f0;
+__S_f_539f0 main_f_539f0(void* a0) {
+    __S_f_539f0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 80);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 84);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 88);
+    return r;
+}
+
+// sub_54550  (orig 0x54550, straight)
+typedef struct { unsigned char b[24]; } __S_f_54550;
+__S_f_54550 main_f_54550(void* a0) {
+    __S_f_54550 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 136);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 140);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 144);
+    return r;
+}
+
+// sub_54570  (orig 0x54570, straight)
+typedef struct { unsigned char b[24]; } __S_f_54570;
+__S_f_54570 main_f_54570(void* a0) {
+    __S_f_54570 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 128);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 132);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 136);
+    return r;
+}
+
+// sub_54650  (orig 0x54650, straight)
+typedef struct { unsigned char b[24]; } __S_f_54650;
+__S_f_54650 main_f_54650(void* a0) {
+    __S_f_54650 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 148);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 152);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 156);
+    return r;
+}
+
+// sub_54670  (orig 0x54670, straight)
+typedef struct { unsigned char b[24]; } __S_f_54670;
+__S_f_54670 main_f_54670(void* a0) {
+    __S_f_54670 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 140);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 144);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 148);
+    return r;
+}
+
+// sub_54750  (orig 0x54750, straight)
+typedef struct { unsigned char b[24]; } __S_f_54750;
+__S_f_54750 main_f_54750(void* a0) {
+    __S_f_54750 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 160);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 164);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 168);
+    return r;
+}
+
+// sub_54770  (orig 0x54770, straight)
+typedef struct { unsigned char b[24]; } __S_f_54770;
+__S_f_54770 main_f_54770(void* a0) {
+    __S_f_54770 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 152);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 156);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 160);
+    return r;
+}
+
 // sub_54840  (orig 0x54840, getter)
 float main_f_54840(void* a0) { return *(float*)((char*)(a0) + 172); }
 
@@ -2566,6 +2646,26 @@ uint32_t main_f_56ba0(void* a0) { return *(uint32_t*)((char*)(a0) + 400); }
 
 // sub_56bb0  (orig 0x56bb0, getter)
 uint32_t main_f_56bb0(void* a0) { return *(uint32_t*)((char*)(a0) + 392); }
+
+// sub_56c80  (orig 0x56c80, straight)
+typedef struct { unsigned char b[24]; } __S_f_56c80;
+__S_f_56c80 main_f_56c80(void* a0) {
+    __S_f_56c80 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 408);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 412);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 416);
+    return r;
+}
+
+// sub_56ca0  (orig 0x56ca0, straight)
+typedef struct { unsigned char b[24]; } __S_f_56ca0;
+__S_f_56ca0 main_f_56ca0(void* a0) {
+    __S_f_56ca0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 400);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 404);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 408);
+    return r;
+}
 
 // sub_57000  (orig 0x57000, getter)
 float main_f_57000(void* a0) { return *(float*)((char*)(a0) + 612); }
@@ -2744,6 +2844,19 @@ void main_f_90110() {}
 // sub_90d60  (orig 0x90d60, ret_only)
 void main_f_90d60() {}
 
+// sub_90e40  (orig 0x90e40, straight)
+typedef struct { unsigned char b[24]; } __S_f_90e40;
+__S_f_90e40 main_f_90e40(void* a0) {
+    __S_f_90e40 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 24);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 28);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 32);
+    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 36);
+    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 40);
+    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 44);
+    return r;
+}
+
 // sub_90e80  (orig 0x90e80, setter)
 void main_f_90e80(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0) + 64) = a1; }
 
@@ -2804,6 +2917,19 @@ uint64_t main_f_93e40(void* a0) { return *(uint64_t*)((char*)(a0) + 48); }
 
 // sub_96ec0  (orig 0x96ec0, getter)
 uint32_t main_f_96ec0(void* a0) { return *(uint32_t*)((char*)(a0) + 24); }
+
+// sub_97230  (orig 0x97230, straight)
+typedef struct { unsigned char b[24]; } __S_f_97230;
+__S_f_97230 main_f_97230(void* a0) {
+    __S_f_97230 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 28);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 32);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 36);
+    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 40);
+    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 44);
+    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 48);
+    return r;
+}
 
 // sub_97270  (orig 0x97270, getter)
 uint32_t main_f_97270(void* a0) { return *(uint32_t*)((char*)(a0) + 12); }
@@ -2924,6 +3050,26 @@ uint64_t main_f_dcd30(void* a0) { return *(uint64_t*)((char*)(a0) + 24); }
 
 // sub_dd930  (orig 0xdd930, getter)
 uint16_t main_f_dd930(void* a0) { return *(uint16_t*)((char*)(a0) + 48); }
+
+// sub_ddd70  (orig 0xddd70, straight)
+typedef struct { unsigned char b[24]; } __S_f_ddd70;
+__S_f_ddd70 main_f_ddd70(void* a0) {
+    __S_f_ddd70 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 348);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 352);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 356);
+    return r;
+}
+
+// sub_ddd90  (orig 0xddd90, straight)
+typedef struct { unsigned char b[24]; } __S_f_ddd90;
+__S_f_ddd90 main_f_ddd90(void* a0) {
+    __S_f_ddd90 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 360);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 364);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 368);
+    return r;
+}
 
 // sub_de820  (orig 0xde820, ret_only)
 void main_f_de820() {}
@@ -3078,6 +3224,26 @@ uint64_t main_f_f0e80(void* a0) { return *(uint64_t*)((char*)(a0) + 24); }
 
 // sub_f1c70  (orig 0xf1c70, getter)
 uint16_t main_f_f1c70(void* a0) { return *(uint16_t*)((char*)(a0) + 48); }
+
+// sub_f20b0  (orig 0xf20b0, straight)
+typedef struct { unsigned char b[24]; } __S_f_f20b0;
+__S_f_f20b0 main_f_f20b0(void* a0) {
+    __S_f_f20b0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 348);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 352);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 356);
+    return r;
+}
+
+// sub_f20d0  (orig 0xf20d0, straight)
+typedef struct { unsigned char b[24]; } __S_f_f20d0;
+__S_f_f20d0 main_f_f20d0(void* a0) {
+    __S_f_f20d0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 360);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 364);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 368);
+    return r;
+}
 
 // sub_f2d40  (orig 0xf2d40, ret_only)
 void main_f_f2d40() {}
@@ -3515,6 +3681,16 @@ void main_f_117130(void* a0, void* a1) {
     *(uint32_t*)((char*)(a0) + 12) = *(uint32_t*)((char*)(a1) + 8);
 }
 
+// sub_117150  (orig 0x117150, straight)
+typedef struct { unsigned char b[24]; } __S_f_117150;
+__S_f_117150 main_f_117150(void* a0) {
+    __S_f_117150 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 4);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 8);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 12);
+    return r;
+}
+
 // sub_1171d0  (orig 0x1171d0, setter)
 void main_f_1171d0(void* a0, float a1) { *(float*)((char*)(a0) + 4) = a1; }
 
@@ -3534,12 +3710,33 @@ void main_f_117270(void* a0, void* a1) {
     *(uint32_t*)((char*)(a0) + 8) = *(uint32_t*)((char*)(a1) + 8);
 }
 
+// sub_117290  (orig 0x117290, straight)
+typedef struct { unsigned char b[24]; } __S_f_117290;
+__S_f_117290 main_f_117290(void* a0) {
+    __S_f_117290 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0));
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 4);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 8);
+    return r;
+}
+
 // sub_1172b0  (orig 0x1172b0, straight)
 void main_f_1172b0(void* a0, void* a1) {
     *(uint32_t*)((char*)(a0) + 12) = *(uint32_t*)((char*)(a1));
     *(uint32_t*)((char*)(a0) + 16) = *(uint32_t*)((char*)(a1) + 4);
     *(uint32_t*)((char*)(a0) + 20) = *(uint32_t*)((char*)(a1) + 8);
     *(uint32_t*)((char*)(a0) + 24) = *(uint32_t*)((char*)(a1) + 12);
+}
+
+// sub_1172e0  (orig 0x1172e0, straight)
+typedef struct { unsigned char b[24]; } __S_f_1172e0;
+__S_f_1172e0 main_f_1172e0(void* a0) {
+    __S_f_1172e0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 12);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 16);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 20);
+    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 24);
+    return r;
 }
 
 // sub_1173c0  (orig 0x1173c0, straight)
@@ -3551,6 +3748,20 @@ void main_f_1173c0(void* a0, void* a1) {
     *(uint32_t*)((char*)(a0) + 20) = *(uint32_t*)((char*)(a1) + 16);
     *(uint32_t*)((char*)(a0) + 24) = *(uint32_t*)((char*)(a1) + 20);
     *(uint32_t*)((char*)(a0) + 28) = *(uint32_t*)((char*)(a1) + 24);
+}
+
+// sub_117400  (orig 0x117400, straight)
+typedef struct { unsigned char b[32]; } __S_f_117400;
+__S_f_117400 main_f_117400(void* a0) {
+    __S_f_117400 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 4);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 8);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 12);
+    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 16);
+    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 20);
+    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 24);
+    *(uint32_t *)((char *)&r + 24) = *(uint32_t*)((char*)(a0) + 28);
+    return r;
 }
 
 // sub_117440  (orig 0x117440, setter)
@@ -3586,6 +3797,20 @@ void main_f_117580(void* a0, void* a1) {
     *(uint32_t*)((char*)(a0) + 20) = *(uint32_t*)((char*)(a1) + 16);
     *(uint32_t*)((char*)(a0) + 24) = *(uint32_t*)((char*)(a1) + 20);
     *(uint32_t*)((char*)(a0) + 28) = *(uint32_t*)((char*)(a1) + 24);
+}
+
+// sub_1175c0  (orig 0x1175c0, straight)
+typedef struct { unsigned char b[32]; } __S_f_1175c0;
+__S_f_1175c0 main_f_1175c0(void* a0) {
+    __S_f_1175c0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 4);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 8);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 12);
+    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 16);
+    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 20);
+    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 24);
+    *(uint32_t *)((char *)&r + 24) = *(uint32_t*)((char*)(a0) + 28);
+    return r;
 }
 
 // sub_117600  (orig 0x117600, copy2)
@@ -4968,6 +5193,16 @@ uint64_t main_f_2ae2b0(void* a0) { return *(uint64_t*)((char*)(a0)); }
 
 // sub_2ae2c0  (orig 0x2ae2c0, pair-ret)
 struct pair16_f_2ae2c0_ { uint64_t f[2]; }; pair16_f_2ae2c0_ main_f_2ae2c0(void* a0) { return *(struct pair16_f_2ae2c0_ *)((char*)(a0) + 64); }
+
+// sub_2af9c0  (orig 0x2af9c0, straight)
+typedef struct { unsigned char b[24]; } __S_f_2af9c0;
+__S_f_2af9c0 main_f_2af9c0(void* a0) {
+    __S_f_2af9c0 r;
+    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 16);
+    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 20);
+    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 24);
+    return r;
+}
 
 // sub_2b0270  (orig 0x2b0270, straight)
 void main_f_2b0270(void* a0, void* a1) {
@@ -8625,70 +8860,4 @@ void* main_f_540730(void* a0) { return (char*)a0 + 1336; }
 
 // sub_540740  (orig 0x540740, ptr_add)
 void* main_f_540740(void* a0) { return (char*)a0 + 80; }
-
-// sub_540830  (orig 0x540830, mov_ret)
-uint32_t main_f_540830() { return 1; }
-
-// sub_540950  (orig 0x540950, straight-line)
-void* main_f_540950(uint64_t unused0, void* a1) { return (char*)(a1) + 216; }
-
-// sub_540960  (orig 0x540960, mov_ret)
-uint32_t main_f_540960() { return 1; }
-
-// sub_540970  (orig 0x540970, mov_ret)
-uint32_t main_f_540970() { return 1; }
-
-// sub_540980  (orig 0x540980, mov_ret)
-uint32_t main_f_540980() { return 1; }
-
-// sub_541e50  (orig 0x541e50, getter)
-uint64_t main_f_541e50(void* a0) { return *(uint64_t*)((char*)(a0) + 14944L); }
-
-// sub_542220  (orig 0x542220, ret_only)
-void main_f_542220() {}
-
-// sub_542230  (orig 0x542230, ret_only)
-void main_f_542230() {}
-
-// sub_542240  (orig 0x542240, ret_only)
-void main_f_542240() {}
-
-// sub_542250  (orig 0x542250, ret_only)
-void main_f_542250() {}
-
-// sub_542290  (orig 0x542290, compare)
-bool main_f_542290(void* a0) { return (int32_t)(*(uint32_t*)((char*)(a0) + 14952L)) > (int64_t)(0); }
-
-// sub_5422c0  (orig 0x5422c0, ret_only)
-void main_f_5422c0() {}
-
-// sub_5422d0  (orig 0x5422d0, ret_only)
-void main_f_5422d0() {}
-
-// sub_5422e0  (orig 0x5422e0, ret_only)
-void main_f_5422e0() {}
-
-// sub_5422f0  (orig 0x5422f0, ret_only)
-void main_f_5422f0() {}
-
-// sub_542790  (orig 0x542790, ret_only)
-void main_f_542790() {}
-
-// sub_542920  (orig 0x542920, getter)
-uint32_t main_f_542920(void* a0) { return *(uint32_t*)((char*)(a0) + 16); }
-
-// sub_542930  (orig 0x542930, ret_only)
-void main_f_542930() {}
-
-// sub_542940  (orig 0x542940, mov_ret)
-uint32_t main_f_542940() { return 1; }
-
-// sub_543260  (orig 0x543260, ret_only)
-void main_f_543260() {}
-
-// sub_543270  (orig 0x543270, ret_only)
-void main_f_543270() {}
-
-// sub_544280  (orig 0x544280, getter)
-uint64_t main_f_544280(void* a0) { return *(uint64_t*)((char*)(a0) + 32); }
 

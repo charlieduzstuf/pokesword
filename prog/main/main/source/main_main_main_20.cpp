@@ -3314,7 +3314,7 @@ void icon_company_logo_00() { /* 0x14bcb60 */ }
 void sub_14bccd0() { /* 0x14bccd0 */ }
 void sub_14bce50() { /* 0x14bce50 */ }
 // sub_14bcf10: implemented in prog/matched/main/
-void sub_14bcf20() { /* 0x14bcf20 */ }
+// sub_14bcf20: implemented in prog/matched/main/
 // sub_14bcf40: implemented in prog/matched/main/
 // sub_14bcf50: implemented in prog/matched/main/
 // sub_14bcf60: implemented in prog/matched/main/

@@ -17,6 +17,7 @@ import json
 import os
 import re
 import subprocess
+import time
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,6 +25,33 @@ MODULES = ["rtld", "main", "sdk", "subsdk0", "subsdk1"]
 
 FAIL = []
 WARN = []
+
+
+
+HARVEST_LOCK = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                            "work", "harvest.lock")
+
+
+def wait_for_harvest(timeout=3600):
+    """Block while a keepalive harvest is rewriting prog/.
+
+    `keepalive --work auto` regenerates `prog/` via `decomp_project` and then
+    rebuilds. An audit running concurrently reads a half-written tree and reports
+    failures that do not exist -- three of them, once, on a clean tree that passed
+    on re-run. That is the worst kind of tool output: a false alarm that trains
+    you to ignore the alarm.
+
+    So this *waits* rather than skipping. Skipping would make the audit pass
+    vacuously while proving nothing, which is the opposite mistake and a worse one.
+    """
+    deadline = time.time() + timeout
+    waited = False
+    while os.path.exists(HARVEST_LOCK) and time.time() < deadline:
+        if not waited:
+            print("audit: waiting for an in-progress harvest to finish ...")
+            waited = True
+        time.sleep(5)
+    return waited
 
 
 def check(ok, label, detail=""):
@@ -663,4 +691,7 @@ def main():
 
 
 if __name__ == "__main__":
+    # A harvest rewrites prog/ and data/functions.csv; auditing underneath it
+    # produces failures that do not exist. See wait_for_harvest().
+    wait_for_harvest()
     sys.exit(main())

@@ -156,6 +156,138 @@
   },
   {
    "module": "main",
+   "addr": 342480,
+   "size": 28,
+   "name": "sub_539d0",
+   "shape": "straight",
+   "ident": "f_539d0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_539d0;\n__S_f_539d0 f_539d0(void* a0) {\n    __S_f_539d0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 88);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 92);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 96);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 342512,
+   "size": 28,
+   "name": "sub_539f0",
+   "shape": "straight",
+   "ident": "f_539f0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_539f0;\n__S_f_539f0 f_539f0(void* a0) {\n    __S_f_539f0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 80);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 84);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 88);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 345424,
+   "size": 28,
+   "name": "sub_54550",
+   "shape": "straight",
+   "ident": "f_54550",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_54550;\n__S_f_54550 f_54550(void* a0) {\n    __S_f_54550 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 136);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 140);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 144);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 345456,
+   "size": 28,
+   "name": "sub_54570",
+   "shape": "straight",
+   "ident": "f_54570",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_54570;\n__S_f_54570 f_54570(void* a0) {\n    __S_f_54570 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 128);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 132);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 136);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 345680,
+   "size": 28,
+   "name": "sub_54650",
+   "shape": "straight",
+   "ident": "f_54650",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_54650;\n__S_f_54650 f_54650(void* a0) {\n    __S_f_54650 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 148);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 152);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 156);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 345712,
+   "size": 28,
+   "name": "sub_54670",
+   "shape": "straight",
+   "ident": "f_54670",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_54670;\n__S_f_54670 f_54670(void* a0) {\n    __S_f_54670 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 140);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 144);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 148);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 345936,
+   "size": 28,
+   "name": "sub_54750",
+   "shape": "straight",
+   "ident": "f_54750",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_54750;\n__S_f_54750 f_54750(void* a0) {\n    __S_f_54750 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 160);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 164);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 168);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 345968,
+   "size": 28,
+   "name": "sub_54770",
+   "shape": "straight",
+   "ident": "f_54770",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_54770;\n__S_f_54770 f_54770(void* a0) {\n    __S_f_54770 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 152);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 156);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 160);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 355456,
+   "size": 28,
+   "name": "sub_56c80",
+   "shape": "straight",
+   "ident": "f_56c80",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_56c80;\n__S_f_56c80 f_56c80(void* a0) {\n    __S_f_56c80 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 408);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 412);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 416);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 355488,
+   "size": 28,
+   "name": "sub_56ca0",
+   "shape": "straight",
+   "ident": "f_56ca0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_56ca0;\n__S_f_56ca0 f_56ca0(void* a0) {\n    __S_f_56ca0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 400);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 404);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 408);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 593472,
+   "size": 52,
+   "name": "sub_90e40",
+   "shape": "straight",
+   "ident": "f_90e40",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_90e40;\n__S_f_90e40 f_90e40(void* a0) {\n    __S_f_90e40 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 24);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 28);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 32);\n    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 36);\n    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 40);\n    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 44);\n    return r;\n}\n",
+   "orig_insns": 13,
+   "new_insns": 13
+  },
+  {
+   "module": "main",
    "addr": 600352,
    "size": 28,
    "name": "sub_92920",
@@ -168,6 +300,18 @@
   },
   {
    "module": "main",
+   "addr": 619056,
+   "size": 52,
+   "name": "sub_97230",
+   "shape": "straight",
+   "ident": "f_97230",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_97230;\n__S_f_97230 f_97230(void* a0) {\n    __S_f_97230 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 28);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 32);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 36);\n    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 40);\n    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 44);\n    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 48);\n    return r;\n}\n",
+   "orig_insns": 13,
+   "new_insns": 13
+  },
+  {
+   "module": "main",
    "addr": 837744,
    "size": 8,
    "name": "sub_cc870",
@@ -177,6 +321,30 @@
    "src": "void* f_cc870(void* a0) { return (char*)(a0) - 16; }\n",
    "orig_insns": 2,
    "new_insns": 2
+  },
+  {
+   "module": "main",
+   "addr": 908656,
+   "size": 28,
+   "name": "sub_ddd70",
+   "shape": "straight",
+   "ident": "f_ddd70",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_ddd70;\n__S_f_ddd70 f_ddd70(void* a0) {\n    __S_f_ddd70 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 348);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 352);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 356);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 908688,
+   "size": 28,
+   "name": "sub_ddd90",
+   "shape": "straight",
+   "ident": "f_ddd90",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_ddd90;\n__S_f_ddd90 f_ddd90(void* a0) {\n    __S_f_ddd90 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 360);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 364);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 368);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
   },
   {
    "module": "main",
@@ -228,6 +396,30 @@
   },
   {
    "module": "main",
+   "addr": 991408,
+   "size": 28,
+   "name": "sub_f20b0",
+   "shape": "straight",
+   "ident": "f_f20b0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_f20b0;\n__S_f_f20b0 f_f20b0(void* a0) {\n    __S_f_f20b0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 348);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 352);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 356);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 991440,
+   "size": 28,
+   "name": "sub_f20d0",
+   "shape": "straight",
+   "ident": "f_f20d0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_f20d0;\n__S_f_f20d0 f_f20d0(void* a0) {\n    __S_f_f20d0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 360);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 364);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 368);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
    "addr": 1072896,
    "size": 20,
    "name": "sub_105f00",
@@ -264,6 +456,18 @@
   },
   {
    "module": "main",
+   "addr": 1143120,
+   "size": 28,
+   "name": "sub_117150",
+   "shape": "straight",
+   "ident": "f_117150",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_117150;\n__S_f_117150 f_117150(void* a0) {\n    __S_f_117150 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 4);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 8);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 12);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
    "addr": 1143408,
    "size": 28,
    "name": "sub_117270",
@@ -271,6 +475,18 @@
    "ident": "f_117270",
    "sig": "PvS_",
    "src": "void f_117270(void* a0, void* a1) {\n    *(uint32_t*)((char*)(a0)) = *(uint32_t*)((char*)(a1));\n    *(uint32_t*)((char*)(a0) + 4) = *(uint32_t*)((char*)(a1) + 4);\n    *(uint32_t*)((char*)(a0) + 8) = *(uint32_t*)((char*)(a1) + 8);\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 1143440,
+   "size": 28,
+   "name": "sub_117290",
+   "shape": "straight",
+   "ident": "f_117290",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_117290;\n__S_f_117290 f_117290(void* a0) {\n    __S_f_117290 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0));\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 4);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 8);\n    return r;\n}\n",
    "orig_insns": 7,
    "new_insns": 7
   },
@@ -288,6 +504,18 @@
   },
   {
    "module": "main",
+   "addr": 1143520,
+   "size": 36,
+   "name": "sub_1172e0",
+   "shape": "straight",
+   "ident": "f_1172e0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_1172e0;\n__S_f_1172e0 f_1172e0(void* a0) {\n    __S_f_1172e0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 12);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 16);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 20);\n    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 24);\n    return r;\n}\n",
+   "orig_insns": 9,
+   "new_insns": 9
+  },
+  {
+   "module": "main",
    "addr": 1143744,
    "size": 60,
    "name": "sub_1173c0",
@@ -300,6 +528,18 @@
   },
   {
    "module": "main",
+   "addr": 1143808,
+   "size": 60,
+   "name": "sub_117400",
+   "shape": "straight",
+   "ident": "f_117400",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[32]; } __S_f_117400;\n__S_f_117400 f_117400(void* a0) {\n    __S_f_117400 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 4);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 8);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 12);\n    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 16);\n    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 20);\n    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 24);\n    *(uint32_t *)((char *)&r + 24) = *(uint32_t*)((char*)(a0) + 28);\n    return r;\n}\n",
+   "orig_insns": 15,
+   "new_insns": 15
+  },
+  {
+   "module": "main",
    "addr": 1144192,
    "size": 60,
    "name": "sub_117580",
@@ -307,6 +547,18 @@
    "ident": "f_117580",
    "sig": "PvS_",
    "src": "void f_117580(void* a0, void* a1) {\n    *(uint32_t*)((char*)(a0) + 4) = *(uint32_t*)((char*)(a1));\n    *(uint32_t*)((char*)(a0) + 8) = *(uint32_t*)((char*)(a1) + 4);\n    *(uint32_t*)((char*)(a0) + 12) = *(uint32_t*)((char*)(a1) + 8);\n    *(uint32_t*)((char*)(a0) + 16) = *(uint32_t*)((char*)(a1) + 12);\n    *(uint32_t*)((char*)(a0) + 20) = *(uint32_t*)((char*)(a1) + 16);\n    *(uint32_t*)((char*)(a0) + 24) = *(uint32_t*)((char*)(a1) + 20);\n    *(uint32_t*)((char*)(a0) + 28) = *(uint32_t*)((char*)(a1) + 24);\n}\n",
+   "orig_insns": 15,
+   "new_insns": 15
+  },
+  {
+   "module": "main",
+   "addr": 1144256,
+   "size": 60,
+   "name": "sub_1175c0",
+   "shape": "straight",
+   "ident": "f_1175c0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[32]; } __S_f_1175c0;\n__S_f_1175c0 f_1175c0(void* a0) {\n    __S_f_1175c0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 4);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 8);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 12);\n    *(uint32_t *)((char *)&r + 12) = *(uint32_t*)((char*)(a0) + 16);\n    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 20);\n    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 24);\n    *(uint32_t *)((char *)&r + 24) = *(uint32_t*)((char*)(a0) + 28);\n    return r;\n}\n",
    "orig_insns": 15,
    "new_insns": 15
   },
@@ -525,6 +777,18 @@
    "src": "void f_2aa1c0(void* a0, void* a1) {\n    *(uint32_t*)((char*)(a0) + 120) = *(uint32_t*)((char*)(a1));\n    *(uint32_t*)((char*)(a0) + 124) = *(uint32_t*)((char*)(a1) + 4);\n    *(uint32_t*)((char*)(a0) + 128) = *(uint32_t*)((char*)(a1) + 8);\n    *(uint32_t*)((char*)(a0) + 132) = *(uint32_t*)((char*)(a1) + 12);\n}\n",
    "orig_insns": 9,
    "new_insns": 9
+  },
+  {
+   "module": "main",
+   "addr": 2816448,
+   "size": 28,
+   "name": "sub_2af9c0",
+   "shape": "straight",
+   "ident": "f_2af9c0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_2af9c0;\n__S_f_2af9c0 f_2af9c0(void* a0) {\n    __S_f_2af9c0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 16);\n    *(uint32_t *)((char *)&r + 4) = *(uint32_t*)((char*)(a0) + 20);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 24);\n    return r;\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
   },
   {
    "module": "main",
@@ -4164,6 +4428,18 @@
   },
   {
    "module": "main",
+   "addr": 9929408,
+   "size": 32,
+   "name": "sub_9782c0",
+   "shape": "straight",
+   "ident": "f_9782c0",
+   "sig": "v",
+   "src": "typedef struct { unsigned char b[32]; } __S_f_9782c0;\n__S_f_9782c0 f_9782c0() {\n    __S_f_9782c0 r;\n    uint32_t k0 = 0;\n    uint32_t k1 = 0;\n    *(uint32_t *)((char *)&r + 24) = -1;\n    *(uint32_t *)((char *)&r + 0) = 0;\n    *(uint16_t *)((char *)&r + 4) = (uint16_t)k0;\n    *(uint32_t *)((char *)&r + 8) = 0;\n    *(uint16_t *)((char *)&r + 12) = (uint16_t)k1;\n    *(uint64_t *)((char *)&r + 16) = 0;\n    return r;\n}\n",
+   "orig_insns": 8,
+   "new_insns": 8
+  },
+  {
+   "module": "main",
    "addr": 9930928,
    "size": 12,
    "name": "sub_9788b0",
@@ -4185,6 +4461,18 @@
    "src": "void f_978b40(void* a0) {\n    uint32_t k0 = 1;\n    *(uint8_t*)((char*)(a0) + 44) = (uint8_t)k0;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 9981776,
+   "size": 68,
+   "name": "sub_984f50",
+   "shape": "straight",
+   "ident": "f_984f50",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[32]; } __S_f_984f50;\n__S_f_984f50 f_984f50(void* a0) {\n    __S_f_984f50 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 1248);\n    *(uint16_t *)((char *)&r + 4) = *(uint16_t*)((char*)(a0) + 1252);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 1256);\n    *(uint8_t *)((char *)&r + 12) = *(uint8_t*)((char*)(a0) + 1260);\n    *(uint8_t *)((char *)&r + 13) = *(uint8_t*)((char*)(a0) + 1261);\n    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 1264);\n    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 1268);\n    *(uint32_t *)((char *)&r + 24) = *(uint32_t*)((char*)(a0) + 1272);\n    return r;\n}\n",
+   "orig_insns": 17,
+   "new_insns": 17
   },
   {
    "module": "main",
@@ -4233,6 +4521,18 @@
    "src": "void f_9875e0(void* a0, void* a1) {\n    *(uint64_t*)((char*)(a1) + 8) = *(uint64_t*)((char*)(a0) + 8);\n    *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 10017952,
+   "size": 68,
+   "name": "sub_98dca0",
+   "shape": "straight",
+   "ident": "f_98dca0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[32]; } __S_f_98dca0;\n__S_f_98dca0 f_98dca0(void* a0) {\n    __S_f_98dca0 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 1224);\n    *(uint16_t *)((char *)&r + 4) = *(uint16_t*)((char*)(a0) + 1228);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 1232);\n    *(uint8_t *)((char *)&r + 12) = *(uint8_t*)((char*)(a0) + 1236);\n    *(uint8_t *)((char *)&r + 13) = *(uint8_t*)((char*)(a0) + 1237);\n    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 1240);\n    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 1244);\n    *(uint32_t *)((char *)&r + 24) = *(uint32_t*)((char*)(a0) + 1248);\n    return r;\n}\n",
+   "orig_insns": 17,
+   "new_insns": 17
   },
   {
    "module": "main",
@@ -5409,6 +5709,18 @@
    "src": "void f_be55b0(void* a0) {\n    uint32_t k0 = 3;\n    *(uint64_t*)((char*)(a0) + 156) = (uint64_t)k0;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 12646000,
+   "size": 76,
+   "name": "sub_c0f670",
+   "shape": "straight",
+   "ident": "f_c0f670",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[40]; } __S_f_c0f670;\n__S_f_c0f670 f_c0f670(void* a0) {\n    __S_f_c0f670 r;\n    *(uint32_t *)((char *)&r + 0) = *(uint32_t*)((char*)(a0) + 852);\n    *(uint16_t *)((char *)&r + 4) = *(uint16_t*)((char*)(a0) + 856);\n    *(uint32_t *)((char *)&r + 8) = *(uint32_t*)((char*)(a0) + 860);\n    *(uint8_t *)((char *)&r + 12) = *(uint8_t*)((char*)(a0) + 864);\n    *(uint8_t *)((char *)&r + 13) = *(uint8_t*)((char*)(a0) + 865);\n    *(uint32_t *)((char *)&r + 16) = *(uint32_t*)((char*)(a0) + 868);\n    *(uint32_t *)((char *)&r + 20) = *(uint32_t*)((char*)(a0) + 872);\n    *(uint32_t *)((char *)&r + 24) = *(uint32_t*)((char*)(a0) + 876);\n    *(uint64_t *)((char *)&r + 28) = *(uint64_t*)((char*)(a0) + 880);\n    return r;\n}\n",
+   "orig_insns": 19,
+   "new_insns": 19
   },
   {
    "module": "main",
@@ -7560,6 +7872,18 @@
   },
   {
    "module": "main",
+   "addr": 18328304,
+   "size": 36,
+   "name": "sub_117aaf0",
+   "shape": "straight",
+   "ident": "f_117aaf0",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[32]; } __S_f_117aaf0;\n__S_f_117aaf0 f_117aaf0(void* a0) {\n    __S_f_117aaf0 r;\n    *(uint64_t *)((char *)&r + 0) = *(uint64_t*)((char*)(a0) + 64);\n    *(uint64_t *)((char *)&r + 8) = *(uint64_t*)((char*)(a0) + 80);\n    *(uint64_t *)((char *)&r + 16) = *(uint64_t*)((char*)(a0) + 96);\n    *(uint64_t *)((char *)&r + 24) = *(uint64_t*)((char*)(a0) + 112);\n    return r;\n}\n",
+   "orig_insns": 9,
+   "new_insns": 9
+  },
+  {
+   "module": "main",
    "addr": 18333472,
    "size": 12,
    "name": "sub_117bf20",
@@ -7975,6 +8299,18 @@
    "ident": "f_14a91a0",
    "sig": "Pv",
    "src": "void f_14a91a0(void* a0) {\n    uint32_t k0 = 1;\n    *(uint8_t*)((char*)(a0) + 216) = (uint8_t)k0;\n    *(uint32_t*)((char*)(a0) + 120) = 2;\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 21745440,
+   "size": 20,
+   "name": "sub_14bcf20",
+   "shape": "straight",
+   "ident": "f_14bcf20",
+   "sig": "Pv",
+   "src": "typedef struct { unsigned char b[24]; } __S_f_14bcf20;\n__S_f_14bcf20 f_14bcf20(void* a0) {\n    __S_f_14bcf20 r;\n    *(uint16_t *)((char *)&r + 0) = *(uint16_t*)((char*)(a0) + 16);\n    *(uint16_t *)((char *)&r + 2) = *(uint16_t*)((char*)(a0) + 18);\n    return r;\n}\n",
    "orig_insns": 5,
    "new_insns": 5
   },

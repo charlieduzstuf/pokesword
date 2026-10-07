@@ -2949,7 +2949,7 @@ void sub_2af7e0() { /* 0x2af7e0 */ }
 void sub_2af870() { /* 0x2af870 */ }
 void sub_2af8e0() { /* 0x2af8e0 */ }
 void sub_2af950() { /* 0x2af950 */ }
-void sub_2af9c0() { /* 0x2af9c0 */ }
+// sub_2af9c0: implemented in prog/matched/main/
 void sub_2af9e0() { /* 0x2af9e0 */ }
 void sub_2afa70() { /* 0x2afa70 */ }
 void sub_2afb20() { /* 0x2afb20 */ }

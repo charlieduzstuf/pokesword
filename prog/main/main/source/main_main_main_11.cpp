@@ -1120,7 +1120,7 @@ void sub_c0f460() { /* 0xc0f460 */ }
 void sub_c0f4c0() { /* 0xc0f4c0 */ }
 void sub_c0f520() { /* 0xc0f520 */ }
 void sub_c0f5c0() { /* 0xc0f5c0 */ }
-void sub_c0f670() { /* 0xc0f670 */ }
+// sub_c0f670: implemented in prog/matched/main/
 void sub_c0f6c0() { /* 0xc0f6c0 */ }
 void sub_c0f6d0() { /* 0xc0f6d0 */ }
 void sub_c0f6e0() { /* 0xc0f6e0 */ }
