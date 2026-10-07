@@ -459,7 +459,15 @@ class StraightLine:
                     state[wreg(dst)] = ("imm", 0, U[access_width("mov", dst)])
                     continue
                 if wreg(src) not in state:
-                    raise Bail("mov source %r is neither an immediate nor a known register" % (src,))
+                    # Same rule as the arithmetic path: an argument used as a
+                    # value is still a parameter. `mov x0, x1` with x1 incoming
+                    # is a copy of the argument; declining it cost 13 bodies.
+                    av = self._value_arg(src, used_args, idx_args)
+                    if av is None:
+                        raise Bail("mov source %r is neither an immediate nor a "
+                                   "known register" % (src,))
+                    state[wreg(dst)] = av
+                    continue
                 state[wreg(dst)] = state[wreg(src)]
                 continue
 
