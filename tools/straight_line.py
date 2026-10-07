@@ -467,15 +467,27 @@ class StraightLine:
                     if scale == 0 and ext_op in ("uxtw", "sxtw"):
                         scale = 1 << shift
                     if scale:
+                        # `src` is a pointer here. It is an *argument* far more
+                        # often than a previously computed address, and an
+                        # argument has no `state` entry at all -- so this must
+                        # test for "is this a pointer" rather than "is this an
+                        # addr value", or every `add x8, x0, w1, uxtw #2` is
+                        # missed.
                         base_val = state.get(wreg(src))
                         if base_val is not None and base_val[0] == "addr":
-                            idx = arg_reg(src2)
-                            idx_args[idx] = ("uint32_t" if ext_op == "uxtw"
-                                             else "int32_t")
-                            state[wreg(dst)] = (
-                                "addr_i", base_val[1], base_val[2],
-                                "(uintptr_t)a%d * %d" % (idx, scale))
-                            continue
+                            bid, boff = base_val[1], base_val[2]
+                        else:
+                            bid = arg_reg(src)      # raises Bail if not x0-x4
+                            used_args.add(bid)
+                            ptr_args.add(bid)
+                            boff = 0
+                        idx = arg_reg(src2)
+                        idx_args[idx] = ("uint32_t" if ext_op == "uxtw"
+                                         else "int32_t")
+                        state[wreg(dst)] = (
+                            "addr_i", bid, boff,
+                            "(uintptr_t)a%d * %d" % (idx, scale))
+                        continue
                     off = 0
                 else:
                     raise Bail("add/sub with %d operands is not modelled" % (len(ops),))
