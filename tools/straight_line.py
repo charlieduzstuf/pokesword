@@ -551,14 +551,30 @@ class StraightLine:
                         # test for "is this a pointer" rather than "is this an
                         # addr value", or every `add x8, x0, w1, uxtw #2` is
                         # missed.
-                        base_val = state.get(wreg(src))
-                        if base_val is not None and base_val[0] == "addr":
-                            bid, boff = base_val[1], base_val[2]
-                        else:
-                            bid = arg_reg(src)      # raises Bail if not x0-x4
+                        # `resolve_base` is the single rule for "what can be a
+                        # memory base": an argument, an already-computed `addr`,
+                        # or an unsigned 64-bit *load* -- which becomes a
+                        # synthetic `p<N>` holding the loaded pointer. This path
+                        # used to test only for `addr` and otherwise call
+                        # `arg_reg`, so a body that loaded its base
+                        #
+                        #     ldr x8, [x0, #8] ; add x8, x8, w9, sxtw #4
+                        #
+                        # was declined even though `resolve_base` would have
+                        # accepted it. Same defect as the store-source,
+                        # arithmetic-operand and mov-source cases: a rule
+                        # reimplemented locally instead of asked of the one
+                        # place that already knows it.
+                        bid, breal = resolve_base(src)
+                        if breal:
                             used_args.add(bid)
                             ptr_args.add(bid)
-                            boff = 0
+                        elif bid == SRET_ID:
+                            raise Bail("indexed add cannot use the struct-return "
+                                       "pointer as its base")
+                        # resolve_base folds any displacement into a synthetic
+                        # pointer's expression, so there is no separate offset.
+                        boff = 0
                         # The third operand of `add x8, x9, w9, sxtw #4` is a
                         # *value*, not a memory base, so `arg_reg` is the wrong
                         # resolver: it only knows x0-x7 and raised "memory base
