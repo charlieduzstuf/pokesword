@@ -4038,6 +4038,12 @@ const char *main_f_e3ba50() { static char g_f_e3ba50[1]; __asm__ volatile("" :::
 // sub_e3cdc0  (orig 0xe3cdc0, setter)
 void main_f_e3cdc0(void* a0) { *(uint64_t*)((char*)(a0) + 96) = 0; }
 
+// sub_e3dfc0  (orig 0xe3dfc0, straight)
+void main_f_e3dfc0(void* a0, uint32_t a1) {
+    *(uint32_t*)((char*)(a0) + 144) = 1;
+    *(uint64_t*)((char*)(a0) + 152) = (uint64_t)(((uint32_t)a1));
+}
+
 // sub_e3dfe0  (orig 0xe3dfe0, straight)
 void main_f_e3dfe0(void* a0, void* a1) {
     *(uint32_t*)((char*)(a0) + 144) = 2;
@@ -6678,7 +6684,4 @@ void main_f_f801e0() {}
 
 // sub_f801f0  (orig 0xf801f0, copy2)
 void main_f_f801f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_f80200  (orig 0xf80200, copy2)
-void main_f_f80200(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 

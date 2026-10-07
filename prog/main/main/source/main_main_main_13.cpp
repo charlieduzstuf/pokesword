@@ -829,7 +829,7 @@ void sub_e3d600() { /* 0xe3d600 */ }
 void sub_e3d610() { /* 0xe3d610 */ }
 void sub_e3d620() { /* 0xe3d620 */ }
 void color_unselect_2() { /* 0xe3d7c0 */ }
-void sub_e3dfc0() { /* 0xe3dfc0 */ }
+// sub_e3dfc0: implemented in prog/matched/main/
 // sub_e3dfe0: implemented in prog/matched/main/
 void sub_e3e000() { /* 0xe3e000 */ }
 void sub_e3e110() { /* 0xe3e110 */ }

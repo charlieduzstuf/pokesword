@@ -27,6 +27,11 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_131e5a0  (orig 0x131e5a0, straight)
+void main_f_131e5a0(void* a0) {
+    *(uint32_t*)((char*)(a0) + 1484) = 2;
+}
+
 // sub_131fef0  (orig 0x131fef0, getter)
 uint32_t main_f_131fef0(void* a0) { return *(uint32_t*)((char*)(a0) + 232); }
 
@@ -6369,6 +6374,12 @@ void main_f_15beec0(void* a0, uint64_t a1) {
     *(uint32_t*)((char*)(a0) + 8) = 6;
 }
 
+// sub_15beef0  (orig 0x15beef0, straight)
+void main_f_15beef0(void* a0, uint32_t a1) {
+    *(uint64_t*)((char*)(a0)) = (uint64_t)(((uint32_t)a1));
+    *(uint32_t*)((char*)(a0) + 8) = 6;
+}
+
 // sub_15bf100  (orig 0x15bf100, straight)
 void main_f_15bf100(void* a0, void* a1) {
     *(uint64_t*)((char*)(a0)) = *(uint64_t*)((char*)(a1));
@@ -6605,10 +6616,4 @@ void main_f_15ecbe0() {}
 
 // sub_15ecbf0  (orig 0x15ecbf0, ret_only)
 void main_f_15ecbf0() {}
-
-// sub_15ecc00  (orig 0x15ecc00, ret_only)
-void main_f_15ecc00() {}
-
-// sub_15ecc10  (orig 0x15ecc10, mov_ret)
-uint32_t main_f_15ecc10() { return 0; }
 

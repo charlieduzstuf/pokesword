@@ -3780,6 +3780,18 @@
   },
   {
    "module": "sdk",
+   "addr": 3534960,
+   "size": 12,
+   "name": "sub_35f070",
+   "shape": "straight",
+   "ident": "f_35f070",
+   "sig": "Pvj",
+   "src": "void f_35f070(void* a0, uint32_t a1) {\n    *(uint64_t*)((char*)(a0)) = (uint64_t)(((uint32_t)a1));\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "sdk",
    "addr": 3536832,
    "size": 8,
    "name": "sub_35f7c0",
@@ -3981,6 +3993,18 @@
    "src": "uint64_t f_3a21f0(uint64_t unused0, void* a1) {\n    *(uint64_t*)((char*)(a1)) = -1;\n    return 0;\n}\n",
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "module": "sdk",
+   "addr": 3811024,
+   "size": 20,
+   "name": "sub_3a26d0",
+   "shape": "straight",
+   "ident": "f_3a26d0",
+   "sig": "Pvm",
+   "src": "uint64_t f_3a26d0(void* a0, uint64_t a1) {\n    *(uint64_t*)((char*)(a0) + 80) = (*(uint64_t*)((char*)(a0) + 80)) + (((uint64_t)a1));\n    return ((uint64_t)a1);\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
   },
   {
    "module": "sdk",

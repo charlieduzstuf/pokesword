@@ -1,4 +1,4 @@
-/* sdk -- 1271 functions verified to match the original.
+/* sdk -- 1273 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -169,6 +169,11 @@ uint64_t sdk_f_35c770(void* a0, void* a1) {
 
 // sub_35dd90  (orig 0x35dd90, compare)
 bool sdk_f_35dd90(uint64_t a0, uint64_t a1) { return (uint64_t)(a0) == (uint64_t)(a1); }
+
+// sub_35f070  (orig 0x35f070, straight)
+void sdk_f_35f070(void* a0, uint32_t a1) {
+    *(uint64_t*)((char*)(a0)) = (uint64_t)(((uint32_t)a1));
+}
 
 // sub_35f290  (orig 0x35f290, mov_ret)
 uint64_t sdk_f_35f290() { return 0; }
@@ -600,6 +605,12 @@ void sdk_f_3a2410() {}
 
 // sub_3a2430  (orig 0x3a2430, mov_ret)
 uint32_t sdk_f_3a2430() { return 1; }
+
+// sub_3a26d0  (orig 0x3a26d0, straight)
+uint64_t sdk_f_3a26d0(void* a0, uint64_t a1) {
+    *(uint64_t*)((char*)(a0) + 80) = (*(uint64_t*)((char*)(a0) + 80)) + (((uint64_t)a1));
+    return ((uint64_t)a1);
+}
 
 // sub_3a2ac0  (orig 0x3a2ac0, setter)
 void sdk_f_3a2ac0(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0)) = a1; }

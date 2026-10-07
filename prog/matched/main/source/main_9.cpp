@@ -27,6 +27,9 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_f80200  (orig 0xf80200, copy2)
+void main_f_f80200(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
 // sub_f80220  (orig 0xf80220, ret_only)
 void main_f_f80220() {}
 
@@ -7280,7 +7283,4 @@ void main_f_11246b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_1124710  (orig 0x1124710, ret_only)
 void main_f_1124710() {}
-
-// sub_1124720  (orig 0x1124720, ret_only)
-void main_f_1124720() {}
 

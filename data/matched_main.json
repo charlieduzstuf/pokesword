@@ -6408,6 +6408,18 @@
   },
   {
    "module": "main",
+   "addr": 14933952,
+   "size": 20,
+   "name": "sub_e3dfc0",
+   "shape": "straight",
+   "ident": "f_e3dfc0",
+   "sig": "Pvj",
+   "src": "void f_e3dfc0(void* a0, uint32_t a1) {\n    *(uint32_t*)((char*)(a0) + 144) = 1;\n    *(uint64_t*)((char*)(a0) + 152) = (uint64_t)(((uint32_t)a1));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
    "addr": 14933984,
    "size": 20,
    "name": "sub_e3dfe0",
@@ -8721,6 +8733,18 @@
    "src": "void f_15beec0(void* a0, uint64_t a1) {\n    *(uint64_t*)((char*)(a0)) = (uint64_t)(a1);\n    *(uint32_t*)((char*)(a0) + 8) = 6;\n}\n",
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 22802160,
+   "size": 20,
+   "name": "sub_15beef0",
+   "shape": "straight",
+   "ident": "f_15beef0",
+   "sig": "Pvj",
+   "src": "void f_15beef0(void* a0, uint32_t a1) {\n    *(uint64_t*)((char*)(a0)) = (uint64_t)(((uint32_t)a1));\n    *(uint32_t*)((char*)(a0) + 8) = 6;\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
   },
   {
    "module": "main",

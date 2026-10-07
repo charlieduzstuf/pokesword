@@ -3349,7 +3349,7 @@ void sub_15bee80() { /* 0x15bee80 */ }
 // sub_15beeb0: implemented in prog/matched/main/
 // sub_15beec0: implemented in prog/matched/main/
 void sub_15beed0() { /* 0x15beed0 */ }
-void sub_15beef0() { /* 0x15beef0 */ }
+// sub_15beef0: implemented in prog/matched/main/
 void sub_15bef10() { /* 0x15bef10 */ }
 void sub_15bef20() { /* 0x15bef20 */ }
 void sub_15bef40() { /* 0x15bef40 */ }

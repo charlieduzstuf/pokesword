@@ -56922,7 +56922,7 @@ main,0x0000000000e3d600,sub_e3d600,8,_ZN4main10sub_e3d600Ev!
 main,0x0000000000e3d610,sub_e3d610,8,_ZN4main10sub_e3d610Ev!
 main,0x0000000000e3d620,sub_e3d620,408,_ZN4main10sub_e3d620Ev!
 main,0x0000000000e3d7c0,color_unselect_2,2036,_ZN4main16color_unselect_2Ev!
-main,0x0000000000e3dfc0,sub_e3dfc0,20,_ZN4main10sub_e3dfc0Ev!
+main,0x0000000000e3dfc0,sub_e3dfc0,20,_Z13main_f_e3dfc0Pvj
 main,0x0000000000e3dfe0,sub_e3dfe0,20,_Z13main_f_e3dfe0PvS_
 main,0x0000000000e3e000,sub_e3e000,272,_ZN4main10sub_e3e000Ev!
 main,0x0000000000e3e110,sub_e3e110,80,_ZN4main10sub_e3e110Ev!
@@ -94576,7 +94576,7 @@ main,0x00000000015bee80,sub_15bee80,36,_ZN4main11sub_15bee80Ev!
 main,0x00000000015beeb0,sub_15beeb0,16,_Z14main_f_15beeb0Pvm
 main,0x00000000015beec0,sub_15beec0,16,_Z14main_f_15beec0Pvm
 main,0x00000000015beed0,sub_15beed0,20,_ZN4main11sub_15beed0Ev!
-main,0x00000000015beef0,sub_15beef0,20,_ZN4main11sub_15beef0Ev!
+main,0x00000000015beef0,sub_15beef0,20,_Z14main_f_15beef0Pvj
 main,0x00000000015bef10,sub_15bef10,16,_ZN4main11sub_15bef10Ev!
 main,0x00000000015bef20,sub_15bef20,20,_ZN4main11sub_15bef20Ev!
 main,0x00000000015bef40,sub_15bef40,220,_ZN4main11sub_15bef40Ev!
@@ -122281,7 +122281,7 @@ sdk,0x000000000035eea0,sub_35eea0,80,_ZN3sdk10sub_35eea0Ev!
 sdk,0x000000000035eef0,sub_35eef0,92,_ZN3sdk10sub_35eef0Ev!
 sdk,0x000000000035ef50,sub_35ef50,240,_ZN3sdk10sub_35ef50Ev!
 sdk,0x000000000035f040,sub_35f040,36,_ZN3sdk10sub_35f040Ev!
-sdk,0x000000000035f070,sub_35f070,12,_ZN3sdk10sub_35f070Ev!
+sdk,0x000000000035f070,sub_35f070,12,_Z12sdk_f_35f070Pvj
 sdk,0x000000000035f080,sub_35f080,92,_ZN3sdk10sub_35f080Ev!
 sdk,0x000000000035f0e0,sub_35f0e0,432,_ZN3sdk21sub_35f0e0_sdk_35f0e0Ev!
 sdk,0x000000000035f290,sub_35f290,8,_Z12sdk_f_35f290v
@@ -123905,7 +123905,7 @@ sdk,0x00000000003a24b0,sub_3a24b0,252,_ZN3sdk10sub_3a24b0Ev!
 sdk,0x00000000003a25b0,sub_3a25b0,48,_ZN3sdk10sub_3a25b0Ev!
 sdk,0x00000000003a25e0,sub_3a25e0,164,_ZN3sdk10sub_3a25e0Ev!
 sdk,0x00000000003a2690,sub_3a2690,52,_ZN3sdk10sub_3a2690Ev!
-sdk,0x00000000003a26d0,sub_3a26d0,20,_ZN3sdk10sub_3a26d0Ev!
+sdk,0x00000000003a26d0,sub_3a26d0,20,_Z12sdk_f_3a26d0Pvm
 sdk,0x00000000003a26f0,sub_3a26f0,4,_ZN3sdk10sub_3a26f0Ev!
 sdk,0x00000000003a2700,sub_3a2700,20,_ZN3sdk10sub_3a2700Ev!
 sdk,0x00000000003a2720,sub_3a2720,76,_ZN3sdk10sub_3a2720Ev!

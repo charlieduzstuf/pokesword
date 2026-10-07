@@ -56893,7 +56893,7 @@
 0x0000000000e3d610,sub_e3d610,8,_ZN4main10sub_e3d610Ev!
 0x0000000000e3d620,sub_e3d620,408,_ZN4main10sub_e3d620Ev!
 0x0000000000e3d7c0,color_unselect_2,2036,_ZN4main16color_unselect_2Ev!
-0x0000000000e3dfc0,sub_e3dfc0,20,_ZN4main10sub_e3dfc0Ev!
+0x0000000000e3dfc0,sub_e3dfc0,20,_Z13main_f_e3dfc0Pvj
 0x0000000000e3dfe0,sub_e3dfe0,20,_Z13main_f_e3dfe0PvS_
 0x0000000000e3e000,sub_e3e000,272,_ZN4main10sub_e3e000Ev!
 0x0000000000e3e110,sub_e3e110,80,_ZN4main10sub_e3e110Ev!
@@ -94547,7 +94547,7 @@
 0x00000000015beeb0,sub_15beeb0,16,_Z14main_f_15beeb0Pvm
 0x00000000015beec0,sub_15beec0,16,_Z14main_f_15beec0Pvm
 0x00000000015beed0,sub_15beed0,20,_ZN4main11sub_15beed0Ev!
-0x00000000015beef0,sub_15beef0,20,_ZN4main11sub_15beef0Ev!
+0x00000000015beef0,sub_15beef0,20,_Z14main_f_15beef0Pvj
 0x00000000015bef10,sub_15bef10,16,_ZN4main11sub_15bef10Ev!
 0x00000000015bef20,sub_15bef20,20,_ZN4main11sub_15bef20Ev!
 0x00000000015bef40,sub_15bef40,220,_ZN4main11sub_15bef40Ev!
