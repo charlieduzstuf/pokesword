@@ -447,6 +447,11 @@ class StraightLine:
                     src_r, ext_op, shift = ops[2], None, 0
                 elif len(ops) == 4:
                     # `add x8, x9, x8, lsl #3` -> dst, src1, src2, ext
+                    # `add x8, x0, w1, uxtw #2` -> the same shape, but src1 is a
+                    # *pointer*, so the result is still a pointer: an indexed
+                    # address. This is by far the largest remaining bail class
+                    # (103 bodies) and it was declined purely because the four
+                    # operand form was read as value arithmetic only.
                     dst, src, src2 = ops[0], ops[1], ops[2]
                     ext = ops[3]
                     extparts = ext.split()
@@ -454,7 +459,23 @@ class StraightLine:
                     shift = int(extparts[1][1:]) if len(extparts) > 1 and extparts[1].startswith("#") else 0
                     if ext_op not in ("lsl", "uxtw", "sxtw"):
                         raise Bail("add/sub extend %r is not supported" % (ext,))
-                    src_r, sub_mn = src2, mn
+                    src_r = src2
+                    # The `#n` after an extend is a *shift*, so the byte scale is
+                    # `1 << n`; `uxtw #2` is a 4-byte stride, not 2. Using `n`
+                    # directly scales every indexed address by half.
+                    scale = 1 << shift if ext_op == "lsl" else 0
+                    if scale == 0 and ext_op in ("uxtw", "sxtw"):
+                        scale = 1 << shift
+                    if scale:
+                        base_val = state.get(wreg(src))
+                        if base_val is not None and base_val[0] == "addr":
+                            idx = arg_reg(src2)
+                            idx_args[idx] = ("uint32_t" if ext_op == "uxtw"
+                                             else "int32_t")
+                            state[wreg(dst)] = (
+                                "addr_i", base_val[1], base_val[2],
+                                "(uintptr_t)a%d * %d" % (idx, scale))
+                            continue
                     off = 0
                 else:
                     raise Bail("add/sub with %d operands is not modelled" % (len(ops),))
