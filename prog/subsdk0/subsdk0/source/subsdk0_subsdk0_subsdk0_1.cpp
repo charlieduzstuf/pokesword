@@ -3840,10 +3840,10 @@ void sub_2491c0() { /* 0x2491c0 */ }
 void sub_2492d0() { /* 0x2492d0 */ }
 void sub_2493c0_subsdk0_2493c0() { /* 0x2493c0 */ }
 void sub_2494b0_subsdk0_2494b0() { /* 0x2494b0 */ }
-void sub_249580() { /* 0x249580 */ }
+// sub_249580: implemented in prog/matched/subsdk0/
 void sub_249590() { /* 0x249590 */ }
 void sub_249690() { /* 0x249690 */ }
-void sub_2496d0() { /* 0x2496d0 */ }
+// sub_2496d0: implemented in prog/matched/subsdk0/
 void sub_2496f0() { /* 0x2496f0 */ }
 void sub_249700() { /* 0x249700 */ }
 void sub_249720() { /* 0x249720 */ }

@@ -1,4 +1,4 @@
-/* sdk -- 1269 functions verified to match the original.
+/* sdk -- 1271 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,9 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_351aa0  (orig 0x351aa0, ptr_add)
+void* sdk_f_351aa0(void* a0) { return (char*)a0 + 8; }
 
 // sub_351ab0  (orig 0x351ab0, straight)
 void* sdk_f_351ab0(void* a0) { return (char*)(a0) - 8; }
@@ -4264,6 +4267,11 @@ uint32_t sdk_f_4f1de0() { return 0; }
 
 // sub_4f1e58  (orig 0x4f1e58, getter)
 uint64_t sdk_f_4f1e58(void* a0) { return *(uint64_t*)((char*)(a0) + 96); }
+
+// sub_4f1ee0  (orig 0x4f1ee0, straight)
+void sdk_f_4f1ee0(void* a0, uint64_t a1) {
+    *(uint64_t*)((char*)(a0) + 8) = (*(uint64_t*)((char*)(a0) + 8)) + (((uint64_t)a1));
+}
 
 // sub_4f1f00  (orig 0x4f1f00, ret_only)
 void sdk_f_4f1f00() {}

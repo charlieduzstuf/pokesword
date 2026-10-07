@@ -2619,7 +2619,7 @@ void sub_2c7980() { /* 0x2c7980 */ }
 void sub_2c79f0() { /* 0x2c79f0 */ }
 void sub_2c7a00() { /* 0x2c7a00 */ }
 void sub_2c7a10() { /* 0x2c7a10 */ }
-void sub_2c7a20() { /* 0x2c7a20 */ }
+// sub_2c7a20: implemented in prog/matched/subsdk1/
 void sub_2c7a30() { /* 0x2c7a30 */ }
 void sub_2c7a40() { /* 0x2c7a40 */ }
 void sub_2c7a50() { /* 0x2c7a50 */ }

@@ -1,4 +1,4 @@
-/* main -- 1415 functions verified to match the original.
+/* main -- 1427 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,40 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_15ed920  (orig 0x15ed920, ret_only)
+void main_f_15ed920() {}
+
+// sub_15f3d30  (orig 0x15f3d30, ptr_add)
+void* main_f_15f3d30(void* a0) { return (char*)a0 + 1080; }
+
+// sub_15f5f10  (orig 0x15f5f10, mov_ret)
+uint64_t main_f_15f5f10() { return 0; }
+
+// sub_15f5f20  (orig 0x15f5f20, mov_ret)
+uint64_t main_f_15f5f20() { return 0; }
+
+// sub_15f71b0  (orig 0x15f71b0, getter-chain)
+uint64_t main_f_15f71b0(void* a0) {
+    uint64_t t0 = *(uint64_t*)((char*)a0 + 224);
+    uint64_t t1 = *(uint64_t*)(char*)(t0);
+    return *(uint64_t*)((char*)(t1) + 24);
+}
+
+// sub_1601d50  (orig 0x1601d50, strlit-ret)
+const char *main_f_1601d50() { static const char s[] = "prudp"; __asm__ volatile("" ::: "memory"); return s; }
+
+// sub_1606400  (orig 0x1606400, ret_only)
+void main_f_1606400() {}
+
+// sub_1607c60  (orig 0x1607c60, ret_only)
+void main_f_1607c60() {}
+
+// sub_16092b0  (orig 0x16092b0, ret_only)
+void main_f_16092b0() {}
+
+// sub_1609f50  (orig 0x1609f50, ret_only)
+void main_f_1609f50() {}
 
 // sub_1609f60  (orig 0x1609f60, ret_only)
 void main_f_1609f60() {}
@@ -1097,6 +1131,9 @@ void main_f_1667490(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 5836L) =
 // sub_16674a0  (orig 0x16674a0, setter)
 void main_f_16674a0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 5840L) = a1; }
 
+// sub_1667570  (orig 0x1667570, straight)
+uint64_t main_f_1667570(uint64_t a0) { return (((uint64_t)a0)) + (5912); }
+
 // sub_16675c0  (orig 0x16675c0, straight)
 uint8_t main_f_16675c0(void* a0) { return *(uint8_t*)((char*)(a0) + 8192L); }
 
@@ -1422,6 +1459,11 @@ void* main_f_167c190(void* a0) { return (char*)a0 + 85; }
 
 // sub_167c1a0  (orig 0x167c1a0, getter)
 uint32_t main_f_167c1a0(void* a0) { return *(uint32_t*)((char*)(a0) + 472); }
+
+// sub_167c1b0  (orig 0x167c1b0, straight)
+void main_f_167c1b0(void* a0, uint32_t a1) {
+    *(uint32_t*)((char*)(a0) + 472) = (*(uint32_t*)((char*)(a0) + 472)) + (((uint32_t)a1));
+}
 
 // sub_167c380  (orig 0x167c380, ptr_add)
 void* main_f_167c380(void* a0) { return (char*)a0 + 88; }

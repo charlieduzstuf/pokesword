@@ -3849,7 +3849,7 @@ void sub_8a79a0() { /* 0x8a79a0 */ }
 void sub_8a7a20() { /* 0x8a7a20 */ }
 void sub_8a7a40() { /* 0x8a7a40 */ }
 void sub_8a7ab0() { /* 0x8a7ab0 */ }
-void sub_8a7bd0() { /* 0x8a7bd0 */ }
+// sub_8a7bd0: implemented in prog/matched/main/
 void sub_8a7be0() { /* 0x8a7be0 */ }
 void sub_8a7c00() { /* 0x8a7c00 */ }
 void sub_8a7c10() { /* 0x8a7c10 */ }

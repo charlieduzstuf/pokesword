@@ -706,6 +706,30 @@
   },
   {
    "module": "subsdk0",
+   "addr": 2397568,
+   "size": 16,
+   "name": "sub_249580",
+   "shape": "straight",
+   "ident": "f_249580",
+   "sig": "Pvm",
+   "src": "void f_249580(void* a0, uint64_t a1) {\n    *(uint64_t*)((char*)(a0) + 8) = (*(uint64_t*)((char*)(a0) + 8)) + (((uint64_t)a1));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "subsdk0",
+   "addr": 2397904,
+   "size": 28,
+   "name": "sub_2496d0",
+   "shape": "straight",
+   "ident": "f_2496d0",
+   "sig": "Pvm",
+   "src": "void f_2496d0(void* a0, uint64_t a1) {\n    *(uint64_t*)((char*)(a0) + 8) = (*(uint64_t*)((char*)(a0) + 8)) + (((uint64_t)a1));\n    *(uint32_t*)((char*)(a0)) = (*(uint32_t*)((char*)(a0))) + (1);\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "subsdk0",
    "addr": 2411552,
    "size": 12,
    "name": "sub_24cc20",

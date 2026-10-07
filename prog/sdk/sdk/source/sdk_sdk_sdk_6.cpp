@@ -1842,7 +1842,7 @@ void sub_4f1e60() { /* 0x4f1e60 */ }
 void sub_4f1e80() { /* 0x4f1e80 */ }
 void sub_4f1e98() { /* 0x4f1e98 */ }
 void sub_4f1eb8() { /* 0x4f1eb8 */ }
-void sub_4f1ee0() { /* 0x4f1ee0 */ }
+// sub_4f1ee0: implemented in prog/matched/sdk/
 void sub_4f1ef0() { /* 0x4f1ef0 */ }
 // sub_4f1f00: implemented in prog/matched/sdk/
 void sub_4f1f08() { /* 0x4f1f08 */ }

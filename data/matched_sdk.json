@@ -3192,6 +3192,18 @@
   },
   {
    "module": "sdk",
+   "addr": 3024320,
+   "size": 16,
+   "name": "sub_2e25c0",
+   "shape": "straight",
+   "ident": "f_2e25c0",
+   "sig": "Pvm",
+   "src": "void f_2e25c0(void* a0, uint64_t a1) {\n    *(uint64_t*)((char*)(a0)) = (*(uint64_t*)((char*)(a0))) + (((uint64_t)a1));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "sdk",
    "addr": 3047216,
    "size": 92,
    "name": "sub_2e7f30",
@@ -5155,6 +5167,18 @@
    "ident": "f_49cb78",
    "sig": "Pv",
    "src": "uint32_t f_49cb78(void* a0) { return (*(uint32_t*)((char*)(a0) + 48)) - (*(uint32_t*)((char*)(a0) + 40)); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "sdk",
+   "addr": 5185248,
+   "size": 16,
+   "name": "sub_4f1ee0",
+   "shape": "straight",
+   "ident": "f_4f1ee0",
+   "sig": "Pvm",
+   "src": "void f_4f1ee0(void* a0, uint64_t a1) {\n    *(uint64_t*)((char*)(a0) + 8) = (*(uint64_t*)((char*)(a0) + 8)) + (((uint64_t)a1));\n}\n",
    "orig_insns": 4,
    "new_insns": 4
   },

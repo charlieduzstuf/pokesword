@@ -3241,7 +3241,7 @@ void sub_15bab50() { /* 0x15bab50 */ }
 // sub_15babd0: implemented in prog/matched/main/
 void sub_15babe0() { /* 0x15babe0 */ }
 // sub_15bacb0: implemented in prog/matched/main/
-void sub_15bacc0() { /* 0x15bacc0 */ }
+// sub_15bacc0: implemented in prog/matched/main/
 void sub_15bacd0() { /* 0x15bacd0 */ }
 // sub_15bacf0: implemented in prog/matched/main/
 // sub_15bad00: implemented in prog/matched/main/

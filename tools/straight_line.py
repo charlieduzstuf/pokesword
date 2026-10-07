@@ -237,7 +237,15 @@ def _rw(v):
         return S[w] if signed else U[w]
     if k == "expr":
         return v[4]
-    return "uint64_t"  # arg and anything else: pointer-sized is the safe default
+    if k == "argval":
+        return v[2]
+    # `addr`/`addr_i` render as `char *` expressions, so the result type has to
+    # be a pointer. Calling them uint64_t produced an integer-typed expression
+    # built from a pointer, which is the same class of error as arithmetic on
+    # void* one level up.
+    if k in ("addr", "addr_i"):
+        return "void*"
+    return "uint64_t"
 
 
 def ptr_add(base, off):
@@ -566,9 +574,9 @@ class StraightLine:
                     s2 = self._value_arg(src_r, used_args, idx_args)
                 if s1 is None or s2 is None:
                     raise Bail("add/sub operand is not a known register")
-                if s1[0] not in ("load", "expr", "arg", "imm"):
+                if s1[0] not in ("load", "expr", "arg", "argval", "imm"):
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s1[0],))
-                if s2[0] not in ("load", "expr", "arg", "imm"):
+                if s2[0] not in ("load", "expr", "arg", "argval", "imm"):
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s2[0],))
                 op = "+" if mn == "add" else "-"
                 if len(ops) == 4 and ext_op is not None:
@@ -591,11 +599,15 @@ class StraightLine:
         """
         n = arg_reg(reg)
         used_args.add(n)
-        # A `w` register as an operand is a 32-bit value, which changes its
-        # parameter type and therefore the mangled name.
-        idx_args.setdefault(n, "uint32_t" if reg.strip().startswith("w")
-                            else "uint64_t")
-        return ("arg", n)
+        cty = "uint32_t" if reg.strip().startswith("w") else "uint64_t"
+        idx_args.setdefault(n, cty)
+        # A distinct kind from ("arg", n): as a *memory base* an argument is
+        # `void*`, but in arithmetic it is an integer. Rendering it as void* gave
+        #   return ((a0) - (v)) - 16;
+        # -> `error: arithmetic on a pointer to void`, which killed a 200-candidate
+        # batch. As an integer the same operand is fine, and mixing a `char *`
+        # with a uintptr_t is legal pointer arithmetic.
+        return ("argval", n, cty)
 
     def _render(self, val, names):
         kind = val[0]
@@ -644,6 +656,10 @@ class StraightLine:
             # An incoming argument stored straight through. `_emit` applies the
             # store-width cast, so handing back the bare name is enough.
             return "void*", names[val[1]]
+        if kind == "argval":
+            # The same argument as an arithmetic operand: an integer, never a
+            # pointer. See `_value_arg`.
+            return val[2], "((%s)%s)" % (val[2], names[val[1]])
         raise Bail("unknown value kind %r" % (kind,))
 
     def _emit(self, ident, state, stmts, used_args, ptr_args, synth=(), idx_args=()):

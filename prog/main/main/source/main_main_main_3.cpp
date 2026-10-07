@@ -1590,7 +1590,7 @@ void SiCore_Array_27() { /* 0x4c1f80 */ }
 void sub_4c2050() { /* 0x4c2050 */ }
 // sub_4c2080: implemented in prog/matched/main/
 void sub_4c2090() { /* 0x4c2090 */ }
-void sub_4c20c0() { /* 0x4c20c0 */ }
+// sub_4c20c0: implemented in prog/matched/main/
 void sub_4c20d0() { /* 0x4c20d0 */ }
 // sub_4c2200: implemented in prog/matched/main/
 void sub_4c2210() { /* 0x4c2210 */ }
@@ -3418,8 +3418,8 @@ void sub_541e60() { /* 0x541e60 */ }
 // sub_542250: implemented in prog/matched/main/
 void sub_542260() { /* 0x542260 */ }
 // sub_542290: implemented in prog/matched/main/
-void sub_5422a0() { /* 0x5422a0 */ }
-void sub_5422b0() { /* 0x5422b0 */ }
+// sub_5422a0: implemented in prog/matched/main/
+// sub_5422b0: implemented in prog/matched/main/
 // sub_5422c0: implemented in prog/matched/main/
 // sub_5422d0: implemented in prog/matched/main/
 // sub_5422e0: implemented in prog/matched/main/

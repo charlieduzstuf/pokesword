@@ -6083,6 +6083,11 @@ void sdk_f_2e25a0(void* a0, uint64_t a1, uint64_t a2) { *(uint64_t*)((char*)(a0)
 // sub_2e25b0  (orig 0x2e25b0, ret_only)
 void sdk_f_2e25b0() {}
 
+// sub_2e25c0  (orig 0x2e25c0, straight)
+void sdk_f_2e25c0(void* a0, uint64_t a1) {
+    *(uint64_t*)((char*)(a0)) = (*(uint64_t*)((char*)(a0))) + (((uint64_t)a1));
+}
+
 // sub_2e2600  (orig 0x2e2600, getter)
 uint64_t sdk_f_2e2600(void* a0) { return *(uint64_t*)((char*)(a0)); }
 
@@ -6911,7 +6916,4 @@ uint32_t sdk_f_347d90() { return 30066; }
 
 // sub_3515d0  (orig 0x3515d0, ptr_add)
 void* sdk_f_3515d0(void* a0) { return (char*)a0 + 16; }
-
-// sub_351aa0  (orig 0x351aa0, ptr_add)
-void* sdk_f_351aa0(void* a0) { return (char*)a0 + 8; }
 

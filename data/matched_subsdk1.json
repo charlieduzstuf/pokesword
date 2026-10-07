@@ -406,6 +406,18 @@
   },
   {
    "module": "subsdk1",
+   "addr": 2914848,
+   "size": 8,
+   "name": "sub_2c7a20",
+   "shape": "straight",
+   "ident": "f_2c7a20",
+   "sig": "jj",
+   "src": "uint32_t f_2c7a20(uint32_t a0, uint32_t a1) { return (((uint32_t)a0)) - (((uint32_t)a1)); }\n",
+   "orig_insns": 2,
+   "new_insns": 2
+  },
+  {
+   "module": "subsdk1",
    "addr": 3042576,
    "size": 16,
    "name": "sub_2e6d10",

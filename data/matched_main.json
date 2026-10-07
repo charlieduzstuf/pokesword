@@ -1488,6 +1488,18 @@
   },
   {
    "module": "main",
+   "addr": 4989120,
+   "size": 12,
+   "name": "sub_4c20c0",
+   "shape": "straight",
+   "ident": "f_4c20c0",
+   "sig": "m",
+   "src": "uint64_t f_4c20c0(uint64_t a0) { return (((uint64_t)a0)) + (4120); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
    "addr": 4992592,
    "size": 12,
    "name": "sub_4c2e50",
@@ -1663,6 +1675,30 @@
    "ident": "f_537550",
    "sig": "Pvm",
    "src": "uint32_t f_537550(void* a0, uint64_t a1) {\n    *(uint64_t*)((char*)(a0) + 40) = (uint64_t)(a1);\n    return 1;\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 5513888,
+   "size": 12,
+   "name": "sub_5422a0",
+   "shape": "straight",
+   "ident": "f_5422a0",
+   "sig": "m",
+   "src": "uint64_t f_5422a0(uint64_t a0) { return (((uint64_t)a0)) + (14960); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 5513904,
+   "size": 12,
+   "name": "sub_5422b0",
+   "shape": "straight",
+   "ident": "f_5422b0",
+   "sig": "m",
+   "src": "uint64_t f_5422b0(uint64_t a0) { return (((uint64_t)a0)) + (14960); }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -3120,6 +3156,18 @@
   },
   {
    "module": "main",
+   "addr": 6675568,
+   "size": 16,
+   "name": "sub_65dc70",
+   "shape": "straight",
+   "ident": "f_65dc70",
+   "sig": "Pv",
+   "src": "uint64_t f_65dc70(void* a0) { return ((((uint64_t)a0)) + (*(uint8_t*)((char*)(a0) + 13))) + (16); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 6675584,
    "size": 16,
    "name": "sub_65dc80",
@@ -3991,6 +4039,18 @@
    "ident": "f_8a7a10",
    "sig": "Pv",
    "src": "void f_8a7a10(void* a0) {\n    *(uint8_t*)((char*)(a0) + 20065L) = 0;\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 9075664,
+   "size": 12,
+   "name": "sub_8a7bd0",
+   "shape": "straight",
+   "ident": "f_8a7bd0",
+   "sig": "m",
+   "src": "uint64_t f_8a7bd0(uint64_t a0) { return (((uint64_t)a0)) + (10032); }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -5256,6 +5316,30 @@
   },
   {
    "module": "main",
+   "addr": 10932832,
+   "size": 12,
+   "name": "sub_a6d260",
+   "shape": "straight",
+   "ident": "f_a6d260",
+   "sig": "m",
+   "src": "uint64_t f_a6d260(uint64_t a0) { return (((uint64_t)a0)) + (8256); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 10932848,
+   "size": 12,
+   "name": "sub_a6d270",
+   "shape": "straight",
+   "ident": "f_a6d270",
+   "sig": "m",
+   "src": "uint64_t f_a6d270(uint64_t a0) { return (((uint64_t)a0)) + (8736); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
    "addr": 10954816,
    "size": 16,
    "name": "sub_a72840",
@@ -5275,6 +5359,18 @@
    "ident": "f_ab16c0",
    "sig": "Pv",
    "src": "void f_ab16c0(void* a0) {\n    uint32_t k0 = 2;\n    *(uint64_t*)((char*)(a0) + 12296L) = (uint64_t)k0;\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 11213520,
+   "size": 12,
+   "name": "sub_ab1ad0",
+   "shape": "straight",
+   "ident": "f_ab1ad0",
+   "sig": "m",
+   "src": "uint64_t f_ab1ad0(uint64_t a0) { return (((uint64_t)a0)) + (12296); }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -5347,6 +5443,18 @@
    "ident": "f_abb0a0",
    "sig": "Pv",
    "src": "uint8_t f_abb0a0(void* a0) { return *(uint8_t*)((char*)(a0) + 6396L); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 11255120,
+   "size": 12,
+   "name": "sub_abbd50",
+   "shape": "straight",
+   "ident": "f_abbd50",
+   "sig": "m",
+   "src": "uint64_t f_abbd50(uint64_t a0) { return (((uint64_t)a0)) + (6752); }\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -8544,6 +8652,18 @@
   },
   {
    "module": "main",
+   "addr": 22785216,
+   "size": 16,
+   "name": "sub_15bacc0",
+   "shape": "straight",
+   "ident": "f_15bacc0",
+   "sig": "Pvj",
+   "src": "void f_15bacc0(void* a0, uint32_t a1) {\n    *(uint32_t*)((char*)(a0) + 8) = (*(uint32_t*)((char*)(a0) + 8)) + (((uint32_t)a1));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 22785264,
    "size": 16,
    "name": "sub_15bacf0",
@@ -8772,6 +8892,18 @@
   },
   {
    "module": "main",
+   "addr": 23491952,
+   "size": 12,
+   "name": "sub_1667570",
+   "shape": "straight",
+   "ident": "f_1667570",
+   "sig": "m",
+   "src": "uint64_t f_1667570(uint64_t a0) { return (((uint64_t)a0)) + (5912); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
    "addr": 23492032,
    "size": 12,
    "name": "sub_16675c0",
@@ -8829,6 +8961,18 @@
    "src": "uint32_t f_16759d0(void* a0) { return (*(uint32_t*)((char*)(a0) + 832)) + (24); }\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 23577008,
+   "size": 16,
+   "name": "sub_167c1b0",
+   "shape": "straight",
+   "ident": "f_167c1b0",
+   "sig": "Pvj",
+   "src": "void f_167c1b0(void* a0, uint32_t a1) {\n    *(uint32_t*)((char*)(a0) + 472) = (*(uint32_t*)((char*)(a0) + 472)) + (((uint32_t)a1));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",

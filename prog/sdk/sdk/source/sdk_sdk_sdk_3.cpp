@@ -2193,7 +2193,7 @@ void sub_2e2560() { /* 0x2e2560 */ }
 void sub_2e2580() { /* 0x2e2580 */ }
 // sub_2e25a0: implemented in prog/matched/sdk/
 // sub_2e25b0: implemented in prog/matched/sdk/
-void sub_2e25c0() { /* 0x2e25c0 */ }
+// sub_2e25c0: implemented in prog/matched/sdk/
 void sub_2e25d0() { /* 0x2e25d0 */ }
 void sub_2e25e0() { /* 0x2e25e0 */ }
 // sub_2e2600: implemented in prog/matched/sdk/

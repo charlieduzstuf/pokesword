@@ -145,7 +145,7 @@ void sub_65daf0() { /* 0x65daf0 */ }
 void sub_65dbe0() { /* 0x65dbe0 */ }
 void sub_65dbf0() { /* 0x65dbf0 */ }
 void sub_65dc10() { /* 0x65dc10 */ }
-void sub_65dc70() { /* 0x65dc70 */ }
+// sub_65dc70: implemented in prog/matched/main/
 // sub_65dc80: implemented in prog/matched/main/
 void sub_65dc90() { /* 0x65dc90 */ }
 void sub_65dcb0() { /* 0x65dcb0 */ }
