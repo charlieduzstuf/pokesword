@@ -4080,6 +4080,18 @@
   },
   {
    "module": "sdk",
+   "addr": 3979968,
+   "size": 16,
+   "name": "sub_3cbac0",
+   "shape": "straight",
+   "ident": "f_3cbac0",
+   "sig": "mmmPvmS_",
+   "src": "uint32_t f_3cbac0(uint64_t unused0, uint64_t unused1, uint64_t unused2, void* a3, uint64_t a4, void* a5) {\n    *(uint64_t*)((char*)(a5)) = (uint64_t)(a4);\n    *(uint64_t*)((char*)(a3)) = 0;\n    return 0;\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "sdk",
    "addr": 4061056,
    "size": 12,
    "name": "sub_3df780",
@@ -4929,6 +4941,30 @@
    "src": "void f_452060(uint64_t unused0, void* a1) {\n    *(uint32_t*)((char*)(a1) + 16) = 2;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "sdk",
+   "addr": 4746264,
+   "size": 16,
+   "name": "sub_486c18",
+   "shape": "straight",
+   "ident": "f_486c18",
+   "sig": "mmmmPvmmS_",
+   "src": "uint32_t f_486c18(uint64_t unused0, uint64_t unused1, uint64_t a2, uint64_t unused3, void* a4, uint64_t a5, uint64_t unused6, void* a7) {\n    *(uint64_t*)((char*)(a4)) = (uint64_t)(a2);\n    *(uint64_t*)((char*)(a7)) = (uint64_t)(a5);\n    return 3;\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "sdk",
+   "addr": 4746280,
+   "size": 16,
+   "name": "sub_486c28",
+   "shape": "straight",
+   "ident": "f_486c28",
+   "sig": "mmmmPvmmS_",
+   "src": "uint32_t f_486c28(uint64_t unused0, uint64_t unused1, uint64_t a2, uint64_t unused3, void* a4, uint64_t a5, uint64_t unused6, void* a7) {\n    *(uint64_t*)((char*)(a4)) = (uint64_t)(a2);\n    *(uint64_t*)((char*)(a7)) = (uint64_t)(a5);\n    return 3;\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "sdk",

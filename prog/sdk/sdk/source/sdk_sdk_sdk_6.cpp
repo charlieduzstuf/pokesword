@@ -119,8 +119,8 @@ void sub_486a20() { /* 0x486a20 */ }
 void sub_486ac0() { /* 0x486ac0 */ }
 void sub_486b38() { /* 0x486b38 */ }
 void sub_486bf0() { /* 0x486bf0 */ }
-void sub_486c18() { /* 0x486c18 */ }
-void sub_486c28() { /* 0x486c28 */ }
+// sub_486c18: implemented in prog/matched/sdk/
+// sub_486c28: implemented in prog/matched/sdk/
 // sub_486c38: implemented in prog/matched/sdk/
 // sub_486c48: implemented in prog/matched/sdk/
 // sub_486c50: implemented in prog/matched/sdk/

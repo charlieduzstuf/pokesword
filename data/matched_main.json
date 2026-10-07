@@ -4140,6 +4140,18 @@
   },
   {
    "module": "main",
+   "addr": 9357584,
+   "size": 32,
+   "name": "sub_8ec910",
+   "shape": "straight",
+   "ident": "f_8ec910",
+   "sig": "Pvmmmmm",
+   "src": "void f_8ec910(void* a0, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4, uint64_t a5) {\n    *(uint64_t*)((char*)(a0) + 38) = 4294967296;\n    *(uint8_t*)((char*)(a0) + 32) = (uint8_t)(a1);\n    *(uint8_t*)((char*)(a0) + 33) = (uint8_t)(a2);\n    *(uint8_t*)((char*)(a0) + 34) = (uint8_t)(a3);\n    *(uint8_t*)((char*)(a0) + 35) = (uint8_t)(a4);\n    *(uint8_t*)((char*)(a0) + 36) = (uint8_t)(a5);\n}\n",
+   "orig_insns": 8,
+   "new_insns": 8
+  },
+  {
+   "module": "main",
    "addr": 9556368,
    "size": 12,
    "name": "sub_91d190",

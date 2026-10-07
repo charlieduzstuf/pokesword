@@ -45,7 +45,12 @@ LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur")
 STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
 
 MAX_INSNS = 32        # beyond this, hand decomp is the better use of time
-MAX_ARG = 4           # x0..x3 are the only argument registers we will model
+MAX_ARG = 7           # AArch64 passes integer/pointer arguments in x0..x7.
+                      # This was 4, so any body reading x4..x7 as a pointer base
+                      # was declined as 'not an argument register' -- 57 bodies at
+                      # the last census. x8 and above are *not* arguments (x8 is the
+                      # struct-return pointer), which is why the sret test lives
+                      # above this bound and not here.
 # Synthetic base ids for loaded pointers. Kept far above any real argument
 # number so `id < SYNTH_BASE` distinguishes them without a second type.
 SYNTH_BASE = 1000

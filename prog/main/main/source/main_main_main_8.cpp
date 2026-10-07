@@ -1572,7 +1572,7 @@ void sub_8ec850() { /* 0x8ec850 */ }
 // sub_8ec8c0: implemented in prog/matched/main/
 void sub_8ec8e0() { /* 0x8ec8e0 */ }
 // sub_8ec900: implemented in prog/matched/main/
-void sub_8ec910() { /* 0x8ec910 */ }
+// sub_8ec910: implemented in prog/matched/main/
 // sub_8ec930: implemented in prog/matched/main/
 // sub_8ec940: implemented in prog/matched/main/
 // sub_8ec950: implemented in prog/matched/main/

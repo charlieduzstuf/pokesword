@@ -1,4 +1,4 @@
-/* main -- 1414 functions verified to match the original.
+/* main -- 1415 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,9 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_1609f60  (orig 0x1609f60, ret_only)
+void main_f_1609f60() {}
 
 // sub_160a2e0  (orig 0x160a2e0, getter)
 uint32_t main_f_160a2e0(void* a0) { return *(uint32_t*)((char*)(a0) + 8); }

@@ -35673,7 +35673,7 @@ main,0x00000000008ec8b0,sub_8ec8b0,16,_Z13main_f_8ec8b0Pv
 main,0x00000000008ec8c0,sub_8ec8c0,32,_Z13main_f_8ec8c0Pvmmm
 main,0x00000000008ec8e0,sub_8ec8e0,24,_ZN4main10sub_8ec8e0Ev!
 main,0x00000000008ec900,sub_8ec900,16,_Z13main_f_8ec900Pv
-main,0x00000000008ec910,sub_8ec910,32,_ZN4main10sub_8ec910Ev!
+main,0x00000000008ec910,sub_8ec910,32,_Z13main_f_8ec910Pvmmmmm
 main,0x00000000008ec930,sub_8ec930,8,_Z13main_f_8ec930Pv
 main,0x00000000008ec940,sub_8ec940,8,_Z13main_f_8ec940Pv
 main,0x00000000008ec950,sub_8ec950,8,_Z13main_f_8ec950Pv
@@ -124978,7 +124978,7 @@ sdk,0x00000000003ca430,sub_3ca430,392,_ZN3sdk10sub_3ca430Ev!
 sdk,0x00000000003ca5c0,sub_3ca5c0,2508,_ZN3sdk10sub_3ca5c0Ev!
 sdk,0x00000000003caf90,sub_3caf90,664,_ZN3sdk10sub_3caf90Ev!
 sdk,0x00000000003cb230,sub_3cb230,2184,_ZN3sdk10sub_3cb230Ev!
-sdk,0x00000000003cbac0,sub_3cbac0,16,_ZN3sdk10sub_3cbac0Ev!
+sdk,0x00000000003cbac0,sub_3cbac0,16,_Z12sdk_f_3cbac0mmmPvmS_
 sdk,0x00000000003cbad0,sub_3cbad0,100,_ZN3sdk21sub_3cbad0_sdk_3cbad0Ev!
 sdk,0x00000000003cbb40,NV_DECOMPRESSION,344,_ZN3sdk16NV_DECOMPRESSIONEv!
 sdk,0x00000000003cbca0,sub_3cbca0,20,_ZN3sdk21sub_3cbca0_sdk_3cbca0Ev!
@@ -128316,8 +128316,8 @@ sdk,0x0000000000486a20,sub_486a20,160,_ZN3sdk10sub_486a20Ev!
 sdk,0x0000000000486ac0,sub_486ac0,116,_ZN3sdk10sub_486ac0Ev!
 sdk,0x0000000000486b38,sub_486b38,180,_ZN3sdk10sub_486b38Ev!
 sdk,0x0000000000486bf0,sub_486bf0,36,_ZN3sdk10sub_486bf0Ev!
-sdk,0x0000000000486c18,sub_486c18,16,_ZN3sdk10sub_486c18Ev!
-sdk,0x0000000000486c28,sub_486c28,16,_ZN3sdk10sub_486c28Ev!
+sdk,0x0000000000486c18,sub_486c18,16,_Z12sdk_f_486c18mmmmPvmmS_
+sdk,0x0000000000486c28,sub_486c28,16,_Z12sdk_f_486c28mmmmPvmmS_
 sdk,0x0000000000486c38,sub_486c38,12,_Z12sdk_f_486c38mmmmPv
 sdk,0x0000000000486c48,sub_486c48,8,_Z12sdk_f_486c48v
 sdk,0x0000000000486c50,sub_486c50,8,_Z12sdk_f_486c50v

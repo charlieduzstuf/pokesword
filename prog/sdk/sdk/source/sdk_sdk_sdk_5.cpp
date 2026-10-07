@@ -843,7 +843,7 @@ void sub_3ca430() { /* 0x3ca430 */ }
 void sub_3ca5c0() { /* 0x3ca5c0 */ }
 void sub_3caf90() { /* 0x3caf90 */ }
 void sub_3cb230() { /* 0x3cb230 */ }
-void sub_3cbac0() { /* 0x3cbac0 */ }
+// sub_3cbac0: implemented in prog/matched/sdk/
 void sub_3cbad0_sdk_3cbad0() { /* 0x3cbad0 */ }
 void NV_DECOMPRESSION() { /* 0x3cbb40 */ }
 void sub_3cbca0_sdk_3cbca0() { /* 0x3cbca0 */ }

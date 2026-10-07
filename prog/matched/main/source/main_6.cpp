@@ -4831,6 +4831,16 @@ void main_f_8ec900(void* a0) {
     *(uint8_t*)((char*)(t0) + 96) = (uint8_t)(t1);
 }
 
+// sub_8ec910  (orig 0x8ec910, straight)
+void main_f_8ec910(void* a0, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4, uint64_t a5) {
+    *(uint64_t*)((char*)(a0) + 38) = 4294967296;
+    *(uint8_t*)((char*)(a0) + 32) = (uint8_t)(a1);
+    *(uint8_t*)((char*)(a0) + 33) = (uint8_t)(a2);
+    *(uint8_t*)((char*)(a0) + 34) = (uint8_t)(a3);
+    *(uint8_t*)((char*)(a0) + 35) = (uint8_t)(a4);
+    *(uint8_t*)((char*)(a0) + 36) = (uint8_t)(a5);
+}
+
 // sub_8ec930  (orig 0x8ec930, getter)
 uint8_t main_f_8ec930(void* a0) { return *(uint8_t*)((char*)(a0) + 45); }
 
@@ -6660,7 +6670,4 @@ void main_f_a63780() {}
 
 // sub_a63790  (orig 0xa63790, ret_only)
 void main_f_a63790() {}
-
-// sub_a637a0  (orig 0xa637a0, ret_only)
-void main_f_a637a0() {}
 

@@ -1,4 +1,4 @@
-/* sdk -- 1266 functions verified to match the original.
+/* sdk -- 1269 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -1054,6 +1054,13 @@ void sdk_f_3ca050(void* a0) {
     *(uint64_t*)((char*)(a0) + 20) = (uint64_t)k0;
     *(uint32_t*)((char*)(a0) + 32) = 0;
     *(uint32_t*)((char*)(a0) + 40) = 0;
+}
+
+// sub_3cbac0  (orig 0x3cbac0, straight)
+uint32_t sdk_f_3cbac0(uint64_t unused0, uint64_t unused1, uint64_t unused2, void* a3, uint64_t a4, void* a5) {
+    *(uint64_t*)((char*)(a5)) = (uint64_t)(a4);
+    *(uint64_t*)((char*)(a3)) = 0;
+    return 0;
 }
 
 // sub_3cbd40  (orig 0x3cbd40, mov_ret)
@@ -3799,6 +3806,20 @@ const char *sdk_f_4850d8() { static char g_f_4850d8[1]; __asm__ volatile("" ::: 
 
 // sub_485a78  (orig 0x485a78, mov_ret)
 uint32_t sdk_f_485a78(uint32_t a0, uint32_t a1) { return a1; }
+
+// sub_486c18  (orig 0x486c18, straight)
+uint32_t sdk_f_486c18(uint64_t unused0, uint64_t unused1, uint64_t a2, uint64_t unused3, void* a4, uint64_t a5, uint64_t unused6, void* a7) {
+    *(uint64_t*)((char*)(a4)) = (uint64_t)(a2);
+    *(uint64_t*)((char*)(a7)) = (uint64_t)(a5);
+    return 3;
+}
+
+// sub_486c28  (orig 0x486c28, straight)
+uint32_t sdk_f_486c28(uint64_t unused0, uint64_t unused1, uint64_t a2, uint64_t unused3, void* a4, uint64_t a5, uint64_t unused6, void* a7) {
+    *(uint64_t*)((char*)(a4)) = (uint64_t)(a2);
+    *(uint64_t*)((char*)(a7)) = (uint64_t)(a5);
+    return 3;
+}
 
 // sub_486c38  (orig 0x486c38, straight)
 uint32_t sdk_f_486c38(uint64_t unused0, uint64_t unused1, uint64_t a2, uint64_t unused3, void* a4) {
