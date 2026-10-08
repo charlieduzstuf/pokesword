@@ -13,6 +13,7 @@ import ast
 import csv
 import collections
 import glob
+import io
 import json
 import os
 import re
@@ -32,26 +33,83 @@ HARVEST_LOCK = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fi
                             "work", "harvest.lock")
 
 
-def wait_for_harvest(timeout=3600):
-    """Block while a keepalive harvest is rewriting prog/.
+def pid_alive(pid):
+    """Is `pid` still running?  Windows-safe.
 
-    `keepalive --work auto` regenerates `prog/` via `decomp_project` and then
-    rebuilds. An audit running concurrently reads a half-written tree and reports
-    failures that do not exist -- three of them, once, on a clean tree that passed
-    on re-run. That is the worst kind of tool output: a false alarm that trains
-    you to ignore the alarm.
-
-    So this *waits* rather than skipping. Skipping would make the audit pass
-    vacuously while proving nothing, which is the opposite mistake and a worse one.
+    `os.kill(pid, 0)` is *not* a safe existence probe on Windows -- for any
+    signal other than CTRL_C_EVENT/CTRL_BREAK_EVENT it calls TerminateProcess,
+    so "checking" a pid would kill it. Use OpenProcess instead.
     """
+    try:
+        pid = int(pid)
+    except (TypeError, ValueError):
+        return False
+    if pid <= 0:
+        return False
+    if os.name == "nt":
+        try:
+            import ctypes
+            PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+            k = ctypes.windll.kernel32
+            h = k.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+            if not h:
+                return False
+            k.CloseHandle(h)
+            return True
+        except Exception:
+            return True          # cannot tell: assume alive, err toward waiting
+    try:
+        os.kill(pid, 0)
+        return True
+    except OSError:
+        return False
+
+
+def wait_for_harvest(timeout=300):
+    """Wait out a keepalive harvest that is rewriting prog/, or report deferred.
+
+    `keepalive --work auto` regenerates `prog/` via `decomp_project` and rebuilds.
+    An audit running concurrently reads a half-written tree and reports failures
+    that do not exist -- three of them, once, on a clean tree that passed on
+    re-run. That is the worst kind of tool output: a false alarm that trains you
+    to ignore alarms.
+
+    Waiting is right; waiting *forever* is not. A harvest slice legitimately
+    takes many minutes, and the first version of this waited up to an hour, so a
+    concurrent audit stalled until its caller timed out -- trading a race for a
+    hang, which is the same outage wearing a different hat. Measured: the
+    heartbeat's audit probe hit its own 1800 s ceiling here.
+
+    So: clear a *stale* lock (its owner is gone), wait a bounded time for a live
+    one, and if it is still held, exit 3 -- deferred. Deliberately not 0, because
+    a pass that examined nothing is the vacuous-check mistake; deliberately not 1,
+    because nothing is wrong with the tree.
+    """
+    if not os.path.exists(HARVEST_LOCK):
+        return False
+    try:
+        owner = io.open(HARVEST_LOCK).read().strip()
+    except OSError:
+        owner = ""
+    if owner and not pid_alive(owner):
+        print("audit: clearing stale harvest lock from pid %s" % owner)
+        try:
+            os.unlink(HARVEST_LOCK)
+        except OSError:
+            pass
+        return False
+    # Tunable so the deferred path can be falsified in seconds instead of
+    # minutes; the production default is deliberately generous.
+    timeout = int(os.environ.get("POKESWORD_AUDIT_LOCK_WAIT", timeout))
     deadline = time.time() + timeout
-    waited = False
+    print("audit: waiting for an in-progress harvest to finish ...")
     while os.path.exists(HARVEST_LOCK) and time.time() < deadline:
-        if not waited:
-            print("audit: waiting for an in-progress harvest to finish ...")
-            waited = True
         time.sleep(5)
-    return waited
+    if os.path.exists(HARVEST_LOCK):
+        print("audit: DEFERRED -- a harvest still holds the lock after %ds; "
+              "the tree was not examined" % timeout)
+        return True
+    return False
 
 
 def check(ok, label, detail=""):
@@ -693,5 +751,11 @@ def main():
 if __name__ == "__main__":
     # A harvest rewrites prog/ and data/functions.csv; auditing underneath it
     # produces failures that do not exist. See wait_for_harvest().
-    wait_for_harvest()
+    #
+    # Exit 3 = deferred (a harvest held the lock and nothing was checked). Not 0,
+    # because a pass that examined nothing proves nothing. Not 1, because nothing
+    # is wrong with the tree. Callers gate on this explicitly: keepalive skips its
+    # commit this tick instead of committing an unexamined tree.
+    if wait_for_harvest():
+        sys.exit(3)
     sys.exit(main())

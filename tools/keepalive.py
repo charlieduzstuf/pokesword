@@ -174,6 +174,13 @@ def sync(a):
         # Audit first: never commit a tree whose own gates are red.
         audit = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "audit.py")],
                                capture_output=True, text=True, cwd=ROOT, timeout=900)
+        if audit.returncode == 3:
+            # Deferred, not failed: a harvest held the lock, so the audit examined
+            # nothing. Committing here would mean committing an unverified tree --
+            # exactly the failure this whole gate exists to prevent. Skip the tick.
+            return ("sync: %d path(s) modified but audit was DEFERRED by an "
+                    "in-progress harvest -- not committing this tick"
+                    % len(lines))
         if audit.returncode != 0:
             return ("sync: %d path(s) modified but AUDIT FAILED -- not committing"
                     % len(lines))
