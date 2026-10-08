@@ -97,16 +97,21 @@ COND_OPS = {
     "cc": "<",  "cs": ">=",
     "mi": "<",  "pl": ">=",
     "vs": "<",  "vc": ">=",
+    # `cneg` takes the inverted spelling of the same conditions. Missing from the
+    # map it raised KeyError, and a KeyError is not a decline -- the census
+    # counted it separately and 4 bodies silently vanished rather than reporting
+    # that the translator had a hole in it.
+    "neg": "<=", "nv": ">", "nm": "<", "np": ">=",
+    "a": "<=",   "b": ">",   "ae": "<=", "be": ">=",
 }
 MAX_INSNS = 32        # beyond this, hand decomp is the better use of time
-MAX_ARG = 7           # AArch64 passes integer/pointer arguments in x0..x7.
-                      # This was 4, so any body reading x4..x7 as a pointer base
-                      # was declined as 'not an argument register' -- 57 bodies at
-                      # the last census. x8 and above are *not* arguments (x8 is the
-                      # struct-return pointer), which is why the sret test lives
-                      # above this bound and not here.
-# Synthetic base ids for loaded pointers. Kept far above any real argument
-# number so `id < SYNTH_BASE` distinguishes them without a second type.
+                      # Raising this to 64 was measured and gave **zero** new
+                      # matches: candidates rose (sdk 202->205, subsdk1 175->182)
+                      # but none matched. Bodies past ~32 instructions are long
+                      # enough that simple translation diverges from Clang's
+                      # scheduling, so the boundary is doing useful work rather
+                      # than refusing addressable bodies. Reverted.
+
 SYNTH_BASE = 1000
 # Hidden struct-return pointer id. Distinct from every synthetic pointer.
 SRET_ID = 999
