@@ -37,6 +37,24 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 
 ```
 28,836 / 152,062  =  18.96%
+## The byte-identical ceiling is a compiler limit -- ~21%
+
+Measured over all 123,191 unmatched bodies:
+
+    contain a call          93,113  75.6%
+    contain a stack frame   97,547  79.2%   Clang 5.0.1 never emits writeback sp
+    contain adrp/adr        61,742  50.1%   needs a data symbol + link-time verify
+    FREE of all three        3,272   2.7%
+
+Ceiling under vanilla Clang 5.0.1 ~= 32,108 / 152,062 = **21.1%**. The retail
+module was built with Nintendo's compiler; the writeback `sp` prologue is the
+giveaway, and no flag on Clang 5.0.1 produces it (tested -O0..-O3, -Os, -Oz,
+frame-pointer and unwind variants).
+
+In this project "fuzzy" means byte-identical -- `objdiff_report.py` documents that
+a body either matches or is not counted. So 100% fuzzy == 100% byte-identical,
+which the above blocks. A *semantic* matcher would not be compiler-blocked. See
+`decomp/docs/ceiling.md`.
 ## Two largest blockers are compiler/harness limits, not missing work
 
 * **stack frames (`ldp`/`stp`, 97,370 bodies)** -- the original uses writeback
