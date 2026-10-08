@@ -1783,7 +1783,7 @@ void sub_3fbcf0_sdk_3fbcf0() { /* 0x3fbcf0 */ }
 void sub_3fbdb0() { /* 0x3fbdb0 */ }
 void sub_3fbe10() { /* 0x3fbe10 */ }
 void sub_3fbf10() { /* 0x3fbf10 */ }
-void sub_3fc040() { /* 0x3fc040 */ }
+// sub_3fc040: implemented in prog/matched/sdk/
 // sub_3fc060: implemented in prog/matched/sdk/
 // sub_3fc070: implemented in prog/matched/sdk/
 // sub_3fc080: implemented in prog/matched/sdk/
@@ -1923,7 +1923,7 @@ void unnamed_34_sdk_3ffee0() { /* 0x3ffee0 */ }
 void sub_400080() { /* 0x400080 */ }
 void sub_4000e0() { /* 0x4000e0 */ }
 // sub_400100: implemented in prog/matched/sdk/
-void sub_400110() { /* 0x400110 */ }
+// sub_400110: implemented in prog/matched/sdk/
 void sub_400130() { /* 0x400130 */ }
 void sub_400150() { /* 0x400150 */ }
 void sub_400170() { /* 0x400170 */ }
@@ -1977,7 +1977,7 @@ void sub_4026d0() { /* 0x4026d0 */ }
 // sub_402750: implemented in prog/matched/sdk/
 // sub_402760: implemented in prog/matched/sdk/
 // sub_402770: implemented in prog/matched/sdk/
-void sub_402780() { /* 0x402780 */ }
+// sub_402780: implemented in prog/matched/sdk/
 void CommandBuffer_out_of_memory_callback_didn_t_add_enough_c() { /* 0x402790 */ }
 void CommandBuffer_out_of_memory_callback_didn_t_add_enough_c_2() { /* 0x402960 */ }
 // sub_402a40: implemented in prog/matched/sdk/
@@ -2545,7 +2545,7 @@ void sub_415ca0() { /* 0x415ca0 */ }
 // sub_415d00: implemented in prog/matched/sdk/
 // sub_415d10: implemented in prog/matched/sdk/
 // sub_415d20: implemented in prog/matched/sdk/
-void sub_415d30() { /* 0x415d30 */ }
+// sub_415d30: implemented in prog/matched/sdk/
 void sub_415d50() { /* 0x415d50 */ }
 // sub_415da0: implemented in prog/matched/sdk/
 // sub_415db0: implemented in prog/matched/sdk/

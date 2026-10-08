@@ -1107,7 +1107,7 @@ void sub_d1b320() { /* 0xd1b320 */ }
 void sub_d1b3c0() { /* 0xd1b3c0 */ }
 void sub_d1b460() { /* 0xd1b460 */ }
 void sub_d1b580() { /* 0xd1b580 */ }
-void sub_d1b5a0() { /* 0xd1b5a0 */ }
+// sub_d1b5a0: implemented in prog/matched/main/
 void sub_d1b5d0() { /* 0xd1b5d0 */ }
 void sub_d1b5e0() { /* 0xd1b5e0 */ }
 void sub_d1b5f0() { /* 0xd1b5f0 */ }

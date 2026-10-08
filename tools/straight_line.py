@@ -71,6 +71,33 @@ EXTEND_TYPES = {
 # increment -- see the no-call/no-branch census in decomp/docs/remaining_pool.md.
 BITWISE_MNEMONICS = ("and", "orr", "eor", "bic", "movk", "ubfx", "sbfx",
                      "ubfiz", "mvn", "neg", "lsl", "lsr", "asr")
+
+# Condition flags, and the branchless conditionals that consume them.
+#
+# `csel`/`cset`/`fcsel` are what Clang emits for C's `? :`, so bodies built from
+# them are *byte-matchable* -- unlike the branchy bodies. Measured: 21,820
+# unmatched bodies contain one (42,388 `csel`, 18,024 `cset`, 4,774 `cinc`,
+# 3,809 `fcsel`, 3,597 `csinc`, 1,868 `cneg`).
+#
+# They declined on `cmp`/`cbz`/`tst` because flags had no representation at all:
+# the translator modelled registers only, so a comparison had nowhere to live.
+# Flags are a pseudo-register here -- kept beside `state`, not inside it, because
+# no instruction names them.
+FLAG_MNEMONICS = ("cmp", "cmn", "fcmp", "tst")
+COND_MNEMONICS = ("csel", "csinc", "csinv", "csneg", "cset", "csetm",
+                  "cinc", "cinv", "cneg", "fcsel", "fcset", "fcsetm")
+
+# Condition code -> C operator. The signed/unsigned pair matters: `hs`/`lo`/`cs`
+#/`cc` are the unsigned spellings of the same comparisons, and using the signed
+# operator for them would compare the wrong thing for a 64-bit value.
+COND_OPS = {
+    "eq": "==", "ne": "!=",
+    "lt": "<",  "le": "<=", "gt": ">", "ge": ">=",
+    "hi": ">",  "hs": ">=", "lo": "<", "ls": "<=",
+    "cc": "<",  "cs": ">=",
+    "mi": "<",  "pl": ">=",
+    "vs": "<",  "vc": ">=",
+}
 MAX_INSNS = 32        # beyond this, hand decomp is the better use of time
 MAX_ARG = 7           # AArch64 passes integer/pointer arguments in x0..x7.
                       # This was 4, so any body reading x4..x7 as a pointer base
@@ -266,6 +293,8 @@ def _rw(v):
         return S[w] if signed else U[w]
     if k == "expr":
         return v[4]
+    if k in ("sel", "cset"):
+        return v[5] if k == "sel" else v[3]
     if k == "arg":
         return v[2] if len(v) > 2 else "void*"
     if k == "argval":
@@ -332,7 +361,9 @@ class StraightLine:
             # changed nothing at all until this list was widened.
             if (i.mnemonic not in LOADS and i.mnemonic not in STORES
                     and i.mnemonic not in ("add", "mov", "sub")
-                    and i.mnemonic not in BITWISE_MNEMONICS):
+                    and i.mnemonic not in BITWISE_MNEMONICS
+                    and i.mnemonic not in FLAG_MNEMONICS
+                    and i.mnemonic not in COND_MNEMONICS):
                 raise Bail("unsupported mnemonic %r" % (i.mnemonic,))
 
         state = {}
@@ -468,9 +499,52 @@ class StraightLine:
             used_args.add(n)
             return "(uintptr_t)%s * %d" % (nm(n), scale)
 
+        # Comparison flags: a pseudo-register, since no instruction names it.
+        flags = None
         for i in body:
             mn = i.mnemonic
             ops = split_ops(i.op_str)
+
+            # ---- flags producers -------------------------------------
+            if mn in FLAG_MNEMONICS:
+                if len(ops) != 2:
+                    raise Bail("%s with %d operands is not modelled" % (mn, len(ops)))
+                _a = state.get(wreg(ops[0]))
+                if _a is None:
+                    _a = self._value_arg(ops[0], used_args, idx_args, ptr_args)
+                if _a is None:
+                    raise Bail("%s operand %r is not a known value" % (mn, ops[0]))
+                _b = parse_imm(ops[1])
+                if _b is None:
+                    _b = state.get(wreg(ops[1]))
+                    if _b is None:
+                        _b = self._value_arg(ops[1], used_args, idx_args, ptr_args)
+                    if _b is None:
+                        raise Bail("%s operand %r is not a known value" % (mn, ops[1]))
+                else:
+                    _b = ("imm", _b, _rw(_a))
+                if _a[0] in ("addr", "addr_i"):
+                    raise Bail("%s on an address value" % (mn,))
+                flags = (mn, _a, _b)
+                continue
+
+            # ---- branchless conditionals ------------------------------
+            if mn in COND_MNEMONICS:
+                if flags is None:
+                    raise Bail("%s with no preceding comparison" % (mn,))
+                dst = ops[0]
+                cty = _rw(flags[1])
+                if mn in ("cset", "csetm", "fcset", "fcsetm"):
+                    # `cset Rd, cond` -> (cond ? 1 : 0)
+                    state[wreg(dst)] = ("cset", ops[1], flags, cty)
+                    continue
+                # `csel Rd, Rn, Rm, cond` -> (cond ? Rn : Rm)
+                _x = state.get(wreg(ops[1])) or self._value_arg(ops[1], used_args, idx_args, ptr_args)
+                _y = state.get(wreg(ops[2])) or self._value_arg(ops[2], used_args, idx_args, ptr_args)
+                if _x is None or _y is None:
+                    raise Bail("%s operands are not known values" % (mn,))
+                state[wreg(dst)] = ("sel", ops[3], _x, _y, flags, _rw(_x))
+                continue
 
             if mn in LOADS and len(ops) == 2:
                 dst = ops[0]
@@ -1038,6 +1112,49 @@ class StraightLine:
             # The declared type travels with the value; see the store-source
             # path. Falling back to `void*` is the pre-fix behaviour.
             return val[2] if len(val) > 2 else "void*", names[val[1]]
+        if kind in ("sel", "cset"):
+            # Branchless conditional: what Clang emits for C's `? :`.
+            if kind == "cset":
+                # ("cset", cond, flags, cty) -- the type is the 4th element.
+                # It read `out = cty`, and `cty` is not a name in `_render`, so
+                # every cset raised NameError. 209 bodies, silently, because the
+                # census caught exceptions as a separate counter.
+                _cc, _fl = val[1], val[2]
+                out = val[3]
+            else:
+                _cc, _x, _y, _fl, out = val[1], val[2], val[3], val[4], val[5]
+            _fk, _fa, _fb = _fl
+            if _fk == "tst":
+                _ca, _ce = self._render(_fa, names)
+                _cc_ty, _ce2 = self._render(_fb, names)
+                _test = "(%s & (uint64_t)(%s))" % (_ce, _ce2)
+            else:
+                _ca, _ce = self._render(_fa, names)
+                _cb, _ce2 = self._render(_fb, names)
+                # Spaces, not parentheses: `(%s)(%s)(%s)` emits `(a)(==)(b)`,
+                # which is a syntax error and killed the whole batch.
+                _test = "(%s %s %s)" % (_ce, COND_OPS.get(_cc, "=="), _ce2)
+            if kind == "cset":
+                return out, "(%s ? 1 : 0)" % _test
+            _bx, _ex = self._render(_x, names)
+            _by, _ey = self._render(_y, names)
+            # A select between a pointer and an integer is the null-select idiom
+            # -- `csel x0, x1, xzr, ne` is `x1 ? x1 : NULL` -- and C++ rejects the
+            # mix outright:
+            #
+            #   return ((cond) ? ((char *)p0 + 24) : (40));
+            #   error: incompatible operand types ('char *' and 'int')
+            #
+            # Both arms are cast to the pointer type when exactly one is a
+            # pointer. The integer side is a null constant in that idiom; the
+            # cast is the same conversion the original performs.
+            if _bx == "void*" and _by != "void*":
+                return "void*", "((%s) ? (%s) : (void *)(uintptr_t)(%s))" % (
+                    _test, _ex, _ey)
+            if _by == "void*" and _bx != "void*":
+                return "void*", "((%s) ? (void *)(uintptr_t)(%s) : (%s))" % (
+                    _test, _ex, _ey)
+            return out, "((%s) ? (%s) : (%s))" % (_test, _ex, _ey)
         if kind == "un":
             # Unary NOT / negate. A separate kind because the binary `expr` path
             # cannot express them -- see the `mvn`/`bic` note in translate().

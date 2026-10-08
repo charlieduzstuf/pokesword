@@ -2959,7 +2959,7 @@ void sub_3bd6b0() { /* 0x3bd6b0 */ }
 // sub_3bd6e0: implemented in prog/matched/main/
 void sub_3bd6f0() { /* 0x3bd6f0 */ }
 void sub_3bd730() { /* 0x3bd730 */ }
-void sub_3bd790() { /* 0x3bd790 */ }
+// sub_3bd790: implemented in prog/matched/main/
 void sub_3bd7c0() { /* 0x3bd7c0 */ }
 void sub_3bd940() { /* 0x3bd940 */ }
 void sub_3bdca0() { /* 0x3bdca0 */ }

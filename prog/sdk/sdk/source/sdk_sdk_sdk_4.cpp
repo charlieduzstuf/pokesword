@@ -520,7 +520,7 @@ void sub_32abf0() { /* 0x32abf0 */ }
 void sub_32ae30() { /* 0x32ae30 */ }
 void sub_32af70() { /* 0x32af70 */ }
 void sub_32b130() { /* 0x32b130 */ }
-void sub_32b160_sdk_32b160() { /* 0x32b160 */ }
+// sub_32b160_sdk_32b160: implemented in prog/matched/sdk/
 // sub_32b180: implemented in prog/matched/sdk/
 void sub_32b190() { /* 0x32b190 */ }
 void sub_32b260() { /* 0x32b260 */ }
@@ -939,7 +939,7 @@ void sub_338c20() { /* 0x338c20 */ }
 void sub_338cd0() { /* 0x338cd0 */ }
 void sub_338cf0() { /* 0x338cf0 */ }
 void sub_338d60() { /* 0x338d60 */ }
-void sub_338d90() { /* 0x338d90 */ }
+// sub_338d90: implemented in prog/matched/sdk/
 void sub_338db0() { /* 0x338db0 */ }
 void sub_3390e0() { /* 0x3390e0 */ }
 void sub_339490() { /* 0x339490 */ }

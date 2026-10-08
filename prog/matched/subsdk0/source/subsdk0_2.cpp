@@ -1,4 +1,4 @@
-/* subsdk0 -- 936 functions verified to match the original.
+/* subsdk0 -- 941 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -686,6 +686,9 @@ void subsdk0_f_a44f0() {}
 // sub_a4500  (orig 0xa4500, ret_only)
 void subsdk0_f_a4500() {}
 
+// sub_b08d0  (orig 0xb08d0, straight)
+uint32_t subsdk0_f_b08d0(uint32_t a0) { return (((((uint32_t)a0) < 6)) ? (2) : (((((uint32_t)a0) != 6) ? 1 : 0))); }
+
 // sub_b1160  (orig 0xb1160, ret_only)
 void subsdk0_f_b1160() {}
 
@@ -1177,6 +1180,9 @@ void subsdk0_f_13ef40(void* a0, uint64_t a1) {
     *(uint32_t*)((char*)(a0) + 44) = (uint32_t)(a1);
 }
 
+// sub_1441d0  (orig 0x1441d0, straight)
+uint32_t subsdk0_f_1441d0(void* a0) { return (((*(uint32_t*)((char*)(a0) + 188) != 5) ? 1 : 0)) & (((*(uint32_t*)((char*)(a0) + 188) != 3) ? 1 : 0)); }
+
 // sub_144960  (orig 0x144960, straight)
 void subsdk0_f_144960(void* a0) {
     *(uint32_t*)((char*)(a0) + 176) = (*(uint32_t*)((char*)(a0) + 176)) + (1);
@@ -1241,6 +1247,12 @@ uint32_t subsdk0_f_14b480() { return 0; }
 
 // sub_14b730  (orig 0x14b730, mov_ret)
 uint32_t subsdk0_f_14b730() { return -38; }
+
+// sub_14c300  (orig 0x14c300, straight)
+uint32_t subsdk0_f_14c300(void* a0, uint32_t a1) {
+    *(uint8_t*)((char*)(a0) + 181) = (uint8_t)(((((uint32_t)a1) != 0) ? 1 : 0));
+    return 0;
+}
 
 // sub_14c320  (orig 0x14c320, mov_ret)
 uint32_t subsdk0_f_14c320() { return 4; }
@@ -1688,6 +1700,9 @@ uint32_t subsdk0_f_1d1960() { return -38; }
 // sub_1d36a0  (orig 0x1d36a0, compare)
 bool subsdk0_f_1d36a0(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(a0) + 736)) != (uint64_t)(0); }
 
+// sub_1d3ee0  (orig 0x1d3ee0, straight)
+uint8_t subsdk0_f_1d3ee0(void* a0) { return ((*(uint8_t*)((char*)(a0) + 524) & (uint64_t)(129)) ? 1 : 0); }
+
 // sub_1d5420  (orig 0x1d5420, getter)
 uint32_t subsdk0_f_1d5420(void* a0) { return *(uint32_t*)((char*)(a0) + 528); }
 
@@ -1820,6 +1835,9 @@ void subsdk0_f_1dbe30() {}
 
 // sub_1dbe40  (orig 0x1dbe40, ret_only)
 void subsdk0_f_1dbe40() {}
+
+// sub_1de760  (orig 0x1de760, straight)
+uint32_t subsdk0_f_1de760(void* a0) { return (((*(uint32_t*)((char*)(a0) + 20) == 6) ? 1 : 0)) | (((*(uint32_t*)((char*)(a0) + 20) == 8) ? 1 : 0)); }
 
 // sub_1e32e0  (orig 0x1e32e0, ret_only)
 void subsdk0_f_1e32e0() {}

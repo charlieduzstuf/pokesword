@@ -2295,7 +2295,7 @@ void sub_1045770() { /* 0x1045770 */ }
 void sub_1045780() { /* 0x1045780 */ }
 void sub_10457a0() { /* 0x10457a0 */ }
 void sub_10457b0() { /* 0x10457b0 */ }
-void sub_10457c0() { /* 0x10457c0 */ }
+// sub_10457c0: implemented in prog/matched/main/
 // sub_10457e0: implemented in prog/matched/main/
 void sub_10457f0() { /* 0x10457f0 */ }
 void sub_1045890() { /* 0x1045890 */ }

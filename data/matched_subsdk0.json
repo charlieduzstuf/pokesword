@@ -59,6 +59,18 @@
   },
   {
    "module": "subsdk0",
+   "addr": 723152,
+   "size": 20,
+   "name": "sub_b08d0",
+   "shape": "straight",
+   "ident": "f_b08d0",
+   "sig": "j",
+   "src": "uint32_t f_b08d0(uint32_t a0) { return (((((uint32_t)a0) < 6)) ? (2) : (((((uint32_t)a0) != 6) ? 1 : 0))); }\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk0",
    "addr": 1138192,
    "size": 16,
    "name": "sub_115e10",
@@ -80,6 +92,54 @@
    "src": "void f_12b020(void* a0, uint32_t a1) {\n    *(uint8_t*)((char*)(a0)) = (uint8_t)((((uint32_t)a1)) & (1));\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "subsdk0",
+   "addr": 1327568,
+   "size": 28,
+   "name": "sub_1441d0",
+   "shape": "straight",
+   "ident": "f_1441d0",
+   "sig": "Pv",
+   "src": "uint32_t f_1441d0(void* a0) { return (((*(uint32_t*)((char*)(a0) + 188) != 5) ? 1 : 0)) & (((*(uint32_t*)((char*)(a0) + 188) != 3) ? 1 : 0)); }\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "subsdk0",
+   "addr": 1360640,
+   "size": 20,
+   "name": "sub_14c300",
+   "shape": "straight",
+   "ident": "f_14c300",
+   "sig": "Pvj",
+   "src": "uint32_t f_14c300(void* a0, uint32_t a1) {\n    *(uint8_t*)((char*)(a0) + 181) = (uint8_t)(((((uint32_t)a1) != 0) ? 1 : 0));\n    return 0;\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk0",
+   "addr": 1916640,
+   "size": 20,
+   "name": "sub_1d3ee0",
+   "shape": "straight",
+   "ident": "f_1d3ee0",
+   "sig": "Pv",
+   "src": "uint8_t f_1d3ee0(void* a0) { return ((*(uint8_t*)((char*)(a0) + 524) & (uint64_t)(129)) ? 1 : 0); }\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk0",
+   "addr": 1959776,
+   "size": 28,
+   "name": "sub_1de760",
+   "shape": "straight",
+   "ident": "f_1de760",
+   "sig": "Pv",
+   "src": "uint32_t f_1de760(void* a0) { return (((*(uint32_t*)((char*)(a0) + 20) == 6) ? 1 : 0)) | (((*(uint32_t*)((char*)(a0) + 20) == 8) ? 1 : 0)); }\n",
+   "orig_insns": 7,
+   "new_insns": 7
   },
   {
    "module": "subsdk0",

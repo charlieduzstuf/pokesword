@@ -36,7 +36,7 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-28,836 / 152,062  =  18.96%
+28,942 / 152,062  =  19.03%
 ## The byte-identical ceiling is a compiler limit -- ~21%
 
 Measured over all 123,191 unmatched bodies:

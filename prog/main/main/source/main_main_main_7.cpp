@@ -3410,7 +3410,7 @@ void sub_894d10() { /* 0x894d10 */ }
 void sub_894db0() { /* 0x894db0 */ }
 // sub_894f90: implemented in prog/matched/main/
 void sub_894fa0() { /* 0x894fa0 */ }
-void sub_894fd0() { /* 0x894fd0 */ }
+// sub_894fd0: implemented in prog/matched/main/
 void sub_894ff0() { /* 0x894ff0 */ }
 void sub_895190() { /* 0x895190 */ }
 void sub_8952c0() { /* 0x8952c0 */ }

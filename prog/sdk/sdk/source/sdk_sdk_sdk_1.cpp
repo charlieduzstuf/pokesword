@@ -462,7 +462,7 @@ void sub_85930() { /* 0x85930 */ }
 void sub_85960() { /* 0x85960 */ }
 void sub_85a60() { /* 0x85a60 */ }
 void sub_85aa0() { /* 0x85aa0 */ }
-void sub_85ad0() { /* 0x85ad0 */ }
+// sub_85ad0: implemented in prog/matched/sdk/
 // sub_85af0: implemented in prog/matched/sdk/
 // sub_85b00: implemented in prog/matched/sdk/
 // sub_85b10: implemented in prog/matched/sdk/
@@ -606,7 +606,7 @@ void sub_88d20() { /* 0x88d20 */ }
 // sub_88da0: implemented in prog/matched/sdk/
 void sub_88db0() { /* 0x88db0 */ }
 // sub_88de0: implemented in prog/matched/sdk/
-void sub_88df0() { /* 0x88df0 */ }
+// sub_88df0: implemented in prog/matched/sdk/
 // sub_88e10: implemented in prog/matched/sdk/
 void sub_88e30() { /* 0x88e30 */ }
 // sub_88e40: implemented in prog/matched/sdk/
@@ -1353,7 +1353,7 @@ void sub_a4ba0() { /* 0xa4ba0 */ }
 void sub_a4c20() { /* 0xa4c20 */ }
 void sub_a4c50() { /* 0xa4c50 */ }
 // sub_a4c80: implemented in prog/matched/sdk/
-void sub_a4c90() { /* 0xa4c90 */ }
+// sub_a4c90: implemented in prog/matched/sdk/
 // sub_a4cb0: implemented in prog/matched/sdk/
 // sub_a4cc0: implemented in prog/matched/sdk/
 void sub_a4cd0() { /* 0xa4cd0 */ }
@@ -1578,7 +1578,7 @@ void sub_aabb0() { /* 0xaabb0 */ }
 // sub_aabf0: implemented in prog/matched/sdk/
 void sub_aac00() { /* 0xaac00 */ }
 void sub_aac20() { /* 0xaac20 */ }
-void sub_aac90() { /* 0xaac90 */ }
+// sub_aac90: implemented in prog/matched/sdk/
 void sub_aacc0() { /* 0xaacc0 */ }
 // sub_aad70: implemented in prog/matched/sdk/
 void sub_aad90() { /* 0xaad90 */ }
@@ -1632,7 +1632,7 @@ void sub_ac160() { /* 0xac160 */ }
 void sub_ac390() { /* 0xac390 */ }
 void sub_ac3f0() { /* 0xac3f0 */ }
 void sub_ac5d0() { /* 0xac5d0 */ }
-void sub_ac850() { /* 0xac850 */ }
+// sub_ac850: implemented in prog/matched/sdk/
 void sub_ac870() { /* 0xac870 */ }
 void sub_ac8e0() { /* 0xac8e0 */ }
 void sub_ac930() { /* 0xac930 */ }
@@ -3739,7 +3739,7 @@ void sub_17ef60() { /* 0x17ef60 */ }
 void sub_17ef80() { /* 0x17ef80 */ }
 void sub_17f0d0() { /* 0x17f0d0 */ }
 void sub_17f0e0() { /* 0x17f0e0 */ }
-void sub_17f0f0() { /* 0x17f0f0 */ }
+// sub_17f0f0: implemented in prog/matched/sdk/
 // sub_17f100: implemented in prog/matched/sdk/
 void unexpected_value_passed_to_switch_statement() { /* 0x17f110 */ }
 void sub_17f140() { /* 0x17f140 */ }

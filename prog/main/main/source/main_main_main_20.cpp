@@ -1942,9 +1942,9 @@ void sub_146e770() { /* 0x146e770 */ }
 void sub_146e950() { /* 0x146e950 */ }
 void sub_146e990() { /* 0x146e990 */ }
 void sub_146e9c0() { /* 0x146e9c0 */ }
-void sub_146e9f0() { /* 0x146e9f0 */ }
-void sub_146ea30() { /* 0x146ea30 */ }
-void sub_146ea70() { /* 0x146ea70 */ }
+// sub_146e9f0: implemented in prog/matched/main/
+// sub_146ea30: implemented in prog/matched/main/
+// sub_146ea70: implemented in prog/matched/main/
 void StateUpload() { /* 0x146eab0 */ }
 void sub_146ee80() { /* 0x146ee80 */ }
 // sub_146f290: implemented in prog/matched/main/

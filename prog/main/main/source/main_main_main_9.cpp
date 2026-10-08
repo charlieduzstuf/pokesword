@@ -2776,8 +2776,8 @@ void sub_ac0200() { /* 0xac0200 */ }
 void sub_ac03b0() { /* 0xac03b0 */ }
 void sub_ac0550() { /* 0xac0550 */ }
 void sub_ac0730() { /* 0xac0730 */ }
-void sub_ac0c60() { /* 0xac0c60 */ }
-void sub_ac0c80() { /* 0xac0c80 */ }
+// sub_ac0c60: implemented in prog/matched/main/
+// sub_ac0c80: implemented in prog/matched/main/
 void sub_ac0c90() { /* 0xac0c90 */ }
 void sub_ac0e70() { /* 0xac0e70 */ }
 void sub_ac0e90() { /* 0xac0e90 */ }
@@ -2785,9 +2785,9 @@ void sub_ac0f30() { /* 0xac0f30 */ }
 void sub_ac0fd0() { /* 0xac0fd0 */ }
 void sub_ac1050() { /* 0xac1050 */ }
 void sub_ac1250() { /* 0xac1250 */ }
-void sub_ac14f0() { /* 0xac14f0 */ }
-void sub_ac1510() { /* 0xac1510 */ }
-void sub_ac1530() { /* 0xac1530 */ }
+// sub_ac14f0: implemented in prog/matched/main/
+// sub_ac1510: implemented in prog/matched/main/
+// sub_ac1530: implemented in prog/matched/main/
 void sub_ac1550() { /* 0xac1550 */ }
 void sub_ac15f0() { /* 0xac15f0 */ }
 void sub_ac1920() { /* 0xac1920 */ }

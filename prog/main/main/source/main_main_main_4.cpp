@@ -111,7 +111,7 @@ void sub_563150() { /* 0x563150 */ }
 void sub_563160() { /* 0x563160 */ }
 void sub_563190() { /* 0x563190 */ }
 void sub_5631a0() { /* 0x5631a0 */ }
-void sub_5631d0() { /* 0x5631d0 */ }
+// sub_5631d0: implemented in prog/matched/main/
 void sub_5631f0() { /* 0x5631f0 */ }
 void sub_563220() { /* 0x563220 */ }
 void sub_563250() { /* 0x563250 */ }

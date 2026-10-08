@@ -4,7 +4,7 @@
 #include "subsdk0_subsdk0_subsdk0_1.h"
 
 namespace subsdk0 {
-void sub_14c300() { /* 0x14c300 */ }
+// sub_14c300: implemented in prog/matched/subsdk0/
 // sub_14c320: implemented in prog/matched/subsdk0/
 void sub_14c330() { /* 0x14c330 */ }
 void sub_14c490_subsdk0_14c490() { /* 0x14c490 */ }
@@ -1949,7 +1949,7 @@ void AwesomePlayer_11() { /* 0x1d3b10 */ }
 void sub_1d3e10() { /* 0x1d3e10 */ }
 void sub_1d3e30() { /* 0x1d3e30 */ }
 void sub_1d3e80() { /* 0x1d3e80 */ }
-void sub_1d3ee0() { /* 0x1d3ee0 */ }
+// sub_1d3ee0: implemented in prog/matched/subsdk0/
 void sub_1d3f00() { /* 0x1d3f00 */ }
 void sub_1d3fd0() { /* 0x1d3fd0 */ }
 void sub_1d40d0() { /* 0x1d40d0 */ }
@@ -2212,7 +2212,7 @@ void sub_1de4e0() { /* 0x1de4e0 */ }
 void sub_1de530() { /* 0x1de530 */ }
 void sub_1de6c0() { /* 0x1de6c0 */ }
 void sub_1de710() { /* 0x1de710 */ }
-void sub_1de760() { /* 0x1de760 */ }
+// sub_1de760: implemented in prog/matched/subsdk0/
 void sub_1de780() { /* 0x1de780 */ }
 void sub_1de860() { /* 0x1de860 */ }
 void notify() { /* 0x1de8b0 */ }

@@ -2343,11 +2343,11 @@ void sub_ea4590() { /* 0xea4590 */ }
 // sub_ea46b0: implemented in prog/matched/main/
 void sub_ea46c0() { /* 0xea46c0 */ }
 // sub_ea4720: implemented in prog/matched/main/
-void sub_ea4740() { /* 0xea4740 */ }
+// sub_ea4740: implemented in prog/matched/main/
 // sub_ea4750: implemented in prog/matched/main/
-void sub_ea4760() { /* 0xea4760 */ }
+// sub_ea4760: implemented in prog/matched/main/
 // sub_ea4770: implemented in prog/matched/main/
-void sub_ea4780() { /* 0xea4780 */ }
+// sub_ea4780: implemented in prog/matched/main/
 // sub_ea4790: implemented in prog/matched/main/
 void sub_ea47a0() { /* 0xea47a0 */ }
 void sub_ea47c0() { /* 0xea47c0 */ }
@@ -3097,7 +3097,7 @@ void sub_ed3100() { /* 0xed3100 */ }
 void sub_ed3120() { /* 0xed3120 */ }
 void sub_ed3140() { /* 0xed3140 */ }
 void sub_ed3290() { /* 0xed3290 */ }
-void sub_ed32d0() { /* 0xed32d0 */ }
+// sub_ed32d0: implemented in prog/matched/main/
 void sub_ed32f0() { /* 0xed32f0 */ }
 void sub_ed3300() { /* 0xed3300 */ }
 void sub_ed3380() { /* 0xed3380 */ }

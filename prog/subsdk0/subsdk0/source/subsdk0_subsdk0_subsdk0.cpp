@@ -1785,7 +1785,7 @@ void sub_ae610() { /* 0xae610 */ }
 void sub_aef50_subsdk0_aef50() { /* 0xaef50 */ }
 void sub_af870() { /* 0xaf870 */ }
 void sub_afa10() { /* 0xafa10 */ }
-void sub_b08d0() { /* 0xb08d0 */ }
+// sub_b08d0: implemented in prog/matched/subsdk0/
 void sub_b08f0() { /* 0xb08f0 */ }
 void sub_b0910() { /* 0xb0910 */ }
 void sub_b0930() { /* 0xb0930 */ }
@@ -3827,7 +3827,7 @@ void NuPlayer_3() { /* 0x1435e0 */ }
 void sub_143750() { /* 0x143750 */ }
 void percentage_3() { /* 0x1437b0 */ }
 void NuPlayer_4() { /* 0x144050 */ }
-void sub_1441d0_subsdk0_1441d0() { /* 0x1441d0 */ }
+// sub_1441d0_subsdk0_1441d0: implemented in prog/matched/subsdk0/
 void sub_1441f0() { /* 0x1441f0 */ }
 void generation_5() { /* 0x144200 */ }
 void sub_1442a0() { /* 0x1442a0 */ }
