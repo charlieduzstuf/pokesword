@@ -115,3 +115,39 @@ fails too, and for a different reason than the missing symbols.
 
 Worth one careful follow-up with correct placement before deciding. It is the only
 remaining idea that does not need the real NX compiler.
+
+### Corrected result: the synthesis route is closed too
+
+The inconclusive test was re-run with the symbol genuinely placed. Verified from
+the linked ELF rather than inferred:
+
+    sym_2496400   st_value=0x2496400
+    _Z3f_1v       st_value=0x2496400
+
+    adrp x8, #page
+    add  x8, x8, #0x400
+    ldr  x0, [x8]
+    ret
+
+against
+
+    adrp x0, #0x2496000
+    ldr  x0, [x0, #0x400]
+    ret
+
+Four instructions against three. Clang 5.0.1 materialises the page offset with an
+explicit `add` instead of folding it into the load's `:lo12:` immediate, and no
+amount of correct symbol placement changes that -- the offset is `0x400`, well
+inside the load's range, so this is not a "does not fit" case.
+
+So `adrp` has **two independent blockers**, either of which is fatal:
+
+  1. the retail modules carry no data symbols to name (verified: 3 `STT_OBJECT`
+     symbols, all artifacts of this project's own `nso_to_elf.py`), and
+  2. even given a perfectly placed symbol, this compiler will not emit the
+     addressing form the original uses.
+
+Blocker 2 is the more fundamental one, and it is another instance of the same
+lesson as the stack frames: **the retail code was built by a compiler whose
+addressing-mode choices differ from Clang 5.0.1's.** Synthesising symbols cannot
+bridge that. `adrp` is closed.
