@@ -37,6 +37,18 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 
 ```
 28,836 / 152,062  =  18.96%
+## Two largest blockers are compiler/harness limits, not missing work
+
+* **stack frames (`ldp`/`stp`, 97,370 bodies)** -- the original uses writeback
+  addressing (`str x19,[sp,#-0x20]!`, `ldp x29,x30,[sp],#0x20`); Clang 5.0.1 emits
+  separate `sub sp`/`add sp` and never that form. Not reachable under this
+  compiler. See `decomp/docs/stack_frames.md`.
+* **`adrp` (~1,450)** -- Clang never emits it for a bare integer (needs a symbol),
+  and an unresolved `adrp` cannot byte-match in the `.o` the harness verifies.
+  Needs link-time verification plus data symbols. See `decomp/docs/remaining_pool.md`.
+
+The `None` pool is therefore mostly *not* addressable by translator work. The
+honest next lever is semantic/data recovery, not more instruction coverage.
 ## The remaining pool is 98.2% unnamed -- measured, not assumed
 
     unmatched bodies        123757
