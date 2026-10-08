@@ -46,7 +46,8 @@ Measured over all 123,191 unmatched bodies:
     contain adrp/adr        61,742  50.1%   needs a data symbol + link-time verify
     FREE of all three        3,272   2.7%
 
-Ceiling under vanilla Clang 5.0.1 ~= 32,108 / 152,062 = **21.1%**. The retail
+Ceiling under vanilla Clang 5.0.1 is therefore about **21%** (the matched count
+plus that 2.7%). The retail
 module was built with Nintendo's compiler; the writeback `sp` prologue is the
 giveaway, and no flag on Clang 5.0.1 produces it (tested -O0..-O3, -Os, -Oz,
 frame-pointer and unwind variants).

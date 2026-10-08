@@ -8,7 +8,7 @@ Measured over all 123,191 unmatched bodies:
     FREE of all three       3,272  ( 2.7%)
 
 With 28,836 already matched, the byte-identical ceiling under vanilla Clang 5.0.1
-is about **32,108 / 152,062 = 21.1%**.
+is therefore about **21%** -- the matched count plus that 2.7%.
 
 ## Why the frame limit is permanent
 
