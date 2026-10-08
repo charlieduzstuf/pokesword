@@ -189,3 +189,35 @@ several times over.
 Ceiling ~= **21%**, unchanged. The ~3,166 reachable bodies are worth about 2
 percent more; everything else is blocked by the compiler, the harness, or by
 needing callee symbols this project does not have.
+
+## Direct call resolution: 64% of `bl` sites resolve
+
+Over every `bl` in every unmatched body:
+
+    bl sites                              514,305
+      -> resolves in functions.csv        329,700   (64.1%)
+      -> unresolved                       184,605   (35.9%)
+
+So `data/functions.csv` really is a usable callee table, as the plan assumed. The
+unresolved targets cluster at the very end of `.text` (0x17e8f10, 0x17e8f30 in
+`main`, whose `.text` ends at 0x17ed000) -- import thunks and PLT stubs for
+library code outside the module. Those have no entry and cannot acquire one.
+
+Implemented as `tools/call_resolve.py`, with a decoding trap recorded in its
+docstring: capstone renders a branch operand as the **absolute target**
+(`bl #0x1c0`). Treating it as PC-relative and adding it to the instruction address
+gives 0x254 + 0x1c0 = 0x414, which is not a function start -- and that wrong
+version resolves 2,398 of 514,305, a 0.5% rate that reads as a damning verdict on
+the whole approach. Both were measured; only `int(op_str after '#')` is right.
+
+## The open question for step 2
+
+A `bl` clobbers x0-x18, so the caller sets up arguments in registers *before* the
+call, and those moves are part of the byte sequence being matched. Emitting
+`sub_YYYY(...)` therefore needs the callee's **arity**, which is not in the CSV --
+the table has `decomp_name` but no C prototype. `f()` and `f(a,b,c)` make the
+caller emit different setup, and only one will match.
+
+Arity has to be inferred from the caller's own instruction stream, and whether it
+is regular enough to infer is unmeasured. That is the next thing to check before
+wiring resolution into the translator.
