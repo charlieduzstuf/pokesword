@@ -50,7 +50,7 @@ void sub_16c5160() { /* 0x16c5160 */ }
 // sub_16c5170: implemented in prog/matched/main/
 void sub_16c5180() { /* 0x16c5180 */ }
 void sub_16c5190() { /* 0x16c5190 */ }
-void sub_16c51b0() { /* 0x16c51b0 */ }
+// sub_16c51b0: implemented in prog/matched/main/
 void sub_16c51c0() { /* 0x16c51c0 */ }
 void sub_16c51e0() { /* 0x16c51e0 */ }
 // sub_16c5200: implemented in prog/matched/main/
@@ -1125,7 +1125,7 @@ void sub_1715d00() { /* 0x1715d00 */ }
 // sub_1715dc0: implemented in prog/matched/main/
 // sub_1715dd0: implemented in prog/matched/main/
 void sub_1715de0() { /* 0x1715de0 */ }
-void sub_1715e00() { /* 0x1715e00 */ }
+// sub_1715e00: implemented in prog/matched/main/
 void sub_1715e10() { /* 0x1715e10 */ }
 void sub_1715e30() { /* 0x1715e30 */ }
 void sub_1715e50() { /* 0x1715e50 */ }

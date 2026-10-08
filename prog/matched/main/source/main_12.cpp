@@ -1,4 +1,4 @@
-/* main -- 1444 functions verified to match the original.
+/* main -- 1447 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,9 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_15df270  (orig 0x15df270, ret_only)
+void main_f_15df270() {}
 
 // sub_15e6fc0  (orig 0x15e6fc0, ptr_add)
 void* main_f_15e6fc0(void* a0) { return (char*)a0 + 128; }
@@ -2342,6 +2345,9 @@ uint32_t main_f_16c5150(void* a0) { return *(uint32_t*)((char*)(a0) + 668); }
 // sub_16c5170  (orig 0x16c5170, getter)
 uint32_t main_f_16c5170(void* a0) { return *(uint32_t*)((char*)(a0) + 832); }
 
+// sub_16c51b0  (orig 0x16c51b0, straight)
+void* main_f_16c51b0(void* a0, uint32_t a1) { return ((char *)(char*)(a0) + 1032 + (uintptr_t)(((uint32_t)a1)) * 16); }
+
 // sub_16c5200  (orig 0x16c5200, ret_only)
 void main_f_16c5200() {}
 
@@ -3037,6 +3043,9 @@ uint8_t main_f_1715dc0(void* a0) { return *(uint8_t*)((char*)(a0) + 976); }
 
 // sub_1715dd0  (orig 0x1715dd0, getter)
 uint8_t main_f_1715dd0(void* a0) { return *(uint8_t*)((char*)(a0) + 977); }
+
+// sub_1715e00  (orig 0x1715e00, straight)
+void* main_f_1715e00(void* a0, uint32_t a1) { return ((char *)(char*)(a0) + 1176 + (uintptr_t)(((uint32_t)a1)) * 16); }
 
 // sub_17162c0  (orig 0x17162c0, ptr_add)
 void* main_f_17162c0(void* a0) { return (char*)a0 + 896; }

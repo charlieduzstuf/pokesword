@@ -8664,6 +8664,18 @@
   },
   {
    "module": "main",
+   "addr": 22182848,
+   "size": 16,
+   "name": "sub_1527bc0",
+   "shape": "straight",
+   "ident": "f_1527bc0",
+   "sig": "Pv",
+   "src": "void* f_1527bc0(void* a0) { return ((char *)(char*)(a0) + 1504 + (uintptr_t)(*(int16_t*)((char*)(a0) + 2530)) * 4); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 22210096,
    "size": 20,
    "name": "sub_152e630",
@@ -9324,6 +9336,18 @@
   },
   {
    "module": "main",
+   "addr": 23876016,
+   "size": 12,
+   "name": "sub_16c51b0",
+   "shape": "straight",
+   "ident": "f_16c51b0",
+   "sig": "Pvj",
+   "src": "void* f_16c51b0(void* a0, uint32_t a1) { return ((char *)(char*)(a0) + 1032 + (uintptr_t)(((uint32_t)a1)) * 16); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
    "addr": 23929680,
    "size": 12,
    "name": "sub_16d2350",
@@ -9453,6 +9477,18 @@
    "src": "void f_1713e20(void* a0, void* a1) {\n    *(uint16_t*)((char*)(a0) + 608) = *(uint16_t*)((char*)(a1) + 8);\n    *(uint8_t*)((char*)(a0) + 610) = *(uint8_t*)((char*)(a1) + 10);\n    *(uint8_t*)((char*)(a0) + 611) = *(uint8_t*)((char*)(a1) + 11);\n    *(uint8_t*)((char*)(a0) + 612) = *(uint8_t*)((char*)(a1) + 12);\n    *(uint8_t*)((char*)(a0) + 613) = *(uint8_t*)((char*)(a1) + 13);\n    *(uint8_t*)((char*)(a0) + 614) = *(uint8_t*)((char*)(a1) + 14);\n    *(uint8_t*)((char*)(a0) + 615) = *(uint8_t*)((char*)(a1) + 15);\n}\n",
    "orig_insns": 15,
    "new_insns": 15
+  },
+  {
+   "module": "main",
+   "addr": 24206848,
+   "size": 12,
+   "name": "sub_1715e00",
+   "shape": "straight",
+   "ident": "f_1715e00",
+   "sig": "Pvj",
+   "src": "void* f_1715e00(void* a0, uint32_t a1) { return ((char *)(char*)(a0) + 1176 + (uintptr_t)(((uint32_t)a1)) * 16); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
   },
   {
    "module": "main",

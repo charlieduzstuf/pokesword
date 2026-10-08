@@ -41,7 +41,8 @@ import re
 U = {1: "uint8_t", 2: "uint16_t", 4: "uint32_t", 8: "uint64_t"}
 S = {1: "int8_t", 2: "int16_t", 4: "int32_t", 8: "int64_t"}
 
-LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur")
+LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur",
+         "ldrsh", "ldursh")
 STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
 
 MAX_INSNS = 32        # beyond this, hand decomp is the better use of time
@@ -213,7 +214,9 @@ def access_width(mn, reg):
     """
     if mn in ("ldrb", "strb", "ldurb", "sturb"):
         return 1
-    if mn in ("ldrh", "strh", "ldurh", "sturh"):
+    # `ldrsh`/`ldursh` are halfword *signed*; the width is still 2, which the
+    # register class alone would not tell you -- `ldrsh w0` writes 2 bytes.
+    if mn in ("ldrh", "strh", "ldurh", "sturh", "ldrsh", "ldursh"):
         return 2
     if mn in ("ldrsw", "ldursw"):
         return 4
@@ -457,7 +460,11 @@ class StraightLine:
                     state[wreg(dst)] = ("addr_i", n, off, ("raw", ie), 1)
                     continue
                 w = access_width(mn, dst)
-                signed = mn in ("ldrsw", "ldursw")
+                # Signed loads. `ldrsh` was missing here as well as from LOADS,
+                # and its absence is not neutral: an unsigned 16-bit load would
+                # model `ldrsh` as `ldrh`, which drops the sign extension and
+                # matches nothing.
+                signed = mn in ("ldrsw", "ldursw", "ldrsh", "ldursh")
                 state[wreg(dst)] = ("load", n, off, w, signed)
                 continue
 
@@ -552,6 +559,12 @@ class StraightLine:
                             state[wreg(dst)] = ("addr", n, off)
                         elif s[0] == "addr":
                             state[wreg(dst)] = ("addr", s[1], s[2] + off)
+                        elif s[0] == "addr_i":
+                            # `add x0, x8, #8` after `add x8, x0, w1, sxtw #4` is
+                            # still address arithmetic, not value arithmetic. The
+                            # displacement folds into the indexed address's base
+                            # offset, leaving the index and scale alone.
+                            state[wreg(dst)] = ("addr_i", s[1], s[2] + off, s[3], s[4])
                         elif s[0] == "imm":
                             state[wreg(dst)] = ("imm", s[1] + off, s[2])
                         elif s[0] == "load" and s[3] == 8 and not s[4]:
@@ -663,6 +676,24 @@ class StraightLine:
                     s2 = self._value_arg(src_r, used_args, idx_args)
                 if s1 is None or s2 is None:
                     raise Bail("add/sub operand is not a known register")
+                # A three-operand `add x8, x0, x8` reaches here even when x0
+                # holds an address and x8 an immediate, because the third operand
+                # is a register. That is address arithmetic and folds into the
+                # offset rather than becoming an integer expression:
+                #
+                #     add w8, w1, #0x20
+                #     add x8, x0, x8        <- address + immediate
+                #     add x0, x8, #0x28
+                #
+                # Refused as "add/sub on a 'addr' value is not value arithmetic".
+                if (s1[0] in ("addr", "addr_i") and s2[0] == "imm"
+                        and mn == "add"):
+                    if s1[0] == "addr":
+                        state[wreg(dst)] = ("addr", s1[1], s1[2] + s2[1])
+                    else:
+                        state[wreg(dst)] = ("addr_i", s1[1], s1[2] + s2[1],
+                                            s1[3], s1[4])
+                    continue
                 if s1[0] not in ("load", "expr", "arg", "argval", "imm"):
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s1[0],))
                 if s2[0] not in ("load", "expr", "arg", "argval", "imm"):
@@ -1005,6 +1036,21 @@ class StraightLine:
                 ident, plist, "\n    ".join(all_txt)), sig
 
         rct, rexpr = self._render(ret_val, names)
+        # Promote a *signed narrow* return to int32_t.
+        #
+        # AAPCS64 leaves the upper half of w0 unspecified for a narrow return, so
+        # Clang is free to drop a sign extension it has no obligation to keep.
+        # Measured on the same body, changing only the declared return type:
+        #
+        #     int16_t f(...) { ... return *(int16_t *)p; }   ->  ldrh w0, [x8,#0x4e8]
+        #     int32_t f(...) { ... return *(int16_t *)p; }   ->  ldrsh w0, [x8,#0x4e8]
+        #
+        # The original is `ldrsh`, so only the second matches. The load is still
+        # *modelled* as int16_t -- it is the return type, not the access width,
+        # that has to be widened. Itanium omits return types from the mangling,
+        # so this changes no symbol.
+        if rct in ("int8_t", "int16_t"):
+            rct = "int32_t"
         if not all_txt:
             return "%s %s(%s) { return %s; }\n" % (
                 rct, ident, plist, rexpr), sig

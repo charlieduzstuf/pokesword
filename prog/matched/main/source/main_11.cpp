@@ -5649,6 +5649,9 @@ uint64_t main_f_1525130(void* a0) { return *(uint64_t*)((char*)(a0) + 1496); }
 // sub_1525940  (orig 0x1525940, getter)
 uint32_t main_f_1525940(void* a0) { return *(uint32_t*)((char*)(a0) + 1492); }
 
+// sub_1527bc0  (orig 0x1527bc0, straight)
+void* main_f_1527bc0(void* a0) { return ((char *)(char*)(a0) + 1504 + (uintptr_t)(*(int16_t*)((char*)(a0) + 2530)) * 4); }
+
 // sub_1527bd0  (orig 0x1527bd0, setter-chain)
 void main_f_1527bd0(void* a0, uint64_t a1, uint32_t a2) { *(uint64_t*)((char*)(a0) + 2584) = a1; *(uint32_t*)((char*)(a0) + 2592) = a2; }
 
@@ -6620,7 +6623,4 @@ void main_f_15d98d0() {}
 
 // sub_15de580  (orig 0x15de580, ret_only)
 void main_f_15de580() {}
-
-// sub_15df270  (orig 0x15df270, ret_only)
-void main_f_15df270() {}
 

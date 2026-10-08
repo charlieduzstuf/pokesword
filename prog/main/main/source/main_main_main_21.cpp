@@ -959,7 +959,7 @@ void sub_15277e0() { /* 0x15277e0 */ }
 void sub_1527950() { /* 0x1527950 */ }
 void sub_1527a40() { /* 0x1527a40 */ }
 void sub_1527af0() { /* 0x1527af0 */ }
-void sub_1527bc0() { /* 0x1527bc0 */ }
+// sub_1527bc0: implemented in prog/matched/main/
 // sub_1527bd0: implemented in prog/matched/main/
 void sub_1527be0() { /* 0x1527be0 */ }
 void sub_1527c10() { /* 0x1527c10 */ }
