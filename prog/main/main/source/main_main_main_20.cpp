@@ -3512,7 +3512,7 @@ void sub_14c9c60() { /* 0x14c9c60 */ }
 void sub_14c9cd0() { /* 0x14c9cd0 */ }
 void TextureMax_2() { /* 0x14c9e90 */ }
 void sub_14ca4b0() { /* 0x14ca4b0 */ }
-void sub_14ca660() { /* 0x14ca660 */ }
+// sub_14ca660: implemented in prog/matched/main/
 // sub_14ca680: implemented in prog/matched/main/
 void sub_14ca690() { /* 0x14ca690 */ }
 void sub_14ca6a0() { /* 0x14ca6a0 */ }

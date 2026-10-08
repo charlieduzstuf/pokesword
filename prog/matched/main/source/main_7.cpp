@@ -27,6 +27,21 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_a5fb90  (orig 0xa5fb90, ret_only)
+void main_f_a5fb90() {}
+
+// sub_a61150  (orig 0xa61150, ret_only)
+void main_f_a61150() {}
+
+// sub_a61160  (orig 0xa61160, ret_only)
+void main_f_a61160() {}
+
+// sub_a61170  (orig 0xa61170, ret_only)
+void main_f_a61170() {}
+
+// sub_a61180  (orig 0xa61180, ret_only)
+void main_f_a61180() {}
+
 // sub_a61190  (orig 0xa61190, ret_only)
 void main_f_a61190() {}
 
@@ -6891,19 +6906,4 @@ void main_f_bf19c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*
 
 // sub_bf19d0  (orig 0xbf19d0, copy2)
 void main_f_bf19d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_bf1aa0  (orig 0xbf1aa0, ret_only)
-void main_f_bf1aa0() {}
-
-// sub_bf1ab0  (orig 0xbf1ab0, copy2)
-void main_f_bf1ab0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_bf1ac0  (orig 0xbf1ac0, copy2)
-void main_f_bf1ac0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_bf1f80  (orig 0xbf1f80, ret_only)
-void main_f_bf1f80() {}
-
-// sub_bf1f90  (orig 0xbf1f90, copy2)
-void main_f_bf1f90(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 

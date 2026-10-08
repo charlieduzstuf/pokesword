@@ -1,4 +1,4 @@
-/* main -- 1436 functions verified to match the original.
+/* main -- 1444 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,27 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_15e6fc0  (orig 0x15e6fc0, ptr_add)
+void* main_f_15e6fc0(void* a0) { return (char*)a0 + 128; }
+
+// sub_15e7d10  (orig 0x15e7d10, ptr_add)
+void* main_f_15e7d10(void* a0) { return (char*)a0 + 64; }
+
+// sub_15e8a50  (orig 0x15e8a50, ret_only)
+void main_f_15e8a50() {}
+
+// sub_15e8a70  (orig 0x15e8a70, mov_ret)
+uint64_t main_f_15e8a70() { return 0; }
+
+// sub_15e8a80  (orig 0x15e8a80, mov_ret)
+uint64_t main_f_15e8a80() { return 0; }
+
+// sub_15eaa80  (orig 0x15eaa80, mov_ret)
+uint32_t main_f_15eaa80() { return 3; }
+
+// sub_15ec6b0  (orig 0x15ec6b0, ret_only)
+void main_f_15ec6b0() {}
 
 // sub_15ec6c0  (orig 0x15ec6c0, mov_ret)
 uint32_t main_f_15ec6c0() { return 1; }
@@ -3285,6 +3306,12 @@ const char *main_f_172ca70() { static char g_f_172ca70[1]; __asm__ volatile("" :
 // sub_172d090  (orig 0x172d090, ptr_add)
 void* main_f_172d090(void* a0) { return (char*)a0 + 485; }
 
+// sub_172e0d0  (orig 0x172e0d0, straight)
+void main_f_172e0d0(void* a0, uint64_t a1) {
+    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(*(uint8_t*)((char*)(a0) + 354)) * 4)));
+    *(uint32_t*)((char*)(p0) + 400) = (uint32_t)(a1);
+}
+
 // sub_172eaf0  (orig 0x172eaf0, ret_only)
 void main_f_172eaf0() {}
 
@@ -3541,7 +3568,7 @@ void main_f_173eb50(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0) + 2992) = 
 
 // sub_173ef30  (orig 0x173ef30, straight)
 void main_f_173ef30(void* a0, uint64_t a1, uint32_t a2) {
-    void* p0 = (void*)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a2)) * 1));
+    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a2)) * 1)));
     *(uint8_t*)((char*)(p0) + 1544) = (uint8_t)(a1);
 }
 
@@ -4634,7 +4661,7 @@ void main_f_179a0f0(void* a0) { *(uint16_t*)((char*)(a0)) = 0; *(uint64_t*)((cha
 // sub_179a2f0  (orig 0x179a2f0, straight)
 uint64_t main_f_179a2f0(void* a0, uint32_t a1) {
     void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 24));
-    void* p1 = (void*)(((char *)(char*)(p0) + (uintptr_t)(((uint32_t)a1)) * 4));
+    void* p1 = (void*)((uintptr_t)(((char *)(char*)(p0) + (uintptr_t)(((uint32_t)a1)) * 4)));
     return (*(uint64_t*)((char*)(a0) + 24)) + (*(uint32_t*)((char*)(p1) + 12));
 }
 

@@ -499,7 +499,7 @@ void sub_30e7d0() { /* 0x30e7d0 */ }
 void sub_30e870() { /* 0x30e870 */ }
 // sub_30e9f0: implemented in prog/matched/main/
 void sub_30ea00() { /* 0x30ea00 */ }
-void sub_30ea20() { /* 0x30ea20 */ }
+// sub_30ea20: implemented in prog/matched/main/
 void sub_30ea40() { /* 0x30ea40 */ }
 void sub_30eb10() { /* 0x30eb10 */ }
 void sub_30ec40() { /* 0x30ec40 */ }

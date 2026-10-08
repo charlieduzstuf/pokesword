@@ -369,17 +369,29 @@ class StraightLine:
                     # argument or a pre-rendered string. A load or a computed
                     # expression as the index still declines, rather than
                     # emitting an address that is wrong.
-                    _, bi, boff, iv, sc = v
-                    if iv[0] == "argval":
-                        iexpr = "((%s)%s)" % (iv[2], nm(iv[1]))
-                    elif iv[0] == "raw":
-                        iexpr = iv[1]
-                    else:
-                        raise Bail("indexed address as a base has a deferred "
-                                   "index")
+                    # The index is carried as a value tuple and rendered at emit
+                    # time. It used to have to be renderable on the spot, which
+                    # ruled out any index that was itself a load or a computed
+                    # expression -- 11 bodies declined as "indexed address as a
+                    # base has a deferred index" for exactly that reason.
                     key = SYNTH_BASE + len(synth)
-                    synth.append((key, "((char *)%s + (uintptr_t)(%s) * %d)"
-                                  % (ptr_add(nm(bi), boff), iexpr, sc)))
+                    synth.append((key, v))
+                    synth_of[r] = key
+                    return key, False
+                # An argument, a loaded integer or a computed expression used as
+                # a memory base is a pointer in the *original* -- the hardware
+                # does not care what type the value was produced as. So the base
+                # is materialised through an explicit uintptr_t cast rather than
+                # refused, which is what "holds a argval, not a pointer" and
+                # "holds a expr, not a pointer" (11 bodies between them) used to
+                # do.
+                #
+                # `imm` is deliberately excluded: a bare immediate as a base
+                # would be an absolute address, and the cast would hide a
+                # misparse rather than express anything real.
+                if v[0] in ("arg", "argval", "expr", "shift", "load"):
+                    key = SYNTH_BASE + len(synth)
+                    synth.append((key, v))
                     synth_of[r] = key
                     return key, False
                 raise Bail("memory base %r holds a %s, not a pointer" % (base, v[0]))
@@ -850,7 +862,17 @@ class StraightLine:
         # special case.
         for key, init in synth:
             names[key] = nm(key)
-            pre.append("void* %s = (void*)(%s);" % (nm(key), init))
+            # `init` is either pre-rendered text or a value tuple. Tuples are
+            # rendered here, at emit time, because that is the first point where
+            # every argument name and every earlier synthetic pointer is known.
+            # `names[key]` is assigned first, so a synthetic pointer may reference
+            # an earlier one -- which the `nm` docstring already promised.
+            if isinstance(init, tuple):
+                _sc, _se = self._render(init, names)
+                init_txt = "(uintptr_t)(%s)" % _se
+            else:
+                init_txt = init
+            pre.append("void* %s = (void*)(%s);" % (nm(key), init_txt))
         for stmt in stmts:
             w, n, off, val = stmt[:4]
             iexpr = stmt[4] if len(stmt) > 4 else None
@@ -872,7 +894,26 @@ class StraightLine:
             # inside `_render` for *every* address value, which dropped the
             # translator's conversion rate from 65.5% to 20.0% -- it declined
             # every legitimate pointer store to fix one illegitimate narrow one.
-            if val[0] == "addr" and w != 8:
+            if w != 8 and (val[0] == "addr"
+                            # Narrow stores of an indexed address are ill-formed
+                            # for the same reason, and `addr_i` became reachable
+                            # as a stored value once synth pointers could carry
+                            # value tuples.
+                            or val[0] == "addr_i"
+                            # A *computed* pointer expression is the case that
+                            # actually broke: `argval`/`expr` values can render as
+                            # `char *`, so a narrow store produced
+                            #   *(uint32_t *)(...) = (uint32_t)((char *)p0 + ...);
+                            #   error: cast from pointer to smaller type 'uint32_t'
+                            # which killed a whole 50-candidate batch in subsdk1.
+                            #
+                            # Note the deliberate limit: this asks whether *this
+                            # kind* renders as a pointer, not `ct == "void*"`.
+                            # That broader test looked more principled and was a
+                            # measured regression -- main 813 -> 770, sdk 433 ->
+                            # 420, subsdk0 83 -> 74 -- because it declined bodies
+                            # that had been matching all along.
+                            or (val[0] == "expr" and ct == "void*")):
                 raise Bail("storing a pointer through a %d-byte type is ill-formed" % (w,))
             if val[0] == "imm" and ct != U[w]:
                 # An immediate stored through a *wider* type has to live in a

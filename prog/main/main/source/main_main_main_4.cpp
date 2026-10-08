@@ -2485,8 +2485,8 @@ void sub_5f1c60() { /* 0x5f1c60 */ }
 void sub_5f2110() { /* 0x5f2110 */ }
 void sub_5f2130() { /* 0x5f2130 */ }
 void sub_5f2140() { /* 0x5f2140 */ }
-void sub_5f2180() { /* 0x5f2180 */ }
-void sub_5f2190() { /* 0x5f2190 */ }
+// sub_5f2180: implemented in prog/matched/main/
+// sub_5f2190: implemented in prog/matched/main/
 // sub_5f21a0: implemented in prog/matched/main/
 // sub_5f21b0: implemented in prog/matched/main/
 void sub_5f21c0() { /* 0x5f21c0 */ }

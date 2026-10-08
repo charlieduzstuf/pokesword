@@ -82,6 +82,18 @@
   },
   {
    "module": "subsdk1",
+   "addr": 214320,
+   "size": 16,
+   "name": "sub_34530",
+   "shape": "straight",
+   "ident": "f_34530",
+   "sig": "Pvm",
+   "src": "void f_34530(void* a0, uint64_t a1) {\n    void* p0 = (void*)((uintptr_t)(a1));\n    *(uint64_t*)((char*)(a0) + 168) = (uint64_t)(a1);\n    *(uint32_t*)((char*)(a0) + 176) = *(uint32_t*)((char*)(p0) + 40);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "subsdk1",
    "addr": 232304,
    "size": 12,
    "name": "sub_38b70",
@@ -679,18 +691,6 @@
    "src": "void* f_4ce030(void* a0) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 72));\n    return (char*)(p0) + 2052;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
-  },
-  {
-   "module": "subsdk1",
-   "addr": 214320,
-   "size": 16,
-   "name": "sub_34530",
-   "shape": "straight",
-   "ident": "f_34530",
-   "sig": "PvS_",
-   "src": "void f_34530(void* a0, void* a1) {\n    *(uint64_t*)((char*)(a0) + 168) = (uint64_t)(a1);\n    *(uint32_t*)((char*)(a0) + 176) = *(uint32_t*)((char*)(a1) + 40);\n}\n",
-   "orig_insns": 4,
-   "new_insns": 4
   },
   {
    "module": "subsdk1",

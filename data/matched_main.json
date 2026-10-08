@@ -984,6 +984,18 @@
   },
   {
    "module": "main",
+   "addr": 3205664,
+   "size": 28,
+   "name": "sub_30ea20",
+   "shape": "straight",
+   "ident": "f_30ea20",
+   "sig": "Pv",
+   "src": "uint32_t f_30ea20(void* a0) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 232));\n    void* p1 = (void*)((uintptr_t)(((char *)(char*)(p0) + (uintptr_t)(*(uint32_t*)((char*)(a0) + 240)) * 16)));\n    return (*(uint32_t*)((char*)(p1) - 12)) - (*(uint32_t*)((char*)(p0) + 4));\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
    "addr": 3323984,
    "size": 32,
    "name": "sub_32b850",
@@ -1389,6 +1401,18 @@
    "src": "uint32_t f_43c1f0(void* a0, uint64_t a1) {\n    *(uint32_t*)((char*)(a0) + 24) = (uint32_t)(a1);\n    return 1;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 4440816,
+   "size": 16,
+   "name": "sub_43c2f0",
+   "shape": "straight",
+   "ident": "f_43c2f0",
+   "sig": "mPv",
+   "src": "uint64_t f_43c2f0(uint64_t unused0, void* a1) {\n    void* p0 = (void*)((uintptr_t)((((uint64_t)a1)) - (*(uint64_t*)((char*)(a1) - 8))));\n    return *(uint64_t*)((char*)(p0) + 8);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",
@@ -2001,6 +2025,30 @@
    "src": "void f_5c6380(void* a0, void* a1) {\n    *(uint32_t*)((char*)(a1) + 168) = *(uint32_t*)((char*)(a0));\n    *(uint32_t*)((char*)(a1) + 160) = *(uint32_t*)((char*)(a0) + 4);\n    *(uint64_t*)((char*)(a1) + 152) = *(uint64_t*)((char*)(a0) + 24);\n    *(uint64_t*)((char*)(a1) + 144) = *(uint64_t*)((char*)(a0) + 16);\n    *(uint64_t*)((char*)(a1) + 136) = *(uint64_t*)((char*)(a0) + 40);\n    *(uint64_t*)((char*)(a1) + 128) = *(uint64_t*)((char*)(a0) + 32);\n    *(uint64_t*)((char*)(a1) + 120) = *(uint64_t*)((char*)(a0) + 56);\n    *(uint64_t*)((char*)(a1) + 112) = *(uint64_t*)((char*)(a0) + 48);\n}\n",
    "orig_insns": 17,
    "new_insns": 17
+  },
+  {
+   "module": "main",
+   "addr": 6234496,
+   "size": 16,
+   "name": "sub_5f2180",
+   "shape": "straight",
+   "ident": "f_5f2180",
+   "sig": "Pv",
+   "src": "uint64_t f_5f2180(void* a0) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(*(int32_t*)((char*)(a0) + 216)) * 8)));\n    return *(uint64_t*)((char*)(p0) + 2176);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 6234512,
+   "size": 16,
+   "name": "sub_5f2190",
+   "shape": "straight",
+   "ident": "f_5f2190",
+   "sig": "Pv",
+   "src": "uint64_t f_5f2190(void* a0) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(*(int32_t*)((char*)(a0) + 216)) * 8)));\n    return *(uint64_t*)((char*)(p0) + 1808);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",
@@ -3564,6 +3612,18 @@
   },
   {
    "module": "main",
+   "addr": 8300544,
+   "size": 16,
+   "name": "sub_7ea800",
+   "shape": "straight",
+   "ident": "f_7ea800",
+   "sig": "Pv",
+   "src": "uint64_t f_7ea800(void* a0) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(*(uint32_t*)((char*)(a0) + 1032)) * 32)));\n    return *(uint64_t*)((char*)(p0) + 8);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 8312784,
    "size": 68,
    "name": "sub_7ed7d0",
@@ -3618,7 +3678,7 @@
    "shape": "straight",
    "ident": "f_7f26d0",
    "sig": "Pvjm",
-   "src": "void f_7f26d0(void* a0, uint32_t a1, uint64_t a2) {\n    void* p0 = (void*)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 1));\n    *(uint8_t*)((char*)(p0) + 865) = (uint8_t)(a2);\n}\n",
+   "src": "void f_7f26d0(void* a0, uint32_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 1)));\n    *(uint8_t*)((char*)(p0) + 865) = (uint8_t)(a2);\n}\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -3702,7 +3762,7 @@
    "shape": "straight",
    "ident": "f_7fe2e0",
    "sig": "Pvj",
-   "src": "uint64_t f_7fe2e0(void* a0, uint32_t a1) {\n    void* p0 = (void*)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
+   "src": "uint64_t f_7fe2e0(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32)));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
    "orig_insns": 4,
    "new_insns": 4
   },
@@ -3714,7 +3774,7 @@
    "shape": "straight",
    "ident": "f_7fe2f0",
    "sig": "Pvj",
-   "src": "uint64_t f_7fe2f0(void* a0, uint32_t a1) {\n    void* p0 = (void*)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
+   "src": "uint64_t f_7fe2f0(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32)));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
    "orig_insns": 4,
    "new_insns": 4
   },
@@ -8244,6 +8304,18 @@
   },
   {
    "module": "main",
+   "addr": 20335664,
+   "size": 20,
+   "name": "sub_1364c30",
+   "shape": "straight",
+   "ident": "f_1364c30",
+   "sig": "PvS_S_",
+   "src": "void f_1364c30(void* a0, void* a1, void* a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(*(int32_t*)((char*)(a1))) * 16)));\n    *(uint64_t*)((char*)(p0) + 96) = *(uint64_t*)((char*)(a2));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
    "addr": 20413744,
    "size": 12,
    "name": "sub_1377d30",
@@ -8517,6 +8589,18 @@
    "src": "void f_14c54f0(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 88));\n    *(uint32_t*)((char*)(p0) + 104) = 1;\n    *(uint64_t*)((char*)(p0) + 112) = (uint64_t)(a1);\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 21800544,
+   "size": 24,
+   "name": "sub_14ca660",
+   "shape": "straight",
+   "ident": "f_14ca660",
+   "sig": "Pv",
+   "src": "void f_14ca660(void* a0) {\n    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0))) + (*(int32_t*)((char*)(a0) + 8))));\n    uint32_t k1 = 1;\n    *(uint8_t*)((char*)(p0) + 3096) = (uint8_t)k1;\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -9408,6 +9492,18 @@
   },
   {
    "module": "main",
+   "addr": 24305872,
+   "size": 16,
+   "name": "sub_172e0d0",
+   "shape": "straight",
+   "ident": "f_172e0d0",
+   "sig": "Pvm",
+   "src": "void f_172e0d0(void* a0, uint64_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(*(uint8_t*)((char*)(a0) + 354)) * 4)));\n    *(uint32_t*)((char*)(p0) + 400) = (uint32_t)(a1);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 24329552,
    "size": 28,
    "name": "sub_1733d50",
@@ -9474,7 +9570,7 @@
    "shape": "straight",
    "ident": "f_173ef30",
    "sig": "Pvmj",
-   "src": "void f_173ef30(void* a0, uint64_t a1, uint32_t a2) {\n    void* p0 = (void*)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a2)) * 1));\n    *(uint8_t*)((char*)(p0) + 1544) = (uint8_t)(a1);\n}\n",
+   "src": "void f_173ef30(void* a0, uint64_t a1, uint32_t a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a2)) * 1)));\n    *(uint8_t*)((char*)(p0) + 1544) = (uint8_t)(a1);\n}\n",
    "orig_insns": 3,
    "new_insns": 3
   },
@@ -9630,7 +9726,7 @@
    "shape": "straight",
    "ident": "f_179a2f0",
    "sig": "Pvj",
-   "src": "uint64_t f_179a2f0(void* a0, uint32_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 24));\n    void* p1 = (void*)(((char *)(char*)(p0) + (uintptr_t)(((uint32_t)a1)) * 4));\n    return (*(uint64_t*)((char*)(a0) + 24)) + (*(uint32_t*)((char*)(p1) + 12));\n}\n",
+   "src": "uint64_t f_179a2f0(void* a0, uint32_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 24));\n    void* p1 = (void*)((uintptr_t)(((char *)(char*)(p0) + (uintptr_t)(((uint32_t)a1)) * 4)));\n    return (*(uint64_t*)((char*)(a0) + 24)) + (*(uint32_t*)((char*)(p1) + 12));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
   },

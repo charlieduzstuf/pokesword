@@ -2445,7 +2445,7 @@ void sub_7ea4a0() { /* 0x7ea4a0 */ }
 void sub_7ea5d0() { /* 0x7ea5d0 */ }
 void sub_7ea6f0() { /* 0x7ea6f0 */ }
 void sub_7ea770() { /* 0x7ea770 */ }
-void sub_7ea800() { /* 0x7ea800 */ }
+// sub_7ea800: implemented in prog/matched/main/
 void sub_7ea810() { /* 0x7ea810 */ }
 void sub_7ea830() { /* 0x7ea830 */ }
 void sub_7ea870() { /* 0x7ea870 */ }

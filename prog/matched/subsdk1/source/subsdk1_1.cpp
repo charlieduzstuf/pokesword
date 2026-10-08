@@ -911,9 +911,10 @@ uint64_t subsdk1_f_34280(void* a0) { return *(uint64_t*)((char*)(a0)); }
 void subsdk1_f_34290(void* a0, uint64_t a1) { *(uint64_t*)((char*)(a0)) = a1; }
 
 // sub_34530  (orig 0x34530, straight)
-void subsdk1_f_34530(void* a0, void* a1) {
+void subsdk1_f_34530(void* a0, uint64_t a1) {
+    void* p0 = (void*)((uintptr_t)(a1));
     *(uint64_t*)((char*)(a0) + 168) = (uint64_t)(a1);
-    *(uint32_t*)((char*)(a0) + 176) = *(uint32_t*)((char*)(a1) + 40);
+    *(uint32_t*)((char*)(a0) + 176) = *(uint32_t*)((char*)(p0) + 40);
 }
 
 // sub_34540  (orig 0x34540, getter)

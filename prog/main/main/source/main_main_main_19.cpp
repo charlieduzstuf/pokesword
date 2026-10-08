@@ -1308,7 +1308,7 @@ void sub_13647e0() { /* 0x13647e0 */ }
 void sub_1364a00() { /* 0x1364a00 */ }
 void sub_1364b40() { /* 0x1364b40 */ }
 void sub_1364bd0() { /* 0x1364bd0 */ }
-void sub_1364c30() { /* 0x1364c30 */ }
+// sub_1364c30: implemented in prog/matched/main/
 void sub_1364c50() { /* 0x1364c50 */ }
 void sub_1364c70() { /* 0x1364c70 */ }
 void sub_1364ec0() { /* 0x1364ec0 */ }

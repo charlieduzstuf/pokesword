@@ -1593,7 +1593,7 @@ void sub_172dec0() { /* 0x172dec0 */ }
 void sub_172dee0() { /* 0x172dee0 */ }
 void sub_172df70() { /* 0x172df70 */ }
 void sub_172e080() { /* 0x172e080 */ }
-void sub_172e0d0() { /* 0x172e0d0 */ }
+// sub_172e0d0: implemented in prog/matched/main/
 void sub_172e0e0() { /* 0x172e0e0 */ }
 void sub_172e100() { /* 0x172e100 */ }
 void sub_172e120() { /* 0x172e120 */ }

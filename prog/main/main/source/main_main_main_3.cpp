@@ -598,7 +598,7 @@ void GPUMemoryAllocator_5() { /* 0x43c160 */ }
 void sub_43c210() { /* 0x43c210 */ }
 void sub_43c230() { /* 0x43c230 */ }
 void sub_43c2d0() { /* 0x43c2d0 */ }
-void sub_43c2f0() { /* 0x43c2f0 */ }
+// sub_43c2f0: implemented in prog/matched/main/
 // sub_43c300: implemented in prog/matched/main/
 // sub_43c310: implemented in prog/matched/main/
 // sub_43c320: implemented in prog/matched/main/
