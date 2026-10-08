@@ -81,7 +81,7 @@ void sub_4851d0() { /* 0x4851d0 */ }
 void sub_485288() { /* 0x485288 */ }
 void sub_485380() { /* 0x485380 */ }
 void sub_485438() { /* 0x485438 */ }
-void sub_485530() { /* 0x485530 */ }
+// sub_485530: implemented in prog/matched/sdk/
 void sub_485538() { /* 0x485538 */ }
 void sub_485560() { /* 0x485560 */ }
 void sub_485570() { /* 0x485570 */ }
@@ -1160,8 +1160,8 @@ void sub_4bcd58() { /* 0x4bcd58 */ }
 void sub_4bceb0() { /* 0x4bceb0 */ }
 void sub_4bceb8() { /* 0x4bceb8 */ }
 void sub_4bcec0() { /* 0x4bcec0 */ }
-void sub_4bcec8() { /* 0x4bcec8 */ }
-void sub_4bcee0() { /* 0x4bcee0 */ }
+// sub_4bcec8: implemented in prog/matched/sdk/
+// sub_4bcee0: implemented in prog/matched/sdk/
 void sub_4bcef8() { /* 0x4bcef8 */ }
 void sub_4bcf40() { /* 0x4bcf40 */ }
 void sub_4bcf60() { /* 0x4bcf60 */ }
@@ -1467,7 +1467,7 @@ void sub_4d7508() { /* 0x4d7508 */ }
 void sub_4d7530() { /* 0x4d7530 */ }
 void sub_4d7558() { /* 0x4d7558 */ }
 void sub_4d7580() { /* 0x4d7580 */ }
-void sub_4d75a8() { /* 0x4d75a8 */ }
+// sub_4d75a8: implemented in prog/matched/sdk/
 void sub_4d75b0() { /* 0x4d75b0 */ }
 void sub_4d75c8() { /* 0x4d75c8 */ }
 void sub_4d75e0() { /* 0x4d75e0 */ }
@@ -1836,14 +1836,14 @@ void sub_4f1de8() { /* 0x4f1de8 */ }
 void sub_4f1e08() { /* 0x4f1e08 */ }
 void sub_4f1e28() { /* 0x4f1e28 */ }
 void sub_4f1e38() { /* 0x4f1e38 */ }
-void sub_4f1e48() { /* 0x4f1e48 */ }
+// sub_4f1e48: implemented in prog/matched/sdk/
 // sub_4f1e58: implemented in prog/matched/sdk/
 void sub_4f1e60() { /* 0x4f1e60 */ }
 void sub_4f1e80() { /* 0x4f1e80 */ }
 void sub_4f1e98() { /* 0x4f1e98 */ }
 void sub_4f1eb8() { /* 0x4f1eb8 */ }
 // sub_4f1ee0: implemented in prog/matched/sdk/
-void sub_4f1ef0() { /* 0x4f1ef0 */ }
+// sub_4f1ef0: implemented in prog/matched/sdk/
 // sub_4f1f00: implemented in prog/matched/sdk/
 void sub_4f1f08() { /* 0x4f1f08 */ }
 void sub_4f1fc0() { /* 0x4f1fc0 */ }
@@ -2178,7 +2178,7 @@ void mulvdi3() { /* 0x501008 */ }
 void mulvsi3() { /* 0x5010f8 */ }
 void mulvti3() { /* 0x5011e8 */ }
 void sub_501388() { /* 0x501388 */ }
-void sub_501390() { /* 0x501390 */ }
+// sub_501390: implemented in prog/matched/sdk/
 void sub_501398() { /* 0x501398 */ }
 void sub_5013a0() { /* 0x5013a0 */ }
 void negvdi2() { /* 0x5013b0 */ }

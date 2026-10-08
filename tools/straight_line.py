@@ -65,6 +65,12 @@ EXTEND_TYPES = {
     "uxth": ("uint16_t", "t"),
     "sxth": ("int16_t",  "s"),
 }
+# Bitwise and bitfield value instructions, all handled by one block below.
+# They are listed separately from the `add`/`mov`/`sub` group because they are
+# the ones added in response to a measured decline census rather than by
+# increment -- see the no-call/no-branch census in decomp/docs/remaining_pool.md.
+BITWISE_MNEMONICS = ("and", "orr", "eor", "bic", "movk", "ubfx", "sbfx",
+                     "ubfiz", "mvn", "neg", "lsl", "lsr", "asr")
 MAX_INSNS = 32        # beyond this, hand decomp is the better use of time
 MAX_ARG = 7           # AArch64 passes integer/pointer arguments in x0..x7.
                       # This was 4, so any body reading x4..x7 as a pointer base
@@ -260,8 +266,12 @@ def _rw(v):
         return S[w] if signed else U[w]
     if k == "expr":
         return v[4]
+    if k == "arg":
+        return v[2] if len(v) > 2 else "void*"
     if k == "argval":
         return v[2]
+    if k == "un":
+        return v[3]
     # `addr`/`addr_i` render as `char *` expressions, so the result type has to
     # be a pointer. Calling them uint64_t produced an integer-typed expression
     # built from a pointer, which is the same class of error as arithmetic on
@@ -315,8 +325,14 @@ class StraightLine:
         if not body or len(body) > MAX_INSNS:
             raise Bail("empty body, or %d instructions > MAX_INSNS=%d" % (len(body), MAX_INSNS))
         for i in body:
-            if i.mnemonic not in LOADS and i.mnemonic not in STORES \
-                    and i.mnemonic not in ("add", "mov", "sub"):
+            # This is a whole-body pre-filter, and it runs before any of the
+            # per-instruction handlers below. Anything missing here is declined as
+            # "unsupported mnemonic" no matter how much the handler underneath
+            # could have done with it -- which is why adding the bitwise handlers
+            # changed nothing at all until this list was widened.
+            if (i.mnemonic not in LOADS and i.mnemonic not in STORES
+                    and i.mnemonic not in ("add", "mov", "sub")
+                    and i.mnemonic not in BITWISE_MNEMONICS):
                 raise Bail("unsupported mnemonic %r" % (i.mnemonic,))
 
         state = {}
@@ -521,7 +537,19 @@ class StraightLine:
                         # body will not compile.
                         an = arg_reg(src)
                         used_args.add(an)
-                        state[wreg(src)] = ("arg", an)
+                        # The type travels with the value because `_render` only sees `names`
+                        # and cannot know how the parameter was declared. Hardcoding `void*`
+                        # here contradicted a `uint64_t a0` declaration and produced:
+                        #
+                        #     return a0;
+                        #     error: cannot initialize return object of type 'void *' with an
+                        #            lvalue of type 'uint64_t'
+                        #
+                        # It reads as a perfectly ordinary line in the source; only the
+                        # declaration gives it away. Deciding it here also leaves every mangled
+                        # name unchanged, which retyping the parameter would not.
+                        state[wreg(src)] = ("arg", an,
+                                            "void*" if an in ptr_args else "uint64_t")
                 if wreg(src) not in state:
                     raise Bail("store source %r is never written by the body" % (src,))
                 if index is not None:
@@ -545,7 +573,7 @@ class StraightLine:
                     # Same rule as the arithmetic path: an argument used as a
                     # value is still a parameter. `mov x0, x1` with x1 incoming
                     # is a copy of the argument; declining it cost 13 bodies.
-                    av = self._value_arg(src, used_args, idx_args)
+                    av = self._value_arg(src, used_args, idx_args, ptr_args)
                     if av is None:
                         raise Bail("mov source %r is neither an immediate nor a "
                                    "known register" % (src,))
@@ -553,6 +581,148 @@ class StraightLine:
                     continue
                 state[wreg(dst)] = state[wreg(src)]
                 continue
+
+            # Bitwise and bitfield value operations.
+            #
+            # These are the largest remaining reason a *control-flow-linear* body
+            # is declined. Measured over the 5,652 unmatched bodies that have
+            # neither a call nor a branch -- which a straight-line translator
+            # should reach by construction, so they can only be failing on
+            # instruction coverage:
+            #
+            #     473  and      201  movk      145  ubfx      103  orr
+            #
+            # All are ordinary value expressions on registers, which is exactly
+            # what the existing `expr` value kind already renders.
+            if mn in ("and", "orr", "eor", "bic", "movk", "ubfx", "sbfx",
+                      "ubfiz", "mvn", "neg", "lsl", "lsr", "asr"):
+                ops2 = split_ops(i.op_str)
+                if len(ops2) < 2:
+                    raise Bail("%s with %d operands is not modelled" % (mn, len(ops2)))
+                dst = ops2[0]
+
+                def _val(reg):
+                    v = state.get(wreg(reg))
+                    if v is None:
+                        v = self._value_arg(reg, used_args, idx_args, ptr_args)
+                    if v is None:
+                        raise Bail("%s source %r is not a known value" % (mn, reg))
+                    # None of these operations is defined on a pointer, and
+                    # C++ rejects the attempt at compile time:
+                    #
+                    #   return (((char *)p0) + ...) << (3);
+                    #   error: invalid operands to binary expression ('char *' and 'int')
+                    #
+                    # The operand is a pointer because the register was computed
+                    # as an address earlier in the body, not because the
+                    # instruction was wrong. Declining is correct; guessing an
+                    # integer reinterpretation would not be.
+                    if v[0] in ("addr", "addr_i"):
+                        raise Bail("%s applied to an address value" % (mn,))
+                    return v
+
+                # Bitfield extract/insert: `ubfx Rd, Rn, #lo, #width`.
+                if mn in ("ubfx", "sbfx") and len(ops2) >= 4:
+                    v = _val(ops2[1])
+                    lo = parse_imm(ops2[2])
+                    wd = parse_imm(ops2[3])
+                    if lo is None or wd is None:
+                        raise Bail("%s with non-immediate fields" % (mn,))
+                    ty = _rw(v)
+                    e = ("expr", ">>", v, ("imm", lo, ty), ty)
+                    if wd < 64:
+                        e = ("expr", "&", e, ("imm", (1 << wd) - 1, ty), ty)
+                    state[wreg(dst)] = e
+                    continue
+
+                # Bitfield insert: `ubfiz Rd, Rn, #lo, #width`.
+                if mn == "ubfiz" and len(ops2) >= 4:
+                    v = _val(ops2[1])
+                    lo = parse_imm(ops2[2])
+                    wd = parse_imm(ops2[3])
+                    if lo is None or wd is None:
+                        raise Bail("ubfiz with non-immediate fields")
+                    ty = _rw(v)
+                    mask = ((1 << wd) - 1) << lo
+                    e = ("expr", "&", v, ("imm", ~mask & ((1 << 64) - 1), ty), ty)
+                    e = ("expr", "|", e, ("expr", "<<",
+                                         ("expr", "&", v, ("imm", mask, ty), ty),
+                                         ("imm", lo, ty), ty), ty)
+                    state[wreg(dst)] = e
+                    continue
+
+                # Wide-immediate move: `movk Rd, #imm, lsl #shift` merges into
+                # the value already in Rd. A `movz`/`movk` pair is how a 64-bit
+                # constant is built, so this is common.
+                if mn == "movk":
+                    if len(ops2) < 2:
+                        raise Bail("movk with %d operands is not modelled" % (len(ops2),))
+                    immtxt = ops2[1]
+                    sh = 0
+                    if len(ops2) >= 3 and ops2[2].startswith("lsl"):
+                        sh = parse_imm(ops2[2].split("#")[-1]) or 0
+                    v = parse_imm(immtxt)
+                    if v is None:
+                        raise Bail("movk immediate %r is not a literal" % (immtxt,))
+                    v <<= sh
+                    dstw = wreg(dst)
+                    prior = state.get(dstw)
+                    ty = "uint64_t" if dstw.startswith("x") else "uint32_t"
+                    if prior is not None and prior[0] == "imm":
+                        state[dstw] = ("imm", (prior[1] & ~(0xFFFF << sh) | v)
+                                       & ((1 << 64) - 1), ty)
+                    elif prior is None:
+                        state[dstw] = ("imm", v, ty)
+                    else:
+                        state[dstw] = ("expr", "|", prior, ("imm", v, ty), ty)
+                    continue
+
+                # `mvn Rd, Rn` / `neg Rd, Rn`: genuinely unary, so they need a
+                # unary value kind. Rendering them through the binary `expr` path
+                # produced `(<a>) ~ (<0>)`, which is not C:
+                #
+                #     error: expected ';' after expression
+                #
+                # `bic` had the same shape of bug -- `&~` is not an operator
+                # either, it was emitted as `(<a> & <b>) ~ (0)`.
+                if mn in ("mvn", "neg") and len(ops2) == 2:
+                    v = _val(ops2[1])
+                    ty = _rw(v)
+                    state[wreg(dst)] = ("un", "~" if mn == "mvn" else "neg", v, ty)
+                    continue
+
+                # `lsl/lsr/asr Rd, Rn, #sh` : shift by a literal.
+                if mn in ("lsl", "lsr", "asr") and len(ops2) == 3:
+                    sh = parse_imm(ops2[2])
+                    if sh is None:
+                        raise Bail("%s shift %r is not a literal" % (mn, ops2[2]))
+                    v = _val(ops2[1])
+                    ty = _rw(v)
+                    state[wreg(dst)] = ("expr", {"lsl": "<<", "lsr": ">>",
+                                                 "asr": ">>"}[mn], v,
+                                       ("imm", sh, ty), ty)
+                    continue
+
+                # `and/orr/eor/bic Rd, Rn, Rm` or `#imm`
+                sym = {"and": "&", "orr": "|", "eor": "^", "bic": None}[mn]
+                if len(ops2) == 3:
+                    v1 = _val(ops2[1])
+                    imm2 = parse_imm(ops2[2])
+                    v2 = ("imm", imm2, _rw(v1)) if imm2 is not None else _val(ops2[2])
+                    ty = _rw(v1)
+                    if sym is None:
+                        # `bic Rd, Rn, Rm` is Rn & ~Rm.
+                        state[wreg(dst)] = ("expr", "&", v1,
+                                            ("un", "~", v2, ty), ty)
+                    else:
+                        state[wreg(dst)] = ("expr", sym, v1, v2, ty)
+                    continue
+                if len(ops2) == 2:
+                    v1 = _val(ops2[1])
+                    ty = _rw(v1)
+                    state[wreg(dst)] = ("expr", sym, v1, ("imm", 0, ty), ty)
+                    continue
+                raise Bail("%s with %d operands is not modelled" % (mn, len(ops2)))
 
             if mn in ("add", "sub"):
                 #     add x8, x0, #0x10        x8 = x0 + 0x10   (address arith)
@@ -671,7 +841,7 @@ class StraightLine:
                         # register to look up at all.
                         iv = state.get(wreg(src2))
                         if iv is None:
-                            iv = self._value_arg(src2, used_args, idx_args)
+                            iv = self._value_arg(src2, used_args, idx_args, ptr_args)
                         if iv is None:
                             raise Bail("add/sub index %r is not a value"
                                        % (src2,))
@@ -722,10 +892,10 @@ class StraightLine:
                 # x8 is the struct-return pointer, not a value source.
                 s1 = state.get(wreg(src))
                 if s1 is None:
-                    s1 = self._value_arg(src, used_args, idx_args)
+                    s1 = self._value_arg(src, used_args, idx_args, ptr_args)
                 s2 = state.get(wreg(src_r))
                 if s2 is None:
-                    s2 = self._value_arg(src_r, used_args, idx_args)
+                    s2 = self._value_arg(src_r, used_args, idx_args, ptr_args)
                 if s1 is None or s2 is None:
                     raise Bail("add/sub operand is not a known register")
                 # A three-operand `add x8, x0, x8` reaches here even when x0
@@ -761,7 +931,7 @@ class StraightLine:
         return self._emit(ident, state, stmts, used_args, ptr_args, synth, idx_args)
 
     @staticmethod
-    def _value_arg(reg, used_args, idx_args):
+    def _value_arg(reg, used_args, idx_args, ptr_args=None):
         """An incoming argument used as an arithmetic *value*, or None.
 
         Returns the same `("arg", n)` shape the store-source path already used.
@@ -770,6 +940,20 @@ class StraightLine:
         plain integer operand.
         """
         n = arg_reg(reg)
+        # An argument is a pointer or an integer, never both -- C++ will not let
+        # one name carry both types. If this register is already serving as a
+        # memory base then it is a pointer, and using it as a bitwise operand
+        # contradicts that:
+        #
+        #     return a0;
+        #     error: cannot initialize return object of type 'void *' with an
+        #            lvalue of type 'uint64_t'
+        #
+        # The mismatch is invisible in the source (the name looks fine) and only
+        # the declared parameter type gives it away, so the fix is to keep one
+        # role per argument rather than let two paths claim it.
+        if ptr_args is not None and n in ptr_args:
+            return None
         used_args.add(n)
         cty = "uint32_t" if reg.strip().startswith("w") else "uint64_t"
         idx_args.setdefault(n, cty)
@@ -851,7 +1035,17 @@ class StraightLine:
         if kind == "arg":
             # An incoming argument stored straight through. `_emit` applies the
             # store-width cast, so handing back the bare name is enough.
-            return "void*", names[val[1]]
+            # The declared type travels with the value; see the store-source
+            # path. Falling back to `void*` is the pre-fix behaviour.
+            return val[2] if len(val) > 2 else "void*", names[val[1]]
+        if kind == "un":
+            # Unary NOT / negate. A separate kind because the binary `expr` path
+            # cannot express them -- see the `mvn`/`bic` note in translate().
+            _, uop, uv, uty = val
+            _cu, _eu = self._render(uv, names)
+            if uop == "~":
+                return uty, "(~((%s)%s))" % (uty, _eu)
+            return uty, "(0 - ((%s)%s))" % (uty, _eu)
         if kind == "argval":
             # The same argument as an arithmetic operand: an integer, never a
             # pointer. See `_value_arg`.

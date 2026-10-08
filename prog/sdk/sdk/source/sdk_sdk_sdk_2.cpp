@@ -184,10 +184,10 @@ void sub_193170() { /* 0x193170 */ }
 void sub_1931b0() { /* 0x1931b0 */ }
 void sub_193250() { /* 0x193250 */ }
 void sub_193280() { /* 0x193280 */ }
-void sub_193290() { /* 0x193290 */ }
-void sub_1932a0() { /* 0x1932a0 */ }
-void sub_1932b0() { /* 0x1932b0 */ }
-void sub_1932c0() { /* 0x1932c0 */ }
+// sub_193290: implemented in prog/matched/sdk/
+// sub_1932a0: implemented in prog/matched/sdk/
+// sub_1932b0: implemented in prog/matched/sdk/
+// sub_1932c0: implemented in prog/matched/sdk/
 void sub_1932d0() { /* 0x1932d0 */ }
 void sub_193310() { /* 0x193310 */ }
 void sub_193360() { /* 0x193360 */ }
@@ -1253,8 +1253,8 @@ void sub_1e6990() { /* 0x1e6990 */ }
 void sub_1e69b0() { /* 0x1e69b0 */ }
 void sub_1e6a50() { /* 0x1e6a50 */ }
 void sub_1e6a70() { /* 0x1e6a70 */ }
-void sub_1e6a90() { /* 0x1e6a90 */ }
-void sub_1e6aa0() { /* 0x1e6aa0 */ }
+// sub_1e6a90: implemented in prog/matched/sdk/
+// sub_1e6aa0: implemented in prog/matched/sdk/
 void sub_1e6ab0() { /* 0x1e6ab0 */ }
 void sub_1e6be0() { /* 0x1e6be0 */ }
 void sub_1e6c10() { /* 0x1e6c10 */ }
@@ -2437,12 +2437,12 @@ void sub_223490() { /* 0x223490 */ }
 void sub_2234a0() { /* 0x2234a0 */ }
 void sub_223500() { /* 0x223500 */ }
 // sub_2236d0: implemented in prog/matched/sdk/
-void sub_2236e0() { /* 0x2236e0 */ }
+// sub_2236e0: implemented in prog/matched/sdk/
 void sub_2236f0() { /* 0x2236f0 */ }
 void sub_223760() { /* 0x223760 */ }
 void sub_223dc0() { /* 0x223dc0 */ }
 void sub_223e50() { /* 0x223e50 */ }
-void sub_223e70() { /* 0x223e70 */ }
+// sub_223e70: implemented in prog/matched/sdk/
 void sub_223e80() { /* 0x223e80 */ }
 void sub_223ec0() { /* 0x223ec0 */ }
 void sub_223f10() { /* 0x223f10 */ }
@@ -3233,12 +3233,12 @@ void sub_245320() { /* 0x245320 */ }
 void sub_245370() { /* 0x245370 */ }
 // sub_245900: implemented in prog/matched/sdk/
 void sub_245910() { /* 0x245910 */ }
-void sub_245940() { /* 0x245940 */ }
+// sub_245940: implemented in prog/matched/sdk/
 void sub_245950() { /* 0x245950 */ }
 void sub_245970() { /* 0x245970 */ }
-void sub_2459a0() { /* 0x2459a0 */ }
+// sub_2459a0: implemented in prog/matched/sdk/
 void sub_2459b0() { /* 0x2459b0 */ }
-void sub_2459e0() { /* 0x2459e0 */ }
+// sub_2459e0: implemented in prog/matched/sdk/
 void sub_2459f0() { /* 0x2459f0 */ }
 void sub_245a00() { /* 0x245a00 */ }
 // sub_245a60: implemented in prog/matched/sdk/

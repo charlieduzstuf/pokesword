@@ -1370,7 +1370,7 @@ void sub_b49f40() { /* 0xb49f40 */ }
 void sub_b4a070() { /* 0xb4a070 */ }
 void sub_b4a240() { /* 0xb4a240 */ }
 void sub_b4a260() { /* 0xb4a260 */ }
-void sub_b4a380() { /* 0xb4a380 */ }
+// sub_b4a380: implemented in prog/matched/main/
 void sub_b4a390() { /* 0xb4a390 */ }
 void sub_b4a3f0() { /* 0xb4a3f0 */ }
 // sub_b4a450: implemented in prog/matched/main/

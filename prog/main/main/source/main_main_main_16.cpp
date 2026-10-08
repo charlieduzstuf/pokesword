@@ -3913,7 +3913,7 @@ void sub_1131370() { /* 0x1131370 */ }
 void sub_1131490() { /* 0x1131490 */ }
 void sub_11315f0() { /* 0x11315f0 */ }
 void sub_1131790() { /* 0x1131790 */ }
-void sub_11319e0() { /* 0x11319e0 */ }
+// sub_11319e0: implemented in prog/matched/main/
 void sub_11319f0() { /* 0x11319f0 */ }
 void sub_1131b10() { /* 0x1131b10 */ }
 void sub_1131da0() { /* 0x1131da0 */ }

@@ -385,7 +385,7 @@ void sub_1a0de0() { /* 0x1a0de0 */ }
 void sub_1a0df0() { /* 0x1a0df0 */ }
 void sub_1a0f20() { /* 0x1a0f20 */ }
 void NonTrackedAlloc_110() { /* 0x1a1050 */ }
-void sub_1a1350() { /* 0x1a1350 */ }
+// sub_1a1350: implemented in prog/matched/main/
 void sub_1a1360() { /* 0x1a1360 */ }
 void sub_1a13b0() { /* 0x1a13b0 */ }
 void sub_1a13e0() { /* 0x1a13e0 */ }
@@ -655,7 +655,7 @@ void sub_1f3d30() { /* 0x1f3d30 */ }
 void sub_1f3df0() { /* 0x1f3df0 */ }
 void sub_1f3e10() { /* 0x1f3e10 */ }
 // sub_1f3e50: implemented in prog/matched/main/
-void sub_1f3e60() { /* 0x1f3e60 */ }
+// sub_1f3e60: implemented in prog/matched/main/
 // sub_1f3e70: implemented in prog/matched/main/
 void PsThread() { /* 0x1f3e80 */ }
 void sub_1f4010() { /* 0x1f4010 */ }
@@ -2834,7 +2834,7 @@ void sub_2a9a80() { /* 0x2a9a80 */ }
 void sub_2a9a90() { /* 0x2a9a90 */ }
 void sub_2a9aa0() { /* 0x2a9aa0 */ }
 // sub_2a9b40: implemented in prog/matched/main/
-void sub_2a9b50() { /* 0x2a9b50 */ }
+// sub_2a9b50: implemented in prog/matched/main/
 void sub_2a9b60() { /* 0x2a9b60 */ }
 // sub_2a9b70: implemented in prog/matched/main/
 void sub_2a9b80() { /* 0x2a9b80 */ }
@@ -3166,10 +3166,10 @@ void sub_2baa50() { /* 0x2baa50 */ }
 void sub_2bacf0() { /* 0x2bacf0 */ }
 // sub_2bad40: implemented in prog/matched/main/
 // sub_2bad50: implemented in prog/matched/main/
-void sub_2bad60() { /* 0x2bad60 */ }
+// sub_2bad60: implemented in prog/matched/main/
 void sub_2bad70() { /* 0x2bad70 */ }
 void sub_2bada0() { /* 0x2bada0 */ }
-void sub_2badf0() { /* 0x2badf0 */ }
+// sub_2badf0: implemented in prog/matched/main/
 void sub_2bae00() { /* 0x2bae00 */ }
 void ScArticulationSim() { /* 0x2bae30 */ }
 void sub_2bb1a0() { /* 0x2bb1a0 */ }
@@ -3246,13 +3246,13 @@ void ScBodyCore() { /* 0x2be7d0 */ }
 void sub_2be940() { /* 0x2be940 */ }
 // sub_2be960: implemented in prog/matched/main/
 void sub_2be970() { /* 0x2be970 */ }
-void sub_2bea20() { /* 0x2bea20 */ }
+// sub_2bea20: implemented in prog/matched/main/
 void sub_2bea30() { /* 0x2bea30 */ }
 void PsArray_217() { /* 0x2bea50 */ }
 void sub_2bec20() { /* 0x2bec20 */ }
 void sub_2beca0() { /* 0x2beca0 */ }
 void sub_2bf050() { /* 0x2bf050 */ }
-void sub_2bf200() { /* 0x2bf200 */ }
+// sub_2bf200: implemented in prog/matched/main/
 void sub_2bf210() { /* 0x2bf210 */ }
 void sub_2bf2e0() { /* 0x2bf2e0 */ }
 void sub_2bf320() { /* 0x2bf320 */ }
@@ -3301,7 +3301,7 @@ void sub_2c1490() { /* 0x2c1490 */ }
 // sub_2c14b0: implemented in prog/matched/main/
 void sub_2c14d0() { /* 0x2c14d0 */ }
 void sub_2c14f0() { /* 0x2c14f0 */ }
-void sub_2c1510() { /* 0x2c1510 */ }
+// sub_2c1510: implemented in prog/matched/main/
 void sub_2c1520() { /* 0x2c1520 */ }
 void sub_2c1530() { /* 0x2c1530 */ }
 void sub_2c1560() { /* 0x2c1560 */ }
@@ -3338,7 +3338,7 @@ void sub_2c5050() { /* 0x2c5050 */ }
 void ScConstraintSim() { /* 0x2c5110 */ }
 void sub_2c5210() { /* 0x2c5210 */ }
 void sub_2c5250() { /* 0x2c5250 */ }
-void sub_2c5380() { /* 0x2c5380 */ }
+// sub_2c5380: implemented in prog/matched/main/
 void sub_2c5390() { /* 0x2c5390 */ }
 void PsPool_21() { /* 0x2c5430 */ }
 void sub_2c56b0() { /* 0x2c56b0 */ }
@@ -3551,8 +3551,8 @@ void NonTrackedAlloc_159() { /* 0x2d9930 */ }
 // sub_2dc3d0: implemented in prog/matched/main/
 void sub_2dc3e0() { /* 0x2dc3e0 */ }
 // sub_2dc400: implemented in prog/matched/main/
-void sub_2dc410() { /* 0x2dc410 */ }
-void sub_2dc420() { /* 0x2dc420 */ }
+// sub_2dc410: implemented in prog/matched/main/
+// sub_2dc420: implemented in prog/matched/main/
 void sub_2dc430() { /* 0x2dc430 */ }
 void sub_2dc4b0() { /* 0x2dc4b0 */ }
 void sub_2dc4d0() { /* 0x2dc4d0 */ }

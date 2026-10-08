@@ -2615,6 +2615,38 @@ def collect(module, shapes, limit):
         end = MH.effective_end(ins, size)
         sh = shape_of(ins, end)
         if sh is None:
+            # `--shape none` offers the unclassified bodies to the generic
+            # straight-line translator.
+            #
+            # This gate is why a whole class of work was invisible. `shape_of`
+            # returns None for 121,544 bodies (98.2% of what is unmatched), and
+            # this `continue` meant `gen_straight` was never called on any of
+            # them -- so instruction coverage added to the translator could not
+            # show up in any MATCH count, and a measured A/B came back an
+            # identical 822/439/84/56 for work that provably generated hundreds of
+            # new bodies.
+            #
+            # The classifier's verdict is a *prior*, not a constraint: the
+            # translator declines on its own terms with a specific reason, which
+            # is strictly more informative than a bucket label. 19,503 of these
+            # bodies have no call and no branch at all, so they are
+            # control-flow-linear and only fail on instruction coverage.
+            if "none" not in (shapes or ()):
+                continue
+            counts["none"] += 1
+            ident = "f_%x" % addr
+            made = gen_straight(ins, end, ident)
+            if made is None:
+                skipped["none"] += 1
+                continue
+            sh = "straight"
+            src, sig = made
+            rec = {"module": module, "addr": addr, "size": size, "name": name,
+                   "shape": "straight", "ident": ident, "src": src, "sig": sig,
+                   "orig_insns": end, "was_unclassified": True}
+            out.append(rec)
+            if limit and len(out) >= limit:
+                break
             continue
         counts[sh] += 1
         if shapes and sh not in shapes:

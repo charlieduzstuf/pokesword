@@ -2981,7 +2981,7 @@ void sub_fb78a0() { /* 0xfb78a0 */ }
 // sub_fb7930: implemented in prog/matched/main/
 // sub_fb7940: implemented in prog/matched/main/
 // sub_fb7950: implemented in prog/matched/main/
-void sub_fb7960() { /* 0xfb7960 */ }
+// sub_fb7960: implemented in prog/matched/main/
 // sub_fb7980: implemented in prog/matched/main/
 // sub_fb7990: implemented in prog/matched/main/
 // sub_fb79a0: implemented in prog/matched/main/
@@ -3192,7 +3192,7 @@ void sub_fcc990() { /* 0xfcc990 */ }
 void sub_fccac0() { /* 0xfccac0 */ }
 void sub_fccae0() { /* 0xfccae0 */ }
 void sub_fccc50() { /* 0xfccc50 */ }
-void sub_fcccc0() { /* 0xfcccc0 */ }
+// sub_fcccc0: implemented in prog/matched/main/
 void sub_fccce0() { /* 0xfccce0 */ }
 void sub_fcccf0() { /* 0xfcccf0 */ }
 void sub_fccd00() { /* 0xfccd00 */ }
@@ -3235,7 +3235,7 @@ void sub_fce9d0() { /* 0xfce9d0 */ }
 void sub_fce9e0() { /* 0xfce9e0 */ }
 void sub_fceac0() { /* 0xfceac0 */ }
 void sub_fcebf0() { /* 0xfcebf0 */ }
-void sub_fcec80() { /* 0xfcec80 */ }
+// sub_fcec80: implemented in prog/matched/main/
 void sub_fceca0() { /* 0xfceca0 */ }
 void grid_VSSorting_5() { /* 0xfcee80 */ }
 void uikit_netbtl_top_00_lyt() { /* 0xfceee0 */ }
@@ -3282,7 +3282,7 @@ void sub_fcfd80() { /* 0xfcfd80 */ }
 // sub_fcfda0: implemented in prog/matched/main/
 void sub_fcfdc0() { /* 0xfcfdc0 */ }
 void pane_N_maintitle_00() { /* 0xfcfe20 */ }
-void sub_fcfee0() { /* 0xfcfee0 */ }
+// sub_fcfee0: implemented in prog/matched/main/
 void sub_fcff00() { /* 0xfcff00 */ }
 void sub_fcff20() { /* 0xfcff20 */ }
 void pane_T_net_title_00() { /* 0xfcff40 */ }

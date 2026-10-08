@@ -578,7 +578,7 @@ void GPUPostEffect_cpp_d_PPFX_ERROR_16() { /* 0x43b290 */ }
 void GPUMemoryAllocator_3() { /* 0x43b370 */ }
 void GPUPostEffect_cpp_d_PPFX_ERROR_17() { /* 0x43b3f0 */ }
 void GPUMemoryAllocator_4() { /* 0x43b500 */ }
-void sub_43b580() { /* 0x43b580 */ }
+// sub_43b580: implemented in prog/matched/main/
 void GPUPostEffect_2() { /* 0x43b590 */ }
 // sub_43b9b0: implemented in prog/matched/main/
 // sub_43b9c0: implemented in prog/matched/main/
@@ -636,13 +636,13 @@ void sub_43f670() { /* 0x43f670 */ }
 void GPUInterfaceDevice_cpp_d_PPFX_ERROR_2() { /* 0x43f940 */ }
 void sub_43fa90() { /* 0x43fa90 */ }
 void sub_43fac0() { /* 0x43fac0 */ }
-void sub_43fc00() { /* 0x43fc00 */ }
+// sub_43fc00: implemented in prog/matched/main/
 void sub_43fc30() { /* 0x43fc30 */ }
 // sub_43fc90: implemented in prog/matched/main/
-void sub_43fca0() { /* 0x43fca0 */ }
-void sub_43fcc0() { /* 0x43fcc0 */ }
-void sub_43fce0() { /* 0x43fce0 */ }
-void sub_43fd00() { /* 0x43fd00 */ }
+// sub_43fca0: implemented in prog/matched/main/
+// sub_43fcc0: implemented in prog/matched/main/
+// sub_43fce0: implemented in prog/matched/main/
+// sub_43fd00: implemented in prog/matched/main/
 void sub_43fd20() { /* 0x43fd20 */ }
 void GPUInterfaceDevice_cpp_d_PPFX_2() { /* 0x43fdd0 */ }
 void sub_4400a0() { /* 0x4400a0 */ }
@@ -690,18 +690,18 @@ void GPUInterfaceDevice_cpp_d_PPFX_WARNING_2() { /* 0x440b50 */ }
 // sub_440d30: implemented in prog/matched/main/
 // sub_440d40: implemented in prog/matched/main/
 // sub_440d50: implemented in prog/matched/main/
-void sub_440d60() { /* 0x440d60 */ }
+// sub_440d60: implemented in prog/matched/main/
 // sub_440d80: implemented in prog/matched/main/
 void sub_440d90() { /* 0x440d90 */ }
 void sub_440ed0() { /* 0x440ed0 */ }
-void sub_440f00() { /* 0x440f00 */ }
+// sub_440f00: implemented in prog/matched/main/
 void sub_440f10() { /* 0x440f10 */ }
-void sub_440f40() { /* 0x440f40 */ }
+// sub_440f40: implemented in prog/matched/main/
 void sub_440f60() { /* 0x440f60 */ }
 void sub_440fa0() { /* 0x440fa0 */ }
-void sub_440fd0() { /* 0x440fd0 */ }
+// sub_440fd0: implemented in prog/matched/main/
 void sub_440ff0() { /* 0x440ff0 */ }
-void sub_441020() { /* 0x441020 */ }
+// sub_441020: implemented in prog/matched/main/
 // sub_441040: implemented in prog/matched/main/
 void GPUInterfaceDevice_cpp_d_PPFX_ERROR_3() { /* 0x441050 */ }
 void GPUInterfaceDevice_cpp_d_PPFX_ERROR_4() { /* 0x4411e0 */ }
@@ -725,7 +725,7 @@ void sub_442b70() { /* 0x442b70 */ }
 void sub_442bc0() { /* 0x442bc0 */ }
 // sub_442c50: implemented in prog/matched/main/
 void GPUInterfaceDevice_cpp_d_PPFX_ERROR_6() { /* 0x442c60 */ }
-void sub_442de0() { /* 0x442de0 */ }
+// sub_442de0: implemented in prog/matched/main/
 void sub_442e10() { /* 0x442e10 */ }
 void SiCore_Array_4() { /* 0x442e30 */ }
 void SiCore_Array_5() { /* 0x442ed0 */ }
@@ -797,9 +797,9 @@ void sub_447640() { /* 0x447640 */ }
 void sub_447660() { /* 0x447660 */ }
 // sub_447680: implemented in prog/matched/main/
 void sub_447690() { /* 0x447690 */ }
-void sub_4476c0() { /* 0x4476c0 */ }
+// sub_4476c0: implemented in prog/matched/main/
 void sub_4476d0() { /* 0x4476d0 */ }
-void sub_447700() { /* 0x447700 */ }
+// sub_447700: implemented in prog/matched/main/
 void sub_447710() { /* 0x447710 */ }
 void sub_447790() { /* 0x447790 */ }
 void sub_4477a0() { /* 0x4477a0 */ }
@@ -1004,7 +1004,7 @@ void GPURenderGlare_cpp_d_PPFX_WARNING() { /* 0x45d3b0 */ }
 void sub_45e8a0() { /* 0x45e8a0 */ }
 void sub_45e900() { /* 0x45e900 */ }
 // sub_45e920: implemented in prog/matched/main/
-void sub_45e930() { /* 0x45e930 */ }
+// sub_45e930: implemented in prog/matched/main/
 void sub_45e940() { /* 0x45e940 */ }
 void sub_45e980() { /* 0x45e980 */ }
 void sub_45eb90() { /* 0x45eb90 */ }
@@ -1058,8 +1058,8 @@ void GPUTextureUtil_5() { /* 0x46ea80 */ }
 void sub_46ec80() { /* 0x46ec80 */ }
 void GPUTextureUtil_cpp_d_PPFX_3() { /* 0x46edd0 */ }
 void sub_470610() { /* 0x470610 */ }
-void sub_470860() { /* 0x470860 */ }
-void sub_470880() { /* 0x470880 */ }
+// sub_470860: implemented in prog/matched/main/
+// sub_470880: implemented in prog/matched/main/
 void sub_4708a0() { /* 0x4708a0 */ }
 void sub_4708b0() { /* 0x4708b0 */ }
 void sub_470e40() { /* 0x470e40 */ }
@@ -1556,7 +1556,7 @@ void SiCore_String_7() { /* 0x4c06f0 */ }
 void sub_4c07d0() { /* 0x4c07d0 */ }
 void sub_4c07e0() { /* 0x4c07e0 */ }
 // sub_4c07f0: implemented in prog/matched/main/
-void sub_4c0800() { /* 0x4c0800 */ }
+// sub_4c0800: implemented in prog/matched/main/
 // sub_4c0810: implemented in prog/matched/main/
 void SiCore_Array_22() { /* 0x4c0820 */ }
 // sub_4c08f0: implemented in prog/matched/main/
@@ -1651,11 +1651,11 @@ void sub_4c3da0() { /* 0x4c3da0 */ }
 void sub_4c3df0() { /* 0x4c3df0 */ }
 void sub_4c3e40() { /* 0x4c3e40 */ }
 void sub_4c3f80() { /* 0x4c3f80 */ }
-void sub_4c4040() { /* 0x4c4040 */ }
-void sub_4c4050() { /* 0x4c4050 */ }
-void sub_4c4060() { /* 0x4c4060 */ }
-void sub_4c4070() { /* 0x4c4070 */ }
-void sub_4c4080() { /* 0x4c4080 */ }
+// sub_4c4040: implemented in prog/matched/main/
+// sub_4c4050: implemented in prog/matched/main/
+// sub_4c4060: implemented in prog/matched/main/
+// sub_4c4070: implemented in prog/matched/main/
+// sub_4c4080: implemented in prog/matched/main/
 // sub_4c4090: implemented in prog/matched/main/
 void sub_4c40a0() { /* 0x4c40a0 */ }
 void sub_4c4100() { /* 0x4c4100 */ }
@@ -2252,7 +2252,7 @@ void sub_4e3c40() { /* 0x4e3c40 */ }
 void sub_4e3dc0() { /* 0x4e3dc0 */ }
 void SiCore_Array_124() { /* 0x4e3ed0 */ }
 void sub_4e3f80() { /* 0x4e3f80 */ }
-void sub_4e4090() { /* 0x4e4090 */ }
+// sub_4e4090: implemented in prog/matched/main/
 // sub_4e40a0: implemented in prog/matched/main/
 void sub_4e40b0() { /* 0x4e40b0 */ }
 void SiCore_String_57() { /* 0x4e4120 */ }
@@ -2544,7 +2544,7 @@ void sub_4fa500() { /* 0x4fa500 */ }
 void sub_4fa530() { /* 0x4fa530 */ }
 void sub_4fa590() { /* 0x4fa590 */ }
 void sub_4faa10() { /* 0x4faa10 */ }
-void sub_4faa70() { /* 0x4faa70 */ }
+// sub_4faa70: implemented in prog/matched/main/
 // sub_4faa80: implemented in prog/matched/main/
 // sub_4faa90: implemented in prog/matched/main/
 // sub_4faaa0: implemented in prog/matched/main/
@@ -2597,7 +2597,7 @@ void sub_4fcf60() { /* 0x4fcf60 */ }
 // sub_4fd020: implemented in prog/matched/main/
 void sub_4fd030() { /* 0x4fd030 */ }
 // sub_4fd070: implemented in prog/matched/main/
-void sub_4fdc90() { /* 0x4fdc90 */ }
+// sub_4fdc90: implemented in prog/matched/main/
 // sub_4fdca0: implemented in prog/matched/main/
 // sub_4fdcb0: implemented in prog/matched/main/
 // sub_4fdcc0: implemented in prog/matched/main/

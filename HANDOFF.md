@@ -36,7 +36,7 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-28,270 / 152,062  =  18.59%
+28,836 / 152,062  =  18.96%
 ## The remaining pool is 98.2% unnamed -- measured, not assumed
 
     unmatched bodies        123757
