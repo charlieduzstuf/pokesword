@@ -31,6 +31,19 @@ jobs:
         with:
           python-version: '3.12'
 
+      # The audit imports pyelftools and this job had no install step for
+      # it. The failure read as a traceback and said nothing about the tree:
+      #
+      #     ModuleNotFoundError: No module named 'elftools'
+      #     ##[error]Process completed with exit code 1.
+      #
+      # Installing it is the real fix -- the check then runs instead of
+      # skipping. audit.py also degrades to a skip when the module is
+      # absent, so a future dependency cannot turn into a red run that
+      # means nothing.
+      - name: Install Python dependencies
+        run: pip install --disable-pip-version-check -r requirements-ci.txt
+
       - name: Compute progress
         run: |
           python tools/progress_json.py | tee progress.txt
@@ -152,6 +165,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      # verify_matches.py and the matching harness disassemble with capstone,
+      # so the re-verify job needs it too -- without it that job dies on
+      # import rather than verifying anything.
+      - name: Install Python dependencies
+        run: pip install --disable-pip-version-check -r requirements-ci.txt
 
       - name: Locate Clang 5.0.1
         id: clang

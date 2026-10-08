@@ -80,7 +80,7 @@ def body_count():
     try:
         r = subprocess.run([sys.executable,
                             os.path.join(ROOT, "tools", "match_progress.py")],
-                           capture_output=True, text=True, cwd=ROOT, timeout=300)
+                           capture_output=True, text=True, cwd=ROOT, timeout=300, **NOWINDOW)
     except Exception as e:                                   # noqa: BLE001
         return None, "match_progress.py unreadable: %s" % e, {}
     for line in r.stdout.splitlines():
@@ -126,7 +126,7 @@ def verify(module):
         r = subprocess.run(
             [sys.executable, os.path.join(ROOT, "tools", "verify_matches.py"),
              "--module", module],
-            capture_output=True, text=True, env=env, cwd=ROOT, timeout=5400)
+            capture_output=True, text=True, env=env, cwd=ROOT, timeout=5400, **NOWINDOW)
     except subprocess.TimeoutExpired:
         return "timeout"
     for line in r.stdout.splitlines():
@@ -137,7 +137,7 @@ def verify(module):
 
 def git(*args, timeout=180):
     """Run a git command in ROOT. Returns (rc, combined output)."""
-    r = subprocess.run(["git"] + list(args), capture_output=True, text=True,
+    r = subprocess.run(["git"] + list(args), capture_output=True, text=True, **NOWINDOW,
                        cwd=ROOT, timeout=timeout)
     return r.returncode, (r.stdout + r.stderr).strip()
 
@@ -172,7 +172,7 @@ def sync(a):
     lines = [l for l in dirty.splitlines() if l.strip()]
     if lines:
         # Audit first: never commit a tree whose own gates are red.
-        audit = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "audit.py")],
+        audit = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "audit.py")], **NOWINDOW,
                                capture_output=True, text=True, cwd=ROOT, timeout=900)
         if audit.returncode == 3:
             # Deferred, not failed: a harvest held the lock, so the audit examined
@@ -223,7 +223,8 @@ HARVEST = [
 
 
 def run(cmd, timeout=3600):
-    r = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT, timeout=timeout)
+    r = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT, timeout=timeout,
+                     **NOWINDOW)
     return r.returncode, (r.stdout + "" + r.stderr)
 
 
@@ -377,7 +378,7 @@ def one_tick(a, st):
                      "--module", m, "--shape", "strlit-ret",
                      "--limit", "5000", "--batch", "200"],
                     capture_output=True, text=True, cwd=ROOT, timeout=5400,
-                    env=dict(os.environ))
+                    env=dict(os.environ), **NOWINDOW)
                 for line in r.stdout.splitlines():
                     if line.startswith("MATCH "):
                         print("  %-8s %s" % (m, line.strip()))

@@ -28,6 +28,22 @@ import argparse
 import os
 import signal
 import subprocess
+
+
+# Console windows on Windows.
+#
+# Both of these tools run detached -- `ping_supervisor --detach` hands its child
+# DETACHED_PROCESS, so the supervisor has no console of its own. A process with
+# no console that then spawns a child *without* creation flags makes Windows
+# allocate a fresh console for that child, which appears as a terminal window
+# flashing for a split second and vanishing. Once per tick.
+#
+# CREATE_NO_WINDOW is the fix for ordinary children. It is deliberately NOT
+# combined with DETACHED_PROCESS above: the two flags conflict, and the re-exec
+# genuinely wants to be detached rather than merely windowless.
+NOWINDOW = ({"creationflags": subprocess.CREATE_NO_WINDOW}
+            if os.name == "nt" else {})
+
 import sys
 import time
 
@@ -39,7 +55,7 @@ PIDFILE = os.path.join(ROOT, "work", "ping_supervisor.pid")
 def alive(pid):
     """Is `pid` a live process? Works on Windows without psutil."""
     if os.name == "nt":
-        out = subprocess.run(["tasklist", "/FI", "PID eq %d" % pid],
+        out = subprocess.run(["tasklist", "/FI", "PID eq %d" % pid], **NOWINDOW,
                              capture_output=True, text=True).stdout
         return str(pid) in out
     try:
@@ -69,7 +85,7 @@ def stop_existing():
     print("stopping supervisor pid %d" % pid)
     try:
         if os.name == "nt":
-            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"],
+            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], **NOWINDOW,
                            capture_output=True, text=True)
         else:
             os.kill(pid, signal.SIGTERM)
@@ -162,7 +178,7 @@ def main():
         # A restart loop that runs forever needs a floor: if the child dies
         # instantly and repeatedly, wait longer each time rather than spinning.
         try:
-            rc = subprocess.call(cmd, cwd=ROOT)
+            rc = subprocess.call(cmd, cwd=ROOT, **NOWINDOW)
         except KeyboardInterrupt:
             break
         restarts += 1

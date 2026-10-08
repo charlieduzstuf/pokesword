@@ -225,11 +225,25 @@ def main():
 
     # -------------------------------------------------------------- ELF
     section("3. Rebuilt ELF binaries")
-    from elftools.elf.elffile import ELFFile
+    # A missing optional dependency is the same situation as a missing artifact:
+    # the check cannot run, which is not the same as the check failing. Importing
+    # pyelftools at module scope turned "the runner has no pyelftools" into a
+    # ModuleNotFoundError traceback and a red run that said nothing about the
+    # tree -- it failed every CI run of this workflow.
+    try:
+        from elftools.elf.elffile import ELFFile
+        HAVE_ELFTOOLS = True
+    except ImportError:
+        HAVE_ELFTOOLS = False
+        skip("rebuilt ELF binaries",
+             "pyelftools is not installed; pip install pyelftools")
     elf_funcs = 0
     elf_seen = 0
     for m in MODULES:
         p = os.path.join(ROOT, "data", "%s.elf" % m)
+        if not HAVE_ELFTOOLS:
+            skip("data/%s.elf exists" % m, "needs pyelftools")
+            continue
         if not os.path.exists(p):
             # .gitignore: "ROM-derived binaries (rebuild with tools/nso_to_elf.py)".
             # ~40 MB each, deliberately uncommitted. Failing here would fail every
@@ -264,7 +278,9 @@ def main():
                     if s["st_info"]["type"] == "STT_FUNC")
             elf_funcs += n
             print("  info  %-58s %d STT_FUNC symbols" % ("%s ELF symbols" % m, n))
-    if elf_seen:
+    if not HAVE_ELFTOOLS:
+        skip("ELF symbols cover all functions", "needs pyelftools")
+    elif elf_seen:
         check(elf_funcs >= len(rows), "ELF symbols cover all functions",
               "%d symbols vs %d rows" % (elf_funcs, len(rows)))
     else:

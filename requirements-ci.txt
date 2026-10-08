@@ -1,0 +1,8 @@
+# Runtime dependencies for the GitHub Actions workflows.
+#
+# Kept separate from a local requirements file because CI must be reproducible
+# from a bare checkout: the progress job's audit imports pyelftools, and the
+# re-verify job's harness imports capstone. Neither was installed, so both jobs
+# died on ImportError and reported a red run that said nothing about the tree.
+pyelftools>=0.29
+capstone>=4.0
