@@ -156,8 +156,15 @@ jobs:
   # Re-verification. Needs the project's own compiler: Clang 5.0.1 plus the
   # ToolchainNX64.cmake flags. Matching under a different Clang is not matching,
   # so this job does not fall back to a system clang -- it says so instead.
+  # The name says what happened. This job reports `success` even when it
+  # verifies nothing, because the re-verify step is conditioned on finding
+  # Clang 5.0.1 -- matching under a different compiler is not matching, so
+  # it declines rather than substituting one. The cost of that honesty is a
+  # green check that examined nothing, which is exactly the failure mode this
+  # project keeps having to guard against. So the name carries the caveat and
+  # the step summary states it outright.
   verify:
-    name: Re-verify matches
+    name: Re-verify matches (needs Clang 5.0.1; skipped without it)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -251,6 +258,22 @@ jobs:
             echo "::error title=Verification mismatch::$total_ok / $total_fn"
             exit 1
           fi
+
+      # A green job that verified nothing should say so in the one place a
+      # reader actually looks.
+      - name: Report that re-verification did not run
+        if: steps.clang.outputs.found == 'false'
+        run: |
+          {
+            echo '## Re-verification did NOT run'
+            echo
+            echo 'Clang 5.0.1 was not available on this runner, so no match'
+            echo 'was re-verified. Matching under a different compiler is not'
+            echo 'matching, so the job deliberately declined rather than'
+            echo 'substituting one -- and this job is nonetheless reported as'
+            echo '`success`. Set the repository secret `CLANG5_BIN` to a'
+            echo 'directory containing clang 5.0.1 to enable it.'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload verification logs
         if: always()
