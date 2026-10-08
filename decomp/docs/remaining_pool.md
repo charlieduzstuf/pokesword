@@ -63,3 +63,44 @@ Not templates. The options are:
 
 Until one of those is started, reporting a per-batch gain from new shape rules is
 the only automated progress available, and the shape rules are nearly exhausted.
+
+## `adrp` is unreachable by construction, not for want of a handler
+
+`adrp` is the largest single decline reason in the no-call/no-branch census, at
+~1,450 bodies. It is not a missing instruction handler. Two independent
+blockers, both verified rather than assumed:
+
+**1. `adrp` needs a symbol.** Clang will not emit `adrp` for a bare integer
+constant, because `adrp` is page-relative *to a symbol*. Compiled four ways --
+`*(void**)((char*)0x2496400)`, a two-step `void* p = (void*)0x2496000; ... + 0x400`,
+and pointer-typed variants -- every one produced:
+
+    mov  w8, #0x6400
+    movk w8, #0x249, lsl #16
+    ldr  x0, [x8]
+    ret
+
+where the original is:
+
+    adrp x0, #0x2496000
+    ldr  x0, [x0, #0x400]
+    ret
+
+To get `adrp` the address has to be *named*. There is no recovered data symbol
+table in this project: `data/vtables_*.csv` and `data/vfunc_names*.csv` are
+29- and 41-byte headers with no rows.
+
+**2. Even with a symbol, the harness could not verify it.** `auto_match.verify`
+compiles candidates to a **`.o`** and compares the object's `.text` against the
+original. In a relocatable object an `adrp` is unresolved -- it carries
+`R_AARCH64_ADR_PG_HI21` with a page addend, and disassembles as `adrp x0, #0`.
+`MH.obj_relocations` is consulted only for tail-call branch targets.
+
+So an `adrp` candidate cannot byte-match in an object file even when it is
+correct. Matching these bodies needs *link-time* verification: declare a symbol
+per referenced address, place it at its true address via the linker script, link,
+and compare. That is data-symbol recovery -- option 3 in the list above -- and it
+is a harness change as much as a translator change.
+
+Until then, `adrp` is a hard ceiling for the object-file harness, and no amount of
+instruction coverage will move it.
