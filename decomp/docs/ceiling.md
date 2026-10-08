@@ -151,3 +151,41 @@ Blocker 2 is the more fundamental one, and it is another instance of the same
 lesson as the stack frames: **the retail code was built by a compiler whose
 addressing-mode choices differ from Clang 5.0.1's.** Synthesising symbols cannot
 bridge that. `adrp` is closed.
+
+## cbz/tbz is not a reachable pool either
+
+`cbz`/`cbnz`/`tbz`/`tbnz` appear in **78,660** declining bodies, which looked like
+the last sizeable reachable instruction. It is not. Breakdown of that population:
+
+    43831  call/3br/1ret
+     5523  call/2br/1ret
+     4802  call/1br/1ret
+     4736  call/3br/0ret
+     4156  call/3br/2ret
+
+Every one of the top five shapes contains a **call**. Sampling confirmed it: the
+bodies carry stack frames and `adrp` as well --
+
+    mov x8, x0 ; ldr x0, [x0] ; str xzr, [x8] ; cbz x0, #0x2cc
+    stp x22, x21, [sp, #-0x30]! ; ... ; blr x8
+
+So this is the same population as everything else, not a new instruction gap.
+`cbz` would need if/else lowering over bodies that also contain calls, frames
+*and* `adrp` -- three proven blockers at once.
+
+**The pattern in the census is worth stating plainly:** the top decline reasons are
+not independent pools. They are the *same bodies* seen from different angles.
+Ranking them and treating each as a work item counts the same 78,000 bodies
+several times over.
+
+## Re-measured ceiling (current registry, 28,942 matched)
+
+    unmatched bodies             123,085
+    contain a call                93,113  (75.6%)
+    contain a stack frame         97,547  (79.3%)
+    contain adrp/adr              61,742  (50.2%)
+    FREE of all three              3,166  ( 2.6%)
+
+Ceiling ~= **21%**, unchanged. The ~3,166 reachable bodies are worth about 2
+percent more; everything else is blocked by the compiler, the harness, or by
+needing callee symbols this project does not have.
