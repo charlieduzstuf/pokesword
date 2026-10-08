@@ -63,3 +63,55 @@ Checked, none of which changes the picture:
 
 None of them supplies a data symbol table for the retail modules, which is the
 specific missing input for `adrp`, and none supplies a compiler.
+
+## Follow-up: the retail modules carry no data symbols at all
+
+Checked the extracted ELFs directly:
+
+    main .symtab: 104008 symbols
+      STT_FILE 1, STT_OBJECT 3, STT_FUNC 104004
+      the three objects are _text_start, _rodata_start, _data_start
+    sdk .symtab: 26666 symbols
+      STT_FILE 1, STT_OBJECT 3, STT_FUNC 26662
+
+Those three are artifacts of this project's own `tools/nso_to_elf.py`, not real
+module symbols. The retail modules are **stripped of data symbols** -- which is
+why `data/vtables_*.csv` and `data/vfunc_names*.csv` are empty headers.
+
+Consequence: the "go and find the data symbol table" route is closed. `nstool`
+and `nx2elf` extract from the same stripped binary and cannot surface symbols that
+are not in it.
+
+## The remaining idea: synthesise the symbols
+
+If the names do not exist, they can be *created*. Declare one symbol per address
+that some `adrp` references, place it at that address with a linker script, and
+let the compiler emit `adrp sym` / `ldr [sym, #off]` with the relocation folded.
+
+First attempt, linking with `ld.lld`:
+
+    adrp x8, #0
+    add  x8, x8, #0
+    ldr  x0, [x8]
+    ret
+
+against a target of
+
+    adrp x0, #0x2496000
+    ldr  x0, [x0, #0x400]
+    ret
+
+**This test is inconclusive and should not be read as a refutation.** The linker
+script placed the section at the page base and then assigned the symbol at the
+same offset, so the symbol landed at `0x2496000` rather than the intended
+`0x2496400`, and the page-offset relocation had nothing to fold. The visible
+`add #0` is an artefact of that, not necessarily of Clang's addressing-mode
+choice.
+
+But it does flag a second thing to check even after the placement is fixed: Clang
+emitted three instructions where the original has two. If an explicit `add` is
+required rather than folding the offset into the load's `:lo12:`, then this route
+fails too, and for a different reason than the missing symbols.
+
+Worth one careful follow-up with correct placement before deciding. It is the only
+remaining idea that does not need the real NX compiler.
