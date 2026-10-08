@@ -27,6 +27,15 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_11246a0  (orig 0x11246a0, copy2)
+void main_f_11246a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11246b0  (orig 0x11246b0, copy2)
+void main_f_11246b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_1124710  (orig 0x1124710, ret_only)
+void main_f_1124710() {}
+
 // sub_1124720  (orig 0x1124720, ret_only)
 void main_f_1124720() {}
 
@@ -7002,13 +7011,4 @@ uint64_t main_f_131b310(void* a0, uint64_t a1) { return *(uint64_t *)(((char *)a
 
 // sub_131b320  (orig 0x131b320, indexed-getter)
 uint64_t main_f_131b320(void* a0, uint64_t a1) { return *(uint64_t *)(((char *)a0 + a1 * 32 + 16)); }
-
-// sub_131d2e0  (orig 0x131d2e0, ret_only)
-void main_f_131d2e0() {}
-
-// sub_131dbe0  (orig 0x131dbe0, setter)
-void main_f_131dbe0(void* a0) { *(uint32_t*)((char*)(a0) + 1484) = 0; }
-
-// sub_131dbf0  (orig 0x131dbf0, getter)
-uint32_t main_f_131dbf0(void* a0) { return *(uint32_t*)((char*)(a0) + 1484); }
 

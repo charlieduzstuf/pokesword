@@ -354,6 +354,34 @@ class StraightLine:
                     synth.append((key, "*(uint64_t *)(%s)" % ptr_add(nm(v[1]), v[2])))
                     synth_of[r] = key
                     return key, False
+                if v[0] == "addr_i":
+                    # An indexed address is already a complete pointer
+                    # expression, so it can serve as the base of a later access:
+                    #
+                    #   ldr x8, [x0, #8] ; add x8, x8, w1, uxtw #2 ; ldr w0, [x8, #0x48]
+                    #
+                    # It was refused as "holds a addr_i, not a pointer" even
+                    # though `addr_i` renders to exactly such an expression --
+                    # the value kind existed before any consumer of it as a base.
+                    #
+                    # The index is rendered *here* rather than deferred, which is
+                    # sound only while it needs no `names` lookup beyond an
+                    # argument or a pre-rendered string. A load or a computed
+                    # expression as the index still declines, rather than
+                    # emitting an address that is wrong.
+                    _, bi, boff, iv, sc = v
+                    if iv[0] == "argval":
+                        iexpr = "((%s)%s)" % (iv[2], nm(iv[1]))
+                    elif iv[0] == "raw":
+                        iexpr = iv[1]
+                    else:
+                        raise Bail("indexed address as a base has a deferred "
+                                   "index")
+                    key = SYNTH_BASE + len(synth)
+                    synth.append((key, "((char *)%s + (uintptr_t)(%s) * %d)"
+                                  % (ptr_add(nm(bi), boff), iexpr, sc)))
+                    synth_of[r] = key
+                    return key, False
                 raise Bail("memory base %r holds a %s, not a pointer" % (base, v[0]))
             return arg_reg(base), True
 
@@ -375,6 +403,18 @@ class StraightLine:
                 icy = "uint32_t"
             n = arg_reg(index)
             idx_args[n] = icy
+            # `used_args` too, not just the type. The parameter list below is
+            # built over `range(max(used_args) + 1)`, so an index register whose
+            # number exceeds the highest *base* register was silently dropped
+            # from the signature while `idx_args` still held its type:
+            #
+            #     void* f_29e6b0(void* a0) { ... ((uintptr_t)a1 * 4) ... }
+            #                                                    ^ undeclared
+            #
+            # `f_29e6b0` loads its base from `[x0]` and indexes by `w1`, so `a0`
+            # was the only thing in `used_args` and the parameter list stopped at
+            # one entry. Type was recorded, existence was not.
+            used_args.add(n)
             return "(uintptr_t)%s * %d" % (nm(n), scale)
 
         for i in body:
@@ -712,6 +752,50 @@ class StraightLine:
         # reads x2 but not x0/x1 belongs to a function whose first two arguments
         # it ignores, and collapsing them would shift every argument down a
         # register.
+        # Any argument reachable from a value in `state`, or from a value a
+        # pending statement will store, is a parameter -- even when no base ever
+        # named it. Nested addresses are the case that bit:
+        #
+        #     ldr x8, [x0, #0x1fa8]
+        #     ldr w8, [x8, w1, uxtw #2]      <- w1 is an argument, as an index
+        #     ldr x9, [x0, #0x1fa0]
+        #     add x0, x9, x8, lsl #4         <- x8 is now an addr_i holding a1
+        #
+        # The second instruction registers `a1`; a *third* mechanism cannot
+        # forget to, because the walk finds it inside the nested value.
+        def _collect(v, acc):
+            if isinstance(v, str) or v is None:
+                return
+            if isinstance(v, (int, float, bool)):
+                return
+            if isinstance(v, (list, tuple)):
+                if not v:
+                    return
+                head = v[0]
+                if head == "raw":
+                    return              # pre-rendered text; deps registered when made
+                if head in ("arg", "argval"):
+                    acc.add(v[1])
+                    return
+                if head in ("addr", "load", "addr_i"):
+                    # element 1 is a base id: a real argument below SYNTH_BASE,
+                    # or a synthetic pointer local that is already declared.
+                    if isinstance(v[1], int) and v[1] < SYNTH_BASE:
+                        acc.add(v[1])
+                    for e in v[2:]:
+                        _collect(e, acc)
+                    return
+                for e in v[1:]:
+                    _collect(e, acc)
+                return
+        _deps = set()
+        for _v in state.values():
+            _collect(_v, _deps)
+        for _st in stmts:
+            if isinstance(_st, (list, tuple)) and len(_st) > 3:
+                _collect(_st[3], _deps)
+        used_args |= _deps
+
         decls, names, codes, ptrs = [], {}, [], 0
         top = max(used_args) if used_args else -1
         for k in range(top + 1):
