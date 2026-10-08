@@ -1920,6 +1920,18 @@
   },
   {
    "module": "main",
+   "addr": 5657584,
+   "size": 12,
+   "name": "sub_5653f0",
+   "shape": "straight",
+   "ident": "f_5653f0",
+   "sig": "Pvim",
+   "src": "void f_5653f0(void* a0, int32_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));\n    *(uint32_t*)((char*)(p0) + 1800) = (uint32_t)(a2);\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
    "addr": 5757008,
    "size": 12,
    "name": "sub_57d850",
@@ -2025,6 +2037,30 @@
    "src": "void f_5c6380(void* a0, void* a1) {\n    *(uint32_t*)((char*)(a1) + 168) = *(uint32_t*)((char*)(a0));\n    *(uint32_t*)((char*)(a1) + 160) = *(uint32_t*)((char*)(a0) + 4);\n    *(uint64_t*)((char*)(a1) + 152) = *(uint64_t*)((char*)(a0) + 24);\n    *(uint64_t*)((char*)(a1) + 144) = *(uint64_t*)((char*)(a0) + 16);\n    *(uint64_t*)((char*)(a1) + 136) = *(uint64_t*)((char*)(a0) + 40);\n    *(uint64_t*)((char*)(a1) + 128) = *(uint64_t*)((char*)(a0) + 32);\n    *(uint64_t*)((char*)(a1) + 120) = *(uint64_t*)((char*)(a0) + 56);\n    *(uint64_t*)((char*)(a1) + 112) = *(uint64_t*)((char*)(a0) + 48);\n}\n",
    "orig_insns": 17,
    "new_insns": 17
+  },
+  {
+   "module": "main",
+   "addr": 6160432,
+   "size": 12,
+   "name": "sub_5e0030",
+   "shape": "straight",
+   "ident": "f_5e0030",
+   "sig": "Pvi",
+   "src": "void* f_5e0030(void* a0, int32_t a1) { return ((char *)(char*)(a0) + 8 + (uintptr_t)(((int32_t)a1)) * 16); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 6160480,
+   "size": 12,
+   "name": "sub_5e0060",
+   "shape": "straight",
+   "ident": "f_5e0060",
+   "sig": "Pvim",
+   "src": "void f_5e0060(void* a0, int32_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 16)));\n    *(uint64_t*)((char*)(p0) + 16) = (uint64_t)(a2);\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
   },
   {
    "module": "main",
@@ -3753,30 +3789,6 @@
    "src": "void f_7fc7e0(void* a0) {\n    uint32_t k0 = 1;\n    *(uint8_t*)((char*)(a0)) = (uint8_t)k0;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
-  },
-  {
-   "module": "main",
-   "addr": 8381152,
-   "size": 16,
-   "name": "sub_7fe2e0",
-   "shape": "straight",
-   "ident": "f_7fe2e0",
-   "sig": "Pvj",
-   "src": "uint64_t f_7fe2e0(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32)));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
-   "orig_insns": 4,
-   "new_insns": 4
-  },
-  {
-   "module": "main",
-   "addr": 8381168,
-   "size": 16,
-   "name": "sub_7fe2f0",
-   "shape": "straight",
-   "ident": "f_7fe2f0",
-   "sig": "Pvj",
-   "src": "uint64_t f_7fe2f0(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32)));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
-   "orig_insns": 4,
-   "new_insns": 4
   },
   {
    "module": "main",
@@ -8448,6 +8460,30 @@
   },
   {
    "module": "main",
+   "addr": 20539808,
+   "size": 12,
+   "name": "sub_13969a0",
+   "shape": "straight",
+   "ident": "f_13969a0",
+   "sig": "Pvim",
+   "src": "void f_13969a0(void* a0, int32_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));\n    *(uint32_t*)((char*)(p0) + 96) = (uint32_t)(a2);\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 20539840,
+   "size": 12,
+   "name": "sub_13969c0",
+   "shape": "straight",
+   "ident": "f_13969c0",
+   "sig": "Pvi",
+   "src": "void f_13969c0(void* a0, int32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));\n    *(uint32_t*)((char*)(p0) + 136) = 0;\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
    "addr": 21062608,
    "size": 20,
    "name": "sub_14163d0",
@@ -9780,6 +9816,18 @@
   },
   {
    "module": "main",
+   "addr": 24758528,
+   "size": 12,
+   "name": "sub_179c900",
+   "shape": "straight",
+   "ident": "f_179c900",
+   "sig": "Pvi",
+   "src": "void* f_179c900(void* a0, int32_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 608));\n    return ((char *)(char*)(p0) + (uintptr_t)(((int32_t)a1)) * 8);\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
    "addr": 24772928,
    "size": 12,
    "name": "sub_17a0140",
@@ -9789,6 +9837,30 @@
    "src": "uint32_t f_17a0140(void* a0) { return (*(uint32_t*)((char*)(a0) + 8)) - (1); }\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 24842160,
+   "size": 16,
+   "name": "sub_17b0fb0",
+   "shape": "straight",
+   "ident": "f_17b0fb0",
+   "sig": "PviS_",
+   "src": "void f_17b0fb0(void* a0, int32_t a1, void* a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));\n    *(uint32_t*)((char*)(p0) + 224) = *(uint32_t*)((char*)(a2));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 24887168,
+   "size": 16,
+   "name": "sub_17bbf80",
+   "shape": "straight",
+   "ident": "f_17bbf80",
+   "sig": "PviS_",
+   "src": "void f_17bbf80(void* a0, int32_t a1, void* a2) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));\n    *(uint32_t*)((char*)(p0) + 232) = *(uint32_t*)((char*)(a2));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",
@@ -9813,6 +9885,30 @@
    "src": "void f_17c19e0(void* a0) {\n    uint32_t k0 = 1;\n    *(uint8_t*)((char*)(a0) + 9) = (uint8_t)k0;\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 8381152,
+   "size": 16,
+   "name": "sub_7fe2e0",
+   "shape": "straight",
+   "ident": "f_7fe2e0",
+   "sig": "Pvj",
+   "src": "uint64_t f_7fe2e0(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32)));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 8381168,
+   "size": 16,
+   "name": "sub_7fe2f0",
+   "shape": "straight",
+   "ident": "f_7fe2f0",
+   "sig": "Pvj",
+   "src": "uint64_t f_7fe2f0(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((uint32_t)a1)) * 32)));\n    return *(uint64_t*)((char*)(p0) + 424);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",

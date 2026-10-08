@@ -27,6 +27,15 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_8285a0  (orig 0x8285a0, getter)
+uint64_t main_f_8285a0(void* a0) { return *(uint64_t*)((char*)(a0) + 800); }
+
+// sub_8285b0  (orig 0x8285b0, getter)
+uint64_t main_f_8285b0(void* a0) { return *(uint64_t*)((char*)(a0) + 832); }
+
+// sub_8285c0  (orig 0x8285c0, getter)
+uint64_t main_f_8285c0(void* a0) { return *(uint64_t*)((char*)(a0) + 864); }
+
 // sub_8285d0  (orig 0x8285d0, getter)
 uint64_t main_f_8285d0(void* a0) { return *(uint64_t*)((char*)(a0) + 896); }
 
@@ -6661,13 +6670,4 @@ void main_f_a5fb40() {}
 
 // sub_a5fb50  (orig 0xa5fb50, ret_only)
 void main_f_a5fb50() {}
-
-// sub_a5fb60  (orig 0xa5fb60, ret_only)
-void main_f_a5fb60() {}
-
-// sub_a5fb70  (orig 0xa5fb70, ret_only)
-void main_f_a5fb70() {}
-
-// sub_a5fb80  (orig 0xa5fb80, ret_only)
-void main_f_a5fb80() {}
 

@@ -682,6 +682,18 @@
   },
   {
    "module": "subsdk0",
+   "addr": 2382720,
+   "size": 12,
+   "name": "sub_245b80",
+   "shape": "straight",
+   "ident": "f_245b80",
+   "sig": "Pvi",
+   "src": "void* f_245b80(void* a0, int32_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 32));\n    return ((char *)(char*)(p0) + (uintptr_t)(((int32_t)a1)) * 16);\n}\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk0",
    "addr": 2385872,
    "size": 12,
    "name": "sub_2467d0",

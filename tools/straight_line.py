@@ -45,6 +45,26 @@ LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur",
          "ldrsh", "ldursh")
 STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
 
+# The extend an `add xD, xN, wM, <ext>` writes, and the C type the index register
+# must then be declared with.
+#
+# The extend does two independent jobs: it sets the byte width of the index value
+# *and* it sets the parameter's type, which changes the mangled name. `uxth #4` is
+# an index zero-extended from 16 bits and shifted left four, i.e. a `uint16_t`
+# parameter scaled by 16. Modelling it as `uint32_t` gets the arithmetic right
+# and the symbol wrong.
+#
+# Itanium codes: t=unsigned char, c=char, h=unsigned short, s=short,
+#                j=unsigned int,  i=int,  m=unsigned long.
+EXTEND_TYPES = {
+    "lsl":  ("uint64_t", "m"),
+    "uxtw": ("uint32_t", "j"),
+    "sxtw": ("int32_t",  "i"),
+    "uxtb": ("uint8_t",  "h"),
+    "sxtb": ("int8_t",   "a"),
+    "uxth": ("uint16_t", "t"),
+    "sxth": ("int16_t",  "s"),
+}
 MAX_INSNS = 32        # beyond this, hand decomp is the better use of time
 MAX_ARG = 7           # AArch64 passes integer/pointer arguments in x0..x7.
                       # This was 4, so any body reading x4..x7 as a pointer base
@@ -412,8 +432,8 @@ class StraightLine:
             """
             if index[0] == "x":
                 icy = "uint64_t"
-            elif ext == "sxtw":
-                icy = "int32_t"
+            elif ext in EXTEND_TYPES:
+                icy = EXTEND_TYPES[ext][0]
             else:
                 icy = "uint32_t"
             n = arg_reg(index)
@@ -600,15 +620,16 @@ class StraightLine:
                     extparts = ext.split()
                     ext_op = extparts[0]
                     shift = int(extparts[1][1:]) if len(extparts) > 1 and extparts[1].startswith("#") else 0
-                    if ext_op not in ("lsl", "uxtw", "sxtw"):
+                    if ext_op not in EXTEND_TYPES:
                         raise Bail("add/sub extend %r is not supported" % (ext,))
                     src_r = src2
                     # The `#n` after an extend is a *shift*, so the byte scale is
                     # `1 << n`; `uxtw #2` is a 4-byte stride, not 2. Using `n`
                     # directly scales every indexed address by half.
-                    scale = 1 << shift if ext_op == "lsl" else 0
-                    if scale == 0 and ext_op in ("uxtw", "sxtw"):
-                        scale = 1 << shift
+                    # `#n` after any extend is a shift, so the byte scale is
+                    # `1 << n` -- `uxth #4` is a 16-byte stride, not 4. Every
+                    # extend shifts the same way; only its width differs.
+                    scale = 1 << shift
                     if scale:
                         # `src` is a pointer here. It is an *argument* far more
                         # often than a previously computed address, and an
@@ -654,6 +675,37 @@ class StraightLine:
                         if iv is None:
                             raise Bail("add/sub index %r is not a value"
                                        % (src2,))
+                        # The extend decides the *index's* declared type, not the
+                        # base's. `_value_arg` already set it from the register
+                        # class -- `w1` is uint32_t -- which is right for `uxtw`
+                        # and wrong for `uxtb`/`uxth`, and the wrongness shows up
+                        # in the symbol, not just the arithmetic:
+                        #
+                        #   add x8, x0, w1, uxtb #2   ->  _Z...Pvt   (uint8_t)
+                        #                                  add x8, x0, w1, uxtw #2
+                        #
+                        # so the type has to be rebuilt from the extend. Only an
+                        # argument index can be retyped; an index that is a load
+                        # or an expression already carries its own type.
+                        if iv[0] == "argval":
+                            icy = EXTEND_TYPES[ext_op][0]
+                            # A byte/halfword index is *narrower* than the
+                            # register it arrives in, so the conversion the
+                            # instruction names is the conversion from the
+                            # parameter's declared type. Casting again makes
+                            # Clang materialise the truncation as a separate
+                            # instruction:
+                            #
+                            #   (uint8_t)a1 * 4   ->  and w8, w1, #0xff
+                            #                             add x8, x0, w8, uxtw #2
+                            #   a1 * 4             ->  add x8, x0, w1, uxtb #2
+                            #
+                            # So for these the parameter is used bare and the
+                            # extend *is* the narrowing. For uxtw/sxtw the cast is
+                            # a no-op that costs nothing, and is kept.
+                            narrow = ext_op in ("uxtb", "sxtb", "uxth", "sxth")
+                            iv = ("argval", iv[1], icy, narrow)
+                            idx_args[iv[1]] = icy
                         state[wreg(dst)] = ("addr_i", bid, boff, iv, scale)
                         continue
                     off = 0
@@ -775,8 +827,25 @@ class StraightLine:
             _, n, off, iv, scale = val
             if isinstance(iv, tuple) and iv[0] == "raw":
                 _ei = iv[1]
+                _narrow = False
             else:
                 _ci, _ei = self._render(iv, names)
+                _narrow = (isinstance(iv, tuple) and iv[0] == "argval"
+                           and len(iv) > 3 and iv[3])
+            if _narrow:
+                # The index's own type is byte- or halfword-wide, and that
+                # narrowing IS the instruction's extend. Casting it to uintptr_t
+                # first forces a full 64-bit extension, which Clang materialises
+                # separately:
+                #
+                #   ((uintptr_t)(uint8_t)a1) * 4  ->  and w8, w1, #0xff
+                #                                             add x8, x0, w8, uxtw #2
+                #   (uint8_t)a1 * 4                ->  add x8, x0, w1, uxtb #2
+                #
+                # so the narrow index is scaled in its own type and left for the
+                # addressing-mode selection to pick the extend.
+                return "void*", "((char *)%s + (%s) * %d)" % (
+                    ptr_add(names[n], off), _ei, scale)
             return "void*", "((char *)%s + (uintptr_t)(%s) * %d)" % (
                 ptr_add(names[n], off), _ei, scale)
         if kind == "arg":
@@ -786,6 +855,12 @@ class StraightLine:
         if kind == "argval":
             # The same argument as an arithmetic operand: an integer, never a
             # pointer. See `_value_arg`.
+            #
+            # The 4th element means "already declared as this type, do not cast
+            # again" -- a byte/halfword index whose narrowing *is* the extend.
+            # See the indexed-add path.
+            if len(val) > 3 and val[3]:
+                return val[2], names[val[1]]
             return val[2], "((%s)%s)" % (val[2], names[val[1]])
         raise Bail("unknown value kind %r" % (kind,))
 
@@ -852,8 +927,17 @@ class StraightLine:
                 # unsigned one (`j`), `lsl` on an x register 64-bit (`m`).
                 # It changes the mangled name, so it has to be right.
                 _c = idx_args[k]
-                codes.append({"int32_t": "i", "uint32_t": "j",
-                              "uint64_t": "m"}[_c])
+                # Itanium codes, corrected against what Clang actually emitted
+                # for these exact signatures:
+                #     (void *, uint8_t,  uint64_t) -> _Z..Pvhm  -> h
+                #     (void *, uint16_t, uint64_t) -> _Z..Pvtm  -> t
+                # unsigned char is 'h' and unsigned *short* is 't'; the pair is
+                # easy to have backwards, and `c` is plain char, `a` signed char.
+                codes.append({c: code for c, code in
+                              (("int32_t", "i"), ("uint32_t", "j"),
+                               ("uint64_t", "m"), ("int8_t", "a"),
+                               ("uint8_t", "h"), ("int16_t", "s"),
+                               ("uint16_t", "t"))}[_c])
                 decls.append("%s a%d" % (_c, k))
             elif k in used_args:
                 codes.append("m")

@@ -3735,7 +3735,7 @@ void sub_245b40() { /* 0x245b40 */ }
 void sub_245b50() { /* 0x245b50 */ }
 void sub_245b60() { /* 0x245b60 */ }
 // sub_245b70: implemented in prog/matched/subsdk0/
-void sub_245b80() { /* 0x245b80 */ }
+// sub_245b80: implemented in prog/matched/subsdk0/
 void sub_245b90() { /* 0x245b90 */ }
 // sub_245bc0: implemented in prog/matched/subsdk0/
 void sub_245bd0() { /* 0x245bd0 */ }

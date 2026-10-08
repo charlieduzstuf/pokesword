@@ -1,4 +1,4 @@
-/* main -- 1447 functions verified to match the original.
+/* main -- 1455 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,21 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_15d8170  (orig 0x15d8170, ret_only)
+void main_f_15d8170() {}
+
+// sub_15d8180  (orig 0x15d8180, ret_only)
+void main_f_15d8180() {}
+
+// sub_15d8df0  (orig 0x15d8df0, setter)
+void main_f_15d8df0(void* a0, float a1) { *(float*)((char*)(a0) + 36) = a1; }
+
+// sub_15d98d0  (orig 0x15d98d0, ret_only)
+void main_f_15d98d0() {}
+
+// sub_15de580  (orig 0x15de580, ret_only)
+void main_f_15de580() {}
 
 // sub_15df270  (orig 0x15df270, ret_only)
 void main_f_15df270() {}
@@ -4713,6 +4728,12 @@ uint64_t main_f_179a9f0(void* a0) { return *(uint64_t*)((char*)(a0) + 240); }
 // sub_179aa60  (orig 0x179aa60, ret_only)
 void main_f_179aa60() {}
 
+// sub_179c900  (orig 0x179c900, straight)
+void* main_f_179c900(void* a0, int32_t a1) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 608));
+    return ((char *)(char*)(p0) + (uintptr_t)(((int32_t)a1)) * 8);
+}
+
 // sub_179e670  (orig 0x179e670, ret_only)
 void main_f_179e670() {}
 
@@ -4763,6 +4784,12 @@ uint32_t main_f_17ac6f0() { return 0; }
 
 // sub_17b0e00  (orig 0x17b0e00, compare)
 bool main_f_17b0e00(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(a0) + 216)) != (uint64_t)(0); }
+
+// sub_17b0fb0  (orig 0x17b0fb0, straight)
+void main_f_17b0fb0(void* a0, int32_t a1, void* a2) {
+    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));
+    *(uint32_t*)((char*)(p0) + 224) = *(uint32_t*)((char*)(a2));
+}
 
 // sub_17b2c00  (orig 0x17b2c00, ret_only)
 void main_f_17b2c00() {}
@@ -4835,6 +4862,12 @@ uint64_t main_f_17b8f60() { return 0; }
 
 // sub_17bb4a0  (orig 0x17bb4a0, ret_only)
 void main_f_17bb4a0() {}
+
+// sub_17bbf80  (orig 0x17bbf80, straight)
+void main_f_17bbf80(void* a0, int32_t a1, void* a2) {
+    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));
+    *(uint32_t*)((char*)(p0) + 232) = *(uint32_t*)((char*)(a2));
+}
 
 // sub_17bbff0  (orig 0x17bbff0, straight)
 uint8_t main_f_17bbff0(void* a0) { return (*(uint8_t*)((char*)(a0) + 265)) + (1); }

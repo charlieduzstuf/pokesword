@@ -2436,7 +2436,7 @@ void sub_223420() { /* 0x223420 */ }
 void sub_223490() { /* 0x223490 */ }
 void sub_2234a0() { /* 0x2234a0 */ }
 void sub_223500() { /* 0x223500 */ }
-void sub_2236d0() { /* 0x2236d0 */ }
+// sub_2236d0: implemented in prog/matched/sdk/
 void sub_2236e0() { /* 0x2236e0 */ }
 void sub_2236f0() { /* 0x2236f0 */ }
 void sub_223760() { /* 0x223760 */ }

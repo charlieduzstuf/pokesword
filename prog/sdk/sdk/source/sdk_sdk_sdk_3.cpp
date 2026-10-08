@@ -107,7 +107,7 @@ void sub_25d180() { /* 0x25d180 */ }
 void sub_25d1f0() { /* 0x25d1f0 */ }
 void sub_25d200() { /* 0x25d200 */ }
 void sub_25d210() { /* 0x25d210 */ }
-void sub_25d250() { /* 0x25d250 */ }
+// sub_25d250: implemented in prog/matched/sdk/
 void sub_25d260() { /* 0x25d260 */ }
 void sub_25d2e0() { /* 0x25d2e0 */ }
 void sub_25d380() { /* 0x25d380 */ }
