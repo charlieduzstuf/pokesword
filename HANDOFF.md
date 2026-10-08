@@ -37,6 +37,21 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 
 ```
 28,270 / 152,062  =  18.59%
+## The remaining pool is 98.2% unnamed -- measured, not assumed
+
+    unmatched bodies        123757
+    shape None              121544   (98.2%)
+
+Every named shape combined is 2,213 bodies (1.8%). The shape rules are drained;
+what remains is control flow plus calls. `branchy` with zero calls: **0 bodies**.
+`branchy-calls` under 12 instructions: **none**. The largest named pool,
+`tailcall` (1,037), is interior entry points into one function and has no body by
+design.
+
+**Careful:** `tools/scan_shapes.py` and `auto_match.shape_of` are different
+classifiers -- the same bodies are `branchy-calls` to one and `None` to the other.
+Querying `auto_match` for `branchy-calls` returns 0 and looks like the pool is
+empty. See `decomp/docs/remaining_pool.md`.
 ```
 
 `tools/match_progress.py` is the only authoritative figure. Do not copy a number
