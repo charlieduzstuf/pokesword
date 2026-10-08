@@ -62,9 +62,15 @@ which the above blocks. A *semantic* matcher would not be compiler-blocked. See
   addressing (`str x19,[sp,#-0x20]!`, `ldp x29,x30,[sp],#0x20`); Clang 5.0.1 emits
   separate `sub sp`/`add sp` and never that form. Not reachable under this
   compiler. See `decomp/docs/stack_frames.md`.
-* **`adrp` (~1,450)** -- Clang never emits it for a bare integer (needs a symbol),
-  and an unresolved `adrp` cannot byte-match in the `.o` the harness verifies.
-  Needs link-time verification plus data symbols. See `decomp/docs/remaining_pool.md`.
+* **`adrp` (~1,450)** -- **CLOSED, two independent fatal blockers.**
+  (1) No data symbols exist: `main.symtab` has 104,008 symbols of which 3 are
+  `STT_OBJECT`, all artifacts of our own `nso_to_elf.py`. The retail modules are
+  stripped, so `nstool`/`nx2elf` cannot surface what is not there.
+  (2) Given a *correctly placed* symbol (verified `st_value=0x2496400`), Clang 5.0.1
+  still emits `adrp`+`add`+`ldr` where the original has `adrp`+`ldr`: it
+  materialises the 0x400 page offset instead of folding it into `:lo12:`. The
+  offset fits the load's range, so placement cannot fix it.
+  See `decomp/docs/ceiling.md`.
 
 The `None` pool is therefore mostly *not* addressable by translator work. The
 honest next lever is semantic/data recovery, not more instruction coverage.
