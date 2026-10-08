@@ -26,6 +26,7 @@ MODULES = ["rtld", "main", "sdk", "subsdk0", "subsdk1"]
 
 FAIL = []
 WARN = []
+SKIP = []
 
 
 
@@ -124,6 +125,30 @@ def warn(label, detail=""):
     WARN.append(label)
 
 
+def skip(label, detail=""):
+    """A check that could not run. Neither PASS nor FAIL.
+
+    Some audit sections need artifacts that are deliberately not committed --
+    `work/`, `exefs/` and `build/` are all gitignored, because they are large
+    outputs of local extraction and build steps. On a fresh CI checkout they are
+    simply absent, and the audit used to die with a bare `FileNotFoundError`:
+
+        File ".../tools/audit.py", line 117, in main
+          man = json.load(open(os.path.join(ROOT, "work", m, "manifest.json")))
+        FileNotFoundError: .../work/rtld/manifest.json
+
+    which failed every run of the workflow and told the reader nothing about
+    which check was skipped or why.
+
+    Reporting a skip as a PASS would be the vacuous-check mistake in a new coat:
+    a green line that examined nothing. Reporting it as a FAIL would be worse --
+    it would blame the tree for a missing build directory. So it is its own
+    outcome, printed, counted, and surfaced in the summary.
+    """
+    print("  [SKIP] %-58s %s" % (label, detail))
+    SKIP.append(label)
+
+
 def section(title):
     print()
     print(title)
@@ -167,12 +192,24 @@ def main():
     import bisect
     grand_blocks = 0
     for m in MODULES:
+        man_path = os.path.join(ROOT, "work", m, "manifest.json")
+        src_glob = os.path.join(ROOT, "exefs", m, "src", "*.c")
+        # Both inputs are gitignored. Say which one is missing instead of
+        # opening it and letting the interpreter report a traceback.
+        if not os.path.exists(man_path):
+            skip("module %s blocks covered" % m,
+                 "needs work/%s/manifest.json (gitignored; produced locally)" % m)
+            continue
+        if not glob.glob(src_glob):
+            skip("module %s blocks covered" % m,
+                 "needs exefs/%s/src/*.c (gitignored; produced locally)" % m)
+            continue
         pat = ("void blk_%s_([0-9a-f]+)\\(" % m).encode()
         blocks = set()
-        for f in glob.glob(os.path.join(ROOT, "exefs", m, "src", "*.c")):
+        for f in glob.glob(src_glob):
             for mm in re.finditer(pat, open(f, "rb").read()):
                 blocks.add(int(mm.group(1), 16))
-        man = json.load(open(os.path.join(ROOT, "work", m, "manifest.json")))
+        man = json.load(open(man_path))
         tlen = man["segments"]["text"]["memsz"]
         addrs = sorted(int(r["addr"], 16) for r in per_mod.get(m, []))
         # A block is covered if some function start is at or below it; blocks
@@ -190,10 +227,18 @@ def main():
     section("3. Rebuilt ELF binaries")
     from elftools.elf.elffile import ELFFile
     elf_funcs = 0
+    elf_seen = 0
     for m in MODULES:
         p = os.path.join(ROOT, "data", "%s.elf" % m)
-        if not check(os.path.exists(p), "data/%s.elf exists" % m):
+        if not os.path.exists(p):
+            # .gitignore: "ROM-derived binaries (rebuild with tools/nso_to_elf.py)".
+            # ~40 MB each, deliberately uncommitted. Failing here would fail every
+            # CI run for the sake of a file the repo promises not to carry.
+            skip("data/%s.elf exists" % m,
+                 "ROM-derived binary, gitignored (~40 MB); rebuild with tools/nso_to_elf.py")
             continue
+        elf_seen += 1
+        check(True, "data/%s.elf exists" % m)
         with open(p, "rb") as f:
             e = ELFFile(f)
             text = e.get_section_by_name(".text")
@@ -202,10 +247,16 @@ def main():
             sym = e.get_section_by_name(".symtab")
             check(text is not None and ro is not None and dat is not None,
                   "%s sections named" % m)
-            exact = (text.data() == open(os.path.join(ROOT, "work", m, "text.bin"), "rb").read()
-                     and ro.data() == open(os.path.join(ROOT, "work", m, "rodata.bin"), "rb").read()
-                     and dat.data() == open(os.path.join(ROOT, "work", m, "data.bin"), "rb").read())
-            check(exact, "%s .text/.rodata/.data byte-identical to NSO" % m)
+            bins = {k: os.path.join(ROOT, "work", m, "%s.bin" % k)
+                    for k in ("text", "rodata", "data")}
+            if all(os.path.exists(b) for b in bins.values()):
+                exact = (text.data() == open(bins["text"], "rb").read()
+                         and ro.data() == open(bins["rodata"], "rb").read()
+                         and dat.data() == open(bins["data"], "rb").read())
+                check(exact, "%s .text/.rodata/.data byte-identical to NSO" % m)
+            else:
+                skip("%s .text/.rodata/.data byte-identical to NSO" % m,
+                     "needs work/%s/{text,rodata,data}.bin (gitignored)" % m)
             # Count every STT_FUNC. Do not filter on st_value: NSO modules are
             # based at 0, so rtld legitimately has a function at address 0 and
             # a truthiness test would silently drop it.
@@ -213,8 +264,12 @@ def main():
                     if s["st_info"]["type"] == "STT_FUNC")
             elf_funcs += n
             print("  info  %-58s %d STT_FUNC symbols" % ("%s ELF symbols" % m, n))
-    check(elf_funcs >= len(rows), "ELF symbols cover all functions",
-          "%d symbols vs %d rows" % (elf_funcs, len(rows)))
+    if elf_seen:
+        check(elf_funcs >= len(rows), "ELF symbols cover all functions",
+              "%d symbols vs %d rows" % (elf_funcs, len(rows)))
+    else:
+        skip("ELF symbols cover all functions",
+             "needs data/<module>.elf (gitignored; rebuild with tools/nso_to_elf.py)")
 
     # ------------------------------------------------------------- prog/
     section("4. prog/ source tree")
@@ -339,8 +394,19 @@ def main():
     section("6. Pawn scripts")
     pasm = glob.glob(os.path.join(ROOT, "decomp", "script", "*.pasm"))
     pseudo = glob.glob(os.path.join(ROOT, "decomp", "script", "*.pseudo.c"))
-    check(len(pasm) == 691, "691 scripts disassembled", "%d" % len(pasm))
-    check(len(pseudo) == 691, "691 scripts rendered as pseudocode", "%d" % len(pseudo))
+    # The tracked form is decomp/script/*.c (691). The .pasm and .pseudo.c forms
+    # are gitignored intermediates, so a fresh checkout has neither.
+    if pasm:
+        check(len(pasm) == 691, "691 scripts disassembled", "%d" % len(pasm))
+    else:
+        skip("691 scripts disassembled",
+             "needs decomp/script/*.pasm (gitignored intermediate; the tracked "
+             "form is decomp/script/*.c)")
+    if pseudo:
+        check(len(pseudo) == 691, "691 scripts rendered as pseudocode", "%d" % len(pseudo))
+    else:
+        skip("691 scripts rendered as pseudocode",
+             "needs decomp/script/*.pseudo.c (gitignored intermediate)")
     sp = os.path.join(ROOT, "data", "scripts.csv")
     if os.path.exists(sp):
         srows = list(csv.DictReader(open(sp, encoding="utf-8")))
@@ -348,10 +414,18 @@ def main():
 
     # ------------------------------------------------------------- builds
     section("7. Host verification binaries")
+    host_seen = 0
     for m in MODULES:
         p = os.path.join(ROOT, "build_host", "bin", "decompiled_%s.exe" % m)
-        check(os.path.exists(p), "build_host/bin/decompiled_%s.exe" % m,
-              "%d bytes" % os.path.getsize(p) if os.path.exists(p) else "missing")
+        if os.path.exists(p):
+            host_seen += 1
+            check(True, "build_host/bin/decompiled_%s.exe" % m,
+                  "%d bytes" % os.path.getsize(p))
+        else:
+            skip("build_host/bin/decompiled_%s.exe" % m,
+                 "build_host/ is gitignored (~203 MB per binary); build locally")
+    if not host_seen:
+        print("  info  no host binaries present; build_host/ checks did not run")
 
     # ------------------------------------------------------- asm-differ
     section("8. asm-differ tooling")
@@ -712,15 +786,29 @@ def main():
 
     # Function sizes must exclude inter-function padding, or asm-differ reports
     # the padding as unmatched for every function.
+    #
+    # `work/<m>/text.bin` is gitignored, like every other extraction artifact, so
+    # this whole check is unrunnable on a fresh checkout. Gating it here rather
+    # than fixing crashes one at a time is the point: the first fix revealed a
+    # second identical crash, which is what "find them all first" means.
     padded = 0
+    padded_seen = 0
     for m in MODULES:
-        blob = open(os.path.join(ROOT, "work", m, "text.bin"), "rb").read()
+        tb = os.path.join(ROOT, "work", m, "text.bin")
+        if not os.path.exists(tb):
+            continue
+        padded_seen += 1
+        blob = open(tb, "rb").read()
         for r in per_mod.get(m, []):
             a, sz = int(r["addr"], 16), int(r["size"])
             if sz >= 4 and a + sz <= len(blob) and blob[a + sz - 4:a + sz] == b"\0\0\0\0":
                 padded += 1
-    check(padded == 0, "CSV sizes exclude trailing padding",
-          "%d sizes still include a padding word" % padded)
+    if padded_seen:
+        check(padded == 0, "CSV sizes exclude trailing padding",
+              "%d sizes still include a padding word" % padded)
+    else:
+        skip("CSV sizes exclude trailing padding",
+             "needs work/<module>/text.bin (gitignored; produced locally)")
 
     # ----------------------------------------------------------- assets
     section("10. Assets and RTTI")
@@ -738,8 +826,19 @@ def main():
         print("AUDIT FAILED: %d check(s)" % len(FAIL))
         for f in FAIL:
             print("  - %s" % f)
+    elif SKIP:
+        # Not "every check green" -- some did not run. The exit status stays 0
+        # because nothing is wrong with the tree; a fresh CI checkout simply has
+        # no `work/`, `exefs/` or `build/`. What must not happen is the verdict
+        # implying full coverage it does not have.
+        print("AUDIT PASSED: %d check(s) skipped for want of local artifacts "
+              "-- NOT a full pass" % len(SKIP))
     else:
         print("AUDIT PASSED: every check green")
+    if SKIP:
+        print("%d skipped check(s):" % len(SKIP))
+        for s in SKIP:
+            print("  - %s" % s)
     if WARN:
         print("%d warning(s):" % len(WARN))
         for w in WARN:
