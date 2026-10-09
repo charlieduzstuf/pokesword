@@ -1416,9 +1416,9 @@ void sub_4d6338() { /* 0x4d6338 */ }
 void sub_4d6670() { /* 0x4d6670 */ }
 void sub_4d6b90() { /* 0x4d6b90 */ }
 void sub_4d6bb8() { /* 0x4d6bb8 */ }
-void sub_4d6be0() { /* 0x4d6be0 */ }
-void sub_4d6bf8() { /* 0x4d6bf8 */ }
-void sub_4d6c10() { /* 0x4d6c10 */ }
+// sub_4d6be0: implemented in prog/matched/sdk/
+// sub_4d6bf8: implemented in prog/matched/sdk/
+// sub_4d6c10: implemented in prog/matched/sdk/
 // sub_4d6c20: implemented in prog/matched/sdk/
 // sub_4d6c38: implemented in prog/matched/sdk/
 // sub_4d6c50: implemented in prog/matched/sdk/

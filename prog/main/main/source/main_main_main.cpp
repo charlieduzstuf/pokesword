@@ -558,7 +558,7 @@ void sub_2b770() { /* 0x2b770 */ }
 // sub_2b7c0: implemented in prog/matched/main/
 // sub_2b7d0: implemented in prog/matched/main/
 // sub_2b7e0: implemented in prog/matched/main/
-void sub_2b7f0() { /* 0x2b7f0 */ }
+// sub_2b7f0: implemented in prog/matched/main/
 void NonTrackedAlloc_11() { /* 0x2b800 */ }
 void sub_2b890() { /* 0x2b890 */ }
 void sub_2b910() { /* 0x2b910 */ }
@@ -848,8 +848,8 @@ void sub_43760() { /* 0x43760 */ }
 // sub_43840: implemented in prog/matched/main/
 // sub_43850: implemented in prog/matched/main/
 // sub_43860: implemented in prog/matched/main/
-void sub_43870() { /* 0x43870 */ }
-void sub_43890() { /* 0x43890 */ }
+// sub_43870: implemented in prog/matched/main/
+// sub_43890: implemented in prog/matched/main/
 void sub_438b0() { /* 0x438b0 */ }
 void sub_43950() { /* 0x43950 */ }
 void sub_439f0() { /* 0x439f0 */ }
@@ -1062,8 +1062,8 @@ void sub_55c00() { /* 0x55c00 */ }
 void sub_55fe0() { /* 0x55fe0 */ }
 void sub_55ff0() { /* 0x55ff0 */ }
 void sub_561a0() { /* 0x561a0 */ }
-void sub_561b0() { /* 0x561b0 */ }
-void sub_561d0() { /* 0x561d0 */ }
+// sub_561b0: implemented in prog/matched/main/
+// sub_561d0: implemented in prog/matched/main/
 // sub_561f0: implemented in prog/matched/main/
 // sub_56200: implemented in prog/matched/main/
 void sub_56210() { /* 0x56210 */ }
@@ -1935,7 +1935,7 @@ void NpMaterial() { /* 0xc9d30 */ }
 // sub_c9db0: implemented in prog/matched/main/
 void sub_c9dc0() { /* 0xc9dc0 */ }
 void sub_c9e00() { /* 0xc9e00 */ }
-void sub_c9e20() { /* 0xc9e20 */ }
+// sub_c9e20: implemented in prog/matched/main/
 void sub_c9e30() { /* 0xc9e30 */ }
 // sub_c9e60: implemented in prog/matched/main/
 void sub_c9e70() { /* 0xc9e70 */ }
@@ -2471,7 +2471,7 @@ void sub_e72a0() { /* 0xe72a0 */ }
 void sub_e72f0() { /* 0xe72f0 */ }
 void sub_e7300() { /* 0xe7300 */ }
 void UNDEFINED() { /* 0xe7310 */ }
-void sub_e7520() { /* 0xe7520 */ }
+// sub_e7520: implemented in prog/matched/main/
 // sub_e7530: implemented in prog/matched/main/
 void sub_e7540() { /* 0xe7540 */ }
 // sub_e7580: implemented in prog/matched/main/
@@ -2694,7 +2694,7 @@ void sub_ed7c0() { /* 0xed7c0 */ }
 void PsArray_140() { /* 0xed850 */ }
 void sub_ed960() { /* 0xed960 */ }
 void sub_ed9c0() { /* 0xed9c0 */ }
-void sub_eda10() { /* 0xeda10 */ }
+// sub_eda10: implemented in prog/matched/main/
 void sub_eda20() { /* 0xeda20 */ }
 void sub_eda60() { /* 0xeda60 */ }
 void sub_edab0() { /* 0xedab0 */ }
@@ -3738,7 +3738,7 @@ void ConvexMesh() { /* 0x117310 */ }
 // sub_117460: implemented in prog/matched/main/
 // sub_117470: implemented in prog/matched/main/
 // sub_117480: implemented in prog/matched/main/
-void sub_117490() { /* 0x117490 */ }
+// sub_117490: implemented in prog/matched/main/
 void Radius() { /* 0x1174a0 */ }
 // sub_1174d0: implemented in prog/matched/main/
 // sub_1174e0: implemented in prog/matched/main/
@@ -3747,7 +3747,7 @@ void TriangleMesh() { /* 0x117500 */ }
 // sub_117580: implemented in prog/matched/main/
 // sub_1175c0: implemented in prog/matched/main/
 // sub_117600: implemented in prog/matched/main/
-void sub_117610() { /* 0x117610 */ }
+// sub_117610: implemented in prog/matched/main/
 // sub_117620: implemented in prog/matched/main/
 // sub_117630: implemented in prog/matched/main/
 // sub_117710: implemented in prog/matched/main/
@@ -3759,7 +3759,7 @@ void sub_117610() { /* 0x117610 */ }
 // sub_117770: implemented in prog/matched/main/
 // sub_117780: implemented in prog/matched/main/
 // sub_117790: implemented in prog/matched/main/
-void sub_1177a0() { /* 0x1177a0 */ }
+// sub_1177a0: implemented in prog/matched/main/
 void ConvexEdgeThreshold() { /* 0x1177b0 */ }
 // sub_1178d0: implemented in prog/matched/main/
 // sub_1178e0: implemented in prog/matched/main/
@@ -3774,7 +3774,7 @@ void sub_117930() { /* 0x117930 */ }
 // sub_117970: implemented in prog/matched/main/
 // sub_117980: implemented in prog/matched/main/
 // sub_117990: implemented in prog/matched/main/
-void sub_1179a0() { /* 0x1179a0 */ }
+// sub_1179a0: implemented in prog/matched/main/
 void sub_1179b0() { /* 0x1179b0 */ }
 void StiffnessMultiplier() { /* 0x117a50 */ }
 // sub_117b00: implemented in prog/matched/main/

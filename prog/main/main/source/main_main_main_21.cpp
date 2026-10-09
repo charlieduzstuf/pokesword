@@ -2781,7 +2781,7 @@ void sub_15a5580() { /* 0x15a5580 */ }
 void sub_15a57e0() { /* 0x15a57e0 */ }
 void sub_15a5800() { /* 0x15a5800 */ }
 // sub_15a5840: implemented in prog/matched/main/
-void sub_15a5850() { /* 0x15a5850 */ }
+// sub_15a5850: implemented in prog/matched/main/
 void sub_15a5860() { /* 0x15a5860 */ }
 // sub_15a5880: implemented in prog/matched/main/
 // sub_15a5890: implemented in prog/matched/main/

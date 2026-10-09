@@ -1162,7 +1162,7 @@ void sub_b406e0() { /* 0xb406e0 */ }
 void sub_b40d50() { /* 0xb40d50 */ }
 void sub_b40db0() { /* 0xb40db0 */ }
 void sub_b40de0() { /* 0xb40de0 */ }
-void sub_b40ea0() { /* 0xb40ea0 */ }
+// sub_b40ea0: implemented in prog/matched/main/
 // sub_b40eb0: implemented in prog/matched/main/
 void sub_b40ec0() { /* 0xb40ec0 */ }
 void sub_b41000() { /* 0xb41000 */ }
@@ -1224,15 +1224,15 @@ void sub_b45040() { /* 0xb45040 */ }
 // sub_b453b0: implemented in prog/matched/main/
 // sub_b453c0: implemented in prog/matched/main/
 // sub_b453d0: implemented in prog/matched/main/
-void sub_b453e0() { /* 0xb453e0 */ }
-void sub_b453f0() { /* 0xb453f0 */ }
-void sub_b45400() { /* 0xb45400 */ }
+// sub_b453e0: implemented in prog/matched/main/
+// sub_b453f0: implemented in prog/matched/main/
+// sub_b45400: implemented in prog/matched/main/
 void sub_b45410() { /* 0xb45410 */ }
 void sub_b455a0() { /* 0xb455a0 */ }
 void sub_b456e0() { /* 0xb456e0 */ }
 void sub_b45810() { /* 0xb45810 */ }
-void sub_b45880() { /* 0xb45880 */ }
-void sub_b45890() { /* 0xb45890 */ }
+// sub_b45880: implemented in prog/matched/main/
+// sub_b45890: implemented in prog/matched/main/
 void sub_b458a0() { /* 0xb458a0 */ }
 void sub_b459d0() { /* 0xb459d0 */ }
 void sub_b45a60() { /* 0xb45a60 */ }
@@ -2319,7 +2319,7 @@ void sub_b8a070() { /* 0xb8a070 */ }
 void sub_b8a230() { /* 0xb8a230 */ }
 void sub_b8a3d0() { /* 0xb8a3d0 */ }
 void sub_b8a410() { /* 0xb8a410 */ }
-void sub_b8a620() { /* 0xb8a620 */ }
+// sub_b8a620: implemented in prog/matched/main/
 // sub_b8a630: implemented in prog/matched/main/
 void sub_b8a640() { /* 0xb8a640 */ }
 void eye01_03_2() { /* 0xb8a6e0 */ }
@@ -2782,7 +2782,7 @@ void sub_bb0bd0() { /* 0xbb0bd0 */ }
 void sub_bb0dd0() { /* 0xbb0dd0 */ }
 void sub_bb0ec0() { /* 0xbb0ec0 */ }
 void sub_bb0fb0() { /* 0xbb0fb0 */ }
-void sub_bb1020() { /* 0xbb1020 */ }
+// sub_bb1020: implemented in prog/matched/main/
 void sub_bb1040() { /* 0xbb1040 */ }
 void sub_bb10b0() { /* 0xbb10b0 */ }
 // sub_bb11a0: implemented in prog/matched/main/

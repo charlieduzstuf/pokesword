@@ -187,6 +187,45 @@ several times over.
     FREE of all three              3,166  ( 2.6%)
 
 Ceiling ~= **21%**, unchanged. The ~3,166 reachable bodies are worth about 2
+
+## Where the remaining addressable population actually goes
+
+The 21% ceiling is a bound, not a plan. Re-censused against the current
+registry (28,942 matched, 123,085 unmatched), and then classified with
+`auto_match.shape_of` -- the matcher's own classifier, not the side script's, since
+`work/ceiling.py` and `auto_match.shape_of` are different classifiers and
+comparing their populations is a category error:
+
+    FREE of calls, branches, frames, adrp   3,166   (2.6%)
+    ... actually matching a generated shape     801
+    ... falling through to `straight`         1,463
+    ... of those, TRANSLATED                   326   (before the multiply work)
+    ... of those, DECLINED                   1,137
+
+So the whole remaining byte-identical headroom is about 2,264 bodies, and fewer
+than 400 of them could be expressed at all. That is the real size of the
+opportunity, and it is why new *declaration* work has been landing so few
+matches: the population to absorb it is nearly exhausted.
+
+Declines among those 1,137, by cause:
+
+    216  multiply family (mul/madd/msub/mneg/smull/umull/*addl/*subl)
+    112  memory base is wzr/xzr -- an absolute address, not an argument
+     35  fmov (FP move; the value model is integer-only)
+     32  orr with 4 operands (a shifted-register form)
+     32  sxtw used standalone rather than as an add/sub extend
+     30  sbfiz
+     29  add/sub applied to a `cset` value
+
+Only the first is a large, purely-arithmetic win, and it is implemented. The
+`wzr`/`xzr` base is the next real one -- an absolute address needs a data symbol,
+which is the same blocker `adrp` has.
+
+Note the arithmetic here is *cheap* and the ceiling is *compiler-bound*: adding
+every mnemonic on this list to the translator moves the ceiling by at most
+~1.4 percentage points, because 79.3% of what remains is frame-blocked and Clang
+5.0.1 cannot emit the writeback `sp` form the retail code uses.
+
 percent more; everything else is blocked by the compiler, the harness, or by
 needing callee symbols this project does not have.
 
@@ -221,3 +260,49 @@ caller emit different setup, and only one will match.
 Arity has to be inferred from the caller's own instruction stream, and whether it
 is regular enough to infer is unmeasured. That is the next thing to check before
 wiring resolution into the translator.
+
+## `--report` hides every failure, so a candidate count is not a match count
+
+`auto_match --report` writes only rows whose `verdict == "match"`. A candidate
+that compiles and then mismatches leaves no trace in the report file, so the
+report cannot answer "why did this one not match" -- the question it looks like
+it exists to answer. `AM.verify(cands, batch, module)` returns every row with its
+`verdict` and `reason`, and that is the only way to see the mismatch population.
+
+This matters because the multiply work looked like a no-op for two full rounds:
+
+    --shape none, main   before   MATCH 447 / 626
+                        after    MATCH 447 / 663      <- more candidates, no gain
+
+Identical match count with a higher denominator, which is the exact signature of
+the earlier `bl` integration that really did yield zero. Reverting on that
+evidence would have discarded working code.
+
+It was not a no-op, and the way that was established matters more than the
+result:
+
+  * `AM.verify` on the single body `main@0x43870` returns `('match', '')`. It is
+    generated, it compiles, and it matches.
+  * The full-run verdict distribution was `447 match / 216 mismatch`. The 216 new
+    candidates were not missing from the run -- they were *in* it, losing. A
+    candidate count rising while the match count holds is ambiguous between
+    "no effect" and "all new candidates fail", and only the verdict histogram
+    distinguishes them.
+  * Of those 216, `206` had a `*` in their source, and the leading reason was
+    `orig ('smaddl', 'x8, w1, w8, x0') vs new ('mul', 'w8, w1, w8')`.
+
+So the work was not inert, it was mis-typed, and the fix was three rounds of
+narrowing it against the real compiler rather than against my reading of the C:
+
+    (int32_t)m * (int32_t)56                     -> mul w8 ; sxtw x0, w8
+    (int64_t)m * (int64_t)56                     -> smull,  but signed is lost
+    (int64_t)(int32_t)m * (int64_t)(int32_t)56   -> smull   correct
+
+Each step was chosen by compiling all candidate forms and reading the emitted
+mnemonic, because the arithmetic was identical in all three and the *instruction*
+was the only thing that differed. That is the only reliable way to settle a
+Clang codegen question: the C reads the same and compiles differently.
+
+Result on `main`: `447 -> 480`. Operand order was checked and is not a factor --
+`acc + p`, `p + acc` and a product-first form all emit the same fused
+instruction.

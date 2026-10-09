@@ -836,6 +836,20 @@ class StraightLine:
                     continue
 
                 # `and/orr/eor/bic Rd, Rn, Rm` or `#imm`
+                #
+                # Guarded rather than indexed directly. `mvn` and `neg` are in
+                # BITWISE_MNEMONICS so the pre-filter admits them, and the arm
+                # above handles the 2-operand form -- but a `neg` with a
+                # different operand count falls through to here, where the bare
+                # subscript raised `KeyError: 'neg'`.
+                #
+                # That is an exception, not a decline, and the two are not
+                # equivalent: an exception is swallowed by gen_straight's
+                # `except Exception` and the body vanishes with no record of
+                # why. Declining says exactly what was not understood.
+                if mn not in ("and", "orr", "eor", "bic"):
+                    raise Bail("%s with %d operands is not modelled"
+                               % (mn, len(ops2)))
                 sym = {"and": "&", "orr": "|", "eor": "^", "bic": None}[mn]
                 if len(ops2) == 3:
                     v1 = _val(ops2[1])
@@ -906,15 +920,79 @@ class StraightLine:
 
                 a = _operand(o1)
                 b = _operand(o2)
-                # The product. For the widening forms the casts are load-bearing:
-                # they are the sign/zero extension the instruction performs.
+                # The product.
+                #
+                # For the widening forms each operand is cast to the 32-bit type
+                # the instruction names -- that cast IS the sign or zero
+                # extension, and it has to be spelled or Clang extends from the
+                # declared type instead.
+                #
+                # The result type then has to be the *destination* width, forced.
+                # Leaving it to C's usual arithmetic conversions is what broke
+                # these bodies, and it is worth recording exactly why, because the
+                # emitted code looked correct and merely chose a narrower
+                # instruction:
+                #
+                #   smaddl x8, w1, w8, x0     with w8 = 0x38
+                #     mine:  ... + ((int32_t)a1) * ((int32_t)56) ...   (acc uint64_t)
+                #     ->  mul w8, w1, w8 ; add x0, x0, w8, sxtw
+                #     want: smaddl x0, w1, w8, x0
+                #
+                # `acc + (int32_t)a * (int32_t)56` promotes the product to
+                # uint64_t because `acc` is, and Clang is then free to compute the
+                # 32-bit product and sign-extend it in a separate `add`. Typing
+                # the product as int64_t/uint64_t itself pins the multiply at
+                # full width and the accumulator cannot narrow it back.
+                #
+                # This is the same class of error as the AAPCS64 narrow-return
+                # promotion: an arithmetic identity that holds in C but not in
+                # the instruction the compiler chooses.
                 if widening:
-                    prod = ("expr", "*",
-                            ("cast", src_ct, a),
-                            ("cast", src_ct, b),
-                            dst_ct)
+                    # Both operands are cast to the 64-bit result type, NOT to the
+                    # 32-bit one the instruction names. Measured, same arithmetic:
+                    #
+                    #   (int32_t)a1 * (int32_t)56              -> mul w8 ; sxtw x0, w8
+                    #   (int64_t)a1 * (int64_t)56              -> smull
+                    #
+                    # Casting to `src_ct` looks more faithful -- it is literally
+                    # the extension the instruction performs -- and it is wrong:
+                    # two int32_t operands give Clang a 32-bit multiply, and the
+                    # widening it was asked to perform becomes a *separate*
+                    # `sxtw`, so the fused form is never selected.
+                    #
+                    # The 32-bit truncation is not lost by casting to 64 bits
+                    # first: an operand arriving in a `w` register is already
+                    # 32-bit-valued, and `_operand` renders a `w`-sourced load as
+                    # uint32_t/int32_t, so the value cast to int64_t carries the
+                    # same low 32 bits the instruction multiplies.
+                    # The operand cast is a *pair*: first `src_ct`, which is the
+                    # sign/zero reinterpretation of the 32-bit register, then
+                    # `dst_ct`, which is the widening to full width. Both are
+                    # needed and neither is optional:
+                    #
+                    #   (int32_t)m * (int32_t)56                 -> mul w8 (narrow!)
+                    #   (int64_t)m * (int64_t)56                 -> smull   but signed
+                    #                                                   is lost
+                    #   (int64_t)(int32_t)m * (int64_t)(int32_t)56 -> smull   correct
+                    #
+                    # The middle case is the trap. An argument arrives declared
+                    # uint32_t, so `(int64_t)a1` is a *positive* 64-bit value and
+                    # the multiply is unsigned -- `umaddl` where the instruction
+                    # says `smaddl`. Casting to the 32-bit signed type first is
+                    # what reinterprets the bits, and it composes with the
+                    # widening cast because the second cast is applied to the
+                    # already-signed result.
+                    def _widen(v):
+                        return ("cast", dst_ct, ("cast", src_ct, v))
+                    prod = ("expr", "*", _widen(a), _widen(b), dst_ct)
                 else:
-                    prod = ("expr", op_sym, a, b, _rw(a))
+                    # `mul wD, ...` truncates to 32 bits and zeroes the top half;
+                    # `mul xD, ...` is a full 64-bit multiply. Forcing the result
+                    # type to the destination width prevents a 64-bit multiply
+                    # being emitted where the instruction keeps the low half.
+                    w32 = dst.strip().startswith("w")
+                    prod = ("expr", op_sym, a, b,
+                            "uint32_t" if w32 else "uint64_t")
 
                 if acc is None:
                     state[wreg(dst)] = prod
@@ -1301,6 +1379,16 @@ class StraightLine:
             if uop == "~":
                 return uty, "(~((%s)%s))" % (uty, _eu)
             return uty, "(0 - ((%s)%s))" % (uty, _eu)
+        if kind == "cast":
+            # Reachable at top level, not only nested inside `expr`: the widening
+            # product of a `smaddl`/`umull` can be stored to a register on its own
+            # before anything combines it, and then it is rendered directly. The
+            # `expr` renderer handles the nested case; without this arm the
+            # translator raised `unknown value kind 'cast'` on exactly those
+            # bodies -- the first one tried (`main@0x4553a0`) declined for this
+            # reason alone.
+            _cu, _eu = self._render(val[2], names)
+            return val[1], "((%s)(%s))" % (val[1], _eu)
         if kind == "argval":
             # The same argument as an arithmetic operand: an integer, never a
             # pointer. See `_value_arg`.

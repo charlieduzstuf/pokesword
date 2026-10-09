@@ -1675,7 +1675,7 @@ void sub_e7cb50() { /* 0xe7cb50 */ }
 // sub_e7cc40: implemented in prog/matched/main/
 // sub_e7cc50: implemented in prog/matched/main/
 // sub_e7cc60: implemented in prog/matched/main/
-void sub_e7cc70() { /* 0xe7cc70 */ }
+// sub_e7cc70: implemented in prog/matched/main/
 // sub_e7cc80: implemented in prog/matched/main/
 void sub_e7cc90() { /* 0xe7cc90 */ }
 void sub_e7cca0() { /* 0xe7cca0 */ }

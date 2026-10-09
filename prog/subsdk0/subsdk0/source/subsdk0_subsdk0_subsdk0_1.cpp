@@ -1526,7 +1526,7 @@ void sub_1b3720_subsdk0_1b3720() { /* 0x1b3720 */ }
 void sub_1b3760() { /* 0x1b3760 */ }
 void TimedTextSource() { /* 0x1b37a0 */ }
 void sub_1b3890() { /* 0x1b3890 */ }
-void sub_1b3900() { /* 0x1b3900 */ }
+// sub_1b3900: implemented in prog/matched/subsdk0/
 void sub_1b3910() { /* 0x1b3910 */ }
 // sub_1b3920: implemented in prog/matched/subsdk0/
 void sub_1b3930() { /* 0x1b3930 */ }
@@ -2075,7 +2075,7 @@ void sub_1d9450_subsdk0_1d9450() { /* 0x1d9450 */ }
 void sub_1d94a0() { /* 0x1d94a0 */ }
 void sub_1d94c0() { /* 0x1d94c0 */ }
 void sub_1d9570() { /* 0x1d9570 */ }
-void sub_1d95d0() { /* 0x1d95d0 */ }
+// sub_1d95d0: implemented in prog/matched/subsdk0/
 // sub_1d95e0: implemented in prog/matched/subsdk0/
 // sub_1d95f0: implemented in prog/matched/subsdk0/
 void sub_1d9600() { /* 0x1d9600 */ }
@@ -3089,7 +3089,7 @@ void sub_2202c0() { /* 0x2202c0 */ }
 void sub_220370() { /* 0x220370 */ }
 void M4vH263Encoder() { /* 0x220420 */ }
 void sub_2206a0() { /* 0x2206a0 */ }
-void sub_2206d0() { /* 0x2206d0 */ }
+// sub_2206d0: implemented in prog/matched/subsdk0/
 void SampleIterator() { /* 0x2206f0 */ }
 void SampleIterator_2() { /* 0x220b20 */ }
 void SampleIterator_3() { /* 0x220c30 */ }

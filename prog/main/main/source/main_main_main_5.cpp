@@ -336,7 +336,7 @@ void movie() { /* 0x6682e0 */ }
 void a_texCoord() { /* 0x6686d0 */ }
 void ColorSpace() { /* 0x668800 */ }
 void sub_668bc0() { /* 0x668bc0 */ }
-void sub_669140() { /* 0x669140 */ }
+// sub_669140: implemented in prog/matched/main/
 void sub_669170() { /* 0x669170 */ }
 void sub_669230() { /* 0x669230 */ }
 void sub_669320() { /* 0x669320 */ }
@@ -1174,7 +1174,7 @@ void sub_695210() { /* 0x695210 */ }
 void sub_6952c0() { /* 0x6952c0 */ }
 void sub_6953f0() { /* 0x6953f0 */ }
 void sub_695420() { /* 0x695420 */ }
-void sub_6954d0() { /* 0x6954d0 */ }
+// sub_6954d0: implemented in prog/matched/main/
 void sub_6954e0() { /* 0x6954e0 */ }
 // sub_6955b0: implemented in prog/matched/main/
 void sub_6955c0() { /* 0x6955c0 */ }

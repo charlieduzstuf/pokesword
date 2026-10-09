@@ -235,7 +235,7 @@ void sub_302c40() { /* 0x302c40 */ }
 void sub_302d50() { /* 0x302d50 */ }
 void sub_302e60() { /* 0x302e60 */ }
 void sub_302ec0() { /* 0x302ec0 */ }
-void sub_302f50() { /* 0x302f50 */ }
+// sub_302f50: implemented in prog/matched/main/
 // sub_302f70: implemented in prog/matched/main/
 // sub_302f80: implemented in prog/matched/main/
 // sub_302f90: implemented in prog/matched/main/

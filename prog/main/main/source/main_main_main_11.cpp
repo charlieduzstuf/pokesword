@@ -2572,7 +2572,7 @@ void sub_c739f0() { /* 0xc739f0 */ }
 void sub_c73a30() { /* 0xc73a30 */ }
 void sub_c73f30() { /* 0xc73f30 */ }
 void sub_c74090() { /* 0xc74090 */ }
-void sub_c74100() { /* 0xc74100 */ }
+// sub_c74100: implemented in prog/matched/main/
 void sub_c74110() { /* 0xc74110 */ }
 void sub_c74120() { /* 0xc74120 */ }
 void sub_c74130() { /* 0xc74130 */ }

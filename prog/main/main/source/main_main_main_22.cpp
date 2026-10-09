@@ -664,7 +664,7 @@ void sub_1618640() { /* 0x1618640 */ }
 void sub_1618870() { /* 0x1618870 */ }
 void sub_16188f0() { /* 0x16188f0 */ }
 // sub_1618a20: implemented in prog/matched/main/
-void sub_1618a30() { /* 0x1618a30 */ }
+// sub_1618a30: implemented in prog/matched/main/
 void sub_1618a40() { /* 0x1618a40 */ }
 void sub_1618a70() { /* 0x1618a70 */ }
 void sub_1619220() { /* 0x1619220 */ }
@@ -1867,7 +1867,7 @@ void sub_165bdb0() { /* 0x165bdb0 */ }
 // sub_165be90: implemented in prog/matched/main/
 void sub_165bea0() { /* 0x165bea0 */ }
 void sub_165c080() { /* 0x165c080 */ }
-void sub_165c170() { /* 0x165c170 */ }
+// sub_165c170: implemented in prog/matched/main/
 // sub_165c180: implemented in prog/matched/main/
 void sub_165c190() { /* 0x165c190 */ }
 void sub_165c200() { /* 0x165c200 */ }
@@ -2330,7 +2330,7 @@ void sub_166d2e0() { /* 0x166d2e0 */ }
 void sub_166d300() { /* 0x166d300 */ }
 void sub_166d320() { /* 0x166d320 */ }
 // sub_166d340: implemented in prog/matched/main/
-void sub_166d350() { /* 0x166d350 */ }
+// sub_166d350: implemented in prog/matched/main/
 // sub_166d370: implemented in prog/matched/main/
 // sub_166d380: implemented in prog/matched/main/
 // sub_166d390: implemented in prog/matched/main/
@@ -2680,7 +2680,7 @@ void sub_167e7d0() { /* 0x167e7d0 */ }
 void sub_167e830() { /* 0x167e830 */ }
 // sub_167e850: implemented in prog/matched/main/
 // sub_167e860: implemented in prog/matched/main/
-void sub_167e870() { /* 0x167e870 */ }
+// sub_167e870: implemented in prog/matched/main/
 void sub_167e880() { /* 0x167e880 */ }
 void sub_167e8a0() { /* 0x167e8a0 */ }
 void sub_167e8c0() { /* 0x167e8c0 */ }
@@ -2836,7 +2836,7 @@ void sub_1685950() { /* 0x1685950 */ }
 // sub_1685970: implemented in prog/matched/main/
 // sub_1685980: implemented in prog/matched/main/
 void sub_1685990() { /* 0x1685990 */ }
-void sub_16859a0() { /* 0x16859a0 */ }
+// sub_16859a0: implemented in prog/matched/main/
 // sub_16859b0: implemented in prog/matched/main/
 // sub_16859c0: implemented in prog/matched/main/
 // sub_16859d0: implemented in prog/matched/main/

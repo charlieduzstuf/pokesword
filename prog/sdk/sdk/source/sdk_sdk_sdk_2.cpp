@@ -990,7 +990,7 @@ void sub_1dc260() { /* 0x1dc260 */ }
 // sub_1dc270: implemented in prog/matched/sdk/
 // sub_1dc280: implemented in prog/matched/sdk/
 void sub_1dc290() { /* 0x1dc290 */ }
-void sub_1dc330() { /* 0x1dc330 */ }
+// sub_1dc330: implemented in prog/matched/sdk/
 // sub_1dc340: implemented in prog/matched/sdk/
 void sub_1dc350() { /* 0x1dc350 */ }
 void sub_1dc360() { /* 0x1dc360 */ }

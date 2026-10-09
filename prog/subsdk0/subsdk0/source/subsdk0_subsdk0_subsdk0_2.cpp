@@ -313,10 +313,10 @@ void sub_26d1d0() { /* 0x26d1d0 */ }
 void sub_26d210() { /* 0x26d210 */ }
 // sub_26d220: implemented in prog/matched/subsdk0/
 void sub_26d240() { /* 0x26d240 */ }
-void sub_26d2c0() { /* 0x26d2c0 */ }
+// sub_26d2c0: implemented in prog/matched/subsdk0/
 // sub_26d2d0: implemented in prog/matched/subsdk0/
 // sub_26d2f0: implemented in prog/matched/subsdk0/
-void sub_26d310() { /* 0x26d310 */ }
+// sub_26d310: implemented in prog/matched/subsdk0/
 void sub_26d320() { /* 0x26d320 */ }
 void sub_26d350() { /* 0x26d350 */ }
 // sub_26d370: implemented in prog/matched/subsdk0/
@@ -607,7 +607,7 @@ void sub_27ee40() { /* 0x27ee40 */ }
 // sub_27ee90: implemented in prog/matched/subsdk0/
 // sub_27eec0: implemented in prog/matched/subsdk0/
 void sub_27eee0() { /* 0x27eee0 */ }
-void sub_27ef60() { /* 0x27ef60 */ }
+// sub_27ef60: implemented in prog/matched/subsdk0/
 void sub_27ef70() { /* 0x27ef70 */ }
 void sub_27f0b0() { /* 0x27f0b0 */ }
 void sub_27fb70() { /* 0x27fb70 */ }
@@ -755,7 +755,7 @@ void sub_2970a0() { /* 0x2970a0 */ }
 // sub_2970d0: implemented in prog/matched/subsdk0/
 // sub_2970e0_subsdk0_2970e0: implemented in prog/matched/subsdk0/
 // sub_2970f0: implemented in prog/matched/subsdk0/
-void sub_297100() { /* 0x297100 */ }
+// sub_297100: implemented in prog/matched/subsdk0/
 // sub_297110: implemented in prog/matched/subsdk0/
 // sub_297120: implemented in prog/matched/subsdk0/
 void sub_297130() { /* 0x297130 */ }
@@ -915,13 +915,13 @@ void sub_2a6a30() { /* 0x2a6a30 */ }
 void sub_2a6a60() { /* 0x2a6a60 */ }
 void sub_2a6c30() { /* 0x2a6c30 */ }
 // sub_2a7060: implemented in prog/matched/subsdk0/
-void sub_2a70b0() { /* 0x2a70b0 */ }
+// sub_2a70b0: implemented in prog/matched/subsdk0/
 void sub_2a70c0() { /* 0x2a70c0 */ }
 void sub_2a7310() { /* 0x2a7310 */ }
 void PLAYREADYCTR() { /* 0x2a8b50 */ }
 void sub_2aa400() { /* 0x2aa400 */ }
 void sub_2aa740() { /* 0x2aa740 */ }
-void sub_2aa920() { /* 0x2aa920 */ }
+// sub_2aa920: implemented in prog/matched/subsdk0/
 void sub_2aa940_subsdk0_2aa940() { /* 0x2aa940 */ }
 void sub_2aaf20() { /* 0x2aaf20 */ }
 void sub_2ab540() { /* 0x2ab540 */ }
@@ -1055,7 +1055,7 @@ void sub_2b9920_subsdk0_2b9920() { /* 0x2b9920 */ }
 void sub_2b9a90() { /* 0x2b9a90 */ }
 void sub_2b9ab0() { /* 0x2b9ab0 */ }
 void sub_2b9b80_subsdk0_2b9b80() { /* 0x2b9b80 */ }
-void sub_2b9dc0() { /* 0x2b9dc0 */ }
+// sub_2b9dc0: implemented in prog/matched/subsdk0/
 void sub_2b9dd0_subsdk0_2b9dd0() { /* 0x2b9dd0 */ }
 // sub_2ba120: implemented in prog/matched/subsdk0/
 void sub_2ba130() { /* 0x2ba130 */ }
@@ -1181,7 +1181,7 @@ void sub_2d60e0_subsdk0_2d60e0() { /* 0x2d60e0 */ }
 void sub_2d6140() { /* 0x2d6140 */ }
 void sub_2d61a0() { /* 0x2d61a0 */ }
 void sub_2d6200() { /* 0x2d6200 */ }
-void sub_2d6260() { /* 0x2d6260 */ }
+// sub_2d6260: implemented in prog/matched/subsdk0/
 void NvMMLiteVideoEncBlockOpen() { /* 0x2d6280 */ }
 void sub_2d7160() { /* 0x2d7160 */ }
 void NvMMVideoEncOutputThread() { /* 0x2d7250 */ }
