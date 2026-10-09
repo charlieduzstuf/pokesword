@@ -537,3 +537,48 @@ symbol rather than a patched branch.
 Recorded here because the obvious plan -- "just inline it" -- costs a refactor of
 the most delicate code in the project, and knowing that before starting is worth
 more than the 81 bodies.
+
+
+## Relaxing a parser can *steal* bodies from the path that already had them
+
+`[x0, x8]` is a real ARM64 addressing form -- a bare register offset with no
+extend -- and Clang 5.0.1 emits it for `*(uint32_t*)(base + off)`, verified. The
+decline census listed it: 29 bodies reading
+
+    load operand '[x0, x8]' is not a [base] or [base, index, ext] form
+
+which reads as though the *shape* were unmodelled. So `parse_mem_idx`'s regex was
+relaxed to make the index's extend optional, giving a bare register offset with
+scale 1.
+
+It measured **-38 matches** (main 525 -> 488, subsdk0 41 -> 40) and the candidate
+count *fell* (790 -> 781). A falling candidate count is the tell: something that
+used to generate stopped generating.
+
+`mem_reg_offset` already handled this form, and handled it better. When the offset
+register holds a **constant** the whole address is known at compile time:
+
+    mov  w8, #0x4e5c
+    str  wzr, [x0, x8]        ->  *(uint32_t *)((char *)a0 + 0x4e5c) = 0
+
+That is an ordinary `[base, #off]`, not a runtime index. The load path tries
+`parse_mem_idx` **first** and only falls back to `mem_reg_offset`, so relaxing the
+first parser took those bodies away from the second and rewrote a compile-time
+displacement into a runtime index -- different semantics, different C, fewer
+matches.
+
+The general lesson, which is the fourth time this session that relaxing a rule has
+had to be justified against the path it feeds:
+
+  * "The parser rejects this" is not the same as "this is unmodelled". Something
+    downstream may already handle it, and a downstream handler is often the more
+    specific one.
+  * A candidate count that *falls* while you add support means you have taken
+    bodies away from somewhere. Read the denominator before reading the numerator.
+  * The message said "not a [base] or [base, index, ext] form" -- which names the
+    parser, not the model. That phrasing sent this at a parser when the gap was a
+    *precedence* one.
+
+The 29 bodies are real and still unclaimed, but claiming them means teaching
+`mem_reg_offset`'s caller to use a runtime index when that path declines -- not
+loosening the parser that runs before it.
