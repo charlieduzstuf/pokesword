@@ -27,6 +27,9 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_14dbb60  (orig 0x14dbb60, getter)
+uint64_t main_f_14dbb60(void* a0) { return *(uint64_t*)((char*)(a0) + 440); }
+
 // sub_14dbcc0  (orig 0x14dbcc0, ret_only)
 void main_f_14dbcc0() {}
 
@@ -7006,7 +7009,4 @@ uint64_t main_f_179a9f0(void* a0) { return *(uint64_t*)((char*)(a0) + 240); }
 
 // sub_179aa60  (orig 0x179aa60, ret_only)
 void main_f_179aa60() {}
-
-// sub_179ba80  (orig 0x179ba80, straight-line)
-uint64_t main_f_179ba80(uint64_t a0, uint32_t a1) { return ((((uint64_t)a0)) + ((((uint64_t)(((uint32_t)(((uint32_t)a1)))))) * (((uint64_t)(((uint32_t)(40))))))) + (624); }
 

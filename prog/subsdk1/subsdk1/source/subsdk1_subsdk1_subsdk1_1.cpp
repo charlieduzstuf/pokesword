@@ -1096,7 +1096,7 @@ void sub_223650() { /* 0x223650 */ }
 // sub_2236e0_subsdk1_2236e0: implemented in prog/matched/subsdk1/
 // sub_2236f0_subsdk1_2236f0: implemented in prog/matched/subsdk1/
 // sub_223700: implemented in prog/matched/subsdk1/
-void sub_223710() { /* 0x223710 */ }
+// sub_223710: implemented in prog/matched/subsdk1/
 void sub_223730() { /* 0x223730 */ }
 // sub_223780: implemented in prog/matched/subsdk1/
 // sub_223790: implemented in prog/matched/subsdk1/

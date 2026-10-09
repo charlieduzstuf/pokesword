@@ -1444,6 +1444,33 @@ class StraightLine:
                         # arithmetic-operand and mov-source cases: a rule
                         # reimplemented locally instead of asked of the one
                         # place that already knows it.
+                        # Positive evidence that `src` is a value, not a base.
+                        _VALUE_KINDS = ("imm", "load", "expr", "argval",
+                                        "cset", "sel", "cast", "raw_call")
+                        _srcv = state.get(wreg(src))
+                        if _srcv is not None and _srcv[0] in _VALUE_KINDS:
+                            # Integer arithmetic with a scaled second operand.
+                            # The shift belongs to Rm alone, so it becomes a nested
+                            # `shift` on the second operand rather than an operation
+                            # over the whole expression.
+                            _iv = state.get(wreg(src2))
+                            if _iv is None:
+                                _iv = self._value_arg(src2, used_args, idx_args,
+                                                      ptr_args)
+                            if _iv is None:
+                                raise Bail("add/sub index %r is not a value"
+                                           % (src2,))
+                            _sh = ("shift", ext_op, shift, _iv) if shift \
+                                else _iv
+                            _ty0 = _rw(_srcv)
+                            _e = ("expr", "+" if mn == "add" else "-",
+                                  _srcv, _sh, _ty0)
+                            if mn == "add":
+                                state[wreg(dst)] = _e
+                            else:
+                                state[wreg(dst)] = ("expr", "-", _e,
+                                                    ("imm", 0, _ty0), _ty0)
+                            continue
                         bid, breal = resolve_base(src)
                         if breal:
                             used_args.add(bid)

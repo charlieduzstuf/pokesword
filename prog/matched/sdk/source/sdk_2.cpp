@@ -3309,6 +3309,9 @@ uint32_t sdk_f_fc840(void* a0) {
     return 0;
 }
 
+// sub_10dc00  (orig 0x10dc00, straight-line)
+uint32_t sdk_f_10dc00(uint32_t a0) { return ((18439) + (((((uint32_t)a0)) << 11))) & (4294965248); }
+
 // sub_10fae0  (orig 0x10fae0, straight-line)
 uint32_t sdk_f_10fae0(uint32_t a0) { return ((22535) + ((((uint32_t)a0)) * (10240))) & (4294965248); }
 
@@ -7079,7 +7082,4 @@ void sdk_f_31a1c0() {}
 
 // sub_31a8f0  (orig 0x31a8f0, ret_only)
 void sdk_f_31a8f0() {}
-
-// sub_31abb0  (orig 0x31abb0, ret_only)
-void sdk_f_31abb0() {}
 

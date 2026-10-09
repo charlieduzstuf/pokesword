@@ -2094,7 +2094,7 @@
 0x00000000000ece60,sub_ece60,164,_ZN7subsdk09sub_ece60Ev!
 0x00000000000ecf10,sub_ecf10,1636,_ZN7subsdk09sub_ecf10Ev!
 0x00000000000ed580,sub_ed580,28,_ZN7subsdk023sub_ed580_subsdk0_ed580Ev!
-0x00000000000ed5a0,sub_ed5a0,16,_ZN7subsdk09sub_ed5a0Ev!
+0x00000000000ed5a0,sub_ed5a0,16,_Z15subsdk0_f_ed5a0j
 0x00000000000ed5b0,sub_ed5b0,136,_ZN7subsdk09sub_ed5b0Ev!
 0x00000000000ed640,sub_ed640,408,_ZN7subsdk09sub_ed640Ev!
 0x00000000000ed7e0,sub_ed7e0,316,_ZN7subsdk09sub_ed7e0Ev!

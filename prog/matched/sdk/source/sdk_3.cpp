@@ -1,4 +1,4 @@
-/* sdk -- 1524 functions verified to match the original.
+/* sdk -- 1527 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,9 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_31abb0  (orig 0x31abb0, ret_only)
+void sdk_f_31abb0() {}
 
 // sub_31b170  (orig 0x31b170, straight)
 void sdk_f_31b170(void* a0, void* a1) {
@@ -2958,6 +2961,18 @@ uint32_t sdk_f_411db0() { return 4; }
 
 // sub_411dc0  (orig 0x411dc0, mov_ret)
 uint32_t sdk_f_411dc0() { return 128; }
+
+// sub_411e40  (orig 0x411e40, straight-line)
+uint8_t sdk_f_411e40(void* a0, uint32_t a1) {
+    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 16)) + (((uint32_t)a1))));
+    return *(uint8_t*)((char*)(p0) + 1764);
+}
+
+// sub_411e50  (orig 0x411e50, straight-line)
+uint8_t sdk_f_411e50(void* a0, uint32_t a1) {
+    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 16)) + (((uint32_t)a1))));
+    return *(uint8_t*)((char*)(p0) + 1768);
+}
 
 // sub_411e60  (orig 0x411e60, getter-chain)
 uint8_t sdk_f_411e60(void* a0) { return *(uint8_t*)((char*)((*(uint64_t*)((char*)(a0) + 16))) + 1772); }

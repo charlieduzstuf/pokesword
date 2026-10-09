@@ -43438,6 +43438,42 @@
    "src": "int64_t f_40baf0(uint64_t unused0, uint32_t a1, uint32_t a2) { return (((int64_t)(((int32_t)((((uint32_t)a1)) | (((((uint32_t)a2)) << 20))))))) | (4294967296); }\n",
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "module": "sdk",
+   "addr": 1104896,
+   "size": 16,
+   "name": "sub_10dc00",
+   "shape": "straight-line",
+   "ident": "f_10dc00",
+   "sig": "j",
+   "src": "uint32_t f_10dc00(uint32_t a0) { return ((18439) + (((((uint32_t)a0)) << 11))) & (4294965248); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "sdk",
+   "addr": 4267584,
+   "size": 16,
+   "name": "sub_411e40",
+   "shape": "straight-line",
+   "ident": "f_411e40",
+   "sig": "Pvj",
+   "src": "uint8_t f_411e40(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 16)) + (((uint32_t)a1))));\n    return *(uint8_t*)((char*)(p0) + 1764);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "sdk",
+   "addr": 4267600,
+   "size": 16,
+   "name": "sub_411e50",
+   "shape": "straight-line",
+   "ident": "f_411e50",
+   "sig": "Pvj",
+   "src": "uint8_t f_411e50(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 16)) + (((uint32_t)a1))));\n    return *(uint8_t*)((char*)(p0) + 1768);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

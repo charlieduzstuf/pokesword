@@ -2279,8 +2279,8 @@ void sub_411dd0() { /* 0x411dd0 */ }
 void sub_411df0_sdk_411df0() { /* 0x411df0 */ }
 void sub_411e10() { /* 0x411e10 */ }
 void sub_411e30() { /* 0x411e30 */ }
-void sub_411e40() { /* 0x411e40 */ }
-void sub_411e50() { /* 0x411e50 */ }
+// sub_411e40: implemented in prog/matched/sdk/
+// sub_411e50: implemented in prog/matched/sdk/
 // sub_411e60: implemented in prog/matched/sdk/
 // sub_411e70: implemented in prog/matched/sdk/
 // sub_411e80: implemented in prog/matched/sdk/

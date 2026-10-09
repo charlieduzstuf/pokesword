@@ -294007,6 +294007,18 @@
    "src": "uint8_t f_1685920(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int64_t)(((int32_t)(((uint32_t)a1)))))) * 64)));\n    return *(uint8_t*)((char*)(p0) + 179);\n}\n",
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 18243040,
+   "size": 16,
+   "name": "sub_1165de0",
+   "shape": "straight-line",
+   "ident": "f_1165de0",
+   "sig": "Pvm",
+   "src": "uint64_t f_1165de0(void* a0, uint64_t a1) {\n    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 88)) + (((((uint64_t)a1)) << 3))));\n    return *(uint64_t*)((char*)(p0) + 112);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

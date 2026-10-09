@@ -12176,6 +12176,18 @@
    "src": "uint32_t f_211180(uint64_t unused0, void* a1, void* a2) { return (((*(uint32_t*)((char*)(a2)) < *(uint32_t*)((char*)(a1))) ? 1 : 0)) - (((*(uint32_t*)((char*)(a1)) < *(uint32_t*)((char*)(a2))) ? 1 : 0)); }\n",
    "orig_insns": 8,
    "new_insns": 8
+  },
+  {
+   "module": "subsdk0",
+   "addr": 972192,
+   "size": 16,
+   "name": "sub_ed5a0",
+   "shape": "straight-line",
+   "ident": "f_ed5a0",
+   "sig": "j",
+   "src": "uint32_t f_ed5a0(uint32_t a0) { return ((18439) + (((((uint32_t)a0)) << 11))) & (4294965248); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

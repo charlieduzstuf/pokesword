@@ -900,7 +900,7 @@ void sub_1165890() { /* 0x1165890 */ }
 void sub_11659b0() { /* 0x11659b0 */ }
 void sub_1165d10() { /* 0x1165d10 */ }
 void sub_1165dc0() { /* 0x1165dc0 */ }
-void sub_1165de0() { /* 0x1165de0 */ }
+// sub_1165de0: implemented in prog/matched/main/
 void sub_1165df0() { /* 0x1165df0 */ }
 void sub_1166030() { /* 0x1166030 */ }
 void sub_11663b0() { /* 0x11663b0 */ }

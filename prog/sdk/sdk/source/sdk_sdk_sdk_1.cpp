@@ -2814,7 +2814,7 @@ void sub_10d490() { /* 0x10d490 */ }
 void sub_10d4c0() { /* 0x10d4c0 */ }
 void sub_10d570() { /* 0x10d570 */ }
 void sub_10dbe0() { /* 0x10dbe0 */ }
-void sub_10dc00() { /* 0x10dc00 */ }
+// sub_10dc00: implemented in prog/matched/sdk/
 void sub_10dc10() { /* 0x10dc10 */ }
 void sub_10dca0() { /* 0x10dca0 */ }
 void sub_10de40() { /* 0x10de40 */ }

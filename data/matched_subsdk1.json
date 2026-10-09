@@ -18590,6 +18590,42 @@
    "src": "void f_33a9a0(void* a0, void* a1, void* a2) {\n    *(uint32_t*)((char*)(a0)) = (uint32_t)(((int32_t)(((int8_t)((*(uint32_t*)((char*)(a1))) * (*(uint32_t*)((char*)(a2))))))));\n}\n",
    "orig_insns": 6,
    "new_insns": 6
+  },
+  {
+   "module": "subsdk1",
+   "addr": 2242320,
+   "size": 20,
+   "name": "sub_223710",
+   "shape": "straight-line",
+   "ident": "f_223710",
+   "sig": "PvjS_",
+   "src": "uint32_t f_223710(void* a0, uint32_t a1, void* a2) { return (((((uint32_t)a1)) - (*(uint32_t*)((char*)(a2) + 56))) - (((*(uint32_t*)((char*)(a0) + 136)) << 2))) - (0); }\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk1",
+   "addr": 5036624,
+   "size": 16,
+   "name": "sub_4cda50",
+   "shape": "straight-line",
+   "ident": "f_4cda50",
+   "sig": "Pvj",
+   "src": "uint8_t f_4cda50(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 16)) + (((uint32_t)a1))));\n    return *(uint8_t*)((char*)(p0) + 1764);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "subsdk1",
+   "addr": 5036640,
+   "size": 16,
+   "name": "sub_4cda60",
+   "shape": "straight-line",
+   "ident": "f_4cda60",
+   "sig": "Pvj",
+   "src": "uint8_t f_4cda60(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 16)) + (((uint32_t)a1))));\n    return *(uint8_t*)((char*)(p0) + 1768);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

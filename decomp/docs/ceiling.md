@@ -467,3 +467,29 @@ Two process failures in one:
 Reasonable instinct, wrong C semantics. The general rule: when a guard would
 decline hundreds of bodies on a semantic argument, that argument has to earn a
 measurement before it earns a refusal.
+
+
+## A guard that exists in one call site is a coincidence, not a fix
+
+The pointer check (`base_args`) was written for `add`/`sub`, after a candidate
+doing `(uint32_t)a1 - (uint32_t)a0` killed 125 sdk candidates. The next handler
+I added -- division -- re-introduced the identical defect:
+
+    *(uint32_t*)((char*)(a0)+132) = (... (uint32_t)((char*)(a1) - 1) / ...
+
+    error: cast from pointer to smaller type 'uint32_t' loses information
+
+and took **700+ main candidates** with it, so `main` reported no MATCH line at
+all. Same cause, same shape, different handler, and the guard was already written
+and justified one function away.
+
+The lesson is not "add more guards". It is that a precondition which only one
+call site happens to apply is not a precondition -- it is a coincidence that
+covered the path that happened to be tested. Both arithmetic handlers now consult
+the same set, and the reasoning lives next to the check rather than at the call
+site that first needed it.
+
+The margin is worth stating plainly: one missing guard separates "declines one
+body" from "loses the module'. Every hand-written verifier here should be read
+with that in mind, because the failure is loud but the *cause* is one handler
+away from the fix.

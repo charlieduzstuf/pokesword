@@ -1,4 +1,4 @@
-/* subsdk0 -- 977 functions verified to match the original.
+/* subsdk0 -- 978 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -761,6 +761,9 @@ void subsdk0_f_e61a0(void* a0, uint64_t a1, uint64_t a2) {
     *(uint32_t*)((char*)(a0) + 8) = (uint32_t)(a2);
     *(uint64_t*)((char*)(a0) + 44) = (uint64_t)k0;
 }
+
+// sub_ed5a0  (orig 0xed5a0, straight-line)
+uint32_t subsdk0_f_ed5a0(uint32_t a0) { return ((18439) + (((((uint32_t)a0)) << 11))) & (4294965248); }
 
 // sub_ef480  (orig 0xef480, straight-line)
 uint32_t subsdk0_f_ef480(uint32_t a0) { return ((22535) + ((((uint32_t)a0)) * (10240))) & (4294965248); }

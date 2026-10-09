@@ -3329,8 +3329,8 @@ void sub_4cd9e0_subsdk1_4cd9e0() { /* 0x4cd9e0 */ }
 void sub_4cda00() { /* 0x4cda00 */ }
 void sub_4cda20() { /* 0x4cda20 */ }
 void sub_4cda40() { /* 0x4cda40 */ }
-void sub_4cda50() { /* 0x4cda50 */ }
-void sub_4cda60() { /* 0x4cda60 */ }
+// sub_4cda50: implemented in prog/matched/subsdk1/
+// sub_4cda60: implemented in prog/matched/subsdk1/
 // sub_4cda70: implemented in prog/matched/subsdk1/
 // sub_4cda80: implemented in prog/matched/subsdk1/
 // sub_4cda90: implemented in prog/matched/subsdk1/

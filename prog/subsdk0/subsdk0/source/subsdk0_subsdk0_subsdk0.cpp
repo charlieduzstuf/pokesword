@@ -2091,7 +2091,7 @@ void sub_ece30() { /* 0xece30 */ }
 void sub_ece60() { /* 0xece60 */ }
 void sub_ecf10() { /* 0xecf10 */ }
 void sub_ed580_subsdk0_ed580() { /* 0xed580 */ }
-void sub_ed5a0() { /* 0xed5a0 */ }
+// sub_ed5a0: implemented in prog/matched/subsdk0/
 void sub_ed5b0() { /* 0xed5b0 */ }
 void sub_ed640() { /* 0xed640 */ }
 void sub_ed7e0() { /* 0xed7e0 */ }

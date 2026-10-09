@@ -2583,6 +2583,12 @@ void main_f_1165020(void* a0, uint32_t a1) {
     *(uint8_t*)((char*)(a0) + 104) = (uint8_t)((((uint32_t)a1)) & (1));
 }
 
+// sub_1165de0  (orig 0x1165de0, straight-line)
+uint64_t main_f_1165de0(void* a0, uint64_t a1) {
+    void* p0 = (void*)((uintptr_t)((*(uint64_t*)((char*)(a0) + 88)) + (((((uint64_t)a1)) << 3))));
+    return *(uint64_t*)((char*)(p0) + 112);
+}
+
 // sub_1167c30  (orig 0x1167c30, straight)
 void* main_f_1167c30(void* a0) {
     void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 88));
@@ -7427,7 +7433,4 @@ void main_f_128a2e0() {}
 
 // sub_128a2f0  (orig 0x128a2f0, copy2)
 void main_f_128a2f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_128a300  (orig 0x128a300, copy2)
-void main_f_128a300(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
