@@ -60,6 +60,130 @@ HERE = os.path.join(ROOT, "tools")
 WORK = os.path.join(ROOT, "work")
 PIDFILE = os.path.join(WORK, "ping_watchdog.pid")
 STAMP = os.path.join(WORK, "ping_watchdog.json")
+
+# The session ping chain: tools/heartbeat.py --rearm.
+#
+# Each beat starts its own successor before exiting, so the chain continues
+# without anything having to relaunch it. That covers a lost wake -- the failure
+# that kept ending the session -- but not the case where *every* heartbeat dies:
+# nothing is left to replace them. This file is that replacement, which makes the
+# ping four tiers deep:
+#
+#   ping_watchdog (this)  -> restarts a stale heartbeat chain
+#     ping_supervisor    -> restarts the decomp loop
+#       keepalive --loop
+#     heartbeat --rearm  -> restarts itself, every beat
+#
+# Staleness is judged on the recorded timestamp, not on the pid alone. A live pid
+# whose last beat is minutes old is wedged, and a pid check cannot see that.
+PING_CHAINFILE = os.path.join(WORK, "ping_chain.json")
+PING_STALE_FACTOR = 4.0        # no beat for this many intervals => restart
+PING_MIN_STALE = 180           # ...but never sooner than this, in seconds
+PING_DEFAULT_INTERVAL = 60
+# Restart-rate limits. A supervisor that can spawn without bound is worse than no
+# supervisor: a missing or unwritable state file would become a process factory.
+RESTARTFILE = os.path.join(WORK, "ping_restarts.txt")
+PING_RESTART_FLOOR = 300         # seconds
+PING_RESTART_MAX = 3             # restarts allowed inside that window
+
+
+def ping_chain_state():
+    """-> (alive, age_seconds, interval, beat). Never raises."""
+    try:
+        with open(PING_CHAINFILE, encoding="utf-8") as f:
+            d = json.load(f)
+    except (OSError, ValueError):
+        return False, None, PING_DEFAULT_INTERVAL, None
+    pid = d.get("pid")
+    age = None
+    now = time.time()
+    for k in ("at_epoch",):
+        if d.get(k):
+            age = now - float(d[k])
+    if age is None:
+        # Only a spawn stamp. Treat the absence of a beat stamp as "pending" and
+        # fall back to the spawn time, which is still a lower bound on the age.
+        return bool(pid), None, int(d.get("interval") or PING_DEFAULT_INTERVAL), None
+    return bool(pid and alive(pid)), age, \
+        int(d.get("interval") or PING_DEFAULT_INTERVAL), d.get("beat")
+
+
+def ensure_ping_chain(interval=PING_DEFAULT_INTERVAL):
+    """Start a heartbeat chain if none is running. Returns a status line.
+
+    Refuses to start a second one while the recorded chain is fresh, so a
+    watchdog restart loop cannot turn into a fleet of heartbeats.
+    """
+    up, age, cur_iv, beat = ping_chain_state()
+    limit = max(PING_MIN_STALE, cur_iv * PING_STALE_FACTOR)
+    if up and age is not None and age < limit:
+        return "ping chain: alive, last beat %ss ago (limit %ss)" % (age, limit)
+    # Restart floor. A chain that has just been restarted is silent for a whole
+    # interval by design, so a stale reading immediately after a restart must not
+    # trigger another one. Cheap insurance against a supervisor that turns a
+    # missing file into a process factory.
+    recent = []
+    try:
+        with open(RESTARTFILE, encoding="utf-8") as f:
+            recent = [float(x) for x in f.read().split() if x.strip()]
+    except (OSError, ValueError):
+        recent = []
+    now = time.time()
+    recent = [x for x in recent if now - x < PING_RESTART_FLOOR]
+    if len(recent) >= PING_RESTART_MAX:
+        return ("ping chain: %d restarts within %ss -- NOT restarting again. "
+                "The chain is failing to report; restarting harder will not fix "
+                "it and will fork processes."
+                % (len(recent), PING_RESTART_FLOOR))
+    print("  ping chain stale (alive=%s age=%s limit=%ss) -- restarting"
+          % (up, age, limit))
+    try:
+        log = open(os.path.join(ROOT, "work", "ping.log"), "a", encoding="utf-8")
+    except OSError as e:
+        return "ping chain: cannot open ping.log: %s" % e
+    kw = {}
+    if os.name == "nt":
+        kw["creationflags"] = subprocess.CREATE_NO_WINDOW
+    else:
+        kw["start_new_session"] = True
+    argv = [sys.executable, os.path.join(HERE, "heartbeat.py"),
+            "--rearm", "--interval", str(interval)]
+    try:
+        env = dict(os.environ, POKESWORD_BEAT=str(interval))
+        proc = subprocess.Popen(argv, cwd=ROOT, stdout=log,
+                                stderr=subprocess.STDOUT, env=env, **kw)
+        line = "ping chain: restarted, pid %d, interval %ds" % (proc.pid, interval)
+        # Record the spawn here, not only after the successor's first beat.
+        #
+        # `heartbeat.py` sleeps a full interval before its first beat, so for that
+        # whole minute the chain file did not exist and `ping_chain_state` reported
+        # "no chain". This supervisor's answer to that is to restart -- and it
+        # restarts on *every pass*, so a watchdog whose child exits quickly would
+        # spawn a fresh heartbeat every few seconds. It was not observed doing so
+        # only because the decomp child happens to run for minutes between passes,
+        # which is luck, not a design.
+        #
+        # Recording the spawn closes the window: a chain exists from the moment it
+        # is started, and `PING_MIN_STALE` then governs how long it may be silent.
+        json.dump({"pid": proc.pid, "at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                   "at_epoch": time.time(), "interval": interval,
+                   "beat": None, "started_by": "watchdog"},
+                  open(PING_CHAINFILE, "w", encoding="utf-8"))
+    except Exception as e:                    # noqa: BLE001
+        line = "ping chain: restart failed: %s: %s" % (type(e).__name__, e)
+    finally:
+        try:
+            log.close()
+        except OSError:
+            pass
+    try:
+        recent.append(now)
+        with open(RESTARTFILE, "w", encoding="utf-8") as f:
+            f.write(" ".join("%.0f" % x for x in recent))
+    except OSError:
+        pass
+    print("  " + line)
+    return line
 LOGFILE = os.path.join(WORK, "ping.log")
 
 # Detached children: no console, not in our process group.
@@ -289,6 +413,15 @@ def status():
     if not rows[0][2]:
         print("  CHAIN DEGRADED -- watchdog dead, nothing can restart the rest")
         return 1
+    up, age, iv, beat = ping_chain_state()
+    print("  %-16s %-8s %-7s %-12s %s"
+          % ("ping", "chain", "yes" if up else "NO",
+             ("%.0fs" % age) if age is not None else "-",
+             "beat %s, every %ds" % (beat, iv)))
+    if not up or (age is not None and age > max(PING_MIN_STALE, iv * PING_STALE_FACTOR)):
+        print("  PING STALE -- watchdog was not started with --with-ping, or the "
+              "chain died")
+        return 1
     return 0
 
 
@@ -355,7 +488,8 @@ def selftest():
 # the supervise loop
 # --------------------------------------------------------------------------
 
-def supervise(argv, restart_delay, max_delay):
+def supervise(argv, restart_delay, max_delay,
+             with_ping=False, ping_interval=PING_DEFAULT_INTERVAL):
     """Relaunch `argv` forever. Nothing in here may raise."""
     log("watchdog: supervising: %s" % " ".join(argv[1:]))
     restarts = 0
@@ -404,6 +538,15 @@ def supervise(argv, restart_delay, max_delay):
             except Exception:                   # noqa: BLE001
                 pass
         try:
+            # Tier 4: keep the session ping alive. Checked on every pass rather
+            # than on a timer of its own, so it cannot itself become the thing
+            # that needs watching -- this loop has already proven it survives.
+            if with_ping:
+                try:
+                    ensure_ping_chain(ping_interval)
+                except Exception as e:          # noqa: BLE001
+                    print("watchdog: ping check failed: %s: %s"
+                          % (type(e).__name__, e))
             time.sleep(delay)
         except KeyboardInterrupt:
             break
@@ -419,6 +562,10 @@ def main():
                     help="status + sync only, no decompilation slice")
     ap.add_argument("--restart-delay", type=int, default=5)
     ap.add_argument("--max-delay", type=int, default=300)
+    ap.add_argument("--with-ping", action="store_true",
+                    help="also keep the session heartbeat chain alive "
+                         "(tier 4); the default is to leave the ping alone")
+    ap.add_argument("--ping-interval", type=int, default=PING_DEFAULT_INTERVAL)
     ap.add_argument("--arm", action="store_true",
                     help="start a detached watchdog (idempotent)")
     ap.add_argument("--stop", action="store_true")
@@ -426,6 +573,8 @@ def main():
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
 
+    with_ping = a.with_ping
+    ping_interval = a.ping_interval
     if a.status:
         return status()
     if a.selftest:
@@ -447,7 +596,10 @@ def main():
         argv = [sys.executable, os.path.abspath(__file__),
                 "--interval", str(a.interval),
                 "--restart-delay", str(a.restart_delay),
-                "--max-delay", str(a.max_delay)]
+                "--max-delay", str(a.max_delay),
+                "--ping-interval", str(a.ping_interval)]
+        if a.with_ping:
+            argv.append("--with-ping")
         if a.work:
             argv += ["--work", a.work]
         if a.fast:
@@ -473,8 +625,11 @@ def main():
     ignore_ctrl_events()
     with open(PIDFILE, "w", encoding="utf-8") as f:
         f.write(str(os.getpid()))
+    if with_ping:
+        ensure_ping_chain(ping_interval)
     return supervise(tier2_argv(a.interval, a.work, a.fast),
-                     a.restart_delay, a.max_delay)
+                     a.restart_delay, a.max_delay,
+                     with_ping=with_ping, ping_interval=ping_interval)
 
 
 if __name__ == "__main__":

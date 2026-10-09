@@ -179,9 +179,19 @@ def spawn_successor(interval):
         except OSError:
             pass
     try:
+        # Carry the beat number forward instead of nulling it. The spawn record
+        # and the beat record are two writers of one file, and nulling the number
+        # here meant `--status` reported "beat None" for the whole interval between
+        # a spawn and its first beat -- which is precisely when someone checks
+        # whether the ping is alive.
+        try:
+            _cur = json.load(open(os.path.join(ROOT, "work", "beat_count.json")))
+            _beat = _cur.get("n")
+        except Exception:
+            _beat = None
         json.dump({"pid": proc.pid, "at": datetime.datetime.now().isoformat(),
                    "at_epoch": time.time(), "interval": interval,
-                   "beat": None},
+                   "beat": _beat},
                   open(CHAINFILE, "w", encoding="utf-8"))
     except OSError as e:
         print("heartbeat: could not record the successor: %s" % e)
