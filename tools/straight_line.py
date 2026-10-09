@@ -119,6 +119,49 @@ MAX_ARG = 7           # AArch64 passes integer/pointer arguments in x0..x7.
                       # above this bound and not here.
 # Synthetic base ids for loaded pointers. Kept far above any real argument
 # number so `id < SYNTH_BASE` distinguishes them without a second type.
+# Multiply family, and the exact operation each one performs.
+#
+# The single largest remaining decline class among the bodies that are otherwise
+# addressable: 216 of the 2,264 "free of calls, branches, frames and adrp"
+# unmatched bodies fail on nothing but these mnemonics.
+#
+# The signedness and width distinctions are the whole point. These are not one
+# operation with nine spellings:
+#
+#   mul   xD, xN, xM      xD = xN * xM                 64-bit low half
+#   mul   wD, wN, wM      wD = wN * wM                 32-bit low half, zeroes xD
+#   madd  xD, xN, xM, xA  xD = xN * xM + xA
+#   msub  xD, xN, xM, xA  xD = xA - xN * xM
+#   mneg  xD, xN, xM      xD = -(xN * xM)
+#   smull xD, wN, wM      xD = (int64)wN * (int64)wM   SIGNED 32x32 -> 64
+#   umull xD, wN, wM      xD = (uint64)wN * (uint64)wM UNSIGNED 32x32 -> 64
+#   smaddl/umaddl         the 32x32->64 product, added to / subtracted from xA
+#   smsubl/umsubl         xA - product
+#
+# `mul` on a `w` register is NOT a 32x32->64 multiply: it keeps the low 32 bits
+# and zeroes the top half, which is `(uint32_t)(a * b)` and not `(uint64_t)a * b`.
+# Getting that wrong changes the instruction, not just the value.
+#
+# `umull` with a signed C type is the classic silent error: `int64_t * int64_t`
+# emits a signed multiply and Clang will fold the sign extension differently than
+# the zero extension the instruction performs. The operand types therefore have to
+# be pinned per mnemonic, not inferred from the register class.
+MUL_MNEMONICS = ("mul", "madd", "msub", "mneg",
+                 "smull", "umull", "smaddl", "umaddl", "smsubl", "umsubl")
+# mnem -> (C operator, accumulator is subtracted?, 32x32->64 widening?)
+MUL_OPS = {
+    "mul":   ("*", False, False),
+    "madd":  ("*", False, False),
+    "msub":  ("*", True,  False),
+    "mneg":  ("*", True,  False),
+    "smull": ("*", False, True),
+    "umull": ("*", False, True),
+    "smaddl": ("*", False, True),
+    "umaddl": ("*", False, True),
+    "smsubl": ("*", True,  True),
+    "umsubl": ("*", True,  True),
+}
+
 SYNTH_BASE = 1000
 # Hidden struct-return pointer id. Distinct from every synthetic pointer.
 SRET_ID = 999
@@ -311,6 +354,8 @@ def _rw(v):
         return v[2] if len(v) > 2 else "void*"
     if k == "argval":
         return v[2]
+    if k == "cast":
+        return v[1]
     if k == "un":
         return v[3]
     # `addr`/`addr_i` render as `char *` expressions, so the result type has to
@@ -375,7 +420,8 @@ class StraightLine:
                     and i.mnemonic not in ("add", "mov", "sub")
                     and i.mnemonic not in BITWISE_MNEMONICS
                     and i.mnemonic not in FLAG_MNEMONICS
-                    and i.mnemonic not in COND_MNEMONICS):
+                    and i.mnemonic not in COND_MNEMONICS
+                    and i.mnemonic not in MUL_MNEMONICS):
                 raise Bail("unsupported mnemonic %r" % (i.mnemonic,))
 
         state = {}
@@ -810,6 +856,77 @@ class StraightLine:
                     continue
                 raise Bail("%s with %d operands is not modelled" % (mn, len(ops2)))
 
+            # Multiply family. See MUL_OPS for why these are nine operations and
+            # not one.
+            #
+            # Every operand is resolved with the same rule as add/sub: a value in
+            # `state` if there is one, otherwise `_value_arg`, because an incoming
+            # argument has no state entry and requiring one declined every
+            # `mul x8, x8, x1`-shaped body as "not a known register".
+            if mn in MUL_MNEMONICS:
+                ops = split_ops(i.op_str)
+                op_sym, acc_sub, widening = MUL_OPS[mn]
+                nops = len(ops)
+                if nops == 3 and mn in ("mul", "mneg", "smull", "umull"):
+                    dst, o1, o2 = ops
+                    acc = None
+                elif nops == 4 and mn in ("madd", "msub", "smaddl", "umaddl",
+                                          "smsubl", "umsubl"):
+                    dst, o1, o2, acc = ops
+                else:
+                    raise Bail("%s with %d operands is not modelled" % (mn, nops))
+
+                # Operand type. A 32x32->64 widening instruction multiplies its
+                # *32-bit* operands, and the signedness it names is the
+                # signedness of the multiply itself -- so `umull` of two values
+                # held in int64_t would ask Clang for a signed multiply and fold
+                # the sign extension where the instruction zero-extends. The
+                # operand types are therefore forced from the mnemonic.
+                if widening:
+                    src_ct, dst_ct = (("int32_t", "int64_t")
+                                      if mn.startswith("s")
+                                      else ("uint32_t", "uint64_t"))
+                else:
+                    # `mul wD, wN, wM` keeps the low 32 bits; `mul xD,...` is 64.
+                    is32 = dst.strip().startswith("w")
+                    src_ct = "uint32_t" if is32 else "uint64_t"
+                    dst_ct = src_ct
+
+                def _operand(reg):
+                    """A multiply operand as an `expr`, retyped if it is an arg."""
+                    v = state.get(wreg(reg))
+                    if v is None:
+                        v = self._value_arg(reg, used_args, idx_args, ptr_args)
+                    if v is None:
+                        raise Bail("%s operand %r is not a value" % (mn, reg))
+                    if v[0] not in ("load", "expr", "arg", "argval", "imm"):
+                        raise Bail("%s on a %r value is not value arithmetic"
+                                   % (mn, v[0]))
+                    return v
+
+                a = _operand(o1)
+                b = _operand(o2)
+                # The product. For the widening forms the casts are load-bearing:
+                # they are the sign/zero extension the instruction performs.
+                if widening:
+                    prod = ("expr", "*",
+                            ("cast", src_ct, a),
+                            ("cast", src_ct, b),
+                            dst_ct)
+                else:
+                    prod = ("expr", op_sym, a, b, _rw(a))
+
+                if acc is None:
+                    state[wreg(dst)] = prod
+                else:
+                    c = _operand(acc)
+                    # msub/smsubl/umsubl/mneg compute acc - product; madd/smaddl/
+                    # umaddl compute product + acc. Getting this backwards is an
+                    # arithmetic bug that still compiles, which is the worst kind.
+                    op = "-" if acc_sub else "+"
+                    state[wreg(dst)] = ("expr", op, c, prod, _rw(c))
+                continue
+
             if mn in ("add", "sub"):
                 #     add x8, x0, #0x10        x8 = x0 + 0x10   (address arith)
                 #     sub w0, w8, #1           w0 = w8 - 1      (value arith)
@@ -1068,7 +1185,8 @@ class StraightLine:
             # real names, so this only works in `_emit` -- which is exactly where
             # the result is needed.
             _, op, s1, s2, ct = val
-            _ct1, _e1 = self._render(s1, names)
+            _ct1, _e1 = self._render(s1, names) if isinstance(s1, tuple) \
+                else (None, s1)
             if isinstance(s2, tuple):
                 if s2[0] == "shift":
                     _c2, _e2 = self._render(s2[3], names)
@@ -1078,6 +1196,14 @@ class StraightLine:
                         _e2 = "((uint32_t)(%s))" % _e2
                     elif s2[1] == "sxtw":
                         _e2 = "((int32_t)(%s))" % _e2
+                elif s2[0] == "cast":
+                    # A widening multiply's operand. The cast IS the sign or
+                    # zero extension the instruction performs, so it is rendered
+                    # explicitly rather than left to C's usual arithmetic
+                    # conversions -- which would promote both operands to the
+                    # result type and turn `umull` into a signed multiply.
+                    _c2, _e2 = self._render(s2[2], names)
+                    _e2 = "((%s)(%s))" % (s2[1], _e2)
                 else:
                     _c2, _e2 = self._render(s2, names)
             else:
