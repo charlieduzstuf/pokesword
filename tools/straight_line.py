@@ -697,6 +697,26 @@ class StraightLine:
                                        % (mn, ops[1]))
                 if _a[0] in ("addr", "addr_i"):
                     raise Bail("%s on an address value" % (mn,))
+                # The compared-against operand must not be a pointer.
+                #
+                # `_value_arg` refuses an argument already claimed as a memory
+                # base, which is what normally keeps `void* a0` out of integer
+                # arithmetic. The shifted-immediate path resolves its own operand
+                # and bypassed that, so `cmp w8, w0, lsl #n` produced
+                #
+                #     (uint32_t)a1 - (uint32_t)a0
+                #
+                # i.e. pointer arithmetic on a `void*`, which is
+                # `error: cast from pointer to smaller type 'uint32_t' loses
+                # information` and killed a 125-candidate sdk batch. The declining
+                # translator is honest; the one that emits invalid C takes the
+                # whole batch with it, so this check has to run before emission.
+                if isinstance(_b, tuple) and _b[0] in ("addr", "addr_i"):
+                    raise Bail("%s compares a value against an address" % (mn,))
+                if isinstance(_b, tuple) and _b[0] == "shift" \
+                        and isinstance(_b[3], tuple) \
+                        and _b[3][0] in ("addr", "addr_i"):
+                    raise Bail("%s compares a value against an address" % (mn,))
                 flags = (mn, _a, _b)
                 continue
 
@@ -1375,6 +1395,28 @@ class StraightLine:
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s1[0],))
                 if s2[0] not in ("load", "expr", "arg", "argval", "imm"):
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s2[0],))
+                # `arg` is allowed above because an argument used as an integer is
+                # a parameter -- but an argument *declared* `void*` is a pointer,
+                # and arithmetic on one is a different program:
+                #
+                #     sub w8, w1, w0        with a0 = void*
+                #       ->  (uint32_t)a1 - (uint32_t)a0
+                #       ->  error: cast from pointer to smaller type 'uint32_t'
+                #           loses information
+                #
+                # That error is a *compile* error, so it does not decline this one
+                # body -- it fails the whole batch it was compiled in. One such
+                # candidate cost 125 sdk candidates, and the module reported no
+                # MATCH line at all, which reads as "the compiler disagrees" rather
+                # than "the generator emitted invalid C".
+                #
+                # The check is on the value's own declared type, which is the only
+                # place the distinction exists: `("arg", n)` carries `void*` for a
+                # base argument and `uint64_t` otherwise.
+                for _v, _lbl in ((s1, "first"), (s2, "second")):
+                    if _v[0] == "arg" and len(_v) > 2 and _v[2] == "void*":
+                        raise Bail("%s operand is a pointer; add/sub cannot "
+                                   "subtract or add it as an integer" % _lbl)
                 op = "+" if mn == "add" else "-"
                 if len(ops) == 4 and ext_op is not None:
                     s2 = ("shift", ext_op, shift, s2)

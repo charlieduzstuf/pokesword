@@ -306,3 +306,39 @@ Clang codegen question: the C reads the same and compiles differently.
 Result on `main`: `447 -> 480`. Operand order was checked and is not a factor --
 `acc + p`, `p + acc` and a product-first form all emit the same fused
 instruction.
+
+
+## A decline message that names the wrong thing sends you after the wrong blocker
+
+The census for a long time reported its largest remaining class as:
+
+    90  memory base 'wzr' is not an argument register
+    42  memory base 'xzr' is not an argument register
+
+"Absolute address" -- which is the `adrp` blocker, the data-symbol problem, the
+thing already known to need a linked symbol that does not exist for a stripped
+retail module. So that was where the investigation went.
+
+The instruction was not a memory access at all:
+
+    csinv  w0, w8, wzr, eq      ; w8 ? 0 : w8
+
+`wzr` is the *false arm of a conditional select*, meaning the constant 0. The
+error came from `_value_arg` handing it to `arg_reg`, whose message asserted it
+was a memory base regardless of what the caller was actually resolving. A
+register named in an error that is not a register in that instruction is worse
+than no message: it is a confident false lead, and it was the largest number on
+the list.
+
+The same bug appeared as `operand 'ne' is not an argument register` -- a
+*condition code* reported as a register. `cinc Rd, Rn, cond` is the 3-operand
+spelling; only the 4-operand `csinc` form was handled, so `ne` fell into the
+operand slot.
+
+`arg_reg` now reports what it was given, and treats a zero register as the
+constant it is. The whole `wzr`/`xzr` class -- 132 bodies, the largest remaining
+decline -- was arithmetic on a conditional select, and disappeared.
+
+Corollary for the census: a decline *count* ranks the classes, but the message
+decides what you go and investigate. Read the instruction before believing the
+label.
