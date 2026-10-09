@@ -451,6 +451,77 @@ def main():
               "tools/objdump_shim.py", "tools/shim/tail.py", "tools/shim/less.py"):
         check(os.path.exists(os.path.join(ROOT, p)), "present: %s" % p)
 
+    # No tool may reference a module-level constant it does not define.
+    #
+    # Two of these shipped, in separate commits, and both were invisible:
+    #
+    #   MAX_ARG   in straight_line.py, deleted by a regex whose span was never
+    #             inspected. Three commits of a translator that raised NameError.
+    #   NOWINDOW  in keepalive.py, referenced six times by commit f5d241ed
+    #             ("stop the flashing windows") and never defined. Every tick
+    #             died with NameError, the supervisor relaunched it, and the loop
+    #             crash-looped at `rc=1 after 0s` while the percentage sat frozen.
+    #
+    # The common cause is that nothing checked the *tools*. The audit verifies
+    # stored artifacts, so a tool that is broken but not re-run looks identical
+    # to one that works. And the tick is fault-tolerant by design -- it continues
+    # past a failure rather than stopping -- which is exactly what turned a hard
+    # error into an indefinite silent one.
+    #
+    # Restricted to SHOUTING_CASE names bound nowhere in the file. That is
+    # deliberately narrow: a full scope analysis is pyflakes' job, and a
+    # hand-rolled one that false-positives would train everyone to ignore a red
+    # audit. Constants are where both real defects lived, and the check is
+    # conservative by construction -- a name assigned *anywhere* in the file
+    # counts as defined, so it cannot fire on a local.
+    import ast as _ast2
+    import builtins as _builtins2
+    _BUILTINS = set(dir(_builtins2))
+    _SHOUT = re.compile(r"^[A-Z][A-Z0-9_]*$")
+    _bad = []
+    _tools = sorted(glob.glob(os.path.join(ROOT, "tools", "*.py")))
+    for _fn in _tools:
+        _rel = os.path.relpath(_fn, ROOT).replace("\\", "/")
+        try:
+            _tree2 = _ast2.parse(io.open(_fn, encoding="utf-8").read())
+        except (OSError, SyntaxError) as _e:
+            _bad.append("%s: unreadable (%s)" % (_rel, _e))
+            continue
+        # A name counts as bound only if it is *written* somewhere. The first
+        # version of this check added every Name node, Load-context ones
+        # included, so a constant's own use marked it defined and the check
+        # could never fire -- it was verified to pass on a file with the exact
+        # defect it exists to catch. Bindings are Name in Store/Del context,
+        # function and class definitions, arguments, imports, except-aliases,
+        # and global/nonlocal declarations.
+        _bound = set(_BUILTINS)
+        for _n in _ast2.walk(_tree2):
+            if isinstance(_n, _ast2.Name):
+                if not isinstance(_n.ctx, _ast2.Load):
+                    _bound.add(_n.id)
+            elif isinstance(_n, _ast2.arg):
+                _bound.add(_n.arg)
+            elif isinstance(_n, (_ast2.FunctionDef, _ast2.AsyncFunctionDef,
+                                 _ast2.ClassDef)):
+                _bound.add(_n.name)
+            elif isinstance(_n, (_ast2.Import, _ast2.ImportFrom)):
+                for _a in _n.names:
+                    _bound.add((_a.asname or _a.name).split(".")[0])
+            elif isinstance(_n, _ast2.ExceptHandler) and _n.name:
+                _bound.add(_n.name)
+            elif isinstance(_n, (_ast2.Global, _ast2.Nonlocal)):
+                _bound.update(_n.names)
+        _hits = set()
+        for _n in _ast2.walk(_tree2):
+            if (isinstance(_n, _ast2.Name) and isinstance(_n.ctx, _ast2.Load)
+                    and _SHOUT.match(_n.id) and _n.id not in _bound):
+                _hits.add("%s:%d undefined %s" % (_rel, _n.lineno, _n.id))
+        _bad.extend(sorted(_hits))
+    _seen = sorted(set(_bad))
+    check(not _seen, "tools define every constant they reference",
+          "; ".join(_seen[:6]) if _seen else
+          "no undefined SHOUTING_CASE name in %d tool(s)" % len(_tools))
+
     # The translator must define the constants its own code references.
     #
     # Commit 4f2b63c6 deleted `MAX_ARG = 7` with a regex whose span was never
