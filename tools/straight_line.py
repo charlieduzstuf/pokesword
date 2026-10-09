@@ -414,6 +414,40 @@ def arg_reg(base):
     return n
 
 
+def base_args_of(insns):
+    """Argument registers this body uses as a memory base.
+
+    One pass over the instruction list, before any value is built.
+
+    `_value_arg` produces `("argval", n, "uint32_t")` without consulting
+    `ptr_args`, so an argument's pointer role is invisible to the arithmetic path
+    even when the body clearly treats it as one. Traced on `sdk@0x3989b0`:
+
+        sub w8, w1, w0 ; cmp x1, #0 ; csel w8, wzr, w8, eq ; strh w8, [x0, #0x16]
+
+        _value_arg('w0') -> ('argval', 0, 'uint32_t')   ptr_args=set()
+
+    and the emitted body was `(uint32_t)a1 - (uint32_t)a0` on a function whose
+    `a0` is `void*`. That is a compile error, not a mismatch, so it fails the
+    whole batch -- 125 sdk candidates, and no MATCH line for the module at all.
+
+    Computing the set up front means the arithmetic path can refuse to treat a
+    pointer as an integer, which is the only thing that makes the difference
+    between declining one body and losing a batch.
+    """
+    found = set()
+    for i in insns:
+        if "[" not in i.op_str:
+            continue
+        base = i.op_str[i.op_str.index("[") + 1:].split(",")[0].strip()
+        if base in ("sp", "xzr", "wzr"):
+            continue
+        n = reg_num(wreg(base))
+        if n is not None and n <= MAX_ARG:
+            found.add(n)
+    return found
+
+
 def check_store_order(insns):
     """Refuse a body whose deferred stores would reorder a load.
 
@@ -491,6 +525,10 @@ class StraightLine:
 
         state = {}
         ptr_args = set()      # argument registers used as a pointer
+        # ...and the same set computed from the whole body up front. `_value_arg`
+        # cannot see pointer-ness when it runs, so the arithmetic paths consult
+        # this instead. See `base_args_of`.
+        base_args = base_args_of(insns)
         used_args = set()      # every argument register the body reads
         stmts = []             # (width, base_reg, offset, value) deferred
 
@@ -1417,6 +1455,24 @@ class StraightLine:
                     if _v[0] == "arg" and len(_v) > 2 and _v[2] == "void*":
                         raise Bail("%s operand is a pointer; add/sub cannot "
                                    "subtract or add it as an integer" % _lbl)
+                    # `argval` is the same argument read as an integer, and it is
+                    # produced *without* consulting ptr_args -- traced:
+                    # `_value_arg('w0') -> ('argval', 0, 'uint32_t')` with
+                    # `ptr_args=set()`. The argument's pointer role is only
+                    # recorded later, when a store resolves it as a base, so by
+                    # the time the arithmetic runs the evidence is not in `state`.
+                    #
+                    # So the role has to be recovered from the body's own usage:
+                    # an argument used as a memory base anywhere in the body is a
+                    # pointer, and casting it to uint32_t loses information. That
+                    # is what produced
+                    #     (uint32_t)a1 - (uint32_t)a0
+                    # for `sub w8, w1, w0` in a function whose a0 is `void*`.
+                    if _v[0] == "argval" and _v[1] in base_args:
+                        raise Bail("%s operand is argument %d, which this body "
+                                   "also uses as a memory base; it is a pointer "
+                                   "and cannot be used as an integer"
+                                   % (_lbl, _v[1]))
                 op = "+" if mn == "add" else "-"
                 if len(ops) == 4 and ext_op is not None:
                     s2 = ("shift", ext_op, shift, s2)
