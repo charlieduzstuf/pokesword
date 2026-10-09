@@ -390,12 +390,27 @@ def nm(n):
 
 
 def arg_reg(base):
-    """The argument-register number for a memory base, or raise Bail."""
+    """The argument-register number for an operand used as a value or base.
+
+    Callers reach here for two different things -- a memory base and an arithmetic
+    operand -- and the failure message used to assert the first unconditionally.
+    That is how `csinv w0, w8, wzr, eq` was reported as "memory base 'wzr' is not
+    an argument register": `wzr` was the false-arm *value*, not a base, and the
+    message sent the investigation after absolute-address data symbols (the `adrp`
+    blocker) for a body containing no address at all.
+
+    A zero register is a constant, not a failed lookup, so it is reported as one
+    at every call site. The wording stays accurate about what was being resolved.
+    """
+    if base in ("xzr", "wzr"):
+        raise Bail("operand is the zero register: it means the constant 0, "
+                   "not a value in a register")
     if base == "sp":
         raise Bail("memory base is sp: a stack slot is not modelled")
     n = reg_num(wreg(base))
     if n is None or n > MAX_ARG:
-        raise Bail("memory base %r is not an argument register (x0-x%d)" % (base, MAX_ARG))
+        raise Bail("operand %r is not an argument register (x0-x%d)"
+                   % (base, MAX_ARG))
     return n
 
 
@@ -597,10 +612,40 @@ class StraightLine:
                     state[wreg(dst)] = ("cset", ops[1], flags, cty)
                     continue
                 # `csel Rd, Rn, Rm, cond` -> (cond ? Rn : Rm)
-                _x = state.get(wreg(ops[1])) or self._value_arg(ops[1], used_args, idx_args, ptr_args)
-                _y = state.get(wreg(ops[2])) or self._value_arg(ops[2], used_args, idx_args, ptr_args)
+                #
+                # The `*inc`/`*inv`/`*neg` forms differ from `csel` only in what
+                # they do to Rm when the condition is false, so they all reduce to
+                # the same `(cond ? Rn : <transformed Rm>)` shape. Handling them
+                # here rather than as separate mnemonics keeps one code path.
+                #
+                # `wzr`/`xzr` as an operand means "the constant 0", not a register
+                # with no value. `csinv w0, w8, wzr, eq` is `w8 ? 0 : w8`, and it
+                # was declined because `_value_arg` sent `wzr` to `arg_reg`, which
+                # reported "memory base 'wzr' is not an argument register" -- an
+                # error that names a *memory base* for an operand that is neither
+                # a base nor memory at all. That message sent the original
+                # investigation after absolute-address data symbols, which is the
+                # `adrp` blocker, for a body that has no address in it.
+                def _sel_operand(reg):
+                    if reg in ("xzr", "wzr"):
+                        # Width follows the destination register: `csel w0, ...,
+                        # xzr, ...` is still a 32-bit select.
+                        return ("imm", 0, cty)
+                    v = state.get(wreg(reg))
+                    if v is None:
+                        v = self._value_arg(reg, used_args, idx_args, ptr_args)
+                    return v
+                _x = _sel_operand(ops[1])
+                _y = _sel_operand(ops[2])
                 if _x is None or _y is None:
                     raise Bail("%s operands are not known values" % (mn,))
+                # The false-arm transform. `inc` adds one, `inv` and `neg`
+                # subtract, `csinv`/`csneg`/`cinv` invert. `csel` leaves it alone.
+                _neg = mn in ("csinv", "csneg", "cinv", "cneg")
+                _inc = mn in ("csinc", "cinc")
+                if _neg or _inc:
+                    _y = ("expr", "-" if _neg else "+", _y,
+                          ("imm", 1, _rw(_y)), _rw(_y))
                 state[wreg(dst)] = ("sel", ops[3], _x, _y, flags, _rw(_x))
                 continue
 
