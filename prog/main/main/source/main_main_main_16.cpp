@@ -4,6 +4,9 @@
 #include "main_main_main_16.h"
 
 namespace main {
+void sub_1091be0() { /* 0x1091be0 */ }
+void sub_1091c70() { /* 0x1091c70 */ }
+void sub_1091d00() { /* 0x1091d00 */ }
 void sub_1091d10() { /* 0x1091d10 */ }
 void sub_1091d20() { /* 0x1091d20 */ }
 void sub_1091db0() { /* 0x1091db0 */ }
@@ -4001,8 +4004,5 @@ void Play_Camp_Sleep() { /* 0x1137dc0 */ }
 void Play_Camp_Sleep_2() { /* 0x11380a0 */ }
 void sub_11383d0() { /* 0x11383d0 */ }
 void sub_1138460() { /* 0x1138460 */ }
-void sub_11386f0() { /* 0x11386f0 */ }
-void sub_11387b0() { /* 0x11387b0 */ }
-void sub_1138c70() { /* 0x1138c70 */ }
 
 }  // namespace main

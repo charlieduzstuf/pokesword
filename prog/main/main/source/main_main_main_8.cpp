@@ -4,6 +4,9 @@
 #include "main_main_main_8.h"
 
 namespace main {
+void sub_8aa790() { /* 0x8aa790 */ }
+void sub_8aa880() { /* 0x8aa880 */ }
+void sub_8aa930() { /* 0x8aa930 */ }
 void sub_8aa9b0() { /* 0x8aa9b0 */ }
 void sub_8aaa20() { /* 0x8aaa20 */ }
 void sub_8aaa90() { /* 0x8aaa90 */ }
@@ -4001,8 +4004,5 @@ void sub_9a76e0() { /* 0x9a76e0 */ }
 void sub_9a7850() { /* 0x9a7850 */ }
 // sub_9a78c0: implemented in prog/matched/main/
 void sub_9a7a90() { /* 0x9a7a90 */ }
-void sub_9a7f10() { /* 0x9a7f10 */ }
-void sub_9a8190() { /* 0x9a8190 */ }
-void cameraAnimeFile() { /* 0x9a8200 */ }
 
 }  // namespace main

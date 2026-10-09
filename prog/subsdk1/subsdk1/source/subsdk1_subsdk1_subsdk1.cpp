@@ -3474,7 +3474,7 @@ void sub_159170() { /* 0x159170 */ }
 void sub_1591f0() { /* 0x1591f0 */ }
 void sub_159280_subsdk1_159280() { /* 0x159280 */ }
 void sub_159310() { /* 0x159310 */ }
-void sub_159370() { /* 0x159370 */ }
+// sub_159370: implemented in prog/matched/subsdk1/
 void sub_159380() { /* 0x159380 */ }
 void sub_159b90() { /* 0x159b90 */ }
 void sub_159ba0() { /* 0x159ba0 */ }

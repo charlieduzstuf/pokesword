@@ -4,6 +4,9 @@
 #include "main_main_main_23.h"
 
 namespace main {
+void sub_16c4560() { /* 0x16c4560 */ }
+void sub_16c45a0() { /* 0x16c45a0 */ }
+void sub_16c45e0() { /* 0x16c45e0 */ }
 void sub_16c4780() { /* 0x16c4780 */ }
 // sub_16c48c0: implemented in prog/matched/main/
 // sub_16c48e0: implemented in prog/matched/main/
@@ -617,7 +620,7 @@ void sub_16e5790() { /* 0x16e5790 */ }
 void sub_16e5ca0() { /* 0x16e5ca0 */ }
 void sub_16e5dc0() { /* 0x16e5dc0 */ }
 void sub_16e5e40() { /* 0x16e5e40 */ }
-void sub_16e6e20() { /* 0x16e6e20 */ }
+// sub_16e6e20: implemented in prog/matched/main/
 void sub_16e6e40() { /* 0x16e6e40 */ }
 void sub_16e6f10() { /* 0x16e6f10 */ }
 void sub_16e7130() { /* 0x16e7130 */ }
@@ -4001,8 +4004,5 @@ void sub_17cd1e0() { /* 0x17cd1e0 */ }
 void sub_17cd230() { /* 0x17cd230 */ }
 void sub_17cd3e0() { /* 0x17cd3e0 */ }
 void sub_17cd550() { /* 0x17cd550 */ }
-void sub_17cda60() { /* 0x17cda60 */ }
-void sub_17cdea0() { /* 0x17cdea0 */ }
-void sub_17ce1e0() { /* 0x17ce1e0 */ }
 
 }  // namespace main

@@ -4,6 +4,9 @@
 #include "main_main_main_22.h"
 
 namespace main {
+void sub_15e83c0() { /* 0x15e83c0 */ }
+void sub_15e84c0() { /* 0x15e84c0 */ }
+void sub_15e8510() { /* 0x15e8510 */ }
 void sub_15e8560() { /* 0x15e8560 */ }
 void sub_15e88a0() { /* 0x15e88a0 */ }
 // sub_15e8a50: implemented in prog/matched/main/
@@ -1001,7 +1004,7 @@ void InstanceTable_358() { /* 0x162f680 */ }
 void sub_162f760() { /* 0x162f760 */ }
 void sub_162f8a0() { /* 0x162f8a0 */ }
 void sub_162fa40() { /* 0x162fa40 */ }
-void sub_162fa70() { /* 0x162fa70 */ }
+// sub_162fa70: implemented in prog/matched/main/
 void sub_162fa90() { /* 0x162fa90 */ }
 void sub_162fbd0() { /* 0x162fbd0 */ }
 void f_0123456789BCDFGHJKLMNPRTVWXY0123456789BCDFGHJKLMNPRTVW() { /* 0x162fcf0 */ }
@@ -1011,7 +1014,7 @@ void sub_162fe60() { /* 0x162fe60 */ }
 void sub_162ff00() { /* 0x162ff00 */ }
 void f_0123456789BCDFGHJKLMNPRTVWXY0123456789BCDFGHJKLMNPRTVW_2() { /* 0x162ffa0 */ }
 void sub_1630140() { /* 0x1630140 */ }
-void sub_1630270() { /* 0x1630270 */ }
+// sub_1630270: implemented in prog/matched/main/
 void sub_1630290() { /* 0x1630290 */ }
 void sub_16303a0() { /* 0x16303a0 */ }
 void sub_16304c0() { /* 0x16304c0 */ }
@@ -4001,8 +4004,5 @@ void sub_16c4120() { /* 0x16c4120 */ }
 void SDK_MW_Nintendo_PiaNex_5_18_0_forNEX_4_6_2() { /* 0x16c4190 */ }
 void sub_16c41a0() { /* 0x16c41a0 */ }
 void sub_16c4550() { /* 0x16c4550 */ }
-void sub_16c4560() { /* 0x16c4560 */ }
-void sub_16c45a0() { /* 0x16c45a0 */ }
-void sub_16c45e0() { /* 0x16c45e0 */ }
 
 }  // namespace main

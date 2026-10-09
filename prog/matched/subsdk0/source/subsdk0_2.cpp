@@ -1,4 +1,4 @@
-/* subsdk0 -- 962 functions verified to match the original.
+/* subsdk0 -- 964 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -886,6 +886,9 @@ __S_f_11d540 subsdk0_f_11d540() {
     *(uint64_t *)((char *)&r + 0) = 0;
     return r;
 }
+
+// sub_11d550  (orig 0x11d550, straight-line)
+uint64_t subsdk0_f_11d550(uint64_t unused0, uint64_t unused1, uint64_t unused2, uint64_t a3) { return ((((((uint64_t)a3)) >> (31) != 0)) ? (-2) : (0)); }
 
 // sub_11d570  (orig 0x11d570, mov_ret)
 uint64_t subsdk0_f_11d570() { return 0; }
@@ -2169,6 +2172,9 @@ uint32_t subsdk0_f_221e20(void* a0) { return *(uint32_t*)((char*)(a0) + 68); }
 
 // sub_221e30  (orig 0x221e30, getter)
 uint32_t subsdk0_f_221e30(void* a0) { return *(uint32_t*)((char*)(a0) + 104); }
+
+// sub_221f00  (orig 0x221f00, straight-line)
+uint32_t subsdk0_f_221f00(void* a0, void* a1) { return (((*(uint32_t*)((char*)(a0) + 4) >= *(uint32_t*)((char*)(a1) + 4))) ? (((*(uint32_t*)((char*)(a0) + 4) > *(uint32_t*)((char*)(a1) + 4)) ? 1 : 0)) : ((0) - (1))); }
 
 // sub_2227d0  (orig 0x2227d0, setter)
 void subsdk0_f_2227d0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 212) = a1; }

@@ -549,7 +549,7 @@ void sub_ff10() { /* 0xff10 */ }
 void sub_ff40() { /* 0xff40 */ }
 void sub_ff70() { /* 0xff70 */ }
 void sub_ffb0() { /* 0xffb0 */ }
-void sub_ffe0() { /* 0xffe0 */ }
+// sub_ffe0: implemented in prog/matched/sdk/
 // sub_10000: implemented in prog/matched/sdk/
 void sub_10010() { /* 0x10010 */ }
 // sub_10090: implemented in prog/matched/sdk/

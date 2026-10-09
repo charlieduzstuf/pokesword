@@ -5,6 +5,9 @@
 #pragma once
 
 namespace main {
+void sub_feddf0();  // 0xfeddf0
+void sub_feded0();  // 0xfeded0
+void network_net_live_data_holder_4();  // 0xfedf60
 void sub_fee030();  // 0xfee030
 void sub_fee080();  // 0xfee080
 void sub_fee090();  // 0xfee090
@@ -4002,8 +4005,5 @@ void sub_1091940();  // 0x1091940
 void sub_10919d0();  // 0x10919d0
 void sub_1091a60();  // 0x1091a60
 void sub_1091af0();  // 0x1091af0
-void sub_1091be0();  // 0x1091be0
-void sub_1091c70();  // 0x1091c70
-void sub_1091d00();  // 0x1091d00
 
 }  // namespace main

@@ -1,4 +1,4 @@
-/* main -- 47 functions verified to match the original.
+/* main -- 78 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -26,6 +26,110 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
+
+// sub_17ab1b0  (orig 0x17ab1b0, mov_ret)
+uint32_t main_f_17ab1b0() { return -1; }
+
+// sub_17ab1c0  (orig 0x17ab1c0, ret_only)
+void main_f_17ab1c0() {}
+
+// sub_17ab210  (orig 0x17ab210, mov_ret)
+uint32_t main_f_17ab210() { return 255; }
+
+// sub_17ab220  (orig 0x17ab220, ret_only)
+void main_f_17ab220() {}
+
+// sub_17ac430  (orig 0x17ac430, ret_only)
+void main_f_17ac430() {}
+
+// sub_17ac6f0  (orig 0x17ac6f0, mov_ret)
+uint32_t main_f_17ac6f0() { return 0; }
+
+// sub_17b0e00  (orig 0x17b0e00, compare)
+bool main_f_17b0e00(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(a0) + 216)) != (uint64_t)(0); }
+
+// sub_17b0fa0  (orig 0x17b0fa0, straight-line)
+uint32_t main_f_17b0fa0(void* a0, int32_t a1) {
+    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));
+    return *(uint32_t*)((char*)(p0) + 224);
+}
+
+// sub_17b0fb0  (orig 0x17b0fb0, straight)
+void main_f_17b0fb0(void* a0, int32_t a1, void* a2) {
+    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int32_t)a1)) * 4)));
+    *(uint32_t*)((char*)(p0) + 224) = *(uint32_t*)((char*)(a2));
+}
+
+// sub_17b2c00  (orig 0x17b2c00, ret_only)
+void main_f_17b2c00() {}
+
+// sub_17b2d00  (orig 0x17b2d00, ret_only)
+void main_f_17b2d00() {}
+
+// sub_17b2f40  (orig 0x17b2f40, mov_ret)
+uint64_t main_f_17b2f40() { return 0; }
+
+// sub_17b2f50  (orig 0x17b2f50, ret_only)
+void main_f_17b2f50() {}
+
+// sub_17b3330  (orig 0x17b3330, ret_only)
+void main_f_17b3330() {}
+
+// sub_17b3ad0  (orig 0x17b3ad0, straight)
+void main_f_17b3ad0(void* a0, uint32_t a1) {
+    *(uint32_t*)((char*)(a0) + 8) = ((*(uint32_t*)((char*)(a0) + 8)) & (4294967288)) | (((uint32_t)a1));
+}
+
+// sub_17b3ff0  (orig 0x17b3ff0, straight)
+uint32_t main_f_17b3ff0(void* a0) { return ((*(uint32_t*)((char*)(a0) + 8)) >> (4)) & (15); }
+
+// sub_17b49d0  (orig 0x17b49d0, ret_only)
+void main_f_17b49d0() {}
+
+// sub_17b49f0  (orig 0x17b49f0, straight)
+void main_f_17b49f0(void* a0) {
+    *(uint64_t*)((char*)(a0) + 8) = 0;
+    *(uint16_t*)((char*)(a0)) = ((*(uint16_t*)((char*)(a0))) & (57344)) | (144);
+}
+
+// sub_17b4a70  (orig 0x17b4a70, ret_only)
+void main_f_17b4a70() {}
+
+// sub_17b4a80  (orig 0x17b4a80, ret_only)
+void main_f_17b4a80() {}
+
+// sub_17b5cb0  (orig 0x17b5cb0, compare)
+bool main_f_17b5cb0(void* a0) { return (uint64_t)(*(uint64_t*)((char*)(a0) + 320)) != (uint64_t)(0); }
+
+// sub_17b7510  (orig 0x17b7510, getter)
+uint64_t main_f_17b7510(void* a0) { return *(uint64_t*)((char*)(a0) + 240); }
+
+// sub_17b7780  (orig 0x17b7780, ret_only)
+void main_f_17b7780() {}
+
+// sub_17b8250  (orig 0x17b8250, ret_only)
+void main_f_17b8250() {}
+
+// sub_17b8990  (orig 0x17b8990, getter-chain)
+uint32_t main_f_17b8990(void* a0) { return *(uint32_t*)((char*)((*(uint64_t*)((char*)(a0) + 16))) + 28); }
+
+// sub_17b89f0  (orig 0x17b89f0, getter-chain)
+uint64_t main_f_17b89f0(void* a0) { return *(uint64_t*)((char*)((*(uint64_t*)((char*)(a0) + 16))) + 136); }
+
+// sub_17b8a00  (orig 0x17b8a00, getter-chain)
+uint64_t main_f_17b8a00(void* a0) { return *(uint64_t*)((char*)((*(uint64_t*)((char*)(a0) + 16))) + 136); }
+
+// sub_17b8e00  (orig 0x17b8e00, getter)
+uint32_t main_f_17b8e00(void* a0) { return *(uint32_t*)((char*)(a0) + 208); }
+
+// sub_17b8e10  (orig 0x17b8e10, compare)
+bool main_f_17b8e10(void* a0) { return (uint32_t)(*(uint32_t*)((char*)(a0) + 208)) != (uint64_t)(0); }
+
+// sub_17b8e20  (orig 0x17b8e20, getter)
+uint64_t main_f_17b8e20(void* a0) { return *(uint64_t*)((char*)(a0) + 32); }
+
+// sub_17b8e30  (orig 0x17b8e30, getter)
+uint64_t main_f_17b8e30(void* a0) { return *(uint64_t*)((char*)(a0) + 32); }
 
 // sub_17b8e40  (orig 0x17b8e40, getter)
 uint64_t main_f_17b8e40(void* a0) { return *(uint64_t*)((char*)(a0) + 56); }

@@ -2894,7 +2894,7 @@ void sub_11d4a0_subsdk0_11d4a0() { /* 0x11d4a0 */ }
 void sub_11d4e0() { /* 0x11d4e0 */ }
 // sub_11d530: implemented in prog/matched/subsdk0/
 // sub_11d540: implemented in prog/matched/subsdk0/
-void sub_11d550() { /* 0x11d550 */ }
+// sub_11d550: implemented in prog/matched/subsdk0/
 // sub_11d570: implemented in prog/matched/subsdk0/
 void sub_11d580() { /* 0x11d580 */ }
 void sub_11d5d0() { /* 0x11d5d0 */ }

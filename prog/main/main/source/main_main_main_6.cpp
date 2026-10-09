@@ -4,6 +4,9 @@
 #include "main_main_main_6.h"
 
 namespace main {
+// sub_75ede0: implemented in prog/matched/main/
+void sub_75edf0() { /* 0x75edf0 */ }
+void sub_75ee00() { /* 0x75ee00 */ }
 // sub_75ee20: implemented in prog/matched/main/
 void sub_75ee30() { /* 0x75ee30 */ }
 void sub_75ee40() { /* 0x75ee40 */ }
@@ -697,7 +700,7 @@ void sub_780620() { /* 0x780620 */ }
 void sub_780670() { /* 0x780670 */ }
 void sub_7806e0() { /* 0x7806e0 */ }
 void sub_780700() { /* 0x780700 */ }
-void sub_7807b0() { /* 0x7807b0 */ }
+// sub_7807b0: implemented in prog/matched/main/
 void sub_7807d0() { /* 0x7807d0 */ }
 void sub_780800() { /* 0x780800 */ }
 void sub_7808d0() { /* 0x7808d0 */ }
@@ -2688,7 +2691,7 @@ void sub_7f24c0() { /* 0x7f24c0 */ }
 // sub_7f2540: implemented in prog/matched/main/
 // sub_7f2550: implemented in prog/matched/main/
 // sub_7f2560: implemented in prog/matched/main/
-void sub_7f2570() { /* 0x7f2570 */ }
+// sub_7f2570: implemented in prog/matched/main/
 // sub_7f2580: implemented in prog/matched/main/
 void sub_7f2590() { /* 0x7f2590 */ }
 void sub_7f2650() { /* 0x7f2650 */ }
@@ -4001,8 +4004,5 @@ void sub_81c630() { /* 0x81c630 */ }
 // sub_828590: implemented in prog/matched/main/
 // sub_8285a0: implemented in prog/matched/main/
 // sub_8285b0: implemented in prog/matched/main/
-// sub_8285c0: implemented in prog/matched/main/
-// sub_8285d0: implemented in prog/matched/main/
-// sub_8285e0: implemented in prog/matched/main/
 
 }  // namespace main

@@ -4,6 +4,9 @@
 #include "main_main_main_18.h"
 
 namespace main {
+// sub_1222a20: implemented in prog/matched/main/
+// sub_1222a30: implemented in prog/matched/main/
+// sub_1222a40: implemented in prog/matched/main/
 // sub_1222a50: implemented in prog/matched/main/
 void sub_1222a60() { /* 0x1222a60 */ }
 // sub_1222ab0: implemented in prog/matched/main/
@@ -2649,7 +2652,7 @@ void sub_12ad3d0() { /* 0x12ad3d0 */ }
 // sub_12ad4d0: implemented in prog/matched/main/
 // sub_12ad4e0: implemented in prog/matched/main/
 // sub_12ad4f0: implemented in prog/matched/main/
-void sub_12ad500() { /* 0x12ad500 */ }
+// sub_12ad500: implemented in prog/matched/main/
 // sub_12ad520: implemented in prog/matched/main/
 // sub_12ad530: implemented in prog/matched/main/
 // sub_12ad540: implemented in prog/matched/main/
@@ -3954,7 +3957,7 @@ void or_font_BFOTF() { /* 0x130fd30 */ }
 void sub_130ff50() { /* 0x130ff50 */ }
 void sub_130ffa0() { /* 0x130ffa0 */ }
 void sub_130ffc0() { /* 0x130ffc0 */ }
-void sub_130ffe0() { /* 0x130ffe0 */ }
+// sub_130ffe0: implemented in prog/matched/main/
 void sub_1310000() { /* 0x1310000 */ }
 void sub_1310060() { /* 0x1310060 */ }
 void sub_13100d0() { /* 0x13100d0 */ }
@@ -4001,8 +4004,5 @@ void sub_1313310() { /* 0x1313310 */ }
 void sub_13133a0() { /* 0x13133a0 */ }
 void sub_1313430() { /* 0x1313430 */ }
 void sub_1313500() { /* 0x1313500 */ }
-void sub_1313580() { /* 0x1313580 */ }
-void another_name() { /* 0x1313730 */ }
-void another_name_2() { /* 0x1313970 */ }
 
 }  // namespace main

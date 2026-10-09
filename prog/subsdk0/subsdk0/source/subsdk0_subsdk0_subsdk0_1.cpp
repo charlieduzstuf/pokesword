@@ -3113,7 +3113,7 @@ void sub_221c90() { /* 0x221c90 */ }
 void sub_221e40() { /* 0x221e40 */ }
 void sub_221ee0() { /* 0x221ee0 */ }
 void sub_221ef0() { /* 0x221ef0 */ }
-void sub_221f00() { /* 0x221f00 */ }
+// sub_221f00: implemented in prog/matched/subsdk0/
 void sub_221f20() { /* 0x221f20 */ }
 void SampleTable_4() { /* 0x222120 */ }
 void SampleTable_5() { /* 0x222320 */ }

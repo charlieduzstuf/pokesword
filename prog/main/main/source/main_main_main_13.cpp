@@ -4,6 +4,9 @@
 #include "main_main_main_13.h"
 
 namespace main {
+void sub_e11680() { /* 0xe11680 */ }
+void sub_e11740() { /* 0xe11740 */ }
+void seperator_mark_18() { /* 0xe11880 */ }
 void sub_e11fa0() { /* 0xe11fa0 */ }
 void class_check_10() { /* 0xe11fc0 */ }
 void sub_e12260() { /* 0xe12260 */ }
@@ -3395,7 +3398,7 @@ void sub_ee7350() { /* 0xee7350 */ }
 void sub_ee73a0() { /* 0xee73a0 */ }
 void sub_ee73f0() { /* 0xee73f0 */ }
 void sub_ee7440() { /* 0xee7440 */ }
-void sub_ee7490() { /* 0xee7490 */ }
+// sub_ee7490: implemented in prog/matched/main/
 void sub_ee74b0() { /* 0xee74b0 */ }
 void sub_ee7580() { /* 0xee7580 */ }
 void sub_ee7590() { /* 0xee7590 */ }
@@ -4001,8 +4004,5 @@ void sub_f08630() { /* 0xf08630 */ }
 void sub_f08640() { /* 0xf08640 */ }
 void sub_f08670() { /* 0xf08670 */ }
 void sub_f08680() { /* 0xf08680 */ }
-void State_Intro_NameInput() { /* 0xf087c0 */ }
-void sub_f08900() { /* 0xf08900 */ }
-void sub_f08a00() { /* 0xf08a00 */ }
 
 }  // namespace main

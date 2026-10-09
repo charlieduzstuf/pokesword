@@ -4,6 +4,9 @@
 #include "main_main_main_4.h"
 
 namespace main {
+// sub_55ccc0: implemented in prog/matched/main/
+// sub_55ccd0: implemented in prog/matched/main/
+// sub_55cce0: implemented in prog/matched/main/
 // sub_55ccf0: implemented in prog/matched/main/
 // sub_55cd00: implemented in prog/matched/main/
 // sub_55cd10: implemented in prog/matched/main/
@@ -4001,8 +4004,5 @@ void sub_6556c0() { /* 0x6556c0 */ }
 void sub_6556d0() { /* 0x6556d0 */ }
 void sub_655780() { /* 0x655780 */ }
 void sub_655830() { /* 0x655830 */ }
-void sub_655840() { /* 0x655840 */ }
-void sub_655850() { /* 0x655850 */ }
-void sub_655950() { /* 0x655950 */ }
 
 }  // namespace main

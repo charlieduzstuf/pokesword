@@ -4,6 +4,9 @@
 #include "main_main_main_7.h"
 
 namespace main {
+// sub_8285c0: implemented in prog/matched/main/
+// sub_8285d0: implemented in prog/matched/main/
+// sub_8285e0: implemented in prog/matched/main/
 // sub_8285f0: implemented in prog/matched/main/
 // sub_828600: implemented in prog/matched/main/
 // sub_828610: implemented in prog/matched/main/
@@ -4001,8 +4004,5 @@ void sub_8aa590() { /* 0x8aa590 */ }
 void sub_8aa5e0() { /* 0x8aa5e0 */ }
 void sub_8aa5f0() { /* 0x8aa5f0 */ }
 void sub_8aa600() { /* 0x8aa600 */ }
-void sub_8aa790() { /* 0x8aa790 */ }
-void sub_8aa880() { /* 0x8aa880 */ }
-void sub_8aa930() { /* 0x8aa930 */ }
 
 }  // namespace main

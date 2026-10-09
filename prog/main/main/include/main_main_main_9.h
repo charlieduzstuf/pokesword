@@ -5,6 +5,9 @@
 #pragma once
 
 namespace main {
+void sub_9a7f10();  // 0x9a7f10
+void sub_9a8190();  // 0x9a8190
+void cameraAnimeFile();  // 0x9a8200
 void sub_9a8a20();  // 0x9a8a20
 void subIndexId();  // 0x9a9ef0
 void sub_9aaa20();  // 0x9aaa20
@@ -4002,8 +4005,5 @@ void sub_af88a0();  // 0xaf88a0
 void sub_af8b00();  // 0xaf8b00
 void sub_af8e10();  // 0xaf8e10
 void sub_af9040();  // 0xaf9040
-void sub_af91b0();  // 0xaf91b0
-void sub_af9300();  // 0xaf9300
-void sub_af9640();  // 0xaf9640
 
 }  // namespace main

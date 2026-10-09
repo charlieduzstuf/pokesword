@@ -5,6 +5,9 @@
 #pragma once
 
 namespace main {
+void sub_e11680();  // 0xe11680
+void sub_e11740();  // 0xe11740
+void seperator_mark_18();  // 0xe11880
 void sub_e11fa0();  // 0xe11fa0
 void class_check_10();  // 0xe11fc0
 void sub_e12260();  // 0xe12260
@@ -4002,8 +4005,5 @@ void sub_f08630();  // 0xf08630
 void sub_f08640();  // 0xf08640
 void sub_f08670();  // 0xf08670
 void sub_f08680();  // 0xf08680
-void State_Intro_NameInput();  // 0xf087c0
-void sub_f08900();  // 0xf08900
-void sub_f08a00();  // 0xf08a00
 
 }  // namespace main

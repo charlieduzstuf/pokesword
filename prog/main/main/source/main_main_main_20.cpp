@@ -4,6 +4,9 @@
 #include "main_main_main_20.h"
 
 namespace main {
+void sub_13fc890() { /* 0x13fc890 */ }
+void sub_13fca60() { /* 0x13fca60 */ }
+void sub_13fcb80() { /* 0x13fcb80 */ }
 void sub_13fcf20() { /* 0x13fcf20 */ }
 void sub_13fcf30() { /* 0x13fcf30 */ }
 void sub_13fcf50() { /* 0x13fcf50 */ }
@@ -4001,8 +4004,5 @@ void sub_14e7360() { /* 0x14e7360 */ }
 void sub_14e7470() { /* 0x14e7470 */ }
 void sub_14e7580() { /* 0x14e7580 */ }
 void sub_14e77c0() { /* 0x14e77c0 */ }
-void sub_14e7990() { /* 0x14e7990 */ }
-void sub_14e7ba0() { /* 0x14e7ba0 */ }
-void sub_14e7cb0() { /* 0x14e7cb0 */ }
 
 }  // namespace main

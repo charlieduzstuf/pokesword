@@ -5,6 +5,9 @@
 #pragma once
 
 namespace main {
+void sub_11386f0();  // 0x11386f0
+void sub_11387b0();  // 0x11387b0
+void sub_1138c70();  // 0x1138c70
 void sub_11390c0();  // 0x11390c0
 void sub_1139180();  // 0x1139180
 void Play_Camp_recover();  // 0x1139190
@@ -4002,8 +4005,5 @@ void sub_1222820();  // 0x1222820
 void sub_1222830();  // 0x1222830
 void sub_12229e0();  // 0x12229e0
 void sub_1222a10();  // 0x1222a10
-void sub_1222a20();  // 0x1222a20
-void sub_1222a30();  // 0x1222a30
-void sub_1222a40();  // 0x1222a40
 
 }  // namespace main

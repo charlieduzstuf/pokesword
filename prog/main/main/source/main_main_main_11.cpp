@@ -4,6 +4,9 @@
 #include "main_main_main_11.h"
 
 namespace main {
+void sub_be2930() { /* 0xbe2930 */ }
+void sub_be2940() { /* 0xbe2940 */ }
+void sub_be2950() { /* 0xbe2950 */ }
 void sub_be29c0() { /* 0xbe29c0 */ }
 void sub_be2a30() { /* 0xbe2a30 */ }
 void sub_be2a40() { /* 0xbe2a40 */ }
@@ -1404,7 +1407,7 @@ void sub_c20ea0() { /* 0xc20ea0 */ }
 void sub_c20ec0() { /* 0xc20ec0 */ }
 void sub_c20f60() { /* 0xc20f60 */ }
 void sub_c20fc0() { /* 0xc20fc0 */ }
-void sub_c21020() { /* 0xc21020 */ }
+// sub_c21020: implemented in prog/matched/main/
 void sub_c21040() { /* 0xc21040 */ }
 void sub_c21120() { /* 0xc21120 */ }
 void sub_c213f0() { /* 0xc213f0 */ }
@@ -4001,8 +4004,5 @@ void sub_cd7e30() { /* 0xcd7e30 */ }
 // sub_cd7e70: implemented in prog/matched/main/
 void sub_cd7e80() { /* 0xcd7e80 */ }
 void sub_cd7ea0() { /* 0xcd7ea0 */ }
-// sub_cd7eb0: implemented in prog/matched/main/
-void sub_cd7ec0() { /* 0xcd7ec0 */ }
-// sub_cd7ed0: implemented in prog/matched/main/
 
 }  // namespace main

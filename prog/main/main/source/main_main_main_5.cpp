@@ -4,6 +4,9 @@
 #include "main_main_main_5.h"
 
 namespace main {
+void sub_655840() { /* 0x655840 */ }
+void sub_655850() { /* 0x655850 */ }
+void sub_655950() { /* 0x655950 */ }
 void sub_655b30() { /* 0x655b30 */ }
 void sub_655d40() { /* 0x655d40 */ }
 void sub_656010() { /* 0x656010 */ }
@@ -769,7 +772,7 @@ void sub_67eff0() { /* 0x67eff0 */ }
 void sub_67f0c0() { /* 0x67f0c0 */ }
 void sub_67f1f0() { /* 0x67f1f0 */ }
 void sub_67f470() { /* 0x67f470 */ }
-void sub_67f480() { /* 0x67f480 */ }
+// sub_67f480: implemented in prog/matched/main/
 // sub_67f4a0: implemented in prog/matched/main/
 // sub_67f4b0: implemented in prog/matched/main/
 void sub_67f4c0() { /* 0x67f4c0 */ }
@@ -2102,7 +2105,7 @@ void sub_6c1200() { /* 0x6c1200 */ }
 void sub_6c1230() { /* 0x6c1230 */ }
 void sub_6c1350() { /* 0x6c1350 */ }
 void sub_6c1370() { /* 0x6c1370 */ }
-void sub_6c1390() { /* 0x6c1390 */ }
+// sub_6c1390: implemented in prog/matched/main/
 void sub_6c14a0() { /* 0x6c14a0 */ }
 void sub_6c14f0() { /* 0x6c14f0 */ }
 // sub_6c1540: implemented in prog/matched/main/
@@ -2118,7 +2121,7 @@ void sub_6c1790() { /* 0x6c1790 */ }
 void sub_6c17c0() { /* 0x6c17c0 */ }
 void sub_6c18e0() { /* 0x6c18e0 */ }
 void sub_6c1900() { /* 0x6c1900 */ }
-void sub_6c1920() { /* 0x6c1920 */ }
+// sub_6c1920: implemented in prog/matched/main/
 void sub_6c1a30() { /* 0x6c1a30 */ }
 void sub_6c1a80() { /* 0x6c1a80 */ }
 // sub_6c1ad0: implemented in prog/matched/main/
@@ -2701,7 +2704,7 @@ void sub_6de320() { /* 0x6de320 */ }
 void sub_6de3f0() { /* 0x6de3f0 */ }
 void sub_6de5b0() { /* 0x6de5b0 */ }
 void sub_6de620() { /* 0x6de620 */ }
-void sub_6de640() { /* 0x6de640 */ }
+// sub_6de640: implemented in prog/matched/main/
 // sub_6de660: implemented in prog/matched/main/
 void sub_6de670() { /* 0x6de670 */ }
 void sub_6de690() { /* 0x6de690 */ }
@@ -3068,7 +3071,7 @@ void sub_70ca60() { /* 0x70ca60 */ }
 void sub_70cb60() { /* 0x70cb60 */ }
 void sub_70cc80() { /* 0x70cc80 */ }
 void sub_70cee0() { /* 0x70cee0 */ }
-void sub_70d000() { /* 0x70d000 */ }
+// sub_70d000: implemented in prog/matched/main/
 void sub_70d040() { /* 0x70d040 */ }
 void sub_70d0d0() { /* 0x70d0d0 */ }
 void sub_70d160() { /* 0x70d160 */ }
@@ -4001,8 +4004,5 @@ void sub_75ed80() { /* 0x75ed80 */ }
 // sub_75eda0: implemented in prog/matched/main/
 void sub_75edb0() { /* 0x75edb0 */ }
 void sub_75edc0() { /* 0x75edc0 */ }
-// sub_75ede0: implemented in prog/matched/main/
-void sub_75edf0() { /* 0x75edf0 */ }
-void sub_75ee00() { /* 0x75ee00 */ }
 
 }  // namespace main

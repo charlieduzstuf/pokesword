@@ -4,6 +4,9 @@
 #include "main_main_main_19.h"
 
 namespace main {
+void sub_1313580() { /* 0x1313580 */ }
+void another_name() { /* 0x1313730 */ }
+void another_name_2() { /* 0x1313970 */ }
 void sub_1313c10() { /* 0x1313c10 */ }
 void sub_1313ca0() { /* 0x1313ca0 */ }
 void sub_1313e50() { /* 0x1313e50 */ }
@@ -408,7 +411,7 @@ void sub_132e8b0() { /* 0x132e8b0 */ }
 // sub_132e910: implemented in prog/matched/main/
 // sub_132e920: implemented in prog/matched/main/
 void sub_132e930() { /* 0x132e930 */ }
-void sub_132e9d0() { /* 0x132e9d0 */ }
+// sub_132e9d0: implemented in prog/matched/main/
 void StateUploadTeamMenu() { /* 0x132ea00 */ }
 void View_OptionBar_3() { /* 0x132eb10 */ }
 void sub_132eef0() { /* 0x132eef0 */ }
@@ -429,7 +432,7 @@ void sub_13301d0() { /* 0x13301d0 */ }
 void sub_1330240() { /* 0x1330240 */ }
 void sub_1330280() { /* 0x1330280 */ }
 void sub_13302b0() { /* 0x13302b0 */ }
-void sub_13302e0() { /* 0x13302e0 */ }
+// sub_13302e0: implemented in prog/matched/main/
 // sub_1330300: implemented in prog/matched/main/
 // sub_1330310: implemented in prog/matched/main/
 // sub_1330320: implemented in prog/matched/main/
@@ -4001,8 +4004,5 @@ void sub_13fc530() { /* 0x13fc530 */ }
 void sub_13fc540() { /* 0x13fc540 */ }
 void sub_13fc550() { /* 0x13fc550 */ }
 void sub_13fc750() { /* 0x13fc750 */ }
-void sub_13fc890() { /* 0x13fc890 */ }
-void sub_13fca60() { /* 0x13fca60 */ }
-void sub_13fcb80() { /* 0x13fcb80 */ }
 
 }  // namespace main

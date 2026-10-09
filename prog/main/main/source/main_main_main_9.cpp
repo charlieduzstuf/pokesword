@@ -4,6 +4,9 @@
 #include "main_main_main_9.h"
 
 namespace main {
+void sub_9a7f10() { /* 0x9a7f10 */ }
+void sub_9a8190() { /* 0x9a8190 */ }
+void cameraAnimeFile() { /* 0x9a8200 */ }
 void sub_9a8a20() { /* 0x9a8a20 */ }
 void subIndexId() { /* 0x9a9ef0 */ }
 void sub_9aaa20() { /* 0x9aaa20 */ }
@@ -2479,7 +2482,7 @@ void sub_aaf350() { /* 0xaaf350 */ }
 void sub_aaf3f0() { /* 0xaaf3f0 */ }
 void sub_aaf490() { /* 0xaaf490 */ }
 void sub_aaf530() { /* 0xaaf530 */ }
-void sub_aaf5d0() { /* 0xaaf5d0 */ }
+// sub_aaf5d0: implemented in prog/matched/main/
 void sub_aaf5f0() { /* 0xaaf5f0 */ }
 void sub_aaf630() { /* 0xaaf630 */ }
 void pane_L_icon_poke_box__02d_P_icon_item_00() { /* 0xaaf6e0 */ }
@@ -2624,7 +2627,7 @@ void sub_ab9900() { /* 0xab9900 */ }
 void sub_ab9960() { /* 0xab9960 */ }
 void sub_ab99a0() { /* 0xab99a0 */ }
 void NONE_NONE_2() { /* 0xab99d0 */ }
-void sub_ab9ea0() { /* 0xab9ea0 */ }
+// sub_ab9ea0: implemented in prog/matched/main/
 void sub_ab9ec0() { /* 0xab9ec0 */ }
 void sub_ab9f00() { /* 0xab9f00 */ }
 void sub_ab9f80() { /* 0xab9f80 */ }
@@ -4001,8 +4004,5 @@ void sub_af88a0() { /* 0xaf88a0 */ }
 void sub_af8b00() { /* 0xaf8b00 */ }
 void sub_af8e10() { /* 0xaf8e10 */ }
 void sub_af9040() { /* 0xaf9040 */ }
-void sub_af91b0() { /* 0xaf91b0 */ }
-void sub_af9300() { /* 0xaf9300 */ }
-void sub_af9640() { /* 0xaf9640 */ }
 
 }  // namespace main

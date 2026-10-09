@@ -862,11 +862,11 @@ void sub_295a10() { /* 0x295a10 */ }
 // sub_295a60: implemented in prog/matched/sdk/
 void sub_295a70() { /* 0x295a70 */ }
 // sub_295a80: implemented in prog/matched/sdk/
-void sub_295aa0() { /* 0x295aa0 */ }
+// sub_295aa0: implemented in prog/matched/sdk/
 // sub_295ac0: implemented in prog/matched/sdk/
-void sub_295ae0() { /* 0x295ae0 */ }
+// sub_295ae0: implemented in prog/matched/sdk/
 // sub_295b00: implemented in prog/matched/sdk/
-void sub_295b20_sdk_295b20() { /* 0x295b20 */ }
+// sub_295b20_sdk_295b20: implemented in prog/matched/sdk/
 void Nintendo_co_ltd() { /* 0x295b40 */ }
 // sub_295fd0: implemented in prog/matched/sdk/
 void sub_295fe0() { /* 0x295fe0 */ }

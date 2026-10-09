@@ -5,6 +5,9 @@
 #pragma once
 
 namespace main {
+void sub_15e83c0();  // 0x15e83c0
+void sub_15e84c0();  // 0x15e84c0
+void sub_15e8510();  // 0x15e8510
 void sub_15e8560();  // 0x15e8560
 void sub_15e88a0();  // 0x15e88a0
 void sub_15e8a50();  // 0x15e8a50
@@ -4002,8 +4005,5 @@ void sub_16c4120();  // 0x16c4120
 void SDK_MW_Nintendo_PiaNex_5_18_0_forNEX_4_6_2();  // 0x16c4190
 void sub_16c41a0();  // 0x16c41a0
 void sub_16c4550();  // 0x16c4550
-void sub_16c4560();  // 0x16c4560
-void sub_16c45a0();  // 0x16c45a0
-void sub_16c45e0();  // 0x16c45e0
 
 }  // namespace main

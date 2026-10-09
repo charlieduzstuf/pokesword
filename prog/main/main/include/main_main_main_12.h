@@ -5,6 +5,9 @@
 #pragma once
 
 namespace main {
+void sub_cd7eb0();  // 0xcd7eb0
+void sub_cd7ec0();  // 0xcd7ec0
+void sub_cd7ed0();  // 0xcd7ed0
 void sub_cd7ee0();  // 0xcd7ee0
 void sub_cd7ef0();  // 0xcd7ef0
 void sub_cd7f00();  // 0xcd7f00
@@ -4002,8 +4005,5 @@ void pairs_on_type_s_it_is_not_recognized_as_a_container_4();  // 0xe111c0
 void sub_e11270();  // 0xe11270
 void class_cast_40();  // 0xe112f0
 void class_check_9();  // 0xe113e0
-void sub_e11680();  // 0xe11680
-void sub_e11740();  // 0xe11740
-void seperator_mark_18();  // 0xe11880
 
 }  // namespace main

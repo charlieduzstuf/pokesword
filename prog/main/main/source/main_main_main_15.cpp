@@ -4,6 +4,9 @@
 #include "main_main_main_15.h"
 
 namespace main {
+void sub_feddf0() { /* 0xfeddf0 */ }
+void sub_feded0() { /* 0xfeded0 */ }
+void network_net_live_data_holder_4() { /* 0xfedf60 */ }
 void sub_fee030() { /* 0xfee030 */ }
 // sub_fee080: implemented in prog/matched/main/
 void sub_fee090() { /* 0xfee090 */ }
@@ -872,7 +875,7 @@ void sub_1010610() { /* 0x1010610 */ }
 void sub_1010640() { /* 0x1010640 */ }
 void sub_1010760() { /* 0x1010760 */ }
 void sub_1010780() { /* 0x1010780 */ }
-void sub_10107a0() { /* 0x10107a0 */ }
+// sub_10107a0: implemented in prog/matched/main/
 void network_battle_team_6() { /* 0x10107c0 */ }
 void sub_10108b0() { /* 0x10108b0 */ }
 void sub_1010900() { /* 0x1010900 */ }
@@ -929,7 +932,7 @@ void sub_1011d30() { /* 0x1011d30 */ }
 void sub_1011d60() { /* 0x1011d60 */ }
 void sub_1011e80() { /* 0x1011e80 */ }
 void sub_1011ea0() { /* 0x1011ea0 */ }
-void sub_1011ec0() { /* 0x1011ec0 */ }
+// sub_1011ec0: implemented in prog/matched/main/
 void network_continue_request_6() { /* 0x1011ee0 */ }
 void sub_1012050() { /* 0x1012050 */ }
 void sub_10120a0() { /* 0x10120a0 */ }
@@ -981,7 +984,7 @@ void sub_1013420() { /* 0x1013420 */ }
 void sub_1013450() { /* 0x1013450 */ }
 void sub_1013570() { /* 0x1013570 */ }
 void sub_1013590() { /* 0x1013590 */ }
-void sub_10135b0() { /* 0x10135b0 */ }
+// sub_10135b0: implemented in prog/matched/main/
 void network_regulation_check_result_6() { /* 0x10135d0 */ }
 void sub_1013740() { /* 0x1013740 */ }
 void sub_1013790() { /* 0x1013790 */ }
@@ -3271,7 +3274,7 @@ void sub_106fa30() { /* 0x106fa30 */ }
 void sub_106fc70() { /* 0x106fc70 */ }
 // sub_106fcf0: implemented in prog/matched/main/
 // sub_106fd00: implemented in prog/matched/main/
-void sub_106fd10() { /* 0x106fd10 */ }
+// sub_106fd10: implemented in prog/matched/main/
 // sub_106fd30: implemented in prog/matched/main/
 // sub_106fd40: implemented in prog/matched/main/
 void sub_106fd50() { /* 0x106fd50 */ }
@@ -4001,8 +4004,5 @@ void sub_1091940() { /* 0x1091940 */ }
 void sub_10919d0() { /* 0x10919d0 */ }
 void sub_1091a60() { /* 0x1091a60 */ }
 void sub_1091af0() { /* 0x1091af0 */ }
-void sub_1091be0() { /* 0x1091be0 */ }
-void sub_1091c70() { /* 0x1091c70 */ }
-void sub_1091d00() { /* 0x1091d00 */ }
 
 }  // namespace main

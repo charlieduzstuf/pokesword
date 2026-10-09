@@ -18266,6 +18266,90 @@
    "src": "void f_33a7c0(void* a0, void* a1) {\n    *(uint32_t*)((char*)(a0)) = (uint32_t)(*(int16_t*)((char*)(a1)));\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "subsdk1",
+   "addr": 1414000,
+   "size": 12,
+   "name": "sub_159370",
+   "shape": "straight-line",
+   "ident": "f_159370",
+   "sig": "mj",
+   "src": "uint32_t f_159370(uint64_t unused0, uint32_t a1) { return (((((uint32_t)a1) == 104)) ? (((uint32_t)a1)) : (0)); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk1",
+   "addr": 2248000,
+   "size": 16,
+   "name": "sub_224d40",
+   "shape": "straight-line",
+   "ident": "f_224d40",
+   "sig": "mj",
+   "src": "uint32_t f_224d40(uint64_t unused0, uint32_t a1) { return (((((uint32_t)a1) == 2)) ? (3) : ((0) + (1))); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "subsdk1",
+   "addr": 2248096,
+   "size": 24,
+   "name": "sub_224da0",
+   "shape": "straight-line",
+   "ident": "f_224da0",
+   "sig": "mj",
+   "src": "uint32_t f_224da0(uint64_t unused0, uint32_t a1) { return (((((uint32_t)a1) != 2)) ? ((((((uint32_t)a1) == 1) ? 1 : 0)) << (1)) : ((0) + (1))); }\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "subsdk1",
+   "addr": 2248944,
+   "size": 28,
+   "name": "sub_2250f0",
+   "shape": "straight-line",
+   "ident": "f_2250f0",
+   "sig": "mj",
+   "src": "uint32_t f_2250f0(uint64_t unused0, uint32_t a1) { return (((((uint32_t)a1) == 2)) ? (3) : ((((((uint32_t)a1) == 1)) ? ((1) + (1)) : (1)))); }\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "subsdk1",
+   "addr": 3638896,
+   "size": 20,
+   "name": "sub_378670",
+   "shape": "straight-line",
+   "ident": "f_378670",
+   "sig": "jPv",
+   "src": "uint32_t f_378670(uint32_t a0, void* a1) {\n    *(uint32_t*)((char*)(a1)) = 0;\n    return (((((uint32_t)a0) < 8)) ? (207) : (0));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk1",
+   "addr": 3655152,
+   "size": 20,
+   "name": "sub_37c5f0",
+   "shape": "straight-line",
+   "ident": "f_37c5f0",
+   "sig": "jPv",
+   "src": "uint32_t f_37c5f0(uint32_t a0, void* a1) {\n    *(uint32_t*)((char*)(a1)) = 0;\n    return (((((uint32_t)a0) < 8)) ? (207) : (0));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk1",
+   "addr": 4999824,
+   "size": 24,
+   "name": "sub_4c4a90",
+   "shape": "straight-line",
+   "ident": "f_4c4a90",
+   "sig": "j",
+   "src": "uint32_t f_4c4a90(uint32_t a0) { return (((((uint32_t)a0) != 2)) ? ((((((uint32_t)a0) == 3)) ? (11) : (0))) : ((0) + (1))); }\n",
+   "orig_insns": 6,
+   "new_insns": 6
   }
  ]
 }

@@ -342,3 +342,82 @@ decline -- was arithmetic on a conditional select, and disappeared.
 Corollary for the census: a decline *count* ranks the classes, but the message
 decides what you go and investigate. Read the instruction before believing the
 label.
+
+
+## One invalid candidate costs a whole batch, and the symptom reads as a compiler disagreement
+
+`sdk` stopped printing a MATCH line entirely: 248 candidates generated, no verdict.
+The visible text was
+
+    compile failed for the whole batch:
+    [('collision across 125 candidates', ".../batch.cpp:516:104: error: cast from
+     pointer to smaller type 'uint32_t' loses information
+       *(uint16_t*)((char*)(a0) + 22) = (uint16_t)(... (uint32_t)a1 - (uint32_t)a0 ...
+                                                   ^~~~~~~~~~~~")]
+
+Read quickly, that is "the compiler disagrees with 125 candidates". It is not. It
+is **one** candidate emitting C that does not compile, taking 124 innocent
+bodies with it, and the module reporting nothing at all.
+
+The offending body is four instructions:
+
+    sub   w8, w1, w0        <- w0 is the void* parameter
+    cmp   x1, #0
+    csel  w8, wzr, w8, eq
+    strh  w8, [x0, #0x16]
+    ret
+
+`(uint32_t)a1 - (uint32_t)a0` subtracts a pointer. The translator had no rule
+against it because `_value_arg` produces `("argval", 0, "uint32_t")` *without*
+consulting `ptr_args` -- traced, `ptr_args=set()` -- and the argument's pointer
+role is only recorded later, when the `strh` resolves it as a base. By the time
+the arithmetic runs, nothing in `state` says that register is a pointer.
+
+`base_args_of()` now computes the set of base registers in one pass over the
+body, before any value is built, and the arithmetic paths refuse to treat one as
+an integer.
+
+Two things worth recording about how this was found:
+
+  * It was **pre-existing at HEAD**, not introduced by the work in progress.
+    Confirmed by stashing every change and re-translating the body -- HEAD emits
+    the same invalid C. The `csinv` work merely made the body *reachable*,
+    turning a latent defect into a live batch failure. A latent bug that new
+    coverage exposes is still a bug you own the moment it fires.
+  * The first two attempts at the fix failed, and both looked plausible:
+    guarding `_b[0] == "arg"` did nothing because the value is `argval`, and
+    guarding on the value's declared type did nothing because the type was
+    `uint32_t`. Only reading the traced `_value_arg` output -- rather than
+    reasoning about which guard *should* work -- showed that the evidence needed
+    was not in `state` at all.
+
+The general rule this reinforces: a decline is one body; a compile error is a
+batch; a missing MATCH line is neither and must be read as "the generator emitted
+invalid C", never as "the compiler disagreed".
+
+
+## An autonomous loop that commits work-in-progress breaks `git stash` as a measurement tool
+
+`keepalive`'s `sync()` commits every tracked modification whenever the audit
+passes, and pushes. That is correct for unattended operation and actively harmful
+for an A/B measurement:
+
+    git stash push -- tools/straight_line.py     # -> nothing stashed
+    ... run the baseline ...
+    git stash pop                               # -> "No stash entries found."
+
+Both "baseline" and "with" then measured identical code and returned identical
+numbers, which read as a clean result and were not one at all. The tell was
+`git diff --stat` showing only the doc file mid-measurement: the translator had
+been committed by five consecutive ticks (`2074`-`2078`) and there was nothing
+left to stash.
+
+The rule: **stop the loop before any A/B, and compare against a commit rather
+than a stash.** `git checkout <pre-change-commit> -- <file>`, measure,
+`git checkout HEAD -- <file>`. A stash is a working-tree operation and the loop
+edits the working tree.
+
+This is a general hazard worth naming: an unattended agent sharing a tree with an
+attended one will commit or push whatever is in flight. Any measurement that
+depends on the tree staying put has to stop the writer first, and the writer is
+the thing that is least likely to be considered part of "the experiment".

@@ -1482,21 +1482,21 @@ void sub_a80e0() { /* 0xa80e0 */ }
 // sub_a8140: implemented in prog/matched/sdk/
 void sub_a8150() { /* 0xa8150 */ }
 void sub_a81d0() { /* 0xa81d0 */ }
-void sub_a8230() { /* 0xa8230 */ }
+// sub_a8230: implemented in prog/matched/sdk/
 void sub_a8250() { /* 0xa8250 */ }
-void sub_a8370() { /* 0xa8370 */ }
+// sub_a8370: implemented in prog/matched/sdk/
 void sub_a8390() { /* 0xa8390 */ }
 void sub_a8400() { /* 0xa8400 */ }
-void sub_a8530() { /* 0xa8530 */ }
+// sub_a8530: implemented in prog/matched/sdk/
 void sub_a8550() { /* 0xa8550 */ }
 void sub_a85c0() { /* 0xa85c0 */ }
-void sub_a86f0() { /* 0xa86f0 */ }
+// sub_a86f0: implemented in prog/matched/sdk/
 void sub_a8710() { /* 0xa8710 */ }
 void sub_a8780() { /* 0xa8780 */ }
-void sub_a88c0() { /* 0xa88c0 */ }
+// sub_a88c0: implemented in prog/matched/sdk/
 void sub_a88e0() { /* 0xa88e0 */ }
 void sub_a8900() { /* 0xa8900 */ }
-void sub_a8940() { /* 0xa8940 */ }
+// sub_a8940: implemented in prog/matched/sdk/
 // sub_a8960: implemented in prog/matched/sdk/
 // sub_a8970: implemented in prog/matched/sdk/
 // sub_a8980: implemented in prog/matched/sdk/

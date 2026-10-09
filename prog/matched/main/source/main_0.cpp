@@ -127,7 +127,6 @@ namespace main { void sub_3fc0a0(); }
 namespace main { void sub_4071b0(); }
 namespace main { void GPUPostEffect_cpp_d_PPFX_ERROR_18(); }
 namespace main { void GPUInterfaceSurface_2(); }
-namespace main { void sub_4460a0(); }
 namespace main { void sub_446440(); }
 namespace main { void sub_446680(); }
 namespace main { void SiCore_String_23(); }
@@ -1552,9 +1551,6 @@ void main_f_418b70() { main::GPUPostEffect_cpp_d_PPFX_ERROR_18(); }
 // sub_445af0  (orig 0x445af0, tailcall)
 void main_f_445af0() { main::GPUInterfaceSurface_2(); }
 
-// sub_445b40  (orig 0x445b40, tailcall)
-void main_f_445b40() { main::sub_4460a0(); }
-
 // sub_445df0  (orig 0x445df0, tailcall)
 void main_f_445df0() { main::sub_ce0(); }
 
@@ -1563,9 +1559,6 @@ void main_f_445f60() { main::sub_446440(); }
 
 // sub_445fc0  (orig 0x445fc0, tailcall)
 void main_f_445fc0() { main::sub_446680(); }
-
-// sub_447d90  (orig 0x447d90, tailcall)
-void main_f_447d90() { main::sub_4460a0(); }
 
 // sub_4b9810  (orig 0x4b9810, tailcall)
 void main_f_4b9810() { main::sub_ce0(); }
@@ -6594,4 +6587,10 @@ void main_f_c008a0() { main::sub_ce0(); }
 
 // sub_c00900  (orig 0xc00900, tailcall)
 void main_f_c00900() { main::sub_ce0(); }
+
+// sub_c00c70  (orig 0xc00c70, tailcall)
+void main_f_c00c70() { main::sub_ce0(); }
+
+// sub_c00cd0  (orig 0xc00cd0, tailcall)
+void main_f_c00cd0() { main::sub_ce0(); }
 

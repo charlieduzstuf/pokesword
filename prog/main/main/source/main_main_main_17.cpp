@@ -4,6 +4,9 @@
 #include "main_main_main_17.h"
 
 namespace main {
+void sub_11386f0() { /* 0x11386f0 */ }
+void sub_11387b0() { /* 0x11387b0 */ }
+void sub_1138c70() { /* 0x1138c70 */ }
 void sub_11390c0() { /* 0x11390c0 */ }
 // sub_1139180: implemented in prog/matched/main/
 void Play_Camp_recover() { /* 0x1139190 */ }
@@ -4001,8 +4004,5 @@ void sub_1222690() { /* 0x1222690 */ }
 void sub_1222830() { /* 0x1222830 */ }
 void sub_12229e0() { /* 0x12229e0 */ }
 // sub_1222a10: implemented in prog/matched/main/
-// sub_1222a20: implemented in prog/matched/main/
-// sub_1222a30: implemented in prog/matched/main/
-// sub_1222a40: implemented in prog/matched/main/
 
 }  // namespace main

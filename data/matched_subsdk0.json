@@ -11996,6 +11996,30 @@
    "src": "uint8_t f_2d6260(void* a0) { return ((*(uint8_t*)((char*)(a0) + 5656L) == 1) ? 1 : 0); }\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "subsdk0",
+   "addr": 1168720,
+   "size": 20,
+   "name": "sub_11d550",
+   "shape": "straight-line",
+   "ident": "f_11d550",
+   "sig": "mmmm",
+   "src": "uint64_t f_11d550(uint64_t unused0, uint64_t unused1, uint64_t unused2, uint64_t a3) { return ((((((uint64_t)a3)) >> (31) != 0)) ? (-2) : (0)); }\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk0",
+   "addr": 2236160,
+   "size": 24,
+   "name": "sub_221f00",
+   "shape": "straight-line",
+   "ident": "f_221f00",
+   "sig": "PvS_",
+   "src": "uint32_t f_221f00(void* a0, void* a1) { return (((*(uint32_t*)((char*)(a0) + 4) >= *(uint32_t*)((char*)(a1) + 4))) ? (((*(uint32_t*)((char*)(a0) + 4) > *(uint32_t*)((char*)(a1) + 4)) ? 1 : 0)) : ((0) - (1))); }\n",
+   "orig_insns": 6,
+   "new_insns": 6
   }
  ]
 }

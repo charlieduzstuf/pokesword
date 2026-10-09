@@ -753,6 +753,7 @@ void SiCore_String() { /* 0x445740 */ }
 void sub_445b00() { /* 0x445b00 */ }
 // sub_445b20: implemented in prog/matched/main/
 void sub_445b30() { /* 0x445b30 */ }
+void sub_445b40() { /* 0x445b40 */ }
 void sub_445b50() { /* 0x445b50 */ }
 void sub_445dc0() { /* 0x445dc0 */ }
 // sub_445de0: implemented in prog/matched/main/
@@ -765,6 +766,7 @@ void sub_445f80() { /* 0x445f80 */ }
 void sub_445fd0() { /* 0x445fd0 */ }
 void sub_446030() { /* 0x446030 */ }
 void sub_446060() { /* 0x446060 */ }
+// sub_4460a0: implemented in prog/matched/main/
 void sub_4460c0() { /* 0x4460c0 */ }
 void GPUInterfaceResource() { /* 0x446330 */ }
 void sub_446530() { /* 0x446530 */ }
@@ -811,6 +813,7 @@ void sub_447cf0() { /* 0x447cf0 */ }
 void sub_447d30() { /* 0x447d30 */ }
 void sub_447d70() { /* 0x447d70 */ }
 void sub_447d80() { /* 0x447d80 */ }
+void sub_447d90() { /* 0x447d90 */ }
 void SiCore_String_3() { /* 0x447da0 */ }
 void GPUInterfaceTexture_cpp_d_PPFX_WARNING_2() { /* 0x4481c0 */ }
 void sub_4483b0() { /* 0x4483b0 */ }
@@ -2670,7 +2673,7 @@ void sub_4ffab0() { /* 0x4ffab0 */ }
 // sub_4ffaf0: implemented in prog/matched/main/
 void sub_4ffb00() { /* 0x4ffb00 */ }
 void sub_4ffb80() { /* 0x4ffb80 */ }
-void sub_4ffbb0() { /* 0x4ffbb0 */ }
+// sub_4ffbb0: implemented in prog/matched/main/
 // sub_4ffbd0: implemented in prog/matched/main/
 void sub_4ffbe0() { /* 0x4ffbe0 */ }
 // sub_4ffbf0: implemented in prog/matched/main/
@@ -2775,7 +2778,7 @@ void sub_506a50() { /* 0x506a50 */ }
 void sub_506ae0() { /* 0x506ae0 */ }
 void sub_506b90() { /* 0x506b90 */ }
 void sub_5071a0() { /* 0x5071a0 */ }
-void sub_507260() { /* 0x507260 */ }
+// sub_507260: implemented in prog/matched/main/
 void unnamed() { /* 0x507280 */ }
 // sub_507f30: implemented in prog/matched/main/
 void sub_507f40() { /* 0x507f40 */ }
@@ -4001,8 +4004,5 @@ void SiCore_String_105() { /* 0x55cb60 */ }
 // sub_55cc90: implemented in prog/matched/main/
 // sub_55cca0: implemented in prog/matched/main/
 // sub_55ccb0: implemented in prog/matched/main/
-// sub_55ccc0: implemented in prog/matched/main/
-// sub_55ccd0: implemented in prog/matched/main/
-// sub_55cce0: implemented in prog/matched/main/
 
 }  // namespace main

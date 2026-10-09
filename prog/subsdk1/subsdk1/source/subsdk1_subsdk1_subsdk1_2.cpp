@@ -434,7 +434,7 @@ void sub_3780e0() { /* 0x3780e0 */ }
 void BUFFER_d_2() { /* 0x3781c0 */ }
 void NV_parameter_buffer_object2() { /* 0x378230 */ }
 void sub_3785c0() { /* 0x3785c0 */ }
-void sub_378670() { /* 0x378670 */ }
+// sub_378670: implemented in prog/matched/subsdk1/
 // sub_378690: implemented in prog/matched/subsdk1/
 void gl_Layer_gl_LayerIn() { /* 0x3786a0 */ }
 void sub_3786e0() { /* 0x3786e0 */ }
@@ -481,7 +481,7 @@ void fsie() { /* 0x37b1e0 */ }
 void NV_shader_atomic_float64() { /* 0x37bd50 */ }
 void sub_37c470() { /* 0x37c470 */ }
 void sub_37c530_subsdk1_37c530() { /* 0x37c530 */ }
-void sub_37c5f0() { /* 0x37c5f0 */ }
+// sub_37c5f0: implemented in prog/matched/subsdk1/
 void sub_37c610_subsdk1_37c610() { /* 0x37c610 */ }
 void sub_37c650() { /* 0x37c650 */ }
 void sub_37c700_subsdk1_37c700() { /* 0x37c700 */ }
@@ -3244,7 +3244,7 @@ void sub_4c4260() { /* 0x4c4260 */ }
 void sub_4c4320() { /* 0x4c4320 */ }
 void sub_4c43c0() { /* 0x4c43c0 */ }
 void sub_4c4880() { /* 0x4c4880 */ }
-void sub_4c4a90() { /* 0x4c4a90 */ }
+// sub_4c4a90: implemented in prog/matched/subsdk1/
 // sub_4c4ae0: implemented in prog/matched/subsdk1/
 void sub_4c4af0() { /* 0x4c4af0 */ }
 void sub_4c4b50() { /* 0x4c4b50 */ }

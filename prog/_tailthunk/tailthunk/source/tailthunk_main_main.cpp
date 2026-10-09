@@ -323,11 +323,9 @@ namespace main {
 // sub_4071a0: implemented in prog/matched/main/
 // sub_418b70: implemented in prog/matched/main/
 // sub_445af0: implemented in prog/matched/main/
-// sub_445b40: implemented in prog/matched/main/
 // sub_445df0: implemented in prog/matched/main/
 // sub_445f60: implemented in prog/matched/main/
 // sub_445fc0: implemented in prog/matched/main/
-// sub_447d90: implemented in prog/matched/main/
 // sub_4b9810: implemented in prog/matched/main/
 // sub_4b9aa0: implemented in prog/matched/main/
 // sub_4c94c0: implemented in prog/matched/main/
@@ -4004,5 +4002,7 @@ namespace main {
 // sub_1428850: implemented in prog/matched/main/
 // sub_1428860: implemented in prog/matched/main/
 // sub_1428cb0: implemented in prog/matched/main/
+// sub_1428cc0: implemented in prog/matched/main/
+// sub_1428cf0: implemented in prog/matched/main/
 
 }  // namespace main

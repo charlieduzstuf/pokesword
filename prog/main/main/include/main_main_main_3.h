@@ -754,6 +754,7 @@ void SiCore_String();  // 0x445740
 void sub_445b00();  // 0x445b00
 void sub_445b20();  // 0x445b20
 void sub_445b30();  // 0x445b30
+void sub_445b40();  // 0x445b40
 void sub_445b50();  // 0x445b50
 void sub_445dc0();  // 0x445dc0
 void sub_445de0();  // 0x445de0
@@ -766,6 +767,7 @@ void sub_445f80();  // 0x445f80
 void sub_445fd0();  // 0x445fd0
 void sub_446030();  // 0x446030
 void sub_446060();  // 0x446060
+void sub_4460a0();  // 0x4460a0
 void sub_4460c0();  // 0x4460c0
 void GPUInterfaceResource();  // 0x446330
 void sub_446530();  // 0x446530
@@ -812,6 +814,7 @@ void sub_447cf0();  // 0x447cf0
 void sub_447d30();  // 0x447d30
 void sub_447d70();  // 0x447d70
 void sub_447d80();  // 0x447d80
+void sub_447d90();  // 0x447d90
 void SiCore_String_3();  // 0x447da0
 void GPUInterfaceTexture_cpp_d_PPFX_WARNING_2();  // 0x4481c0
 void sub_4483b0();  // 0x4483b0
@@ -4002,8 +4005,5 @@ void sub_55cc80();  // 0x55cc80
 void sub_55cc90();  // 0x55cc90
 void sub_55cca0();  // 0x55cca0
 void sub_55ccb0();  // 0x55ccb0
-void sub_55ccc0();  // 0x55ccc0
-void sub_55ccd0();  // 0x55ccd0
-void sub_55cce0();  // 0x55cce0
 
 }  // namespace main
