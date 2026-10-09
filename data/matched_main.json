@@ -293863,6 +293863,78 @@
    "src": "uint32_t f_16e6e20(uint32_t a0) { return (((((uint32_t)a0) != 0)) ? ((((((uint32_t)a0) == 1) ? 1 : 0)) << (1)) : ((0) + (1))); }\n",
    "orig_insns": 6,
    "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 24853168,
+   "size": 20,
+   "name": "sub_17b3ab0",
+   "shape": "straight-line",
+   "ident": "f_17b3ab0",
+   "sig": "Pvj",
+   "src": "void f_17b3ab0(void* a0, uint32_t a1) {\n    *(uint32_t*)((char*)(a0) + 8) = ((*(uint32_t*)((char*)(a0) + 8)) & (4294967055)) | (((((uint32_t)a1)) << 4));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 6751872,
+   "size": 12,
+   "name": "sub_670680",
+   "shape": "straight-line",
+   "ident": "f_670680",
+   "sig": "mPv",
+   "src": "uint64_t f_670680(uint64_t unused0, void* a1) { return __builtin_bswap64(*(uint64_t*)((char*)(a1) + 8)); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 7340336,
+   "size": 8,
+   "name": "sub_700130",
+   "shape": "straight-line",
+   "ident": "f_700130",
+   "sig": "j",
+   "src": "uint32_t f_700130(uint32_t a0) { return __builtin_bswap32(((uint32_t)a0)); }\n",
+   "orig_insns": 2,
+   "new_insns": 2
+  },
+  {
+   "module": "main",
+   "addr": 23249056,
+   "size": 12,
+   "name": "sub_162c0a0",
+   "shape": "straight-line",
+   "ident": "f_162c0a0",
+   "sig": "j",
+   "src": "uint32_t f_162c0a0(uint32_t a0) { return (__builtin_bswap32(((uint32_t)a0))) >> (16); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 23447968,
+   "size": 12,
+   "name": "sub_165c9a0",
+   "shape": "straight-line",
+   "ident": "f_165c9a0",
+   "sig": "Pv",
+   "src": "uint64_t f_165c9a0(void* a0) { return __builtin_bswap64(*(uint64_t*)((char*)(a0))); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 23448016,
+   "size": 12,
+   "name": "sub_165c9d0",
+   "shape": "straight-line",
+   "ident": "f_165c9d0",
+   "sig": "Pv",
+   "src": "uint32_t f_165c9d0(void* a0) { return __builtin_bswap32(*(uint32_t*)((char*)(a0))); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
   }
  ]
 }

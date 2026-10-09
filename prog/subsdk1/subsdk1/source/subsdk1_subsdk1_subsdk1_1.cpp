@@ -2078,7 +2078,7 @@ void sub_2a0b70() { /* 0x2a0b70 */ }
 void sub_2a0bb0() { /* 0x2a0bb0 */ }
 void sub_2a0c60() { /* 0x2a0c60 */ }
 void sub_2a0cb0() { /* 0x2a0cb0 */ }
-void sub_2a0cc0() { /* 0x2a0cc0 */ }
+// sub_2a0cc0: implemented in prog/matched/subsdk1/
 void sub_2a0cd0() { /* 0x2a0cd0 */ }
 void sub_2a0d10() { /* 0x2a0d10 */ }
 void sub_2a0e10() { /* 0x2a0e10 */ }

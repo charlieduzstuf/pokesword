@@ -162,6 +162,15 @@ MUL_OPS = {
     "umsubl": ("*", True,  True),
 }
 
+# Standalone width conversions and byte reversal.
+#
+# `sxtw`/`uxtw` were already known as the *extend* on an `add`/`sub` and appear in
+# EXTEND_TYPES; this is only the standalone spelling, where the destination is the
+# widened register. `rev` is new, and maps to a compiler builtin so it needs no
+# prototype -- which also means it cannot collide with another candidate in a
+# shared batch TU the way a named helper would.
+WIDEN_MNEMONICS = ("sxtw", "uxtw", "rev")
+
 SYNTH_BASE = 1000
 # Hidden struct-return pointer id. Distinct from every synthetic pointer.
 SRET_ID = 999
@@ -354,6 +363,8 @@ def _rw(v):
         return v[2] if len(v) > 2 else "void*"
     if k == "argval":
         return v[2]
+    if k == "raw_call":
+        return v[3]
     if k == "cast":
         return v[1]
     if k == "un":
@@ -470,7 +481,8 @@ class StraightLine:
                     and i.mnemonic not in BITWISE_MNEMONICS
                     and i.mnemonic not in FLAG_MNEMONICS
                     and i.mnemonic not in COND_MNEMONICS
-                    and i.mnemonic not in MUL_MNEMONICS):
+                    and i.mnemonic not in MUL_MNEMONICS
+                    and i.mnemonic not in WIDEN_MNEMONICS):
                 raise Bail("unsupported mnemonic %r" % (i.mnemonic,))
 
         state = {}
@@ -1033,6 +1045,28 @@ class StraightLine:
                     raise Bail("%s with %d operands is not modelled"
                                % (mn, len(ops2)))
                 sym = {"and": "&", "orr": "|", "eor": "^", "bic": None}[mn]
+                if len(ops2) == 4:
+                    # The shifted-register form: `orr Rd, Rn, Rm, lsl #n`.
+                    #
+                    # 32 bodies declined as "orr with 4 operands is not modelled".
+                    # The shift belongs to Rm only, so it becomes a nested
+                    # `shift` value on the *second* operand rather than an
+                    # operation over the whole expression -- `Rn | (Rm << n)`, not
+                    # `(Rn | Rm) << n`.
+                    _sh_parts = ops2[3].split()
+                    if _sh_parts[0] not in EXTEND_TYPES:
+                        raise Bail("%s extend %r is not supported" % (mn, ops2[3]))
+                    _sh_amt = (parse_imm(_sh_parts[1])
+                               if len(_sh_parts) > 1 else 0)
+                    if _sh_amt is None:
+                        raise Bail("%s shift %r is not a literal" % (mn, ops2[3]))
+                    v1 = _val(ops2[1])
+                    # `_val` on the second operand, then wrap. Doing it in this
+                    # order keeps the shift tied to Rm alone.
+                    v2 = ("shift", _sh_parts[0], _sh_amt, _val(ops2[2]))
+                    ty = _rw(v1)
+                    state[wreg(dst)] = ("expr", sym, v1, v2, ty)
+                    continue
                 if len(ops2) == 3:
                     v1 = _val(ops2[1])
                     imm2 = parse_imm(ops2[2])
@@ -1051,6 +1085,51 @@ class StraightLine:
                     state[wreg(dst)] = ("expr", sym, v1, ("imm", 0, ty), ty)
                     continue
                 raise Bail("%s with %d operands is not modelled" % (mn, len(ops2)))
+
+            # Standalone width conversions and byte reversal.
+            #
+            #   sxtw xD, wN   sign-extend 32 -> 64
+            #   uxtw xD, wN   zero-extend 32 -> 64
+            #   rev  wD, wN   reverse the bytes of a 32-bit value
+            #   rev  xD, xN   ... of a 64-bit value
+            #
+            # These were declined as "unsupported mnemonic", but they were already
+            # *known* -- `sxtw` and `uxtw` appear in `EXTEND_TYPES` as the extend
+            # on an `add`, and the shift renderer already knows how to spell each
+            # of them. The only thing missing was the standalone spelling, so this
+            # reuses the existing `cast` kind rather than adding a new one.
+            #
+            # Both spellings were confirmed against the compiler rather than
+            # assumed:
+            #     (int64_t)(int32_t)v   -> sxtw x0, w0
+            #     (uint64_t)v           -> mov  w0, w0      (NOT uxtw)
+            #     __builtin_bswap32(v)  -> rev  w0, w0
+            #     __builtin_bswap64(v)  -> rev  x0, x0
+            if mn in ("sxtw", "uxtw") and len(ops) == 2:
+                _v = state.get(wreg(ops[1]))
+                if _v is None:
+                    _v = self._value_arg(ops[1], used_args, idx_args, ptr_args)
+                if _v is None:
+                    raise Bail("%s operand %r is not a known value" % (mn, ops[1]))
+                # The destination is always the 64-bit form, so the result type is
+                # fixed by the mnemonic and not inferred from the operand.
+                state[wreg(ops[0])] = ("cast",
+                                       "int64_t" if mn == "sxtw" else "uint64_t",
+                                       _v)
+                continue
+            if mn == "rev" and len(ops) == 2:
+                _v = state.get(wreg(ops[1]))
+                if _v is None:
+                    _v = self._value_arg(ops[1], used_args, idx_args, ptr_args)
+                if _v is None:
+                    raise Bail("rev operand %r is not a known value" % (ops[1],))
+                # `rev16`/`rev32` are the sub-word forms; the plain mnemonic is
+                # chosen by the *destination* register width.
+                _is64 = ops[0].strip().startswith("x")
+                _ty = "uint64_t" if _is64 else "uint32_t"
+                _bf = "__builtin_bswap64" if _is64 else "__builtin_bswap32"
+                state[wreg(ops[0])] = ("raw_call", _bf, _v, _ty)
+                continue
 
             # Multiply family. See MUL_OPS for why these are nine operations and
             # not one.
@@ -1491,7 +1570,12 @@ class StraightLine:
                 if s2[0] == "shift":
                     _c2, _e2 = self._render(s2[3], names)
                     if s2[1] == "lsl":
-                        _e2 = "(%s << %d)" % (_e2, s2[2])
+                        # `((%s) << %d)`, not `(%s << %d)`: the operand is a rendered
+# expression, which may itself be an unparenthesised binary like
+# `(a) & (b)`. Wrapping only the *result* leaves `((a) & (b) << 5)`,
+# which C binds as `(a) & ((b) << 5)` -- silently different arithmetic
+# that compiles, matches nothing, and gets blamed on the compiler.
+                        _e2 = "((%s) << %d)" % (_e2, s2[2])
                     elif s2[1] == "uxtw":
                         _e2 = "((uint32_t)(%s))" % _e2
                     elif s2[1] == "sxtw":
@@ -1513,7 +1597,8 @@ class StraightLine:
             _, ext_op, shift, s = val
             _c2, _e2 = self._render(s, names)
             if ext_op == "lsl":
-                return _c2, "(%s << %d)" % (_e2, shift)
+                # Parenthesise the operand; see the `expr` shift arm.
+                return _c2, "((%s) << %d)" % (_e2, shift)
             if ext_op == "uxtw":
                 return _c2, "((uint32_t)(%s))" % _e2
             return _c2, "((int32_t)(%s))" % _e2
@@ -1575,7 +1660,8 @@ class StraightLine:
                 # so the body would vanish with no explanation.
                 if isinstance(_fb, tuple) and _fb[0] == "shift":
                     _si, _se = self._render(_fb[3], names)
-                    _ce2 = "(%s << %d)" % (_se, _fb[2])
+                    # Parenthesise the operand; see the `expr` shift arm.
+                    _ce2 = "((%s) << %d)" % (_se, _fb[2])
                 else:
                     _cb, _ce2 = self._render(_fb, names)
                 # Spaces, not parentheses: `(%s)(%s)(%s)` emits `(a)(==)(b)`,
@@ -1610,6 +1696,12 @@ class StraightLine:
             if uop == "~":
                 return uty, "(~((%s)%s))" % (uty, _eu)
             return uty, "(0 - ((%s)%s))" % (uty, _eu)
+        if kind == "raw_call":
+            # A builtin rendered verbatim: `__builtin_bswap32(v)` -> `rev w0, w0`.
+            # Needs no C prototype -- it is a compiler builtin, not a function, so
+            # naming it does not add a symbol and cannot collide in a batch TU.
+            _cu, _eu = self._render(val[2], names)
+            return val[3], "%s(%s)" % (val[1], _eu)
         if kind == "cast":
             # Reachable at top level, not only nested inside `expr`: the widening
             # product of a `smaddl`/`umull` can be stored to a register on its own

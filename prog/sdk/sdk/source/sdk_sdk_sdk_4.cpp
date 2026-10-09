@@ -2545,10 +2545,10 @@ void sub_36b030() { /* 0x36b030 */ }
 void sub_36b040() { /* 0x36b040 */ }
 void sub_36b050() { /* 0x36b050 */ }
 void sub_36b060() { /* 0x36b060 */ }
-void sub_36b070() { /* 0x36b070 */ }
-void sub_36b080() { /* 0x36b080 */ }
-void sub_36b090_sdk_36b090() { /* 0x36b090 */ }
-void sub_36b0a0() { /* 0x36b0a0 */ }
+// sub_36b070: implemented in prog/matched/sdk/
+// sub_36b080: implemented in prog/matched/sdk/
+// sub_36b090_sdk_36b090: implemented in prog/matched/sdk/
+// sub_36b0a0: implemented in prog/matched/sdk/
 // sub_36b0b0: implemented in prog/matched/sdk/
 void sub_36b0c0() { /* 0x36b0c0 */ }
 void sub_36b120() { /* 0x36b120 */ }

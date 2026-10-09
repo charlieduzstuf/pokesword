@@ -27,6 +27,12 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_bce610  (orig 0xbce610, ret_only)
+void main_f_bce610() {}
+
+// sub_bce7c0  (orig 0xbce7c0, copy2)
+void main_f_bce7c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
 // sub_bce7d0  (orig 0xbce7d0, copy2)
 void main_f_bce7d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
@@ -6608,17 +6614,4 @@ void main_f_ee9bb0(void* a0, void* a1) {
     __asm__ __volatile__("" ::: "memory");
     *(uint64_t*)(char*)a1 = s0.a;
 }
-
-// sub_ee9bd0  (orig 0xee9bd0, struct-copy)
-void main_f_ee9bd0(void* a0, void* a1) {
-    struct u64x2 { uint64_t a, b; };
-    struct u64x2 s0 = *(struct u64x2*)(char*)a0;
-    uint64_t v1 = *(uint64_t*)((char*)a0 + 16);
-    *(struct u64x2*)((char*)a1 + 8) = (struct u64x2){ s0.b, v1 };
-    __asm__ __volatile__("" ::: "memory");
-    *(uint64_t*)(char*)a1 = s0.a;
-}
-
-// sub_eeb410  (orig 0xeeb410, getter)
-uint32_t main_f_eeb410(void* a0) { return *(uint32_t*)((char*)(a0)); }
 

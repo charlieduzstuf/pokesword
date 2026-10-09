@@ -2020,7 +2020,7 @@ void sub_9cac0() { /* 0x9cac0 */ }
 void sub_9d2f0() { /* 0x9d2f0 */ }
 void sub_9d320() { /* 0x9d320 */ }
 void sub_9d360() { /* 0x9d360 */ }
-void sub_9d420_subsdk1_9d420() { /* 0x9d420 */ }
+// sub_9d420_subsdk1_9d420: implemented in prog/matched/subsdk1/
 // sub_9d430: implemented in prog/matched/subsdk1/
 void sub_9d450() { /* 0x9d450 */ }
 void sub_9d620() { /* 0x9d620 */ }

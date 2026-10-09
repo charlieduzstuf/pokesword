@@ -12020,6 +12020,30 @@
    "src": "uint32_t f_221f00(void* a0, void* a1) { return (((*(uint32_t*)((char*)(a0) + 4) >= *(uint32_t*)((char*)(a1) + 4))) ? (((*(uint32_t*)((char*)(a0) + 4) > *(uint32_t*)((char*)(a1) + 4)) ? 1 : 0)) : ((0) - (1))); }\n",
    "orig_insns": 6,
    "new_insns": 6
+  },
+  {
+   "module": "subsdk0",
+   "addr": 2267632,
+   "size": 12,
+   "name": "sub_2299f0",
+   "shape": "straight-line",
+   "ident": "f_2299f0",
+   "sig": "Pv",
+   "src": "uint32_t f_2299f0(void* a0) { return __builtin_bswap32(*(uint32_t*)((char*)(a0))); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
+  },
+  {
+   "module": "subsdk0",
+   "addr": 2267648,
+   "size": 12,
+   "name": "sub_229a00",
+   "shape": "straight-line",
+   "ident": "f_229a00",
+   "sig": "Pv",
+   "src": "uint64_t f_229a00(void* a0) { return __builtin_bswap64(*(uint64_t*)((char*)(a0))); }\n",
+   "orig_insns": 3,
+   "new_insns": 3
   }
  ]
 }

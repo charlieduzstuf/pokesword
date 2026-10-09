@@ -18350,6 +18350,30 @@
    "src": "uint32_t f_4c4a90(uint32_t a0) { return (((((uint32_t)a0) != 2)) ? ((((((uint32_t)a0) == 3)) ? (11) : (0))) : ((0) + (1))); }\n",
    "orig_insns": 6,
    "new_insns": 6
+  },
+  {
+   "module": "subsdk1",
+   "addr": 644128,
+   "size": 8,
+   "name": "sub_9d420",
+   "shape": "straight-line",
+   "ident": "f_9d420",
+   "sig": "jj",
+   "src": "uint32_t f_9d420(uint32_t a0, uint32_t a1) { return (((uint32_t)a1)) | (((((uint32_t)a0)) << 8)); }\n",
+   "orig_insns": 2,
+   "new_insns": 2
+  },
+  {
+   "module": "subsdk1",
+   "addr": 2755776,
+   "size": 16,
+   "name": "sub_2a0cc0",
+   "shape": "straight-line",
+   "ident": "f_2a0cc0",
+   "sig": "j",
+   "src": "uint32_t f_2a0cc0(uint32_t a0) { return (((((uint32_t)a0)) | (((((uint32_t)a0)) << 4))) | (((((uint32_t)a0)) << 6))) | (((((uint32_t)a0)) << 2)); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

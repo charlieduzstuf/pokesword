@@ -5743,6 +5743,9 @@ void sdk_f_2929b0(void* a0, uint32_t a1) {
     *(uint8_t*)((char*)(a0) + 3) = (uint8_t)((((uint32_t)a1)) >> (24));
 }
 
+// sub_2929d0  (orig 0x2929d0, straight-line)
+uint32_t sdk_f_2929d0(void* a0) { return __builtin_bswap32(*(uint32_t*)((char*)(a0))); }
+
 // sub_2929e0  (orig 0x2929e0, straight)
 void sdk_f_2929e0(void* a0, uint32_t a1) {
     *(uint8_t*)((char*)(a0)) = (uint8_t)((((uint32_t)a1)) >> (8));
@@ -6027,6 +6030,9 @@ void sdk_f_2b6ba0() {}
 
 // sub_2b6cf0  (orig 0x2b6cf0, compare)
 bool sdk_f_2b6cf0(uint64_t a0, uint64_t a1) { return (uint32_t)(a0) == (uint32_t)(a1); }
+
+// sub_2b6dc0  (orig 0x2b6dc0, straight-line)
+uint32_t sdk_f_2b6dc0(uint32_t a0) { return __builtin_bswap32(((uint32_t)a0)); }
 
 // sub_2b7270  (orig 0x2b7270, ptr_add)
 void* sdk_f_2b7270(void* a0) { return (char*)a0 + 16; }
@@ -7061,10 +7067,4 @@ void* sdk_f_31da70(void* a0) { return (char*)a0 + 8; }
 
 // sub_31da80  (orig 0x31da80, straight)
 void* sdk_f_31da80(void* a0) { return (char*)(a0) - 8; }
-
-// sub_31e700  (orig 0x31e700, ret_only)
-void sdk_f_31e700() {}
-
-// sub_3202e0  (orig 0x3202e0, ptr_add)
-void* sdk_f_3202e0(void* a0) { return (char*)a0 + 16; }
 

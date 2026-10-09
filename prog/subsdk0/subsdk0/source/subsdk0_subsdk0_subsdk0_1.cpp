@@ -3320,8 +3320,8 @@ void sub_229990() { /* 0x229990 */ }
 // sub_2299c0: implemented in prog/matched/subsdk0/
 void sub_2299d0() { /* 0x2299d0 */ }
 void sub_2299e0() { /* 0x2299e0 */ }
-void sub_2299f0() { /* 0x2299f0 */ }
-void sub_229a00() { /* 0x229a00 */ }
+// sub_2299f0: implemented in prog/matched/subsdk0/
+// sub_229a00: implemented in prog/matched/subsdk0/
 // sub_229a10: implemented in prog/matched/subsdk0/
 // sub_229a20_subsdk0_229a20: implemented in prog/matched/subsdk0/
 // sub_229a30_subsdk0_229a30: implemented in prog/matched/subsdk0/

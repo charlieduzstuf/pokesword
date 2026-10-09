@@ -2095,8 +2095,8 @@ void sub_4fd208() { /* 0x4fd208 */ }
 void sub_4fd240() { /* 0x4fd240 */ }
 void sub_4fd280() { /* 0x4fd280 */ }
 void sub_4fd2b8() { /* 0x4fd2b8 */ }
-void sub_4fd2f8() { /* 0x4fd2f8 */ }
-void sub_4fd300() { /* 0x4fd300 */ }
+// sub_4fd2f8: implemented in prog/matched/sdk/
+// sub_4fd300: implemented in prog/matched/sdk/
 void sub_4fd308() { /* 0x4fd308 */ }
 void sub_4fd328() { /* 0x4fd328 */ }
 void sub_4fd3b0() { /* 0x4fd3b0 */ }

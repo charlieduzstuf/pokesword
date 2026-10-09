@@ -3722,7 +3722,7 @@ void sub_17b3340() { /* 0x17b3340 */ }
 void sub_17b33d0() { /* 0x17b33d0 */ }
 void sub_17b3550() { /* 0x17b3550 */ }
 void sub_17b3620() { /* 0x17b3620 */ }
-void sub_17b3ab0() { /* 0x17b3ab0 */ }
+// sub_17b3ab0: implemented in prog/matched/main/
 // sub_17b3ad0: implemented in prog/matched/main/
 void sub_17b3af0() { /* 0x17b3af0 */ }
 void aVertexIndex() { /* 0x17b3b40 */ }
