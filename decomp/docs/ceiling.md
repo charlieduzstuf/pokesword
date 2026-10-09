@@ -493,3 +493,47 @@ The margin is worth stating plainly: one missing guard separates "declines one
 body" from "loses the module'. Every hand-written verifier here should be read
 with that in mind, because the failure is loud but the *cause* is one handler
 away from the fix.
+
+
+## Inlining needs a statement-level translator, not a caller-side trick
+
+The call population is the largest thing left that is not blocked on data
+symbols. Measured over framed bodies with a single `bl`, no `adrp` and no
+branch:
+
+    5,415   framed, one resolved `bl`, no adrp, no branch
+    3,868   callee not in functions.csv (import thunks; matches the 35.9% rate)
+    1,466   callee exists but is not inlinable -- it calls, or references data,
+           or uses vector registers, or is too large
+      81   callee is an inlinable leaf
+
+So a depth-1 inliner is worth ~81 bodies. Extending to recursive inlining would
+also reach the 1,466, but that is the wrong next step, because inlining cannot be
+written against the current translator at all.
+
+`StraightLine.translate()` returns **one composed function string** --
+declarations plus statements, joined and terminated -- and there is no API that
+hands back the statement list alone. A caller-side inliner therefore has nothing
+to splice into: it can translate a callee, but only into a complete second
+function.
+
+The options, and the trade:
+
+  * Give the translator a statement-level entry point, so a callee contributes
+    statements to the caller's stream with the caller's parameter bindings.
+    Clean, but it touches the code every existing 29,359 matches depend on, and
+    the emit path is exactly where the subtle decisions live -- argument
+    naming, pointer roles, deferral of stores.
+  * Emit the call as a real C call to a generated wrapper for the callee, and
+    teach the emulator to redirect it to the retail callee's bytes. No translator
+    change, and the emulation side already works (tools/call_emu_test.py). This
+    is the cheaper route and the one worth taking.
+
+The second is preferred and is small: the harness already proves a relocated
+`bl` reaches a mapped callee and that x30 must be restored on return. What it
+needs is the same treatment for a *candidate* whose call target is a mangled C
+symbol rather than a patched branch.
+
+Recorded here because the obvious plan -- "just inline it" -- costs a refactor of
+the most delicate code in the project, and knowing that before starting is worth
+more than the 81 bodies.
