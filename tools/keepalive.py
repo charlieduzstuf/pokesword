@@ -298,15 +298,23 @@ def harvest(a, st):
     # rewritten, and an audit running underneath reports failures that do not
     # exist. Released in `finally` so a crash here cannot wedge the audit forever
     # -- a stale lock is worse than a race, because it blocks silently.
+    #
+    # `finally` covers an exception. It does not cover being killed: `taskkill /F`
+    # from ping_supervisor's tree-kill, a machine reset, or a session ending all
+    # leave the file behind with a dead pid in it. The old code took
+    # FileExistsError as authoritative and skipped, so the very first such kill
+    # blocked every harvest slice from then on -- permanently and silently. The
+    # loop kept ticking, kept reporting 19.03%, and kept pushing, so the failure
+    # was indistinguishable from progress. audit.py already detected stale pids;
+    # this did not, which is why the block survived a restart.
     lock = os.path.join(ROOT, "work", "harvest.lock")
     os.makedirs(os.path.dirname(lock), exist_ok=True)
-    try:
-        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-        os.write(fd, str(os.getpid()).encode())
-        os.close(fd)
-    except FileExistsError:
-        print("  harvest: lock already held; skipping this slice")
+    holder = _lock_acquire(lock)
+    if holder is None:
+        print("  harvest: lock already held by a LIVE process; skipping this slice")
         return "harvest: another harvest holds the lock"
+    if holder == "stale":
+        print("  harvest: cleared a stale lock left by a dead process")
     try:
         return _harvest_locked(a, st, before, label, script, flags)
     finally:
@@ -314,6 +322,62 @@ def harvest(a, st):
             os.unlink(lock)
         except OSError:
             pass
+
+
+def _pid_alive(pid):
+    """Is `pid` a live process? No psutil dependency."""
+    if not pid or pid <= 0:
+        return False
+    if os.name == "nt":
+        try:
+            out = subprocess.run(["tasklist", "/FI", "PID eq %d" % pid, "/NH"],
+                                 capture_output=True, text=True, timeout=30,
+                                 **NOWINDOW).stdout
+        except Exception:                       # noqa: BLE001
+            return True                        # cannot tell: assume held
+        return str(pid) in out
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+
+def _lock_acquire(lock):
+    """Take the lock, reclaiming it if the recorded holder is dead.
+
+    Returns None if a live process holds it, "stale" if a dead holder's lock was
+    cleared and taken, or True on a clean acquire.
+
+    The pid is re-verified *after* reading it and *before* deleting, because the
+    window between the two is where a genuine race would be. Two processes could
+    both see a dead holder and both delete; the O_EXCL create that follows still
+    admits only one, so the worst case here is a wasted retry, never two
+    simultaneous harvesters.
+    """
+    for attempt in (1, 2):
+        try:
+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            os.write(fd, str(os.getpid()).encode())
+            os.close(fd)
+            return "stale" if attempt == 2 else True
+        except FileExistsError:
+            if attempt == 2:
+                return None
+            try:
+                with open(lock, encoding="utf-8") as f:
+                    holder = int(f.read().strip())
+            except (OSError, ValueError):
+                # Unreadable or empty: a half-written lock from a process that
+                # died mid-create. Treat as stale rather than trusting it.
+                holder = None
+            if holder is not None and _pid_alive(holder):
+                return None
+            try:
+                os.unlink(lock)
+            except OSError:
+                return None
+    return None
 
 
 def _harvest_locked(a, st, before, label, script, flags):

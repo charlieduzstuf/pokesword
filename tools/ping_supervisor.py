@@ -196,10 +196,37 @@ def main():
         t0 = time.time()
         # A restart loop that runs forever needs a floor: if the child dies
         # instantly and repeatedly, wait longer each time rather than spinning.
+        #
+        # The child's output is redirected explicitly rather than inherited.
+        # With DETACHED_PROCESS the handle-inheritance rules are not worth
+        # relying on, and the observed result was that none of the loop's output
+        # reached work/ping.log at all: 64 `rc=1 after 0s` restarts were recorded
+        # and not one line of the NameError that caused them. A supervised process
+        # whose output nobody can read is unsupervised in the way that matters --
+        # it hid the single defect that had stopped all progress.
         try:
-            rc = subprocess.call(cmd, cwd=ROOT, **CHILD)
+            log = open(os.path.join(ROOT, "work", "ping.log"), "a", encoding="utf-8")
+        except OSError as e:
+            print("cannot open work/ping.log: %s" % e, flush=True)
+            log = None
+        try:
+            # PYTHONUNBUFFERED, because the child's stdout is a file rather than
+            # a console and Python block-buffers it. Without this the tick's
+            # output is written to ping.log only when 8 KiB accumulate or the
+            # process exits -- so a supervisor reading the log sees nothing at all
+            # for the four minutes a tick takes, and a hang is indistinguishable
+            # from silence.
+            env = dict(os.environ, PYTHONUNBUFFERED="1")
+            rc = subprocess.call(cmd, cwd=ROOT, stdout=log,
+                                stderr=subprocess.STDOUT, env=env, **CHILD)
         except KeyboardInterrupt:
             break
+        finally:
+            if log is not None:
+                try:
+                    log.close()
+                except OSError:
+                    pass
         restarts += 1
         up = time.time() - t0
         print("=== child exited rc=%s after %.0fs; restart #%d in %ds ==="
