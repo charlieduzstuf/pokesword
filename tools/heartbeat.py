@@ -120,14 +120,90 @@ def beat(n):
     except Exception as e:
         print("  loop    : state unreadable (%s)" % type(e).__name__)
     print("  push out: " + push())
+    # Stamp the chain file on every beat. Without a timestamp here, a dead chain
+    # and a chain whose beat is merely slow look identical, and neither the agent
+    # nor a supervisor can tell "pinging quietly" from "ping dead".
+    try:
+        json.dump({"beat": n, "at": datetime.datetime.now().isoformat(),
+                   "at_epoch": time.time()},
+                  open(CHAINFILE, "w", encoding="utf-8"))
+    except OSError:
+        pass
+
+
+CHAINFILE = os.path.join(ROOT, "work", "ping_chain.json")
+
+
+def spawn_successor(interval):
+    """Start the next beat, detached, and record it. Returns its pid or None.
+
+    This is what makes the ping independent of anything above it. The previous
+    design relied on the agent being awake to relaunch the heartbeat after each
+    beat, which is exactly the assumption that keeps failing: a lost wake ends the
+    chain, and a chain that has ended is indistinguishable from a session that
+    has gone quiet.
+
+    With `--rearm` the beat replaces itself before exiting, so the chain
+    continues whether or not the notification that woke the agent is acted on.
+    The harness notification is still the primary signal -- it is what actually
+    reaches the agent -- and this is the redundancy underneath it.
+
+    CREATE_NO_WINDOW, not DETACHED_PROCESS: the successor outlives this process
+    but needs no console of its own, and a console is a window that flashes.
+    That is the whole reason these tasks were disabled in the first place.
+    """
+    import subprocess
+    try:
+        log = open(os.path.join(ROOT, "work", "ping.log"), "a", encoding="utf-8")
+    except OSError as e:
+        print("heartbeat: cannot open ping.log: %s" % e)
+        return None
+    kw = {}
+    if os.name == "nt":
+        kw["creationflags"] = subprocess.CREATE_NO_WINDOW
+    else:
+        kw["start_new_session"] = True
+    argv = [sys.executable, os.path.abspath(__file__),
+            "--rearm", "--interval", str(interval)]
+    try:
+        env = dict(os.environ, POKESWORD_BEAT=str(interval))
+        proc = subprocess.Popen(argv, cwd=ROOT, stdout=log,
+                                stderr=subprocess.STDOUT, env=env, **kw)
+    except Exception as e:                    # noqa: BLE001
+        print("heartbeat: successor will not start: %s: %s"
+              % (type(e).__name__, e))
+        return None
+    finally:
+        try:
+            log.close()
+        except OSError:
+            pass
+    try:
+        json.dump({"pid": proc.pid, "at": datetime.datetime.now().isoformat(),
+                   "at_epoch": time.time(), "interval": interval,
+                   "beat": None},
+                  open(CHAINFILE, "w", encoding="utf-8"))
+    except OSError as e:
+        print("heartbeat: could not record the successor: %s" % e)
+    return proc.pid
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--rearm", action="store_true",
+                    help="start the next beat before exiting, so the chain "
+                         "continues without anything having to relaunch it")
+    ap.add_argument("--interval", type=int, default=None,
+                    help="seconds between beats; overrides POKESWORD_BEAT")
+    a = ap.parse_args()
+    interval = a.interval if a.interval else BEAT
+
     try:
         n = int(json.load(open(os.path.join(ROOT, "work", "beat_count.json")))["n"]) + 1
     except Exception:
         n = 1
-    time.sleep(BEAT)
+    time.sleep(interval)
     try:
         beat(n)
         json.dump({"n": n, "at": datetime.datetime.now().isoformat()},
@@ -137,6 +213,13 @@ def main():
         print("beat %d reporting problem: %s: %s" % (n, type(e).__name__, e))
     finally:
         print("beat %d done; exit 0 regardless" % n)
+
+    # The successor is started last, and after the beat's own output, so the
+    # harness notification fires for a completed beat rather than for a process
+    # that is about to spawn something.
+    if a.rearm:
+        pid = spawn_successor(interval)
+        print("  rearmed : successor pid %s, interval %ds" % (pid, interval))
 
 
 if __name__ == "__main__":
