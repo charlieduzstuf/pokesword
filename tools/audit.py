@@ -522,6 +522,53 @@ def main():
           "; ".join(_seen[:6]) if _seen else
           "no undefined SHOUTING_CASE name in %d tool(s)" % len(_tools))
 
+    # The semantic matcher's own falsification suite must pass.
+    #
+    # `tools/sem_match.py` accepts a body on *observed behaviour* rather than on
+    # byte-identity, which is the only route past the frame wall -- 79.5% of what
+    # remains uses the writeback `sp` forms Clang 5.0.1 cannot emit, so no amount
+    # of translator work reaches it.
+    #
+    # A matcher that accepts everything is worse than no matcher: it is
+    # indistinguishable from a working one in every number it reports. So the
+    # suite is run here rather than trusted. It requires all three properties --
+    # accepts a byte-identical pair, accepts an equivalent pair that is NOT
+    # byte-identical, and rejects a one-constant near-miss -- and `unicorn` is an
+    # optional dependency, so its absence is a clean skip rather than a failure.
+    #
+    # A `skip()` here means the *capability* is absent, not that the tree is bad.
+    # Once unicorn is installed this becomes a hard gate.
+    _sem = os.path.join(ROOT, "tools", "sem_match_selftest.py")
+    if not os.path.exists(_sem):
+        check(False, "semantic matcher selftest present",
+              "tools/sem_match_selftest.py is missing")
+    else:
+        try:
+            _r = subprocess.run([sys.executable, _sem], cwd=ROOT,
+                                capture_output=True, text=True, timeout=1800)
+        except Exception as _e:                # noqa: BLE001
+            _r = None
+            skip("semantic matcher selftest",
+                 "could not run: %s: %s" % (type(_e).__name__, _e))
+        if _r is not None:
+            _out = (_r.stdout or "") + (_r.stderr or "")
+            if "SKIP:" in _out and "unicorn" in _out:
+                skip("semantic matcher selftest",
+                     "unicorn not installed -- semantic matching unavailable")
+            elif _r.returncode == 0 and "SELFTEST PASSED" in _out:
+                _n = 0
+                for _ln in _out.splitlines():
+                    if _ln.strip().startswith("[PASS]"):
+                        _n += 1
+                check(True, "semantic matcher accepts equivalences and rejects "
+                            "near-misses", "%d/%d properties verified"
+                            % (_n, _n))
+            else:
+                check(False, "semantic matcher accepts equivalences and rejects "
+                             "near-misses",
+                     "selftest failed; a matcher that cannot be shown to reject "
+                     "a near-miss must not be used to accept a body")
+
     # The translator must define the constants its own code references.
     #
     # Commit 4f2b63c6 deleted `MAX_ARG = 7` with a regex whose span was never
