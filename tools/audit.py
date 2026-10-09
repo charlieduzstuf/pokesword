@@ -451,6 +451,41 @@ def main():
               "tools/objdump_shim.py", "tools/shim/tail.py", "tools/shim/less.py"):
         check(os.path.exists(os.path.join(ROOT, p)), "present: %s" % p)
 
+    # The translator must define the constants its own code references.
+    #
+    # Commit 4f2b63c6 deleted `MAX_ARG = 7` with a regex whose span was never
+    # inspected (`^MAX_INSNS = 64.*?(?=\nSYNTH_BASE)` ate everything between).
+    # Three commits then shipped a translator in which `resolve_base` and
+    # `arg_reg` raise NameError. Nothing noticed, for two compounding reasons:
+    # the audit verifies *stored* artifacts rather than the tool's health, and
+    # the decline census buckets exceptions separately from declines, so 351
+    # bodies vanished silently instead of failing loudly.
+    #
+    # Checked structurally via ast, not by import: per the note below, an audit
+    # that executes the tools it audits can fail for unrelated reasons. A name
+    # that is used but never assigned at module level is the exact defect.
+    import ast as _ast
+    try:
+        _tree = _ast.parse(io.open(os.path.join(ROOT, "tools", "straight_line.py"),
+                                   encoding="utf-8").read())
+        _assigned = set()
+        for _node in _tree.body:
+            if isinstance(_node, _ast.Assign):
+                for _t in _node.targets:
+                    if isinstance(_t, _ast.Name):
+                        _assigned.add(_t.id)
+            elif isinstance(_node, (_ast.FunctionDef, _ast.ClassDef)):
+                _assigned.add(_node.name)
+        _need = {"MAX_ARG", "MAX_INSNS", "SYNTH_BASE", "SRET_ID", "LOADS",
+                 "STORES", "U", "S", "EXTEND_TYPES", "BITWISE_MNEMONICS",
+                 "FLAG_MNEMONICS", "COND_MNEMONICS", "COND_OPS"}
+        _missing = sorted(_need - _assigned)
+        check(not _missing, "straight_line.py defines its constants",
+              "missing %s" % _missing if _missing else "all %d present" % len(_need))
+    except (OSError, SyntaxError) as _e:
+        check(False, "straight_line.py defines its constants",
+              "unreadable: %s" % _e)
+
     # The verification harness must compile with the flags the build uses.
     #
     # `match_harness.CFLAGS` opened with a comment saying exactly that -- "or

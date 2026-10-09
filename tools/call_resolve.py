@@ -36,13 +36,25 @@ import csv, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+_TABLE = None
+
+
 def load_table(csv_path=None):
-    """(module, addr) -> (decomp_name, name)."""
+    """(module, addr) -> (decomp_name, name).
+
+    Cached process-wide: the CSV has 152,062 rows and the translator calls this
+    once per body, so re-reading it each time would dominate runtime.
+    """
+    global _TABLE
+    if _TABLE is not None and csv_path is None:
+        return _TABLE
     path = csv_path or os.path.join(ROOT, "data", "functions.csv")
     tbl = {}
     with open(path, encoding="utf-8") as f:
         for r in csv.DictReader(f):
             tbl[(r["module"], int(r["addr"], 16))] = (r["decomp_name"], r["name"])
+    if csv_path is None:
+        _TABLE = tbl
     return tbl
 
 
