@@ -191,6 +191,8 @@ def sync(a):
 
     rc, dirty = git("status", "--porcelain")
     lines = [l for l in dirty.splitlines() if l.strip()]
+    committed = False
+    untracked = sum(1 for l in lines if l.startswith("??"))
     if lines:
         # Audit first: never commit a tree whose own gates are red.
         audit = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "audit.py")], **NOWINDOW,
@@ -206,17 +208,35 @@ def sync(a):
             return ("sync: %d path(s) modified but AUDIT FAILED -- not committing"
                     % len(lines))
         git("add", "-u")
-        rc, msg = git("commit", "-q", "-m",
-                      "keepalive tick %d: checkpoint verified state" % st_tick(a))
-        if rc != 0:
-            return "sync: commit failed (%s)" % (msg.splitlines()[-1][:60] if msg else "?")
+        # `git add -u` stages tracked-and-modified only, by design: a blanket
+        # `git add -A` on this tree has already nearly shipped a wiped data file.
+        # So when the *only* change is untracked the index stays empty and
+        # `git commit` exits 1 with "nothing added to commit but untracked files
+        # present".
+        #
+        # That is not a failure, and treating it as one was actively harmful: the
+        # previous code returned here, which skipped the push below. Every tick
+        # whose only change was untracked therefore pushed nothing at all, while
+        # reporting a commit failure that had not happened. Ask the index instead
+        # of the exit code, and fall through to the push either way.
+        rc_staged, _ = git("diff", "--cached", "--quiet")
+        if rc_staged != 0:
+            rc, msg = git("commit", "-q", "-m",
+                          "keepalive tick %d: checkpoint verified state" % st_tick(a))
+            if rc != 0:
+                return "sync: commit failed (%s)" % (msg.splitlines()[-1][:60] if msg else "?")
+            committed = True
 
     for attempt in range(1, 4):
         rc, msg = git("push", "origin", "HEAD")
         if rc == 0:
             head = git("rev-parse", "--short", "HEAD")[1]
-            return "sync: pushed %s (attempt %d)%s" % (
-                head, attempt, " [committed]" if lines else "")
+            note = " [committed]" if committed else ""
+            if untracked:
+                # Say so plainly. The path is deliberately not auto-added, and a
+                # silent skip would read as "fully synced" when it is not.
+                note += " [%d untracked path(s) left to `git add -u`]" % untracked
+            return "sync: pushed %s (attempt %d)%s" % (head, attempt, note)
         time.sleep(8 * attempt)
     return "sync: PUSH FAILED after 3 attempts -- work is committed locally only"
 
