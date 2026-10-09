@@ -414,6 +414,56 @@ def arg_reg(base):
     return n
 
 
+def check_store_order(insns):
+    """Refuse a body whose deferred stores would reorder a load.
+
+    Stores are accumulated in a list and emitted after every load expression,
+    because a load is a value the translator keeps symbolic while a store has
+    nowhere to live until emit time. That is fine while no body reads an address
+    it also writes, and *wrong* the moment one does:
+
+        ldr w8, [x0, #0x2b8]     ; w8 = the OLD value
+        str w9, [x0, #0x2b8]     ; overwrite it
+        ...
+        return w8                ; emitted after the store -> reads the NEW value
+
+    That is not a codegen difference, it is a different program. Clang is entitled
+    to emit the load after the store, because as written the two are independent,
+    and it does -- so such a body cannot match, and could even be *registered* as
+    matching if the bytes happened to coincide.
+
+    Measured over every body the translator currently accepts: **0**. So this is a
+    latent hazard rather than live corruption, and the right response is to
+    decline rather than restructure the emit order -- which would touch every
+    store path that currently works. A decline is honest; silently reordering a
+    program is not.
+
+    The memory operand is compared textually, which is exact for the `[base,
+    #off]` and `[base, index]` forms these bodies use.
+    """
+    loaded = set()
+    for i in insns:
+        o = i.op_str
+        if "[" not in o:
+            continue
+        # The memory operand is the bracketed span, taken whole.
+        #
+        # The first version split the operand text on the first comma to strip a
+        # store's source register -- and that comma is frequently *inside* the
+        # bracket, so `w9, [x0, #8]` yielded `#8]` while the load yielded
+        # `[x0, #8]`. The two could never compare equal, so the guard never fired
+        # and reported "safe" on exactly the bodies it exists to catch. Found by
+        # testing it against a body it must reject, which is the only way to know.
+        start = o.index("[")
+        end = o.rindex("]") + 1
+        mem = o[start:end].strip()
+        if i.mnemonic.startswith("l"):
+            loaded.add(mem)
+        elif i.mnemonic.startswith("s") and mem in loaded:
+            raise Bail("store to %s reorders an earlier load of the same address: "
+                       "deferred stores make that unrepresentable" % mem)
+
+
 class StraightLine:
     def __init__(self, insns):
         self.insns = insns
@@ -610,6 +660,36 @@ class StraightLine:
                 if mn in ("cset", "csetm", "fcset", "fcsetm"):
                     # `cset Rd, cond` -> (cond ? 1 : 0)
                     state[wreg(dst)] = ("cset", ops[1], flags, cty)
+                    continue
+                if len(ops) == 3 and mn in ("cinc", "cinv", "cneg"):
+                    # The 3-operand spelling of the same operation:
+                    #     cinc  Rd, Rn, cond   ->  cond ? Rn + 1 : Rn
+                    #     cinv  Rd, Rn, cond   ->  cond ? Rn - 1 : Rn
+                    #     cneg  Rd, Rn, cond   ->  cond ? -Rn     : Rn
+                    #
+                    # `cinc`/`cinv` are 4-operand in their `csinc`/`csinv` form
+                    # and 3-operand in their own, and only the latter appears in
+                    # bodies that chain several of them through `csel`. Treated as
+                    # a `csel` whose false arm is the unmodified Rn, which is
+                    # exactly what it is.
+                    #
+                    # This was declined as "operand 'ne' is not an argument
+                    # register" -- the condition code was read as an operand by
+                    # the 4-operand path below. The message named a register that
+                    # never appears in the instruction.
+                    _rn = state.get(wreg(ops[1]))
+                    if _rn is None:
+                        _rn = self._value_arg(ops[1], used_args, idx_args, ptr_args)
+                    if _rn is None:
+                        raise Bail("%s operand %r is not a known value"
+                                   % (mn, ops[1]))
+                    _true = _rn
+                    if mn == "cneg":
+                        _true = ("expr", "-", _rn, ("imm", 0, _rw(_rn)), _rw(_rn))
+                    else:
+                        _true = ("expr", "+" if mn == "cinc" else "-", _rn,
+                                 ("imm", 1, _rw(_rn)), _rw(_rn))
+                    state[wreg(dst)] = ("sel", ops[2], _true, _rn, flags, _rw(_rn))
                     continue
                 # `csel Rd, Rn, Rm, cond` -> (cond ? Rn : Rm)
                 #
@@ -1253,6 +1333,10 @@ class StraightLine:
                 continue
 
             raise Bail("unhandled instruction %r %r" % (mn, i.op_str))
+
+        # Refuse a body whose stores would reorder its loads before emitting.
+        # See `check_store_order` for why this is a decline and not a fix.
+        check_store_order(body)
 
         return self._emit(ident, state, stmts, used_args, ptr_args, synth, idx_args)
 
