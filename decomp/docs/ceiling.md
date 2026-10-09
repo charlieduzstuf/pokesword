@@ -421,3 +421,49 @@ This is a general hazard worth naming: an unattended agent sharing a tree with a
 attended one will commit or push whatever is in flight. Any measurement that
 depends on the tree staying put has to stop the writer first, and the writer is
 the thing that is least likely to be considered part of "the experiment".
+
+
+## Deferred stores do NOT reorder loads -- a guard built on that premise cost 70 matches
+
+I added `check_store_order()` on the reasoning that stores are emitted after
+every load expression, so a body that loads an address it also writes would read
+the *new* value:
+
+    ldr w8, [x0, #0x10]   ; w8 = the OLD value
+    str w8, [x0, #0x10]   ; overwrite it
+    return w8             ; emitted after the store -> reads the NEW value
+
+**That reasoning is wrong.** C evaluates a store's right-hand side completely
+before the assignment, so the generated source is faithful regardless of where
+the store statement is emitted:
+
+    *(uint32_t*)(a0+16) = (cond ? (*(uint32_t*)(a0+16) & M) | 2
+                                :  *(uint32_t*)(a0+16) & M);
+
+The loads are not independent of the store -- the store *depends* on them -- so
+there is no reordering for Clang to take, and it does not: it CSEs the repeated
+loads into the single load the original has.
+
+Measured, main, `--shape none`, everything else identical:
+
+    baseline (adc3b607)          480 / 663
+    new work + guard             441 / 644     <- the guard costs 70
+    new work, guard call removed 511 / 753     <- +31 over baseline
+
+The guard declined **203** bodies. It cost 70 matches while the rest of the work
+gained 31, so reading only the combined number made a net +57 improvement look
+like a net -45 regression -- and nearly caused a revert of working code.
+
+Two process failures in one:
+
+  * The premise was backed by a scan that skipped bodies `shape_of` recognised
+    and reported "0 affected". The 203 bodies it declined were never in that
+    scan's scope, so the measurement structurally could not observe the case.
+    A safety argument resting on a measurement that cannot see the danger is not
+    a measurement.
+  * The regression was visible only as a *net* number. Isolating one change at a
+    time is what made it attributable at all.
+
+Reasonable instinct, wrong C semantics. The general rule: when a guard would
+decline hundreds of bodies on a semantic argument, that argument has to earn a
+measurement before it earns a refusal.
