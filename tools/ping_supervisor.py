@@ -13,9 +13,16 @@ that cannot fail is the whole point; making only the tick fault-tolerant was hal
 of it.
 
 The child is launched with `creationflags=DETACHED_PROCESS` on Windows so it
-survives this supervisor being killed too, and the supervisor records its own pid
-in `work/ping_supervisor.pid` so a later session can tell whether one is already
-running rather than starting a second.
+survives this supervisor being killed too, and so no console control event can
+reach it. (Both of those were claimed here while the code passed
+`CREATE_NO_WINDOW`, which does neither -- see the CHILD comment below.) The
+supervisor records its own pid in `work/ping_supervisor.pid` so a later session
+can tell whether one is already running rather than starting a second.
+
+This tier is itself supervised, by tools/ping_watchdog.py. Without that link a
+dead supervisor is terminal: the loop beneath it dies and nothing restarts
+either, which is exactly how this file came to hold a stale pidfile beside a
+stopped loop.
 
 Usage:
     python tools/ping_supervisor.py                # supervise, printing the child
@@ -43,6 +50,18 @@ import subprocess
 # genuinely wants to be detached rather than merely windowless.
 NOWINDOW = ({"creationflags": subprocess.CREATE_NO_WINDOW}
             if os.name == "nt" else {})
+
+# The supervised loop is a *different* case, and the earlier version got it
+# wrong. work/ping.log recorded eight deaths with rc=3221225786 -- 0xC000013A,
+# STATUS_CONTROL_C_EXIT -- which is what a process returns when a console control
+# event reaches it. CREATE_NO_WINDOW hides the console window but leaves the
+# child in this supervisor's process group, so a group-directed control event
+# still lands on it. DETACHED_PROCESS gives it no console at all, which removes
+# the death path instead of making it less likely. Not combined with
+# CREATE_NO_WINDOW: the flags conflict, and suppressing the window is redundant
+# once there is no console.
+CHILD = ({"creationflags": subprocess.DETACHED_PROCESS}
+         if os.name == "nt" else {"start_new_session": True})
 
 import sys
 import time
@@ -178,7 +197,7 @@ def main():
         # A restart loop that runs forever needs a floor: if the child dies
         # instantly and repeatedly, wait longer each time rather than spinning.
         try:
-            rc = subprocess.call(cmd, cwd=ROOT, **NOWINDOW)
+            rc = subprocess.call(cmd, cwd=ROOT, **CHILD)
         except KeyboardInterrupt:
             break
         restarts += 1

@@ -58,6 +58,27 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODULES = ("main", "sdk", "subsdk0", "subsdk1")
 STATE = os.path.join(ROOT, "work", "keepalive_state.json")
 
+# Windowless subprocesses.
+#
+# Every child spawned here is a short-lived probe (git, audit.py, a harvest
+# script). Without this flag each one allocates a console, which appears as a
+# terminal window flashing for a split second -- once per probe, per tick.
+#
+# This constant was *referenced* six times and never defined. Commit f5d241ed
+# ("stop the flashing windows") introduced the references; the definition was
+# never added. Every tick then died in `run()` with NameError, the supervisor
+# dutifully relaunched it, and the loop crash-looped indefinitely at
+# `rc=1 after 0s` while reporting progress it had not made. The percentage froze
+# at 19.03% and nothing said so, because the tick-failure path is designed to
+# continue rather than stop -- correct in intent, and exactly what hid this.
+#
+# Long-lived children are a different case and must NOT use this: CREATE_NO_WINDOW
+# leaves them in the parent's process group, so a console control event still
+# reaches them and they die with 0xC000013A. tools/ping_watchdog.py and
+# tools/ping_supervisor.py spawn theirs with DETACHED_PROCESS for that reason.
+NOWINDOW = ({"creationflags": subprocess.CREATE_NO_WINDOW}
+            if os.name == "nt" else {})
+
 
 def body_count():
     """The authoritative figure, read from `tools/match_progress.py`.
