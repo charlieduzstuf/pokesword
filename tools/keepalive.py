@@ -79,6 +79,36 @@ STATE = os.path.join(ROOT, "work", "keepalive_state.json")
 NOWINDOW = ({"creationflags": subprocess.CREATE_NO_WINDOW}
             if os.name == "nt" else {})
 
+# The compiler, pinned here rather than inherited.
+#
+# `verify_matches.py` needs Clang 5.0.1 at a fixed path; without it, or with a
+# different compiler on PATH, it silently produces a *lower* match rate instead
+# of failing. Measured, same tree, no code change:
+#
+#     with POKESWORD_CLANG set    main 22729 / 22729 = 100.00%
+#     without it                  main 22603 / 22729 =  99.45%  (mismatch=126)
+#
+# That gap was invisible because this loop is launched detached, from a shell
+# that does not have the variable, so `env.get("POKESWORD_CLANG")` was None and
+# the whole verification gate was quietly running against the wrong compiler --
+# 126 real regressions reported as compiler differences. Anything downstream that
+# trusts these numbers (audit, commit gating, the reported percentage) is
+# therefore only as trustworthy as this constant.
+#
+# Overridable for a machine that puts Clang somewhere else, but never inherited
+# implicitly: an unset variable must not change what "verified" means.
+CLANG_DIR = os.environ.get("POKESWORD_CLANG") or r"C:\llvm-5.0.1\bin"
+
+
+def tool_env():
+    """Environment for every child this loop spawns.
+
+    One place, so a future flag cannot be added to `verify()` and forgotten in
+    `run()` -- which is precisely how the compiler path came to be set in one
+    place and inherited in another.
+    """
+    return dict(os.environ, POKESWORD_CLANG=CLANG_DIR)
+
 
 def body_count():
     """The authoritative figure, read from `tools/match_progress.py`.
@@ -138,11 +168,13 @@ def save_state(s):
 
 
 def verify(module):
-    """Re-verify one module. Returns the reported line, or None on failure."""
-    env = dict(os.environ)
-    clang = os.environ.get("POKESWORD_CLANG")
-    if clang:
-        env["POKESWORD_CLANG"] = clang
+    """Re-verify one module. Returns the reported line, or None on failure.
+
+    The compiler is pinned by `tool_env()` rather than inherited. `verify_matches.py`
+    does not fail when it cannot find Clang 5.0.1 -- it reports a lower match
+    rate, which is indistinguishable from real regression unless you know to look.
+    """
+    env = tool_env()
     try:
         r = subprocess.run(
             [sys.executable, os.path.join(ROOT, "tools", "verify_matches.py"),
@@ -483,7 +515,7 @@ def one_tick(a, st):
                      "--module", m, "--shape", "strlit-ret",
                      "--limit", "5000", "--batch", "200"],
                     capture_output=True, text=True, cwd=ROOT, timeout=5400,
-                    env=dict(os.environ), **NOWINDOW)
+                    env=tool_env(), **NOWINDOW)
                 for line in r.stdout.splitlines():
                     if line.startswith("MATCH "):
                         print("  %-8s %s" % (m, line.strip()))

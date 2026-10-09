@@ -40,7 +40,64 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORK = os.path.join(ROOT, "work")
 TOOLS = os.path.join(ROOT, "tools")
 
-LLVM_BIN = os.environ.get("POKESWORD_CLANG", r"C:\Users\charl\scoop\apps\llvm\current\bin")
+# Where the compiler lives.
+#
+# The old default was `C:\Users\charl\scoop\apps\llvm\current\bin`, which
+# resolves to **clang 18.1.6** on this machine. Every measurement taken with
+# POKESWORD_CLANG unset was therefore taken with a different compiler backend
+# than the project targets, and it did not fail -- it just reported fewer
+# matches. Measured on an unchanged tree:
+#
+#     POKESWORD_CLANG=C:\llvm-5.0.1\bin    main 22729 / 22729 = 100.00%
+#     unset (scoop default, clang 18)      main 22603 / 22729 =  99.45%
+#
+# 126 bodies reported as regressions that were only compiler differences. The
+# detached loop was launched without the variable, so its verification numbers
+# and its harvest results were both computed against clang 18 and both looked
+# plausible. Nothing failed, which is the dangerous part.
+#
+# The default is now the 5.0.1 path, matching tools/heartbeat.py, and the
+# resolved version is checked below so a wrong compiler says so out loud.
+LLVM_BIN = os.environ.get("POKESWORD_CLANG", r"C:\llvm-5.0.1\bin")
+
+# The one compiler version this project measures against. See decomp/docs/ceiling.md:
+# retail code was built with Nintendo's NX Clang, so vanilla 5.0.1 already tops out
+# near 21%. A different version is not a slightly different number, it is a
+# different measurement.
+REQUIRED_CLANG = "5.0.1"
+
+
+def check_compiler():
+    """Warn loudly on stderr if the resolved compiler is not the required one.
+
+    Returns the version string, or None if clang could not be run.
+
+    A warning rather than an exception, because a developer may legitimately want
+    to measure against another version -- but it must never be silent. Every
+    number this harness produces is a statement about what the compiler emitted,
+    so a substituted compiler invalidates all of them while looking entirely
+    normal. Reported once per process, on stderr, where it cannot be mistaken for
+    a result line.
+    """
+    clang = os.path.join(LLVM_BIN, "clang.exe" if os.name == "nt" else "clang")
+    try:
+        r = subprocess.run([clang, "--version"], capture_output=True, text=True,
+                           timeout=60)
+    except Exception as e:                      # noqa: BLE001
+        sys.stderr.write(
+            "match_harness: cannot run %s (%s: %s)\n"
+            "  Every match number from this run is meaningless without the "
+            "compiler.\n" % (clang, type(e).__name__, e))
+        return None
+    ver = (r.stdout or "").splitlines()[0].strip() if r.stdout else ""
+    if REQUIRED_CLANG not in ver:
+        sys.stderr.write(
+            "match_harness: WRONG COMPILER -- expected %s, got:\n  %s\n"
+            "  from %s\n  Match results computed with it do not mean what they "
+            "appear to mean. Set POKESWORD_CLANG to the %s install.\n"
+            % (REQUIRED_CLANG, ver, LLVM_BIN, REQUIRED_CLANG))
+    return ver
+
 
 # Compilation flags.
 #
