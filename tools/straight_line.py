@@ -630,22 +630,71 @@ class StraightLine:
 
             # ---- flags producers -------------------------------------
             if mn in FLAG_MNEMONICS:
-                if len(ops) != 2:
+                # `cmp Rn, #imm, lsl #n` -- the shifted-immediate form.
+                #
+                # `#n` after the immediate is a *shift*, so the compared value is
+                # `imm << n`, not `imm`. Bodies that branch on a large constant use
+                # it constantly (`cmp w0, #0x200, lsl #12` is a 2 MiB threshold).
+                # Reading it as a plain 0x200 compares the wrong value, which
+                # compiles, matches nothing, and gives no clue why.
+                #
+                # The shift is kept as a `shift` value rather than folded into the
+                # literal, because `(1 << 20)` and `1048576` are the same number
+                # and Clang materialises them the same way -- but `imm << n` is
+                # not always foldable, and a pre-folded constant loses the form
+                # the instruction used.
+                #
+                # Built as a value tuple directly. Rewriting `ops` into a
+                # parenthesised string and re-parsing it -- the first attempt --
+                # fed `'(#0x200) << 12'` to `parse_imm`, which declined it as
+                # "not an argument register", so the error named a register for an
+                # operand that was never one.
+                _shifted = None
+                if len(ops) == 3:
+                    _parts = ops[2].split()
+                    if _parts[0] != "lsl" or len(_parts) != 2:
+                        raise Bail("%s extend %r is not supported" % (mn, ops[2]))
+                    _sh = parse_imm(_parts[1])
+                    if _sh is None:
+                        raise Bail("%s shift %r is not a literal" % (mn, _parts[1]))
+                    _shifted = (ops[1], _sh)
+                elif len(ops) != 2:
                     raise Bail("%s with %d operands is not modelled" % (mn, len(ops)))
                 _a = state.get(wreg(ops[0]))
                 if _a is None:
                     _a = self._value_arg(ops[0], used_args, idx_args, ptr_args)
                 if _a is None:
                     raise Bail("%s operand %r is not a known value" % (mn, ops[0]))
-                _b = parse_imm(ops[1])
-                if _b is None:
-                    _b = state.get(wreg(ops[1]))
-                    if _b is None:
-                        _b = self._value_arg(ops[1], used_args, idx_args, ptr_args)
-                    if _b is None:
-                        raise Bail("%s operand %r is not a known value" % (mn, ops[1]))
+                if _shifted is not None:
+                    _lit = parse_imm(_shifted[0])
+                    if _lit is None:
+                        raise Bail("%s immediate %r is not a literal"
+                                   % (mn, _shifted[0]))
+                    _b = ("shift", "lsl", _shifted[1],
+                          ("imm", _lit, _rw(_a)))
                 else:
-                    _b = ("imm", _b, _rw(_a))
+                    # `else:` alone is not enough here. Assigning `_b` inside the
+                    # shifted branch and then falling through to the generic
+                    # `if _b is None:` re-parsed `ops[1]` -- which is the *shift
+                    # token*, `#12` -- and wrapped the whole shift tuple in another
+                    # `("imm", ...)`. The result was
+                    # `("imm", ("shift", "lsl", 12, ...), ...)`, whose second
+                    # element is a tuple, so `_render` raised
+                    # `TypeError: '>=' not supported between tuple and int` from
+                    # the `imm` arm.
+                    #
+                    # Both cases are handled here and nothing below re-reads `ops`.
+                    _lit0 = parse_imm(ops[1])
+                    if _lit0 is not None:
+                        _b = ("imm", _lit0, _rw(_a))
+                    else:
+                        _b = state.get(wreg(ops[1]))
+                        if _b is None:
+                            _b = self._value_arg(ops[1], used_args, idx_args,
+                                                 ptr_args)
+                        if _b is None:
+                            raise Bail("%s operand %r is not a known value"
+                                       % (mn, ops[1]))
                 if _a[0] in ("addr", "addr_i"):
                     raise Bail("%s on an address value" % (mn,))
                 flags = (mn, _a, _b)
@@ -1475,7 +1524,16 @@ class StraightLine:
                 _test = "(%s & (uint64_t)(%s))" % (_ce, _ce2)
             else:
                 _ca, _ce = self._render(_fa, names)
-                _cb, _ce2 = self._render(_fb, names)
+                # The compared-against operand may be a `shift`, which is how
+                # `cmp Rn, #imm, lsl #n` is carried. Rendered here rather than in
+                # the generic path because the alternative is a `TypeError` deep
+                # inside `_render` for `("imm", ...)`: an exception, not a decline,
+                # so the body would vanish with no explanation.
+                if isinstance(_fb, tuple) and _fb[0] == "shift":
+                    _si, _se = self._render(_fb[3], names)
+                    _ce2 = "(%s << %d)" % (_se, _fb[2])
+                else:
+                    _cb, _ce2 = self._render(_fb, names)
                 # Spaces, not parentheses: `(%s)(%s)(%s)` emits `(a)(==)(b)`,
                 # which is a syntax error and killed the whole batch.
                 _test = "(%s %s %s)" % (_ce, COND_OPS.get(_cc, "=="), _ce2)
