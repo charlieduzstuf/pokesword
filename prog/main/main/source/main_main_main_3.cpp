@@ -2542,7 +2542,7 @@ void sub_4fa400() { /* 0x4fa400 */ }
 void sub_4fa430() { /* 0x4fa430 */ }
 void sub_4fa450() { /* 0x4fa450 */ }
 void sub_4fa470() { /* 0x4fa470 */ }
-void sub_4fa500() { /* 0x4fa500 */ }
+// sub_4fa500: implemented in prog/matched/main/
 // sub_4fa520: implemented in prog/matched/main/
 void sub_4fa530() { /* 0x4fa530 */ }
 void sub_4fa590() { /* 0x4fa590 */ }

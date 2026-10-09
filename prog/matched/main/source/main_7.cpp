@@ -27,6 +27,9 @@ typedef signed int int32_t;
 typedef signed long int64_t;
 typedef unsigned long uintptr_t;
 
+// sub_96c900  (orig 0x96c900, ret_only)
+void main_f_96c900() {}
+
 // sub_96c910  (orig 0x96c910, copy2)
 void main_f_96c910(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
@@ -6248,6 +6251,9 @@ void main_f_b6fb60(void* a0, void* a1) { *(uint64_t*)((char*)(a0) + 8) = *(uint6
 // sub_b70ea0  (orig 0xb70ea0, ret_only)
 void main_f_b70ea0() {}
 
+// sub_b73f00  (orig 0xb73f00, straight-line)
+void* main_f_b73f00(void* a0, uint32_t a1) { return ((char *)(char*)(a0) + 96 + (uintptr_t)(((int64_t)(((int32_t)(((uint32_t)a1)))))) * 32); }
+
 // sub_b744c0  (orig 0xb744c0, strlit-ret)
 const char *main_f_b744c0() { static char g_f_b744c0[1]; __asm__ volatile("" ::: "memory"); return g_f_b744c0; }
 
@@ -6315,6 +6321,11 @@ void main_f_b79e00() {}
 
 // sub_b7a140  (orig 0xb7a140, ret_only)
 void main_f_b7a140() {}
+
+// sub_b7c630  (orig 0xb7c630, straight-line)
+void main_f_b7c630(void* a0) {
+    *(uint32_t*)((char*)(a0) + 80) = ((*(uint32_t*)((char*)(a0) + 80)) + (1)) - (((((int32_t)((*(uint32_t*)((char*)(a0) + 80)) + (1)))) / (((int32_t)(*(uint32_t*)((char*)(a0) + 8))))) * (*(uint32_t*)((char*)(a0) + 8)));
+}
 
 // sub_b7e3c0  (orig 0xb7e3c0, getter)
 uint32_t main_f_b7e3c0(void* a0) { return *(uint32_t*)((char*)(a0) + 16); }
@@ -7155,13 +7166,4 @@ void main_f_bcd710(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*
 
 // sub_bcd720  (orig 0xbcd720, copy2)
 void main_f_bcd720(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_bcdaf0  (orig 0xbcdaf0, ret_only)
-void main_f_bcdaf0() {}
-
-// sub_bcde20  (orig 0xbcde20, copy2)
-void main_f_bcde20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_bcde30  (orig 0xbcde30, copy2)
-void main_f_bcde30(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 

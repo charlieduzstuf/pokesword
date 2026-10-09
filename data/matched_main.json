@@ -293935,6 +293935,78 @@
    "src": "uint32_t f_165c9d0(void* a0) { return __builtin_bswap32(*(uint32_t*)((char*)(a0))); }\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 5219584,
+   "size": 20,
+   "name": "sub_4fa500",
+   "shape": "straight-line",
+   "ident": "f_4fa500",
+   "sig": "mmmjjPvS_",
+   "src": "int64_t f_4fa500(uint64_t unused0, uint64_t unused1, uint64_t unused2, uint32_t a3, uint32_t a4, void* a5, void* a6) {\n    *(uint32_t*)((char*)(a5)) = (uint32_t)(a3);\n    *(uint32_t*)((char*)(a6)) = 0;\n    return ((int64_t)(((int32_t)((((uint32_t)a4)) * (((uint32_t)a3))))));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 12009216,
+   "size": 16,
+   "name": "sub_b73f00",
+   "shape": "straight-line",
+   "ident": "f_b73f00",
+   "sig": "Pvj",
+   "src": "void* f_b73f00(void* a0, uint32_t a1) { return ((char *)(char*)(a0) + 96 + (uintptr_t)(((int64_t)(((int32_t)(((uint32_t)a1)))))) * 32); }\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 12043824,
+   "size": 28,
+   "name": "sub_b7c630",
+   "shape": "straight-line",
+   "ident": "f_b7c630",
+   "sig": "Pv",
+   "src": "void f_b7c630(void* a0) {\n    *(uint32_t*)((char*)(a0) + 80) = ((*(uint32_t*)((char*)(a0) + 80)) + (1)) - (((((int32_t)((*(uint32_t*)((char*)(a0) + 80)) + (1)))) / (((int32_t)(*(uint32_t*)((char*)(a0) + 8))))) * (*(uint32_t*)((char*)(a0) + 8)));\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "main",
+   "addr": 22785232,
+   "size": 24,
+   "name": "sub_15bacd0",
+   "shape": "straight-line",
+   "ident": "f_15bacd0",
+   "sig": "Pvj",
+   "src": "void f_15bacd0(void* a0, uint32_t a1) {\n    *(uint32_t*)((char*)(a0) + 8) = ((((*(uint32_t*)((char*)(a0) + 8) > ((uint32_t)a1))) ? (*(uint32_t*)((char*)(a0) + 8)) : (((uint32_t)a1)))) - (((uint32_t)a1));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 22802128,
+   "size": 20,
+   "name": "sub_15beed0",
+   "shape": "straight-line",
+   "ident": "f_15beed0",
+   "sig": "Pvj",
+   "src": "void f_15beed0(void* a0, uint32_t a1) {\n    *(uint64_t*)((char*)(a0)) = (uint64_t)(((int64_t)(((int32_t)(((uint32_t)a1))))));\n    *(uint32_t*)((char*)(a0) + 8) = 1;\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 23615776,
+   "size": 16,
+   "name": "sub_1685920",
+   "shape": "straight-line",
+   "ident": "f_1685920",
+   "sig": "Pvj",
+   "src": "uint8_t f_1685920(void* a0, uint32_t a1) {\n    void* p0 = (void*)((uintptr_t)(((char *)(char*)(a0) + (uintptr_t)(((int64_t)(((int32_t)(((uint32_t)a1)))))) * 64)));\n    return *(uint8_t*)((char*)(p0) + 179);\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   }
  ]
 }

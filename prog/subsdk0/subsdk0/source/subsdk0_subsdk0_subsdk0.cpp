@@ -3539,7 +3539,7 @@ void sub_12e300() { /* 0x12e300 */ }
 void sub_12e360() { /* 0x12e360 */ }
 void sub_12e3c0() { /* 0x12e3c0 */ }
 void sub_12e440() { /* 0x12e440 */ }
-void sub_12e4b0() { /* 0x12e4b0 */ }
+// sub_12e4b0: implemented in prog/matched/subsdk0/
 void sub_12e4d0() { /* 0x12e4d0 */ }
 void sub_12e510() { /* 0x12e510 */ }
 void sub_12e5d0() { /* 0x12e5d0 */ }

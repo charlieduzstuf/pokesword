@@ -36,7 +36,7 @@ to `BLOCK_SRC_DIR` — it is CMake-internal, referenced 0 times by `exefs/`.
 ## Current number
 
 ```
-29,300 / 152,062  =  19.25%
+29,351 / 152,062  =  19.25%
 ## The byte-identical ceiling is a compiler limit -- ~21%
 
 Measured over all 123,191 unmatched bodies:
@@ -517,7 +517,7 @@ over the whole population rather than a sample:
   times.
 - **`got_map.py`'s `ops.split(",")`** once made `x8, [x8, #0x5a0]` parse as three
   fields, so every GOT access with a displacement was silently filtered out —
-  411 fake slots instead of 29,300 real ones.
+  411 fake slots instead of 29,351 real ones.
 - **A substring search finds a name and looks like success.** The `.prmb` table
   names are *not* standalone literals; they are substrings of
   `bin/battle/data_table/poke_data.prmb`.
@@ -529,7 +529,7 @@ over the whole population rather than a sample:
 
 ## Blocked on artifacts (not needed for matching)
 
-- **A relocated memory image.** NSOs carry no `DT_RELA` and all 29,300 GOT slots
+- **A relocated memory image.** NSOs carry no `DT_RELA` and all 29,351 GOT slots
   are zero. The retail NSP is card-descriptor: `header_kek` derives fine but
   `rights_id` is circular. An emulator launches; a dump needs GUI interaction plus an
   export facility this build lacks. This blocks GOT *values*, vtables, and object

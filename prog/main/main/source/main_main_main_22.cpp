@@ -2832,7 +2832,7 @@ void sub_1685790() { /* 0x1685790 */ }
 void sub_1685880() { /* 0x1685880 */ }
 void sub_16858c0() { /* 0x16858c0 */ }
 void sub_16858e0() { /* 0x16858e0 */ }
-void sub_1685920() { /* 0x1685920 */ }
+// sub_1685920: implemented in prog/matched/main/
 // sub_1685930: implemented in prog/matched/main/
 // sub_1685940: implemented in prog/matched/main/
 void sub_1685950() { /* 0x1685950 */ }

@@ -2067,13 +2067,13 @@ void sub_40b860() { /* 0x40b860 */ }
 void sub_40b9f0() { /* 0x40b9f0 */ }
 void sub_40ba10() { /* 0x40ba10 */ }
 // sub_40ba60_sdk_40ba60: implemented in prog/matched/sdk/
-void sub_40ba70() { /* 0x40ba70 */ }
+// sub_40ba70: implemented in prog/matched/sdk/
 void sub_40ba80() { /* 0x40ba80 */ }
 void sub_40bab0() { /* 0x40bab0 */ }
 void sub_40bac0() { /* 0x40bac0 */ }
-void sub_40bad0() { /* 0x40bad0 */ }
-void sub_40bae0() { /* 0x40bae0 */ }
-void sub_40baf0() { /* 0x40baf0 */ }
+// sub_40bad0: implemented in prog/matched/sdk/
+// sub_40bae0: implemented in prog/matched/sdk/
+// sub_40baf0: implemented in prog/matched/sdk/
 void sub_40bb00() { /* 0x40bb00 */ }
 // sub_40bb20: implemented in prog/matched/sdk/
 void sub_40bb30() { /* 0x40bb30 */ }

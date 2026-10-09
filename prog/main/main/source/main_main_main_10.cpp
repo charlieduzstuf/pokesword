@@ -1932,7 +1932,7 @@ void sub_b72440() { /* 0xb72440 */ }
 void sub_b72950() { /* 0xb72950 */ }
 void only_model_and_animation_component() { /* 0xb729e0 */ }
 void sub_b73bc0() { /* 0xb73bc0 */ }
-void sub_b73f00() { /* 0xb73f00 */ }
+// sub_b73f00: implemented in prog/matched/main/
 void sub_b73f10() { /* 0xb73f10 */ }
 void sub_b73fb0() { /* 0xb73fb0 */ }
 void sub_b74050() { /* 0xb74050 */ }
@@ -2105,7 +2105,7 @@ void sub_b7c4a0() { /* 0xb7c4a0 */ }
 void sub_b7c4f0() { /* 0xb7c4f0 */ }
 void sub_b7c540() { /* 0xb7c540 */ }
 void sub_b7c5a0() { /* 0xb7c5a0 */ }
-void sub_b7c630() { /* 0xb7c630 */ }
+// sub_b7c630: implemented in prog/matched/main/
 void sub_b7c650() { /* 0xb7c650 */ }
 void sub_b7c6a0() { /* 0xb7c6a0 */ }
 void sub_b7c720() { /* 0xb7c720 */ }

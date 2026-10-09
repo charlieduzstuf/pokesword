@@ -695,7 +695,7 @@ void sub_329c0() { /* 0x329c0 */ }
 // sub_32c50_subsdk1_32c50: implemented in prog/matched/subsdk1/
 // sub_32c60: implemented in prog/matched/subsdk1/
 // sub_32c70: implemented in prog/matched/subsdk1/
-void sub_32c80() { /* 0x32c80 */ }
+// sub_32c80: implemented in prog/matched/subsdk1/
 // sub_32c90: implemented in prog/matched/subsdk1/
 // sub_32ca0: implemented in prog/matched/subsdk1/
 // sub_32cb0: implemented in prog/matched/subsdk1/
@@ -704,10 +704,10 @@ void sub_32c80() { /* 0x32c80 */ }
 // sub_32ce0: implemented in prog/matched/subsdk1/
 // sub_32cf0: implemented in prog/matched/subsdk1/
 // sub_32d00: implemented in prog/matched/subsdk1/
-void sub_32d10() { /* 0x32d10 */ }
-void sub_32d20_subsdk1_32d20() { /* 0x32d20 */ }
+// sub_32d10: implemented in prog/matched/subsdk1/
+// sub_32d20_subsdk1_32d20: implemented in prog/matched/subsdk1/
 // sub_32d30: implemented in prog/matched/subsdk1/
-void sub_32d50_subsdk1_32d50() { /* 0x32d50 */ }
+// sub_32d50_subsdk1_32d50: implemented in prog/matched/subsdk1/
 // sub_32d60: implemented in prog/matched/subsdk1/
 // sub_32d70: implemented in prog/matched/subsdk1/
 // sub_32d80: implemented in prog/matched/subsdk1/
@@ -1389,7 +1389,7 @@ void sub_64c60() { /* 0x64c60 */ }
 void sub_64d70() { /* 0x64d70 */ }
 void sub_64df0() { /* 0x64df0 */ }
 void sub_64e20() { /* 0x64e20 */ }
-void sub_650d0() { /* 0x650d0 */ }
+// sub_650d0: implemented in prog/matched/subsdk1/
 void sub_650e0() { /* 0x650e0 */ }
 void sub_65170() { /* 0x65170 */ }
 void sub_651d0() { /* 0x651d0 */ }
@@ -1863,7 +1863,7 @@ void sub_8d170_subsdk1_8d170() { /* 0x8d170 */ }
 void sub_8d3b0() { /* 0x8d3b0 */ }
 void sub_8d5d0() { /* 0x8d5d0 */ }
 void sub_8d6e0() { /* 0x8d6e0 */ }
-void sub_8d960() { /* 0x8d960 */ }
+// sub_8d960: implemented in prog/matched/subsdk1/
 void sub_8d970() { /* 0x8d970 */ }
 void sub_8dae0() { /* 0x8dae0 */ }
 void sub_8dcb0() { /* 0x8dcb0 */ }
@@ -3050,7 +3050,7 @@ void sub_11a4a0() { /* 0x11a4a0 */ }
 void sub_11a7a0() { /* 0x11a7a0 */ }
 void sub_11aa20() { /* 0x11aa20 */ }
 void sub_11b4f0_subsdk1_11b4f0() { /* 0x11b4f0 */ }
-void sub_11cb10() { /* 0x11cb10 */ }
+// sub_11cb10: implemented in prog/matched/subsdk1/
 void sub_11cb40_subsdk1_11cb40() { /* 0x11cb40 */ }
 void sub_11cb80_subsdk1_11cb80() { /* 0x11cb80 */ }
 void sub_11cb90_subsdk1_11cb90() { /* 0x11cb90 */ }

@@ -162,14 +162,45 @@ MUL_OPS = {
     "umsubl": ("*", True,  True),
 }
 
-# Standalone width conversions and byte reversal.
+# Standalone width conversions, byte reversal, and division.
 #
 # `sxtw`/`uxtw` were already known as the *extend* on an `add`/`sub` and appear in
 # EXTEND_TYPES; this is only the standalone spelling, where the destination is the
-# widened register. `rev` is new, and maps to a compiler builtin so it needs no
-# prototype -- which also means it cannot collide with another candidate in a
-# shared batch TU the way a named helper would.
-WIDEN_MNEMONICS = ("sxtw", "uxtw", "rev")
+# widened register. `rev` maps to a compiler builtin so it needs no prototype --
+# which also means it cannot collide with another candidate in a shared batch TU
+# the way a named helper would.
+#
+# mnemonic -> (intermediate type, signed?). The *result* width is decided by the
+# destination register, not by the mnemonic: `sxtb x0, w0` and `sxtb w0, w0` are
+# the same mnemonic with different result widths.
+#
+# Confirmed against the compiler, including the part that is easy to get wrong:
+# `sxtx` (sign-extend 32 to 64) is emitted by Clang as `sxtb x0, w0`, not `sxtx` --
+# it picks the shortest instruction that performs the extension. So what has to be
+# spelled is the *cast pair*, not the mnemonic:
+#
+#     (int32_t)(int8_t)(uint8_t)v   -> sxtb w0, w0
+#     (int32_t)(int16_t)(uint16_t)v -> sxth w0, w0
+#     (int64_t)(int8_t)(uint8_t)v   -> sxtb x0, w0      (not sxtx!)
+#     (uint64_t)v                   -> mov  w0, w0      (not uxtw)
+#
+# The zero-extending forms are listed for completeness but are rarely emitted by
+# Clang for a plain integer -- the truncation folds away. They are handled anyway
+# rather than declined, because a body containing one still has to be translated.
+WIDEN_MNEMONICS = ("sxtw", "uxtw", "rev",
+                   "sxtb", "sxth", "sxtx", "uxtb", "uxth")
+# mnemonic -> (intermediate C type, is_signed)
+EXTEND_STANDALONE = {
+    "sxtb": ("int8_t", True),   "uxtb": ("uint8_t", False),
+    "sxth": ("int16_t", True),  "uxth": ("uint16_t", False),
+    "sxtw": ("int32_t", True),  "uxtw": ("uint32_t", False),
+    # `sxtx` is "sign-extend 32 to 64"; the extension itself is a 32-bit one.
+    "sxtx": ("int32_t", True),
+}
+# `sdiv`/`udiv`. Both operands must be cast to the *same* signedness or C's usual
+# arithmetic conversions change the operation: `uint32_t / int32_t` promotes to
+# unsigned and emits `udiv` where the instruction says `sdiv`.
+DIV_MNEMONICS = ("sdiv", "udiv")
 
 SYNTH_BASE = 1000
 # Hidden struct-return pointer id. Distinct from every synthetic pointer.
@@ -482,7 +513,8 @@ class StraightLine:
                     and i.mnemonic not in FLAG_MNEMONICS
                     and i.mnemonic not in COND_MNEMONICS
                     and i.mnemonic not in MUL_MNEMONICS
-                    and i.mnemonic not in WIDEN_MNEMONICS):
+                    and i.mnemonic not in WIDEN_MNEMONICS
+                    and i.mnemonic not in DIV_MNEMONICS):
                 raise Bail("unsupported mnemonic %r" % (i.mnemonic,))
 
         state = {}
@@ -1105,17 +1137,66 @@ class StraightLine:
             #     (uint64_t)v           -> mov  w0, w0      (NOT uxtw)
             #     __builtin_bswap32(v)  -> rev  w0, w0
             #     __builtin_bswap64(v)  -> rev  x0, x0
-            if mn in ("sxtw", "uxtw") and len(ops) == 2:
+            if mn in EXTEND_STANDALONE and len(ops) == 2:
                 _v = state.get(wreg(ops[1]))
                 if _v is None:
                     _v = self._value_arg(ops[1], used_args, idx_args, ptr_args)
                 if _v is None:
                     raise Bail("%s operand %r is not a known value" % (mn, ops[1]))
-                # The destination is always the 64-bit form, so the result type is
-                # fixed by the mnemonic and not inferred from the operand.
-                state[wreg(ops[0])] = ("cast",
-                                       "int64_t" if mn == "sxtw" else "uint64_t",
-                                       _v)
+                _mid, _signed = EXTEND_STANDALONE[mn]
+                # Result width from the *destination* register, signedness from
+                # the mnemonic. A `w` destination is 32-bit whether or not the
+                # value came from a 64-bit computation.
+                _res = ("int32_t" if ops[0].strip().startswith("w") else "int64_t")
+                if not _signed:
+                    _res = "uint32_t" if _res == "int32_t" else "uint64_t"
+                state[wreg(ops[0])] = ("cast", _res, ("cast", _mid, _v))
+                continue
+            if mn in DIV_MNEMONICS and len(ops) == 3:
+                _w = ops[0].strip().startswith("w")
+                _ty = ("int32_t" if _w else "int64_t") if mn == "sdiv" \
+                    else ("uint32_t" if _w else "uint64_t")
+                _da = state.get(wreg(ops[1]))
+                if _da is None:
+                    _da = self._value_arg(ops[1], used_args, idx_args, ptr_args)
+                _db = state.get(wreg(ops[2]))
+                if _db is None:
+                    _db = self._value_arg(ops[2], used_args, idx_args, ptr_args)
+                if _da is None or _db is None:
+                    raise Bail("%s operand is not a known value" % (mn,))
+                # A pointer cannot be a division operand.
+                #
+                # The same defect the add/sub path had, reached through the new
+                # handler: an argument this body also uses as a memory base comes
+                # back from `_value_arg` as `("argval", n, "uint32_t")`, with no
+                # record that it is a pointer, and the cast emitted
+                #
+                #     (uint32_t)((char*)(a1) - 1)
+                #
+                # which is `error: cast from pointer to smaller type 'uint32_t'
+                # loses information`. A compile error kills the whole batch, so
+                # main reported no MATCH line at all -- 700+ candidates gone for
+                # one bad body.
+                #
+                # `base_args` is the up-front set of registers the body uses as a
+                # memory base; an argument in it is a pointer regardless of what
+                # `_value_arg` typed it as. See `base_args_of`.
+                for _v, _lbl in ((_da, "first"), (_db, "second")):
+                    if _v[0] in ("addr", "addr_i"):
+                        raise Bail("%s %s operand is an address; a pointer "
+                                   "cannot be divided" % (mn, _lbl))
+                    if _v[0] == "argval" and _v[1] in base_args:
+                        raise Bail("%s %s operand is argument %d, which this "
+                                   "body also uses as a memory base; it is a "
+                                   "pointer and cannot be divided"
+                                   % (mn, _lbl, _v[1]))
+                # Both operands cast to the division's own type. Without this C
+                # picks the signedness from the operands and can emit `udiv` for
+                # an `sdiv`, which is a different program for negative values.
+                state[wreg(ops[0])] = ("expr", "/",
+                                       ("cast", _ty, _da),
+                                       ("cast", _ty, _db),
+                                       _ty)
                 continue
             if mn == "rev" and len(ops) == 2:
                 _v = state.get(wreg(ops[1]))
@@ -1458,9 +1539,15 @@ class StraightLine:
                         state[wreg(dst)] = ("addr_i", s1[1], s1[2] + s2[1],
                                             s1[3], s1[4])
                     continue
-                if s1[0] not in ("load", "expr", "arg", "argval", "imm"):
+                # `cset` and `sel` are integers -- 0/1, or one of two values -- so
+                # arithmetic on them is ordinary value arithmetic. They were not in
+                # this list, and `sub w0, w9, w8` where w9 came from a `cset`
+                # declined as "add/sub on a 'cset' value is not value arithmetic".
+                # That is 29 bodies whose only obstacle was a missing list entry.
+                _ARITH = ("load", "expr", "arg", "argval", "imm", "cset", "sel")
+                if s1[0] not in _ARITH:
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s1[0],))
-                if s2[0] not in ("load", "expr", "arg", "argval", "imm"):
+                if s2[0] not in _ARITH:
                     raise Bail("add/sub on a %r value is not value arithmetic" % (s2[0],))
                 # `arg` is allowed above because an argument used as an integer is
                 # a parameter -- but an argument *declared* `void*` is a pointer,
