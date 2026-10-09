@@ -65,6 +65,14 @@ STACK_BASE = 0x0000_0000_0050_0000
 STACK_SIZE = 0x0002_0000              # 128 KiB, plenty for any single frame
 SCRATCH_BASE = 0x0000_0000_0060_0000  # the "object" the pointer argument names
 SCRATCH_SIZE = 0x0000_4000            # 16 KiB
+# A second code region for a relocated callee.
+#
+# Clear of code, stack and scratch. It was originally CODE_BASE + 0x200000, which
+# is 0x600000 -- exactly SCRATCH_BASE -- and the second `mem_map` failed with
+# UC_ERR_MAP. The map is now checked in `run` rather than assumed.
+CALLEE_BASE = 0x0070_0000
+CALLEE_SIZE = 0x0010_0000
+
 SCRATCH_FILL = 0x5A
 # Bytes of scratch initialised as a self-referential pointer table.
 #
@@ -108,7 +116,7 @@ def _uc():
         UC_ARM64_REG_X0, UC_ARM64_REG_PC
 
 
-def run(code, argv, max_insns=MAX_INSNS):
+def run(code, argv, max_insns=MAX_INSNS, callee=None):
     """Emulate `code` with `argv`; return (ret, scratch_after, insn_count).
 
     `code` is raw AArch64. Raises ValueError for a body this harness cannot
@@ -138,8 +146,12 @@ def run(code, argv, max_insns=MAX_INSNS):
     # instead of running whatever bytes happen to be there.
     uc.mem_map(STACK_BASE, STACK_SIZE, UC_PROT_READ | UC_PROT_WRITE)
     uc.mem_map(SCRATCH_BASE, SCRATCH_SIZE, UC_PROT_READ | UC_PROT_WRITE)
+    if callee is not None:
+        uc.mem_map(CALLEE_BASE, CALLEE_SIZE, UC_PROT_READ | UC_PROT_WRITE | UC_PROT_EXEC)
 
     uc.mem_write(CODE_BASE, code)
+    if callee is not None:
+        uc.mem_write(CALLEE_BASE, callee)
     uc.mem_write(SENTINEL, b"\xc0\x03\x5f\xd6")          # ret
     uc.mem_write(SCRATCH_BASE, _init_scratch())
 
@@ -150,10 +162,26 @@ def run(code, argv, max_insns=MAX_INSNS):
 
     state = {"n": 0}
 
+    # When a callee has been supplied, returning from it must restore x30.
+    #
+    # `bl` leaves x30 pointing back into the caller; the callee's `ret` branches
+    # there but does not clear x30, so the caller's own `ret` then branches to its
+    # own post-call instruction. The run loops or escapes -- and the first version
+    # of the call test reported "original faulted (escaped)" on every trial
+    # immediately after confirming the callee *was* reached. Setting x30 on the
+    # callee->caller transition makes the outer `ret` land on the sentinel.
+    was_in_callee = [False]
+
     def on_code(uc_, addr, size, _user):
         state["n"] += 1
         if state["n"] > max_insns:
             uc_.emu_stop()
+            return
+        if callee is not None:
+            in_callee = CALLEE_BASE <= addr < CALLEE_BASE + CALLEE_SIZE
+            if was_in_callee[0] and not in_callee:
+                uc_.reg_write(C.UC_ARM64_REG_X30, SENTINEL)
+            was_in_callee[0] = in_callee
     uc.hook_add(UC_HOOK_CODE, on_code)
 
     try:
@@ -226,7 +254,7 @@ LAYOUTS = ("mixed", "all_ptr", "all_int", "all_small",
            "ptr_small", "ptr_small_2", "int_then_ptr")
 
 
-def _attempt(code, argv):
+def _attempt(code, argv, callee=None):
     """-> ("ok", ret, mem) or ("fault", message). Never raises.
 
     Both arms return a 3-tuple so the caller can unpack without branching first;
@@ -234,13 +262,13 @@ def _attempt(code, argv):
     image that would compare unequal against anything.
     """
     try:
-        r, m, _n = run(code, argv)
+        r, m, _n = run(code, argv, callee=callee)
         return ("ok", r, m)
     except ValueError as e:
         return ("fault", str(e), "")
 
 
-def compare(orig_code, cand_code, trials=12, seed0=0x5EED):
+def compare(orig_code, cand_code, trials=12, seed0=0x5EED, callee=None):
     """-> (verdict, reason). `verdict` is "equivalent" / "different" / "unknown".
 
     "unknown" is a real outcome and reported as one. A body whose original escapes
@@ -254,7 +282,7 @@ def compare(orig_code, cand_code, trials=12, seed0=0x5EED):
     for t in range(trials):
         for lay in LAYOUTS:
             argv = _mk_args(seed0 + t, layout=lay)
-            ko, ro, mo = _attempt(orig_code, argv)
+            ko, ro, mo = _attempt(orig_code, argv, callee)
             kc, rc, mc = _attempt(cand_code, argv)
             if ko == "fault":
                 faults += 1
