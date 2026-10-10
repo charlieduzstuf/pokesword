@@ -235,6 +235,14 @@ def main():
                     # tail-call candidate with "use of undeclared identifier",
                     # and a queue written here becomes unusable one step later.
                     "needs_proto": r.get("needs_proto"),
+                    # `decomp_project.py` reads this to type a thunk's return value
+                    # and to rewrite the call onto the real namespaced
+                    # destination. A record without it emits as `void`, which is a
+                    # different function -- and since it is `None` rather than
+                    # absent, nothing warns. Registering a thunk without this field
+                    # would write bodies that compile and are wrong.
+                    "tail_target_addr": r.get("tail_target_addr"),
+                    "tail_orig_name": r.get("tail_orig_name"),
                 })
 
     print()
