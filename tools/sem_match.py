@@ -274,6 +274,27 @@ def compare(orig_code, cand_code, trials=12, seed0=0x5EED, callee=None):
     "unknown" is a real outcome and reported as one. A body whose original escapes
     the code page on every layout is not comparable here -- typically an
     unresolved `bl` or a data reference -- and that is not a pass.
+
+    `callee` is installed for **both** sides.
+
+    It used to be installed for the original only, on the reasoning that the
+    original was the side with the real `bl`. That is backwards. When a caller
+    relocates *both* bodies' branch targets onto `CALLEE_BASE` so they agree on
+    where to jump, the candidate needs the callee mapped exactly as much as the
+    original does -- and without it the candidate's fetch fails with
+    `UC_ERR_FETCH_UNMAPPED`, which is then reported as
+
+        candidate faulted (escaped: Invalid memory fetch) but original completed
+
+    i.e. `different`. So the bug turned every *correctly* relocated candidate into
+    a false negative, and 125 of 176 real tail-call bodies -- which are one
+    instruction each and trivially equivalent -- came back `different` while the
+    original, holding the callee, completed.
+
+    It could only ever produce false negatives, never false positives, which is
+    why the six selftest properties all still passed: none of them had a candidate
+    that reached the callee region. The asymmetry was invisible to a suite that
+    only ever exercised the original side.
     """
     diffs = []
     compared = 0
@@ -283,7 +304,7 @@ def compare(orig_code, cand_code, trials=12, seed0=0x5EED, callee=None):
         for lay in LAYOUTS:
             argv = _mk_args(seed0 + t, layout=lay)
             ko, ro, mo = _attempt(orig_code, argv, callee)
-            kc, rc, mc = _attempt(cand_code, argv)
+            kc, rc, mc = _attempt(cand_code, argv, callee)
             if ko == "fault":
                 faults += 1
                 if "escaped" in ro:
