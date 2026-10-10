@@ -197,7 +197,17 @@ def _protos_for(chunk):
     return "".join("uint64_t %s();\n" % p for p in protos)
 
 
-JOURNAL = os.path.join(ROOT, "work", "sem_journal.jsonl")
+# The journal lives in `data/`, not `work/`.
+#
+# `work/` is gitignored, so a journal there survives a killed process but not a
+# fresh clone, a `git clean`, or a rebuild of the working tree -- which is most of
+# what "durable" has to mean for work that is not yet in the registry. It is
+# deleted on sight by any tooling that tidies `work/`, and with it the only record
+# of several thousand verdicts that cost real compute to obtain.
+#
+# It is append-only JSONL and it is an input, not output: the registry is the
+# project's record and this is the working set that feeds it.
+JOURNAL = os.path.join(ROOT, "data", "sem_journal.jsonl")
 
 
 def load_journal():
