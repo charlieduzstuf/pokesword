@@ -41,6 +41,7 @@ import collections
 import io
 import json
 import os
+import re
 import shutil
 import sys
 import time
@@ -54,6 +55,27 @@ MODULES = ("main", "sdk", "subsdk0", "subsdk1")
 def load_queue(path):
     with io.open(os.path.join(ROOT, path), encoding="utf-8") as f:
         return json.load(f)
+
+
+def _protos_for(chunk):
+    """The batch prelude: prototypes for tail-call destinations.
+
+    `collect` tags each tail-call candidate with `needs_proto`, naming the retail
+    callee it branches to. Those callees are outside the batch and must be
+    declared, or every tail-call candidate fails with "use of undeclared
+    identifier".
+
+    Declaring *every* ident instead is worse than declaring none: each prototype
+    then collides with the candidate's own definition and C++ rejects it --
+
+        uint64_t f_1b0();               <- head
+        uint32_t f_1b0() { return 0; }  <- the candidate
+        error: functions that differ only in their return type cannot be overloaded
+
+    -- and a wrong prelude does not degrade, it annihilates the whole batch.
+    """
+    protos = sorted({c["needs_proto"] for c in chunk if c.get("needs_proto")})
+    return "".join("uint64_t %s();\n" % p for p in protos)
 
 
 def main():
@@ -102,8 +124,7 @@ def main():
             shutil.rmtree(workdir, ignore_errors=True)
         os.makedirs(workdir, exist_ok=True)
 
-        protos = sorted({c["ident"] for c in chunk})
-        head = "".join("uint64_t %s();\n" % p for p in protos)
+        head = _protos_for(chunk)
 
         pairs = [(c["ident"], c["src"]) for c in chunk]
         good, dropped, hard = MH.compile_batch_isolated(pairs, workdir, head=head)

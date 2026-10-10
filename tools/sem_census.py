@@ -53,34 +53,35 @@ HAVE_CODE = ("mismatch",)
 
 
 def protos_for(chunk):
-    """Prototypes for the idents this chunk's candidates actually *call*.
+    """The batch prelude: prototypes for tail-call destinations.
 
-    Declaring every ident in the batch is wrong, and it fails in a way that reads
-    like a translator bug:
+    `collect` tags each tail-call candidate with `needs_proto`, the name of the
+    retail callee it branches to. Those callees are *not* in the batch, so they
+    need declaring:
 
-        uint64_t f_1b0();              <- head
-        uint32_t f_1b0() { return 0; }  <- the candidate
+        uint64_t f_1e0() { return t_main_210(); }
+                                    ^ undeclared identifier
 
-        error: functions that differ only in their return type cannot be overloaded
+    Two wrong prelues were tried before this one, and both read as catastrophic
+    translator failure:
 
-    Every candidate collides with its own prototype, the whole batch fails, and
-    `compile_batch_isolated` then bisects 350 candidates down to nothing and
-    reports every one of them ill-formed -- which is how a 20-candidate smoke
-    test came to report "700 dropped". The batch was fine; the prelude was wrong.
+      * declaring **every** ident in the batch, which collides with each
+        candidate's own definition --
 
-    Only a candidate that calls *another* candidate in the same chunk needs a
-    declaration, and it must not be declared if it is also defined here.
+            uint64_t f_1b0();               <- head
+            uint32_t f_1b0() { return 0; }  <- the candidate
+            error: functions that differ only in their return type cannot be overloaded
+
+      * declaring nothing, which fails on every tail-call candidate.
+
+    Either way the batch dies, `compile_batch_isolated` bisects all 350 candidates
+    to nothing, and the census reports every body ill-formed. A 700-candidate
+    smoke test duly printed "700 dropped" when not one body was at fault. This is
+    the cost of a wrong prelude: it does not degrade, it annihilates, and the
+    diagnostic points at the translator rather than at the prelude.
     """
-    idents = {c["ident"] for c in chunk}
-    protos = []
-    for c in chunk:
-        for ident in idents:
-            if ident == c["ident"]:
-                continue
-            # A call, not a mention: `f_1234(` rather than a bare `f_1234`.
-            if re.search(r"\b%s\s*\(" % re.escape(ident), c["src"]):
-                protos.append(ident)
-    return "".join("uint64_t %s();\n" % p for p in sorted(set(protos)))
+    protos = sorted({c["needs_proto"] for c in chunk if c.get("needs_proto")})
+    return "".join("uint64_t %s();\n" % p for p in protos)
 
 
 def verify_isolated(cands, module, batch=350):
@@ -119,7 +120,7 @@ def verify_isolated(cands, module, batch=350):
         if os.path.isdir(workdir):
             shutil.rmtree(workdir, ignore_errors=True)
         os.makedirs(workdir, exist_ok=True)
-        head = "".join("uint64_t %s();\n" % c["ident"] for c in chunk)
+        head = protos_for(chunk)
         pairs = [(c["ident"], c["src"]) for c in chunk]
         good, dropped, hard = MH.compile_batch_isolated(pairs, workdir, head=head)
         lost += len(dropped)
@@ -229,6 +230,11 @@ def main():
                     "verdict": v,
                     "reason": r.get("reason", ""),
                     "src": src,
+                    # Carried through so `sem_register` can rebuild the batch
+                    # prelude. Without it the register's batches fail on every
+                    # tail-call candidate with "use of undeclared identifier",
+                    # and a queue written here becomes unusable one step later.
+                    "needs_proto": r.get("needs_proto"),
                 })
 
     print()
