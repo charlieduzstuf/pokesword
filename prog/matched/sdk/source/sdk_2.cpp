@@ -4306,6 +4306,30 @@ void sdk_f_1b3af0(void* a0) {
 // sub_1b3dd0  (orig 0x1b3dd0, ret_only)
 void sdk_f_1b3dd0() {}
 
+// sub_1b3e00  (orig 0x1b3e00, straight)
+void sdk_f_1b3e00(void* a0) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 40));
+    void* p1 = (void*)(*(uint64_t *)((char*)(a0) + 64));
+    *(uint64_t*)((char*)(a0) + 40) = (uint64_t)((char*)(p0) - 4);
+    *(uint16_t*)((char*)(p1) + 154) = (uint16_t)(*(uint32_t*)((char*)(p0) - 4));
+}
+
+// sub_1b3e20  (orig 0x1b3e20, straight)
+void sdk_f_1b3e20(void* a0) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 40));
+    void* p1 = (void*)(*(uint64_t *)((char*)(a0) + 64));
+    *(uint64_t*)((char*)(a0) + 40) = (uint64_t)((char*)(p0) - 4);
+    *(uint16_t*)((char*)(p1) + 156) = (uint16_t)(*(uint32_t*)((char*)(p0) - 4));
+}
+
+// sub_1b4260  (orig 0x1b4260, straight)
+void sdk_f_1b4260(void* a0) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 40));
+    void* p1 = (void*)(*(uint64_t *)((char*)(a0) + 64));
+    *(uint64_t*)((char*)(a0) + 40) = (uint64_t)((char*)(p0) - 4);
+    *(uint16_t*)((char*)(p1) + 158) = (uint16_t)(*(uint32_t*)((char*)(p0) - 4));
+}
+
 // sub_1b54a0  (orig 0x1b54a0, straight)
 void sdk_f_1b54a0(void* a0) {
     void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 40));
@@ -5743,6 +5767,13 @@ void sdk_f_288b80() {}
 // sub_288b90  (orig 0x288b90, ret_only)
 void sdk_f_288b90() {}
 
+// sub_288ba0  (orig 0x288ba0, straight)
+void sdk_f_288ba0(void* a0) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));
+    *(uint64_t*)((char*)(p0) + 128) = 0;
+    *(uint32_t*)((char*)(p0) + 40) = 0;
+}
+
 // sub_290570  (orig 0x290570, ret_only)
 void sdk_f_290570() {}
 
@@ -7070,16 +7101,4 @@ void* sdk_f_317480(void* a0) { return (char*)a0 + 32; }
 
 // sub_317500  (orig 0x317500, ptr_add)
 void* sdk_f_317500(void* a0) { return (char*)a0 + 8; }
-
-// sub_317510  (orig 0x317510, straight)
-void* sdk_f_317510(void* a0) { return (char*)(a0) - 24; }
-
-// sub_3188d0  (orig 0x3188d0, ret_only)
-void sdk_f_3188d0() {}
-
-// sub_31a1c0  (orig 0x31a1c0, ret_only)
-void sdk_f_31a1c0() {}
-
-// sub_31a8f0  (orig 0x31a8f0, ret_only)
-void sdk_f_31a8f0() {}
 

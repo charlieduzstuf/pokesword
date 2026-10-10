@@ -3228,8 +3228,8 @@ void sub_106e270() { /* 0x106e270 */ }
 // sub_106e300: implemented in prog/matched/main/
 void sub_106e310() { /* 0x106e310 */ }
 void sub_106e430() { /* 0x106e430 */ }
-void sub_106e4b0() { /* 0x106e4b0 */ }
-void sub_106e4e0() { /* 0x106e4e0 */ }
+// sub_106e4b0: implemented in prog/matched/main/
+// sub_106e4e0: implemented in prog/matched/main/
 void sub_106e510() { /* 0x106e510 */ }
 void sub_106e7c0() { /* 0x106e7c0 */ }
 void sub_106e860() { /* 0x106e860 */ }

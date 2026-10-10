@@ -271,9 +271,45 @@ def write_registry(won, already=()):
     return total
 
 
+def merge_journal():
+    """Fold every journalled verdict into the registry. -> count added.
+
+    Separate from the end of a run on purpose. Merging only at the end meant a
+    run killed by a harness restart had its verdicts journalled but not in the
+    registry, so the work was durable but not *usable* -- and the next run had to
+    survive to its own end to make it count. Four restarts did exactly that.
+
+    This is idempotent: it skips addresses already in the registry, so running it
+    after every batch, or by hand at any time, converges to the same place.
+    """
+    if not os.path.exists(JOURNAL):
+        print("  no journal to merge")
+        return 0
+    prior = collections.defaultdict(list)
+    torn = 0
+    with io.open(JOURNAL, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                r = json.loads(line)
+            except ValueError:
+                torn += 1          # a kill mid-write costs at most this line
+                continue
+            if r.get("module"):
+                prior[r["module"]].append(r)
+    if torn:
+        print("  %d torn journal line(s) skipped" % torn)
+    return write_registry(prior)
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--queue", required=True)
+    # Not `required=True`: `--merge-only` needs no queue, and a recovery path you
+    # cannot invoke on its own is a recovery path that gets tested only when
+    # everything else has already gone wrong.
+    ap.add_argument("--queue", default=None)
     ap.add_argument("--batch", type=int, default=120,
                     help="candidates per compile+compare batch")
     ap.add_argument("--trials", type=int, default=12)
@@ -281,12 +317,23 @@ def main():
     ap.add_argument("--static-tailcall", action="store_true",
                     help="accept a one-instruction thunk on branch-target "
                          "identity rather than emulation (see static_tailcall)")
+    ap.add_argument("--merge-only", action="store_true",
+                    help="fold the journal into the registry and exit, deciding "
+                         "nothing. Idempotent.")
     ap.add_argument("--fresh", action="store_true",
                     help="discard the journal and decide everything again")
     ap.add_argument("--dry-run", action="store_true",
                     help="decide every candidate but write nothing")
     ap.add_argument("--module", default=None)
     a = ap.parse_args()
+
+    if a.merge_only:
+        n = merge_journal()
+        print("merged %d journalled records into the registry" % n)
+        return 0
+
+    if not a.queue:
+        ap.error("--queue is required unless --merge-only is given")
 
     import match_harness as MH
     import sem_match as SM

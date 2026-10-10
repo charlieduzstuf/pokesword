@@ -1469,7 +1469,7 @@ void sub_a68630() { /* 0xa68630 */ }
 // sub_a68730: implemented in prog/matched/main/
 // sub_a68740: implemented in prog/matched/main/
 // sub_a68750: implemented in prog/matched/main/
-void sub_a68760() { /* 0xa68760 */ }
+// sub_a68760: implemented in prog/matched/main/
 // sub_a68780: implemented in prog/matched/main/
 // sub_a68790: implemented in prog/matched/main/
 // sub_a687a0: implemented in prog/matched/main/
@@ -1621,7 +1621,7 @@ void sub_a6bc40() { /* 0xa6bc40 */ }
 // sub_a6bca0: implemented in prog/matched/main/
 // sub_a6bcb0: implemented in prog/matched/main/
 // sub_a6bcc0: implemented in prog/matched/main/
-void sub_a6bcd0() { /* 0xa6bcd0 */ }
+// sub_a6bcd0: implemented in prog/matched/main/
 // sub_a6bcf0: implemented in prog/matched/main/
 // sub_a6bd00: implemented in prog/matched/main/
 // sub_a6bd10: implemented in prog/matched/main/
@@ -1684,8 +1684,8 @@ void sub_a6d050() { /* 0xa6d050 */ }
 void sub_a6d070() { /* 0xa6d070 */ }
 void sub_a6d100() { /* 0xa6d100 */ }
 void sub_a6d130() { /* 0xa6d130 */ }
-void sub_a6d170() { /* 0xa6d170 */ }
-void sub_a6d180() { /* 0xa6d180 */ }
+// sub_a6d170: implemented in prog/matched/main/
+// sub_a6d180: implemented in prog/matched/main/
 void sub_a6d190() { /* 0xa6d190 */ }
 // sub_a6d200: implemented in prog/matched/main/
 // sub_a6d260: implemented in prog/matched/main/
@@ -2633,7 +2633,7 @@ void sub_ab9f00() { /* 0xab9f00 */ }
 void sub_ab9f80() { /* 0xab9f80 */ }
 void sub_ab9fd0() { /* 0xab9fd0 */ }
 void sub_aba100() { /* 0xaba100 */ }
-void sub_aba260() { /* 0xaba260 */ }
+// sub_aba260: implemented in prog/matched/main/
 // sub_aba270: implemented in prog/matched/main/
 // sub_aba280: implemented in prog/matched/main/
 // sub_aba2a0: implemented in prog/matched/main/
@@ -2681,7 +2681,7 @@ void sub_abb7e0() { /* 0xabb7e0 */ }
 void sub_abb7f0() { /* 0xabb7f0 */ }
 void sub_abb800() { /* 0xabb800 */ }
 // sub_abb8f0: implemented in prog/matched/main/
-void sub_abb900() { /* 0xabb900 */ }
+// sub_abb900: implemented in prog/matched/main/
 void sub_abb910() { /* 0xabb910 */ }
 void sub_abba60() { /* 0xabba60 */ }
 void sub_abba80() { /* 0xabba80 */ }
@@ -2691,7 +2691,7 @@ void sub_abbbd0() { /* 0xabbbd0 */ }
 void sub_abbcb0() { /* 0xabbcb0 */ }
 // sub_abbd50: implemented in prog/matched/main/
 // sub_abbd60: implemented in prog/matched/main/
-void sub_abbd80() { /* 0xabbd80 */ }
+// sub_abbd80: implemented in prog/matched/main/
 void sub_abbd90() { /* 0xabbd90 */ }
 void sub_abbdd0() { /* 0xabbdd0 */ }
 void sub_abbe70() { /* 0xabbe70 */ }

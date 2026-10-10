@@ -44151,36 +44151,6 @@
    "size": 16,
    "src": "uint32_t f_4f9ae0(uint64_t a0) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a0)));\n    *(uint32_t*)((char*)(p0)) = 0;\n    return 0;\n}\n",
    "verdict": "semantic"
-  },
-  {
-   "addr": 2781104,
-   "ident": "f_2a6fb0",
-   "module": "subsdk0",
-   "name": "sub_2a6fb0",
-   "needs_proto": "t_subsdk0_29e6e0",
-   "proof": {
-    "cand_insns": 1,
-    "layouts": [
-     "mixed",
-     "all_ptr",
-     "all_int",
-     "all_small",
-     "ptr_small",
-     "ptr_small_2",
-     "int_then_ptr"
-    ],
-    "method": "unicorn differential",
-    "orig_insns": 1,
-    "trials": 8
-   },
-   "reason": "1 vs 1 insns",
-   "shape": "tailcall",
-   "sig": "v",
-   "size": 4,
-   "src": "uint64_t f_2a6fb0() { return t_subsdk0_29e6e0(); }\n",
-   "tail_orig_name": "BlockAACEnc",
-   "tail_target_addr": 2746080,
-   "verdict": "semantic"
   }
  ],
  "module": "sdk",

@@ -1418,7 +1418,7 @@ void PsArray_65() { /* 0x7bf00 */ }
 void PsArray_66() { /* 0x7c060 */ }
 void sub_7c1c0() { /* 0x7c1c0 */ }
 void sub_7c4f0() { /* 0x7c4f0 */ }
-void sub_7c590() { /* 0x7c590 */ }
+// sub_7c590: implemented in prog/matched/main/
 void PsArray_67() { /* 0x7c5d0 */ }
 void PsArray_68() { /* 0x7c6e0 */ }
 void sub_7c7f0() { /* 0x7c7f0 */ }
@@ -1435,7 +1435,7 @@ void sub_7ea90() { /* 0x7ea90 */ }
 void sub_7ff40() { /* 0x7ff40 */ }
 void sub_805c0() { /* 0x805c0 */ }
 void sub_819b0() { /* 0x819b0 */ }
-void sub_81ed0() { /* 0x81ed0 */ }
+// sub_81ed0: implemented in prog/matched/main/
 void sub_81ef0() { /* 0x81ef0 */ }
 void sub_82110() { /* 0x82110 */ }
 void sub_82500() { /* 0x82500 */ }
@@ -1514,7 +1514,7 @@ void PsArray_72() { /* 0x91e90 */ }
 void PsArray_73() { /* 0x92020 */ }
 // sub_921f0: implemented in prog/matched/main/
 void sub_92200() { /* 0x92200 */ }
-void sub_922e0() { /* 0x922e0 */ }
+// sub_922e0: implemented in prog/matched/main/
 void sub_92310() { /* 0x92310 */ }
 void sub_923c0() { /* 0x923c0 */ }
 void sub_923e0() { /* 0x923e0 */ }

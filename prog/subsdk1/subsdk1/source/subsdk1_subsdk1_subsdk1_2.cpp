@@ -3325,9 +3325,9 @@ void sub_4cd700() { /* 0x4cd700 */ }
 // sub_4cd9b0: implemented in prog/matched/subsdk1/
 // sub_4cd9c0: implemented in prog/matched/subsdk1/
 // sub_4cd9d0: implemented in prog/matched/subsdk1/
-void sub_4cd9e0_subsdk1_4cd9e0() { /* 0x4cd9e0 */ }
-void sub_4cda00() { /* 0x4cda00 */ }
-void sub_4cda20() { /* 0x4cda20 */ }
+// sub_4cd9e0_subsdk1_4cd9e0: implemented in prog/matched/subsdk1/
+// sub_4cda00: implemented in prog/matched/subsdk1/
+// sub_4cda20: implemented in prog/matched/subsdk1/
 void sub_4cda40() { /* 0x4cda40 */ }
 // sub_4cda50: implemented in prog/matched/subsdk1/
 // sub_4cda60: implemented in prog/matched/subsdk1/

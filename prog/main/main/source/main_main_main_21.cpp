@@ -1553,7 +1553,7 @@ void sub_154bb50() { /* 0x154bb50 */ }
 void sub_154bc50() { /* 0x154bc50 */ }
 void sub_154bd50() { /* 0x154bd50 */ }
 void sub_154be20() { /* 0x154be20 */ }
-void sub_154bf00() { /* 0x154bf00 */ }
+// sub_154bf00: implemented in prog/matched/main/
 void sub_154bf20() { /* 0x154bf20 */ }
 void sub_154bf40() { /* 0x154bf40 */ }
 void sub_154bf60() { /* 0x154bf60 */ }
@@ -1752,7 +1752,7 @@ void lexical_element_too_long_2() { /* 0x155cf80 */ }
 void comment() { /* 0x155d120 */ }
 void malformed_number() { /* 0x155d5c0 */ }
 void sub_155da70() { /* 0x155da70 */ }
-void sub_155dad0() { /* 0x155dad0 */ }
+// sub_155dad0: implemented in prog/matched/main/
 void sub_155dae0() { /* 0x155dae0 */ }
 void lua_Integer() { /* 0x155db80 */ }
 void truncated_2() { /* 0x155dee0 */ }

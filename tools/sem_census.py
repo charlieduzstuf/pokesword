@@ -110,6 +110,10 @@ def verify_isolated(cands, module, batch=350):
     """
     import match_harness as MH
     import shutil
+    import capstone
+
+    def _md():
+        return capstone.Cs(capstone.CS_ARCH_ARM64, capstone.CS_MODE_ARM)
 
     out = []
     workdir = os.path.join(ROOT, "work", "census_tmp")
@@ -152,6 +156,8 @@ def verify_isolated(cands, module, batch=350):
             if c is not None:
                 want[MH.mangle(c["ident"], c["sig"])] = c
         code = MH.obj_text_range(obj, syms, list(want))
+        relocs = MH.obj_relocations(obj, list(want))
+        md = _md()
         for mangled, c in want.items():
             cand = code.get(mangled) or b""
             orig = blob[c["addr"]:c["addr"] + c["size"]]
@@ -160,7 +166,46 @@ def verify_isolated(cands, module, batch=350):
             if not cand or not orig:
                 r["verdict"] = "nocode"
                 r["reason"] = "no bytes for %s" % mangled
-            elif cand == orig:
+                out.append(r)
+                continue
+
+            # A tail-call thunk must be compared by its *resolved destination*,
+            # not by its bytes.
+            #
+            # The compiled thunk is always `b #0` -- a placeholder for a call the
+            # linker has not resolved -- while the original is `b #<offset>`. So a
+            # byte comparison calls all 5,212 of them mismatches, when
+            # `auto_match` (reading the destination out of the object's
+            # relocations) calls them 100% matches. Verified both ways on
+            # main@0x1e0:
+            #
+            #     original bytes  0c000014   b #0x210
+            #     candidate bytes 00000014   b #0
+            #     auto_match      MATCH 400 / 400 = 100.00%
+            #
+            # An earlier version of this census reported 7,158 mismatches, of
+            # which 5,212 were thunks that were already byte-identical matches
+            # claimed by the harvest loop. Nothing was wrong with the loop; the
+            # census was measuring the wrong thing and reported its own artefact
+            # as a population of unmatched bodies.
+            if c["shape"] == "tailcall":
+                want_sym = MH.mangle(c["needs_proto"], "v") \
+                    if c.get("needs_proto") else None
+                mine_t = [relocs.get(mangled, {}).get(0)]
+                orig_t = [want_sym] if want_sym else []
+                o_ins = list(md.disasm(orig, c["addr"]))
+                m_ins = list(md.disasm(cand, c["addr"]))
+                v, why = MH.compare(o_ins, MH.effective_end(o_ins, c["size"]),
+                                    m_ins,
+                                    orig_branches=orig_t,
+                                    mine_branches=mine_t)
+                r["verdict"] = v
+                r["reason"] = why
+                r["resolved_target"] = want_sym
+                out.append(r)
+                continue
+
+            if cand == orig:
                 r["verdict"] = "match"
                 r["reason"] = ""
             else:

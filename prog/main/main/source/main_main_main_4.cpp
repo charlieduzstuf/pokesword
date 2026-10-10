@@ -3832,7 +3832,7 @@ void sub_645630() { /* 0x645630 */ }
 void sub_645a00() { /* 0x645a00 */ }
 void blendCubemapConstant() { /* 0x645af0 */ }
 void u_Source1() { /* 0x645d50 */ }
-void sub_645e20() { /* 0x645e20 */ }
+// sub_645e20: implemented in prog/matched/main/
 void blend_cubemap() { /* 0x645e70 */ }
 void sub_6466c0() { /* 0x6466c0 */ }
 void sub_646770() { /* 0x646770 */ }

@@ -698,7 +698,7 @@ void sub_d00cc0() { /* 0xd00cc0 */ }
 // sub_d00de0: implemented in prog/matched/main/
 void sub_d00e00() { /* 0xd00e00 */ }
 void sub_d011d0() { /* 0xd011d0 */ }
-void sub_d01720() { /* 0xd01720 */ }
+// sub_d01720: implemented in prog/matched/main/
 // sub_d01730: implemented in prog/matched/main/
 // sub_d01750: implemented in prog/matched/main/
 void sub_d01760() { /* 0xd01760 */ }
@@ -3230,7 +3230,7 @@ void sub_dd3700() { /* 0xdd3700 */ }
 void sub_dd37b0() { /* 0xdd37b0 */ }
 void sub_dd3b60() { /* 0xdd3b60 */ }
 // sub_dd3cc0: implemented in prog/matched/main/
-void sub_dd3ce0() { /* 0xdd3ce0 */ }
+// sub_dd3ce0: implemented in prog/matched/main/
 void sub_dd3d00() { /* 0xdd3d00 */ }
 void sub_dd3d50() { /* 0xdd3d50 */ }
 void sub_dd3d70() { /* 0xdd3d70 */ }

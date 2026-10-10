@@ -580,7 +580,7 @@ void sub_1eab70() { /* 0x1eab70 */ }
 void sub_1ead30() { /* 0x1ead30 */ }
 void sub_1eae20() { /* 0x1eae20 */ }
 void sub_1eaf20() { /* 0x1eaf20 */ }
-void sub_1eafc0() { /* 0x1eafc0 */ }
+// sub_1eafc0: implemented in prog/matched/subsdk1/
 void sub_1eafe0() { /* 0x1eafe0 */ }
 void sub_1eb250() { /* 0x1eb250 */ }
 void sub_1eb340() { /* 0x1eb340 */ }
@@ -2428,7 +2428,7 @@ void sub_2bce10() { /* 0x2bce10 */ }
 // sub_2bce60: implemented in prog/matched/subsdk1/
 // sub_2bce70: implemented in prog/matched/subsdk1/
 // sub_2bce80: implemented in prog/matched/subsdk1/
-void sub_2bce90() { /* 0x2bce90 */ }
+// sub_2bce90: implemented in prog/matched/subsdk1/
 // sub_2bceb0_subsdk1_2bceb0: implemented in prog/matched/subsdk1/
 void sub_2bced0() { /* 0x2bced0 */ }
 void sub_2bcef0() { /* 0x2bcef0 */ }
@@ -2440,7 +2440,7 @@ void sub_2bcf60() { /* 0x2bcf60 */ }
 // sub_2bcf90: implemented in prog/matched/subsdk1/
 // sub_2bcfa0_subsdk1_2bcfa0: implemented in prog/matched/subsdk1/
 // sub_2bcfb0_subsdk1_2bcfb0: implemented in prog/matched/subsdk1/
-void sub_2bcfc0() { /* 0x2bcfc0 */ }
+// sub_2bcfc0: implemented in prog/matched/subsdk1/
 // sub_2bcfe0: implemented in prog/matched/subsdk1/
 void sub_2bd000() { /* 0x2bd000 */ }
 void sub_2bd020() { /* 0x2bd020 */ }
@@ -2452,7 +2452,7 @@ void sub_2bd080_subsdk1_2bd080() { /* 0x2bd080 */ }
 // sub_2bd0c0_subsdk1_2bd0c0: implemented in prog/matched/subsdk1/
 // sub_2bd0d0: implemented in prog/matched/subsdk1/
 // sub_2bd0e0_subsdk1_2bd0e0: implemented in prog/matched/subsdk1/
-void sub_2bd0f0() { /* 0x2bd0f0 */ }
+// sub_2bd0f0: implemented in prog/matched/subsdk1/
 // sub_2bd110: implemented in prog/matched/subsdk1/
 void sub_2bd130() { /* 0x2bd130 */ }
 void sub_2bd150_subsdk1_2bd150() { /* 0x2bd150 */ }
@@ -2476,7 +2476,7 @@ void sub_2bd3a0_subsdk1_2bd3a0() { /* 0x2bd3a0 */ }
 // sub_2bd3f0: implemented in prog/matched/subsdk1/
 // sub_2bd400: implemented in prog/matched/subsdk1/
 // sub_2bd410: implemented in prog/matched/subsdk1/
-void sub_2bd420() { /* 0x2bd420 */ }
+// sub_2bd420: implemented in prog/matched/subsdk1/
 // sub_2bd440: implemented in prog/matched/subsdk1/
 void sub_2bd460_subsdk1_2bd460() { /* 0x2bd460 */ }
 void sub_2bd480() { /* 0x2bd480 */ }
@@ -2498,11 +2498,11 @@ void sub_2bd690() { /* 0x2bd690 */ }
 void sub_2bd6b0() { /* 0x2bd6b0 */ }
 void sub_2bd6d0() { /* 0x2bd6d0 */ }
 // sub_2bd700: implemented in prog/matched/subsdk1/
-void sub_2bd720() { /* 0x2bd720 */ }
-void sub_2bd740() { /* 0x2bd740 */ }
-void sub_2bd760() { /* 0x2bd760 */ }
-void sub_2bd780() { /* 0x2bd780 */ }
-void sub_2bd7a0_subsdk1_2bd7a0() { /* 0x2bd7a0 */ }
+// sub_2bd720: implemented in prog/matched/subsdk1/
+// sub_2bd740: implemented in prog/matched/subsdk1/
+// sub_2bd760: implemented in prog/matched/subsdk1/
+// sub_2bd780: implemented in prog/matched/subsdk1/
+// sub_2bd7a0_subsdk1_2bd7a0: implemented in prog/matched/subsdk1/
 // sub_2bd7c0: implemented in prog/matched/subsdk1/
 void sub_2bd7d0() { /* 0x2bd7d0 */ }
 void sub_2bd830() { /* 0x2bd830 */ }
@@ -2526,11 +2526,11 @@ void sub_2bdcc0() { /* 0x2bdcc0 */ }
 void sub_2bdce0() { /* 0x2bdce0 */ }
 void sub_2bdd00() { /* 0x2bdd00 */ }
 // sub_2bdd30: implemented in prog/matched/subsdk1/
-void sub_2bdd50() { /* 0x2bdd50 */ }
-void sub_2bdd70() { /* 0x2bdd70 */ }
-void sub_2bdd90() { /* 0x2bdd90 */ }
-void sub_2bddb0() { /* 0x2bddb0 */ }
-void sub_2bddd0() { /* 0x2bddd0 */ }
+// sub_2bdd50: implemented in prog/matched/subsdk1/
+// sub_2bdd70: implemented in prog/matched/subsdk1/
+// sub_2bdd90: implemented in prog/matched/subsdk1/
+// sub_2bddb0: implemented in prog/matched/subsdk1/
+// sub_2bddd0: implemented in prog/matched/subsdk1/
 // sub_2bddf0: implemented in prog/matched/subsdk1/
 void declaration_of_s_conflicts_with_previous_declaration_at() { /* 0x2bde00 */ }
 void declaration_of_s_conflicts_with_previous_declaration_at_2() { /* 0x2bea00 */ }
@@ -3665,7 +3665,7 @@ void sub_339250() { /* 0x339250 */ }
 // sub_339290: implemented in prog/matched/subsdk1/
 // sub_3392b0: implemented in prog/matched/subsdk1/
 // sub_3392c0: implemented in prog/matched/subsdk1/
-void sub_3392d0() { /* 0x3392d0 */ }
+// sub_3392d0: implemented in prog/matched/subsdk1/
 // sub_3392f0: implemented in prog/matched/subsdk1/
 void sub_339310() { /* 0x339310 */ }
 void sub_339330() { /* 0x339330 */ }
@@ -3696,11 +3696,11 @@ void sub_3396f0_subsdk1_3396f0() { /* 0x3396f0 */ }
 void sub_339740() { /* 0x339740 */ }
 void sub_339790() { /* 0x339790 */ }
 // sub_3397f0: implemented in prog/matched/subsdk1/
-void sub_339810() { /* 0x339810 */ }
-void sub_339830() { /* 0x339830 */ }
-void sub_339850_subsdk1_339850() { /* 0x339850 */ }
-void sub_339870_subsdk1_339870() { /* 0x339870 */ }
-void sub_339890() { /* 0x339890 */ }
+// sub_339810: implemented in prog/matched/subsdk1/
+// sub_339830: implemented in prog/matched/subsdk1/
+// sub_339850_subsdk1_339850: implemented in prog/matched/subsdk1/
+// sub_339870_subsdk1_339870: implemented in prog/matched/subsdk1/
+// sub_339890: implemented in prog/matched/subsdk1/
 void sub_3398b0() { /* 0x3398b0 */ }
 void sub_339900() { /* 0x339900 */ }
 // sub_3399b0: implemented in prog/matched/subsdk1/
@@ -3740,7 +3740,7 @@ void sub_33a460() { /* 0x33a460 */ }
 // sub_33a470_subsdk1_33a470: implemented in prog/matched/subsdk1/
 // sub_33a480: implemented in prog/matched/subsdk1/
 // sub_33a490: implemented in prog/matched/subsdk1/
-void sub_33a4a0() { /* 0x33a4a0 */ }
+// sub_33a4a0: implemented in prog/matched/subsdk1/
 // sub_33a4c0: implemented in prog/matched/subsdk1/
 void sub_33a4e0() { /* 0x33a4e0 */ }
 void sub_33a500() { /* 0x33a500 */ }
@@ -3804,7 +3804,7 @@ void sub_33ab90() { /* 0x33ab90 */ }
 // sub_33abc0: implemented in prog/matched/subsdk1/
 // sub_33abd0: implemented in prog/matched/subsdk1/
 // sub_33abe0: implemented in prog/matched/subsdk1/
-void sub_33abf0() { /* 0x33abf0 */ }
+// sub_33abf0: implemented in prog/matched/subsdk1/
 // sub_33ac10: implemented in prog/matched/subsdk1/
 void sub_33ac30_subsdk1_33ac30() { /* 0x33ac30 */ }
 void sub_33ac50() { /* 0x33ac50 */ }
@@ -3822,7 +3822,7 @@ void sub_33ad30() { /* 0x33ad30 */ }
 // sub_33adf0: implemented in prog/matched/subsdk1/
 // sub_33ae10: implemented in prog/matched/subsdk1/
 // sub_33ae20: implemented in prog/matched/subsdk1/
-void sub_33ae30_subsdk1_33ae30() { /* 0x33ae30 */ }
+// sub_33ae30_subsdk1_33ae30: implemented in prog/matched/subsdk1/
 // sub_33ae50: implemented in prog/matched/subsdk1/
 void sub_33ae70() { /* 0x33ae70 */ }
 void sub_33ae90() { /* 0x33ae90 */ }

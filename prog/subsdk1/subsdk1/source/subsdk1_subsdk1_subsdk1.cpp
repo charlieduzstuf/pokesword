@@ -3378,7 +3378,7 @@ void sub_152130() { /* 0x152130 */ }
 void sub_152210() { /* 0x152210 */ }
 // sub_152250: implemented in prog/matched/subsdk1/
 // sub_152260_subsdk1_152260: implemented in prog/matched/subsdk1/
-void sub_152270() { /* 0x152270 */ }
+// sub_152270: implemented in prog/matched/subsdk1/
 // sub_152280: implemented in prog/matched/subsdk1/
 // sub_152290: implemented in prog/matched/subsdk1/
 // sub_1522a0: implemented in prog/matched/subsdk1/
@@ -3746,7 +3746,7 @@ void sub_1842c0() { /* 0x1842c0 */ }
 // sub_1843a0: implemented in prog/matched/subsdk1/
 // sub_1843b0: implemented in prog/matched/subsdk1/
 // sub_1843c0: implemented in prog/matched/subsdk1/
-void sub_1843d0() { /* 0x1843d0 */ }
+// sub_1843d0: implemented in prog/matched/subsdk1/
 // sub_1843f0: implemented in prog/matched/subsdk1/
 // sub_184400: implemented in prog/matched/subsdk1/
 void sub_184410() { /* 0x184410 */ }
@@ -3920,7 +3920,7 @@ void sub_190ae0() { /* 0x190ae0 */ }
 // sub_190b10: implemented in prog/matched/subsdk1/
 void sub_190b20() { /* 0x190b20 */ }
 // sub_190c60: implemented in prog/matched/subsdk1/
-void sub_190c70() { /* 0x190c70 */ }
+// sub_190c70: implemented in prog/matched/subsdk1/
 // sub_190ca0: implemented in prog/matched/subsdk1/
 // sub_190cb0: implemented in prog/matched/subsdk1/
 void sub_190cc0() { /* 0x190cc0 */ }

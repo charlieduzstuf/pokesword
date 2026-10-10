@@ -3148,7 +3148,7 @@ void sub_c9a5f0() { /* 0xc9a5f0 */ }
 void kw20_drowse01_Enabled() { /* 0xc9a8a0 */ }
 // sub_c9be60: implemented in prog/matched/main/
 // sub_c9be70: implemented in prog/matched/main/
-void sub_c9be80() { /* 0xc9be80 */ }
+// sub_c9be80: implemented in prog/matched/main/
 void sub_c9beb0() { /* 0xc9beb0 */ }
 void sub_c9bee0() { /* 0xc9bee0 */ }
 void sub_c9c3c0() { /* 0xc9c3c0 */ }

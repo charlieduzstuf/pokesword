@@ -1,4 +1,4 @@
-/* sdk -- 71 functions verified to match the original.
+/* sdk -- 72 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -100,6 +100,9 @@ void sdk_f_2c590() { sdk::sub_29450(); }
 
 // sub_14d670  (orig 0x14d670, tailcall)
 void sdk_f_14d670() { sdk::sub_14d680(); }
+
+// sub_2a6fb0  (orig 0x2a6fb0, tailcall)
+uint64_t sdk_f_2a6fb0() { return MISSING_TAIL_DESTINATION(); }
 
 // sub_374420  (orig 0x374420, tailcall)
 void sdk_f_374420() { sdk::sub_373ef0(); }

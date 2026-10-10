@@ -336,8 +336,8 @@ void sub_b0c710() { /* 0xb0c710 */ }
 void sub_b0c9d0() { /* 0xb0c9d0 */ }
 // sub_b0caa0: implemented in prog/matched/main/
 // sub_b0cac0: implemented in prog/matched/main/
-void sub_b0cae0() { /* 0xb0cae0 */ }
-void sub_b0cb00() { /* 0xb0cb00 */ }
+// sub_b0cae0: implemented in prog/matched/main/
+// sub_b0cb00: implemented in prog/matched/main/
 // sub_b0cb20: implemented in prog/matched/main/
 // sub_b0cb50: implemented in prog/matched/main/
 // sub_b0cb80: implemented in prog/matched/main/

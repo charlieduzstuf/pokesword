@@ -532,14 +532,14 @@ void sub_1612ad0() { /* 0x1612ad0 */ }
 void sub_1612c10() { /* 0x1612c10 */ }
 void sub_1612c70() { /* 0x1612c70 */ }
 void sub_1612d00() { /* 0x1612d00 */ }
-void sub_1612d50() { /* 0x1612d50 */ }
+// sub_1612d50: implemented in prog/matched/main/
 // sub_1612d60: implemented in prog/matched/main/
 // sub_1612d70: implemented in prog/matched/main/
 void sub_1612d80() { /* 0x1612d80 */ }
 void sub_1612de0() { /* 0x1612de0 */ }
 void sub_1612e40() { /* 0x1612e40 */ }
 void sub_1612ec0() { /* 0x1612ec0 */ }
-void sub_1612f10() { /* 0x1612f10 */ }
+// sub_1612f10: implemented in prog/matched/main/
 // sub_1612f20: implemented in prog/matched/main/
 // sub_1612f30: implemented in prog/matched/main/
 void sub_1612f40() { /* 0x1612f40 */ }
@@ -961,21 +961,21 @@ void sub_162ddf0() { /* 0x162ddf0 */ }
 void sub_162de80() { /* 0x162de80 */ }
 void sub_162dee0() { /* 0x162dee0 */ }
 void sub_162df70() { /* 0x162df70 */ }
-void sub_162dfc0() { /* 0x162dfc0 */ }
+// sub_162dfc0: implemented in prog/matched/main/
 // sub_162dfd0: implemented in prog/matched/main/
 // sub_162dfe0: implemented in prog/matched/main/
 void sub_162dff0() { /* 0x162dff0 */ }
 void sub_162e050() { /* 0x162e050 */ }
 void sub_162e0b0() { /* 0x162e0b0 */ }
 void sub_162e130() { /* 0x162e130 */ }
-void sub_162e180() { /* 0x162e180 */ }
+// sub_162e180: implemented in prog/matched/main/
 // sub_162e190: implemented in prog/matched/main/
 // sub_162e1a0: implemented in prog/matched/main/
 void sub_162e1b0() { /* 0x162e1b0 */ }
 void sub_162e200() { /* 0x162e200 */ }
 void sub_162e260() { /* 0x162e260 */ }
 void sub_162e2f0() { /* 0x162e2f0 */ }
-void sub_162e340() { /* 0x162e340 */ }
+// sub_162e340: implemented in prog/matched/main/
 // sub_162e350: implemented in prog/matched/main/
 // sub_162e360: implemented in prog/matched/main/
 void sub_162e370() { /* 0x162e370 */ }
@@ -1812,7 +1812,7 @@ void sub_1658050() { /* 0x1658050 */ }
 void sub_16580a0() { /* 0x16580a0 */ }
 // sub_16580b0: implemented in prog/matched/main/
 void sub_16580c0() { /* 0x16580c0 */ }
-void sub_16580f0() { /* 0x16580f0 */ }
+// sub_16580f0: implemented in prog/matched/main/
 void sub_1658120() { /* 0x1658120 */ }
 void sub_1658150() { /* 0x1658150 */ }
 void sub_16581b0() { /* 0x16581b0 */ }
@@ -1925,7 +1925,7 @@ void sub_165e060() { /* 0x165e060 */ }
 void sub_165e140() { /* 0x165e140 */ }
 void sub_165e210() { /* 0x165e210 */ }
 void sub_165e380() { /* 0x165e380 */ }
-void sub_165fb10() { /* 0x165fb10 */ }
+// sub_165fb10: implemented in prog/matched/main/
 void sub_165fb30() { /* 0x165fb30 */ }
 void sub_165fb50() { /* 0x165fb50 */ }
 void sub_165fb70() { /* 0x165fb70 */ }
@@ -2184,7 +2184,7 @@ void sub_1667580() { /* 0x1667580 */ }
 // sub_16675d0: implemented in prog/matched/main/
 void sub_16675e0() { /* 0x16675e0 */ }
 void sub_1667640() { /* 0x1667640 */ }
-void sub_16676c0() { /* 0x16676c0 */ }
+// sub_16676c0: implemented in prog/matched/main/
 void sub_16676f0() { /* 0x16676f0 */ }
 void sub_16678d0() { /* 0x16678d0 */ }
 void sub_1667920() { /* 0x1667920 */ }
@@ -2533,7 +2533,7 @@ void sub_16784c0() { /* 0x16784c0 */ }
 // sub_16785a0: implemented in prog/matched/main/
 // sub_16785b0: implemented in prog/matched/main/
 // sub_16785c0: implemented in prog/matched/main/
-void sub_16785d0() { /* 0x16785d0 */ }
+// sub_16785d0: implemented in prog/matched/main/
 void sub_16785e0() { /* 0x16785e0 */ }
 void sub_1678640() { /* 0x1678640 */ }
 // sub_16786e0: implemented in prog/matched/main/
@@ -2922,7 +2922,7 @@ void sub_1688620() { /* 0x1688620 */ }
 void sub_1688680() { /* 0x1688680 */ }
 void sub_1688710() { /* 0x1688710 */ }
 void sub_1688720() { /* 0x1688720 */ }
-void sub_1688750() { /* 0x1688750 */ }
+// sub_1688750: implemented in prog/matched/main/
 void sub_1688780() { /* 0x1688780 */ }
 // sub_1688860: implemented in prog/matched/main/
 // sub_1688870: implemented in prog/matched/main/
@@ -4003,6 +4003,6 @@ void sub_16c4110() { /* 0x16c4110 */ }
 void sub_16c4120() { /* 0x16c4120 */ }
 void SDK_MW_Nintendo_PiaNex_5_18_0_forNEX_4_6_2() { /* 0x16c4190 */ }
 void sub_16c41a0() { /* 0x16c41a0 */ }
-void sub_16c4550() { /* 0x16c4550 */ }
+// sub_16c4550: implemented in prog/matched/main/
 
 }  // namespace main
