@@ -39,6 +39,7 @@ import collections
 import io
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,6 +50,37 @@ MODULES = ("main", "sdk", "subsdk0", "subsdk1")
 # Verdicts that mean "we have compilable C in hand". `compile-error` and `nocode`
 # do not: there is nothing to compare.
 HAVE_CODE = ("mismatch",)
+
+
+def protos_for(chunk):
+    """Prototypes for the idents this chunk's candidates actually *call*.
+
+    Declaring every ident in the batch is wrong, and it fails in a way that reads
+    like a translator bug:
+
+        uint64_t f_1b0();              <- head
+        uint32_t f_1b0() { return 0; }  <- the candidate
+
+        error: functions that differ only in their return type cannot be overloaded
+
+    Every candidate collides with its own prototype, the whole batch fails, and
+    `compile_batch_isolated` then bisects 350 candidates down to nothing and
+    reports every one of them ill-formed -- which is how a 20-candidate smoke
+    test came to report "700 dropped". The batch was fine; the prelude was wrong.
+
+    Only a candidate that calls *another* candidate in the same chunk needs a
+    declaration, and it must not be declared if it is also defined here.
+    """
+    idents = {c["ident"] for c in chunk}
+    protos = []
+    for c in chunk:
+        for ident in idents:
+            if ident == c["ident"]:
+                continue
+            # A call, not a mention: `f_1234(` rather than a bare `f_1234`.
+            if re.search(r"\b%s\s*\(" % re.escape(ident), c["src"]):
+                protos.append(ident)
+    return "".join("uint64_t %s();\n" % p for p in sorted(set(protos)))
 
 
 def verify_isolated(cands, module, batch=350):
@@ -100,7 +132,24 @@ def verify_isolated(cands, module, batch=350):
             lost += len(good)
             continue
         syms = MH.obj_symbols(obj)
-        want = {MH.mangle(c["ident"], c["sig"]): c for c in good}
+        # `compile_batch_isolated` speaks `(name, source)` tuples, because that is
+        # what `compile_batch` takes; the census speaks candidate dicts. Map back
+        # through the identifier rather than assuming the shapes line up.
+        #
+        # Keying on the identifier is safe only if identifiers are unique inside a
+        # batch, which is also why `compile_batch` reports "collision" when they
+        # are not: a duplicate would silently collapse two bodies into one here and
+        # lose one of them from the census with no error at all.
+        by_ident = {c["ident"]: c for c in chunk}
+        if len(by_ident) != len(chunk):
+            print("    %-8s WARNING: duplicate idents in batch; %d of %d "
+                  "would collapse" % (module, len(by_ident), len(chunk)))
+        want = {}
+        for pair in good:
+            ident = pair[0] if isinstance(pair, tuple) else pair["ident"]
+            c = by_ident.get(ident)
+            if c is not None:
+                want[MH.mangle(c["ident"], c["sig"])] = c
         code = MH.obj_text_range(obj, syms, list(want))
         for mangled, c in want.items():
             cand = code.get(mangled) or b""
