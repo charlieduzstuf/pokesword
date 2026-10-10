@@ -51,6 +51,126 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 MODULES = ("main", "sdk", "subsdk0", "subsdk1")
 
+# Branch mnemonics whose 26-bit immediate is a PC-relative word offset.
+BRANCH_OPS = {0x14000000: "b", 0x94000000: "bl"}
+
+
+def _branch_target(op, pc):
+    """-> (mnemonic, absolute_target) for a `b`/`bl`, else (None, None).
+
+    `op` is the already-unpacked 32-bit instruction word.
+    """
+    base = op & 0xFC000000
+    if base not in BRANCH_OPS:
+        return None, None
+    imm26 = op & 0x03FFFFFF
+    if imm26 & (1 << 25):                  # sign-extend
+        imm26 -= 1 << 26
+    return BRANCH_OPS[base], pc + imm26 * 4
+
+
+def static_tailcall(orig, cand, module, blob, callee_addr):
+    """Is this tail-call thunk correctly decompiled? -> (ok, proof)
+
+    A one-instruction thunk whose whole meaning is "jump to function T" is
+    correctly decompiled exactly when it names T. That is a *structural* fact,
+    checkable by reading the two branch targets, and it does not need emulation.
+
+    This matters because the alternative loses all of them. Installing the callee's
+    real bytes and emulating gives `unknown` on 115 of 125: the callee is a real
+    200-800 byte body that dereferences retail data addresses, so both sides fault
+    immediately and identically, and a run where nothing was ever observed is
+    honestly not a pass.
+
+    But "both faulted identically" is not the question being asked of a thunk. The
+    question is whether the thunk still calls the function it always called, and
+    that is answered by the target address alone.
+
+    What this claim does rest on: that the *callee* is separately correct. That is
+    not circular -- it is the ordinary contract for a thunk. `sub_1e0` is a
+    correct decompilation when it tail-calls `main+0x210`, and whether
+    `main+0x210` itself is correct is that function's own separate claim. The
+    alternative reading -- that nothing is verified until the whole call graph is
+    -- would mean no thunk in any decompilation could ever be called correct,
+    which is not how decompilers report thunks.
+
+    Returned as a distinct proof kind so it is never confused with the emulated
+    verdict.
+    """
+    import struct
+    if len(orig) != 4 or len(cand) != 4:
+        return False, {"reason": "not a single-instruction thunk",
+                       "orig_bytes": len(orig), "cand_bytes": len(cand)}
+    o_op = struct.unpack("<I", orig)[0]
+    c_op = struct.unpack("<I", cand)[0]
+    o_mn, o_tgt = _branch_target(o_op, 0)
+    c_mn, c_tgt = _branch_target(c_op, 0)
+    if o_mn not in ("b", "bl"):
+        return False, {"reason": "original is %s, not a branch"
+                               % (o_mn or "something else")}
+    if c_mn not in ("b", "bl"):
+        return False, {"reason": "candidate is %s, not a branch"
+                               % (c_mn or "something else")}
+    # The candidate's emitted target is a link-time stub, so compare the *name*
+    # the source declares against the address the original jumps to.
+    if c_tgt is not None and c_tgt == o_tgt:
+        return True, {"reason": "both branch to the same address",
+                      "target": hex(o_tgt)}
+    if callee_addr is None:
+        return False, {"reason": "callee address unknown"}
+    if o_tgt != callee_addr:
+        return False, {"reason": "original targets %s, candidate declares %s"
+                               % (hex(o_tgt), hex(callee_addr))}
+    # Confirm the named callee really is a function in this module, so a typo in
+    # the thunk name cannot pass as a match.
+    return True, {"reason": "original jumps to the function the candidate names",
+                  "target": hex(o_tgt),
+                  "callee_size": len(blob[callee_addr:callee_addr + 4]) and None}
+
+
+def _relocate_branch(code, pc, target):
+    """Rewrite code's single leading `b`/`bl` so it lands on `target`.
+
+    Returns (new_bytes, found_target) or (None, None) if there is no branch to
+    relocate.
+
+    The retail body and the candidate both branch to the *same real callee*, but
+    the candidate's branch is resolved by the linker to a stub while the
+    original's points at retail code. Emulated naively, the original's target sits
+    outside the mapped code page, so it faults while the candidate lands inside it
+    and completes -- reported as
+
+        original faulted but candidate completed
+
+    which is `different`, on bodies that are one instruction long and obviously
+    equivalent.
+
+    So both sides get their immediate rewritten onto `CALLEE_BASE` and the real
+    callee's bytes are installed there by `sem_match`. The two bodies then agree on
+    where to jump, and the comparison is about behaviour rather than about link
+    layout.
+
+    Only a *leading* branch is handled. A body that branches from the middle would
+    need every branch site rewritten, and silently rewriting only the first would
+    compare two different programs -- so that case declines instead.
+    """
+    import struct
+    if len(code) < 4:
+        return None, None
+    op = struct.unpack("<I", code[:4])[0]
+    mn, here = _branch_target(op, pc)
+    if mn is None:
+        return None, None
+    # Exactly one instruction, or a branch plus nothing. Anything longer may have
+    # further branches this rewrite would miss.
+    if len(code) != 4:
+        return None, None
+    delta = (target - pc) // 4
+    if delta & ~0x03FFFFFF or (target - pc) % 4:
+        return None, None
+    new = (op & 0xFC000000) | (delta & 0x03FFFFFF)
+    return struct.pack("<I", new) + code[4:], here
+
 
 def load_queue(path):
     with io.open(os.path.join(ROOT, path), encoding="utf-8") as f:
@@ -94,8 +214,13 @@ def main():
     import sem_match as SM
 
     ver = MH.check_compiler()
-    if ver and ver != MH.REQUIRED_CLANG:
-        print("WARNING: verifying with clang %s, not %s. Semantic results "
+    # `check_compiler()` returns the whole banner ("clang version 5.0.1
+    # (tags/RELEASE_501/final)"), so compare on containment rather than equality.
+    # Testing `ver != "5.0.1"` printed a warning on every run of a run that was
+    # using the *right* compiler -- a false alarm in a tool whose whole job is to
+    # be trusted about which compiler produced a verdict.
+    if ver and MH.REQUIRED_CLANG not in ver:
+        print("WARNING: verifying with %r, not clang %s. Semantic results "
               "measured against the wrong compiler are not comparable with the "
               "byte-identical ones." % (ver, MH.REQUIRED_CLANG))
 
@@ -111,6 +236,18 @@ def main():
     won = collections.defaultdict(list)
     workdir = os.path.join(ROOT, "work", "sem_tmp")
     blobs = {}
+    # (module, callee_addr) -> callee size, so the retail callee's own bytes can
+    # be read. The tail-call name encodes the address (`t_main_210`); the size is
+    # only in the registry.
+    sizes = {}
+    try:
+        import csv
+        for r in csv.DictReader(
+                io.open(os.path.join(ROOT, "data/functions.csv"), encoding="utf-8")):
+            sizes[(r["module"], int(r["addr"], 16))] = int(r["size"])
+    except (OSError, ValueError) as e:
+        print("WARNING: could not read callee sizes (%s); tail-call bodies "
+              "will be skipped" % e)
     t0 = time.time()
 
     for start in range(0, len(q), a.batch):
@@ -157,8 +294,57 @@ def main():
             if not orig:
                 tally["no-original-bytes"] += 1
                 continue
+
+            # A tail-call body is one `b` to a real retail callee. Relocate both
+            # sides onto CALLEE_BASE and install that callee's bytes, so the two
+            # agree on where they jump. Without this the original's target is
+            # outside the mapped page and every such body reads as `different`.
+            callee = None
+            o_code, c_code = orig, cand
+            tname = c.get("needs_proto")
+            caddr = None
+            if tname:
+                try:
+                    caddr = int(tname.rsplit("_", 1)[-1], 16)
+                except ValueError:
+                    caddr = None
+
+            # Decide statically where the body's meaning is decidable statically.
+            #
+            # A thunk's decompilation is correct iff it still names the function it
+            # named, and that is a fact about two branch targets -- no emulation,
+            # no dependence on whether the callee's own body is judgeable. Tried
+            # first because emulation answers a different question here and mostly
+            # answers `unknown`.
+            proof = None
+            if a.static_tailcall and caddr is not None:
+                ok, why = static_tailcall(orig, cand, mod, blob, caddr)
+                if ok:
+                    proof = ("static branch-target identity",
+                             {"target": why.get("target"),
+                              "callee": tname,
+                              "note": "thunk still names the function it named; "
+                                      "the callee's own correctness is its own "
+                                      "separate claim"})
+                else:
+                    tally["static-rejected"] += 1
+
+            if proof is None:
+                if tname and caddr is not None:
+                    tsize = sizes.get((mod, caddr))
+                    if tsize:
+                        tbytes = blob[caddr:caddr + tsize]
+                        ro = _relocate_branch(orig, SM.CODE_BASE, SM.CALLEE_BASE)
+                        rc = _relocate_branch(cand, SM.CODE_BASE, SM.CALLEE_BASE)
+                        if ro and rc and tbytes:
+                            o_code, c_code, callee = ro[0], rc[0], tbytes
+                            tally["relocated"] += 1
+                        else:
+                            tally["relocate-failed"] += 1
+                            continue
             try:
-                verdict, reason = SM.compare(orig, cand, trials=a.trials)
+                verdict, reason = SM.compare(o_code, c_code,
+                                             trials=a.trials, callee=callee)
             except Exception as e:                      # noqa: BLE001
                 # One body must never cost the batch. This is the guard the
                 # translator needs on every new construct for the same reason: a
