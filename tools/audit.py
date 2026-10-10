@@ -900,6 +900,42 @@ def main():
                 stale.append("README.md status table has no total row")
             elif ("**%s**" % len(matching)) not in row[0]:
                 stale.append("README.md status table total row is stale")
+
+            # The WHOLE status block, compared against the generator.
+            #
+            # The total-row check above is a strict subset of what CI does, and
+            # that gap is not theoretical -- it cost ten consecutive red runs:
+            #
+            #     | `main` | 23000 | 104004 | 22.11% |     <- stale
+            #     | **total** | **29359** | **152062** | **19.31%** |   <- correct
+            #
+            # The total row was hand-corrected while the four per-module rows
+            # above it were not, so this check passed, `AUDIT PASSED` printed,
+            # and CI failed on every push with "README status table is stale".
+            # Green locally was true and worthless, because the local gate was
+            # checking a subset of the thing that mattered.
+            #
+            # The lesson generalises: when a check exists in two places, the
+            # local one must be the remote one or stricter. A weaker local
+            # approximation is worse than none, because it is believed.
+            block = m.group(0).split("-->", 1)[1]
+            block = block.rsplit("<!-- STATUS:END -->", 1)[0].strip()
+            gen = subprocess.run(
+                [sys.executable, os.path.join(ROOT, "tools", "progress_json.py"),
+                 "--format", "markdown"],
+                cwd=ROOT, capture_output=True, text=True)
+            if gen.returncode != 0:
+                stale.append("progress_json.py --format markdown failed: %s"
+                             % gen.stderr.strip()[:120])
+            elif block != gen.stdout.strip():
+                hl, wl = block.splitlines(), gen.stdout.strip().splitlines()
+                diff = ["have %r want %r" % (a, b)
+                        for a, b in zip(hl, wl) if a != b]
+                stale.append("README.md status block is stale (%d rows differ, "
+                             "first: %s). Regenerate with: python "
+                             "tools/refresh_status_block.py"
+                             % (len(diff) + abs(len(hl) - len(wl)),
+                                diff[0] if diff else "row count"))
         check(not stale, "quoted figures agree with the CSV",
               "%d stale" % len(stale))
         for s in sorted(set(stale))[:6]:
