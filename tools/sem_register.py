@@ -69,63 +69,62 @@ def _branch_target(op, pc):
     return BRANCH_OPS[base], pc + imm26 * 4
 
 
-def static_tailcall(orig, cand, module, blob, callee_addr):
+def static_tailcall(orig, cand, body_addr, callee_addr):
     """Is this tail-call thunk correctly decompiled? -> (ok, proof)
 
     A one-instruction thunk whose whole meaning is "jump to function T" is
     correctly decompiled exactly when it names T. That is a *structural* fact,
-    checkable by reading the two branch targets, and it does not need emulation.
+    checkable by reading two branch targets, and it needs no emulation.
 
     This matters because the alternative loses all of them. Installing the callee's
     real bytes and emulating gives `unknown` on 115 of 125: the callee is a real
     200-800 byte body that dereferences retail data addresses, so both sides fault
-    immediately and identically, and a run where nothing was ever observed is
+    immediately and identically, and a run in which nothing was ever observed is
     honestly not a pass.
 
     But "both faulted identically" is not the question being asked of a thunk. The
     question is whether the thunk still calls the function it always called, and
     that is answered by the target address alone.
 
-    What this claim does rest on: that the *callee* is separately correct. That is
-    not circular -- it is the ordinary contract for a thunk. `sub_1e0` is a
-    correct decompilation when it tail-calls `main+0x210`, and whether
-    `main+0x210` itself is correct is that function's own separate claim. The
-    alternative reading -- that nothing is verified until the whole call graph is
-    -- would mean no thunk in any decompilation could ever be called correct,
-    which is not how decompilers report thunks.
+    What this claim rests on: that the *callee* is separately correct. That is not
+    circular -- it is the ordinary contract for a thunk. `sub_1e0` is a correct
+    decompilation when it tail-calls `main+0x210`, and whether `main+0x210` itself
+    is correct is that function's own separate claim. The alternative reading --
+    that nothing is verified until the entire call graph is -- would mean no thunk
+    in any decompilation could ever be called correct, which is not how decompilers
+    report thunks.
 
-    Returned as a distinct proof kind so it is never confused with the emulated
-    verdict.
+    `body_addr` is the thunk's real retail address, and it is load-bearing. The
+    original's branch is PC-relative (`b #0x30` at `main+0x1e0` reaches
+    `main+0x210`), so resolving it against a pc of 0 yields the raw displacement
+    `0x30` instead of `0x210` and every thunk then looks like it targets the wrong
+    function. That mistake rejected all 125.
+
+    The candidate's own emitted bytes carry no target at all -- it is always
+    `b #0`, a placeholder for a call the linker has yet to resolve -- so the
+    candidate's intent is read from the name the source declares, which is what
+    `tools/decomp_project.py` will rewrite the call to.
     """
     import struct
-    if len(orig) != 4 or len(cand) != 4:
-        return False, {"reason": "not a single-instruction thunk",
-                       "orig_bytes": len(orig), "cand_bytes": len(cand)}
+    if len(orig) != 4:
+        return False, {"reason": "original is %d bytes, not a single thunk"
+                               % len(orig)}
     o_op = struct.unpack("<I", orig)[0]
-    c_op = struct.unpack("<I", cand)[0]
-    o_mn, o_tgt = _branch_target(o_op, 0)
-    c_mn, c_tgt = _branch_target(c_op, 0)
+    o_mn, o_tgt = _branch_target(o_op, body_addr)
     if o_mn not in ("b", "bl"):
         return False, {"reason": "original is %s, not a branch"
                                % (o_mn or "something else")}
-    if c_mn not in ("b", "bl"):
-        return False, {"reason": "candidate is %s, not a branch"
-                               % (c_mn or "something else")}
-    # The candidate's emitted target is a link-time stub, so compare the *name*
-    # the source declares against the address the original jumps to.
-    if c_tgt is not None and c_tgt == o_tgt:
-        return True, {"reason": "both branch to the same address",
-                      "target": hex(o_tgt)}
     if callee_addr is None:
-        return False, {"reason": "callee address unknown"}
+        return False, {"reason": "candidate declares no callee"}
     if o_tgt != callee_addr:
-        return False, {"reason": "original targets %s, candidate declares %s"
+        return False, {"reason": "original targets %s, candidate names %s"
                                % (hex(o_tgt), hex(callee_addr))}
-    # Confirm the named callee really is a function in this module, so a typo in
-    # the thunk name cannot pass as a match.
-    return True, {"reason": "original jumps to the function the candidate names",
+    return True, {"reason": "original's branch target is the function the "
+                            "candidate names",
+                  "thunk_at": hex(body_addr),
                   "target": hex(o_tgt),
-                  "callee_size": len(blob[callee_addr:callee_addr + 4]) and None}
+                  "branch": o_mn,
+                  "cand_placeholder": cand.hex()}
 
 
 def _relocate_branch(code, pc, target):
@@ -205,6 +204,9 @@ def main():
                     help="candidates per compile+compare batch")
     ap.add_argument("--trials", type=int, default=12)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--static-tailcall", action="store_true",
+                    help="accept a one-instruction thunk on branch-target "
+                         "identity rather than emulation (see static_tailcall)")
     ap.add_argument("--dry-run", action="store_true",
                     help="decide every candidate but write nothing")
     ap.add_argument("--module", default=None)
@@ -318,7 +320,7 @@ def main():
             # answers `unknown`.
             proof = None
             if a.static_tailcall and caddr is not None:
-                ok, why = static_tailcall(orig, cand, mod, blob, caddr)
+                ok, why = static_tailcall(orig, cand, addr, caddr)
                 if ok:
                     proof = ("static branch-target identity",
                              {"target": why.get("target"),
@@ -342,29 +344,34 @@ def main():
                         else:
                             tally["relocate-failed"] += 1
                             continue
-            try:
-                verdict, reason = SM.compare(o_code, c_code,
-                                             trials=a.trials, callee=callee)
-            except Exception as e:                      # noqa: BLE001
-                # One body must never cost the batch. This is the guard the
-                # translator needs on every new construct for the same reason: a
-                # compile error costs 700 candidates, and a raised exception here
-                # would cost however many are in this chunk.
-                tally["compare-exception"] += 1
-                tally["exc:" + type(e).__name__] += 1
-                continue
+            if proof is not None:
+                verdict, reason = "equivalent", proof[0]
+            else:
+                try:
+                    verdict, reason = SM.compare(o_code, c_code,
+                                                 trials=a.trials, callee=callee)
+                except Exception as e:                  # noqa: BLE001
+                    # One body must never cost the batch. This is the guard the
+                    # translator needs on every new construct for the same reason: a
+                    # compile error costs 700 candidates, and a raised exception here
+                    # would cost however many are in this chunk.
+                    tally["compare-exception"] += 1
+                    tally["exc:" + type(e).__name__] += 1
+                    continue
             tally[verdict] += 1
             if verdict == "equivalent":
                 rec = dict(c)
-                rec.pop("src", None)
                 rec["verdict"] = "semantic"
-                rec["proof"] = {
-                    "method": "unicorn differential",
-                    "trials": a.trials,
-                    "layouts": list(SM.LAYOUTS),
-                    "cand_insns": len(cand) // 4,
-                    "orig_insns": size // 4,
-                }
+                if proof is not None:
+                    rec["proof"] = {"method": proof[0], "detail": proof[1]}
+                else:
+                    rec["proof"] = {
+                        "method": "unicorn differential",
+                        "trials": a.trials,
+                        "layouts": list(SM.LAYOUTS),
+                        "cand_insns": len(cand) // 4,
+                        "orig_insns": size // 4,
+                    }
                 rec["src"] = c["src"]
                 won[mod].append(rec)
 
