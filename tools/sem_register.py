@@ -197,6 +197,70 @@ def _protos_for(chunk):
     return "".join("uint64_t %s();\n" % p for p in protos)
 
 
+JOURNAL = os.path.join(ROOT, "work", "sem_journal.jsonl")
+
+
+def load_journal():
+    """Semantic records already decided, so a re-run resumes instead of redoing.
+
+    Deciding 7,158 bodies takes about three minutes. Two server restarts during
+    this work each discarded a completed run, because the results lived only in
+    memory until the very end -- and the expensive artifact (the census queue)
+    survived while the three minutes of decisions did not.
+
+    Appending each accepted record as it is decided makes the run resumable, and
+    makes a killed run worth everything it managed before dying rather than
+    nothing. The journal is append-only, so a crash mid-write costs at most the
+    final line.
+    """
+    seen = set()
+    if not os.path.exists(JOURNAL):
+        return seen
+    try:
+        with io.open(JOURNAL, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue                      # a torn final line
+                seen.add((r.get("module"), r.get("addr")))
+    except OSError:
+        pass
+    return seen
+
+
+def journal(rec):
+    with io.open(JOURNAL, "a", encoding="utf-8") as f:
+        f.write(json.dumps(rec, sort_keys=True) + "\n")
+        f.flush()
+        os.fsync(f.fileno())
+
+
+def write_registry(won, already=()):
+    """Merge decided records into data/matched_<module>.json. -> count added."""
+    total = 0
+    for mod, recs in won.items():
+        path = os.path.join(ROOT, "data", "matched_%s.json" % mod)
+        if not os.path.exists(path):
+            continue
+        reg = json.load(open(path, encoding="utf-8"))
+        have = {r["addr"] for r in reg.get("matched", [])}
+        add = [r for r in recs
+               if r["addr"] not in have and (mod, r["addr"]) not in already]
+        if not add:
+            continue
+        reg.setdefault("matched", []).extend(add)
+        with io.open(path, "w", encoding="utf-8") as f:
+            json.dump(reg, f, indent=1, sort_keys=True)
+        print("  registered %d semantic records into data/matched_%s.json"
+              % (len(add), mod))
+        total += len(add)
+    return total
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--queue", required=True)
@@ -207,6 +271,8 @@ def main():
     ap.add_argument("--static-tailcall", action="store_true",
                     help="accept a one-instruction thunk on branch-target "
                          "identity rather than emulation (see static_tailcall)")
+    ap.add_argument("--fresh", action="store_true",
+                    help="discard the journal and decide everything again")
     ap.add_argument("--dry-run", action="store_true",
                     help="decide every candidate but write nothing")
     ap.add_argument("--module", default=None)
@@ -238,6 +304,16 @@ def main():
     won = collections.defaultdict(list)
     workdir = os.path.join(ROOT, "work", "sem_tmp")
     blobs = {}
+    # Resume support. Records decided by an earlier run are reloaded from the
+    # journal and folded into the registry at the end, so a re-run after a crash
+    # keeps the earlier work instead of starting from nothing.
+    resumed = load_journal()
+    if resumed and not a.dry_run:
+        print("journal: %d records already decided by an earlier run"
+              % len(resumed))
+    if a.fresh and os.path.exists(JOURNAL):
+        os.remove(JOURNAL)
+        print("--fresh: journal discarded")
     # (module, callee_addr) -> callee size, so the retail callee's own bytes can
     # be read. The tail-call name encodes the address (`t_main_210`); the size is
     # only in the registry.
@@ -362,12 +438,19 @@ def main():
                     # TypeErrors" invites the reading that the tool is robust
                     # because it caught them -- when in fact nothing says which
                     # six, or why.
+                    #
+                    # To a file, not to stderr: this runs in the background under
+                    # a harness that captures stdout only, so a stderr traceback is
+                    # written and then lost, and the tally stands unexplained.
                     if not tally.get("_traced"):
                         tally["_traced"] = 1
                         import traceback
-                        sys.stderr.write("  first compare exception at %s (%s):\n"
-                                         % (c["ident"], c["shape"]))
-                        traceback.print_exc()
+                        with io.open(os.path.join(ROOT, "work",
+                                                  "sem_exceptions.txt"), "a",
+                                     encoding="utf-8") as tf:
+                            tf.write("first compare exception at %s (%s)\n"
+                                     % (c["ident"], c["shape"]))
+                            tf.write(traceback.format_exc())
                     continue
             tally[verdict] += 1
             if verdict == "equivalent":
@@ -385,6 +468,10 @@ def main():
                     }
                 rec["src"] = c["src"]
                 won[mod].append(rec)
+                # Journal each acceptance as it happens, so a run killed part-way
+                # keeps everything it decided before dying.
+                if not a.dry_run:
+                    journal(rec)
 
         done = min(start + a.batch, len(q))
         print("  %6d / %6d  %-11s %5.0fs  %s"
@@ -410,19 +497,34 @@ def main():
         print("dry run: nothing written")
         return 0
 
-    for mod, recs in won.items():
-        path = os.path.join(ROOT, "data", "matched_%s.json" % mod)
-        if not os.path.exists(path):
-            continue
-        reg = json.load(open(path, encoding="utf-8"))
-        have = {r["addr"] for r in reg.get("matched", [])}
-        add = [r for r in recs if r["addr"] not in have]
-        reg.setdefault("matched", []).extend(add)
-        with io.open(path, "w", encoding="utf-8") as f:
-            json.dump(reg, f, indent=1, sort_keys=True)
-        print("  registered %d semantic records into data/matched_%s.json"
-              % (len(add), mod))
+    written = write_registry(won)
+    if resumed and not a.dry_run:
+        # Fold in everything an earlier run decided. Done after this run's own
+        # records so the newest verdicts are the ones already in the registry and
+        # cannot be duplicated by the merge.
+        prior = collections.defaultdict(list)
+        with io.open(JOURNAL, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                prior[r.get("module")].append(r)
+        for m in list(prior):
+            if m in won:
+                prior[m] = [r for r in prior[m]
+                            if (m, r.get("addr")) not in
+                            {(x["module"], x["addr"]) for x in won[m]}]
+        extra = write_registry(prior)
+        written += extra
+        if extra:
+            print("  plus %d from the journal" % extra)
     print()
+    print("registered %d semantic records across %d modules"
+          % (written, len(won)))
     print("next: python tools/decomp_project.py   (emit prog/)")
     print("      python tools/prog_cmake.py       (regenerate prog/CMakeLists.txt)")
     print("      python tools/match_progress.py   (reports both populations)")
