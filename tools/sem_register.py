@@ -357,6 +357,17 @@ def main():
                     # would cost however many are in this chunk.
                     tally["compare-exception"] += 1
                     tally["exc:" + type(e).__name__] += 1
+                    # Record where it happened. An exception tally with no
+                    # traceback is a body count with no explanation, and "6
+                    # TypeErrors" invites the reading that the tool is robust
+                    # because it caught them -- when in fact nothing says which
+                    # six, or why.
+                    if not tally.get("_traced"):
+                        tally["_traced"] = 1
+                        import traceback
+                        sys.stderr.write("  first compare exception at %s (%s):\n"
+                                         % (c["ident"], c["shape"]))
+                        traceback.print_exc()
                     continue
             tally[verdict] += 1
             if verdict == "equivalent":
