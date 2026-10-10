@@ -55,19 +55,35 @@ def main():
     rows = read_table()
 
     per = collections.defaultdict(lambda: {"total": 0, "matched": 0,
-                                          "declared": 0})
+                                          "declared": 0, "semantic": 0})
     for r in rows:
         d = per[r["module"]]
         d["total"] += 1
         decomp = r.get("decomp_name") or ""
-        if decomp and not decomp.endswith("!"):
+        # Three states, and they are three different claims.
+        #
+        #   (none)  byte-identical: Clang 5.0.1 emitted the original's exact
+        #           bytes. This is the only state the headline counts.
+        #   ~       semantically equivalent: differential emulation under
+        #           Unicorn agreed on return value and every scratch write over
+        #           12 trials x 5 argument layouts, but the bytes differ.
+        #   !       declared and not matched.
+        #
+        # `~` is counted separately and never added to `matched`. Folding it in
+        # would inflate the one authoritative number with bodies whose exact bytes
+        # are still unknown, and the headline is what every other document, the
+        # README gate and CI all quote. A semantic match is real progress and it
+        # is not the same claim, so it gets its own line.
+        if decomp.endswith("~"):
+            d["semantic"] += 1
+        elif decomp and not decomp.endswith("!"):
             d["matched"] += 1
         elif decomp:
             d["declared"] += 1
 
     print("%-9s %9s %10s %10s %9s" %
           ("module", "functions", "matching", "declared", "rate"))
-    tot = {"total": 0, "matched": 0, "declared": 0}
+    tot = {"total": 0, "matched": 0, "declared": 0, "semantic": 0}
     for m in MODULES:
         d = per.get(m)
         if not d:
@@ -80,6 +96,28 @@ def main():
     rate = 100.0 * tot["matched"] / tot["total"] if tot["total"] else 0.0
     print("%-9s %9d %10d %10d %8.2f%%" %
           ("TOTAL", tot["total"], tot["matched"], tot["declared"], rate))
+
+    if tot["semantic"]:
+        # Reported below the headline, never inside it.
+        print()
+        print("%-9s %9s %10s %9s" %
+              ("module", "functions", "semantic", "rate"))
+        for m in MODULES:
+            d = per.get(m)
+            if not d or not d["semantic"]:
+                continue
+            srate = 100.0 * d["semantic"] / d["total"] if d["total"] else 0.0
+            print("%-9s %9d %10d %8.2f%%" % (m, d["total"], d["semantic"], srate))
+        srate = 100.0 * tot["semantic"] / tot["total"] if tot["total"] else 0.0
+        print("%-9s %9d %10d %8.2f%%" %
+              ("TOTAL", tot["total"], tot["semantic"], srate))
+        print()
+        print("  `matching` above is byte-identical only. `semantic` means "
+              "differential")
+        print("  emulation agreed on return value and every argument-scratch "
+              "write,")
+        print("  12 trials x 5 layouts, but the bytes differ. Not added to the "
+              "headline.")
 
     if by_shape:
         print()
