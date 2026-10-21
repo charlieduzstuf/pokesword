@@ -41,6 +41,31 @@ import re
 U = {1: "uint8_t", 2: "uint16_t", 4: "uint32_t", 8: "uint64_t"}
 S = {1: "int8_t", 2: "int16_t", 4: "int32_t", 8: "int64_t"}
 
+# A load whose ADDRESSING MODE also UPDATES the base register. This is not a
+# detail of the encoding -- it is a SECOND VALUE out of one instruction, and the
+# value map is one register to one value:
+#
+#     ldr xD, [xN, #off]!      xD = *(T*)((char*)xN + off)   and   xN = xN + off
+#     ldr xD, [xN], #off       xD = *(T*)xN                  and   xN = xN + off
+#
+# Without the update the body is a DIFFERENT PROGRAM, not a differently-encoded
+# one. main 0x308690 is four instructions either way:
+#
+#     retail  ldr x8, [x0, #-0x30]!     <- writes x0 back
+#             ldr x3, [x8, #0x188] ; and w1, w1, #1 ; br x3
+#     before  ldur x8, [x0, #-48]      <- no writeback
+#             ldr x2, [x8, #392] ; and w1, w1, #0x1 ; br x2
+#
+# 29,556 unmatched bodies -- 26% of what remains -- contain one of these two
+# forms. The recipe is measured (work/wb_recipe.py, clang 5.0.1 -O3):
+#
+#     *out = *(uint64_t*)(p - 48);  p = p - 48;      ->  ldr x8, [x0, #-48]!
+#     *out = *(uint64_t*)p;         p = p + 8;       ->  ldr x8, [x0], #8
+#
+# So both forms are reachable, and the handler is two lines, not a new kind.
+WRITEBACK_PRE = re.compile(r"^(.*\])\s*!\s*$")
+WRITEBACK_POST = re.compile(r"^(.*\])\s*,\s*#(-?\d+|0x[0-9a-fA-F]+)\s*$")
+
 LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur",
          "ldrsh", "ldursh")
 STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
@@ -1421,13 +1446,26 @@ class StraightLine:
             # Liveness is not knowable mid-walk, so this records candidates only.
             if mn in LOADS and len(ops) == 2:
                 dst = ops[0]
-                base, index, ext, scale, off = parse_mem_idx(ops[1])
+                _memtxt = ops[1]
+                # STRIP A WRITEBACK before parsing, and remember what it was.
+                _wb = None          # None | "pre" | "post"
+                _wb_off = 0
+                _m2 = WRITEBACK_POST.match(_memtxt)
+                if _m2:
+                    _wb, _wb_off = "post", int(_m2.group(2), 0)
+                    _memtxt = _m2.group(1)
+                else:
+                    _m2 = WRITEBACK_PRE.match(_memtxt)
+                    if _m2:
+                        _wb = "pre"
+                        _memtxt = _m2.group(1)
+                base, index, ext, scale, off = parse_mem_idx(_memtxt)
                 if base is None:
-                    base, off = mem_reg_offset(ops[1], state)
+                    base, off = mem_reg_offset(_memtxt, state)
                     index = ext = scale = None
                 if base is None:
                     raise Bail("load operand %r is not a [base] or [base, index, ext] form"
-                               % (ops[1],))
+                               % (_memtxt,))
                 n, real = resolve_base(base)
                 if real:
                     used_args.add(n)
@@ -1466,7 +1504,59 @@ class StraightLine:
                 # model `ldrsh` as `ldrh`, which drops the sign extension and
                 # matches nothing.
                 signed = mn in ("ldrsw", "ldursw", "ldrsh", "ldursh")
-                state[wreg(dst)] = ("load", n, off, w, signed)
+                if _wb == "post":
+                    state[wreg(dst)] = ("load", n, 0, w, signed)
+                else:
+                    state[wreg(dst)] = ("load", n, off, w, signed)
+                if _wb is not None:
+                    _inc = off if _wb == "pre" else _wb_off
+                    _bk = wreg(base)
+                    _bv = state.get(_bk)
+                    if _bv is None:
+                        raise Bail("writeback base %r is not a value" % base)
+                    if _bv[0] not in ("load", "expr", "arg", "argval", "imm",
+                                      "addr_i", "local"):
+                        raise Bail("writeback on a %r value is not addressable"
+                                   % _bv[0])
+                    # LIVENESS GATE.
+                    #
+                    # The barrier is what forces the `!` (work/wb_sep.py: all four
+                    # variants give `ldr ... !`). But pinning the BASE register
+                    # changed allocation across the whole body and regressed 311
+                    # bodies (main -152, sdk -107, subsdk0 -50, subsdk1 0).
+                    #
+                    # So the barrier goes on a SEPARATE local, and only when the
+                    # base is DEAD -- i.e. not read by any later instruction. A
+                    # dead base cannot be affected by an allocation change, because
+                    # nothing downstream uses it. A live base is left alone, which
+                    # means it keeps the old (non-writeback) encoding and does not
+                    # match -- but it also does not regress.
+                    #
+                    # The recipe measurement says the separate-local barrier gives
+                    # `!` regardless of liveness (work/wb_sep.py), so the dead case
+                    # is reachable. The live case is not, and that is a smaller
+                    # dead population than the whole 29,556.
+                    _base_read_later = False
+                    # `k` is not defined here -- the walk's loop variable is `_gi`,
+                    # and `body` is the frame-stripped list, not `ins`. The
+                    # writeback load's index in `body` has to be found, not assumed.
+                    _wb_idx = None
+                    for _ii, _ix in enumerate(body):
+                        if _ix is i:
+                            _wb_idx = _ii
+                            break
+                    if _wb_idx is None:
+                        _wb_idx = 0
+                    for _j in range(_wb_idx + 1, len(body)):
+                        _op = body[_j].op_str
+                        _parts = [p.strip() for p in _op.split(",")]
+                        if base in _parts[1:] or any(base in p for p in _parts[1:]):
+                            _dst = _parts[0] if _parts else ""
+                            if _dst != base:
+                                _base_read_later = True
+                                break
+                    if not _base_read_later:
+                        stmts.append(("wbup", base, _inc))
                 continue
 
             if mn in PAIR_STORES and len(ops) in (2, 3):
@@ -3367,6 +3457,20 @@ class StraightLine:
             if (block and len(block) > 5 and block[5] is not None
                     and _si == block[5] and _dcut is None):
                 _dcut = (len(pre), len(body_txt))
+            if stmt[0] == "wbup":
+                _, _b, _inc = stmt
+                _bn = names.get(wreg(_b))
+                if _bn is None:
+                    if wreg(_b).startswith(("x", "w")) and wreg(_b)[1:].isdigit():
+                        _bn = "a%s" % wreg(_b)[1:]
+                    else:
+                        raise Bail("writeback base %r has no name" % _b)
+                _wb_ln = "_wb%d" % (len(pre) + len(body_txt))
+                body_txt.append("void* %s = (void*)((char*)%s + %d);"
+                                % (_wb_ln, _bn, _inc))
+                body_txt.append('asm volatile("" : "+r"(%s));' % _wb_ln)
+                body_txt.append("%s = %s;" % (_bn, _wb_ln))
+                continue
             if stmt[0] == "qstore":
                 # See the q-pair store below for the measurement. One field.
                 _, n, off, v, _early = stmt
