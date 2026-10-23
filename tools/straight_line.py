@@ -3976,7 +3976,15 @@ class StraightLine:
             # original has; the generator reads it off the branch target and emits
             # the matching C. There is no variant to search over.
             if _gdcut is not None and _dcut is not None:
-                _lines.append("if (%s) {" % _cond)
+                # `__builtin_expect` biases the branch. Clang will not invert a
+                # conditional branch to make a block fall through
+                # (MachineBasicBlock::updateTerminator returns rather than
+                # reversing), and with no profile data MachineBlockPlacement keeps
+                # the TOPOLOGICAL order, which is SOURCE order. So the polarity is
+                # fixed by the source; the lever is the bias. Retail's layout has
+                # ARM_A as the fallthrough, so the `then` (ARM_B, the taken arm)
+                # must be UNLIKELY.
+                _lines.append("if (__builtin_expect(%s, 0)) {" % _cond)
                 for _l in _inner[:_dcut[1] - _ob]:
                     _lines.append("    " + _l)
                 _lines.append("} else {")
