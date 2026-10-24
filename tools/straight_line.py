@@ -3984,7 +3984,7 @@ class StraightLine:
                 # fixed by the source; the lever is the bias. Retail's layout has
                 # ARM_A as the fallthrough, so the `then` (ARM_B, the taken arm)
                 # must be UNLIKELY.
-                _lines.append("if (__builtin_expect(%s, 0)) {" % _cond)
+                _lines.append("if (%s) {" % _cond)
                 for _l in _inner[:_dcut[1] - _ob]:
                     _lines.append("    " + _l)
                 _lines.append("} else {")
