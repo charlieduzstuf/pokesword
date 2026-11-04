@@ -2359,13 +2359,15 @@ def gen_indirect_tailcall(ins, end, ident):
         return None
     if "adrp" in mn[max(0, bi - 4):bi]:
         return None
-    # THE CONSTANT-ARGUMENT DECLINE, measured rather than assumed.
-    for x in body:
-        if x.mnemonic != "mov":
-            continue
-        p = x.op_str.split(",")
-        if len(p) == 2 and "#" in p[1]:
-            return None
+    # A body with ANY `mov *, #imm` proceeds to the same translation the
+    # forwarding bodies use. The historic constant-argument decline that used
+    # to rest here ("clang emits orr xN, xzr, #imm and never the mov retail
+    # uses") measured two disassemblers' PRINTS against each other and was
+    # disproved on 2026-11-04 against the byte record in
+    # decomp/docs/remaining_map.md: the ORR move-alias and MOVZ print
+    # identically, the narrowed-constant spelling compiles to retail's very
+    # word, and probing the previously declined pool matched bodies outright
+    # (subsdk0 0x125f40, subsdk1 0x83000, sdk 0x3ffde0).
     src_reg = body[bi].op_str.strip()
     # THE ARITY, AND THE BRANCH REGISTER IS NOT AN ARGUMENT.
     #
