@@ -1884,7 +1884,7 @@ void sub_15f26d0() { /* 0x15f26d0 */ }
 void InstanceTable_287() { /* 0x15f2710 */ }
 void InstanceTable_288() { /* 0x15f2830 */ }
 void InstanceTable_289() { /* 0x15f2950 */ }
-void sub_15f2a60() { /* 0x15f2a60 */ }
+// sub_15f2a60: implemented in prog/matched/main/
 void InstanceTable_290() { /* 0x15f2a80 */ }
 void InstanceTable_291() { /* 0x15f2fd0 */ }
 void InstanceTable_292() { /* 0x15f3310 */ }

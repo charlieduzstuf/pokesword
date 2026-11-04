@@ -1,4 +1,4 @@
-/* main -- 1146 functions verified to match the original.
+/* main -- 1163 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -32,6 +32,57 @@ typedef unsigned long uintptr_t;
  * `str q0, [x0]` instead. Measured, clang 5.0.1 -O3. */
 struct Q2 { uint64x2_t a, b; };
 
+
+// sub_1674ea0  (orig 0x1674ea0, getter)
+uint64_t main_f_1674ea0(void* a0) { return *(uint64_t*)((char*)(a0) + 48); }
+
+// sub_1674f80  (orig 0x1674f80, mov_ret)
+uint32_t main_f_1674f80() { return 12; }
+
+// sub_16751c0  (orig 0x16751c0, mov_ret)
+uint32_t main_f_16751c0() { return 16; }
+
+// sub_16756c0  (orig 0x16756c0, mov_ret)
+uint32_t main_f_16756c0() { return 16; }
+
+// sub_16759d0  (orig 0x16759d0, straight)
+uint32_t main_f_16759d0(void* a0) { return (*(uint32_t*)((char*)(a0) + 832)) + (24); }
+
+// sub_1675be0  (orig 0x1675be0, mov_ret)
+uint32_t main_f_1675be0() { return 12; }
+
+// sub_16768b0  (orig 0x16768b0, compare-pred)
+bool main_f_16768b0(void* a0) { return (uint32_t)((*(uint64_t*)((char*)a0 + 3464) - 2)) < (uint32_t)(3); }
+
+// sub_16777e0  (orig 0x16777e0, ret_only)
+void main_f_16777e0() {}
+
+// sub_1678240  (orig 0x1678240, getter)
+uint16_t main_f_1678240(void* a0) { return *(uint16_t*)((char*)(a0) + 58); }
+
+// sub_1678260  (orig 0x1678260, getter)
+uint32_t main_f_1678260(void* a0) { return *(uint32_t*)((char*)(a0) + 16); }
+
+// sub_1678270  (orig 0x1678270, getter)
+uint32_t main_f_1678270(void* a0) { return *(uint32_t*)((char*)(a0) + 20); }
+
+// sub_1678280  (orig 0x1678280, getter)
+uint16_t main_f_1678280(void* a0) { return *(uint16_t*)((char*)(a0) + 24); }
+
+// sub_1678290  (orig 0x1678290, getter)
+uint16_t main_f_1678290(void* a0) { return *(uint16_t*)((char*)(a0) + 26); }
+
+// sub_16782a0  (orig 0x16782a0, getter)
+uint16_t main_f_16782a0(void* a0) { return *(uint16_t*)((char*)(a0) + 28); }
+
+// sub_16782b0  (orig 0x16782b0, getter)
+uint8_t main_f_16782b0(void* a0) { return *(uint8_t*)((char*)(a0) + 30); }
+
+// sub_16782c0  (orig 0x16782c0, setter)
+void main_f_16782c0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 16) = a1; }
+
+// sub_16782d0  (orig 0x16782d0, setter)
+void main_f_16782d0(void* a0, uint32_t a1) { *(uint32_t*)((char*)(a0) + 20) = a1; }
 
 // sub_16782e0  (orig 0x16782e0, setter)
 void main_f_16782e0(void* a0, uint16_t a1) { *(uint16_t*)((char*)(a0) + 24) = a1; }

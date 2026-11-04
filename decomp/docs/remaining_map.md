@@ -1663,3 +1663,114 @@ would have "proved" that DETACHED_PROCESS causes one.
 
 **Three runs per case, and count the object that appears on screen.** A measurement
 that cannot come out the other way is not a measurement.
+
+## The `orr` vs `mov` divergence was a DISASSEMBLER artifact, and the constant-argument decline is not proven
+
+Corrected 2026-11-04, and this overturns two recorded conclusions.
+
+capstone and LLVM 5.0.1 objdump BOTH print two different machine words as the
+identical `mov wN, #imm`:
+
+    0x52800020  MOVZ w0, #1
+    0x320003e0  ORR w0, wzr, #1   (the ORR-immediate move-alias)
+
+Every probe and every `MH.compare` before this beat ran capstone on both
+sides, so a body whose compile produced the ORR alias compared equal against
+a retail word encoded MOVZ, and the reverse. The recipe beats that recorded
+"clang 5.0.1 emits `orr` and never `mov` for a constant call argument"
+measured a PRINT, not a byte. `work/movz_probe.py`, `work/movz_locals.py`,
+`work/movz_direct.py` and `work/movz_plain.py` all share that defect, and the
+"147 constant-argument tail calls are provably dead" conclusion built on them
+is NOT proven.
+
+### The proof, both ways
+
+    retail main +0x3c5b00   bytes 0x320003e0 0x14000003   (ORRimm alias + b)
+    our  compile of the same C (standalone)  e0 03 00 32   = 0x320003e0
+
+The banked body is byte-identical and always was; what differed was which
+tool rendered each side. Because the two printers agree on the ALIAS text,
+the dangerous direction is the reverse: a compile that lands on the OTHER
+encoding (true MOVZ) against a retail ORRimm -- or any literal operand pair
+the alias printers spell identically but encode differently -- was licensed
+by name.
+
+### The gate
+
+`MH.compare` now byte-checks every instruction whose tuple prints as `mov`:
+same mnemonic and operand string but different raw bytes is a mismatch.
+Falsified three ways before landing: a synthetic MOVZ-vs-ORRimm pair is now
+rejected (`mov encoding differs at insn 0`); same-encoding pairs still
+match; the `--from-elf` FakeInsn path, which has no `.bytes`, skips the
+check instead of crashing. The `mov xN, xR` register alias is safe without
+the gate: the ORR-register encoding is the only one capstone prints as
+`mov` for that operand string, and the ADD-immediate alias prints with a
+different operand (`mov w0, wsp`), which the tuple compare already catches.
+
+`POKESWORD_MOV_GATE=0` disables it, which is how the A/B was measured:
+
+    module     gate OFF             gate ON              delta
+    main       29179/29253  74 mm   29179/29253   74     0
+    sdk         6347/6378   31 mm    6347/6378    31     0
+    subsdk0     1068/1068  100%      1068/1068   100%    0
+    subsdk1     1612/1642   30 mm    1612/1642    30     0
+
+Every currently banked body survives the gate: the alias hole closed without
+unbanking anything. The 74/31/30 residuals are the documented TU artefacts
+(batched thunk destinations getting their call optimised away), not gate
+rejections. `work/movz_byte_audit.py` recompiles all 2,822 MOVZ-bearing
+banked bodies standalone and byte-compares; apart from branch immediates
+(standalone artifacts; branch destinations are symbol-compared) the only
+non-branch byte differences it finds evaporate under the batch compile.
+
+### The narrow-constant argument, banked: +20 bodies, 25.47% -> 25.48%
+
+The width-only miss class that the kinds breakdown exposed on the
+indirect-tailcall shape (`work/itab_kinds.py`):
+
+    subsdk0   16 matches (+1)   subsdk1   47 (+1)
+    sdk       39 matches (+1)   main     694 (+15)
+
+subsdk0 0x2fd0's retail is
+
+    ldr x8, [x0] ; ldr x3, [x8, #0xd0] ; mov w2, wzr ; br x3
+
+and the generated C wrote the third argument 64-bit wide, so Clang emitted
+`mov x2, xzr`. The walk already records a `w`-form write as a 32-bit value
+(`_narrow_dst`); the tail-argument render now casts the CONSTANT to it and
+declares the indirect callee's parameter 32-bit, gated three ways --
+constant literals only (`_IMM_RX`), 32-bit-type values only, indirect form
+only (the direct path's target is declared elsewhere, all-uintptr_t, so
+narrowing there would be widened right back). Measured on the exact body
+first: the narrowed spelling compiles to `mov w2, wzr` byte-for-byte.
+
+Banked end to end: registry +20 addresses, zero removals, decomp_project
+--all, prog_cmake, fresh NX64 build, README/HANDOFF/progress_weighting
+regenerated, audit PASSED at the new figure.
+
+    38,733 / 152,062 = 25.47%   ->   38,753 / 152,062 = 25.48%
+    412,948 -> 413,316 matched bytes
+
+### Still the honest remainder of the indirect-tailcall shape
+
+After the width fix, every remaining miss in the shape is the
+positional-register class (subsdk0 43, subsdk1 62, sdk 124, main 464 --
+693 bodies) or the reloaded-argument register, and the 2026-10-15
+positional rejection stands: clang 5.0.1 takes the lowest free caller-saved
+register and there is no C that moves it (re-measured this beat with local
+register variables -- clang accepts the `__asm("x5")` but does not honour
+it for a call operand, exactly as the LLC thread warned).
+
+Note the 29,556 writeback population's "0 matches" verdict shares this
+root cause and inherits this correction: the writeback frames matched
+except the callee-register assignment, which is positional, so the
+correction does NOT unblock them.
+
+### What the corrected conclusion unblocks NEXT
+
+`gen_indirect_tailcall` still declines a body whose prefix writes
+`mov wN, #imm` into an argument register ("THE CONSTANT-ARGUMENT DECLINE").
+That decline was built on the disproven encoding claim and should be
+re-examined against the narrowed spelling this beat banked. subsdk0 0x2fd0
+is the counter-example: the narrowed constant is exactly what retail
+wants. The 147 recorded as dead may simply have been mis-spelled.

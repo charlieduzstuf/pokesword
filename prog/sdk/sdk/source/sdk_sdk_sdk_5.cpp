@@ -1307,7 +1307,7 @@ void sub_3ef010() { /* 0x3ef010 */ }
 void sub_3ef040() { /* 0x3ef040 */ }
 void sub_3ef050() { /* 0x3ef050 */ }
 void sub_3ef070() { /* 0x3ef070 */ }
-void sub_3ef080() { /* 0x3ef080 */ }
+// sub_3ef080: implemented in prog/matched/sdk/
 void sub_3ef090() { /* 0x3ef090 */ }
 void sub_3ef0b0() { /* 0x3ef0b0 */ }
 void sub_3ef0c0() { /* 0x3ef0c0 */ }

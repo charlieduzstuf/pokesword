@@ -7,7 +7,7 @@
 namespace main {
 void sub_ed3520() { /* 0xed3520 */ }
 void sub_ed3550() { /* 0xed3550 */ }
-void sub_ed3940() { /* 0xed3940 */ }
+// sub_ed3940: implemented in prog/matched/main/
 void sub_ed3960() { /* 0xed3960 */ }
 void sub_ed3a40() { /* 0xed3a40 */ }
 void sub_ed3e40() { /* 0xed3e40 */ }

@@ -3331,9 +3331,9 @@ void sub_114430() { /* 0x114430 */ }
 // sub_114460: implemented in prog/matched/main/
 void sub_114470() { /* 0x114470 */ }
 void sub_114480() { /* 0x114480 */ }
-void sub_114490() { /* 0x114490 */ }
+// sub_114490: implemented in prog/matched/main/
 // sub_1144a0: implemented in prog/matched/main/
-void sub_1144b0() { /* 0x1144b0 */ }
+// sub_1144b0: implemented in prog/matched/main/
 // sub_1144c0: implemented in prog/matched/main/
 void sub_1144d0() { /* 0x1144d0 */ }
 void sub_1144e0() { /* 0x1144e0 */ }
@@ -3380,7 +3380,7 @@ void StabilizationThreshold() { /* 0x114af0 */ }
 // sub_114d00: implemented in prog/matched/main/
 void ClientBehaviorFlags() { /* 0x114d10 */ }
 // sub_114ee0: implemented in prog/matched/main/
-void sub_114ef0() { /* 0x114ef0 */ }
+// sub_114ef0: implemented in prog/matched/main/
 // sub_114f00: implemented in prog/matched/main/
 // sub_114f10: implemented in prog/matched/main/
 void ConcreteTypeName() { /* 0x114f20 */ }
@@ -3438,7 +3438,7 @@ void sub_115580() { /* 0x115580 */ }
 // sub_1155d0: implemented in prog/matched/main/
 // sub_1155e0: implemented in prog/matched/main/
 // sub_1155f0: implemented in prog/matched/main/
-void sub_115600() { /* 0x115600 */ }
+// sub_115600: implemented in prog/matched/main/
 // sub_115610: implemented in prog/matched/main/
 void sub_115620() { /* 0x115620 */ }
 // sub_115630: implemented in prog/matched/main/
@@ -3448,7 +3448,7 @@ void StabilizationThreshold_2() { /* 0x115660 */ }
 // sub_1158a0: implemented in prog/matched/main/
 // sub_1158b0: implemented in prog/matched/main/
 // sub_1158c0: implemented in prog/matched/main/
-void sub_1158d0() { /* 0x1158d0 */ }
+// sub_1158d0: implemented in prog/matched/main/
 // sub_1158e0: implemented in prog/matched/main/
 // sub_1158f0: implemented in prog/matched/main/
 // sub_115900: implemented in prog/matched/main/
@@ -3461,7 +3461,7 @@ void sub_1159e0() { /* 0x1159e0 */ }
 // sub_1159f0: implemented in prog/matched/main/
 void sub_115a00() { /* 0x115a00 */ }
 // sub_115a10: implemented in prog/matched/main/
-void sub_115a20() { /* 0x115a20 */ }
+// sub_115a20: implemented in prog/matched/main/
 void sub_115a30() { /* 0x115a30 */ }
 // sub_115a50: implemented in prog/matched/main/
 // sub_115a60: implemented in prog/matched/main/

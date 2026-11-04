@@ -414,12 +414,30 @@ def compare(orig_ins, orig_end, mine_ins, orig_branches=None,
                 return "mismatch", "branch %d goes to %s, expected %s" % (
                     k, g, w)
 
-    # Compare from the top down: a trailing difference is almost always the
-    # epilogue, and the entry sequence is what identifies the function.
+    # In the tuple loop below, `b[i]` corresponds to `mine_ins[i]` operand for
+    # operand, but capstone prints TWO DIFFERENT ENCODINGS identically for
+    # `mov wN, #imm`: the MOVZ encoding (0x528...) and the ORR-immediate
+    # move-alias (0x320...). Same mnemonic, same operand string, different
+    # machine word. A retail instruction encoded as MOVZ verifies as a match
+    # against a candidate compiled to the ORR alias unless the gate below adds
+    # the byte identity check. The `mov xN, xR` register aliases are safe: the
+    # ORR-register encoding is canonically the only one that prints as `mov`,
+    # and the ADD-immediate alias (`mov w0, wsp`) prints with a different
+    # operand string, which the tuple compare catches.
     n = min(len(a), len(b))
     for i in range(n):
         if a[i] != b[i]:
             return "mismatch", "insn %d: orig %r vs new %r" % (i, a[i], b[i])
+        if a[i][0] == "mov":
+            if os.environ.get("POKESWORD_MOV_GATE", "1") == "0":
+                continue
+            ob = getattr(orig_ins[i], "bytes", None)
+            mb = getattr(mine_ins[i], "bytes", None)
+            if ob is not None and mb is not None and ob != mb:
+                return (
+                    "mismatch",
+                    "mov encoding differs at insn %d: orig %s vs new %s"
+                    % (i, ob.hex(), mb.hex()))
     if len(a) != len(b):
         # Trailing extra instructions in the original are usually padding or a
         # shared cold tail; report it, but distinguish it from a real mismatch.

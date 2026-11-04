@@ -66,6 +66,12 @@ S = {1: "int8_t", 2: "int16_t", 4: "int32_t", 8: "int64_t"}
 WRITEBACK_PRE = re.compile(r"^(.*\])\s*!\s*$")
 WRITEBACK_POST = re.compile(r"^(.*\])\s*,\s*#(-?\d+|0x[0-9a-fA-F]+)\s*$")
 
+# A rendered expression that is a bare integer literal, optionally signed and
+# parenthesised: `(0)`, `0x1f`, `-1`. The narrow-indirect-argument rule in the
+# tail-call emit only fires on one of these, never on a rendered load or
+# pointer arithmetic, so a wrong narrowing cannot reach a real value.
+_IMM_RX = re.compile(r"^-?(0x[0-9a-fA-F]+|\d+)$")
+
 LOADS = ("ldr", "ldrb", "ldrh", "ldrsw", "ldurb", "ldursw", "ldur",
          "ldrsh", "ldursh")
 STORES = ("str", "strb", "strh", "sturb", "sturh", "stur")
@@ -3769,16 +3775,43 @@ class StraightLine:
                 # all four modules reported the error and none reported a match.
                 rct = "void"
             _targs = []
+            # Callee parameter width per slot. Only the INDIRECT form can use
+            # it: its callee type is spelled HERE (`void (*)(...)`), so the
+            # width is a real declaration. The direct form's target is declared
+            # elsewhere (`needs_proto`, all-`uintptr_t`), so narrowing a slot
+            # there would cast a value for a parameter that is still 64-bit
+            # declared, and Clang's implicit widening would put the wide write
+            # right back. Defaults preserve today's behaviour for every slot
+            # that does not qualify.
+            _tparw = ["uintptr_t"] * _tn
             for _k in range(_tn):
                 _rk = "x%d" % _k
                 if _rk in state:
                     _ct2, _ex2 = self._render(state[_rk], names)
+                    # A NARROW CONSTANT ARGUMENT. The walk records a `w`-form
+                    # write (`mov w2, wzr`) as a 32-bit value via `_narrow_dst`,
+                    # but the render below still spells the argument
+                    # `uintptr_t`-wide, so Clang emits `mov x2, xzr` where
+                    # retail has `mov w2, wzr` -- measured on subsdk0 0x2fd0,
+                    # a four-instruction tail call that fits byte-for-byte the
+                    # moment the callee's parameter is declared 32-bit and the
+                    # constant is cast to it. Only a LITERAL constant qualifies:
+                    # a non-constant 32-bit value (a loaded field, an argument)
+                    # has its own ABI story that this narrow rule must not
+                    # change, and a mistaken narrowing would render a worse
+                    # body, not a better one.
+                    if _tname is None and _ct2 in (
+                            "uint32_t", "int32_t") and _IMM_RX.match(
+                                _ex2.replace("(", "").replace(")", "")):
+                        _targs.append("((uint32_t)(%s))" % _ex2)
+                        _tparw[_k] = "uint32_t"
                     # The callee is declared with `uintptr_t` parameters, so
                     # every argument is spelled the way `call_arg` spells one.
                     # Without it the prefix s pointer arithmetic -- `(char *)(a0)
                     # + 236` -- is a `char *` and does not convert to uintptr_t
                     # in C++.
-                    _targs.append(call_arg((_ct2, _ex2)))
+                    else:
+                        _targs.append(call_arg((_ct2, _ex2)))
                 elif _k < len(used_args):
                     _targs.append("((uintptr_t)(a%d))" % _k)
                 else:
@@ -3809,7 +3842,7 @@ class StraightLine:
                     raise Bail("indirect tail target %r is not a value"
                                % _treg)
                 _tname = "((void (*)(%s))((void *)%s))" % (
-                    ", ".join(["uintptr_t"] * _tn), call_arg((_cv, _cex)))
+                    ", ".join(_tparw), call_arg((_cv, _cex)))
             _tcall = "%s(%s)" % (_tname, ", ".join(_targs))
             _lines = list(all_txt)
             _lines.append("return %s;" % _tcall)

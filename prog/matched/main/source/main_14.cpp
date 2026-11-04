@@ -33,6 +33,54 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
+// sub_11e46e0  (orig 0x11e46e0, copy2)
+void main_f_11e46e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11e46f0  (orig 0x11e46f0, copy2)
+void main_f_11e46f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11e4c40  (orig 0x11e4c40, setter)
+void main_f_11e4c40(void* a0, float a1) { *(float*)((char*)(a0) + 276) = a1; }
+
+// sub_11e64c0  (orig 0x11e64c0, ret_only)
+void main_f_11e64c0() {}
+
+// sub_11e7db0  (orig 0x11e7db0, ret_only)
+void main_f_11e7db0() {}
+
+// sub_11ea0e0  (orig 0x11ea0e0, ret_only)
+void main_f_11ea0e0() {}
+
+// sub_11ea100  (orig 0x11ea100, ret_only)
+void main_f_11ea100() {}
+
+// sub_11ea110  (orig 0x11ea110, copy2)
+void main_f_11ea110(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ea120  (orig 0x11ea120, copy2)
+void main_f_11ea120(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ea130  (orig 0x11ea130, copy2)
+void main_f_11ea130(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ea140  (orig 0x11ea140, copy2)
+void main_f_11ea140(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ea190  (orig 0x11ea190, ret_only)
+void main_f_11ea190() {}
+
+// sub_11ea1a0  (orig 0x11ea1a0, copy2)
+void main_f_11ea1a0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ea1b0  (orig 0x11ea1b0, copy2)
+void main_f_11ea1b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11ea2e0  (orig 0x11ea2e0, ret_only)
+void main_f_11ea2e0() {}
+
+// sub_11ea300  (orig 0x11ea300, ret_only)
+void main_f_11ea300() {}
+
 // sub_11ea310  (orig 0x11ea310, copy2)
 void main_f_11ea310(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
@@ -6651,52 +6699,4 @@ void main_f_13b5480(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_13b5490  (orig 0x13b5490, copy2)
 void main_f_13b5490(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5730  (orig 0x13b5730, ret_only)
-void main_f_13b5730() {}
-
-// sub_13b5740  (orig 0x13b5740, copy2)
-void main_f_13b5740(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5750  (orig 0x13b5750, copy2)
-void main_f_13b5750(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5a60  (orig 0x13b5a60, ret_only)
-void main_f_13b5a60() {}
-
-// sub_13b5a70  (orig 0x13b5a70, copy2)
-void main_f_13b5a70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5a80  (orig 0x13b5a80, copy2)
-void main_f_13b5a80(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5d10  (orig 0x13b5d10, ret_only)
-void main_f_13b5d10() {}
-
-// sub_13b5d20  (orig 0x13b5d20, copy2)
-void main_f_13b5d20(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5d30  (orig 0x13b5d30, copy2)
-void main_f_13b5d30(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5fc0  (orig 0x13b5fc0, ret_only)
-void main_f_13b5fc0() {}
-
-// sub_13b5fd0  (orig 0x13b5fd0, copy2)
-void main_f_13b5fd0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b5fe0  (orig 0x13b5fe0, copy2)
-void main_f_13b5fe0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6360  (orig 0x13b6360, ret_only)
-void main_f_13b6360() {}
-
-// sub_13b6370  (orig 0x13b6370, copy2)
-void main_f_13b6370(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6380  (orig 0x13b6380, copy2)
-void main_f_13b6380(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13b6700  (orig 0x13b6700, ret_only)
-void main_f_13b6700() {}
 

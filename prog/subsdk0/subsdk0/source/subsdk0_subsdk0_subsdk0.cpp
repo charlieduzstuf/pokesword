@@ -134,7 +134,7 @@ void sub_2ed0() { /* 0x2ed0 */ }
 void sub_2f20() { /* 0x2f20 */ }
 void sub_2f30() { /* 0x2f30 */ }
 void sub_2fc0_subsdk0_2fc0() { /* 0x2fc0 */ }
-void sub_2fd0() { /* 0x2fd0 */ }
+// sub_2fd0: implemented in prog/matched/subsdk0/
 // sub_2fe0: implemented in prog/matched/subsdk0/
 // sub_2ff0_subsdk0_2ff0: implemented in prog/matched/subsdk0/
 // sub_3000: implemented in prog/matched/subsdk0/

@@ -7691,6 +7691,12 @@ void sdk_f_3eef60(void* a0, uint64_t a1, uint64_t a2) {
     return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 56)))))(((uintptr_t)(a0)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(((uint64_t)a1))));
 }
 
+// sub_3ef080  (orig 0x3ef080, indirect-tailcall)
+void sdk_f_3ef080(void* a0, uint64_t a1) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));
+    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 120)))))(((uintptr_t)(a0)), ((uint32_t)(0)));
+}
+
 // sub_3ef270  (orig 0x3ef270, indirect-tailcall)
 void sdk_f_3ef270(void* a0, uint32_t a1) {
     void* p0 = (void*)(*(uint64_t *)((char*)(a0)));
@@ -10436,7 +10442,4 @@ void sdk_f_43db60(void* a0) {
     __asm__ __volatile__("" ::: "memory");
     *(struct u64x2*)((char*)a0 + 72) = (struct u64x2){ 0, 0 };
 }
-
-// sub_4406c0  (orig 0x4406c0, mov_ret)
-uint32_t sdk_f_4406c0() { return 0; }
 

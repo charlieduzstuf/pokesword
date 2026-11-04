@@ -2058,7 +2058,7 @@ void sub_e41380() { /* 0xe41380 */ }
 // sub_e413e0: implemented in prog/matched/main/
 // sub_e413f0: implemented in prog/matched/main/
 void sub_e41400() { /* 0xe41400 */ }
-void sub_e41420() { /* 0xe41420 */ }
+// sub_e41420: implemented in prog/matched/main/
 void sub_e41440() { /* 0xe41440 */ }
 void sub_e41490() { /* 0xe41490 */ }
 void sub_e41500() { /* 0xe41500 */ }

@@ -1726,7 +1726,7 @@ void sub_82f90() { /* 0x82f90 */ }
 void sub_82fa0() { /* 0x82fa0 */ }
 void sub_82fb0() { /* 0x82fb0 */ }
 void sub_82fc0() { /* 0x82fc0 */ }
-void sub_82fe0() { /* 0x82fe0 */ }
+// sub_82fe0: implemented in prog/matched/subsdk1/
 void sub_83000() { /* 0x83000 */ }
 // sub_83020: implemented in prog/matched/subsdk1/
 // sub_83030: implemented in prog/matched/subsdk1/
