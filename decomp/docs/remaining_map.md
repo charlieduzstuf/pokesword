@@ -1774,3 +1774,71 @@ That decline was built on the disproven encoding claim and should be
 re-examined against the narrowed spelling this beat banked. subsdk0 0x2fd0
 is the counter-example: the narrowed constant is exactly what retail
 wants. The 147 recorded as dead may simply have been mis-spelled.
+
+## The jump-table population is 2,044, not 102, and the table bytes were already on disk
+
+Measured 2026-11-05. Corrects the recorded "102 real jump tables" figure and
+retires one more stale blocker from the 2026-10-15 map.
+
+### The measured dispatch recipe (subsdk0 `format` 0x4640)
+
+    cmp    w8, #0xd                 <- bounds check: 14 cases
+    b.hi   <default>
+    adrp   xA, <page>
+    add    xA, xA, #0xdc0
+    ldrsw  x8, [xA, x8, lsl #2]     <- SIGNED 32-bit offset, 4 bytes per case
+    add    x8, x8, xA               <- target = TABLE BASE + offset
+    br     x8
+
+An entry is NOT an absolute address; it is a signed 32-bit word added to the
+table's own VA. Earlier dispatch counts used `ldr` with an absolute-decode
+assumption (`work/jump_cost.py` stage 2, `work/br_tail.py`), which measured 39
+"textbook" and 102 "table dispatches" respectively. `work/jt_dump1.py` printed
+the actual retail body and `work/jt_probe3.py` re-measured everything:
+
+    module     br bodies   bounds cmp   tables resolved   entries all valid
+    main          7,737       1,219         1,232            1,217
+    sdk           1,238         221           234              221
+    subsdk0         458         182           190              182
+    subsdk1       1,023         422           434              422
+    total         2,044 fully validated dispatch tables
+
+Validated, not assumed: every entry of every table, decoded from
+`work/<mod>/rodata.bin` -- which has been on disk since the exefs extraction;
+"needs the .rodata bytes" was true only for a beat that did not look -- was
+checked to fall INSIDE its containing function's span. Wrong base, wrong
+entry width, or wrong sign decode lands outside on the first entry and the
+candidate table is rejected, so 2,044 clean tables is a falsifiable result.
+(`work/jt_probe2.py` was the wrong-attempt record: absolute-decode models
+validate zero entries, which is itself the counter-check.)
+
+### What this means for the generator
+
+The missing capability is a `switch` emitter: dispatch + one case body per
+entry (in retail order) + the join. Every case body is already inside the
+vocabulary -- the translated shapes this project banks are the same straight-
+line sequences. The hard part is not understanding, it is LAYOUT: block order
+and the case-to-block placement must reproduce retail's, which is the lesson
+the diamonds recorded. Clang 5.0.1 is deterministic, so the recipe beat to
+run is: take ONE table (subsdk0 `format`, 14 cases, table 0x52bdc0), hand-
+write the C, measure clang's dispatch and case layout against retail -- the
+measure-before-emit rule, exactly as `work/ind_tail_recipe.py` did for the
+indirect tail call.
+
+Largest tables measured: subsdk1 `sub_d630` 102 cases, `sub_10810` NEARLY
+200 cases (first==last: a dense switch where most cases share one body --
+CLANG may model these as MIN/MAX ranges rather than a full table, worth
+checking before the general emitter).
+
+### REA status, for the record
+
+Ghidra headless on the ELF is proven (work/ghidra_proj/ps_main.gpr, and
+decompilation output for main/sdk/subsdk0 under work/ghidra_out). REA's own
+ghidra provider stays unreachable from this session because it requires
+`GHIDRA_INSTALL_DIR` in the already-running server's environment
+("Windows Ghidra P0 accepts PE targets only" additionally stands for ELF
+under P0), which no repo-side config can change; the direct analyzeHeadless
+path through tools/ghidra/run.py remains the supported one. The Ghidra
+decompilation output is recorded as a semantic cross-check source, NOT as a
+matching source: byte-identical matching comes from our compiler, never from
+another decompiler's pseudocode.
