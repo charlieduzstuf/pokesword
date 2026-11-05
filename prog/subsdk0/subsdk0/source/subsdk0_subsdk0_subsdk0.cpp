@@ -3310,7 +3310,7 @@ void sub_125b00() { /* 0x125b00 */ }
 void sub_125b70() { /* 0x125b70 */ }
 void sub_125be0() { /* 0x125be0 */ }
 void sub_125e90() { /* 0x125e90 */ }
-void sub_125f40() { /* 0x125f40 */ }
+// sub_125f40: implemented in prog/matched/subsdk0/
 void sub_125f60() { /* 0x125f60 */ }
 void sub_125f90() { /* 0x125f90 */ }
 void sub_126050() { /* 0x126050 */ }

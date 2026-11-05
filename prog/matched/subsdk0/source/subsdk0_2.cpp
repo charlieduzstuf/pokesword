@@ -1,4 +1,4 @@
-/* subsdk0 -- 1041 functions verified to match the original.
+/* subsdk0 -- 1042 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -1246,6 +1246,12 @@ void* subsdk0_f_1241a0(void* a0) {
     *(uint64_t*)((char*)(p0) + 180) = 0;
     *(uint8_t*)((char*)(p0) + 212) = 0;
     return a0;
+}
+
+// sub_125f40  (orig 0x125f40, indirect-tailcall)
+void subsdk0_f_125f40(void* a0, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));
+    return ((void (*)(uintptr_t, uint32_t, uint32_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 32)))))(((uintptr_t)(a0)), ((uint32_t)(100)), ((uint32_t)(100)), ((uint32_t)(0)), ((uintptr_t)(0)));
 }
 
 // sub_1261b0  (orig 0x1261b0, ret_only)

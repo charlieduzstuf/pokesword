@@ -5,6 +5,10 @@
 #include "main_main_main_20.h"
 
 namespace main {
+void sub_1576610() { /* 0x1576610 */ }
+void InstanceTable_27() { /* 0x1576640 */ }
+void sub_1576930() { /* 0x1576930 */ }
+void sub_15769f0() { /* 0x15769f0 */ }
 void sub_1576a00() { /* 0x1576a00 */ }
 void InstanceTable_28() { /* 0x1576a50 */ }
 void sub_1576c40() { /* 0x1576c40 */ }
@@ -2155,7 +2159,7 @@ void sub_160fcb0() { /* 0x160fcb0 */ }
 void sub_160fd60() { /* 0x160fd60 */ }
 void sub_160fd80() { /* 0x160fd80 */ }
 // sub_160fdc0: implemented in prog/matched/main/
-void sub_160fdd0() { /* 0x160fdd0 */ }
+// sub_160fdd0: implemented in prog/matched/main/
 // sub_160fde0: implemented in prog/matched/main/
 // sub_160fdf0: implemented in prog/matched/main/
 // sub_160fe00: implemented in prog/matched/main/
@@ -4001,9 +4005,5 @@ void sub_166d080() { /* 0x166d080 */ }
 void sub_166d100() { /* 0x166d100 */ }
 void sub_166d130() { /* 0x166d130 */ }
 void sub_166d180() { /* 0x166d180 */ }
-void sub_166d190() { /* 0x166d190 */ }
-void sub_166d240() { /* 0x166d240 */ }
-// sub_166d2d0: implemented in prog/matched/main/
-void sub_166d2e0() { /* 0x166d2e0 */ }
 
 }  // namespace main

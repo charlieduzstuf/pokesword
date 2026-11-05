@@ -33,7 +33,6 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
-namespace main { void Set_State_NetBattleOff(); }
 namespace main { void sub_906550(); }
 namespace main { void sub_906850(); }
 namespace main { uint64_t sub_906550(uintptr_t); }
@@ -107,7 +106,6 @@ namespace main { void sub_978f50(); }
 namespace main { uint64_t sub_978f50(uintptr_t); }
 namespace main { void sub_984d50(); }
 namespace main { void sub_985c80(); }
-namespace main { void sub_974780(); }
 namespace main { void sub_974790(); }
 namespace main { uint64_t sub_984d50(uintptr_t); }
 namespace main { void sub_9892f0(); }
@@ -442,9 +440,7 @@ namespace main { void sub_c3d130(); }
 namespace main { uint64_t sub_c3cbc0(uintptr_t); }
 namespace main { void sub_c3e6e0(); }
 namespace main { uint64_t sub_c3fc20(uintptr_t); }
-
-// sub_901440  (orig 0x901440, tailcall)
-void main_f_901440() { main::Set_State_NetBattleOff(); }
+namespace main { void sub_c3fc20(); }
 
 // sub_9067d0  (orig 0x9067d0, tailcall)
 void main_f_9067d0() { main::sub_906550(); }
@@ -1523,9 +1519,6 @@ void main_f_984ef0() { main::sub_984d50(); }
 
 // sub_984f00  (orig 0x984f00, tailcall)
 void main_f_984f00() { main::sub_985c80(); }
-
-// sub_984f10  (orig 0x984f10, tailcall)
-void main_f_984f10() { main::sub_974780(); }
 
 // sub_984f20  (orig 0x984f20, tailcall)
 void main_f_984f20() { main::sub_974790(); }
@@ -8403,5 +8396,13 @@ uint64_t main_f_c3fd40(void* a0) {
 // sub_c3fd50  (orig 0xc3fd50, tailcall)
 uint64_t main_f_c3fd50(void* a0) {
     return main::sub_c3fc20(((uintptr_t)((char*)(a0) - 80)));
+}
+
+// sub_c3fd60  (orig 0xc3fd60, tailcall)
+void main_f_c3fd60() { main::sub_c3fc20(); }
+
+// sub_c3fd70  (orig 0xc3fd70, tailcall)
+uint64_t main_f_c3fd70(void* a0) {
+    return main::sub_c3fc20(((uintptr_t)((char*)(a0) - 72)));
 }
 

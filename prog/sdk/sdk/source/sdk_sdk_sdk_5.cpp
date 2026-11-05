@@ -1908,7 +1908,7 @@ void sub_3ffae0() { /* 0x3ffae0 */ }
 void sub_3ffbc0() { /* 0x3ffbc0 */ }
 void sub_3ffcb0_sdk_3ffcb0() { /* 0x3ffcb0 */ }
 void sub_3ffcd0() { /* 0x3ffcd0 */ }
-void sub_3ffde0() { /* 0x3ffde0 */ }
+// sub_3ffde0: implemented in prog/matched/sdk/
 void sub_3ffe00_sdk_3ffe00() { /* 0x3ffe00 */ }
 void sub_3ffe40_sdk_3ffe40() { /* 0x3ffe40 */ }
 // sub_3ffe70: implemented in prog/matched/sdk/

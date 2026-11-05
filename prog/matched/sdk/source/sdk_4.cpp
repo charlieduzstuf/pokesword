@@ -8456,6 +8456,12 @@ uint32_t sdk_f_3ffa80(void* a0, void* a1) {
     return 0;
 }
 
+// sub_3ffde0  (orig 0x3ffde0, indirect-tailcall)
+void sdk_f_3ffde0(void* a0, uint32_t a1, uint64_t a2) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 216));
+    return ((void (*)(uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 152)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 216))), ((uint32_t)(4)), ((uintptr_t)(((int64_t)(((int32_t)(((uint32_t)a1))))))));
+}
+
 // sub_3ffe70  (orig 0x3ffe70, ret_only)
 void sdk_f_3ffe70() {}
 
@@ -10418,28 +10424,4 @@ void sdk_f_43cf30(void* a0) { *(uint32_t*)((char*)(a0)) = 0; *(uint64_t*)((char*
 
 // sub_43cf40  (orig 0x43cf40, ret_only)
 void sdk_f_43cf40() {}
-
-// sub_43db60  (orig 0x43db60, setter-chain-zero)
-void sdk_f_43db60(void* a0) {
-    struct u64x2 { uint64_t a, b; };
-    *(uint64_t*)((char*)a0 + 48) = 0;
-    __asm__ __volatile__("" ::: "memory");
-    *(uint32_t*)((char*)a0 + 56) = 0;
-    __asm__ __volatile__("" ::: "memory");
-    *(uint8_t*)((char*)a0 + 60) = 0;
-    __asm__ __volatile__("" ::: "memory");
-    *(uint64_t*)(char*)a0 = 0;
-    __asm__ __volatile__("" ::: "memory");
-    *(uint32_t*)((char*)a0 + 40) = 0;
-    __asm__ __volatile__("" ::: "memory");
-    *(uint64_t*)((char*)a0 + 64) = 0;
-    __asm__ __volatile__("" ::: "memory");
-    *(uint32_t*)((char*)a0 + 88) = 0;
-    __asm__ __volatile__("" ::: "memory");
-    *(struct u64x2*)((char*)a0 + 24) = (struct u64x2){ 0, 0 };
-    __asm__ __volatile__("" ::: "memory");
-    *(struct u64x2*)((char*)a0 + 8) = (struct u64x2){ 0, 0 };
-    __asm__ __volatile__("" ::: "memory");
-    *(struct u64x2*)((char*)a0 + 72) = (struct u64x2){ 0, 0 };
-}
 

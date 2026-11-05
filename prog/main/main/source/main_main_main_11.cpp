@@ -5,6 +5,10 @@
 #include "main_main_main_11.h"
 
 namespace main {
+void sub_c6c1b0() { /* 0xc6c1b0 */ }
+void sub_c6c1c0() { /* 0xc6c1c0 */ }
+void sub_c6c350() { /* 0xc6c350 */ }
+void sub_c6c360() { /* 0xc6c360 */ }
 void sub_c6c3c0() { /* 0xc6c3c0 */ }
 void sub_c6c4d0() { /* 0xc6c4d0 */ }
 void sub_c6c5c0() { /* 0xc6c5c0 */ }
@@ -4001,9 +4005,5 @@ void sub_d9a4a0() { /* 0xd9a4a0 */ }
 void sub_d9a530() { /* 0xd9a530 */ }
 void sub_d9a5c0() { /* 0xd9a5c0 */ }
 void sub_d9a630() { /* 0xd9a630 */ }
-void sub_d9a6c0() { /* 0xd9a6c0 */ }
-void sub_d9a750() { /* 0xd9a750 */ }
-void sub_d9a7c0() { /* 0xd9a7c0 */ }
-void sub_d9a830() { /* 0xd9a830 */ }
 
 }  // namespace main

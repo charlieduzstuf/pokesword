@@ -1,4 +1,4 @@
-/* sdk -- 359 functions verified to match the original.
+/* sdk -- 360 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -32,6 +32,30 @@ typedef unsigned long uintptr_t;
  * `str q0, [x0]` instead. Measured, clang 5.0.1 -O3. */
 struct Q2 { uint64x2_t a, b; };
 
+
+// sub_43db60  (orig 0x43db60, setter-chain-zero)
+void sdk_f_43db60(void* a0) {
+    struct u64x2 { uint64_t a, b; };
+    *(uint64_t*)((char*)a0 + 48) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)((char*)a0 + 56) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint8_t*)((char*)a0 + 60) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)(char*)a0 = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)((char*)a0 + 40) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint64_t*)((char*)a0 + 64) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(uint32_t*)((char*)a0 + 88) = 0;
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 24) = (struct u64x2){ 0, 0 };
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 8) = (struct u64x2){ 0, 0 };
+    __asm__ __volatile__("" ::: "memory");
+    *(struct u64x2*)((char*)a0 + 72) = (struct u64x2){ 0, 0 };
+}
 
 // sub_4406c0  (orig 0x4406c0, mov_ret)
 uint32_t sdk_f_4406c0() { return 0; }

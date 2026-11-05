@@ -351,6 +351,18 @@
   },
   {
    "module": "sdk",
+   "addr": 4193760,
+   "size": 20,
+   "name": "sub_3ffde0",
+   "shape": "indirect-tailcall",
+   "ident": "f_3ffde0",
+   "sig": "Pvjm",
+   "src": "void f_3ffde0(void* a0, uint32_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 216));\n    return ((void (*)(uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 152)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 216))), ((uint32_t)(4)), ((uintptr_t)(((int64_t)(((int32_t)(((uint32_t)a1))))))));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "sdk",
    "addr": 4253360,
    "size": 12,
    "name": "sub_40e6b0",

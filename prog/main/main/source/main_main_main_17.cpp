@@ -5,6 +5,10 @@
 #include "main_main_main_17.h"
 
 namespace main {
+void XXXX_XXXXXXX_XXX() { /* 0x1243e50 */ }
+void sub_1243f30() { /* 0x1243f30 */ }
+void sub_1243ff0() { /* 0x1243ff0 */ }
+void unnamed_43() { /* 0x1244010 */ }
 void unnamed_44() { /* 0x1244380 */ }
 void sub_12445f0() { /* 0x12445f0 */ }
 void sub_12446b0() { /* 0x12446b0 */ }
@@ -4001,9 +4005,5 @@ void sub_1357450() { /* 0x1357450 */ }
 void sub_13574b0() { /* 0x13574b0 */ }
 void sub_13574d0() { /* 0x13574d0 */ }
 // sub_13574f0: implemented in prog/matched/main/
-void sub_1357500() { /* 0x1357500 */ }
-void sub_1357520() { /* 0x1357520 */ }
-void sub_1357540() { /* 0x1357540 */ }
-void sub_1357560() { /* 0x1357560 */ }
 
 }  // namespace main

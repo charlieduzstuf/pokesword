@@ -5,6 +5,8 @@
 #include "main_main_main_8.h"
 
 namespace main {
+void sub_8df370() { /* 0x8df370 */ }
+void sub_8df470() { /* 0x8df470 */ }
 void sub_8df680() { /* 0x8df680 */ }
 void sub_8df8a0() { /* 0x8df8a0 */ }
 void unnamed_16() { /* 0x8dfa50 */ }
@@ -1725,8 +1727,9 @@ void sub_9733f0() { /* 0x9733f0 */ }
 void sub_974630() { /* 0x974630 */ }
 void sub_9746f0() { /* 0x9746f0 */ }
 void sub_974710() { /* 0x974710 */ }
-void sub_974740() { /* 0x974740 */ }
+// sub_974740: implemented in prog/matched/main/
 void sub_974760() { /* 0x974760 */ }
+// sub_974780: implemented in prog/matched/main/
 void sub_9747e0() { /* 0x9747e0 */ }
 void sub_974a00() { /* 0x974a00 */ }
 void sub_974b60() { /* 0x974b60 */ }
@@ -1744,9 +1747,9 @@ void sub_975860() { /* 0x975860 */ }
 void sub_975ac0() { /* 0x975ac0 */ }
 void sub_975b20() { /* 0x975b20 */ }
 void sub_975b90() { /* 0x975b90 */ }
-void sub_976010() { /* 0x976010 */ }
+// sub_976010: implemented in prog/matched/main/
 void sub_976030() { /* 0x976030 */ }
-void sub_9760b0() { /* 0x9760b0 */ }
+// sub_9760b0: implemented in prog/matched/main/
 void sub_9760c0() { /* 0x9760c0 */ }
 // sub_976110: implemented in prog/matched/main/
 void sub_976120() { /* 0x976120 */ }
@@ -1914,6 +1917,7 @@ void sub_9846c0() { /* 0x9846c0 */ }
 void sub_984790() { /* 0x984790 */ }
 void Play_PV_Btl_052_sp_roar() { /* 0x9849d0 */ }
 void sub_984ba0() { /* 0x984ba0 */ }
+void sub_984f10() { /* 0x984f10 */ }
 // sub_984f30: implemented in prog/matched/main/
 // sub_984f40: implemented in prog/matched/main/
 // sub_984f50: implemented in prog/matched/main/
@@ -4001,9 +4005,5 @@ void sub_a6a170() { /* 0xa6a170 */ }
 // sub_a6a180: implemented in prog/matched/main/
 // sub_a6a190: implemented in prog/matched/main/
 // sub_a6a1a0: implemented in prog/matched/main/
-void sub_a6a1b0() { /* 0xa6a1b0 */ }
-// sub_a6a2a0: implemented in prog/matched/main/
-// sub_a6a2b0: implemented in prog/matched/main/
-// sub_a6a2c0: implemented in prog/matched/main/
 
 }  // namespace main

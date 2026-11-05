@@ -33,8 +33,8 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
-namespace main { uint64_t sub_fadda0(uintptr_t); }
 namespace main { void sub_fadfe0(); }
+namespace main { uint64_t sub_fadda0(uintptr_t); }
 namespace main { void sub_fb0c00(); }
 namespace main { void sub_fb0e40(); }
 namespace main { uint64_t sub_fb0c00(uintptr_t); }
@@ -763,16 +763,6 @@ namespace main { uint64_t sub_132fda0(uintptr_t); }
 namespace main { void sub_1331fb0(); }
 namespace main { uint64_t sub_1331fb0(uintptr_t); }
 namespace main { uint64_t sub_13322f0(uintptr_t); }
-
-// sub_fadf80  (orig 0xfadf80, tailcall)
-uint64_t main_f_fadf80(void* a0) {
-    return main::sub_fadda0(((uintptr_t)((char*)(a0) - 72)));
-}
-
-// sub_fadf90  (orig 0xfadf90, tailcall)
-uint64_t main_f_fadf90(void* a0) {
-    return main::sub_fadda0(((uintptr_t)((char*)(a0) - 72)));
-}
 
 // sub_fadfa0  (orig 0xfadfa0, tailcall)
 void main_f_fadfa0() { main::sub_fadfe0(); }
@@ -9225,5 +9215,15 @@ uint64_t main_f_1332400(void* a0) {
 // sub_1332410  (orig 0x1332410, tailcall)
 uint64_t main_f_1332410(void* a0) {
     return main::sub_13322f0(((uintptr_t)((char*)(a0) - 80)));
+}
+
+// sub_1332420  (orig 0x1332420, tailcall)
+uint64_t main_f_1332420(void* a0) {
+    return main::sub_1331fb0(((uintptr_t)((char*)(a0) - 80)));
+}
+
+// sub_1332430  (orig 0x1332430, tailcall)
+uint64_t main_f_1332430(void* a0) {
+    return main::sub_1331fb0(((uintptr_t)((char*)(a0) - 80)));
 }
 

@@ -27,6 +27,54 @@
  "matched": [
   {
    "module": "main",
+   "addr": 24704,
+   "size": 24,
+   "name": "sub_6080",
+   "shape": "indirect-tailcall",
+   "ident": "f_6080",
+   "sig": "Pvmm",
+   "src": "void f_6080(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 320));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uint32_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 8)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 320))), ((uint32_t)(1)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 24736,
+   "size": 24,
+   "name": "sub_60a0",
+   "shape": "indirect-tailcall",
+   "ident": "f_60a0",
+   "sig": "Pvmm",
+   "src": "void f_60a0(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 320));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uint32_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 8)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 320))), ((uint32_t)(0)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 50544,
+   "size": 20,
+   "name": "sub_c570",
+   "shape": "indirect-tailcall",
+   "ident": "f_c570",
+   "sig": "Pvmm",
+   "src": "void f_c570(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(16)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 50576,
+   "size": 24,
+   "name": "sub_c590",
+   "shape": "indirect-tailcall",
+   "ident": "f_c590",
+   "sig": "Pvmmm",
+   "src": "void f_c590(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 24)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uintptr_t)(0)), ((uint32_t)(8)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 211664,
    "size": 16,
    "name": "sub_33ad0",
@@ -87,6 +135,18 @@
   },
   {
    "module": "main",
+   "addr": 900128,
+   "size": 16,
+   "name": "sub_dbc20",
+   "shape": "indirect-tailcall",
+   "ident": "f_dbc20",
+   "sig": "Pvmm",
+   "src": "void f_dbc20(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 176)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 940880,
    "size": 12,
    "name": "sub_e5b50",
@@ -123,6 +183,18 @@
   },
   {
    "module": "main",
+   "addr": 1124976,
+   "size": 24,
+   "name": "sub_112a70",
+   "shape": "indirect-tailcall",
+   "ident": "f_112a70",
+   "sig": "Pvmmm",
+   "src": "void f_112a70(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1125104,
    "size": 20,
    "name": "sub_112af0",
@@ -144,6 +216,30 @@
    "src": "void f_112b20(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 128)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 1125184,
+   "size": 24,
+   "name": "sub_112b40",
+   "shape": "indirect-tailcall",
+   "ident": "f_112b40",
+   "sig": "mmPv",
+   "src": "void f_112b40(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(168)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1125392,
+   "size": 24,
+   "name": "sub_112c10",
+   "shape": "indirect-tailcall",
+   "ident": "f_112c10",
+   "sig": "Pvmmm",
+   "src": "void f_112c10(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -171,6 +267,30 @@
   },
   {
    "module": "main",
+   "addr": 1125520,
+   "size": 24,
+   "name": "sub_112c90",
+   "shape": "indirect-tailcall",
+   "ident": "f_112c90",
+   "sig": "mmm",
+   "src": "void f_112c90(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(256)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1125728,
+   "size": 24,
+   "name": "sub_112d60",
+   "shape": "indirect-tailcall",
+   "ident": "f_112d60",
+   "sig": "Pvmmm",
+   "src": "void f_112d60(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1125776,
    "size": 20,
    "name": "sub_112d90",
@@ -195,6 +315,30 @@
   },
   {
    "module": "main",
+   "addr": 1125856,
+   "size": 24,
+   "name": "sub_112de0",
+   "shape": "indirect-tailcall",
+   "ident": "f_112de0",
+   "sig": "mmPv",
+   "src": "void f_112de0(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(280)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1126064,
+   "size": 24,
+   "name": "sub_112eb0",
+   "shape": "indirect-tailcall",
+   "ident": "f_112eb0",
+   "sig": "Pvmmm",
+   "src": "void f_112eb0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1126112,
    "size": 20,
    "name": "sub_112ee0",
@@ -216,6 +360,30 @@
    "src": "void f_112f10(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 168)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 1126192,
+   "size": 24,
+   "name": "sub_112f30",
+   "shape": "indirect-tailcall",
+   "ident": "f_112f30",
+   "sig": "mmPv",
+   "src": "void f_112f30(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(136)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1126400,
+   "size": 24,
+   "name": "sub_113000",
+   "shape": "indirect-tailcall",
+   "ident": "f_113000",
+   "sig": "Pvmmm",
+   "src": "void f_113000(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -267,6 +435,30 @@
   },
   {
    "module": "main",
+   "addr": 1126672,
+   "size": 24,
+   "name": "sub_113110",
+   "shape": "indirect-tailcall",
+   "ident": "f_113110",
+   "sig": "mmPv",
+   "src": "void f_113110(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(176)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1126880,
+   "size": 24,
+   "name": "sub_1131e0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1131e0",
+   "sig": "Pvmmm",
+   "src": "void f_1131e0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1126928,
    "size": 20,
    "name": "sub_113210",
@@ -291,6 +483,18 @@
   },
   {
    "module": "main",
+   "addr": 1127008,
+   "size": 24,
+   "name": "sub_113260",
+   "shape": "indirect-tailcall",
+   "ident": "f_113260",
+   "sig": "mmPv",
+   "src": "void f_113260(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(272)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1127104,
    "size": 20,
    "name": "sub_1132c0",
@@ -303,6 +507,30 @@
   },
   {
    "module": "main",
+   "addr": 1127168,
+   "size": 24,
+   "name": "sub_113300",
+   "shape": "indirect-tailcall",
+   "ident": "f_113300",
+   "sig": "mmPv",
+   "src": "void f_113300(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(80)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1127376,
+   "size": 24,
+   "name": "sub_1133d0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1133d0",
+   "sig": "Pvmmm",
+   "src": "void f_1133d0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1127424,
    "size": 20,
    "name": "sub_113400",
@@ -312,6 +540,30 @@
    "src": "void f_113400(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 168)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 1127472,
+   "size": 24,
+   "name": "sub_113430",
+   "shape": "indirect-tailcall",
+   "ident": "f_113430",
+   "sig": "mmPv",
+   "src": "void f_113430(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(184)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1127680,
+   "size": 24,
+   "name": "sub_113500",
+   "shape": "indirect-tailcall",
+   "ident": "f_113500",
+   "sig": "Pvmmm",
+   "src": "void f_113500(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -339,6 +591,30 @@
   },
   {
    "module": "main",
+   "addr": 1127808,
+   "size": 24,
+   "name": "sub_113580",
+   "shape": "indirect-tailcall",
+   "ident": "f_113580",
+   "sig": "mmPv",
+   "src": "void f_113580(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(80)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1128032,
+   "size": 24,
+   "name": "sub_113660",
+   "shape": "indirect-tailcall",
+   "ident": "f_113660",
+   "sig": "Pvmmm",
+   "src": "void f_113660(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1128080,
    "size": 20,
    "name": "sub_113690",
@@ -360,6 +636,30 @@
    "src": "void f_1136c0(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 304)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 1128160,
+   "size": 24,
+   "name": "sub_1136e0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1136e0",
+   "sig": "mmPv",
+   "src": "void f_1136e0(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(168)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1128368,
+   "size": 24,
+   "name": "sub_1137b0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1137b0",
+   "sig": "Pvmmm",
+   "src": "void f_1137b0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -387,6 +687,30 @@
   },
   {
    "module": "main",
+   "addr": 1128480,
+   "size": 24,
+   "name": "sub_113820",
+   "shape": "indirect-tailcall",
+   "ident": "f_113820",
+   "sig": "mmPv",
+   "src": "void f_113820(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(464)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1128688,
+   "size": 24,
+   "name": "sub_1138f0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1138f0",
+   "sig": "Pvmmm",
+   "src": "void f_1138f0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1128736,
    "size": 20,
    "name": "sub_113920",
@@ -399,6 +723,30 @@
   },
   {
    "module": "main",
+   "addr": 1128784,
+   "size": 24,
+   "name": "sub_113950",
+   "shape": "indirect-tailcall",
+   "ident": "f_113950",
+   "sig": "mmm",
+   "src": "void f_113950(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(240)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1128992,
+   "size": 24,
+   "name": "sub_113a20",
+   "shape": "indirect-tailcall",
+   "ident": "f_113a20",
+   "sig": "Pvmmm",
+   "src": "void f_113a20(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1129040,
    "size": 20,
    "name": "sub_113a50",
@@ -408,6 +756,30 @@
    "src": "void f_113a50(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 72)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 1129104,
+   "size": 24,
+   "name": "sub_113a90",
+   "shape": "indirect-tailcall",
+   "ident": "f_113a90",
+   "sig": "mmPv",
+   "src": "void f_113a90(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(88)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1129328,
+   "size": 24,
+   "name": "sub_113b70",
+   "shape": "indirect-tailcall",
+   "ident": "f_113b70",
+   "sig": "Pvmmm",
+   "src": "void f_113b70(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -435,6 +807,30 @@
   },
   {
    "module": "main",
+   "addr": 1129456,
+   "size": 24,
+   "name": "sub_113bf0",
+   "shape": "indirect-tailcall",
+   "ident": "f_113bf0",
+   "sig": "mmm",
+   "src": "void f_113bf0(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(224)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1129664,
+   "size": 24,
+   "name": "sub_113cc0",
+   "shape": "indirect-tailcall",
+   "ident": "f_113cc0",
+   "sig": "Pvmmm",
+   "src": "void f_113cc0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1129712,
    "size": 20,
    "name": "sub_113cf0",
@@ -456,6 +852,30 @@
    "src": "void f_113d20(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 176)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 1129792,
+   "size": 24,
+   "name": "sub_113d40",
+   "shape": "indirect-tailcall",
+   "ident": "f_113d40",
+   "sig": "mmm",
+   "src": "void f_113d40(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(64)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1130000,
+   "size": 24,
+   "name": "sub_113e10",
+   "shape": "indirect-tailcall",
+   "ident": "f_113e10",
+   "sig": "Pvmmm",
+   "src": "void f_113e10(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -483,6 +903,30 @@
   },
   {
    "module": "main",
+   "addr": 1130128,
+   "size": 24,
+   "name": "sub_113e90",
+   "shape": "indirect-tailcall",
+   "ident": "f_113e90",
+   "sig": "mmPv",
+   "src": "void f_113e90(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(264)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1130336,
+   "size": 24,
+   "name": "sub_113f60",
+   "shape": "indirect-tailcall",
+   "ident": "f_113f60",
+   "sig": "Pvmmm",
+   "src": "void f_113f60(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 1130384,
    "size": 20,
    "name": "sub_113f90",
@@ -504,6 +948,30 @@
    "src": "void f_113fc0(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 536)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 1130464,
+   "size": 24,
+   "name": "sub_113fe0",
+   "shape": "indirect-tailcall",
+   "ident": "f_113fe0",
+   "sig": "mmPv",
+   "src": "void f_113fe0(uint64_t a0, uint64_t a1, void* a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a2)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 16)))))(((uintptr_t)(a2)), ((uintptr_t)(a1)), ((uint32_t)(264)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 1130672,
+   "size": 24,
+   "name": "sub_1140b0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1140b0",
+   "sig": "Pvmmm",
+   "src": "void f_1140b0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -687,6 +1155,18 @@
   },
   {
    "module": "main",
+   "addr": 1131632,
+   "size": 16,
+   "name": "sub_114470",
+   "shape": "indirect-tailcall",
+   "ident": "f_114470",
+   "sig": "Pvmm",
+   "src": "void f_114470(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 176)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 1131664,
    "size": 16,
    "name": "sub_114490",
@@ -768,6 +1248,30 @@
    "src": "void f_114510(void* a0) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 272)))))(((uintptr_t)(a0)));\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 1131856,
+   "size": 16,
+   "name": "sub_114550",
+   "shape": "indirect-tailcall",
+   "ident": "f_114550",
+   "sig": "Pvmm",
+   "src": "void f_114550(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 312)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 1131888,
+   "size": 16,
+   "name": "sub_114570",
+   "shape": "indirect-tailcall",
+   "ident": "f_114570",
+   "sig": "Pvmm",
+   "src": "void f_114570(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 328)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",
@@ -2727,6 +3231,30 @@
   },
   {
    "module": "main",
+   "addr": 2076000,
+   "size": 24,
+   "name": "sub_1fad60",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fad60",
+   "sig": "mmm",
+   "src": "void f_1fad60(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(112)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 2076208,
+   "size": 24,
+   "name": "sub_1fae30",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fae30",
+   "sig": "Pvmmm",
+   "src": "void f_1fae30(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 2076256,
    "size": 20,
    "name": "sub_1fae60",
@@ -2748,6 +3276,30 @@
    "src": "void f_1fae90(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 424)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 2076336,
+   "size": 24,
+   "name": "sub_1faeb0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1faeb0",
+   "sig": "mmm",
+   "src": "void f_1faeb0(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(112)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 2076544,
+   "size": 24,
+   "name": "sub_1faf80",
+   "shape": "indirect-tailcall",
+   "ident": "f_1faf80",
+   "sig": "Pvmmm",
+   "src": "void f_1faf80(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -2775,6 +3327,30 @@
   },
   {
    "module": "main",
+   "addr": 2076672,
+   "size": 24,
+   "name": "sub_1fb000",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb000",
+   "sig": "mmm",
+   "src": "void f_1fb000(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(120)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 2076880,
+   "size": 24,
+   "name": "sub_1fb0d0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb0d0",
+   "sig": "Pvmmm",
+   "src": "void f_1fb0d0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 2076928,
    "size": 20,
    "name": "sub_1fb100",
@@ -2796,6 +3372,30 @@
    "src": "void f_1fb130(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 400)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 2077008,
+   "size": 24,
+   "name": "sub_1fb150",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb150",
+   "sig": "mmm",
+   "src": "void f_1fb150(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(112)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 2077216,
+   "size": 24,
+   "name": "sub_1fb220",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb220",
+   "sig": "Pvmmm",
+   "src": "void f_1fb220(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -2823,6 +3423,30 @@
   },
   {
    "module": "main",
+   "addr": 2077344,
+   "size": 24,
+   "name": "sub_1fb2a0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb2a0",
+   "sig": "mmm",
+   "src": "void f_1fb2a0(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(112)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 2077552,
+   "size": 24,
+   "name": "sub_1fb370",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb370",
+   "sig": "Pvmmm",
+   "src": "void f_1fb370(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
    "addr": 2077600,
    "size": 20,
    "name": "sub_1fb3a0",
@@ -2844,6 +3468,30 @@
    "src": "void f_1fb3d0(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 368)))))(((uintptr_t)(a1)), ((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a2)));\n}\n",
    "orig_insns": 5,
    "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 2077680,
+   "size": 24,
+   "name": "sub_1fb3f0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb3f0",
+   "sig": "mmm",
+   "src": "void f_1fb3f0(uint64_t a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)((uintptr_t)(((uint64_t)a2)));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(((uint64_t)a2))), ((uintptr_t)(a1)), ((uint32_t)(112)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 2077888,
+   "size": 24,
+   "name": "sub_1fb4c0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1fb4c0",
+   "sig": "Pvmmm",
+   "src": "void f_1fb4c0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1))))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(-18446744071562067968)), ((uintptr_t)(((uint64_t)a1))));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
   },
   {
    "module": "main",
@@ -4407,6 +5055,30 @@
   },
   {
    "module": "main",
+   "addr": 3200144,
+   "size": 16,
+   "name": "sub_30d490",
+   "shape": "indirect-tailcall",
+   "ident": "f_30d490",
+   "sig": "Pvm",
+   "src": "void f_30d490(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 152)))))(((uintptr_t)(a0)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 3200160,
+   "size": 20,
+   "name": "sub_30d4a0",
+   "shape": "indirect-tailcall",
+   "ident": "f_30d4a0",
+   "sig": "Pvm",
+   "src": "void f_30d4a0(void* a0, uint64_t a1) {\n    void* p0 = (void*)((char*)(a0) - 704);\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 152)))))(((uintptr_t)((char*)(a0) - 704)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
    "addr": 3578176,
    "size": 16,
    "name": "sub_369940",
@@ -4582,6 +5254,30 @@
    "ident": "f_369c20",
    "sig": "Pv",
    "src": "void f_369c20(void* a0) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 72));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 112)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 72))));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 3707824,
+   "size": 16,
+   "name": "sub_3893b0",
+   "shape": "indirect-tailcall",
+   "ident": "f_3893b0",
+   "sig": "Pvm",
+   "src": "void f_3893b0(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) - 24));\n    void* _wb1 = (void*)((char*)a0 + -24);\n    asm volatile(\"\" : \"+r\"(_wb1));\n    a0 = _wb1;\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 296)))))(((uintptr_t)(a0)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 3707840,
+   "size": 16,
+   "name": "sub_3893c0",
+   "shape": "indirect-tailcall",
+   "ident": "f_3893c0",
+   "sig": "Pvm",
+   "src": "void f_3893c0(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) - 24));\n    void* _wb1 = (void*)((char*)a0 + -24);\n    asm volatile(\"\" : \"+r\"(_wb1));\n    a0 = _wb1;\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 304)))))(((uintptr_t)(a0)), ((uint32_t)(1)));\n}\n",
    "orig_insns": 4,
    "new_insns": 4
   },
@@ -4923,6 +5619,18 @@
   },
   {
    "module": "main",
+   "addr": 5878272,
+   "size": 20,
+   "name": "sub_59b200",
+   "shape": "indirect-tailcall",
+   "ident": "f_59b200",
+   "sig": "Pvmm",
+   "src": "void f_59b200(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 624));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 200)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 624))), ((uintptr_t)(a1)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
    "addr": 5878320,
    "size": 20,
    "name": "sub_59b230",
@@ -5031,6 +5739,42 @@
   },
   {
    "module": "main",
+   "addr": 6768160,
+   "size": 20,
+   "name": "sub_674620",
+   "shape": "indirect-tailcall",
+   "ident": "f_674620",
+   "sig": "Pvm",
+   "src": "void f_674620(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 128));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 64)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 128))), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 6805328,
+   "size": 16,
+   "name": "sub_67d750",
+   "shape": "indirect-tailcall",
+   "ident": "f_67d750",
+   "sig": "Pvmm",
+   "src": "void f_67d750(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 56)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uint32_t)(40)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 6805344,
+   "size": 16,
+   "name": "sub_67d760",
+   "shape": "indirect-tailcall",
+   "ident": "f_67d760",
+   "sig": "Pvmm",
+   "src": "void f_67d760(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 64)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uint32_t)(40)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 6840752,
    "size": 12,
    "name": "sub_6861b0",
@@ -5050,6 +5794,30 @@
    "ident": "f_6965e0",
    "sig": "Pvmmm",
    "src": "void f_6965e0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 24)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uintptr_t)(0)), ((uintptr_t)(0)));\n}\n",
+   "orig_insns": 6,
+   "new_insns": 6
+  },
+  {
+   "module": "main",
+   "addr": 6936160,
+   "size": 20,
+   "name": "sub_69d660",
+   "shape": "indirect-tailcall",
+   "ident": "f_69d660",
+   "sig": "Pvmm",
+   "src": "void f_69d660(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(8)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 6936192,
+   "size": 24,
+   "name": "sub_69d680",
+   "shape": "indirect-tailcall",
+   "ident": "f_69d680",
+   "sig": "Pvmmm",
+   "src": "void f_69d680(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 24)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uintptr_t)(0)), ((uint32_t)(8)));\n}\n",
    "orig_insns": 6,
    "new_insns": 6
   },
@@ -5871,6 +6639,18 @@
   },
   {
    "module": "main",
+   "addr": 9084960,
+   "size": 16,
+   "name": "sub_8aa020",
+   "shape": "indirect-tailcall",
+   "ident": "f_8aa020",
+   "sig": "Pvmmmm",
+   "src": "void f_8aa020(void* a0, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 1928)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uintptr_t)(a2)), ((uintptr_t)(a3)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 9084976,
    "size": 16,
    "name": "sub_8aa030",
@@ -5878,6 +6658,18 @@
    "ident": "f_8aa030",
    "sig": "Pvmmmm",
    "src": "void f_8aa030(void* a0, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 1928)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uintptr_t)(a2)), ((uintptr_t)(a3)), ((uint32_t)(0)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 9084992,
+   "size": 16,
+   "name": "sub_8aa040",
+   "shape": "indirect-tailcall",
+   "ident": "f_8aa040",
+   "sig": "Pvmmmm",
+   "src": "void f_8aa040(void* a0, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 1928)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)), ((uintptr_t)(a2)), ((uintptr_t)(a3)), ((uint32_t)(17)));\n}\n",
    "orig_insns": 4,
    "new_insns": 4
   },
@@ -6060,6 +6852,54 @@
    "src": "void f_95be00(void* a0) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 2576)))))(((uintptr_t)(a0)));\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 9914176,
+   "size": 20,
+   "name": "sub_974740",
+   "shape": "indirect-tailcall",
+   "ident": "f_974740",
+   "sig": "Pvjm",
+   "src": "void f_974740(void* a0, uint32_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 416)))))(((uintptr_t)(a0)), ((uintptr_t)((((uint32_t)a1)) & (1))), ((uint32_t)(2)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 9914240,
+   "size": 16,
+   "name": "sub_974780",
+   "shape": "indirect-tailcall",
+   "ident": "f_974780",
+   "sig": "Pvm",
+   "src": "void f_974780(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 432)))))(((uintptr_t)(a0)), ((uint32_t)(2)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 9920528,
+   "size": 20,
+   "name": "sub_976010",
+   "shape": "indirect-tailcall",
+   "ident": "f_976010",
+   "sig": "Pvjm",
+   "src": "void f_976010(void* a0, uint32_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 488)))))(((uintptr_t)(a0)), ((uintptr_t)((((uint32_t)a1)) & (1))), ((uint32_t)(2)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 9920688,
+   "size": 16,
+   "name": "sub_9760b0",
+   "shape": "indirect-tailcall",
+   "ident": "f_9760b0",
+   "sig": "Pvm",
+   "src": "void f_9760b0(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 432)))))(((uintptr_t)(a0)), ((uint32_t)(2)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",
@@ -6687,6 +7527,18 @@
   },
   {
    "module": "main",
+   "addr": 14304080,
+   "size": 20,
+   "name": "sub_da4350",
+   "shape": "indirect-tailcall",
+   "ident": "f_da4350",
+   "sig": "Pvm",
+   "src": "void f_da4350(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 136));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 496)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 136))), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
    "addr": 14608432,
    "size": 12,
    "name": "sub_dee830",
@@ -6744,6 +7596,18 @@
    "src": "void f_f7d670(void* a0, uint64_t a1) {\n    void* p0 = (void*)((uintptr_t)(a0));\n    void* p1 = (void*)(*(uint64_t *)((char*)(a0)));\n    *(uint32_t*)((char*)(p0) + 120) = (uint32_t)(a1);\n    return ((void (*)(uintptr_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 136)))))(((uintptr_t)(a0)), ((uintptr_t)(a1)));\n}\n",
    "orig_insns": 4,
    "new_insns": 4
+  },
+  {
+   "module": "main",
+   "addr": 16244096,
+   "size": 20,
+   "name": "sub_f7dd80",
+   "shape": "indirect-tailcall",
+   "ident": "f_f7dd80",
+   "sig": "Pvm",
+   "src": "void f_f7dd80(void* a0, uint64_t a1) {\n    void* p0 = (void*)((uintptr_t)(a0));\n    void* p1 = (void*)(*(uint64_t *)((char*)(a0)));\n    *(uint32_t*)((char*)(p0) + 120) = 5;\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 136)))))(((uintptr_t)(a0)), ((uint32_t)(5)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
   },
   {
    "module": "main",
@@ -7539,6 +8403,18 @@
   },
   {
    "module": "main",
+   "addr": 17609184,
+   "size": 20,
+   "name": "sub_10cb1e0",
+   "shape": "indirect-tailcall",
+   "ident": "f_10cb1e0",
+   "sig": "Pvmmm",
+   "src": "void f_10cb1e0(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 24)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uintptr_t)(a2)), ((uint32_t)(8)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
    "addr": 17625328,
    "size": 16,
    "name": "sub_10cf0f0",
@@ -8019,6 +8895,30 @@
   },
   {
    "module": "main",
+   "addr": 20578048,
+   "size": 20,
+   "name": "sub_139ff00",
+   "shape": "indirect-tailcall",
+   "ident": "f_139ff00",
+   "sig": "Pvmm",
+   "src": "void f_139ff00(void* a0, uint64_t a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 16)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uint32_t)(8)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
+   "addr": 20578080,
+   "size": 20,
+   "name": "sub_139ff20",
+   "shape": "indirect-tailcall",
+   "ident": "f_139ff20",
+   "sig": "Pvmmm",
+   "src": "void f_139ff20(void* a0, uint64_t a1, uint64_t a2, uint64_t a3) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 8));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 24)))))(((uintptr_t)(*(uint64_t*)((char*)(a0) + 8))), ((uintptr_t)(a1)), ((uintptr_t)(a2)), ((uint32_t)(8)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "main",
    "addr": 21114928,
    "size": 16,
    "name": "sub_1423030",
@@ -8163,6 +9063,18 @@
   },
   {
    "module": "main",
+   "addr": 23133648,
+   "size": 16,
+   "name": "sub_160fdd0",
+   "shape": "indirect-tailcall",
+   "ident": "f_160fdd0",
+   "sig": "Pvm",
+   "src": "void f_160fdd0(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 120)))))(((uintptr_t)(a0)), ((uint32_t)(-1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
+  },
+  {
+   "module": "main",
    "addr": 23134208,
    "size": 16,
    "name": "sub_1610000",
@@ -8268,6 +9180,18 @@
    "src": "void f_1726c80(void* a0) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 56)))))(((uintptr_t)(a0)));\n}\n",
    "orig_insns": 3,
    "new_insns": 3
+  },
+  {
+   "module": "main",
+   "addr": 24337840,
+   "size": 16,
+   "name": "sub_1735db0",
+   "shape": "indirect-tailcall",
+   "ident": "f_1735db0",
+   "sig": "Pvm",
+   "src": "void f_1735db0(void* a0, uint64_t a1) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 56)))))(((uintptr_t)(a0)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 4,
+   "new_insns": 4
   },
   {
    "module": "main",

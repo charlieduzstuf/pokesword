@@ -5,6 +5,10 @@
 #include "main_main_main_12.h"
 
 namespace main {
+void sub_d9a6c0() { /* 0xd9a6c0 */ }
+void sub_d9a750() { /* 0xd9a750 */ }
+void sub_d9a7c0() { /* 0xd9a7c0 */ }
+void sub_d9a830() { /* 0xd9a830 */ }
 void sub_d9a8c0() { /* 0xd9a8c0 */ }
 void sub_d9a950() { /* 0xd9a950 */ }
 void sub_d9ab50() { /* 0xd9ab50 */ }
@@ -84,7 +88,7 @@ void sub_da3b20() { /* 0xda3b20 */ }
 // sub_da3b90: implemented in prog/matched/main/
 void sub_da3ba0() { /* 0xda3ba0 */ }
 void field_event() { /* 0xda3cb0 */ }
-void sub_da4350() { /* 0xda4350 */ }
+// sub_da4350: implemented in prog/matched/main/
 void sub_da4370() { /* 0xda4370 */ }
 void sub_da43d0() { /* 0xda43d0 */ }
 void sub_da4430() { /* 0xda4430 */ }
@@ -4001,9 +4005,5 @@ void sub_ed3140() { /* 0xed3140 */ }
 void sub_ed3290() { /* 0xed3290 */ }
 // sub_ed32d0: implemented in prog/matched/main/
 void sub_ed32f0() { /* 0xed32f0 */ }
-void sub_ed3300() { /* 0xed3300 */ }
-void sub_ed3380() { /* 0xed3380 */ }
-void sub_ed33b0() { /* 0xed33b0 */ }
-void sub_ed34f0() { /* 0xed34f0 */ }
 
 }  // namespace main

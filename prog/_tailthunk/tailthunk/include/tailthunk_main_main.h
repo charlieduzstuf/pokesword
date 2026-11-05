@@ -1256,7 +1256,6 @@ void sub_790cb0();  // 0x790cb0
 void sub_790d80();  // 0x790d80
 void sub_790d90();  // 0x790d90
 void sub_7935d0();  // 0x7935d0
-void sub_7935e0();  // 0x7935e0
 void sub_7935f0();  // 0x7935f0
 void sub_793600();  // 0x793600
 void sub_793610();  // 0x793610
@@ -2270,7 +2269,6 @@ void sub_979250();  // 0x979250
 void sub_979260();  // 0x979260
 void sub_984ef0();  // 0x984ef0
 void sub_984f00();  // 0x984f00
-void sub_984f10();  // 0x984f10
 void sub_984f20();  // 0x984f20
 void sub_984fb0();  // 0x984fb0
 void sub_984fc0();  // 0x984fc0
@@ -4005,5 +4003,7 @@ void sub_c3e6c0();  // 0xc3e6c0
 void sub_c3e6d0();  // 0xc3e6d0
 void sub_c3fd40();  // 0xc3fd40
 void sub_c3fd50();  // 0xc3fd50
+void sub_c3fd60();  // 0xc3fd60
+void sub_c3fd70();  // 0xc3fd70
 
 }  // namespace main

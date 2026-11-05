@@ -5,6 +5,10 @@
 #include "main_main_main_9.h"
 
 namespace main {
+void sub_a6a1b0() { /* 0xa6a1b0 */ }
+// sub_a6a2a0: implemented in prog/matched/main/
+// sub_a6a2b0: implemented in prog/matched/main/
+// sub_a6a2c0: implemented in prog/matched/main/
 void sub_a6a2d0() { /* 0xa6a2d0 */ }
 void sub_a6a330() { /* 0xa6a330 */ }
 void sub_a6a370() { /* 0xa6a370 */ }
@@ -4001,9 +4005,5 @@ void sub_b6c150() { /* 0xb6c150 */ }
 void sub_b6c3d0() { /* 0xb6c3d0 */ }
 void sub_b6c550() { /* 0xb6c550 */ }
 void sub_b6c720() { /* 0xb6c720 */ }
-void sub_b6c780() { /* 0xb6c780 */ }
-void sub_b6c8a0() { /* 0xb6c8a0 */ }
-void sub_b6c990() { /* 0xb6c990 */ }
-void sub_b6cae0() { /* 0xb6cae0 */ }
 
 }  // namespace main

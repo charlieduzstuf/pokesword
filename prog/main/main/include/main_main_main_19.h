@@ -5,6 +5,10 @@
 #pragma once
 
 namespace main {
+void sub_144c180();  // 0x144c180
+void sub_144c400();  // 0x144c400
+void sub_144c540();  // 0x144c540
+void sub_144c680();  // 0x144c680
 void sub_144c7c0();  // 0x144c7c0
 void StateStart();  // 0x144c900
 void sub_144caf0();  // 0x144caf0
@@ -4001,9 +4005,5 @@ void sub_1575730();  // 0x1575730
 void InstanceTable_20();  // 0x1575780
 void sub_1575970();  // 0x1575970
 void InstanceTable_26();  // 0x1576400
-void sub_1576610();  // 0x1576610
-void InstanceTable_27();  // 0x1576640
-void sub_1576930();  // 0x1576930
-void sub_15769f0();  // 0x15769f0
 
 }  // namespace main

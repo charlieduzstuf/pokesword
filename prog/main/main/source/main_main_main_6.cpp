@@ -5,6 +5,7 @@
 #include "main_main_main_6.h"
 
 namespace main {
+void sub_791d50() { /* 0x791d50 */ }
 void sub_791da0() { /* 0x791da0 */ }
 void sub_791db0() { /* 0x791db0 */ }
 void sub_791dc0() { /* 0x791dc0 */ }
@@ -23,6 +24,7 @@ void sub_792e20() { /* 0x792e20 */ }
 void sub_792f30() { /* 0x792f30 */ }
 void unnamed_13() { /* 0x7931f0 */ }
 void sub_793480() { /* 0x793480 */ }
+void sub_7935e0() { /* 0x7935e0 */ }
 void sub_793620() { /* 0x793620 */ }
 void sub_793630() { /* 0x793630 */ }
 void SourceGlobal_2() { /* 0x793640 */ }
@@ -4003,7 +4005,5 @@ void sub_8524e0() { /* 0x8524e0 */ }
 void sub_852560() { /* 0x852560 */ }
 void sub_8525e0() { /* 0x8525e0 */ }
 void sub_852610() { /* 0x852610 */ }
-void sub_8526b0() { /* 0x8526b0 */ }
-void sub_852730() { /* 0x852730 */ }
 
 }  // namespace main

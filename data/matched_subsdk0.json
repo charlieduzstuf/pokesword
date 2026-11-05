@@ -61,6 +61,18 @@
   },
   {
    "module": "subsdk0",
+   "addr": 1204032,
+   "size": 28,
+   "name": "sub_125f40",
+   "shape": "indirect-tailcall",
+   "ident": "f_125f40",
+   "sig": "Pvmmmm",
+   "src": "void f_125f40(void* a0, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a0)));\n    return ((void (*)(uintptr_t, uint32_t, uint32_t, uint32_t, uintptr_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p0) + 32)))))(((uintptr_t)(a0)), ((uint32_t)(100)), ((uint32_t)(100)), ((uint32_t)(0)), ((uintptr_t)(0)));\n}\n",
+   "orig_insns": 7,
+   "new_insns": 7
+  },
+  {
+   "module": "subsdk0",
    "addr": 1220976,
    "size": 12,
    "name": "sub_12a170",

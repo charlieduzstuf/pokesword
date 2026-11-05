@@ -575,7 +575,7 @@ void sub_59b180() { /* 0x59b180 */ }
 void sub_59b1c0() { /* 0x59b1c0 */ }
 void sub_59b1d0() { /* 0x59b1d0 */ }
 void sub_59b1f0() { /* 0x59b1f0 */ }
-void sub_59b200() { /* 0x59b200 */ }
+// sub_59b200: implemented in prog/matched/main/
 void sub_59b220() { /* 0x59b220 */ }
 // sub_59b230: implemented in prog/matched/main/
 void sub_59b250() { /* 0x59b250 */ }
@@ -3750,6 +3750,7 @@ void sub_673a80() { /* 0x673a80 */ }
 void GFDefaultListener() { /* 0x673da0 */ }
 void sub_674120() { /* 0x674120 */ }
 void sub_6745f0() { /* 0x6745f0 */ }
+// sub_674620: implemented in prog/matched/main/
 void sub_674640() { /* 0x674640 */ }
 void sub_674720() { /* 0x674720 */ }
 void sub_674800() { /* 0x674800 */ }
@@ -3972,8 +3973,8 @@ void sub_67d280() { /* 0x67d280 */ }
 void sub_67d370() { /* 0x67d370 */ }
 void sub_67d450() { /* 0x67d450 */ }
 void sub_67d490() { /* 0x67d490 */ }
-void sub_67d750() { /* 0x67d750 */ }
-void sub_67d760() { /* 0x67d760 */ }
+// sub_67d750: implemented in prog/matched/main/
+// sub_67d760: implemented in prog/matched/main/
 void sub_67d8c0() { /* 0x67d8c0 */ }
 void sub_67d910() { /* 0x67d910 */ }
 void sub_67db60() { /* 0x67db60 */ }
@@ -4004,6 +4005,5 @@ void sub_67eb50() { /* 0x67eb50 */ }
 void sub_67ec50() { /* 0x67ec50 */ }
 void sub_67ece0() { /* 0x67ece0 */ }
 void sub_67ed70() { /* 0x67ed70 */ }
-void sub_67eff0() { /* 0x67eff0 */ }
 
 }  // namespace main

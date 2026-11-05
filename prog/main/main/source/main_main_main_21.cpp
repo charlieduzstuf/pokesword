@@ -5,6 +5,10 @@
 #include "main_main_main_21.h"
 
 namespace main {
+void sub_166d190() { /* 0x166d190 */ }
+void sub_166d240() { /* 0x166d240 */ }
+// sub_166d2d0: implemented in prog/matched/main/
+void sub_166d2e0() { /* 0x166d2e0 */ }
 void sub_166d300() { /* 0x166d300 */ }
 void sub_166d320() { /* 0x166d320 */ }
 // sub_166d340: implemented in prog/matched/main/
@@ -3388,7 +3392,7 @@ void sub_1735d50() { /* 0x1735d50 */ }
 // sub_1735d70: implemented in prog/matched/main/
 // sub_1735d80: implemented in prog/matched/main/
 void sub_1735d90() { /* 0x1735d90 */ }
-void sub_1735db0() { /* 0x1735db0 */ }
+// sub_1735db0: implemented in prog/matched/main/
 // sub_1735dc0: implemented in prog/matched/main/
 // sub_1735dd0: implemented in prog/matched/main/
 void sub_1735de0() { /* 0x1735de0 */ }
@@ -4001,9 +4005,5 @@ void sub_1754c00() { /* 0x1754c00 */ }
 void sub_1754ca0() { /* 0x1754ca0 */ }
 void sub_1754e60() { /* 0x1754e60 */ }
 void sub_1754f30() { /* 0x1754f30 */ }
-void sub_1754fc0() { /* 0x1754fc0 */ }
-// sub_1755000: implemented in prog/matched/main/
-// sub_1755010: implemented in prog/matched/main/
-// sub_1755020: implemented in prog/matched/main/
 
 }  // namespace main

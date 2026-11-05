@@ -5,6 +5,10 @@
 #include "main_main_main_13.h"
 
 namespace main {
+void sub_ed3300() { /* 0xed3300 */ }
+void sub_ed3380() { /* 0xed3380 */ }
+void sub_ed33b0() { /* 0xed33b0 */ }
+void sub_ed34f0() { /* 0xed34f0 */ }
 void sub_ed3520() { /* 0xed3520 */ }
 void sub_ed3550() { /* 0xed3550 */ }
 // sub_ed3940: implemented in prog/matched/main/
@@ -2178,7 +2182,7 @@ void sub_f7dbe0() { /* 0xf7dbe0 */ }
 void sub_f7dc70() { /* 0xf7dc70 */ }
 void sub_f7dd40() { /* 0xf7dd40 */ }
 void sub_f7dd60() { /* 0xf7dd60 */ }
-void sub_f7dd80() { /* 0xf7dd80 */ }
+// sub_f7dd80: implemented in prog/matched/main/
 void sub_f7dda0() { /* 0xf7dda0 */ }
 void sub_f7de40() { /* 0xf7de40 */ }
 void sub_f7de70() { /* 0xf7de70 */ }
@@ -4001,9 +4005,5 @@ void sub_fdcee0() { /* 0xfdcee0 */ }
 void sub_fdcfd0() { /* 0xfdcfd0 */ }
 void sub_fdd2c0() { /* 0xfdd2c0 */ }
 void sub_fdd2e0() { /* 0xfdd2e0 */ }
-void sub_fdd370() { /* 0xfdd370 */ }
-void sub_fdd410() { /* 0xfdd410 */ }
-void sub_fdd4a0() { /* 0xfdd4a0 */ }
-void sub_fdd550() { /* 0xfdd550 */ }
 
 }  // namespace main

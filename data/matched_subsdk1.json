@@ -277,6 +277,18 @@
   },
   {
    "module": "subsdk1",
+   "addr": 536576,
+   "size": 20,
+   "name": "sub_83000",
+   "shape": "indirect-tailcall",
+   "ident": "f_83000",
+   "sig": "mPvm",
+   "src": "void f_83000(uint64_t a0, void* a1, uint64_t a2) {\n    void* p0 = (void*)(*(uint64_t *)((char*)(a1) + 704));\n    void* p1 = (void*)(*(uint64_t *)((char*)(p0)));\n    return ((void (*)(uintptr_t, uintptr_t, uint32_t))((void *)((uintptr_t)(*(uint64_t*)((char*)(p1) + 168)))))(((uintptr_t)(*(uint64_t*)((char*)(a1) + 704))), ((uintptr_t)(a1)), ((uint32_t)(1)));\n}\n",
+   "orig_insns": 5,
+   "new_insns": 5
+  },
+  {
+   "module": "subsdk1",
    "addr": 536608,
    "size": 16,
    "name": "sub_83020",

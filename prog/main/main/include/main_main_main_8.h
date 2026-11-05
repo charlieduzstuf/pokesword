@@ -5,6 +5,8 @@
 #pragma once
 
 namespace main {
+void sub_8df370();  // 0x8df370
+void sub_8df470();  // 0x8df470
 void sub_8df680();  // 0x8df680
 void sub_8df8a0();  // 0x8df8a0
 void unnamed_16();  // 0x8dfa50
@@ -1727,6 +1729,7 @@ void sub_9746f0();  // 0x9746f0
 void sub_974710();  // 0x974710
 void sub_974740();  // 0x974740
 void sub_974760();  // 0x974760
+void sub_974780();  // 0x974780
 void sub_9747e0();  // 0x9747e0
 void sub_974a00();  // 0x974a00
 void sub_974b60();  // 0x974b60
@@ -1914,6 +1917,7 @@ void sub_9846c0();  // 0x9846c0
 void sub_984790();  // 0x984790
 void Play_PV_Btl_052_sp_roar();  // 0x9849d0
 void sub_984ba0();  // 0x984ba0
+void sub_984f10();  // 0x984f10
 void sub_984f30();  // 0x984f30
 void sub_984f40();  // 0x984f40
 void sub_984f50();  // 0x984f50
@@ -4001,9 +4005,5 @@ void sub_a6a170();  // 0xa6a170
 void sub_a6a180();  // 0xa6a180
 void sub_a6a190();  // 0xa6a190
 void sub_a6a1a0();  // 0xa6a1a0
-void sub_a6a1b0();  // 0xa6a1b0
-void sub_a6a2a0();  // 0xa6a2a0
-void sub_a6a2b0();  // 0xa6a2b0
-void sub_a6a2c0();  // 0xa6a2c0
 
 }  // namespace main

@@ -1,4 +1,4 @@
-/* main -- 372 functions verified to match the original.
+/* main -- 370 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -33,8 +33,6 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
-namespace main { void sub_15cac40(); }
-extern void main_f_15bb240();
 namespace main { void sub_15b6e10(); }
 namespace main { void sub_1636d00(); }
 namespace main { uint64_t sub_164a700(uintptr_t); }
@@ -253,12 +251,6 @@ namespace main { uint64_t sub_17a9da0(uintptr_t); }
 namespace main { void uConstantBufferForVertexShader(); }
 extern void main_f_17913f0();
 namespace main { uint64_t sub_17d2b10(uintptr_t); }
-
-// sub_162ef90  (orig 0x162ef90, tailcall)
-void main_f_162ef90() { main::sub_15cac40(); }
-
-// sub_162efb0  (orig 0x162efb0, tailcall)
-void main_f_162efb0() { main_f_15bb240(); }
 
 // sub_162fa60  (orig 0x162fa60, tailcall)
 void main_f_162fa60() { main::sub_15b6e10(); }

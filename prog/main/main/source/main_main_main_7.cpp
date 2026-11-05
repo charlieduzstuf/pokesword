@@ -5,6 +5,8 @@
 #include "main_main_main_7.h"
 
 namespace main {
+void sub_8526b0() { /* 0x8526b0 */ }
+void sub_852730() { /* 0x852730 */ }
 void sub_852760() { /* 0x852760 */ }
 void sub_852830() { /* 0x852830 */ }
 void sub_852910() { /* 0x852910 */ }
@@ -2788,9 +2790,9 @@ void sub_8a9da0() { /* 0x8a9da0 */ }
 void sub_8a9dc0() { /* 0x8a9dc0 */ }
 void sub_8a9e30() { /* 0x8a9e30 */ }
 void sub_8a9f30() { /* 0x8a9f30 */ }
-void sub_8aa020() { /* 0x8aa020 */ }
+// sub_8aa020: implemented in prog/matched/main/
 // sub_8aa030: implemented in prog/matched/main/
-void sub_8aa040() { /* 0x8aa040 */ }
+// sub_8aa040: implemented in prog/matched/main/
 void sub_8aa050() { /* 0x8aa050 */ }
 void sub_8aa160() { /* 0x8aa160 */ }
 void sub_8aa230() { /* 0x8aa230 */ }
@@ -4003,7 +4005,5 @@ void sub_8de8b0() { /* 0x8de8b0 */ }
 void sub_8ded40() { /* 0x8ded40 */ }
 void sub_8def00() { /* 0x8def00 */ }
 void sub_8df130() { /* 0x8df130 */ }
-void sub_8df370() { /* 0x8df370 */ }
-void sub_8df470() { /* 0x8df470 */ }
 
 }  // namespace main

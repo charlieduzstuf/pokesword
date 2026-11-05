@@ -33,7 +33,6 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
-namespace main { uint64_t sub_1331fb0(uintptr_t); }
 namespace main { void sub_1333cb0(); }
 namespace main { void sub_1333e80(); }
 namespace main { uint64_t sub_1333cb0(uintptr_t); }
@@ -600,16 +599,8 @@ namespace main { uint64_t Client_call_close(uintptr_t); }
 namespace main { uint64_t sub_162a5a0(uintptr_t); }
 namespace main { uint64_t sub_162a4f0(uintptr_t); }
 namespace main { void sub_162cae0(); }
-
-// sub_1332420  (orig 0x1332420, tailcall)
-uint64_t main_f_1332420(void* a0) {
-    return main::sub_1331fb0(((uintptr_t)((char*)(a0) - 80)));
-}
-
-// sub_1332430  (orig 0x1332430, tailcall)
-uint64_t main_f_1332430(void* a0) {
-    return main::sub_1331fb0(((uintptr_t)((char*)(a0) - 80)));
-}
+namespace main { void sub_15cac40(); }
+extern void main_f_15bb240();
 
 // sub_1333e00  (orig 0x1333e00, tailcall)
 void main_f_1333e00() { main::sub_1333cb0(); }
@@ -8683,4 +8674,10 @@ void main_f_162d890() { main::sub_15b6e10(); }
 
 // sub_162ee50  (orig 0x162ee50, tailcall)
 void main_f_162ee50() { main::sub_15b6e10(); }
+
+// sub_162ef90  (orig 0x162ef90, tailcall)
+void main_f_162ef90() { main::sub_15cac40(); }
+
+// sub_162efb0  (orig 0x162efb0, tailcall)
+void main_f_162efb0() { main_f_15bb240(); }
 

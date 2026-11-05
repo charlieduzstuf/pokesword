@@ -697,7 +697,6 @@ namespace main { void sub_790010(); }
 namespace main { uint64_t sub_e7c250(uintptr_t); }
 namespace main { void sub_790e60(); }
 namespace main { uint64_t sub_6744e0(uintptr_t); }
-namespace main { uint64_t sub_674620(uintptr_t); }
 namespace main { uint64_t sub_674680(uintptr_t); }
 namespace main { uint64_t sub_674690(uintptr_t); }
 namespace main { uint64_t sub_6746f0(uintptr_t); }
@@ -887,6 +886,7 @@ namespace main { void sub_8fb040(); }
 namespace main { uint64_t sub_8fac70(uintptr_t); }
 namespace main { void sub_8f0b90(); }
 namespace main { void sub_900ec0(); }
+namespace main { void Set_State_NetBattleOff(); }
 
 // sub_1e0  (orig 0x1e0, tailcall)
 void main_f_1e0() { main_f_210(); }
@@ -5936,11 +5936,6 @@ uint64_t main_f_7935d0(void* a0) {
     return main::sub_6744e0(((uintptr_t)(*(uint64_t*)((char*)(a0) + 112))));
 }
 
-// sub_7935e0  (orig 0x7935e0, tailcall)
-uint64_t main_f_7935e0(void* a0) {
-    return main::sub_674620(((uintptr_t)(*(uint64_t*)((char*)(a0) + 112))));
-}
-
 // sub_7935f0  (orig 0x7935f0, tailcall)
 uint64_t main_f_7935f0(void* a0) {
     return main::sub_674680(((uintptr_t)(*(uint64_t*)((char*)(a0) + 112))));
@@ -8718,4 +8713,7 @@ void main_f_900c10() { main::sub_900ec0(); }
 
 // sub_900c20  (orig 0x900c20, tailcall)
 void main_f_900c20() { main::sub_900ec0(); }
+
+// sub_901440  (orig 0x901440, tailcall)
+void main_f_901440() { main::Set_State_NetBattleOff(); }
 

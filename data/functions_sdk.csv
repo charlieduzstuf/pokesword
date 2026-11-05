@@ -22018,7 +22018,7 @@
 0x00000000003ffbc0,sub_3ffbc0,240,_ZN3sdk10sub_3ffbc0Ev!
 0x00000000003ffcb0,sub_3ffcb0,20,_ZN3sdk21sub_3ffcb0_sdk_3ffcb0Ev!
 0x00000000003ffcd0,sub_3ffcd0,268,_ZN3sdk10sub_3ffcd0Ev!
-0x00000000003ffde0,sub_3ffde0,20,_ZN3sdk10sub_3ffde0Ev!
+0x00000000003ffde0,sub_3ffde0,20,_Z12sdk_f_3ffde0Pvjm
 0x00000000003ffe00,sub_3ffe00,60,_ZN3sdk21sub_3ffe00_sdk_3ffe00Ev!
 0x00000000003ffe40,sub_3ffe40,48,_ZN3sdk21sub_3ffe40_sdk_3ffe40Ev!
 0x00000000003ffe70,sub_3ffe70,4,_Z12sdk_f_3ffe70v

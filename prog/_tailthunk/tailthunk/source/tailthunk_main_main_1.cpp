@@ -5,8 +5,6 @@
 #include "tailthunk_main_main_1.h"
 
 namespace main {
-// sub_c3fd60: implemented in prog/matched/main/
-// sub_c3fd70: implemented in prog/matched/main/
 // sub_c3fd80: implemented in prog/matched/main/
 // sub_c41c30: implemented in prog/matched/main/
 // sub_c41c40: implemented in prog/matched/main/
@@ -4005,5 +4003,7 @@ namespace main {
 // sub_13323f0: implemented in prog/matched/main/
 // sub_1332400: implemented in prog/matched/main/
 // sub_1332410: implemented in prog/matched/main/
+// sub_1332420: implemented in prog/matched/main/
+// sub_1332430: implemented in prog/matched/main/
 
 }  // namespace main

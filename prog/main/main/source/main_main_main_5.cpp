@@ -5,6 +5,7 @@
 #include "main_main_main_5.h"
 
 namespace main {
+void sub_67eff0() { /* 0x67eff0 */ }
 void sub_67f0c0() { /* 0x67f0c0 */ }
 void sub_67f1f0() { /* 0x67f1f0 */ }
 void sub_67f470() { /* 0x67f470 */ }
@@ -450,8 +451,8 @@ void sub_69cd50() { /* 0x69cd50 */ }
 void sub_69cfe0() { /* 0x69cfe0 */ }
 void FeatureId_YEBIS_SISDK3_NX_BeginYear_0_BeginMonth_0_Begin() { /* 0x69d270 */ }
 // sub_69d640: implemented in prog/matched/main/
-void sub_69d660() { /* 0x69d660 */ }
-void sub_69d680() { /* 0x69d680 */ }
+// sub_69d660: implemented in prog/matched/main/
+// sub_69d680: implemented in prog/matched/main/
 void sub_69d6a0() { /* 0x69d6a0 */ }
 void sub_69d6e0() { /* 0x69d6e0 */ }
 void sub_69d730() { /* 0x69d730 */ }
@@ -4004,6 +4005,5 @@ void SourceGlobal() { /* 0x791670 */ }
 void sub_791a00() { /* 0x791a00 */ }
 void unnamed_12() { /* 0x791b70 */ }
 void sub_791d40() { /* 0x791d40 */ }
-void sub_791d50() { /* 0x791d50 */ }
 
 }  // namespace main
