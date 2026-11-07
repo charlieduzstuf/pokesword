@@ -5,6 +5,8 @@
 #include "main_main_main_21.h"
 
 namespace main {
+void sub_166d130() { /* 0x166d130 */ }
+void sub_166d180() { /* 0x166d180 */ }
 void sub_166d190() { /* 0x166d190 */ }
 void sub_166d240() { /* 0x166d240 */ }
 // sub_166d2d0: implemented in prog/matched/main/
@@ -4003,7 +4005,5 @@ void sub_1754bb0() { /* 0x1754bb0 */ }
 void sub_1754bf0() { /* 0x1754bf0 */ }
 void sub_1754c00() { /* 0x1754c00 */ }
 void sub_1754ca0() { /* 0x1754ca0 */ }
-void sub_1754e60() { /* 0x1754e60 */ }
-void sub_1754f30() { /* 0x1754f30 */ }
 
 }  // namespace main

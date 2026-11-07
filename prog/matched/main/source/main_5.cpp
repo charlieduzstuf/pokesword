@@ -1,4 +1,4 @@
-/* main -- 370 functions verified to match the original.
+/* main -- 369 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -251,9 +251,6 @@ namespace main { uint64_t sub_17a9da0(uintptr_t); }
 namespace main { void uConstantBufferForVertexShader(); }
 extern void main_f_17913f0();
 namespace main { uint64_t sub_17d2b10(uintptr_t); }
-
-// sub_162fa60  (orig 0x162fa60, tailcall)
-void main_f_162fa60() { main::sub_15b6e10(); }
 
 // sub_16317c0  (orig 0x16317c0, tailcall)
 void main_f_16317c0() { main::sub_15b6e10(); }

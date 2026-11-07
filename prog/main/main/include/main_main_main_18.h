@@ -5,6 +5,8 @@
 #pragma once
 
 namespace main {
+void sub_13574d0();  // 0x13574d0
+void sub_13574f0();  // 0x13574f0
 void sub_1357500();  // 0x1357500
 void sub_1357520();  // 0x1357520
 void sub_1357540();  // 0x1357540
@@ -4003,7 +4005,5 @@ void CommonOptionBar_6();  // 0x144b970
 void sub_144ba50();  // 0x144ba50
 void sub_144ba60();  // 0x144ba60
 void sub_144be40();  // 0x144be40
-void sub_144c000();  // 0x144c000
-void sub_144c0d0();  // 0x144c0d0
 
 }  // namespace main

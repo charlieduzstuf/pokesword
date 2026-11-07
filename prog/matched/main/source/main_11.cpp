@@ -33,6 +33,12 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
+// sub_ae5060  (orig 0xae5060, ret_only)
+void main_f_ae5060() {}
+
+// sub_ae5080  (orig 0xae5080, const-field-set)
+void main_f_ae5080(void* a0) { *(uint32_t *)(((char *)(*(void **)((char*)(a0) + 8)) + 2880)) = 2; }
+
 // sub_ae5100  (orig 0xae5100, ret_only)
 void main_f_ae5100() {}
 
@@ -6798,13 +6804,4 @@ void main_f_cf43b0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*
 
 // sub_cf4430  (orig 0xcf4430, ret_only)
 void main_f_cf4430() {}
-
-// sub_cf4520  (orig 0xcf4520, ret_only)
-void main_f_cf4520() {}
-
-// RThigh_2  (orig 0xcf4bf0, straight-line)
-void main_f_cf4bf0(void* a0, uint64_t a1) {
-    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 120));
-    *(uint64_t*)((char*)(p0) + 312) = a1;
-}
 

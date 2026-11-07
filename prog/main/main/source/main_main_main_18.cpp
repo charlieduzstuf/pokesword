@@ -5,6 +5,8 @@
 #include "main_main_main_18.h"
 
 namespace main {
+void sub_13574d0() { /* 0x13574d0 */ }
+// sub_13574f0: implemented in prog/matched/main/
 void sub_1357500() { /* 0x1357500 */ }
 void sub_1357520() { /* 0x1357520 */ }
 void sub_1357540() { /* 0x1357540 */ }
@@ -4003,7 +4005,5 @@ void CommonOptionBar_6() { /* 0x144b970 */ }
 void sub_144ba50() { /* 0x144ba50 */ }
 void sub_144ba60() { /* 0x144ba60 */ }
 // sub_144be40: implemented in prog/matched/main/
-void sub_144c000() { /* 0x144c000 */ }
-void sub_144c0d0() { /* 0x144c0d0 */ }
 
 }  // namespace main

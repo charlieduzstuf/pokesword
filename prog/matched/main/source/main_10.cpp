@@ -1720,6 +1720,30 @@ uint32_t main_f_8e7c50(void* a0) {
     return r0;
 }
 
+// sub_8e8060  (orig 0x8e8060, switch)
+extern void callee_e80580();
+extern void callee_e806b0();
+uint32_t main_f_8e8060(uint64_t a0, uint64_t a1, uint64_t a2) {
+    uint32_t si0 = a1; __asm__("" : "+r"(si0));
+    switch (si0) {
+    case 0: case 2: return ((int (*)(uintptr_t, int, int))&callee_e806b0)(a0, 1, 1); break;
+    case 1: case 3: return ((int (*)(uintptr_t, int, int))&callee_e80580)(a0, 0, 1); break;
+    }
+    return a0;
+}
+
+// sub_8e80a0  (orig 0x8e80a0, switch)
+extern void callee_e80580();
+extern void callee_e806b0();
+uint32_t main_f_8e80a0(uint64_t a0, uint64_t a1, uint64_t a2) {
+    uint32_t si0 = a1; __asm__("" : "+r"(si0));
+    switch (si0) {
+    case 0: case 2: return ((int (*)(uintptr_t, int, int))&callee_e80580)(a0, 1, 1); break;
+    case 1: case 3: return ((int (*)(uintptr_t, int, int))&callee_e806b0)(a0, 0, 1); break;
+    }
+    return a0;
+}
+
 // sub_8e84a0  (orig 0x8e84a0, ret_only)
 void main_f_8e84a0() {}
 
@@ -7513,10 +7537,4 @@ void main_f_ae4fc0() {}
 
 // sub_ae4fe0  (orig 0xae4fe0, const-field-set)
 void main_f_ae4fe0(void* a0) { *(uint32_t *)(((char *)(*(void **)((char*)(a0) + 8)) + 2880)) = 1; }
-
-// sub_ae5060  (orig 0xae5060, ret_only)
-void main_f_ae5060() {}
-
-// sub_ae5080  (orig 0xae5080, const-field-set)
-void main_f_ae5080(void* a0) { *(uint32_t *)(((char *)(*(void **)((char*)(a0) + 8)) + 2880)) = 2; }
 

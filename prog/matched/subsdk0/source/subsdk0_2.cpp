@@ -1,4 +1,4 @@
-/* subsdk0 -- 1042 functions verified to match the original.
+/* subsdk0 -- 1044 functions verified to match the original.
  *
  * These bodies were synthesised from the instruction stream by
  * tools/auto_match.py and confirmed by compiling them for
@@ -3935,6 +3935,22 @@ void subsdk0_f_3489c0() {}
 // sub_348a70  (orig 0x348a70, ret_only)
 void subsdk0_f_348a70() {}
 
+// sub_34b090  (orig 0x34b090, switch)
+extern void callee_34b8e0();
+extern void callee_34e350();
+extern void callee_352d10();
+extern void callee_35a210();
+uint64_t subsdk0_f_34b090(uint64_t a0) {
+    switch (*(uint32_t *)a0) {
+    case 0: return ((uint64_t (*)(uintptr_t))&callee_34b8e0)(a0); break;
+    case 1: case 2: case 3: case 4: case 5: case 6: case 7: default: break;
+    case 8: return ((uint64_t (*)(uintptr_t))&callee_352d10)(a0); break;
+    case 9: return ((uint64_t (*)(uintptr_t))&callee_34e350)(a0); break;
+    case 10: return ((uint64_t (*)(uintptr_t))&callee_35a210)(a0); break;
+    }
+    return a0;
+}
+
 // sub_34b0d0  (orig 0x34b0d0, ret_only)
 void subsdk0_f_34b0d0() {}
 
@@ -3958,6 +3974,22 @@ uint32_t subsdk0_f_34b390() { return 0; }
 
 // sub_34b3a0  (orig 0x34b3a0, mov_ret)
 uint32_t subsdk0_f_34b3a0() { return 0; }
+
+// sub_34b3b0  (orig 0x34b3b0, switch)
+extern void callee_34e270();
+extern void callee_3529d0();
+extern void callee_3539c0();
+extern void callee_35b9a0();
+uint32_t subsdk0_f_34b3b0(uint64_t a0) {
+    switch (*(uint32_t *)a0) {
+    case 0: return ((int (*)(uintptr_t))&callee_34e270)(a0); break;
+    case 1: case 2: case 3: case 4: case 5: case 6: case 7: default: return 0;
+    case 8: return ((int (*)(uintptr_t))&callee_3539c0)(a0); break;
+    case 9: return ((int (*)(uintptr_t))&callee_3529d0)(a0); break;
+    case 10: return ((int (*)(uintptr_t))&callee_35b9a0)(a0); break;
+    }
+    return a0;
+}
 
 // sub_34bf60  (orig 0x34bf60, mov_ret)
 uint32_t subsdk0_f_34bf60() { return 0; }

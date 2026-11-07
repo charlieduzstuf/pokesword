@@ -33,7 +33,6 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
-namespace main { void sub_1333cb0(); }
 namespace main { void sub_1333e80(); }
 namespace main { uint64_t sub_1333cb0(uintptr_t); }
 namespace main { uint64_t sub_1334f80(uintptr_t); }
@@ -601,9 +600,6 @@ namespace main { uint64_t sub_162a4f0(uintptr_t); }
 namespace main { void sub_162cae0(); }
 namespace main { void sub_15cac40(); }
 extern void main_f_15bb240();
-
-// sub_1333e00  (orig 0x1333e00, tailcall)
-void main_f_1333e00() { main::sub_1333cb0(); }
 
 // sub_1333e10  (orig 0x1333e10, tailcall)
 void main_f_1333e10() { main::sub_1333e80(); }
@@ -8680,4 +8676,7 @@ void main_f_162ef90() { main::sub_15cac40(); }
 
 // sub_162efb0  (orig 0x162efb0, tailcall)
 void main_f_162efb0() { main_f_15bb240(); }
+
+// sub_162fa60  (orig 0x162fa60, tailcall)
+void main_f_162fa60() { main::sub_15b6e10(); }
 

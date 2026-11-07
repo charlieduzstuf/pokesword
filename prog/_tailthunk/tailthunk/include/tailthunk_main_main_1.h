@@ -1892,7 +1892,6 @@ void sub_f7df00();  // 0xf7df00
 void sub_f7df10();  // 0xf7df10
 void sub_f7df20();  // 0xf7df20
 void sub_f7df30();  // 0xf7df30
-void sub_f80cb0();  // 0xf80cb0
 void sub_f81170();  // 0xf81170
 void sub_f811f0();  // 0xf811f0
 void sub_f81200();  // 0xf81200
@@ -4005,5 +4004,6 @@ void sub_1332400();  // 0x1332400
 void sub_1332410();  // 0x1332410
 void sub_1332420();  // 0x1332420
 void sub_1332430();  // 0x1332430
+void sub_1333e00();  // 0x1333e00
 
 }  // namespace main

@@ -618,7 +618,6 @@ namespace main { void sub_f7bcb0(); }
 namespace main { uint64_t sub_f7c8d0(uintptr_t); }
 namespace main { void sub_f7bba0(); }
 namespace main { uint64_t sub_f7bba0(uintptr_t); }
-namespace main { void sub_f677f0(); }
 namespace main { uint64_t sub_f818c0(uintptr_t); }
 namespace main { void sub_f82850(); }
 namespace main { void sub_f893e0(); }
@@ -8357,9 +8356,6 @@ uint64_t main_f_f7df30(void* a0) {
     return main::sub_f7bba0(((uintptr_t)((char*)(a0) - 80)));
 }
 
-// sub_f80cb0  (orig 0xf80cb0, tailcall)
-void main_f_f80cb0() { main::sub_f677f0(); }
-
 // sub_f81170  (orig 0xf81170, tailcall)
 void main_f_f81170() { main::sub_e7feb0(); }
 
@@ -8845,4 +8841,7 @@ uint64_t main_f_fadf80(void* a0) {
 uint64_t main_f_fadf90(void* a0) {
     return main::sub_fadda0(((uintptr_t)((char*)(a0) - 72)));
 }
+
+// sub_fadfa0  (orig 0xfadfa0, tailcall)
+void main_f_fadfa0() { main::sub_fadfe0(); }
 

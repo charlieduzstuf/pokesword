@@ -33,6 +33,15 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
+// sub_11c9f90  (orig 0x11c9f90, copy2)
+void main_f_11c9f90(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9fa0  (orig 0x11c9fa0, copy2)
+void main_f_11c9fa0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_11c9fc0  (orig 0x11c9fc0, ret_only)
+void main_f_11c9fc0() {}
+
 // sub_11c9fd0  (orig 0x11c9fd0, ret_only)
 void main_f_11c9fd0() {}
 
@@ -5056,6 +5065,18 @@ void main_f_132aad0() {}
 // sub_132b690  (orig 0x132b690, mov_ret)
 uint32_t main_f_132b690() { return 0; }
 
+// sub_132b740  (orig 0x132b740, switch)
+extern void callee_e80580();
+extern void callee_e806b0();
+uint32_t main_f_132b740(uint64_t a0, uint64_t a1, uint64_t a2) {
+    uint32_t si0 = a1; __asm__("" : "+r"(si0));
+    switch (si0) {
+    case 0: case 2: return ((int (*)(uintptr_t, int, int))&callee_e80580)(a0, 1, 1); break;
+    case 1: case 3: return ((int (*)(uintptr_t, int, int))&callee_e806b0)(a0, 0, 1); break;
+    }
+    return a0;
+}
+
 // sub_132b9f0  (orig 0x132b9f0, straight)
 void* main_f_132b9f0(void* a0) {
     void* p0 = (void*)((uintptr_t)(a0));
@@ -5581,6 +5602,30 @@ void main_f_1339690() {}
 
 // sub_13396a0  (orig 0x13396a0, ret_only)
 void main_f_13396a0() {}
+
+// sub_133c7c0  (orig 0x133c7c0, switch)
+extern void callee_e80580();
+extern void callee_e806b0();
+uint32_t main_f_133c7c0(uint64_t a0, uint64_t a1, uint64_t a2) {
+    uint32_t si0 = a1; __asm__("" : "+r"(si0));
+    switch (si0) {
+    case 0: case 2: return ((int (*)(uintptr_t, int, int))&callee_e806b0)(a0, 1, 1); break;
+    case 1: case 3: return ((int (*)(uintptr_t, int, int))&callee_e80580)(a0, 0, 1); break;
+    }
+    return a0;
+}
+
+// sub_133c800  (orig 0x133c800, switch)
+extern void callee_e80580();
+extern void callee_e806b0();
+uint32_t main_f_133c800(uint64_t a0, uint64_t a1, uint64_t a2) {
+    uint32_t si0 = a1; __asm__("" : "+r"(si0));
+    switch (si0) {
+    case 0: case 2: return ((int (*)(uintptr_t, int, int))&callee_e80580)(a0, 1, 1); break;
+    case 1: case 3: return ((int (*)(uintptr_t, int, int))&callee_e806b0)(a0, 0, 1); break;
+    }
+    return a0;
+}
 
 // sub_133d080  (orig 0x133d080, const-field-set)
 void main_f_133d080(void* a0) { *(uint8_t *)(((char *)(*(void **)((char*)(a0))) + 1528)) = 1; }
@@ -6739,22 +6784,4 @@ void main_f_13ab3e0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_13ab3f0  (orig 0x13ab3f0, copy2)
 void main_f_13ab3f0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aba40  (orig 0x13aba40, ret_only)
-void main_f_13aba40() {}
-
-// sub_13aba50  (orig 0x13aba50, copy2)
-void main_f_13aba50(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aba60  (orig 0x13aba60, copy2)
-void main_f_13aba60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13aba90  (orig 0x13aba90, ret_only)
-void main_f_13aba90() {}
-
-// sub_13abaa0  (orig 0x13abaa0, copy2)
-void main_f_13abaa0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_13abab0  (orig 0x13abab0, copy2)
-void main_f_13abab0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 

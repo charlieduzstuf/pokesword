@@ -1892,7 +1892,6 @@ namespace main {
 // sub_f7df10: implemented in prog/matched/main/
 // sub_f7df20: implemented in prog/matched/main/
 // sub_f7df30: implemented in prog/matched/main/
-// sub_f80cb0: implemented in prog/matched/main/
 // sub_f81170: implemented in prog/matched/main/
 // sub_f811f0: implemented in prog/matched/main/
 // sub_f81200: implemented in prog/matched/main/
@@ -4005,5 +4004,6 @@ namespace main {
 // sub_1332410: implemented in prog/matched/main/
 // sub_1332420: implemented in prog/matched/main/
 // sub_1332430: implemented in prog/matched/main/
+// sub_1333e00: implemented in prog/matched/main/
 
 }  // namespace main

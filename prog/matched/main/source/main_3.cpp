@@ -763,9 +763,7 @@ namespace main { uint64_t sub_132fda0(uintptr_t); }
 namespace main { void sub_1331fb0(); }
 namespace main { uint64_t sub_1331fb0(uintptr_t); }
 namespace main { uint64_t sub_13322f0(uintptr_t); }
-
-// sub_fadfa0  (orig 0xfadfa0, tailcall)
-void main_f_fadfa0() { main::sub_fadfe0(); }
+namespace main { void sub_1333cb0(); }
 
 // sub_fadfb0  (orig 0xfadfb0, tailcall)
 void main_f_fadfb0() { main::sub_fadfe0(); }
@@ -9226,4 +9224,7 @@ uint64_t main_f_1332420(void* a0) {
 uint64_t main_f_1332430(void* a0) {
     return main::sub_1331fb0(((uintptr_t)((char*)(a0) - 80)));
 }
+
+// sub_1333e00  (orig 0x1333e00, tailcall)
+void main_f_1333e00() { main::sub_1333cb0(); }
 

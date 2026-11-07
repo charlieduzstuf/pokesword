@@ -140,8 +140,8 @@ void btltower_rule_00_uikit() { /* 0x8e7a70 */ }
 void sub_8e7c70() { /* 0x8e7c70 */ }
 void sub_8e7dd0() { /* 0x8e7dd0 */ }
 void sub_8e7f30() { /* 0x8e7f30 */ }
-void sub_8e8060() { /* 0x8e8060 */ }
-void sub_8e80a0() { /* 0x8e80a0 */ }
+// sub_8e8060: implemented in prog/matched/main/
+// sub_8e80a0: implemented in prog/matched/main/
 void sub_8e80e0() { /* 0x8e80e0 */ }
 void sub_8e83d0() { /* 0x8e83d0 */ }
 // sub_8e84a0: implemented in prog/matched/main/

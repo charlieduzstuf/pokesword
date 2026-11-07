@@ -33,6 +33,15 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
+// sub_ff41d0  (orig 0xff41d0, copy2)
+void main_f_ff41d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_ff41e0  (orig 0xff41e0, copy2)
+void main_f_ff41e0(void* a0) { (*(uint8_t *)((char *)(*(void **)((char*)(a0))) + 380)) = 0; }
+
+// sub_ff41f0  (orig 0xff41f0, ret_only)
+void main_f_ff41f0() {}
+
 // sub_ff4200  (orig 0xff4200, copy2)
 void main_f_ff4200(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
 
@@ -8099,13 +8108,4 @@ void main_f_11c9f70(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t
 
 // sub_11c9f80  (orig 0x11c9f80, copy2)
 void main_f_11c9f80(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_11c9f90  (orig 0x11c9f90, copy2)
-void main_f_11c9f90(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_11c9fa0  (orig 0x11c9fa0, copy2)
-void main_f_11c9fa0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_11c9fc0  (orig 0x11c9fc0, ret_only)
-void main_f_11c9fc0() {}
 

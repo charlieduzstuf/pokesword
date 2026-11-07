@@ -5,6 +5,8 @@
 #include "main_main_main_17.h"
 
 namespace main {
+void sub_1243d70() { /* 0x1243d70 */ }
+void sub_1243e30() { /* 0x1243e30 */ }
 void XXXX_XXXXXXX_XXX() { /* 0x1243e50 */ }
 void sub_1243f30() { /* 0x1243f30 */ }
 void sub_1243ff0() { /* 0x1243ff0 */ }
@@ -3256,7 +3258,7 @@ void rentalteam_menu_00_uikit() { /* 0x132b490 */ }
 // sub_132b690: implemented in prog/matched/main/
 void sub_132b6a0() { /* 0x132b6a0 */ }
 void sub_132b6c0() { /* 0x132b6c0 */ }
-void sub_132b740() { /* 0x132b740 */ }
+// sub_132b740: implemented in prog/matched/main/
 void sub_132b780() { /* 0x132b780 */ }
 void sub_132b7e0() { /* 0x132b7e0 */ }
 void sub_132b850() { /* 0x132b850 */ }
@@ -3613,8 +3615,8 @@ void sub_133be90() { /* 0x133be90 */ }
 void sub_133bea0() { /* 0x133bea0 */ }
 void sub_133bf30() { /* 0x133bf30 */ }
 void rentalteam_share_00_uikit() { /* 0x133c5b0 */ }
-void sub_133c7c0() { /* 0x133c7c0 */ }
-void sub_133c800() { /* 0x133c800 */ }
+// sub_133c7c0: implemented in prog/matched/main/
+// sub_133c800: implemented in prog/matched/main/
 void sub_133c840() { /* 0x133c840 */ }
 void sub_133c850() { /* 0x133c850 */ }
 void sub_133c8d0() { /* 0x133c8d0 */ }
@@ -4003,7 +4005,5 @@ void sub_1357430() { /* 0x1357430 */ }
 // sub_1357440: implemented in prog/matched/main/
 void sub_1357450() { /* 0x1357450 */ }
 void sub_13574b0() { /* 0x13574b0 */ }
-void sub_13574d0() { /* 0x13574d0 */ }
-// sub_13574f0: implemented in prog/matched/main/
 
 }  // namespace main

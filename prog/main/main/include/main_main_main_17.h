@@ -5,6 +5,8 @@
 #pragma once
 
 namespace main {
+void sub_1243d70();  // 0x1243d70
+void sub_1243e30();  // 0x1243e30
 void XXXX_XXXXXXX_XXX();  // 0x1243e50
 void sub_1243f30();  // 0x1243f30
 void sub_1243ff0();  // 0x1243ff0
@@ -4003,7 +4005,5 @@ void sub_1357430();  // 0x1357430
 void sub_1357440();  // 0x1357440
 void sub_1357450();  // 0x1357450
 void sub_13574b0();  // 0x13574b0
-void sub_13574d0();  // 0x13574d0
-void sub_13574f0();  // 0x13574f0
 
 }  // namespace main

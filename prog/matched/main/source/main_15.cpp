@@ -33,6 +33,24 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
+// sub_13aba40  (orig 0x13aba40, ret_only)
+void main_f_13aba40() {}
+
+// sub_13aba50  (orig 0x13aba50, copy2)
+void main_f_13aba50(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_13aba60  (orig 0x13aba60, copy2)
+void main_f_13aba60(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_13aba90  (orig 0x13aba90, ret_only)
+void main_f_13aba90() {}
+
+// sub_13abaa0  (orig 0x13abaa0, copy2)
+void main_f_13abaa0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
+// sub_13abab0  (orig 0x13abab0, copy2)
+void main_f_13abab0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
+
 // sub_13abb40  (orig 0x13abb40, ret_only)
 void main_f_13abb40() {}
 
@@ -7147,22 +7165,4 @@ uint32_t main_f_1662810() { return 400; }
 
 // sub_1662830  (orig 0x1662830, mov_ret)
 uint32_t main_f_1662830() { return 0; }
-
-// sub_1662840  (orig 0x1662840, mov_ret)
-uint32_t main_f_1662840() { return 0; }
-
-// sub_1662850  (orig 0x1662850, mov_ret)
-uint32_t main_f_1662850() { return 2; }
-
-// sub_1662860  (orig 0x1662860, mov_ret)
-uint32_t main_f_1662860() { return 10; }
-
-// sub_1662870  (orig 0x1662870, mov_ret)
-uint32_t main_f_1662870() { return 0; }
-
-// sub_1662880  (orig 0x1662880, mov_ret)
-uint32_t main_f_1662880() { return 1; }
-
-// sub_1662890  (orig 0x1662890, mov_ret)
-uint32_t main_f_1662890() { return 0; }
 

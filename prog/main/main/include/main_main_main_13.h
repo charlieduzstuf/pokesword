@@ -1869,6 +1869,7 @@ void sub_f67630();  // 0xf67630
 void sub_f67650();  // 0xf67650
 void sub_f67690();  // 0xf67690
 void sub_f677c0();  // 0xf677c0
+void sub_f677f0();  // 0xf677f0
 void sub_f67830();  // 0xf67830
 void sub_f67840();  // 0xf67840
 void mystery_title_00_lyt();  // 0xf67910
@@ -2303,6 +2304,7 @@ void sub_f80ac0();  // 0xf80ac0
 void mystery_serialcode_00_lyt();  // 0xf80b40
 void sub_f80c50();  // 0xf80c50
 void sub_f80c60();  // 0xf80c60
+void sub_f80cb0();  // 0xf80cb0
 void sub_f80cc0();  // 0xf80cc0
 void sub_f80f20();  // 0xf80f20
 void sub_f81180();  // 0xf81180
@@ -4003,7 +4005,5 @@ void sub_fdc560();  // 0xfdc560
 void AnyoneLeftNotice_2();  // 0xfdca10
 void sub_fdcee0();  // 0xfdcee0
 void sub_fdcfd0();  // 0xfdcfd0
-void sub_fdd2c0();  // 0xfdd2c0
-void sub_fdd2e0();  // 0xfdd2e0
 
 }  // namespace main

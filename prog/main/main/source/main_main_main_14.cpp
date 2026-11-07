@@ -5,6 +5,8 @@
 #include "main_main_main_14.h"
 
 namespace main {
+void sub_fdd2c0() { /* 0xfdd2c0 */ }
+void sub_fdd2e0() { /* 0xfdd2e0 */ }
 void sub_fdd370() { /* 0xfdd370 */ }
 void sub_fdd410() { /* 0xfdd410 */ }
 void sub_fdd4a0() { /* 0xfdd4a0 */ }
@@ -4003,7 +4005,5 @@ void sub_1092290() { /* 0x1092290 */ }
 void sub_1092330() { /* 0x1092330 */ }
 void sub_10923b0() { /* 0x10923b0 */ }
 void sub_1092430() { /* 0x1092430 */ }
-void sub_1092670() { /* 0x1092670 */ }
-void sub_10926e0() { /* 0x10926e0 */ }
 
 }  // namespace main

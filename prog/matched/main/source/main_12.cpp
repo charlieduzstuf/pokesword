@@ -33,6 +33,15 @@ typedef unsigned long uintptr_t;
 struct Q2 { uint64x2_t a, b; };
 
 
+// sub_cf4520  (orig 0xcf4520, ret_only)
+void main_f_cf4520() {}
+
+// RThigh_2  (orig 0xcf4bf0, straight-line)
+void main_f_cf4bf0(void* a0, uint64_t a1) {
+    void* p0 = (void*)(*(uint64_t *)((char*)(a0) + 120));
+    *(uint64_t*)((char*)(p0) + 312) = a1;
+}
+
 // sub_cf4f90  (orig 0xcf4f90, ret_only)
 void main_f_cf4f90() {}
 
@@ -4175,6 +4184,17 @@ uint64_t main_f_f5fbb0(void* a0, uint64_t a1) { return *(uint64_t *)(((char *)a0
 // sub_f64700  (orig 0xf64700, ret_only)
 void main_f_f64700() {}
 
+// sub_f677f0  (orig 0xf677f0, switch)
+extern void callee_e806b0();
+uint32_t main_f_f677f0(uint64_t a0, uint64_t a1, uint64_t a2) {
+    uint32_t si0 = a1; __asm__("" : "+r"(si0));
+    switch (si0) {
+    case 0: case 2: return ((int (*)(uintptr_t, int, int))&callee_e806b0)(a0, 1, 1); break;
+    case 1: case 3: return ((int (*)(uintptr_t, int, int))&callee_e806b0)(a0, 0, 1); break;
+    }
+    return a0;
+}
+
 // sub_f67830  (orig 0xf67830, mov_ret)
 uint32_t main_f_f67830() { return 1; }
 
@@ -7108,13 +7128,4 @@ void main_f_ff41b0() {}
 
 // sub_ff41c0  (orig 0xff41c0, copy2)
 void main_f_ff41c0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_ff41d0  (orig 0xff41d0, copy2)
-void main_f_ff41d0(void* a0, void* a1) { *(uint64_t*)((char*)(a1)) = *(uint64_t*)((char*)(a0)); }
-
-// sub_ff41e0  (orig 0xff41e0, copy2)
-void main_f_ff41e0(void* a0) { (*(uint8_t *)((char *)(*(void **)((char*)(a0))) + 380)) = 0; }
-
-// sub_ff41f0  (orig 0xff41f0, ret_only)
-void main_f_ff41f0() {}
 

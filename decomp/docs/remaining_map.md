@@ -1830,6 +1830,25 @@ Largest tables measured: subsdk1 `sub_d630` 102 cases, `sub_10810` NEARLY
 CLANG may model these as MIN/MAX ranges rather than a full table, worth
 checking before the general emitter).
 
+#### Switch emitter status (measured, committed)
+
+`gen_switch` in tools/auto_match.py is live and registered per-module:
+38,838 total (was 38,831). First measured sweep:
+main 6/7 generated (0xf677c0 declines: `b.hi` distance -- its dispatch group
+covers a two-block default chain), subsdk0 2/2, subsdk1 0/94 + sdk 0/69 all
+declined at the block-content gates. Four measured sub-families reproduce:
+(i) plain `switch ((uint32_t)a1)` with a `"+r"`-pinned index copy (`mov w8,
+w1`, not `and x8, x1, #0xffffffff`); (ii) `unsigned int` returns + `int`
+callee casts spell `mov w0/w1, wzr` where `uint64_t` spells `xzr`
+(subsdk0/0x34b3b0, main/0x8e8060); (iii) per-callee argument-width narrowing
+via explicit cast parameter lists (`int (*)(uintptr_t, int, int)`); (iv)
+out-of-table default drops the in-switch `default:` label and renders as the
+tail. Unmatchable and gated: pure-constant switch (clang folds to `cmp;
+cset`; measured subsdk1/0x1f88d0). Remaining decline bands in subsdk1/main:
+l122/l127/l130 (block content limits: >8 insns, non-mov instructions,
+register copies), l153 (large/dense straight-line blocks) -- next widening
+is one exemplar per label, measured before emit.
+
 ### REA status, for the record
 
 Ghidra headless on the ELF is proven (work/ghidra_proj/ps_main.gpr, and

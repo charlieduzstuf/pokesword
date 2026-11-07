@@ -5,6 +5,8 @@
 #pragma once
 
 namespace main {
+void sub_144c000();  // 0x144c000
+void sub_144c0d0();  // 0x144c0d0
 void sub_144c180();  // 0x144c180
 void sub_144c400();  // 0x144c400
 void sub_144c540();  // 0x144c540
@@ -4003,7 +4005,5 @@ void sub_1575690();  // 0x1575690
 void sub_15756e0();  // 0x15756e0
 void sub_1575730();  // 0x1575730
 void InstanceTable_20();  // 0x1575780
-void sub_1575970();  // 0x1575970
-void InstanceTable_26();  // 0x1576400
 
 }  // namespace main

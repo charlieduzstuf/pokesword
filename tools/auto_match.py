@@ -36,6 +36,7 @@ import collections
 import json
 import os
 import re
+import struct
 import subprocess
 import nocon  # noqa: E402  -- installs the no-console default for every subprocess below
 import sys
@@ -2424,9 +2425,458 @@ def gen_indirect_tailcall(ins, end, ident):
 
 # Shape -> generator. Every shape `shape_of` can return must appear here, or
 # --all-shapes silently skips it.
+_cache = {}
+
+
+def _rodata_span(mod):
+    """(va, bytes) of .rodata for one module, cached."""
+    key = ("_rodata", mod)
+    if key not in _cache:
+        from elftools.elf.elffile import ELFFile
+        p = os.path.join(MH.ROOT, "data", "%s.elf" % mod)
+        with open(p, "rb") as f:
+            s = ELFFile(f).get_section_by_name(".rodata")
+            _cache[key] = (s["sh_addr"], s.data())
+    return _cache[key]
+
+
+def _swdec(pt):
+    if os.environ.get("POKESWORD_SWITCH_TRACE"):
+        frm = sys._getframe(1)
+        print("switch decline: %s [%s]" % (pt, frm.f_locals.get("ident")))
+    return None
+
+
+def sext32(v):
+    return v - (1 << 32) if v & 0x80000000 else v
+
+
+def _rst_reg(t):
+    return (len(t) > 1 and t[0] in "xw" and t[1:].isdigit() and
+            int(t[1:]) < 8)
+
+
+def gen_switch(ins, end, ident, ctx):
+    """A dense switch with one jump table: `ldrsw xT, [x9, x8, lsl #2] ; add ; br`.
+
+    The dispatcher family measured on 2026-11-05 (work/jt_small.py,
+    work/jt_kind.py, work/jt_trivial_survey.py): case blocks emit in
+    table-entry order, merged by identical body, with the bounds-check
+    default sharing the body of whichever table entry it first duplicates.
+    The generator covers the sub-family whose case blocks are each EITHER
+
+      * a direct `b <callee>` tail jump, optionally after constant `mov`s
+        that override untouched argument registers, OR
+      * `ret` with the returned x0 value coming from the pre-dispatch state,
+        possibly after constant `mov`s,
+
+    and whose index expression is one of `sub w8, wS, #LO` (yielding
+    `(uint32_t)aS - LO`), `mov w8, wS` (a bare argument), or `ldr w8, [xS]`
+    (a dereferenced argument, offset 0 only). Also one constant `mov` into
+    w0 before the bounds check -- the hoisted return value of
+    subsdk1/0x1f88d0 -- is carried into a local the case bodies share.
+
+    Nothing else. A block with a load, arithmetic, a call, or a branch into
+    the middle of the body is a different shape and is declined -- the
+    discipline every other generator follows. The C spells one representative
+    case label per body group, so unlabeled in-table entries pass through the
+    bounds-check default exactly as retail does; measured byte-identical by
+    hand on subsdk0/0x34b090 (work/hand/subsdk0/sub_34b090.cpp) with the
+    relocation record confirming all four tail branches.
+
+    Callees render under the `callee_%x` synthetic convention the call path
+    uses (tools/call_register.py): `extern void` and cast to the call's arity,
+    so the branch verifies by relocation symbol regardless of the callee's
+    real return type, and resolution -- or its absence -- matches the 3,881
+    guarded bodies already banked.
+
+    Constant-return case blocks (`mov wD, #imm ; ret`) and tail-call blocks
+    that override an argument register with the constant zero get their own
+    spelling: the function returns `unsigned int` instead of `uint64_t`, the
+    callee casts become `int`, and const blocks are inline `return imm;`.
+    The `uint64_t` return materialises `mov x0, xzr` for zero and the retail
+    bytes are `mov w0, wzr`; the `int` ABI is the one clang keeps a tail
+    call on (proven on subsdk0/0x34b3b0 for the const family,
+    work/hand/subsdk0/sub_34b3b0.cpp, and on main/0x8e8060 for the
+    zero-argument-override family, work/hand/main/sub_8e8060.cpp). This
+    spelling is gated to the MIXED family: with a pre-dispatch hoist, or
+    with no opaque callee block at all, clang folds the whole switch into a
+    compare (`cmp; cset`) instead of emitting the table -- measured on
+    subsdk1/0x1f88d0 with both the rv0-local and the `"+r"`-pin spellings,
+    so those sub-families decline here rather than register a body that
+    cannot verify.
+
+    The third measured sub-family detail is the index copy: when the bounds
+    check compares a bare argument, retail emits `mov w8, w1` as the table
+    index and the plain `switch ((uint32_t)a1)` spelling lowers as
+    `and x8, x1, #0xffffffff` instead. The pin fixes it: `uint32_t si0 =
+    aK; __asm__("" : "+r"(si0));` (same empty-`asm` force the pair-load
+    emitter uses). Out-of-table defaults are NOT given an in-switch
+    `default:` label: retail jumps past the case blocks to the fallback,
+    which is the out-of-switch tail, and clang reproduces exactly that
+    placement when the label is absent.
+    """
+    tbl = ctx.get("rodata")
+    if not tbl:
+        return _swdec("l36")
+    if end < 8:
+        return _swdec("l38")
+    mn = [x.mnemonic for x in ins[:end]]
+    if mn.count("br") != 1 or "bl" in mn or "blr" in mn:
+        return _swdec("l41")
+    bi = mn.index("br")
+    if ins[bi - 2].mnemonic != "ldrsw" or \
+            "lsl #2" not in ins[bi - 2].op_str or \
+            "," not in ins[bi - 2].op_str or \
+            "[" not in ins[bi - 2].op_str:
+        return _swdec("l47")
+    lsw = bi - 2
+    tdst = ins[lsw].op_str.split(",")[0].strip()
+    base = ins[lsw].op_str.split("[")[1].split("]")[0].split(",")[0].strip()
+    if not (ins[lsw + 1].mnemonic == "add" and
+            ins[lsw + 1].op_str.split(",")[0].strip() == tdst and
+            base in ins[lsw + 1].op_str and
+            ins[bi].mnemonic == "br" and
+            ins[bi].op_str.strip() == tdst):
+        return _swdec("l56")
+    tj = None
+    for j in range(lsw - 1, max(-1, lsw - 4), -1):
+        if ins[j].mnemonic == "adrp" and \
+                ins[j].op_str.split(",")[0].strip() == base:
+            tj = j
+            break
+    if tj is None:
+        return _swdec("l64")
+    tblva = int(ins[tj].op_str.split(",")[1].strip().lstrip("#"), 16)
+    for m in range(tj + 1, lsw):
+        p = [t.strip() for t in ins[m].op_str.split(",")]
+        if ins[m].mnemonic == "add" and p[0] == base and p[1] == base and \
+                p[2].startswith("#"):
+            tblva += int(p[2].lstrip("#"), 16)
+    cmp_at = None
+    for d in range(tj - 1, max(-1, tj - 6), -1):
+        p = [t.strip() for t in ins[d].op_str.split(",")]
+        if ins[d].mnemonic == "cmp" and len(p) == 2 and \
+                p[1].startswith("#"):
+            cmp_at = d
+            break
+    if cmp_at is None:
+        return _swdec("l79")
+    cmp_reg = ins[cmp_at].op_str.split(",")[0].strip()
+    if ins[cmp_at + 1].mnemonic != "b.hi":
+        return _swdec("l82")
+    try:
+        dflt_addr = int(ins[cmp_at + 1].op_str.lstrip("#"), 16)
+    except ValueError:
+        return _swdec("l86")
+    n_hi = int(ins[cmp_at].op_str.split(",")[1].strip().lstrip("#"), 16)
+    cnt = n_hi + 1
+    ro_addr, ro = tbl
+    off = tblva - ro_addr
+    if not (0 <= off and off + 4 * cnt <= len(ro)):
+        return _swdec("l92")
+    fn_addr = ins[0].address
+    fn_end = ins[0].address + 4 * end
+    targets = []
+    for n in range(cnt):
+        v = struct.unpack("<I", ro[off + 4 * n:off + 4 * n + 4])[0]
+        t = tblva + sext32(v)
+        if not (fn_addr <= t < fn_end):
+            return _swdec("l100")
+        targets.append(t)
+    groups = []      # [taddr, first case index]
+    first = {}
+    for i, t in enumerate(targets):
+        if t in first:
+            continue
+        first[t] = len(groups)
+        groups.append([t, i])
+    dflt_g = first.get(dflt_addr)
+    if dflt_g is None:
+        groups.append([dflt_addr, None])
+        dflt_g = len(groups) - 1
+    starts = ctx.get("starts") or ()
+    body = ins[:end]
+    blocks = []
+    for taddr, lo in groups:
+        lo_b = (taddr - fn_addr) // 4
+        nxt = sorted(t[0] for t in groups if t[0] > taddr)
+        hi_b = ((nxt[0] - fn_addr) // 4) if nxt else end
+        seg = body[lo_b:hi_b]
+        if len(seg) < 1 or len(seg) > 8:
+            return _swdec("l122")
+        term = seg[-1].mnemonic
+        over = []
+        for y in seg[:-1]:
+            if y.mnemonic not in ("mov", "movz"):
+                return _swdec("l127")
+            o = [t.strip() for t in y.op_str.split(",")]
+            if len(o) != 2 or not _rst_reg(o[0]):
+                return _swdec("l130")
+            if o[1] == "wzr" or o[1] == "xzr":
+                over.append((o[0], 0))
+            elif o[1].startswith("#"):
+                try:
+                    over.append((o[0], int(o[1].lstrip("#"), 16)))
+                except ValueError:
+                    return _swdec("l137")
+            else:
+                return _swdec("l139")     # a register copy inside a block: unmeasured
+        if term == "b":
+            try:
+                tgt = int(seg[-1].op_str.lstrip("#"), 16)
+            except ValueError:
+                return _swdec("l144")
+            import bisect as _bs
+            i = _bs.bisect_right(starts, tgt) - 1
+            if i < 0 or starts[i] != tgt:
+                return _swdec("l148")
+            blocks.append(("callee_%x" % tgt, over))
+        elif term == "ret":
+            blocks.append((None, over))
+        else:
+            return _swdec("l153")
+    # ---- how many arguments does the body actually forward? ----
+    # The index producer only gives the number the comparison needs; the
+    # case blocks may pass MORE argument registers to their callees (the
+    # `mov w1, #1 ; mov w2, #1 ; b <callee>` family in main/0x8e8060), and
+    # the same tail_arity convention applies: one past the highest arg
+    # register the body mentions. Scratch x8/x9 and the offsets are not
+    # argument registers, and the regex is anchored on the whole signed
+    # register token.
+    hi_arg = 0
+    for y in ins[:end]:
+        for mm in re.finditer(r"\b[wx]([0-9]|1[0-7])\b", y.op_str):
+            n = int(mm.group(1))
+            if n <= 7 and n + 1 > hi_arg:
+                hi_arg = n + 1
+    # ---- index expression and argument count ----
+    idx_dst = tdst
+    local_arg = None
+    cmp_reg_k = int(cmp_reg[1:]) if _rst_reg(cmp_reg) else None
+    producer = None
+    for d in range(cmp_at - 1, -1, -1):
+        p = [t.strip() for t in ins[d].op_str.split(",")]
+        if p and p[0] == cmp_reg and ins[d].mnemonic in ("sub", "mov", "ldr"):
+            producer = (d, ins[d], p)
+            break
+    expr = None
+    if producer is None:
+        # the bounds register still holds an argument; the index copy
+        # `mov w8, w1` must sit between the cmp and the ldrsw.
+        copy = None
+        for d in range(cmp_at + 1, lsw):
+            y = ins[d]
+            p = [t.strip() for t in y.op_str.split(",")]
+            # capstone prints the copy as `mov w8, w0` while the ldrsw
+            # destination is `x8` -- the same physical register, different
+            # width spelling. subsdk1/0x3b630 and main/0x8e8060 were all
+            # declined on this before the alias was added.
+            if y.mnemonic == "mov" and len(p) == 2 and \
+                    p[0] in (idx_dst, "w" + idx_dst[1:]) and \
+                    p[1] == cmp_reg:
+                copy = d
+                break
+        if copy is None or cmp_reg_k is None:
+            return _swdec("l176")
+        # The table address computation materialises the bounds register as
+        # its own copy: retail emits `mov w8, w1` (a W-register copy), and
+        # the plain `switch ((uint32_t)a1)` spelling lowers as
+        # `and x8, x1, #0xffffffff` instead (measured on main/0x8e8060 --
+        # work/hand/main/sub_8e8060.cpp). Pinning the 32-bit local into a
+        # W register with the same empty-`asm` trick tools/pair_load.md uses
+        # reproduces the copy; the switch then reads the local.
+        idx_local = "si0"
+        expr = idx_local
+        argc = cmp_reg_k + 1
+        local_arg = cmp_reg_k
+    else:
+        j, y, p = producer
+        if y.mnemonic == "sub" and len(p) == 3 and _rst_reg(p[1]) and \
+                p[2].startswith("#"):
+            try:
+                lo = int(p[2].lstrip("#"), 16)
+            except ValueError:
+                return _swdec("l186")
+            argc = int(p[1][1:]) + 1
+            expr = "(uint32_t)a%d - %d" % (int(p[1][1:]), lo)
+        elif y.mnemonic == "ldr":
+            ot = y.op_str.split(",", 1)[1].strip() if "," in y.op_str else ""
+            mo = re.match(r"\[x(\d+)\]$", ot)
+            if mo is None:
+                return _swdec("l193")
+            k = int(mo.group(1))
+            if k >= 8:
+                return _swdec("l196")
+            argc = k + 1
+            expr = "*(uint32_t *)a%d" % k
+        elif y.mnemonic == "mov" and len(p) == 2 and _rst_reg(p[1]):
+            argc = int(p[1][1:]) + 1
+            expr = "(uint32_t)a%d" % int(p[1][1:])
+        else:
+            return _swdec("l203")
+    argc = max(argc, hi_arg)
+    # pre-dispatch movs: at most ONE constant into w0 (the hoisted return
+    # value). Everything else before the bounds check is unmeasured area.
+    hoists = []
+    for d in range(0, cmp_at):
+        y = ins[d]
+        if producer is not None and d == producer[0]:
+            continue           # the producer itself (sub/mov/ldr of the idx)
+        if y.mnemonic not in ("mov", "movz"):
+            return _swdec("l210")
+        p = [t.strip() for t in y.op_str.split(",")]
+        if not p or p[0] == idx_dst or \
+                (producer is not None and d == producer[0]):
+            continue
+        if _rst_reg(p[0]) and len(p) == 2 and p[1].startswith("#"):
+            if int(p[0][1:]) == 0:
+                try:
+                    hoists.append(int(p[1].lstrip("#"), 16))
+                except ValueError:
+                    return _swdec("l220")
+            else:
+                return _swdec("l222")
+        else:
+            return _swdec("l224")
+    if len(hoists) > 1:
+        return _swdec("l226")
+    # ---- constant-return case blocks ----
+    # `mov wD, #imm ; ret` inside a case block is a constant return. It
+    # needs the `unsigned int` / `int`-cast spelling (see the docstring) and
+    # that spelling provably collapses whenever a hoist exists or there is
+    # no opaque callee block anywhere in the body (subsdk1/0x1f88d0), so
+    # both get declined rather than emitted.
+    const_ret = {}
+    for gi, (callee, over) in enumerate(blocks):
+        if callee or len(over) != 1:
+            continue
+        dd, vv = over[0]
+        if dd == "w0" and -0x8000 <= vv <= 0xffff:
+            const_ret[gi] = vv
+    # The same 32-bit ABI is also needed by the tail-call case blocks: a
+    # zero-valued argument override compiles to `mov x1, xzr` on a
+    # `uint64_t` param while retail wrote `mov w1, wzr` (measured on
+    # main/0x8e8060 after the idx pin -- every upstream fix already in).
+    zero_over = any(b[0] and any(v == 0 for _, v in b[1]) for b in blocks)
+    int_spell = bool(const_ret) or zero_over
+    # ---- per-callee argument widths ----
+    # A `w`-register override narrows the matching cast parameter to int:
+    # the retail block writes `mov w1, wzr` and only an int slot reproduces
+    # that on a uintptr-typed parameter pool (measured with the pipeline
+    # context on main/0x8e8060, work/hand/main/sub_8e8060_mh.cpp || the
+    # batch compile). Pass-through slots and x-overrides stay uintptr_t.
+    widths = {}
+    for callee, over in blocks:
+        if not callee:
+            continue
+        for dd, _v in over:
+            if not _rst_reg(dd):
+                return _swdec("l284")
+            if dd[0] == "x":
+                # mov xN, #imm as a call argument -- unaudited spell
+                return _swdec("l290")
+            k = int(dd[1:])
+            if widths.setdefault(callee, {}).setdefault(k, "int") \
+                    == "uintptr_t":
+                return _swdec("l292")   # same slot narrowed two ways
+    if const_ret and (hoists or not any(b[0] for b in blocks)):
+        # measured: clang folds the switch to `cmp; cset` -- subsdk1/0x1f88d0
+        return _swdec("l270")
+    if const_ret and any(over and over[0][0] == "x0"
+                         for c, over in blocks if not c):
+        # `mov x0, xzr` writes 64 zero bits; the measured family writes w0
+        # (32) only -- subsdk0/0x34b3b0 -- so an x0 keep is unaudited
+        return _swdec("l274")
+    # ---- assemble ----
+    callees = sorted({b[0] for b in blocks if b[0]})
+    out = []
+    for c in callees:
+        out.append("extern void %s();" % c)
+    sig = "m" * argc
+    out.append("%s %s(%s) {" % (
+        U[4] if int_spell else "uint64_t",
+        ident, ", ".join("uint64_t a%d" % k for k in range(argc))))
+    if hoists:
+        out.append("    uint32_t rv0 = %d;" % hoists[0])
+    if local_arg is not None:
+        out.append("    uint32_t si0 = a%d; __asm__(\"\" : \"+r\"(si0));" % local_arg)
+    out.append("    switch (%s) {" % expr)
+    labels_of = {}
+    for i, t in enumerate(targets):
+        labels_of.setdefault(t, []).append(i)
+    for gi, (taddr, lo) in enumerate(groups):
+        if dflt_g == gi and lo is None:
+            # default was not inside the table: in retail the bounds check
+            # jumps to the block PAST the case blocks, and clang places the
+            # out-of-switch fallback there too once no `default:` label
+            # exists (measured on main/0x8e8060 -- the in-switch-default
+            # spelling put the block two instructions earlier).
+            continue
+        callee, over = blocks[gi]
+        labels = labels_of.get(taddr, [])
+        lab = "".join("case %d: " % i for i in labels)
+        if dflt_g == gi:
+            lab += "default: "
+        if callee:
+            w = widths.get(callee, {})
+            args = ", ".join(_arg_expr(over, k) for k in range(argc))
+            stmt = "return ((%s (*)(%s))&%s)(%s); break;" % (
+                "int" if int_spell else "uint64_t",
+                ", ".join("int" if w.get(k) else "uintptr_t"
+                          for k in range(argc)),
+                callee, args)
+        elif gi in const_ret:
+            # subsdk0/0x34b3b0: `return 0;` on an unsigned int emits
+            # `mov w0, wzr` -- the uint64_t spelling emits `mov x0, xzr`
+            stmt = "return %d;" % const_ret[gi]
+        elif over:
+            dd = over[-1][0]
+            if not (hoists and dd in ("x0", "w0")):
+                return _swdec("l255")
+            stmt = "rv0 = %d; break;" % over[-1][1]
+        else:
+            stmt = "break;"
+        out.append("    %s%s" % (lab, stmt))
+    out.append("    }")
+    if groups[dflt_g][1] is None:
+        # default was not inside the table: its body is the whole
+        # out-of-switch tail; a tail-call default ends the function there.
+        if dflt_g in const_ret:
+            return _swdec("l280")   # default placement unaudited
+        callee, over = blocks[dflt_g]
+        if callee:
+            wd = widths.get(callee, {})
+            args = ", ".join(_arg_expr(over, k) for k in range(argc))
+            out.append("    return ((%s (*)(%s))&%s)(%s);" % (
+                "int" if int_spell else "uint64_t",
+                ", ".join("int" if wd.get(k) else "uintptr_t"
+                          for k in range(argc)),
+                callee, args))
+            out.append("}")
+            return "".join(s + "\n" for s in out), sig
+        out.append("    return a0;")
+    elif hoists:
+        out.append("    return rv0;")
+    else:
+        out.append("    return a0;")
+    out.append("}")
+    return "".join(s + "\n" for s in out), sig
+
+
+def _arg_expr(over, k):
+    for dd, vv in over:
+        if dd in ("x%d" % k, "w%d" % k):
+            return "%d" % vv
+    return "a%d" % k
+
+
+_sha = struct  # alias for clarity in gen_switch
+
 SHAPE_GENERATORS = dict(GENERATORS)
 SHAPE_GENERATORS["straight"] = gen_straight
 SHAPE_GENERATORS["guarded"] = gen_guarded
+SHAPE_GENERATORS["switch"] = gen_switch
 SHAPE_GENERATORS["diamond"] = gen_diamond
 SHAPE_GENERATORS["tailcall"] = gen_tailcall
 SHAPE_GENERATORS["indirect-tailcall"] = gen_indirect_tailcall
@@ -2901,6 +3351,21 @@ def shape_of(ins, end):
     if n == 3 and mn[0] == "add" and mn[1] in LOADS and mn[2] == "ret":
         return "indexed-getter"
 
+    # A dense jump-table dispatcher: `... ; ldrsw xT, [x9, x8, lsl #2] ; add xT, xT, x9 ; br xT`
+    # preceded by `adrp x9, <page> ; [add x9, x9, #off]` and guarded by
+    # `cmp wI, #N ; b.hi <default>`. The strict skeleton here is what
+    # gen_switch re-validates in full; a body matching the skeleton but not
+    # the generator's rules declines there with a return value of None.
+    if n >= 8 and mn.count("br") == 1 and "b.hi" in mn and \
+            "bl" not in mn and "blr" not in mn:
+        bi = mn.index("br")
+        if bi >= 6 and mn[bi - 2] == "ldrsw" and \
+                "lsl #2" in ins[bi - 2].op_str and \
+                mn[bi - 1] == "add":
+            tdst = ins[bi - 2].op_str.split(",")[0].strip()
+            if ins[bi - 1].op_str.split(",")[0].strip() == tdst:
+                return "switch"
+
     # A tail call through a POINTER: a single `br` as the last real instruction,
     # no direct `b`, no call, no conditional branch. 1,909 bodies by
     # work/tail_forward.py, of which 1,762 forward their arguments and are live.
@@ -3155,7 +3620,10 @@ def collect(module, shapes, limit):
         ident = "f_%x" % addr
         gen = SHAPE_GENERATORS.get(sh)
         ctx = {}
-        if sh == "tailcall":
+        if sh == "switch":
+            ctx = {"rodata": _rodata_span(module), "starts": starts}
+            made = gen(ins, end, ident, ctx)
+        elif sh == "tailcall":
             tgt = branch_target(ins)
             idx = bisect.bisect_right(starts, tgt) - 1 if tgt is not None else -1
             if idx < 0 or starts[idx] != tgt:
@@ -3335,6 +3803,34 @@ def verify(cands, batch, module):
                               if want else [])
                     v, why = MH.compare(orig, end, mine,
                                         orig_branches=orig_t,
+                                        mine_branches=mine_t)
+                elif c["shape"] == "switch":
+                    # Strict for the whole family, not just the terminator:
+                    # every direct `b` in the retail body is checked against
+                    # the relocation our C produced at the same spot. The
+                    # calvees are `callee_%x` synthetics named FOR the retail
+                    # branch address (tools/call_register.py's convention), so
+                    # a branch to a different address names a different
+                    # symbol and the compare fails -- exactly what the
+                    # tailcall path's strictness buys.
+                    orig_t = []
+                    for ix in orig[:end]:
+                        if ix.mnemonic == "b":
+                            try:
+                                tgt = int(ix.op_str.lstrip("#"), 16)
+                            except ValueError:
+                                orig_t = None
+                                break
+                            orig_t.append(MH.mangle("callee_%x" % tgt, "v"))
+                    mine_t = []
+                    if orig_t is not None:
+                        for ix in mine:
+                            if ix.mnemonic != "b":
+                                continue
+                            mine_t.append(relocs.get(mangled, {}).get(
+                                ix.address - c["addr"]))
+                    v, why = MH.compare(orig, end, mine,
+                                        orig_branches=orig_t or [],
                                         mine_branches=mine_t)
                 else:
                     v, why = MH.compare(orig, end, mine)
